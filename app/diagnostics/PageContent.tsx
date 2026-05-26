@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { m, AnimatePresence } from "framer-motion";
+import diagnosticsHeroImg from "@assets/AdobeStock_1528715526_1764597178109.png";
 import {
   ArrowRight,
   ChevronRight,
@@ -26,6 +28,17 @@ import GrowthSimulator from "@/components/GrowthSimulator";
 import CortexContainer from "@/components/Cortex/CortexContainer";
 import RouteSchema from "@/components/RouteSchema";
 import { NAP } from "@/lib/seo/nap";
+
+const diagnosticsImageObjectSchema = {
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  url: "https://oarcdigital.com/assets/diagnostics-hub-hero.png",
+  name: "OARC Digital Business Diagnostics Hub — Free tools for Malta SMEs",
+  description:
+    "Enterprise-grade business diagnostic tools available free to Malta SMEs — Revenue Leak Scanner, Growth Simulator, AI Workforce Designer, and Business Intelligence Scanner",
+  width: 1200,
+  height: 800,
+};
 
 type ToolId = "industry-scan" | "growth-simulator" | "workforce-designer" | "intelligence-scan";
 
@@ -191,6 +204,10 @@ export default function PageContent() {
         areaServed="Malta"
         faqs={FAQS}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(diagnosticsImageObjectSchema) }}
+      />
 
       <div className="min-h-screen bg-[#0a0a0c] relative">
         <div className="fixed inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
@@ -228,6 +245,18 @@ export default function PageContent() {
               your inbox the moment you ask for it.
             </p>
           </m.section>
+
+          {/* HERO IMAGE */}
+          <div className="max-w-4xl mx-auto mb-12 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            <Image
+              src={diagnosticsHeroImg}
+              alt="Enterprise business diagnostics dashboard — OARC Digital free diagnostic tools for Malta SMEs including Revenue Leak Scanner, Growth Simulator, and AI Workforce Designer | OARC Digital"
+              width={1200}
+              height={800}
+              className="w-full h-auto object-cover"
+              priority
+            />
+          </div>
 
           {/* TOOL CARDS */}
           <section className="max-w-6xl mx-auto mb-12" data-testid="section-tool-cards">
