@@ -8,6 +8,7 @@ import { getAllCategories } from '@/config/servicesConfig';
 import Layout from '@/components/layout/Layout';
 import { supportingPagesSEO } from '@/data/seoMetadata';
 import { buildServicesShellGraph } from '@/lib/schema/shellSchemas';
+import RelatedServices from '@/components/RelatedServices';
 const heroImg = "/attached_assets/global-influencer-marketing-agency-socially-powerful_1763048685978.jpg";
 const creativeImg = "/attached_assets/837b9d2d4233bb346c214826035215a37160c085-3840x1432_1763049729526.avif";
 const automationImg = "/attached_assets/pexels-mikael-blomkvist-6476783_(1)_1765732245944.jpg";
@@ -500,6 +501,8 @@ export default function PageContent() {
       </section>
 
       </div>
+
+      <RelatedServices slug="/services" />
     </Layout>
   );
 }

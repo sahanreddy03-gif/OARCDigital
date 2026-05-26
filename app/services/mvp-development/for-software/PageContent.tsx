@@ -21,6 +21,7 @@ import {
   SiAmazon, SiDocker, SiKubernetes, SiRedis,
   SiMongodb, SiGraphql, SiTailwindcss, SiNextdotjs
 } from 'react-icons/si';
+import RelatedServices from '@/components/RelatedServices';
 
 const mvpMobileScreens = "/attached_assets/generated_images/mvp_mobile_app_prototype_screens.png";
 const mvpDashboard = "/attached_assets/generated_images/saas_mvp_dashboard_interface.png";
@@ -987,6 +988,8 @@ export default function MVPSoftwareDevelopment() {
           </Link>
         </div>
       </section>
+
+      <RelatedServices slug="/services/mvp-development/for-software" />
     </Layout>
   );
 }
