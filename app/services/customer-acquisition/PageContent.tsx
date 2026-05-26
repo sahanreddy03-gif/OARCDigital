@@ -401,6 +401,65 @@ export default function CustomerAcquisition() {
         </div>
       </section>
 
+      {/* HOW CUSTOMER ACQUISITION FAILS */}
+      <section className="py-20 px-4 bg-[#f5f0e6]">
+        <div className="max-w-5xl mx-auto">
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <div className="text-sm uppercase tracking-wider text-orange-500 mb-3">The most common mistakes</div>
+              <h2 className="text-4xl md:text-5xl font-bold text-[#1a2e29] mb-4">
+                Why customer acquisition programmes fail
+              </h2>
+              <p className="text-lg text-[#1a2e29]/60 max-w-2xl mx-auto">
+                Most Malta SMEs we audit are spending money on the right channels — but making one of these five structural errors that make their CPA unknowable and their channel decisions guesswork.
+              </p>
+            </div>
+          </ScrollReveal>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                num: "01",
+                title: "Broken attribution",
+                desc: "Platform-reported conversions double-count because each channel claims the last click. Without server-side conversion APIs and a first-party data layer, you cannot know which channel drove a customer.",
+              },
+              {
+                num: "02",
+                title: "Optimising for MQLs, not CPA",
+                desc: "Marketing teams report MQL counts; finance teams report revenue. When the KPI chain is broken — when MQLs do not map reliably to revenue — budget allocation is based on fiction.",
+              },
+              {
+                num: "03",
+                title: "Channel-first, not audience-first",
+                desc: "Choosing Meta because it is familiar, or Google because a competitor runs it, produces mediocre results. Channel decisions should come from your ICP and attribution data, not from agency bias.",
+              },
+              {
+                num: "04",
+                title: "No creative testing discipline",
+                desc: "Running the same ad creative for three months, hoping it still works. Successful customer acquisition requires systematic creative refresh — new variants weekly, underperformers paused within seven days.",
+              },
+              {
+                num: "05",
+                title: "Scaling before proving profitability",
+                desc: "Doubling ad spend on a campaign that has not proven contribution-margin-positive in a small test is a reliable way to lose money faster. Prove CPA at €2k/month before scaling to €20k.",
+              },
+              {
+                num: "06",
+                title: "Ignoring post-acquisition economics",
+                desc: "Optimising CPA without modelling LTV leads to acquiring customers who churn. The right acquisition target is not the lowest CPA — it is the lowest CPA for a cohort with acceptable 12-month LTV.",
+              },
+            ].map((item, i) => (
+              <ScrollReveal key={i} delay={i * 0.05}>
+                <div className="p-6 bg-white rounded-xl border border-[#1a2e29]/10 h-full" data-testid={`failure-mode-${i}`}>
+                  <div className="text-2xl font-bold text-orange-500/30 mb-3">{item.num}</div>
+                  <h3 className="text-base font-bold text-[#1a2e29] mb-2">{item.title}</h3>
+                  <p className="text-sm text-[#1a2e29]/60 leading-relaxed">{item.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* MALTA CONTEXT */}
       <MaltaContextBlock slug="customer-acquisition" />
 
@@ -419,8 +478,11 @@ export default function CustomerAcquisition() {
             Start with the audit.{" "}
             <span className="text-[#23AACA] italic">Know your CPA in two weeks.</span>
           </h2>
-          <p className="text-lg text-[#1a2e29]/60 mb-8">
-            The Acquisition Audit maps every channel, every tracker, and every funnel step — and delivers a 90-day roadmap. No commitment required beyond the audit itself.
+          <p className="text-lg text-[#1a2e29]/60 mb-6">
+            The Acquisition Audit maps every channel, every tracker, and every funnel step — and delivers a 90-day roadmap with clear priorities and spend recommendations. No commitment required beyond the audit itself.
+          </p>
+          <p className="text-base text-[#1a2e29]/50 mb-8 max-w-xl mx-auto">
+            Used by Malta-based SaaS companies, professional services firms, and DTC brands to understand where their acquisition money is actually going before scaling spend.
           </p>
           <Link href="/contact">
             <Button size="lg" className="bg-[#1a2e29] text-white hover:bg-[#1a2e29]/90 font-bold text-lg px-10" data-testid="button-final-cta">
@@ -435,3 +497,5 @@ export default function CustomerAcquisition() {
     </Layout>
   );
 }
+
+export { customerAcquisitionFAQs };
