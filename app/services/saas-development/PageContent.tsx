@@ -354,6 +354,161 @@ export default function SaasDevelopmentContent() {
             </Link>
           </section>
 
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Choosing Between Next.js, Remix, and a Custom Node API for Your SaaS Back End</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              Most Malta SaaS briefs we receive describe the front end requirement precisely (a dashboard, a form-heavy workflow, a data table) and leave the back-end architecture open. The choice between Next.js API routes, a Remix full-stack application, and a standalone Node.js API behind a React front end is not arbitrary — each has a different performance profile, deployment model, and operational complexity, and the wrong choice for the product type creates friction that compounds over the product&apos;s life.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              We use Next.js with App Router for SaaS products where the front end and the API are tightly coupled and the team is one to three people who cannot afford to maintain two separate deployments. Next.js Server Actions handle the form mutations; Next.js API routes handle the webhook endpoints from Stripe and other integrations; the front end is server-rendered for public pages (SEO, landing, pricing) and client-rendered for the authenticated dashboard. This is the default and works for the majority of Malta SaaS products in the MVP phase. Remix earns its place for products with complex multi-step forms, optimistic UI with nested mutation states, and real-time collaboration requirements — the loader and action model is a better fit for those workloads than Next.js&apos;s page-level data model.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              A standalone Express or Fastify API is the right choice when the API needs to serve multiple clients (a web app, a mobile app, and a third-party integration layer) on independent release cycles, or when the product is a platform whose API is itself the product (other developers will call it directly, not through a front end we control). In this architecture the back end is deployed separately, versioned independently, and documented with OpenAPI. The front end is a separate Vite or Next.js application that talks to the API over HTTPS. The operational complexity is higher — two deployments, two CI pipelines, a shared type layer — but the long-term flexibility justifies it for platform products. We document the rationale for the chosen architecture in the ADR (Architecture Decision Record) on day one so future engineers understand why the structure is what it is.
+            </p>
+          </section>
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Key Technical Decisions Made at Architecture Phase</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              The week-zero architecture session for every OARC SaaS engagement produces three decisions that are difficult or costly to reverse later: the auth provider, the database host, and the primary billing integration. We make these decisions explicitly and document the rationale so the team is not relitigating them when a new engineer joins in month four.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              Auth provider (Clerk, Auth.js, or Supabase Auth) is chosen based on whether the product needs social login only, SSO for enterprise customers, or organisation-level multi-user access with role-based permissions from day one. Clerk is the default for new Malta SaaS products that anticipate enterprise buyers because SSO (SAML, OIDC) is a two-click configuration change rather than a sprint. Database host (Neon or Supabase) is chosen based on whether the product needs Postgres extensions beyond pgvector — Supabase has broader extension support and includes a built-in Storage layer for file uploads; Neon has better branching support for CI and a simpler pricing model for unpredictable serverless traffic. Billing integration (Stripe Billing or LemonSqueezy) is chosen based on whether the product needs complex metered billing and usage-based pricing (Stripe), or a simple per-seat or per-product model where LemonSqueezy&apos;s merchant-of-record structure removes the Malta VAT registration requirement for cross-border digital sales.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              None of these decisions are permanent — Postgres is Postgres regardless of host, Stripe and LemonSqueezy both emit webhooks, and Clerk and Auth.js both produce JWT sessions. But switching any of them mid-product has a real cost in engineering time and user migration risk. The architecture session is where we pressure-test the assumptions behind the initial preference, document the switching cost of each option, and make the decision with enough information to stand behind it for the first three years of the product&apos;s life.
+            </p>
+          </section>
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Observability: How You Know the Product Is Working</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              A SaaS product without structured logging, error tracking, and uptime monitoring is a product whose failures are invisible until a customer reports them. We wire three observability layers in every build: Sentry for exception tracking with source-map upload so stack traces resolve to readable code rather than minified bundles; a structured logging pipeline (Axiom or Datadog) where every background job, every Stripe webhook, every critical mutation writes a JSON log entry with the user ID, tenant ID, and operation duration; and an uptime monitor (Better Uptime or Checkly) that probes the API health endpoint and the Stripe webhook endpoint every minute from two EU regions.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              The first month of a new SaaS product&apos;s life is the highest-noise period for the observability stack: users do unexpected things, edge cases from the seed data do not match real data, and the error rate is elevated relative to what it will be at month six. We configure alert thresholds to avoid alert fatigue — a 10% error rate in the first two weeks is worth investigating but not paging at 2am, whereas a 10% error rate in month four is a P1 incident. Thresholds are documented in the runbook and revisited at the 90-day mark when the product&apos;s normal error baseline is established.
+            </p>
+          </section>
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">The Technical Readiness Checklist Before Raising a Seed Round</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              Malta-origin SaaS founders raising pre-seed or seed capital from EU or UK institutional investors increasingly face a technical due-diligence step before term sheet. The checklist is not publicly standardised, but the questions are consistent across investors: Is the codebase in version control under the company&apos;s ownership? Are credentials and secrets managed securely and not committed to the repository? Is the infrastructure reproducible from code rather than manually configured? Are the core business metrics (MRR, activation, churn) measurable from the product data rather than estimated? Is the Stripe account owned by the company rather than a contractor?
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              Every OARC SaaS build exits with yes answers to all of those questions by construction. The GitHub repository is under the company&apos;s organisation. Secrets are managed in Vercel environment variables or AWS Secrets Manager, never in .env files committed to the repository. Infrastructure is defined as code (Terraform for AWS resources, Vercel project config as code). The metrics dashboard is built into the product. Stripe is registered to the company email. A Malta startup that raised without these in place and needs to retrofit them before a Series A is a separate engagement we handle — and it is more expensive than having built them correctly the first time.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              Beyond the binary questions, technical due diligence increasingly reviews the security posture: OWASP Top 10 coverage, dependency audit results, penetration test history, and the incident response process. We recommend that every OARC-built SaaS undergoes a third-party penetration test before raising a Series A, and we provide the engineering support to remediate any findings before the investor review. The typical remediation timeline for a clean MVP build is two to four weeks from test completion to all critical and high findings resolved — short enough to not block a fundraise timeline if the test is scheduled early.
+            </p>
+          </section>
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">What Month Seven Looks Like: Post-Build Velocity</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              The six-week build delivers a product with one paying customer and a working revenue loop. Month seven and beyond are where the product compounds — or does not. The key variable is whether the engineering retainer is keeping pace with what the product data is revealing about what to build next, or whether every sprint is dominated by scaling problems that should have been designed out in the original build.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              In an OARC SaaS engagement at month seven, the founder is typically running sales calls and looking at the MRR dashboard while the retainer engineering team ships one feature per fortnight based on activation data. The admin console is being used to debug edge cases in customer onboarding. The PMF survey score has been above 40% for two consecutive months. The first enterprise prospect is asking for an SSO integration, which is a two-hour configuration change because Clerk&apos;s SSO support was wired in at build time. The billing configuration for an annual plan is being discussed — and it is a five-minute change to the pricing config file, not a sprint.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              The features that absorb the most retainer budget at month seven in healthy products are: the second major workflow (the one the first customers asked for in their first support ticket), the first integration with an external tool the customer already uses (CRM, Slack, email), and the admin tooling to handle the customer-support volume that comes with real paying users. These are features that could not have been designed correctly at week zero because they require real usage data to scope correctly. The build gives you the platform; the retainer is where the product learns what it actually is.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              When the retainer is working well, the founder stops thinking about engineering as a cost centre and starts thinking about it as a growth driver. When it is not working well — usually because the retainer is being used to fix build-time mistakes rather than ship new capability — we say so and stop the engagement rather than continuing to invoice for remediation. The retainer renews month to month and has to keep proving its worth every 30 days. That is not a marketing line; it is the clause that keeps us honest.
+            </p>
+          </section>
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Infrastructure Decisions for Malta-Regulated SaaS (iGaming, Fintech, MFSA)</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              Malta&apos;s iGaming and financial-services regulatory framework creates specific engineering requirements that a generalist SaaS team will miss. We have shipped SaaS products under MGA iGaming licence conditions, under MFSA Electronic Money Institution supervision, and under the VFA framework for crypto-asset service providers. The infrastructure decisions that differ from a standard SaaS build are narrow but non-negotiable.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              <strong className="text-foreground">Data residency:</strong> EU-region hosting is required by every Malta licence condition we have reviewed. The production database, the backup store, and the queue broker must all reside in an EU region. We provision on AWS eu-central-1 or eu-west-1 by default and document the residency configuration in the GDPR Article 30 record so it is available for regulatory review. Any third-party SaaS integrated into the product (analytics, error tracking, email) must also have an EU data-processing agreement in place before the product goes live.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              <strong className="text-foreground">Audit trail and immutable logs:</strong> MGA and MFSA licence conditions typically require an immutable audit trail for financial events, player actions, or regulated decisions (AML alerts, KYC status changes). We implement this as an append-only event table with database-level constraints preventing updates or deletes, backed by a separate off-site log archive written at the time of each event. The archive is versioned and tamper-evidenced using SHA-256 hashes chained per batch.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              <strong className="text-foreground">Responsible gambling and AML controls:</strong> Malta Gaming Authority licence holders are required to enforce responsible-gambling limits — deposit limits, loss limits, session time limits, self-exclusion — at the application layer. We implement these as database-enforced constraints (not just front-end validation) so a future code change or a race condition cannot produce a bet or deposit that exceeds a player&apos;s stated limit. AML transaction-monitoring rules are implemented as database triggers or application-level event handlers that flag suspicious patterns into a compliance-review queue the licence holder is required to operate.
+            </p>
+          </section>
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">AI Features in a SaaS MVP — What to Build and What to Skip</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              Every SaaS brief we receive in 2026 includes at least one request for an AI feature. The question is not whether to include AI — it is which AI feature earns its place in a six-week MVP budget and which should be deferred to month four when you have enough user behaviour data to know what problem you are actually solving.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              Features we build in MVP scope without hesitation: structured text generation where the output is bounded and verifiable (draft templates, summarisation, classification), semantic search over the user&apos;s own documents using pgvector on Postgres with an embedding model, and a simple LLM call that transforms user input into a specific output format where the failure mode is obvious (wrong answer rather than catastrophic system behaviour). These features have clear success metrics, fit inside a predictable token budget, and do not require a bespoke model.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              Features we defer to a later sprint: autonomous AI agents that take multi-step actions on behalf of the user, fine-tuned models on proprietary data, real-time voice, and any feature where the failure mode is a user action in the physical world (booking a meeting, sending an email, executing a payment) without a human review step. Not because these features are unimportant — because they require the product to have enough real usage data to define the guardrails correctly, and because the engineering cost in a six-week timeline displaces the revenue-critical features that make the business viable.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              The technical scaffolding for AI features — an OpenAI or Anthropic client abstraction layer, a prompt template registry, a usage-metering table, a model-response cache, and a feedback-collection schema — is included in every OARC SaaS build regardless of whether an AI feature ships in v1. Adding the first AI feature in week eight rather than week four costs the same engineering time; adding it without the scaffolding costs three times as much because the scaffolding has to be retrofitted under a live product.
+            </p>
+          </section>
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Building SaaS From Malta in 2026</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              Malta is a genuinely useful jurisdiction for a SaaS startup. EU domicile means GDPR compliance is straightforward, the banking infrastructure (BOV, HSBC Malta, Revolut Business) handles multi-currency from day one, the MGA and MFSA frameworks give regulated verticals (iGaming, fintech, crypto-assets) a navigable path to licence, and the English common-law heritage of Maltese contract law reduces friction with international enterprise customers who want a DPA they can read without a lawyer. The island&apos;s size is often misread as a disadvantage — in practice, a Malta SaaS team reaches the right government contact, the right investor, and the right enterprise pilot customer faster than a team in a capital city where those relationships require years of networking.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              The challenge is that the Malta talent pool for senior SaaS engineers is thin. The founders we work with typically have a strong product instinct and domain expertise but no existing engineering team, or they have a small team of generalists who have never shipped a multi-tenant billing layer before. That is the exact gap OARC fills — a Malta-based SaaS engineering team with a specific track record in the infrastructure decisions that matter: tenant isolation, Stripe Billing, activation instrumentation, and the founder-enablement handover that lets a non-technical co-founder run the business after the build.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              We have shipped SaaS MVPs for Malta-origin founders across iGaming compliance tools, hospitality booking management, legal document automation, maritime logistics coordination, and B2B procurement workflows. The industry varies; the engineering pattern is mostly the same. The most common mistake we see is a founder hiring a generalist agency that builds a functional v1 without multi-tenancy, billing, or instrumentation — and discovering the cost of retrofitting all three when the product has fifty paying customers and no time to stop shipping.
+            </p>
+          </section>
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">How the Billing Handover Works for Non-Technical Founders</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              Most non-technical founders we work with have a specific anxiety about Stripe: that it is a black box they cannot understand, that a misconfiguration will charge customers incorrectly, and that they will need to call us for every pricing change. We engineer against all three fears deliberately.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              After every OARC SaaS build, the founder receives a Stripe dashboard tour covering five screens: the Products view (where to add a new plan or change a price), the Subscriptions view (where to see every paying customer and their billing status), the Revenue Recognition view (where MRR comes from), the Disputes view (where to respond to chargebacks), and the Developer Webhooks view (how to confirm that events are flowing to the application correctly). The tour is recorded as a Loom and stored in the project drive. A new team member who has never seen Stripe before can run the billing operation at week one.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              Pricing changes — adding a new plan, raising a price, introducing an annual discount — are made through a CMS-driven pricing configuration rather than a code deploy. The pricing page and the Stripe product configuration are both driven from a JSON config file that the founder can edit and deploy via a single GitHub Actions button push. No engineer needed, no deploy queue, no waiting. The first price test typically ships within the first month of launch rather than month six.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              For Malta founders operating under GDPR, every subscription includes a compliant data-processing agreement between the product and Stripe, a data-subject access request endpoint that returns a user&apos;s full billing history in machine-readable form, and a right-to-erasure flow that deletes personal data from the application database while preserving the financial records Stripe is legally required to retain. The compliance architecture is documented in the GDPR register the founder maintains — or that we build from scratch if they do not have one.
+            </p>
+          </section>
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">The SaaS Engagements We Decline</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              We decline a meaningful number of SaaS briefs every quarter and are transparent about why. The most common reasons:
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              <strong className="text-foreground">No demand signal.</strong> A founder with a detailed spec and zero conversations with potential paying customers is not ready to build. We will refer them to our idea-validation-engine first, and if they decline, we decline the build. Spending €30,000 to €60,000 building a product no one has agreed to pay for is the most common SaaS failure mode and the one we are in a position to prevent.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              <strong className="text-foreground">Competitor clones with no differentiated value.</strong> Asking us to build "Notion but better" or "Stripe but for Malta" without a specific, defensible reason a customer would choose it over the incumbent is not a project we take on. We ask the founder to describe the one customer segment the incumbent has specifically failed, and the one workflow that customer would pay €100/month to solve. If there is no honest answer, we stop there.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              <strong className="text-foreground">Founders who want an agency relationship, not an ownership model.</strong> We are not a development agency that takes a brief and delivers a build for a fee. We are a team that becomes a temporary co-engineering partner and then hands over full ownership. If a founder wants a vendor relationship with an SLA, a helpdesk ticket for every request, and ongoing lock-in to us for all future development, we are not the right fit — and we say so up front.
+            </p>
+            <p className="text-foreground leading-relaxed">
+              <strong className="text-foreground">Projects where the regulatory complexity outweighs the MVP scope.</strong> Malta-licensed payment institutions, e-money institutions, and crypto-asset service providers carry a compliance burden — GDPR, AML, PSD2, MiCA — that adds significant engineering time to every user-facing feature. For regulated-vertical SaaS we require a dedicated compliance consultation before scoping the build, and we do not accept fixed-price mandates where the compliance scope is undefined at the time of contract.
+            </p>
+          </section>
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Technical Decisions We Make on Your Behalf — and Why</h2>
+            <p className="text-foreground leading-relaxed mb-4">
+              A non-technical founder should not spend hours choosing between Next.js App Router and Pages Router, or between Auth.js and Clerk, or between BullMQ and AWS SQS. These decisions have right answers given the constraints of a six-week SaaS MVP, and we make them. The rationale is documented in the architecture doc so a future engineer can understand them — but the founder does not need to approve them any more than they approve which framework the login form is built in.
+            </p>
+            <div className="space-y-3">
+              {[
+                { decision: "Next.js App Router on Vercel", reason: "Fastest path from a React component to a production URL, with edge caching for marketing pages and API routes for the SaaS back end. Vercel's EU region satisfies GDPR data-residency with one config change." },
+                { decision: "Postgres (Neon or Supabase) for the operational database", reason: "Mature, SQL-standard, row-level security for multi-tenant isolation, and a typed ORM (Drizzle or Prisma) that catches schema drift at compile time rather than 2am on a Monday." },
+                { decision: "Clerk for authentication on most products", reason: "Org-scoped membership, SSO via a config toggle, and a pre-built UI that survives a security audit. Auth.js when the product has a specific reason to self-host the identity layer." },
+                { decision: "Stripe Billing with Checkout Sessions", reason: "PCI scope stays inside Stripe. The hosted checkout converts better than custom card forms on mobile. Every Stripe event lands on a webhook that updates the local subscription mirror." },
+                { decision: "PostHog self-hosted or cloud for product analytics", reason: "Feature flag, event capture, session recording, and PMF survey in a single stack. EU cloud region for GDPR. Cheaper and more flexible than Amplitude or Mixpanel for a product under €100k ARR." },
+              ].map((item) => (
+                <div key={item.decision} className="p-4 rounded-xl bg-card border">
+                  <div className="font-bold mb-1">{item.decision}</div>
+                  <div className="text-sm text-muted-foreground">{item.reason}</div>
+                </div>
+              ))}
+            </div>
+          </section>
           <RelatedServices slug="/services/saas-development" />
 
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
