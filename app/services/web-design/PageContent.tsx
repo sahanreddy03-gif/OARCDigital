@@ -56,6 +56,7 @@ export default function WebDesign() {
           <img 
             src={heroImage}
             alt="Web design"
+            fetchPriority="high"
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/95 to-zinc-950/80"></div>
