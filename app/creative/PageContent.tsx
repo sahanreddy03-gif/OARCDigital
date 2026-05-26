@@ -1090,7 +1090,7 @@ export default function PageContent() {
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           "name": "OARC Digital - Creative Agency",
-          "description": "Malta's leading AI-powered creative agency specializing in social media management, brand strategy, web design, video production, and paid advertising campaigns.",
+          "description": "Malta's first AI-native creative agency — social media management, brand strategy, web design, video production, and paid advertising campaigns built for revenue outcomes.",
           "url": "https://oarcdigital.com/creative",
           "telephone": NAP.phoneE164,
           "email": NAP.email,
