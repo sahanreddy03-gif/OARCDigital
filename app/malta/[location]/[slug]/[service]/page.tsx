@@ -11,6 +11,7 @@ import { buildLocationIndustryServiceContent } from '@/lib/seo/generateUniquePag
 import { getLocationProfile } from '@/lib/seo/locationData';
 import restore from '@/lib/seo/restore.json';
 import { NAP } from '@/lib/seo/nap';
+import { LOCATION_IND_SVC_GLOBAL_KEEP, KEEP_LOCATION_IND_SVC_COMBOS } from '@/lib/seo/seoSets';
 
 export async function generateStaticParams() {
   return (restore as { kept: { locationIndustryServices: { location: string; industry: string; service: string }[] } })
@@ -24,10 +25,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const c = buildLocationIndustryServiceContent(params.location, params.slug, params.service);
   if (!c) return { title: 'Not Found | OARC Digital' };
+  const comboKey = `${params.location}/${params.slug}/${params.service}`;
+  const shouldIndex =
+    LOCATION_IND_SVC_GLOBAL_KEEP ||
+    KEEP_LOCATION_IND_SVC_COMBOS.has(comboKey);
   return {
     title: c.title,
     description: c.description,
-    robots: { index: false, follow: true },
+    robots: shouldIndex ? undefined : { index: false, follow: true },
     alternates: { canonical: c.canonical },
     openGraph: { title: c.title, description: c.description, url: c.canonical, type: 'website', images: ogImageEntry({ title: c.title, subtitle: c.description }) },
     twitter: { card: 'summary_large_image', title: c.title, description: c.description, images: [ogImageUrl({ title: c.title, subtitle: c.description })] },
