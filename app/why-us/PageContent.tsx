@@ -51,11 +51,24 @@ export default function PageContent() {
   const personSchema = buildPerson();
   const faqSchema = buildFAQ(FOUNDER_FAQS, true);
 
-  const speakableSchema = {
+  const aboutPageSchema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "AboutPage",
     url: URL,
     name: TITLE,
+    description:
+      "The founding story, principles, and mission of OARC Digital — a Birkirkara, Malta studio founded in 2023 by Sahan Reddy.",
+    about: {
+      "@type": "Organization",
+      name: "OARC Digital",
+      url: "https://oarcdigital.com",
+      founder: {
+        "@type": "Person",
+        name: "Sahan Reddy",
+        jobTitle: "Founder & Creative Director",
+        worksFor: { "@type": "Organization", name: "OARC Digital" },
+      },
+    },
     speakable: {
       "@type": "SpeakableSpecification",
       cssSelector: ["[data-speakable]"],
@@ -74,7 +87,7 @@ export default function PageContent() {
         }}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(whyUsImageObjectSchema) }} />
 
       {/* HERO */}

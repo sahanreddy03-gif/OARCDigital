@@ -12,17 +12,17 @@ import TrustBlock from "@/components/seo/TrustBlock";
 import { NAP } from "@/lib/seo/nap";
 const SCHEMA = SERVICE_SCHEMAS["saas-development"];
 
-const saasHeroImage = "/attached_assets/stock_images/tech_startup_brand_s_500a2a04.jpg";
+const saasHeroImage = "/attached_assets/16_1763228440283.jpg";
 
 const saasImageObjectSchema = {
   "@context": "https://schema.org",
   "@type": "ImageObject",
-  name: "Tech startup founders reviewing SaaS product architecture — OARC Digital SaaS MVP engineering for Malta-based software companies",
+  name: "SaaS product architecture review — OARC Digital builds Malta SaaS MVPs from idea to first paying customer in six weeks",
   description: "A Malta SaaS founder team reviewing a multi-tenant product architecture built by OARC Digital — six-week MVP from kickoff to first paying customer.",
-  url: "https://oarcdigital.com/attached_assets/stock_images/tech_startup_brand_s_500a2a04.jpg",
+  url: "https://oarcdigital.com/attached_assets/16_1763228440283.jpg",
   width: 1200,
   height: 800,
-  contentUrl: "https://oarcdigital.com/attached_assets/stock_images/tech_startup_brand_s_500a2a04.jpg",
+  contentUrl: "https://oarcdigital.com/attached_assets/16_1763228440283.jpg",
 };
 
 const saasFaqPageSchema = {
@@ -198,7 +198,7 @@ export default function SaasDevelopmentContent() {
               SaaS is a different commercial animal from custom software. A custom software project ships an internal tool one organisation pays for once. A SaaS product is a multi-tenant subscription business with self-serve sign-up, recurring billing, customer support load, and a churn rate that decides whether the company survives. The engineering decisions that matter — tenant isolation, billing model, activation instrumentation, dunning logic — almost never appear in a custom software brief. They have to be designed in from week one or they become an expensive rebuild in month nine.
             </p>
             <p className="text-foreground leading-relaxed">
-              This page describes how OARC Digital builds SaaS products specifically. If you need a single-tenant internal application — an operations dashboard, a custom CRM, a workflow tool for one company — read <Link href="/services/custom-software-development" className="text-orange-600 font-medium hover:text-orange-700 underline">our custom software development service</Link> instead. If you have an idea you have not validated with paying customers yet, start with <Link href="/services/mvp-development" className="text-orange-600 font-medium hover:text-orange-700 underline">our MVP development sprint</Link> — a faster, cheaper first build whose only job is to find out whether anyone will pay.
+              This page describes how OARC Digital builds SaaS products specifically. If you need a single-tenant internal application — an operations dashboard, a custom CRM, a workflow tool for one company — read <Link href="/services/custom-software-development" className="text-orange-600 font-medium hover:text-orange-700 underline">our custom software development service</Link> instead. If you have an idea you have not validated with paying customers yet, the first step is not engineering — it is demand validation. Our <Link href="/services/idea-validation-engine" className="text-orange-600 font-medium hover:text-orange-700 underline">idea validation engine</Link> runs structured discovery interviews and demand tests before a line of code is written. After validation, start with <Link href="/services/mvp-development" className="text-orange-600 font-medium hover:text-orange-700 underline">our MVP development sprint</Link> — a faster, cheaper first build whose only job is to find out whether anyone will pay.
             </p>
           </section>
 
