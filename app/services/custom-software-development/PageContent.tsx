@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
+import RelatedServices from "@/components/RelatedServices";
 
 const customSoftwareFAQs: FAQItem[] = [
   { question: "What custom software do you build?", answer: "Web applications, mobile apps, APIs, automation tools, dashboards, and enterprise systems. Custom solutions for unique business needs." },
@@ -748,6 +749,8 @@ export default function CustomSoftwareDevelopment() {
           </div>
         </div>
       </section>
+
+      <RelatedServices slug="/services/custom-software-development" />
     </Layout>
   );
 }

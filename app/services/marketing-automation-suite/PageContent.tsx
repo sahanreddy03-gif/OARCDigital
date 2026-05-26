@@ -1,4 +1,5 @@
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
+import RelatedServices from "@/components/RelatedServices";
 
 export default function PageContent() {
     return (
@@ -59,6 +60,8 @@ export default function PageContent() {
           </div>
         </div>
           <MaltaContextBlock slug="marketing-automation-suite" />
+
+      <RelatedServices slug="/services/marketing-automation-suite" />
       </section>
     );
   }

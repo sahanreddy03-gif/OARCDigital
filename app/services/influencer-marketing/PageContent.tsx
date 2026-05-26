@@ -9,6 +9,7 @@ import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import { Users, TrendingUp, Heart, Zap, Target, BarChart3, ArrowRight, CheckCircle2 } from "lucide-react";
+import RelatedServices from "@/components/RelatedServices";
 const heroImage = "/attached_assets/influencer-marketing-optimized.jpg";
 const influencerImg1 = "/attached_assets/stock_images/influencer_marketing_e096cc44.jpg";
 const influencerImg2 = "/attached_assets/stock_images/influencer_marketing_47b0ede7.jpg";
@@ -454,6 +455,8 @@ export default function InfluencerMarketing() {
           </Button>
         </div>
       </section>
+
+      <RelatedServices slug="/services/influencer-marketing" />
     </Layout>
   );
 }

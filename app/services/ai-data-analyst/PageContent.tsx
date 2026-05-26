@@ -1,3 +1,5 @@
+import RelatedServices from "@/components/RelatedServices";
+
 export default function PageContent() {
     return (
       <section className="py-16 md:py-24 bg-background border-t">
@@ -56,6 +58,8 @@ export default function PageContent() {
             </p>
           </div>
         </div>
+
+      <RelatedServices slug="/services/ai-data-analyst" />
       </section>
     );
   }

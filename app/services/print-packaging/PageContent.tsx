@@ -9,6 +9,7 @@ import Layout from "@/components/layout/Layout";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
+import RelatedServices from "@/components/RelatedServices";
 const heroImage = "/attached_assets/printy design_1763086257815.avif";
 
 export default function PrintPackaging() {
@@ -441,6 +442,8 @@ export default function PrintPackaging() {
           </div>
         </div>
       </section>
+
+      <RelatedServices slug="/services/print-packaging" />
     </Layout>
   );
 }

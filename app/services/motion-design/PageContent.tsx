@@ -9,6 +9,7 @@ import Layout from "@/components/layout/Layout";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import FAQSection, { type FAQItem } from "@/components/FAQSection";
+import RelatedServices from "@/components/RelatedServices";
 const heroImage = "/attached_assets/motion design_1763084597887.avif";
 const motionImg1 = "/attached_assets/stock_images/motion_graphics_anim_30522a7b.jpg";
 const motionImg2 = "/attached_assets/stock_images/motion_graphics_anim_efb22394.jpg";
@@ -436,6 +437,8 @@ export default function MotionDesign() {
           </div>
         </div>
       </section>
+
+      <RelatedServices slug="/services/motion-design" />
     </Layout>
   );
 }

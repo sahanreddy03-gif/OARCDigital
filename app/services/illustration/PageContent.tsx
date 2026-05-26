@@ -10,6 +10,7 @@ import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 const heroImage = "/attached_assets/illustration desoigns_1763086173736.avif";
 import FAQSection, { FAQItem } from '@/components/FAQSection';
+import RelatedServices from "@/components/RelatedServices";
 
 const illustrationFAQs: FAQItem[] = [
   { question: "What illustration styles do you offer?", answer: "Custom brand illustrations, icon sets, character design, infographics, editorial illustrations, and product illustrations. Any style you need." },
@@ -429,6 +430,8 @@ export default function Illustration() {
           </div>
         </div>
       </section>
+
+      <RelatedServices slug="/services/illustration" />
     </Layout>
   );
 }
