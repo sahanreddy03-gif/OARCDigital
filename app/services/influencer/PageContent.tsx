@@ -16,7 +16,7 @@ import FAQSection, { FAQItem } from "@/components/FAQSection";
 import ScrollReveal from "@/components/ScrollReveal";
 import RelatedLinks from "@/components/RelatedLinks";
 
-const heroImage = "/images/influencer/hero-while-competitors-post.webp";
+const heroImage = "/attached_assets/Biolage-influencer-marketing-agency-socially-powerful_1763243258630.jpg";
 const localCreatorImg =
   "/attached_assets/stock_images/influencer_marketing_3b6f7762.jpg";
 const onPropertyImg =
