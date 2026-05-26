@@ -25,6 +25,8 @@ const apiIntegrationFAQs: FAQItem[] = [
   { question: "How do you handle data security?", answer: "Encrypted connections, secure authentication, and access controls. Your data stays protected throughout the integration." }
 ];
 
+const heroImg = "/attached_assets/18_1763228440284.jpg";
+
 const ELITE_COLORS = {
   primary: '#8b5cf6',
   secondary: '#6366f1',
@@ -121,8 +123,37 @@ export default function APIIntegrationServices() {
 
   return (
     <Layout>
+      {/* Structured data — ImageObject for hero */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ImageObject",
+            "url": "https://oarcdigital.com/attached_assets/18_1763228440284.jpg",
+            "name": "Circuit board — API integration and system connectivity for Malta businesses | OARC Digital",
+            "description": "API integration and system connectivity — OARC Digital connects Malta businesses' tools, platforms, and data sources through custom REST APIs, GraphQL, and third-party integration engineering.",
+            "width": 1024,
+            "height": 683,
+            "representativeOfPage": true,
+          }),
+        }}
+      />
+
       {/* HERO */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black">
+        {/* Hero photo as texture foundation layer */}
+        <div className="absolute inset-0">
+          <img
+            src={heroImg}
+            alt="Circuit board close-up — API integration and system connectivity for Malta businesses | OARC Digital"
+            fetchPriority="high"
+            width={1024}
+            height={683}
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-black/70" />
+        </div>
         <AnimatedGridBackground 
           intensity="high" 
           showScanLine={true} 

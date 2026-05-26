@@ -185,10 +185,10 @@ const SUPPLEMENTAL_META: Record<string, { title: string; description: string }> 
     description:
       "Build apps people love. Native iOS, Android, and cross-platform development. From MVP to millions of users.",
   },
-  "/services/api-integration-services": {
-    title: "API Integration Services | Connect Any System | OARC Digital",
+  "/services/api-integration": {
+    title: "API Integration Malta | Connect Any System | OARC Digital",
     description:
-      "Seamlessly connect your systems with custom API integrations. Stripe, Salesforce, Twilio, and 500+ platforms. Enterprise-grade reliability.",
+      "Custom API development and third-party integration for Malta businesses. Stripe, Salesforce, Twilio, and 500+ platforms. REST, GraphQL, webhooks — enterprise-grade reliability.",
   },
   "/services/mvp-development": {
     title: "MVP Development Services Malta | Launch Your Startup in 8-12 Weeks | OARC Digital",
@@ -280,10 +280,10 @@ const SUPPLEMENTAL_META: Record<string, { title: string; description: string }> 
     description:
       "Automate your marketing funnels with OARC Digital. Build, test, and optimize conversion funnels using AI-powered automation for predictable revenue growth.",
   },
-  "/services/customer-acquisition-accelerator": {
-    title: "Customer Acquisition Accelerator | Multi-Channel Growth | OARC Digital",
+  "/services/customer-acquisition": {
+    title: "Customer Acquisition Malta | Predictable CPA at Scale | OARC Digital",
     description:
-      "Turn ad spend into predictable revenue. AI optimizes your campaigns across every channel in real-time, cutting acquisition costs by 40% while scaling what works.",
+      "End-to-end customer acquisition engineering for Malta and EU brands. We build the attribution model, run the channels, and report one number: cost-per-acquired-customer.",
   },
 };
 
