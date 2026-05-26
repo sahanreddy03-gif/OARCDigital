@@ -75,6 +75,8 @@ type PillarProps = CommonProps & {
   faqs?: { question: string; answer: string }[];
   /** Set false to skip the LocalBusiness node (default true). */
   includeLocalBusiness?: boolean;
+  /** Optional AggregateRating attached to the Organization node on pillar pages. */
+  aggregateRating?: AggregateRatingOpts;
 };
 
 type GenericProps = CommonProps & {
@@ -193,7 +195,17 @@ export default function RouteSchema(props: RouteSchemaProps) {
     // Money-page schema: Organization + LocalBusiness + WebSite + Person
     // (founder) + BreadcrumbList + FAQPage. No Service node — pillars promote
     // the brand entity, the spoke /services/<slug> pages emit Service nodes.
-    nodes.push(buildOrganization());
+    const org = { ...buildOrganization() } as Record<string, unknown>;
+    if (props.aggregateRating) {
+      org.aggregateRating = {
+        "@type": "AggregateRating",
+        ratingValue: props.aggregateRating.ratingValue,
+        reviewCount: props.aggregateRating.reviewCount,
+        bestRating: props.aggregateRating.bestRating ?? 5,
+        worstRating: props.aggregateRating.worstRating ?? 1,
+      };
+    }
+    nodes.push(org);
     if (props.includeLocalBusiness !== false) nodes.push(buildLocalBusiness());
     nodes.push(buildWebSite());
     nodes.push(buildPerson());
