@@ -7,8 +7,8 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
-  title: "Lead Generation & Qualification Engine | AI-Powered Pipeline | OARC Digital",
-  description: "Stop chasing cold leads. OARC's Lead Generation Engine identifies, scores, and nurtures high-intent prospects automatically—3x qualified leads guaranteed.",
+  title: "Lead Generation Engine — See Our Lead Generation Service | OARC Digital",
+  description: "This page has moved. Visit our lead generation service page for OARC Digital's full AI-powered pipeline: prospect identification, scoring, and nurturing for Malta businesses.",
   alternates: { canonical: "https://oarcdigital.com/services/lead-generation" },
   openGraph: {
     images: ogImageEntry({ title: "Lead Generation & Qualification Engine | AI-Powered Pipeline | OARC Digital", subtitle: "Stop chasing cold leads. OARC's Lead Generation Engine identifies, scores, and nurtures high-intent prospects automatically—3x qualified leads guaranteed." }),
