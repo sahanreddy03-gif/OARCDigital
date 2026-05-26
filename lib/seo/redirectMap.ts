@@ -116,6 +116,23 @@ export const TASK_116_RETIRED_URLS: Readonly<Record<string, string>> = Object.fr
   "/roadmap":                             "/roadmap-2026",
 });
 
+// ─── Task #227 URL-pair resolutions ────────────────────────────────────────
+// Four duplicate URL pairs collapsed into a single canonical winner each.
+// The loser slug (key) 308s to the winner slug (value) via SERVICE_ALIASES
+// in seoSets.ts. This record is the human-readable registry and source of
+// truth for reporting / audit tooling.
+//
+// Pair 2: lead-generation-engine     → lead-generation       (shorter URL wins)
+// Pair 3: customer-acquisition-accel → customer-acquisition  (shorter URL wins)
+// Pair 4: api-integration-services   → api-integration       (shorter URL wins)
+// Pair 6: mobile-applications-dev    → mobile-apps-dev       (cleaner URL wins)
+export const TASK_227_RETIRED_URLS: Readonly<Record<string, string>> = Object.freeze({
+  "/services/lead-generation-engine":           "/services/lead-generation",
+  "/services/customer-acquisition-accelerator": "/services/customer-acquisition",
+  "/services/api-integration-services":         "/services/api-integration",
+  "/services/mobile-applications-development":  "/services/mobile-apps-development",
+});
+
 // Build-time validation: fail fast if any redirect target is missing.
 // Runs once at module load (server start / build).
 (function validateRedirectTargets() {
