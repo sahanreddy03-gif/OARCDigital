@@ -1,17 +1,26 @@
 "use client";
 
-// Stat ticker — same visual style as the original platform logo strip:
-// light #f0fff4 background, compact, smooth CSS marquee, muted grey text.
-// 4 proof stats scroll in place of the old 30 brand icons.
+// Keyword strip — platform names + authority phrases business owners search for.
+// Same visual style as the original logo strip: #f0fff4 bg, compact, CSS marquee.
 
-const STATS = [
-  { number: "4.9/5",   label: "Satisfaction Rating", testId: "stat-rating"    },
-  { number: "47+",     label: "Clients Served",       testId: "stat-clients"   },
-  { number: "68%",     label: "Avg ROI Lift",         testId: "stat-roi"       },
-  { number: "90 Days", label: "Guarantee Period",     testId: "stat-guarantee" },
+const ITEMS = [
+  { label: "Instagram",               type: "platform" },
+  { label: "Google Business Profile", type: "platform" },
+  { label: "TikTok",                  type: "platform" },
+  { label: "Award-Winning Growth",    type: "phrase"   },
+  { label: "Meta Ads",                type: "platform" },
+  { label: "Growth Hacking",          type: "phrase"   },
+  { label: "Google Partner",          type: "phrase"   },
+  { label: "Revenue Guarantee",       type: "phrase"   },
+  { label: "AI Integration",          type: "phrase"   },
+  { label: "Your Sales Partner",      type: "phrase"   },
+  { label: "In-House Marketing",      type: "phrase"   },
+  { label: "Fast-Track Growth",       type: "phrase"   },
+  { label: "Google Ads",              type: "platform" },
+  { label: "Place You Number One",    type: "phrase"   },
 ];
 
-const TICKER = [...STATS, ...STATS];
+const TICKER = [...ITEMS, ...ITEMS];
 const BG = "#f0fff4";
 
 export default function TrustedBrandsSection() {
@@ -19,67 +28,65 @@ export default function TrustedBrandsSection() {
     <section
       className="relative py-6 md:py-8 overflow-hidden"
       style={{ backgroundColor: BG }}
-      data-testid="section-trust-stats"
-      aria-label="OARC Digital — key performance metrics"
+      data-testid="section-trust-strip"
+      aria-label="OARC Digital — platforms and specialisms"
     >
       {/* Left edge fade */}
       <div
         aria-hidden="true"
-        className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+        className="absolute left-0 top-0 bottom-0 w-16 md:w-24 z-10 pointer-events-none"
         style={{ background: `linear-gradient(to right, ${BG}, transparent)` }}
       />
       {/* Right edge fade */}
       <div
         aria-hidden="true"
-        className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+        className="absolute right-0 top-0 bottom-0 w-16 md:w-24 z-10 pointer-events-none"
         style={{ background: `linear-gradient(to left, ${BG}, transparent)` }}
       />
 
+      {/* Screen-reader summary */}
+      <p className="sr-only">
+        OARC Digital specialisms: Instagram, Google Business Profile, TikTok,
+        Award-Winning Growth, Meta Ads, Growth Hacking, Google Partner, Revenue
+        Guarantee, AI Integration, Your Sales Partner, In-House Marketing,
+        Fast-Track Growth, Google Ads, Place You Number One.
+      </p>
+
       <div className="w-full overflow-hidden">
         <div
-          className="flex whitespace-nowrap py-2 trust-stats-marquee"
-          data-testid="stats-marquee"
+          className="flex whitespace-nowrap items-center trust-strip-marquee"
+          aria-hidden="true"
+          data-testid="trust-strip-marquee"
         >
-          {TICKER.map((stat, i) => (
-            <div
+          {TICKER.map((item, i) => (
+            <span
               key={i}
               className="inline-flex items-center flex-shrink-0"
-              data-testid={i < STATS.length ? stat.testId : undefined}
             >
-              {/* Stat block */}
-              <div className="inline-flex flex-col items-center justify-center px-10 md:px-14">
-                <span
-                  className="block font-semibold text-zinc-500 leading-none"
-                  style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)", letterSpacing: "-0.02em" }}
-                >
-                  {stat.number}
-                </span>
-                <span
-                  className="block mt-1 text-[10px] font-medium uppercase tracking-widest text-zinc-400"
-                >
-                  {stat.label}
-                </span>
-              </div>
-
-              {/* Separator dot */}
+              {/* Label */}
               <span
-                aria-hidden="true"
-                className="flex-shrink-0 text-zinc-300 text-lg select-none"
+                className={
+                  item.type === "platform"
+                    ? "font-semibold text-zinc-500 text-sm md:text-base px-4 md:px-6"
+                    : "italic font-normal text-zinc-400 text-sm md:text-base px-4 md:px-6"
+                }
               >
-                ·
+                {item.label}
               </span>
-            </div>
+              {/* Separator dot */}
+              <span aria-hidden="true" className="text-zinc-300 text-base select-none">·</span>
+            </span>
           ))}
         </div>
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes trust-stats-scroll {
+        @keyframes trust-strip-scroll {
           0%   { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
-        .trust-stats-marquee {
-          animation: trust-stats-scroll 30s linear infinite;
+        .trust-strip-marquee {
+          animation: trust-strip-scroll 35s linear infinite;
           will-change: transform;
         }
       ` }} />
