@@ -404,6 +404,31 @@ export default function PageContent() {
         </div>
       </section>
 
+      {/* Service quick-links */}
+      <section className="bg-zinc-950 border-t border-white/5 py-16" data-testid="section-services">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <h2 className="text-xl font-bold text-white mb-2 text-center">Not sure where to start?</h2>
+          <p className="text-white/60 text-center mb-8 text-sm">Browse the services most requested by Malta businesses.</p>
+          <div className="grid md:grid-cols-3 gap-4">
+            <Link href="/services/seo-services" className="group bg-white/5 border border-white/10 rounded-xl p-5 hover-elevate block" data-testid="link-contact-seo">
+              <div className="text-[#c4ff4d] font-bold text-xs tracking-widest uppercase mb-2">Organic</div>
+              <h3 className="text-base font-bold text-white mb-1 group-hover:text-[#c4ff4d] transition-colors">SEO Services</h3>
+              <p className="text-sm text-white/60">Get found in search without ongoing ad spend.</p>
+            </Link>
+            <Link href="/services/social-media-creative-management" className="group bg-white/5 border border-white/10 rounded-xl p-5 hover-elevate block" data-testid="link-contact-social">
+              <div className="text-[#c4ff4d] font-bold text-xs tracking-widest uppercase mb-2">Creative</div>
+              <h3 className="text-base font-bold text-white mb-1 group-hover:text-[#c4ff4d] transition-colors">Social Media Creative</h3>
+              <p className="text-sm text-white/60">Content and community that converts followers to clients.</p>
+            </Link>
+            <Link href="/services/ai-consulting" className="group bg-white/5 border border-white/10 rounded-xl p-5 hover-elevate block" data-testid="link-contact-ai">
+              <div className="text-[#c4ff4d] font-bold text-xs tracking-widest uppercase mb-2">AI</div>
+              <h3 className="text-base font-bold text-white mb-1 group-hover:text-[#c4ff4d] transition-colors">AI Consulting</h3>
+              <p className="text-sm text-white/60">AI tools built for how your business actually operates.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Trust Strip */}
       <section className="bg-zinc-950 border-t border-white/5 py-12">
         <div className="container mx-auto px-6">

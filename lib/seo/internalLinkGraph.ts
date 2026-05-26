@@ -159,12 +159,48 @@ const NODES: LinkNode[] = [
     ],
   },
   {
+    path: "/about",
+    title: "About OARC Digital",
+    shortLabel: "About",
+    hub: "homepage",
+    spokes: [
+      "/services/seo-services",
+      "/services/branding",
+      "/services/ai-consulting",
+    ],
+  },
+  {
+    path: "/why-us",
+    title: "Why OARC Digital",
+    shortLabel: "Why OARC",
+    hub: "homepage",
+    spokes: [
+      "/services/social-media-creative-management",
+      "/services/seo-services",
+      "/services/ai-consulting",
+    ],
+  },
+  {
+    path: "/pricing",
+    title: "Pricing — OARC Digital",
+    shortLabel: "Pricing",
+    hub: "homepage",
+    spokes: [
+      "/services/social-media-creative-management",
+      "/services/paid-advertising",
+      "/services/ai-consulting",
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact OARC Digital",
     shortLabel: "Contact",
     hub: "homepage",
     spokes: [
       "/services",
+      "/services/seo-services",
+      "/services/social-media-creative-management",
+      "/services/ai-consulting",
       "/our-work",
       "/ai-agents",
       "/creative",
