@@ -9,7 +9,7 @@ const URL = `https://oarcdigital.com/services/${SLUG}`;
 const TITLE = "AI Real Estate Agent Malta | Sliema Property Sales";
 const DESCRIPTION =
   "Bilingual AI for Malta property: qualifies buyers 24/7, books viewings, follows up on stale leads, and pushes deal-ready prospects to your agents.";
-const HERO_OG = "https://oarcdigital.com/og/ai-real-estate-agent-malta-sliema.png";
+const HERO_OG = "https://oarcdigital.com/attached_assets/admin-ai-employee-optimized.jpg";
 const AUDIENCE = [
   "Real Estate Agencies",
   "Property Developers",

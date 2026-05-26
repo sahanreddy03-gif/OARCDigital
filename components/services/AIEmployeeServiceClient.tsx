@@ -29,14 +29,14 @@ import {
   AIIconWithGlow
 } from '@/components/ui/ai-icons';
 
-const sdrAgentImage = "/images/influencer/hero-while-competitors-post.webp";
+const sdrAgentImage = "/attached_assets/ai-sdr-agent-optimized.webp";
 const customerSupportImage = "/attached_assets/ai-customer-support-optimized.webp";
 const dataInsightsNeuralImage = "/attached_assets/data-insights-neural-optimized.webp";
-const adminAgentImage = "/attached_assets/generated_images/ai_automation_enterprise_dashboard.png";
+const adminAgentImage = "/attached_assets/ai-admin-agent-optimized.webp";
 const contentStrategistImage = "/attached_assets/ai-content-strategist-optimized.webp";
 const complianceAuditorImage = "/attached_assets/stock_images/legal_compliance_off_78808712.jpg";
 const appointmentBookerImage = "/attached_assets/stock_images/appointment_schedule_97373ecb.jpg";
-const realEstateAgentImage = "/attached_assets/ai-real-estate-agent-malta-sliema-property-hero.png";
+const realEstateAgentImage = "/attached_assets/admin-ai-employee-optimized.jpg";
 
 interface TargetAudienceItem {
   title: string;

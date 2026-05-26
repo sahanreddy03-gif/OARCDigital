@@ -10,7 +10,7 @@ const SCHEMA = SERVICE_SCHEMAS[SLUG];
 const URL = `https://oarcdigital.com/services/${SLUG}`;
 const TITLE = "AI SDR Agent Malta | Lead Qualification & Booking";
 const DESCRIPTION = SCHEMA.description;
-const HERO_OG = "https://oarcdigital.com/og/ai-sdr-agent-malta.png";
+const HERO_OG = "https://oarcdigital.com/attached_assets/ai-sdr-agent-optimized.webp";
 const AUDIENCE = [
   "B2B SaaS",
   "Professional Services",

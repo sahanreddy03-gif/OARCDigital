@@ -10,7 +10,7 @@ const URL = `https://oarcdigital.com/services/${SLUG}`;
 const TITLE = "AI Admin Agent | Inbox & Calendar Automation Malta";
 const DESCRIPTION =
   "Reclaim 15+ hours weekly. AI admin agent triages inbox, books and reschedules meetings, files docs, and runs SOPs across your team — Malta-built.";
-const HERO_OG = "https://oarcdigital.com/og/ai-admin-agent-malta.png";
+const HERO_OG = "https://oarcdigital.com/attached_assets/ai-admin-agent-optimized.webp";
 const AUDIENCE = [
   "Small Business",
   "Operations Teams",
