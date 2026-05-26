@@ -10,6 +10,15 @@ const SPEAKABLE_JSONLD = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   url: "https://oarcdigital.com/diagnostics",
+  image: {
+    "@type": "ImageObject",
+    url: "https://oarcdigital.com/assets/diagnostics-hub-hero.png",
+    name: "OARC Digital Business Diagnostics Hub — Free tools for Malta SMEs",
+    description:
+      "Enterprise-grade business diagnostic tools available free to Malta SMEs — Revenue Leak Scanner, Growth Simulator, AI Workforce Designer, and Business Intelligence Scanner",
+    width: 1200,
+    height: 800,
+  },
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: ["[data-speakable]"],

@@ -29,17 +29,6 @@ import CortexContainer from "@/components/Cortex/CortexContainer";
 import RouteSchema from "@/components/RouteSchema";
 import { NAP } from "@/lib/seo/nap";
 
-const diagnosticsImageObjectSchema = {
-  "@context": "https://schema.org",
-  "@type": "ImageObject",
-  url: "https://oarcdigital.com/assets/diagnostics-hub-hero.png",
-  name: "OARC Digital Business Diagnostics Hub — Free tools for Malta SMEs",
-  description:
-    "Enterprise-grade business diagnostic tools available free to Malta SMEs — Revenue Leak Scanner, Growth Simulator, AI Workforce Designer, and Business Intelligence Scanner",
-  width: 1200,
-  height: 800,
-};
-
 type ToolId = "industry-scan" | "growth-simulator" | "workforce-designer" | "intelligence-scan";
 
 interface ToolDef {
@@ -203,10 +192,6 @@ export default function PageContent() {
         audience={["SME Malta"]}
         areaServed="Malta"
         faqs={FAQS}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(diagnosticsImageObjectSchema) }}
       />
 
       <div className="min-h-screen bg-[#0a0a0c] relative">
