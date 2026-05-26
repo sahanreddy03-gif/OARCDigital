@@ -86,7 +86,7 @@ export default function TrustedBrandsSection() {
           100% { transform: translateX(-50%); }
         }
         .trust-strip-marquee {
-          animation: trust-strip-scroll 35s linear infinite;
+          animation: trust-strip-scroll 20s linear infinite;
           will-change: transform;
         }
       ` }} />
