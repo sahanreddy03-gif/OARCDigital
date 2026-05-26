@@ -21,22 +21,25 @@ const CANONICAL = "https://oarcdigital.com/industries/real-estate";
 const LAST_UPDATED = "2026-05-10";
 const LAST_UPDATED_DISPLAY = "10 May 2026";
 
+const META_TITLE = "Real Estate Marketing Agency Malta | Social, Paid, SEO & Video for Estate Agents";
+const META_DESC = "The complete marketing service for Malta real estate agencies and developers — listings SEO, paid buyer campaigns targeting international markets, cinematic property video, social media management, agency branding, and CRM automation.";
+
 export const metadata: Metadata = {
-  title: "Real Estate Marketing in Malta | Listings, Leads & AI Agents",
-  description: "The full real estate marketing stack for Malta agencies and developers — listings SEO, paid buyer campaigns, virtual tours, CRM automation, lead generation, and the AI Real Estate Agent that qualifies enquiries 24/7.",
+  title: META_TITLE,
+  description: META_DESC,
   alternates: { canonical: CANONICAL },
   openGraph: {
-    images: ogImageEntry({ title: "Real Estate Marketing in Malta | Listings, Leads & AI Agents", subtitle: "The full real estate marketing stack for Malta agencies and developers — listings SEO, paid buyer campaigns, virtual tours, CRM automation, lead generation, and the AI Real Estate Agent that qualifies enquiries 24/7." }),
-    title: "Real Estate Marketing in Malta | Listings, Leads & AI Agents",
-    description: "Listings SEO, paid buyer campaigns, virtual tours, CRM, lead generation, and the AI Real Estate Agent — built for Malta agencies and developers.",
+    images: ogImageEntry({ title: META_TITLE, subtitle: META_DESC }),
+    title: META_TITLE,
+    description: META_DESC,
     url: CANONICAL,
     type: "article",
   },
   twitter: {
-    images: [ogImageUrl({ title: "Real Estate Marketing in Malta | Listings, Leads & AI Agents", subtitle: "The full real estate marketing stack for Malta agencies and developers — listings SEO, paid buyer campaigns, virtual tours, CRM automation, lead generation, and the AI Real Estate Agent that qualifies enquiries 24/7." })],
+    images: [ogImageUrl({ title: META_TITLE, subtitle: META_DESC })],
     card: "summary_large_image",
-    title: "Real Estate Marketing in Malta | Listings, Leads & AI Agents",
-    description: "The full real estate marketing stack for Malta agencies and developers — from listings SEO to AI enquiry qualification.",
+    title: META_TITLE,
+    description: META_DESC,
   },
 };
 
@@ -49,13 +52,6 @@ type ServiceBlock = {
 };
 
 const services: ServiceBlock[] = [
-  {
-    slug: "ai-real-estate-agent",
-    title: "AI Real Estate Agent",
-    blurb: "An AI that reads every portal and website enquiry 24/7, qualifies buyers on budget, timeline, financing and intent, books viewings into the right agent's calendar, and sends a written brief before the meeting.",
-    icon: Brain,
-    detail: "This is our flagship product for the Malta real estate market. It plugs into your inbox, your portal feeds, your WhatsApp Business number, and your website forms. It replies in English, Maltese, Italian, French, German, Spanish and Russian. High-value signals (cash buyer, citizenship-by-investment intent, declared budget above €1.5m) escalate to a senior agent in minutes; everything else enters a calibrated long-cycle nurture so the inbox is never the bottleneck.",
-  },
   {
     slug: "paid-advertising",
     title: "Paid Advertising for Real Estate",
@@ -90,6 +86,13 @@ const services: ServiceBlock[] = [
     blurb: "End-to-end lead programmes — landing pages, multi-step enquiry forms, lead magnets ('Sliema valuation guide', 'Citizenship-by-investment property checklist'), and the campaigns that drive qualified traffic into them.",
     icon: Target,
     detail: "Buyer leads and vendor (instruction) leads are two different programmes with different creative, different offers and different qualification logic. Buyer programmes lean on visual content, neighbourhood-specific landing pages and citizenship-aware compliance language. Vendor programmes lean on free valuation tools, market-update opt-ins and credibility content from the principal agent. Both feed the same CRM with clearly tagged source, persona and qualification status.",
+  },
+  {
+    slug: "ai-real-estate-agent",
+    title: "AI Real Estate Agent",
+    blurb: "An AI that reads every portal and website enquiry 24/7, qualifies buyers on budget, timeline, financing and intent, books viewings into the right agent's calendar, and sends a written brief before the meeting.",
+    icon: Brain,
+    detail: "The AI Real Estate Agent is a separate product — not a marketing service — that sits downstream of the marketing programme. Once the campaigns above are generating enquiry volume, the AI agent handles triage: it replies in seven languages within seconds, qualifies on budget and intent, and books viewings into the right calendar. Most agencies add this once monthly enquiry volume crosses 50–80 contacts and manual triage is becoming the bottleneck.",
   },
 ];
 
@@ -126,9 +129,9 @@ const painPoints = [
 
 const stats = [
   { metric: "40%+", label: "of Malta property enquiries", note: "originate outside the islands" },
-  { metric: "30 min", label: "response window", note: "to win the enquiry before competitors" },
-  { metric: "3–6 mo", label: "buyer search cycle", note: "requires a long, structured nurture" },
-  { metric: "7", label: "languages supported", note: "by the AI Real Estate Agent" },
+  { metric: "3–6 mo", label: "buyer search cycle", note: "requires structured long-cycle nurture" },
+  { metric: "5", label: "international buyer markets", note: "each needs separate creative and language" },
+  { metric: "90 days", label: "typical programme setup", note: "from audit to full retainer" },
 ];
 
 const faqs = [
@@ -248,20 +251,20 @@ export default function RealEstateMaltaIndustryHub() {
               </time>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight" data-speakable>
-              Real Estate Marketing in Malta
+              Real Estate Marketing Agency in Malta — Social, Paid, SEO &amp; Video for Estate Agents
             </h1>
             <p className="text-xl text-white/85 mb-8 max-w-2xl leading-relaxed" data-speakable>
-              The full marketing stack for Malta agencies and developers — listings SEO, paid buyer campaigns, virtual tours, CRM automation, lead generation and the AI Real Estate Agent.
+              The complete marketing service for Malta agencies and developers — listings SEO that ranks for buyer-intent queries, paid campaigns reaching UK, Italian and EU buyers, cinematic property video, social media management, and CRM automation that keeps every enquiry moving.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact" data-testid="link-cta-strategy-call">
                 <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-bold">
-                  Book a strategy call <ArrowRight className="ml-2 w-4 h-4" />
+                  Book a free marketing audit <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
-              <Link href="/services/ai-real-estate-agent" data-testid="link-cta-ai-agent">
+              <Link href="/services/video-production" data-testid="link-cta-video">
                 <Button size="lg" variant="outline" className="border-white/30 text-white bg-white/10 backdrop-blur-sm hover:bg-white/20">
-                  See the AI Real Estate Agent
+                  Property video production
                 </Button>
               </Link>
             </div>
@@ -383,20 +386,14 @@ export default function RealEstateMaltaIndustryHub() {
             </div>
           </section>
 
-          {/* AI Real Estate Agent spotlight */}
-          <section className="p-6 rounded-xl bg-orange-500/5 border border-orange-500/20">
-            <div className="flex items-start gap-3 mb-3">
-              <Brain className="w-6 h-6 text-orange-500 flex-shrink-0 mt-0.5" />
-              <h2 className="text-xl font-bold">AI Real Estate Agent — the qualification layer that ties the inbox together</h2>
-            </div>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-3">
-              Portal enquiries arrive at 11pm on a Sunday in Italian. By the time a human reads and replies fourteen hours later, the buyer has already booked a viewing with the next agency on the portal page. The OARC AI Real Estate Agent connects to your portal feeds, your website forms, your WhatsApp Business number and your inbound email, reads every enquiry within seconds, qualifies on budget, timeline, financing and intent, books viewings into the right agent&apos;s calendar, and writes a brief the agent reads on the way to the meeting.
-            </p>
-            <p className="text-sm text-foreground/80 leading-relaxed mb-4">
-              It replies in English, Maltese, Italian, French, German, Spanish and Russian. High-value signals — declared budget above €1.5m, cash-buyer mention, citizenship-programme enquiry — escalate to a senior agent within minutes. Lower-priority enquiries enter a calibrated long-cycle nurture sequence rather than being binned. Reporting tells the principal exactly how many enquiries arrived, how many qualified, how many converted to viewings, and where the leakage is.
+          {/* AI Real Estate Agent cross-link — separate product, downstream of marketing */}
+          <section className="p-5 rounded-xl border bg-muted/40">
+            <h2 className="text-base font-semibold mb-2">Once enquiry volume is live — the AI Real Estate Agent</h2>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+              This page covers marketing: how to generate enquiries from local and international buyers. Once those campaigns are running and the inbox is busy, there is a separate AI product that handles triage — reading every portal and website enquiry 24/7, qualifying on budget and intent, booking viewings, and replying in seven languages within seconds. That is a different buy from a different buyer.
             </p>
             <Link href="/services/ai-real-estate-agent" className="inline-flex items-center gap-2 text-orange-600 font-medium hover:text-orange-700 transition-colors text-sm">
-              Full AI Real Estate Agent product page <ArrowRight className="w-4 h-4" />
+              AI Real Estate Agent — automated enquiry handling &amp; lead qualification <ArrowRight className="w-4 h-4" />
             </Link>
           </section>
 
