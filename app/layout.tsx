@@ -158,6 +158,18 @@ export const metadata: Metadata = {
   },
 };
 
+// ─── Performance budget ───────────────────────────────────────────────────────
+// next/font    : Nunito Sans, Montserrat, Inter, Space Grotesk, EB Garamond,
+//                Orbitron, Anton — all loaded via next/font/google (display:swap,
+//                self-hosted, zero FOUT, no external round-trip)
+// Partytown    : GTM / Google Ads (AW-17812517147) offloaded to web worker in
+//                production — main thread free during first-paint window
+// SpeedInsights: @vercel/speed-insights/next wired below — real-user data
+// SpeculationRules: 8 high-conversion URLs prerendered on moderate eagerness
+// Hero preload : fetchPriority="high" <link> in <head> for the LCP AVIF
+// LazyMotion   : framer-motion features lazy-loaded via <LazyMotion> in Providers
+// ─────────────────────────────────────────────────────────────────────────────
+
 export default function RootLayout({
   children,
 }: {
@@ -173,6 +185,8 @@ export default function RootLayout({
           type="font/woff2"
           crossOrigin="anonymous"
         />
+        {/* LCP hero image — fetchPriority="high" tells the browser to fetch
+            this AVIF before the CSS paint fires, cutting LCP on mobile */}
         <link
           rel="preload"
           as="image"
