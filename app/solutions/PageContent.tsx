@@ -665,6 +665,92 @@ export default function PageContent() {
           </div>
         </section>
 
+        {/* ========== REVENUE LEAKAGE PROSE — Where Revenue Disappears ========== */}
+        <section className="py-24 px-6 border-t border-white/5 bg-black" data-testid="section-solutions-prose">
+          <div className="max-w-3xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-8" data-speakable>
+                Where Revenue Disappears in a Malta Business
+              </h2>
+
+              <div className="space-y-6 text-white/65 leading-relaxed text-base sm:text-lg">
+                <p>
+                  Most Malta businesses do not have a growth problem. They have a compounding
+                  inefficiency problem that looks like a growth problem from the inside. The
+                  symptoms are familiar: the sales pipeline is inconsistent, the team is stretched,
+                  and nobody can give you a clear number on which activity is actually generating
+                  revenue versus which is generating busy-ness.
+                </p>
+
+                <p>
+                  The pattern shows up across every sector. A hospitality operator cannot tell you
+                  which booking channel is profitable at the table-type level, so marketing spend
+                  goes to the channel that looks busiest rather than the one that fills the most
+                  covers. A Malta-based financial advisory firm has qualified prospects sitting in
+                  the pipeline for three months because nobody has a structured follow-up process
+                  — the advisor meant to send that email but the week ran away. A professional
+                  services practice spends two weeks on new client onboarding because it runs
+                  entirely through email threads where critical information gets buried and tasks
+                  fall through the gaps.
+                </p>
+
+                <p>
+                  The problem in each case is not effort. Everyone is working. The problem is
+                  that the business is running on disconnected systems — a CRM that nobody
+                  updates consistently, a booking platform that does not talk to the marketing
+                  stack, an inbox that doubles as a project management tool. The gaps between
+                  those systems are where revenue disappears. A lead that arrives at 11pm does
+                  not get a response until 9am the next morning, by which point they have already
+                  contacted two competitors. An invoice sent with no automated follow-up sits
+                  unpaid for 45 days. A customer asks a question on WhatsApp, gets no response,
+                  and leaves a review explaining why they chose someone else.
+                </p>
+
+                <p>
+                  The OARC solutions stack is designed around the specific topology of that gap.
+                  The AI workforce layer — AI SDR agent, AI support specialist, AI admin agent
+                  — closes the response-time and coverage gaps that the human team cannot fill
+                  because the human team is already at capacity. The automation layer — revenue
+                  automation, marketing automation suite, funnel automation — wires the disconnected
+                  systems together so handoffs happen automatically rather than depending on someone
+                  remembering to update a field. The intelligence layer — AI data analyst reporting
+                  daily in plain English — gives the owner or commercial director a reliable picture
+                  of what is actually working and what is not.
+                </p>
+
+                <p>
+                  This is not a technology transformation project. It is a revenue operations
+                  project. The question we ask at the start of every engagement is not what
+                  technology do you want, but where is your revenue leaking? The answer to that
+                  question shapes the deployment roadmap, the order in which we build, and the
+                  metrics we measure against in the first 90 days.
+                </p>
+
+                <p>
+                  For an iGaming operator, the answer is typically: player acquisition costs are
+                  rising because acquisition and CRM are managed by separate teams with separate
+                  tools and no shared attribution model. For a Malta restaurant group, it is
+                  missed cover capacity during shoulder hours because reservation follow-up
+                  is manual. For a law firm, it is partner time spent on client onboarding
+                  tasks that a well-designed automation could handle in minutes rather than hours.
+                </p>
+
+                <p>
+                  The deployment always starts with the highest-revenue-impact gap — whatever is
+                  leaking the most, gets fixed first. That is why most OARC clients see measurable
+                  improvement within 30 days of going live, and why the improvements compound
+                  as the engagement matures: each layer we add closes a new gap and connects
+                  to the layers already running.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* ========== TESTIMONIALS ========== */}
         <section className="py-24 px-6 border-t border-white/5">
           <div className="max-w-6xl mx-auto">

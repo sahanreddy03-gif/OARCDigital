@@ -540,6 +540,90 @@ export default function PageContent() {
           </div>
         </section>
         
+        {/* ========== BUSINESS CASE PROSE — AI Employees in Malta ========== */}
+        <section className="relative z-10 py-20 sm:py-24 px-4 sm:px-6 bg-black border-t border-white/5" data-testid="section-ai-agents-business-case">
+          <div className="max-w-3xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-8" data-speakable>
+                Why Malta Businesses Are Switching to AI Employees
+              </h2>
+
+              <div className="space-y-6 text-white/65 leading-relaxed text-base sm:text-lg">
+                <p>
+                  The argument for AI employees is, at its core, a staffing argument. A Malta business
+                  paying around €2,400 per month for a full-time team member gets someone who works
+                  eight hours a day, five days a week, takes sick days and holidays, and has a ceiling
+                  on how much they can handle at once. The same budget directed at an AI workforce gets
+                  24/7 coverage across every channel, zero sick days, consistent output quality regardless
+                  of message volume, and the ability to handle hundreds of conversations simultaneously.
+                  That is not a technology argument. It is a commercial one.
+                </p>
+
+                <p>
+                  The challenge specific to Malta is that the labour market is tight. Qualified sales
+                  people, support staff and operations managers are expensive to hire and expensive to
+                  keep. The iGaming, fintech and financial services sectors — which dominate the Maltese
+                  economy — absorb a significant share of the available talent pool, which means
+                  hospitality, retail, professional services and fast-growing SMBs end up competing
+                  for what is left. AI employees address a specific subset of that shortage: the
+                  shortage of high-quality, consistently performing team members for functions that
+                  do not require physical presence. Sales outreach, first-contact qualification,
+                  customer query resolution, appointment scheduling, invoice follow-up, data reporting
+                  — all of these can be handled by AI agents running on EU-resident infrastructure,
+                  processing data under GDPR-compliant conditions, and integrated with the tools
+                  your team already runs day-to-day.
+                </p>
+
+                <p>
+                  The questions we hear most often from Malta business owners before they commit to
+                  a pilot are three: Will this replace my team? Will it actually work with our existing
+                  systems? And will it do the job well enough that I can trust it in front of customers?
+                </p>
+
+                <p>
+                  On the first question: AI agents are additive, not replacements. The SDR agent books
+                  qualified meetings — a human closes them. The support agent resolves tier-1 queries
+                  — a human handles the cases that need real judgement. The admin agent triages the
+                  inbox — a human makes the decisions. What changes is that your team's time is spent
+                  on the work that genuinely requires human intelligence, rather than on the repetitive
+                  tasks that drain it.
+                </p>
+
+                <p>
+                  On the second: every OARC AI agent integrates with the tools your business already
+                  operates on — HubSpot, Salesforce, Calendly, Stripe, WhatsApp Business, Gmail, Slack,
+                  and most major hospitality and booking platforms used by Malta operators. We handle
+                  the integration work as part of onboarding, and agents go live within 7–14 days
+                  of engagement start.
+                </p>
+
+                <p>
+                  On the third: AI agents trained on your specific business context — your products,
+                  your pricing, your tone of voice, your escalation rules — perform significantly
+                  better on your queries than an off-the-shelf chatbot. We spend the first week
+                  grounding each agent on real data from your business: your FAQ library, your
+                  product catalogue, your past conversations, your CRM. The result is an agent
+                  that responds the way your best team member would respond, not the way a
+                  generic assistant would.
+                </p>
+
+                <p>
+                  From an EU compliance perspective, all OARC AI agents process and store data on
+                  EU-resident infrastructure by default — Frankfurt or Dublin depending on your
+                  preference. No data leaves the EU without explicit instruction, and every deployment
+                  comes with a data processing agreement aligned with GDPR obligations. For iGaming
+                  and financial services operators regulated by the MGA or MFSA, we can supply
+                  additional documentation on data handling and AI decision-making on request.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Command Console Section */}
         <section id="agents" className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950">
           <div className="max-w-6xl mx-auto">
