@@ -27,6 +27,7 @@ export async function generateMetadata({
   return {
     title: c.title,
     description: c.description,
+    robots: { index: false, follow: true },
     alternates: { canonical: c.canonical },
     openGraph: { title: c.title, description: c.description, url: c.canonical, type: 'website', images: ogImageEntry({ title: c.title, subtitle: c.description }) },
     twitter: { card: 'summary_large_image', title: c.title, description: c.description, images: [ogImageUrl({ title: c.title, subtitle: c.description })] },

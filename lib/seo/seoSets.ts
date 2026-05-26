@@ -137,7 +137,7 @@ export const NOINDEX_SERVICE_SLUGS: ReadonlySet<string> = new Set<string>([]);
  * 2) drop it from this set,
  * 3) ship in the same commit (audit-framework walks both lists).
  *
- * Audit verdicts in `lib/seo/programmatic-audit.md` track the schedule.
+ * Audit verdicts in `.local/seo/programmatic-audit.md` track the schedule.
  *
  * IMPORTANT: a slug only belongs here if it has NEITHER an entry in the
  * `industries` Record of `app/industries/[industry]/page.tsx` NOR a
