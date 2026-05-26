@@ -1373,14 +1373,29 @@ const NODES: LinkNode[] = [
     title: "MVP Development",
     shortLabel: "MVP",
     hub: "service",
-    spokes: [],
+    spokes: [
+      "/services/custom-software-development",
+      "/services/saas-development",
+    ],
+  },
+  {
+    path: "/services/mvp-development/for-software",
+    title: "MVP Development for Software",
+    shortLabel: "Software MVP",
+    hub: "service",
+    spokes: [
+      "/services/mvp-development",
+      "/services/custom-software-development",
+    ],
   },
   {
     path: "/services/api-integration-services",
     title: "API & Integration Services",
     shortLabel: "API Integration",
     hub: "service",
-    spokes: [      "/services/mobile-applications-development",
+    spokes: [
+      "/services/mobile-applications-development",
+      "/services/custom-software-development",
     ],
   },
   {
