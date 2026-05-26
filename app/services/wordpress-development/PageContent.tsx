@@ -1,7 +1,9 @@
+"use client";
+
 import Layout from "@/components/layout/Layout";
 import RelatedServices from "@/components/RelatedServices";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, ArrowRight, MapPin, Phone, Mail } from "lucide-react";
+import { CheckCircle2, ArrowRight, Phone } from "lucide-react";
 import Link from "next/link";
 import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
 
@@ -9,6 +11,29 @@ import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import TrustBlock from "@/components/seo/TrustBlock";
 import { NAP } from "@/lib/seo/nap";
 const SCHEMA = SERVICE_SCHEMAS["wordpress-development"];
+
+const wpHeroImage = "/attached_assets/stock_images/website_design_ui_ux_4ef0c7cd.jpg";
+
+const wpImageObjectSchema = {
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  name: "WordPress Gutenberg block editor interface — CMS a non-technical Malta business owner can manage independently",
+  description: "Modern WordPress block-based editor showing how Malta business owners can update pages, add blog posts, and manage content without needing a developer for every change.",
+  url: "https://oarcdigital.com/attached_assets/stock_images/website_design_ui_ux_4ef0c7cd.jpg",
+  width: 1200,
+  height: 800,
+  contentUrl: "https://oarcdigital.com/attached_assets/stock_images/website_design_ui_ux_4ef0c7cd.jpg",
+};
+
+const wpFaqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: SCHEMA.faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
 
 const phases = [
   { title: "Discovery, content audit, hosting plan (week 1)", detail: "We map the URL structure to migrate, the plugins to keep, the plugins to retire, and the hosting topology — usually Cloudways, Kinsta, or WP Engine in EU regions for Malta clients." },
@@ -20,6 +45,14 @@ const phases = [
 export default function WordPressDevelopmentContent() {
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(wpImageObjectSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(wpFaqPageSchema) }}
+      />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
@@ -31,26 +64,26 @@ export default function WordPressDevelopmentContent() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
               <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">WordPress Builds</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">WordPress Development for Malta Businesses</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight" data-testid="heading-hero">A Website You Can Actually Manage Yourself.</h1>
             <p className="text-xl text-zinc-300 leading-relaxed mb-8">
               Custom WordPress builds, theme design, plugin development, and managed maintenance — fast, secure, and built to be edited by your team without breaking.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">Book a WordPress audit <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
+              <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white" data-testid="button-hero-cta">Book a WordPress audit <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
               <a href={`tel:${NAP.phoneE164}`}><Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10"><Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button></a>
             </div>
             <div className="mt-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
               <img
-                src="/images/services/wordpress-development-hero.png"
-                alt="WordPress Gutenberg block editor admin dashboard mockup with a Malta harbour skyline visible through the office window — illustrating OARC Digital's custom WordPress builds for Malta businesses"
-                className="w-full h-auto block"
+                src={wpHeroImage}
+                alt="Website design UI and UX process — WordPress block editor built so Malta business owners can update pages, add blog posts, and manage content without a developer"
+                className="w-full h-auto block object-cover"
                 loading="eager"
-                width={1600}
-                height={900}
+                width={1200}
+                height={800}
                 data-testid="img-wordpress-hero"
               />
             </div>
-            <p className="mt-6 text-xs text-zinc-500">Last updated: 10 May 2026</p>
+            <p className="mt-6 text-xs text-zinc-500" data-testid="text-last-updated">Last updated: 10 May 2026</p>
           </div>
         </section>
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">

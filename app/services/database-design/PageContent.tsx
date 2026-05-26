@@ -1,17 +1,39 @@
+"use client";
+
 import Layout from "@/components/layout/Layout";
 import RelatedServices from "@/components/RelatedServices";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight, Phone } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import { SERVICE_SCHEMAS } from "@/lib/seo/serviceSchemaConfig";
 
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import TrustBlock from "@/components/seo/TrustBlock";
 import { NAP } from "@/lib/seo/nap";
 
-const dataEngineeringHero = "/attached_assets/data-insights-neural-optimized.webp";
+const dataEngineeringHero = "/attached_assets/18_1763228440284.jpg";
 const SCHEMA = SERVICE_SCHEMAS["database-design"];
+
+const dbImageObjectSchema = {
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  name: "Data engineering circuit board visualisation — database schema, pipeline, and query optimisation for Malta software teams",
+  description: "PostgreSQL, MongoDB, and Snowflake data architecture for Malta SaaS, fintech, and iGaming teams — schema design, zero-downtime migrations, and production ETL pipelines that actually get reviewed.",
+  url: "https://oarcdigital.com/attached_assets/18_1763228440284.jpg",
+  width: 1200,
+  height: 800,
+  contentUrl: "https://oarcdigital.com/attached_assets/18_1763228440284.jpg",
+};
+
+const dbFaqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: SCHEMA.faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
 
 const phases = [
   { title: "Domain modelling workshop (week 1)", detail: "We sit with founders and product owners to model the real-world entities, relationships, and lifecycle states. The output is a written Entity Relationship Diagram and a glossary your engineers will reference for years." },
@@ -33,6 +55,14 @@ const stack = [
 export default function DatabaseDesignContent() {
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(dbImageObjectSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(dbFaqPageSchema) }}
+      />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
           <div className="max-w-6xl mx-auto px-6 md:px-8 grid md:grid-cols-2 gap-10 items-center">
@@ -41,12 +71,12 @@ export default function DatabaseDesignContent() {
                 <Link href="/" className="hover:text-white transition-colors" data-testid="link-breadcrumb-home">Home</Link><span>/</span>
                 <Link href="/services" className="hover:text-white transition-colors" data-testid="link-breadcrumb-services">Services</Link><span>/</span>
                 <Link href="/services/custom-software-development" className="hover:text-white transition-colors" data-testid="link-breadcrumb-parent">Custom Software</Link><span>/</span>
-                <span className="text-white">Database & Data Engineering</span>
+                <span className="text-white">Database &amp; Data Engineering</span>
               </div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
-                <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Data Architecture & Engineering</span>
+                <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Data Architecture &amp; Engineering</span>
               </div>
-              <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">Database Design & Data Engineering for Malta-Based Software Teams</h1>
+              <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight" data-testid="heading-hero">Your Data Is Only Valuable If You Can Actually Use It.</h1>
               <p className="text-xl text-zinc-300 leading-relaxed mb-8">
                 PostgreSQL, MongoDB, and Snowflake. Schema design, query optimisation, zero-downtime migrations, and production ETL pipelines — for Malta SaaS, fintech, and iGaming teams that need their data layer to scale without rewrites.
               </p>
@@ -57,13 +87,13 @@ export default function DatabaseDesignContent() {
               <p className="mt-6 text-xs text-zinc-500" data-testid="text-last-updated">Last updated: 10 May 2026</p>
             </div>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-              <Image
+              <img
                 src={dataEngineeringHero}
-                alt="Data engineering dashboard showing schema lineage, query plans, and an ETL pipeline running across PostgreSQL, MongoDB, and Snowflake for a Malta software team"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
+                alt="Data engineering and database architecture — schema design, query optimisation, and ETL pipelines for Malta SaaS and fintech software teams"
+                width={800}
+                height={600}
+                className="object-cover w-full h-full"
+                loading="eager"
                 data-testid="img-hero-data-engineering"
               />
             </div>

@@ -10,6 +10,19 @@ import { ORG_FOUNDING_DATE } from "@/lib/seo/organizationSchema";
 const URL = "https://oarcdigital.com/why-us";
 const TITLE = "Who We Are | Our Founding Story | OARC Digital Malta";
 
+const whyUsHeroImage = "/attached_assets/emma_1763248379256.jpg";
+
+const whyUsImageObjectSchema = {
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  name: "OARC Digital team member at work — the human-and-AI studio behind Malta's fastest-growing independent marketing agency",
+  description: "The people behind OARC Digital: a Birkirkara-based studio that put brand, performance, and AI agents under one roof after a decade of watching Maltese businesses pay for three vendors and get results from none of them.",
+  url: "https://oarcdigital.com/attached_assets/emma_1763248379256.jpg",
+  width: 1200,
+  height: 800,
+  contentUrl: "https://oarcdigital.com/attached_assets/emma_1763248379256.jpg",
+};
+
 const FOUNDER_FAQS: { question: string; answer: string }[] = [
   {
     question: "Who founded OARC Digital and when?",
@@ -62,10 +75,22 @@ export default function PageContent() {
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(whyUsImageObjectSchema) }} />
 
       {/* HERO */}
-      <section className="relative bg-zinc-950 pt-28 md:pt-32 pb-20 text-white" data-testid="section-hero">
-        <div className="container mx-auto px-6 max-w-4xl">
+      <section className="relative bg-zinc-950 overflow-hidden text-white" data-testid="section-hero">
+        <div className="absolute inset-0">
+          <img
+            src={whyUsHeroImage}
+            alt="OARC Digital team member at work in the Birkirkara studio — the human-and-AI agency behind Malta's fastest-moving marketing practice"
+            width={1200}
+            height={800}
+            className="w-full h-full object-cover opacity-20"
+            fetchPriority="high"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/80 via-zinc-950/70 to-zinc-950" />
+        </div>
+        <div className="relative z-10 container mx-auto px-6 max-w-4xl pt-28 md:pt-32 pb-20">
           <p className="text-xs uppercase tracking-[0.3em] text-[#ff914d] mb-6" data-testid="text-eyebrow">
             Our Founding Story
           </p>
@@ -74,7 +99,7 @@ export default function PageContent() {
             data-speakable
             data-testid="heading-hero"
           >
-            We built OARC Digital because Malta deserved an agency that worked at the pace of its operators.
+            We Started OARC Because We Saw Agencies Failing Their Clients.
           </h1>
           <p className="text-xl text-white/70 leading-relaxed max-w-3xl" data-speakable data-testid="text-hero-subtitle">
             Founded in 2023 by Sahan Reddy, OARC Digital is a Birkirkara studio that puts brand, performance, and AI agents under one roof — so Maltese businesses can stop stitching together three vendors and start shipping weekly.
@@ -240,6 +265,38 @@ export default function PageContent() {
         </div>
       </section>
 
+      {/* LOCALITY REACH */}
+      <section className="bg-zinc-950 border-t border-white/5 py-20 text-white" data-testid="section-localities">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#ff914d] mb-4">Chapter 04c — Where our clients operate</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">A Birkirkara studio, a Malta-wide reach.</h2>
+          <p className="text-lg text-white/70 leading-relaxed mb-6">
+            The Brewhouse address is our operating base, not a limit on where we work. OARC Digital runs accounts across Malta and Gozo — from the iGaming and financial-services cluster in Mriehel and St Julian&apos;s to the hospitality brands along the Ta&apos; Xbiex marina and Sliema Strand, the professional-services firms in Valletta, the property development projects around Targa Gap and the Marsa-Qormi corridor, and the retail and hospitality operators in Mosta, Qormi, Swieqi, and Gzira. Four clients are based in Gozo — predominantly agri-tourism, hospitality, and artisan food brands that want the mainland market but cannot maintain a full-time agency relationship in Valletta. The studio visits Gozo on a monthly rhythm for those accounts.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed mb-6">
+            A further six clients operate internationally from Malta-domiciled entities — iGaming brands with players in Brazil and Germany, a fintech regulated by the MFSA serving UK customers, and a SaaS company with clients from Stockholm to Auckland. For those accounts the Maltese compliance context is a capability advantage: the team understands MGA, MFSA, MTA, and MBR requirements as first-language knowledge rather than as an afterthought in a campaign brief written offshore.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed mb-8">
+            The Ghadira Bay and Cirkewwa corridor, Manoel Island, Pjazza Antoine de Paule in Marsaxlokk, and the Three Cities waterfront have all appeared in creative briefs in the last twelve months. Sir Paul Boffa Square in Valletta is two minutes from three of our current clients. Being Maltese in the brief is a competitive advantage that no offshore agency can manufacture, and it is one of the reasons the studio is based here rather than in a capital with larger agency clusters.
+          </p>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {["Valletta", "Sliema", "St Julian's", "Birkirkara", "Mriehel", "Mosta", "Gzira", "Swieqi", "Qormi", "Ta' Xbiex", "Three Cities", "Paola", "Gozo"].map((loc) => (
+              <span key={loc} className="text-xs px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/60">{loc}</span>
+            ))}
+          </div>
+          <p className="text-sm text-white/50 leading-relaxed mb-4">
+            If your business operates in Malta and you want to work with a studio that understands the market from the inside rather than from a pitch deck, the process starts with a thirty-minute call. No slide decks, no commitment — just an honest conversation about whether we are the right fit and what the first ninety days would look like if we are.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 text-[#ff914d] font-semibold text-sm hover:text-orange-300 transition-colors"
+            data-testid="link-localities-cta"
+          >
+            Book the call <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+
       {/* FOUNDER VOICE — pull quote */}
       <section className="bg-zinc-950 border-t border-white/5 py-20 text-white" data-testid="section-founder-quote">
         <div className="container mx-auto px-6 max-w-3xl text-center">
@@ -251,6 +308,130 @@ export default function PageContent() {
           <p className="text-xs text-white/40 mt-2">
             Studio founded {new Date(ORG_FOUNDING_DATE).getFullYear()}. Headquartered at {NAP.streetAddressShort}, {NAP.addressLocality} {NAP.postalCode}.
           </p>
+        </div>
+      </section>
+
+      {/* WHAT AGENCIES GET WRONG */}
+      <section className="bg-zinc-950 border-t border-white/5 py-20 text-white" data-testid="section-agencies-wrong">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#ff914d] mb-4">Chapter 05b — What agencies keep getting wrong</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">The five patterns we refused to repeat.</h2>
+          <p className="text-lg text-white/70 leading-relaxed mb-8">
+            Before founding OARC Digital, the team spent years inside and alongside the kind of agencies that Maltese businesses hire and then outgrow. The problems were consistent across markets. We built OARC specifically to avoid them.
+          </p>
+          <div className="space-y-6">
+            {[
+              { number: "01", title: "The account manager layer", body: "Most agencies put an account manager between the client and the people doing the work. The account manager translates the brief, attends calls, and writes the report. They add three to five days to every feedback loop and cost €30,000–€50,000 a year in overhead that the client pays for invisibly in their monthly retainer. At OARC, the pod that writes the strategy is the pod that runs the account. No translation layer, no handover cost." },
+              { number: "02", title: "The quarterly review cadence", body: "Most agencies meet their clients quarterly. That means four opportunities per year to course-correct. In the time between reviews, campaigns run, budgets burn, and underperforming creative stays live for three months before anyone discusses it. OARC reviews weekly. Not a call for the sake of a call — a one-hour session where we pull live data, share what worked and what did not, and make decisions for the following week. Quarterly reviews are what you do when you do not have weekly data." },
+              { number: "03", title: "The strategy deck with no output", body: "Strategy is cheap. Output is expensive. Most agency engagements begin with a ten-week discovery and strategy phase that produces a one-hundred-slide deck, two rounds of stakeholder reviews, and zero content, campaign material, or revenue. OARC ships in week one. The strategy evolves from what the data tells us, not from what a deck predicted before anything ran." },
+              { number: "04", title: "The vanity metric report", body: "Impressions, reach, engagement rate, follower growth — metrics that look good in a monthly report and say nothing about revenue. The OARC weekly report covers the numbers that a Maltese business operator actually cares about: leads generated, cost per qualified lead, revenue attributed to campaigns this week, sales-qualified meetings booked, and churn rate on the accounts running AI automation. If the number does not connect to a business outcome, it does not appear in the report." },
+              { number: "05", title: "The contract that outlasts the relationship", body: "Most agency contracts run twelve months minimum. That gives the agency twelve months of revenue regardless of output quality. The client has no leverage after signing. OARC runs month-to-month across every engagement. If the weekly review is not worth the fee, the client cancels. That structure forces us to earn the renewal every four weeks. The clients who have been with us since 2023 are still on month-to-month terms. So are we." },
+            ].map((item) => (
+              <div key={item.number} className="flex gap-6 p-6 bg-white/[0.03] border border-white/10 rounded-xl" data-testid={`wrong-${item.number}`}>
+                <div className="shrink-0 text-3xl font-black text-white/10 select-none">{item.number}</div>
+                <div>
+                  <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
+                  <p className="text-white/60 leading-relaxed text-sm">{item.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* THE CLIENTS WE TURN DOWN */}
+      <section className="bg-zinc-950 border-t border-white/5 py-20 text-white" data-testid="section-turn-down">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#ff914d] mb-4">Chapter 06 — The clients we turn down</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">We are selective. That is not marketing. That is the model.</h2>
+          <p className="text-lg text-white/70 leading-relaxed mb-6">
+            OARC Digital turns down roughly one in three enquiries. The work we refuse is predictable: single-event campaigns with no ongoing growth objective, businesses that want monthly reporting with no weekly touchpoints, enquiries where the brief is &ldquo;make our social media look better&rdquo; with no revenue metric attached to it, and early-stage startups that have not yet validated product-market fit and want marketing to do that job for them.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed mb-6">
+            The clients we work with typically have one thing in common: they know their business model and want to accelerate it. They have a product that converts, a sales process that can absorb more qualified leads, and a leadership team that will act on weekly data. Those clients get enormous value from the OARC model. Clients who are still figuring out what they sell or who they sell it to do not — and we tell them that honestly during the first call.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed">
+            The practical benefit for the clients we do work with: we are never distracted by a misfit account, and the pod that runs your account is not stretched across fifteen clients in different industries. Malta is a small market. The operators here generally know each other. We work with the ones we can actually move the needle for, and we are direct about which ones those are.
+          </p>
+        </div>
+      </section>
+
+      {/* WHAT WE WILL NOT DO */}
+      <section className="bg-zinc-950 border-t border-white/5 py-20 text-white" data-testid="section-principles">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#ff914d] mb-4">Chapter 07 — What we will not do</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Hard limits that are not negotiable.</h2>
+          <p className="text-lg text-white/70 leading-relaxed mb-8">
+            Every studio has things it will not do. These are ours. They are not on this page for positioning. They are here because every one of them was a decision made after a difficult conversation, and we want future clients to know where the lines are before they arrive.
+          </p>
+          <div className="space-y-5">
+            {[
+              { limit: "We will not take a percentage of ad spend as our fee.", reason: "If the agency earns more when you spend more, the agency has an incentive to recommend more spend. We charge a flat retainer regardless of media budget. The recommendation to increase or decrease spend is based on data, not on our fee structure." },
+              { limit: "We will not run white-label work on behalf of another agency.", reason: "We have been asked, and we have said no. The client at the end of the chain deserves to know who is doing their work. We are not interested in being the production team behind another agency's pitch." },
+              { limit: "We will not sign an NDA that prevents us from publishing results.", reason: "Results are the thing we are selling. If a client asks us to keep every number confidential, we cannot prove to future clients that we do what we say. We are transparent about client outcomes — with permission — or we are not the right fit." },
+              { limit: "We will not sign a 12-month contract.", reason: "If the work is good, the client renews. Month-to-month is the only contract structure we offer. It has been that way since the first client in 2023. It has never cost us a good client — only a few bad ones who turned out to be bad ones." },
+              { limit: "We will not hire account managers.", reason: "Account managers add a layer between the client and the people doing the work. We have run the model with and without that layer. Without it, feedback loops are faster, clients are happier, and the work is better. We are committed to keeping it that way." },
+            ].map((item, i) => (
+              <div key={i} className="p-5 bg-white/[0.03] border border-white/10 rounded-xl" data-testid={`principle-${i}`}>
+                <p className="text-sm font-bold text-white mb-2">{item.limit}</p>
+                <p className="text-sm text-white/60 leading-relaxed">{item.reason}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 p-6 bg-[#ff914d]/10 border border-[#ff914d]/20 rounded-xl">
+            <p className="text-sm text-white/70 leading-relaxed mb-3">If these principles describe a studio you want to work with, the next step is a thirty-minute call. We pull live data on your current presence, tell you what we would change in the first ninety days, and you decide from there.</p>
+            <Link href="/contact" className="inline-flex items-center gap-2 text-[#ff914d] font-semibold text-sm hover:text-orange-300 transition-colors" data-testid="link-principles-cta">
+              Book the thirty-minute call <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* HOW TO ENGAGE */}
+      <section className="bg-zinc-950 border-t border-white/5 py-20 text-white" data-testid="section-engage">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#ff914d] mb-4">Chapter 08 — How to start</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">A thirty-minute call, not a twelve-slide deck.</h2>
+          <p className="text-lg text-white/70 leading-relaxed mb-6">
+            The OARC new-client process is designed to waste as little time as possible for both sides. It works like this. You book a thirty-minute call on the contact page. Before the call, a member of the team pulls live data on your current digital presence — ranking positions, ad performance where visible, social engagement rate, and any technical issues that are visible from outside the property. The call is a working session, not a sales presentation.
+          </p>
+          <p className="text-lg text-white/70 leading-relaxed mb-8">
+            At the end of the call, one of three things happens. We tell you the fit is obvious and give you a start date. We tell you the fit is not obvious yet and explain what would need to be true for it to become obvious. Or we tell you that a different studio would serve you better and name who that would be. All three outcomes have happened, and all three are appropriate. We do not run a sales process that assumes the answer is always yes.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              { step: "1.", title: "Book the call", body: "Thirty minutes via the contact page. No prep required on your end. We do the pre-call research." },
+              { step: "2.", title: "Working session", body: "Live data on your current presence, honest view on where the gap is, and what we would change first." },
+              { step: "3.", title: "Decision", body: "We tell you whether the fit is right. If yes, you get a start date. If not, we say why." },
+            ].map((item, i) => (
+              <div key={i} className="p-5 bg-white/[0.03] border border-white/10 rounded-xl" data-testid={`engage-step-${i}`}>
+                <div className="text-[#ff914d] font-black text-2xl mb-2">{item.step}</div>
+                <h3 className="text-base font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-sm text-white/60">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ BRIEF */}
+      <section className="bg-zinc-950 border-t border-white/5 py-20 text-white" data-testid="section-faq">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#ff914d] mb-4">Chapter 09 — Questions we get asked on the first call</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">Answered directly.</h2>
+          <div className="space-y-6">
+            {([
+              { q: "Who founded OARC Digital and when?", a: "OARC Digital was founded in 2023 by Sahan Reddy, after more than a decade running creative, engineering, and growth teams across Asia and the European Union. The studio was set up in Birkirkara, Malta, to put three disciplines that Maltese businesses usually source separately — creative, AI engineering, and growth automation — under one roof." },
+              { q: "Where is OARC Digital based?", a: "Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. Five minutes from Mriehel, ten from Mosta, twenty from Valletta or Sliema. Local clients are welcome to come in for a Friday review." },
+              { q: "What does OARC stand for?", a: "Optimised, AI, Revenue, Creative. Each letter is a working principle — not a tagline. Optimised means engineered for output per hour. AI is a real capability, not a sticker. Revenue is the metric we report against. Creative is the surface that has to earn attention before any spend." },
+              { q: "What is the minimum engagement?", a: "One month. There is no minimum term. If the first month's work is not worth renewing, the client does not renew. We have operated on month-to-month terms since the first client in 2023. The clients from that year are still on the books." },
+            ] as { q: string; a: string }[]).map((item, i) => (
+              <div key={i} className="border-b border-white/10 pb-6 last:border-0" data-testid={`faq-item-${i}`}>
+                <h3 className="text-base font-semibold text-white mb-3">{item.q}</h3>
+                <p className="text-sm text-white/60 leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
