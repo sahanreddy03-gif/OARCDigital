@@ -222,6 +222,21 @@ export default function RealEstateMaltaIndustryHub() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
         />
+        {/* Speakable JSON-LD — voice/AI discovery for /industries/real-estate */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              url: CANONICAL,
+              speakable: {
+                "@type": "SpeakableSpecification",
+                cssSelector: ["[data-speakable]"],
+              },
+            }),
+          }}
+        />
 
         {/* Hero */}
         <section className="relative min-h-[65vh] flex items-center overflow-hidden">
