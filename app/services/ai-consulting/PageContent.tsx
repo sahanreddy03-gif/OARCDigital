@@ -38,6 +38,7 @@ import { createServiceSchema } from "@/utils/structuredData";
 import { Button } from '@/components/ui/button';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
+import RelatedServices from "@/components/RelatedServices";
 
 const aiConsultingFAQs: FAQItem[] = [
   { question: "What is AI consulting?", answer: "AI consulting helps businesses identify, plan, and implement AI solutions. We assess opportunities, build strategies, and guide implementation for maximum impact." },
@@ -1426,6 +1427,8 @@ export default function AIConsulting() {
           </div>
         </div>
       </section>
+
+      <RelatedServices slug="/services/ai-consulting" />
     </Layout>
   );
 }

@@ -22,6 +22,7 @@ import {
   SiAmazon, SiStripe, SiTwilio, SiFigma,
   SiFlutter, SiKotlin, SiSwift, SiDocker
 } from 'react-icons/si';
+import RelatedServices from "@/components/RelatedServices";
 
 const mvpMobileScreens = "/attached_assets/generated_images/mvp_mobile_app_prototype_screens.png";
 const mvpDashboard = "/attached_assets/generated_images/saas_mvp_dashboard_interface.png";
@@ -1110,6 +1111,8 @@ export default function MVPDevelopment() {
           </motion.div>
         </div>
       </section>
+
+      <RelatedServices slug="/services/mvp-development" />
     </Layout>
   );
 }

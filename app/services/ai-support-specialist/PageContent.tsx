@@ -24,6 +24,7 @@ import Layout from "@/components/layout/Layout";
 import { createServiceSchema } from "@/utils/structuredData";
 import ScrollReveal from "@/components/ScrollReveal";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
+import RelatedServices from "@/components/RelatedServices";
 
 const supportHeroImg = "/attached_assets/stock_images/customer_support_spe_789ecb6b.jpg";
 const aiChatbotImg1 = "/attached_assets/stock_images/ai_chatbot_customer__070fc7ce.jpg";
@@ -542,6 +543,8 @@ export default function AICustomerSupport() {
           </Link>
         </div>
       </section>
+
+      <RelatedServices slug="/services/ai-support-specialist" />
     </Layout>
   );
 }

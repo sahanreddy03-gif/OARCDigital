@@ -9,6 +9,7 @@ import Layout from "@/components/layout/Layout";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
+import RelatedServices from "@/components/RelatedServices";
 const heroImage = "/attached_assets/email craetion_1763085804635.avif";
 
 const emailCreativeFAQs: FAQItem[] = [
@@ -436,6 +437,8 @@ export default function EmailCreative() {
           </div>
         </div>
       </section>
+
+      <RelatedServices slug="/services/email-creative" />
     </Layout>
   );
 }

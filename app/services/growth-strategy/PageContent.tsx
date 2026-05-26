@@ -8,6 +8,7 @@ import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import { createServiceSchema } from "@/utils/structuredData";
 import FAQSection, { FAQItem } from '@/components/FAQSection';
+import RelatedServices from "@/components/RelatedServices";
 
 const growthStrategyFAQs: FAQItem[] = [
   { question: "What is growth strategy consulting?", answer: "We help businesses identify growth levers, develop go-to-market plans, and build scalable systems for sustainable revenue growth." },
@@ -299,6 +300,8 @@ export default function GrowthStrategy() {
           </div>
         </div>
       </section>
+
+      <RelatedServices slug="/services/growth-strategy" />
     </Layout>
   );
 }

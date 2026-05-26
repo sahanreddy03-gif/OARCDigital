@@ -1,4 +1,5 @@
 import TrustBlock from "@/components/seo/TrustBlock";
+import RelatedServices from "@/components/RelatedServices";
 
 export default function PageContent() {
     return (
@@ -62,6 +63,8 @@ export default function PageContent() {
             <TrustBlock variant="visit" />
           </div>
         </div>
+
+      <RelatedServices slug="/services/ai-appointment-booker" />
       </section>
     );
   }

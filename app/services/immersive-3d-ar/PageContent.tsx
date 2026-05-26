@@ -10,6 +10,7 @@ import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 const heroImage = "/attached_assets/stock_images/virtual_reality_vr_h_6d01f361.jpg";
 import FAQSection, { FAQItem } from '@/components/FAQSection';
+import RelatedServices from "@/components/RelatedServices";
 
 const immersive3DFAQs: FAQItem[] = [
   { question: "What 3D and AR services do you offer?", answer: "3D product visualization, AR experiences, virtual showrooms, interactive configurators, and immersive brand experiences." },
@@ -428,6 +429,8 @@ export default function Immersive3DAR() {
           </div>
         </div>
       </section>
+
+      <RelatedServices slug="/services/immersive-3d-ar" />
     </Layout>
   );
 }

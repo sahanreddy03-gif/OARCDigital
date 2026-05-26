@@ -19,6 +19,7 @@ import {
   Presentation,
   Wrench,
 } from "lucide-react";
+import RelatedServices from "@/components/RelatedServices";
 
 const socialAuditFAQs: FAQItem[] = [
   {
@@ -629,6 +630,8 @@ export default function SocialStrategyAudit() {
           </Link>
         </div>
       </section>
+
+      <RelatedServices slug="/services/social" />
     </Layout>
   );
 }

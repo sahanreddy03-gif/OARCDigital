@@ -9,6 +9,7 @@ import FAQSection, { FAQItem } from '@/components/FAQSection';
 import { motion } from 'framer-motion';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
+import RelatedServices from '@/components/RelatedServices';
 
 const leadGenImage = "/attached_assets/stock_images/lead_generation_qual_b9d50c93.jpg";
 const customerAcquisitionImage = "/attached_assets/stock_images/customer_acquisition_38bd9c1d.jpg";
@@ -319,6 +320,8 @@ export default function RevenueHub() {
       </section>
 
       </div>
+
+      <RelatedServices slug="/services/revenue-automation" />
     </Layout>
   );
 }

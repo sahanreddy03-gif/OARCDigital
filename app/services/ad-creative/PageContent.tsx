@@ -9,6 +9,7 @@ import Layout from "@/components/layout/Layout";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
+import RelatedServices from "@/components/RelatedServices";
 const heroImage = "/attached_assets/creative-ad-campaigns-optimized.jpg";
 const adImg1 = "/attached_assets/stock_images/creative_advertising_b13aabf8.jpg";
 const adImg2 = "/attached_assets/stock_images/creative_advertising_0f7921d3.jpg";
@@ -437,6 +438,8 @@ export default function AdCreative() {
         </div>
       </section>
     </div>
+
+      <RelatedServices slug="/services/ad-creative" />
     </Layout>
   );
 }

@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
+import RelatedServices from "@/components/RelatedServices";
 
 const heroImg = "/attached_assets/stock_images/mobile_app_design_us_2b0d5cbd.jpg";
 const appImg1 = "/attached_assets/stock_images/mobile_app_design_us_5eb8ced7.jpg";
@@ -613,6 +614,8 @@ export default function MobileAppsDevelopment() {
           </motion.div>
         </div>
       </section>
+
+      <RelatedServices slug="/services/mobile-apps-development" />
     </Layout>
   );
 }

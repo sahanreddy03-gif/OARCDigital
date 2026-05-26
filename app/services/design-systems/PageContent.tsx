@@ -10,6 +10,7 @@ import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 const heroImage = "/attached_assets/15_1763085718435.avif";
 import FAQSection, { FAQItem } from '@/components/FAQSection';
+import RelatedServices from "@/components/RelatedServices";
 
 const designSystemsFAQs: FAQItem[] = [
   { question: "What is a design system?", answer: "A comprehensive library of reusable components, guidelines, and standards that ensure visual consistency across all digital products." },
@@ -428,6 +429,8 @@ export default function DesignSystems() {
           </div>
         </div>
       </section>
+
+      <RelatedServices slug="/services/design-systems" />
     </Layout>
   );
 }

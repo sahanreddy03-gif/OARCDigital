@@ -8,6 +8,7 @@ import { ScrollableCards } from "@/components/ui/scrollable-cards";
 import Layout from "@/components/layout/Layout";
 import { createServiceSchema } from "@/utils/structuredData";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
+import RelatedServices from "@/components/RelatedServices";
 
 const analyticsFAQs: FAQItem[] = [
   { question: "What is performance analytics?", answer: "Data-driven analysis of your marketing and business performance. We track, measure, and optimize every touchpoint for maximum ROI." },
@@ -332,6 +333,8 @@ export default function PerformanceAnalytics() {
           </div>
         </div>
       </section>
+
+      <RelatedServices slug="/services/performance-analytics" />
     </Layout>
   );
 }

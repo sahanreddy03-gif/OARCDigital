@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
+import RelatedServices from "@/components/RelatedServices";
 
 const apiIntegrationFAQs: FAQItem[] = [
   { question: "What is API integration?", answer: "Connecting different software systems to work together seamlessly. We build bridges between your tools so data flows automatically." },
@@ -583,6 +584,8 @@ export default function APIIntegrationServices() {
           </motion.div>
         </div>
       </section>
+
+      <RelatedServices slug="/services/api-integration-services" />
     </Layout>
   );
 }

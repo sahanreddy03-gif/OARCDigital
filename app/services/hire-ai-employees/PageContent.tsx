@@ -20,6 +20,7 @@ import {
   DataFlow
 } from '@/components/ui/ai-icons';
 import FAQSection, { FAQItem } from "@/components/FAQSection";
+import RelatedServices from "@/components/RelatedServices";
 
 const sdrAgent = "/attached_assets/stock_images/elite_sales_professi_1c84b4b4.jpg";
 const supportSpecialist = "/attached_assets/stock_images/customer_support_spe_789ecb6b.jpg";
@@ -571,6 +572,8 @@ export default function HireAIEmployees() {
           </div>
         </ScrollReveal>
       </section>
+
+      <RelatedServices slug="/services/hire-ai-employees" />
     </Layout>
   );
 }
