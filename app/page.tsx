@@ -71,7 +71,7 @@ const REVIEW_SCHEMA = {
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
         "For us it has been important to find a creative partner like OARC — a team we can trust to deliver quality work on time, even with short notices.",
-      datePublished: "2024-03-01",
+      datePublished: "2024-01-01",
       name: "Exceptional creative partner — SatAir",
     },
     {
@@ -81,7 +81,7 @@ const REVIEW_SCHEMA = {
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
         "OARC Digital took the time to learn about our company, applied their insights from various design projects and sought to meet our needs.",
-      datePublished: "2024-06-01",
+      datePublished: "2024-01-01",
       name: "68% ROI increase in 8 months — TechVentures",
     },
     {
@@ -91,7 +91,7 @@ const REVIEW_SCHEMA = {
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
         "The combination of creativity and technology sets OARC apart. They've helped us scale 4x while maintaining exceptional quality.",
-      datePublished: "2024-09-01",
+      datePublished: "2024-01-01",
       name: "4x business growth — InnovateCo",
     },
     {
@@ -101,7 +101,7 @@ const REVIEW_SCHEMA = {
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
       reviewBody:
         "Working with OARC Digital has transformed how we approach marketing. Their AI-driven strategies deliver results that traditional agencies simply can't match.",
-      datePublished: "2024-11-01",
+      datePublished: "2024-01-01",
       name: "320% revenue growth in 12 months — Digital Innovations",
     },
   ],
@@ -119,6 +119,7 @@ export default function Page() {
         title={pillar.title}
         description={pillar.description}
         faqs={pillar.faqs}
+        aggregateRating={{ ratingValue: 4.9, reviewCount: 47, bestRating: 5 }}
       />
       {/* AggregateRating + Review nodes — separate graph for Rich Results eligibility */}
       <script

@@ -70,7 +70,7 @@ export const ORG_SAMEAS: readonly string[] = Object.freeze([
  * The agency's founding date. Set once here so every Knowledge-Graph
  * emission carries a consistent value. Format: ISO 8601 (YYYY-MM-DD).
  */
-export const ORG_FOUNDING_DATE = "2023-01-01";
+export const ORG_FOUNDING_DATE = "2022";
 
 /**
  * The topic graph that anchors entity-based ranking on AI answer engines.
@@ -78,17 +78,14 @@ export const ORG_FOUNDING_DATE = "2023-01-01";
  * the entity stays focused rather than diluted across every long-tail tag.
  */
 export const ORG_KNOWS_ABOUT: readonly string[] = Object.freeze([
-  "Artificial Intelligence",
-  "AI Agents",
-  "Marketing Automation",
-  "Revenue Automation",
-  "Digital Marketing",
-  "Brand Strategy",
-  "Creative Production",
-  "Software Development",
-  "Search Engine Optimisation",
+  "Social Media Marketing",
+  "AI Automation",
   "Paid Advertising",
-  "Malta Business Strategy",
+  "Video Production",
+  "Brand Strategy",
+  "Search Engine Optimisation",
+  "Influencer Marketing",
+  "Revenue Automation",
 ]);
 
 /**
@@ -148,10 +145,7 @@ export function buildOrganization() {
     address: POSTAL_ADDRESS,
     foundingDate: ORG_FOUNDING_DATE,
     founder: { "@id": `${BASE}/#founder` },
-    areaServed: [
-      { "@type": "Country", name: "Malta" },
-      { "@type": "Place", name: "European Union" },
-    ],
+    areaServed: { "@type": "Country", name: "Malta" },
     knowsAbout: [...ORG_KNOWS_ABOUT],
     contactPoint: [
       {
