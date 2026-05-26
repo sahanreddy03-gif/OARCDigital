@@ -139,11 +139,11 @@ export default function Page() {
         {/* OARC Brand Section - video background */}
         <OARCBrandSection videoSrc={oarcBgVideo} />
 
+        {/* Stat ticker strip — original position, old logo strip style */}
+        <TrustedBrandsSection />
+
         {/* Every type of creative work */}
         <AICreativeSection />
-
-        {/* Luxury stat-ticker strip — positioned below creative cards */}
-        <TrustedBrandsSection />
 
         {/* Services Showcase + industry chips */}
         <Section2 />
