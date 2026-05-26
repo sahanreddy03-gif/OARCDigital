@@ -121,6 +121,44 @@ export const REDIRECTING_SERVICE_SLUGS: ReadonlySet<string> = new Set(
 export const NOINDEX_SERVICE_SLUGS: ReadonlySet<string> = new Set<string>([]);
 
 /**
+ * Task #221 (Programmatic cluster cull) — NOINDEX control for /aeo/* pages.
+ *
+ * All 44 AEO pages currently score KEEP (1,080–1,332 source words each).
+ * This set is intentionally empty. Add a slug here to noindex it without
+ * touching the individual page file — middleware injects x-robots-tag:
+ * noindex for any slug present in this set.
+ *
+ * Removal checklist (to promote back to indexed):
+ *   1. Remove slug from this set.
+ *   2. Verify sitemap-aeo.xml re-emits the slug (automatic).
+ *   3. Deploy + IndexNow ping.
+ *
+ * Drip-feed rule: max 10 new pages per rolling 7-day window.
+ * Audit verdicts: .local/seo/programmatic-audit.md §1
+ */
+export const NOINDEX_AEO_SLUGS: ReadonlySet<string> = new Set<string>([
+  // No AEO slugs are noindexed — all 44 pass the ≥800 word threshold.
+]);
+
+/**
+ * Task #221 (Programmatic cluster cull) — NOINDEX control for
+ * /industries/{slug} dynamic-template pages.
+ *
+ * Distinct from INDUSTRY_HUBS_PENDING_CONTENT (which 308s to /industries):
+ * this set targets hubs that HAVE content but are too thin to index —
+ * noindex lets them remain accessible while withholding indexing signals.
+ * Currently empty; separate from the 308 set.
+ *
+ * Promotion: remove slug from this set and ship in same commit as content
+ * expansion to ≥800 user-visible words.
+ *
+ * Audit verdicts: .local/seo/programmatic-audit.md §2
+ */
+export const NOINDEX_INDUSTRY_HUB_SLUGS: ReadonlySet<string> = new Set<string>([
+  // No industry hub slugs are noindexed — all active hubs have sufficient depth.
+]);
+
+/**
  * Task #221 (Programmatic cluster cull) — NOINDEX control for
  * /malta/{loc}/{ind}/{svc} triple-combination pages.
  *

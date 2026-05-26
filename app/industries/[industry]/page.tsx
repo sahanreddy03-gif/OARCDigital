@@ -11,6 +11,7 @@ import type { Metadata } from 'next';
 import { maltaIndustries, industryHubSlugs } from '@/shared/seoConfig';
 import { hubLastUpdated } from '@/lib/seo/industryHubMeta';
 import { NAP as NAP_FOR_SCHEMA } from '@/lib/seo/nap';
+import { NOINDEX_INDUSTRY_HUB_SLUGS } from '@/lib/seo/seoSets';
 
 // Alias singular maltaIndustries slugs to the existing plural keys in the
 // industries data map so the shared slug vocabulary resolves correctly.
@@ -603,9 +604,11 @@ export async function generateMetadata({ params }: { params: { industry: string 
   const title = `${data.name} Marketing Agency Malta | OARC Digital`;
   const description = `Malta's leading marketing agency for ${data.plural.toLowerCase()}. We help ${data.plural.toLowerCase()} grow with social media, video, AI, and automation. Results guaranteed. Contact OARC Digital today.`;
   const canonical = `https://oarcdigital.com/industries/${params.industry}`;
+  const shouldNoindex = NOINDEX_INDUSTRY_HUB_SLUGS.has(params.industry);
   return {
     title,
     description,
+    robots: shouldNoindex ? { index: false, follow: true } : undefined,
     alternates: { canonical },
     openGraph: { title, description, url: canonical, type: 'website', images: ogImageEntry({ title, subtitle: description }) },
     twitter: { card: 'summary_large_image', title, description, images: [ogImageUrl({ title, subtitle: description })] },
