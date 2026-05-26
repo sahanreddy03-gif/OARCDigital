@@ -24,18 +24,18 @@ export default function TrustedBrandsSection() {
       data-testid="section-trust-stats"
       aria-label="OARC Digital — key performance metrics"
     >
-      {/* Top seam — fades from AICreativeSection (#f0fff4 light) into dark */}
+      {/* Top depth shadow — pure alpha, strictly monochrome */}
       <div
         aria-hidden="true"
-        className="absolute top-0 left-0 right-0 h-16 pointer-events-none z-10"
-        style={{ background: `linear-gradient(to bottom, #f0fff4 0%, ${BG} 100%)` }}
+        className="absolute top-0 left-0 right-0 h-10 pointer-events-none z-10"
+        style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.35), transparent)" }}
       />
 
-      {/* Bottom seam — fades back out to white (Section2 bg) */}
+      {/* Bottom depth shadow — pure alpha, strictly monochrome */}
       <div
         aria-hidden="true"
-        className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none z-10"
-        style={{ background: `linear-gradient(to top, #ffffff 0%, ${BG} 100%)` }}
+        className="absolute bottom-0 left-0 right-0 h-10 pointer-events-none z-10"
+        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.35), transparent)" }}
       />
 
       {/* Left / right edge fades so items dissolve cleanly at viewport edges */}
