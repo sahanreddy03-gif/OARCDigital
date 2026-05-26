@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 interface FlowNode {
@@ -49,7 +49,7 @@ export function AIFlowCanvas({
     };
 
     return (
-      <motion.div
+      <m.div
         key={node.id}
         className={cn(baseClasses, nodeStyles[node.type])}
         initial={{ opacity: 0, scale: 0.8 }}
@@ -85,18 +85,18 @@ export function AIFlowCanvas({
 
         {/* Pulse animation for process nodes */}
         {node.type === 'process' && (
-          <motion.div
+          <m.div
             className="absolute inset-0 rounded-lg border border-white/20"
             animate={{ scale: [1, 1.05, 1], opacity: [0.5, 0.2, 0.5] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           />
         )}
-      </motion.div>
+      </m.div>
     );
   };
 
   const renderArrow = (index: number) => (
-    <motion.div
+    <m.div
       key={`arrow-${index}`}
       className="flex items-center justify-center mx-2"
       initial={{ opacity: 0, x: -10 }}
@@ -106,7 +106,7 @@ export function AIFlowCanvas({
     >
       <div className="relative">
         {/* Arrow line with animation */}
-        <motion.div 
+        <m.div 
           className="w-12 h-[2px] bg-gradient-to-r from-white/40 to-white/60"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
@@ -116,27 +116,27 @@ export function AIFlowCanvas({
         {/* Arrow head */}
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-l-[8px] border-l-white/60 border-y-[4px] border-y-transparent" />
         {/* Animated pulse along the line */}
-        <motion.div
+        <m.div
           className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white/80 blur-sm motion-reduce:hidden"
           animate={{ x: [0, 48, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         />
       </div>
-    </motion.div>
+    </m.div>
   );
 
   if (variant === 'horizontal') {
     return (
       <div className={cn('w-full', className)}>
         {title && (
-          <motion.h4 
+          <m.h4 
             className="text-white/60 text-sm uppercase tracking-wider mb-6 text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
             {title}
-          </motion.h4>
+          </m.h4>
         )}
         <div className="flex items-center justify-center flex-wrap gap-y-4">
           {nodes.map((node, index) => (
@@ -153,21 +153,21 @@ export function AIFlowCanvas({
   return (
     <div className={cn('w-full', className)}>
       {title && (
-        <motion.h4 
+        <m.h4 
           className="text-white/60 text-sm uppercase tracking-wider mb-6 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
           {title}
-        </motion.h4>
+        </m.h4>
       )}
       <div className="flex flex-col items-center gap-4">
         {nodes.map((node, index) => (
           <div key={node.id} className="flex flex-col items-center">
             {renderNode(node, index)}
             {index < nodes.length - 1 && (
-              <motion.div
+              <m.div
                 className="w-[2px] h-8 bg-gradient-to-b from-white/40 to-white/20 my-2"
                 initial={{ scaleY: 0 }}
                 whileInView={{ scaleY: 1 }}
@@ -193,7 +193,7 @@ export function DecisionTree({ question, yesPath, noPath, className }: DecisionT
   return (
     <div className={cn('w-full max-w-lg mx-auto', className)}>
       {/* Input node */}
-      <motion.div
+      <m.div
         className="flex justify-center mb-4"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -202,10 +202,10 @@ export function DecisionTree({ question, yesPath, noPath, className }: DecisionT
         <div className="px-6 py-3 bg-white/[0.05] border border-white/20 rounded-lg text-white text-sm text-center">
           {question}
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Decision node (diamond) */}
-      <motion.div
+      <m.div
         className="flex justify-center mb-4"
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -219,18 +219,18 @@ export function DecisionTree({ question, yesPath, noPath, className }: DecisionT
           {/* Glow */}
           <div className="absolute inset-0 w-16 h-16 rotate-45 bg-white/10 blur-lg -z-10" />
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Connecting lines */}
       <div className="relative h-8">
-        <motion.div 
+        <m.div 
           className="absolute left-1/4 top-0 w-[2px] h-full bg-white/30"
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         />
-        <motion.div 
+        <m.div 
           className="absolute right-1/4 top-0 w-[2px] h-full bg-white/30"
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
@@ -238,7 +238,7 @@ export function DecisionTree({ question, yesPath, noPath, className }: DecisionT
           transition={{ delay: 0.3 }}
         />
         {/* Horizontal connector */}
-        <motion.div 
+        <m.div 
           className="absolute left-1/4 right-1/4 top-0 h-[2px] bg-white/30"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
@@ -249,7 +249,7 @@ export function DecisionTree({ question, yesPath, noPath, className }: DecisionT
 
       {/* Branch outputs */}
       <div className="flex justify-between gap-4">
-        <motion.div
+        <m.div
           className="flex-1 p-4 bg-white/[0.04] border border-white/15 rounded-lg text-center"
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -262,9 +262,9 @@ export function DecisionTree({ question, yesPath, noPath, className }: DecisionT
           {yesPath.description && (
             <div className="text-white/50 text-xs mt-1">{yesPath.description}</div>
           )}
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="flex-1 p-4 bg-white/[0.04] border border-white/15 rounded-lg text-center"
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -277,7 +277,7 @@ export function DecisionTree({ question, yesPath, noPath, className }: DecisionT
           {noPath.description && (
             <div className="text-white/50 text-xs mt-1">{noPath.description}</div>
           )}
-        </motion.div>
+        </m.div>
       </div>
     </div>
   );
@@ -300,7 +300,7 @@ export function ProcessFlow({ steps, className }: ProcessFlowProps) {
         <div className="absolute left-0 right-0 top-1/2 h-[2px] bg-gradient-to-r from-white/10 via-white/30 to-white/10 -z-10" />
         
         {steps.map((step, index) => (
-          <motion.div
+          <m.div
             key={index}
             className="flex flex-col items-center relative z-10"
             initial={{ opacity: 0, y: 20 }}
@@ -309,14 +309,14 @@ export function ProcessFlow({ steps, className }: ProcessFlowProps) {
             transition={{ delay: index * 0.15 }}
           >
             {/* Step circle */}
-            <motion.div
+            <m.div
               className="w-16 h-16 rounded-full bg-zinc-900 border-2 border-white/30 flex items-center justify-center mb-2"
               whileHover={{ scale: 1.1, borderColor: 'rgba(255,255,255,0.5)' }}
             >
               <div className="text-white/80">
                 {step.icon}
               </div>
-            </motion.div>
+            </m.div>
             
             {/* Label */}
             <span className="text-white text-xs font-medium text-center max-w-[80px]">
@@ -329,12 +329,12 @@ export function ProcessFlow({ steps, className }: ProcessFlowProps) {
             )}
 
             {/* Pulse animation */}
-            <motion.div
+            <m.div
               className="absolute top-0 w-16 h-16 rounded-full border border-white/20 motion-reduce:hidden"
               animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
               transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
             />
-          </motion.div>
+          </m.div>
         ))}
       </div>
     </div>

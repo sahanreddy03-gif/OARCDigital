@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, TrendingDown, Zap } from "lucide-react";
 import { verticals } from "@/data/diagnosticsData";
@@ -15,7 +15,7 @@ export default function DiagnosticsTeaser() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
       
       <div className="container mx-auto px-4 max-w-5xl relative z-10">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -35,9 +35,9 @@ export default function DiagnosticsTeaser() {
           <p className="text-zinc-400 max-w-xl mx-auto text-sm md:text-base">
             Four free tools — Industry Scan, Growth Simulator, AI Workforce Designer, Cortex Business Intelligence Scan — for Malta operators who want a fast read on revenue leakage.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -76,7 +76,7 @@ export default function DiagnosticsTeaser() {
 
           <div className="grid md:grid-cols-3 gap-4 mb-6">
             {previewProblems.map((problem, i) => (
-              <motion.div
+              <m.div
                 key={problem.id}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -97,7 +97,7 @@ export default function DiagnosticsTeaser() {
                   <Zap className="h-3 w-3" />
                   <span>{problem.solutions.length} solutions</span>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
@@ -115,7 +115,7 @@ export default function DiagnosticsTeaser() {
               </button>
             </Link>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

@@ -7,7 +7,7 @@ import RelatedServices from "@/components/RelatedServices";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { useEffect, useState, useRef, useCallback } from "react";
 import Link from 'next/link';
-import { motion, useReducedMotion, useInView, useSpring, useMotionValue, AnimatePresence } from "framer-motion";
+import { m, useReducedMotion, useInView, useSpring, useMotionValue, AnimatePresence } from "framer-motion";
 
 const socialCreativeManagementFAQs: FAQItem[] = [
   { question: "What is social media creative management?", answer: "End-to-end management of your social content: strategy, creative production, scheduling, and performance optimization. Complete social presence." },
@@ -89,7 +89,7 @@ function AnimatedCounter({ value, suffix = "", prefix = "", duration = 2 }: {
   );
 }
 
-function MagneticButton({ children, className, ...props }: React.ComponentProps<typeof motion.button>) {
+function MagneticButton({ children, className, ...props }: React.ComponentProps<typeof m.button>) {
   const ref = useRef<HTMLButtonElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const x = useMotionValue(0);
@@ -112,7 +112,7 @@ function MagneticButton({ children, className, ...props }: React.ComponentProps<
   }, [x, y]);
   
   return (
-    <motion.button
+    <m.button
       ref={ref}
       style={{ x, y }}
       onMouseMove={handleMouseMove}
@@ -122,13 +122,13 @@ function MagneticButton({ children, className, ...props }: React.ComponentProps<
       {...props}
     >
       {children}
-    </motion.button>
+    </m.button>
   );
 }
 
 function FloatingParticle({ delay, duration, color }: { delay: number; duration: number; color: string }) {
   return (
-    <motion.div
+    <m.div
       className="absolute rounded-full motion-reduce:hidden"
       style={{
         width: Math.random() * 8 + 4,
@@ -160,7 +160,7 @@ function CreativeFlowDiagram({ steps, gradient }: { steps: { icon: React.ReactNo
     <div className="flex items-center justify-center gap-2 mt-6">
       {steps.map((step, idx) => (
         <div key={idx} className="flex items-center gap-2">
-          <motion.div 
+          <m.div 
             className={`w-12 h-12 rounded-xl ${gradient} flex items-center justify-center shadow-lg`}
             initial={prefersReducedMotion ? {} : { scale: 0.8, opacity: 0 }}
             whileInView={prefersReducedMotion ? {} : { scale: 1, opacity: 1 }}
@@ -169,10 +169,10 @@ function CreativeFlowDiagram({ steps, gradient }: { steps: { icon: React.ReactNo
             whileHover={prefersReducedMotion ? {} : { scale: 1.1, rotate: 5 }}
           >
             {step.icon}
-          </motion.div>
+          </m.div>
           <span className="text-xs font-semibold text-white/80 hidden sm:block">{step.label}</span>
           {idx < steps.length - 1 && (
-            <motion.div
+            <m.div
               className="w-6 h-0.5 bg-white/30"
               initial={prefersReducedMotion ? {} : { scaleX: 0 }}
               whileInView={prefersReducedMotion ? {} : { scaleX: 1 }}
@@ -197,7 +197,7 @@ function CreativePortfolioCard({ image, title, platform, metrics, color, delay }
   const prefersReducedMotion = useReducedMotion();
   
   return (
-    <motion.div
+    <m.div
       className="relative group cursor-pointer"
       initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
       whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
@@ -230,7 +230,7 @@ function CreativePortfolioCard({ image, title, platform, metrics, color, delay }
           </div>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -258,7 +258,7 @@ function PillarCard({ card, idx }: { card: PillarCardData; idx: number }) {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
-    <motion.div 
+    <m.div 
       key={card.id}
       initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
       whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
@@ -272,7 +272,7 @@ function PillarCard({ card, idx }: { card: PillarCardData; idx: number }) {
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-[1]">
-        <motion.img 
+        <m.img 
           src={card.image}
           alt={`${card.title} - premium marketing service`}
           className="w-full h-full object-cover object-center"
@@ -291,13 +291,13 @@ function PillarCard({ card, idx }: { card: PillarCardData; idx: number }) {
       {/* Card Content - Positioned at Bottom */}
       <div className="relative z-[3] h-full p-8 md:p-10 flex flex-col justify-end">
         {/* Icon */}
-        <motion.div 
+        <m.div 
           className="text-[40px] mb-5 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
           animate={prefersReducedMotion ? {} : { scale: isHovered ? 1.1 : 1 }}
           transition={{ duration: 0.3 }}
         >
           <card.icon className="w-10 h-10 md:w-12 md:h-12 text-white" />
-        </motion.div>
+        </m.div>
         
         {/* Title */}
         <h3 
@@ -324,7 +324,7 @@ function PillarCard({ card, idx }: { card: PillarCardData; idx: number }) {
         
         {/* CTA Button - Elite Styling */}
         <Link href={card.link}>
-          <motion.span
+          <m.span
             className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl text-white font-semibold text-[15px] w-fit cursor-pointer transition-all duration-300"
             style={{ 
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
@@ -337,16 +337,16 @@ function PillarCard({ card, idx }: { card: PillarCardData; idx: number }) {
             data-testid={`button-cta-${card.id}`}
           >
             {card.cta}
-            <motion.span
+            <m.span
               animate={{ x: isHovered ? 4 : 0 }}
               transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
             >
               <ArrowRight className="w-4 h-4" />
-            </motion.span>
-          </motion.span>
+            </m.span>
+          </m.span>
         </Link>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -675,7 +675,7 @@ export default function SocialMediaCreativeManagement() {
             
             {/* AI Neural Network - Soft purple (visible on light background) */}
             {/* Connection Lines */}
-            <motion.line 
+            <m.line 
               x1="200" y1="300" x2="500" y2="200" 
               stroke="#7B2FF7" 
               strokeWidth="2" 
@@ -683,7 +683,7 @@ export default function SocialMediaCreativeManagement() {
               animate={{ opacity: [0.15, 0.35, 0.15] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
-            <motion.line 
+            <m.line 
               x1="500" y1="200" x2="800" y2="150" 
               stroke="#7B2FF7" 
               strokeWidth="2" 
@@ -691,7 +691,7 @@ export default function SocialMediaCreativeManagement() {
               animate={{ opacity: [0.12, 0.3, 0.12] }}
               transition={{ duration: 3.5, delay: 0.3, repeat: Infinity, ease: "easeInOut" }}
             />
-            <motion.line 
+            <m.line 
               x1="200" y1="300" x2="150" y2="500" 
               stroke="#7B2FF7" 
               strokeWidth="2" 
@@ -699,7 +699,7 @@ export default function SocialMediaCreativeManagement() {
               animate={{ opacity: [0.1, 0.28, 0.1] }}
               transition={{ duration: 4, delay: 0.5, repeat: Infinity, ease: "easeInOut" }}
             />
-            <motion.line 
+            <m.line 
               x1="1600" y1="400" x2="1300" y2="600" 
               stroke="#7B2FF7" 
               strokeWidth="2" 
@@ -707,7 +707,7 @@ export default function SocialMediaCreativeManagement() {
               animate={{ opacity: [0.15, 0.35, 0.15] }}
               transition={{ duration: 3.2, delay: 0.2, repeat: Infinity, ease: "easeInOut" }}
             />
-            <motion.line 
+            <m.line 
               x1="1300" y1="600" x2="1100" y2="450" 
               stroke="#7B2FF7" 
               strokeWidth="2" 
@@ -715,7 +715,7 @@ export default function SocialMediaCreativeManagement() {
               animate={{ opacity: [0.1, 0.28, 0.1] }}
               transition={{ duration: 4, delay: 0.8, repeat: Infinity, ease: "easeInOut" }}
             />
-            <motion.line 
+            <m.line 
               x1="500" y1="200" x2="1100" y2="450" 
               stroke="#7B2FF7" 
               strokeWidth="1.5" 
@@ -723,7 +723,7 @@ export default function SocialMediaCreativeManagement() {
               animate={{ opacity: [0.08, 0.22, 0.08] }}
               transition={{ duration: 5, delay: 1, repeat: Infinity, ease: "easeInOut" }}
             />
-            <motion.line 
+            <m.line 
               x1="150" y1="500" x2="400" y2="650" 
               stroke="#7B2FF7" 
               strokeWidth="2" 
@@ -731,7 +731,7 @@ export default function SocialMediaCreativeManagement() {
               animate={{ opacity: [0.1, 0.28, 0.1] }}
               transition={{ duration: 3.8, delay: 0.6, repeat: Infinity, ease: "easeInOut" }}
             />
-            <motion.line 
+            <m.line 
               x1="400" y1="650" x2="700" y2="550" 
               stroke="#7B2FF7" 
               strokeWidth="1.5" 
@@ -739,7 +739,7 @@ export default function SocialMediaCreativeManagement() {
               animate={{ opacity: [0.08, 0.22, 0.08] }}
               transition={{ duration: 4.2, delay: 0.9, repeat: Infinity, ease: "easeInOut" }}
             />
-            <motion.line 
+            <m.line 
               x1="800" y1="150" x2="1100" y2="450" 
               stroke="#7B2FF7" 
               strokeWidth="1.5" 
@@ -747,7 +747,7 @@ export default function SocialMediaCreativeManagement() {
               animate={{ opacity: [0.08, 0.2, 0.08] }}
               transition={{ duration: 4.5, delay: 0.4, repeat: Infinity, ease: "easeInOut" }}
             />
-            <motion.line 
+            <m.line 
               x1="700" y1="550" x2="1100" y2="450" 
               stroke="#7B2FF7" 
               strokeWidth="1.5" 
@@ -757,63 +757,63 @@ export default function SocialMediaCreativeManagement() {
             />
             
             {/* Neural Network Nodes - Soft purple */}
-            <motion.circle 
+            <m.circle 
               cx="200" cy="300" r="8" 
               fill="#7B2FF7" 
               filter="url(#softGlow)"
               animate={{ opacity: [0.2, 0.5, 0.2] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
-            <motion.circle 
+            <m.circle 
               cx="500" cy="200" r="7" 
               fill="#7B2FF7" 
               filter="url(#softGlow)"
               animate={{ opacity: [0.18, 0.45, 0.18] }}
               transition={{ duration: 2.5, delay: 0.5, repeat: Infinity }}
             />
-            <motion.circle 
+            <m.circle 
               cx="150" cy="500" r="6" 
               fill="#7B2FF7" 
               filter="url(#softGlow)"
               animate={{ opacity: [0.18, 0.42, 0.18] }}
               transition={{ duration: 3, delay: 1, repeat: Infinity }}
             />
-            <motion.circle 
+            <m.circle 
               cx="800" cy="150" r="7" 
               fill="#7B2FF7" 
               filter="url(#softGlow)"
               animate={{ opacity: [0.15, 0.4, 0.15] }}
               transition={{ duration: 2, delay: 0.3, repeat: Infinity }}
             />
-            <motion.circle 
+            <m.circle 
               cx="1600" cy="400" r="8" 
               fill="#7B2FF7" 
               filter="url(#softGlow)"
               animate={{ opacity: [0.2, 0.5, 0.2] }}
               transition={{ duration: 2.8, delay: 0.8, repeat: Infinity }}
             />
-            <motion.circle 
+            <m.circle 
               cx="1300" cy="600" r="7" 
               fill="#7B2FF7" 
               filter="url(#softGlow)"
               animate={{ opacity: [0.18, 0.45, 0.18] }}
               transition={{ duration: 2.2, delay: 0.4, repeat: Infinity }}
             />
-            <motion.circle 
+            <m.circle 
               cx="1100" cy="450" r="7" 
               fill="#7B2FF7" 
               filter="url(#softGlow)"
               animate={{ opacity: [0.15, 0.4, 0.15] }}
               transition={{ duration: 2.6, delay: 0.6, repeat: Infinity }}
             />
-            <motion.circle 
+            <m.circle 
               cx="400" cy="650" r="6" 
               fill="#7B2FF7" 
               filter="url(#softGlow)"
               animate={{ opacity: [0.18, 0.42, 0.18] }}
               transition={{ duration: 3.2, delay: 0.7, repeat: Infinity }}
             />
-            <motion.circle 
+            <m.circle 
               cx="700" cy="550" r="6" 
               fill="#7B2FF7" 
               filter="url(#softGlow)"
@@ -822,7 +822,7 @@ export default function SocialMediaCreativeManagement() {
             />
             
             {/* Floating Speech Bubble - Top Left */}
-            <motion.g 
+            <m.g 
               transform="translate(80, 150)"
               animate={{ y: [-8, 8, -8], opacity: [0.6, 1, 0.6] }}
               transition={{ duration: 3, repeat: Infinity }}
@@ -832,10 +832,10 @@ export default function SocialMediaCreativeManagement() {
               <circle cx="14" cy="17" r="4" fill="white" opacity="0.9"/>
               <circle cx="26" cy="17" r="4" fill="white" opacity="0.9"/>
               <circle cx="38" cy="17" r="4" fill="white" opacity="0.9"/>
-            </motion.g>
+            </m.g>
             
             {/* Floating Heart - Top Right */}
-            <motion.g 
+            <m.g 
               transform="translate(1700, 180)"
               animate={{ scale: [1, 1.15, 1], opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 1.5, repeat: Infinity }}
@@ -845,17 +845,17 @@ export default function SocialMediaCreativeManagement() {
                     opacity="0.85"
                     transform="scale(1.3)"
               />
-            </motion.g>
+            </m.g>
             
             {/* +1 Engagement Bubble - Left */}
-            <motion.g 
+            <m.g 
               transform="translate(300, 450)"
               animate={{ y: [5, -5, 5], scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
               <circle cx="20" cy="20" r="18" fill="#FFD700" opacity="0.85"/>
               <text x="20" y="26" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">+1</text>
-            </motion.g>
+            </m.g>
           </svg>
         </div>
         
@@ -872,17 +872,17 @@ export default function SocialMediaCreativeManagement() {
         </div>
         
         {/* Premium Decorative Glows - Softer for light background */}
-        <motion.div 
+        <m.div 
           className="absolute top-10 left-5 w-48 h-48 rounded-full bg-gradient-to-r from-[#7B2FF7]/20 to-[#FF6B9D]/20 blur-3xl motion-reduce:hidden"
           animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div 
+        <m.div 
           className="absolute bottom-20 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-[#FF6B53]/15 to-[#FF6B9D]/15 blur-3xl motion-reduce:hidden"
           animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div 
+        <m.div 
           className="absolute top-1/3 left-1/3 w-40 h-40 rounded-full bg-[#00D4FF]/10 blur-2xl motion-reduce:hidden"
           animate={{ y: [-20, 20, -20], opacity: [0.15, 0.3, 0.15] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -898,7 +898,7 @@ export default function SocialMediaCreativeManagement() {
             {/* Text Content - Full width on mobile, with room for target animation */}
             <div className="w-full text-left pr-[140px] sm:pr-40 md:pr-0">
               {/* Main Headline - Space Grotesk, clean and elegant */}
-              <motion.h1
+              <m.h1
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.1, duration: 0.5 }}
@@ -926,10 +926,10 @@ export default function SocialMediaCreativeManagement() {
                 >
                   That Converts
                 </span>
-              </motion.h1>
+              </m.h1>
               
               {/* Small Tagline - Social Media Management */}
-              <motion.p 
+              <m.p 
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.15, duration: 0.5 }}
@@ -937,10 +937,10 @@ export default function SocialMediaCreativeManagement() {
                 style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}
               >
                 Social Media Management
-              </motion.p>
+              </m.p>
               
               {/* Main Body Text - Readable modern sans-serif */}
-              <motion.p 
+              <m.p 
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.2, duration: 0.5 }}
@@ -949,10 +949,10 @@ export default function SocialMediaCreativeManagement() {
                 style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}
               >
                 We combine organic content, paid campaigns, production, and influencer partnerships into one integrated system that drives revenue—not just reach.
-              </motion.p>
+              </m.p>
               
               {/* CTA Buttons - Larger on mobile, row on desktop */}
-              <motion.div 
+              <m.div 
                 initial={fadeIn}
                 animate={fadeInVisible}
                 transition={prefersReducedMotion ? {} : { delay: 0.3, duration: 0.5 }}
@@ -972,21 +972,21 @@ export default function SocialMediaCreativeManagement() {
                   </MagneticButton>
                 </Link>
                 <Link href="#portfolio">
-                  <motion.button
+                  <m.button
                     whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
                     className="inline-flex items-center gap-2 bg-white border-2 border-[#E5E4E0] text-[#1A1A1A] rounded-full px-5 py-3 sm:px-6 sm:py-3.5 text-sm sm:text-base font-bold hover:border-[#7B2FF7]/30 hover:shadow-lg transition-all"
                     data-testid="button-view-work"
                   >
                     <Play className="w-4 h-4 sm:w-4 sm:h-4 fill-[#7B2FF7] text-[#7B2FF7]" />
                     View Work
-                  </motion.button>
+                  </m.button>
                 </Link>
-              </motion.div>
+              </m.div>
             </div>
           </div>
           
           {/* PORTFOLIO GALLERY - 3-column grid on mobile, 6-column on desktop */}
-          <motion.div 
+          <m.div 
             id="portfolio"
             initial={fadeIn}
             animate={fadeInVisible}
@@ -996,7 +996,7 @@ export default function SocialMediaCreativeManagement() {
             {/* Mobile: 3×2 Grid (TALLER cards) | Desktop: 6-column Grid */}
             <div className="grid grid-cols-3 md:grid-cols-6 gap-2.5 md:gap-3">
               {/* Card 1 - Instagram Post with AI Finger Image */}
-              <motion.div 
+              <m.div 
                 className="relative h-24 sm:h-28 md:h-32 bg-black rounded-xl overflow-hidden group cursor-pointer"
                 style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.06)' }}
                 whileHover={prefersReducedMotion ? {} : { y: -4, boxShadow: '0 12px 30px rgba(236,72,153,0.15)' }}
@@ -1014,10 +1014,10 @@ export default function SocialMediaCreativeManagement() {
                   <span className="text-[8px] sm:text-[9px] font-bold opacity-90">IG POST</span>
                   <span className="text-[10px] sm:text-xs font-black">2.4M</span>
                 </div>
-              </motion.div>
+              </m.div>
               
               {/* Card 2 - Video Campaign with Autoplay */}
-              <motion.div 
+              <m.div 
                 className="relative h-24 sm:h-28 md:h-32 bg-black rounded-xl overflow-hidden group cursor-pointer"
                 style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.06)' }}
                 whileHover={prefersReducedMotion ? {} : { y: -4, boxShadow: '0 12px 30px rgba(139,92,246,0.15)' }}
@@ -1039,10 +1039,10 @@ export default function SocialMediaCreativeManagement() {
                   <span className="text-[8px] sm:text-[9px] font-bold opacity-90">VIDEO</span>
                   <span className="text-[10px] sm:text-xs font-black">8.7M+</span>
                 </div>
-              </motion.div>
+              </m.div>
               
               {/* Card 3 - TikTok with Autoplay Video */}
-              <motion.div 
+              <m.div 
                 className="relative h-24 sm:h-28 md:h-32 bg-black rounded-xl overflow-hidden group cursor-pointer"
                 style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.06)' }}
                 whileHover={prefersReducedMotion ? {} : { y: -4, boxShadow: '0 12px 30px rgba(0,0,0,0.15)' }}
@@ -1064,10 +1064,10 @@ export default function SocialMediaCreativeManagement() {
                   <span className="text-[8px] sm:text-[9px] font-bold opacity-90">TIKTOK</span>
                   <span className="text-[10px] sm:text-xs font-black">5.2M</span>
                 </div>
-              </motion.div>
+              </m.div>
               
               {/* Card 4 - Ad ROAS */}
-              <motion.div 
+              <m.div 
                 className="relative h-24 sm:h-28 md:h-32 bg-white rounded-xl overflow-hidden group cursor-pointer"
                 style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.06)' }}
                 whileHover={prefersReducedMotion ? {} : { y: -4, boxShadow: '0 12px 30px rgba(255,107,53,0.15)' }}
@@ -1079,10 +1079,10 @@ export default function SocialMediaCreativeManagement() {
                   <span className="text-[9px] sm:text-[10px] font-bold opacity-80">AD ROAS</span>
                   <span className="text-base sm:text-lg font-black">4.7x</span>
                 </div>
-              </motion.div>
+              </m.div>
               
               {/* Card 5 - Reels */}
-              <motion.div 
+              <m.div 
                 className="relative h-24 sm:h-28 md:h-32 bg-white rounded-xl overflow-hidden group cursor-pointer"
                 style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.06)' }}
                 whileHover={prefersReducedMotion ? {} : { y: -4, boxShadow: '0 12px 30px rgba(16,185,129,0.15)' }}
@@ -1094,10 +1094,10 @@ export default function SocialMediaCreativeManagement() {
                   <span className="text-[9px] sm:text-[10px] font-bold opacity-80">REELS</span>
                   <span className="text-sm sm:text-base font-black">890K</span>
                 </div>
-              </motion.div>
+              </m.div>
               
               {/* Card 6 - LinkedIn with Professional Portrait */}
-              <motion.div 
+              <m.div 
                 className="relative h-24 sm:h-28 md:h-32 bg-black rounded-xl overflow-hidden group cursor-pointer"
                 style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.06)' }}
                 whileHover={prefersReducedMotion ? {} : { y: -4, boxShadow: '0 12px 30px rgba(10,102,194,0.2)' }}
@@ -1114,9 +1114,9 @@ export default function SocialMediaCreativeManagement() {
                   <span className="text-[8px] sm:text-[9px] font-bold opacity-90">LINKEDIN</span>
                   <span className="text-[10px] sm:text-xs font-black">B2B</span>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -1139,7 +1139,7 @@ export default function SocialMediaCreativeManagement() {
         
         <div className="max-w-6xl mx-auto relative z-10">
           {/* Premium Header */}
-          <motion.div 
+          <m.div 
             initial={fadeIn}
             whileInView={fadeInVisible}
             viewport={{ once: true }}
@@ -1163,7 +1163,7 @@ export default function SocialMediaCreativeManagement() {
             <p className="mt-6 text-white/50 text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}>
               Strategic services designed to elevate your brand and drive measurable results
             </p>
-          </motion.div>
+          </m.div>
 
           {/* ELITE Premium Card Grid - Image-Based */}
           <div className="grid md:grid-cols-2 gap-8 md:gap-10 max-w-[1200px] mx-auto">
@@ -1186,7 +1186,7 @@ export default function SocialMediaCreativeManagement() {
         </div>
         
         <div className="max-w-6xl mx-auto relative z-10">
-          <motion.div 
+          <m.div 
             initial={fadeIn}
             whileInView={fadeInVisible}
             viewport={{ once: true }}
@@ -1205,7 +1205,7 @@ export default function SocialMediaCreativeManagement() {
             <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
               Real campaigns. Real results. Content engineered to outperform.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {portfolioItems.map((item, idx) => (
@@ -1213,30 +1213,30 @@ export default function SocialMediaCreativeManagement() {
             ))}
           </div>
           
-          <motion.div 
+          <m.div 
             initial={fadeIn}
             whileInView={fadeInVisible}
             viewport={{ once: true }}
             className="text-center mt-12"
           >
             <Link href="/our-work">
-              <motion.button
+              <m.button
                 whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
                 className="inline-flex items-center gap-2 bg-white text-zinc-900 rounded-full px-8 py-4 font-bold shadow-xl hover:shadow-2xl transition-all"
                 data-testid="button-view-all-work"
               >
                 View All Projects
                 <ArrowRight className="w-5 h-5" />
-              </motion.button>
+              </m.button>
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Platform Mastery */}
       <section className="py-20 px-6 bg-zinc-900">
         <div className="max-w-6xl mx-auto">
-          <motion.div 
+          <m.div 
             initial={fadeIn}
             whileInView={fadeInVisible}
             viewport={{ once: true }}
@@ -1248,11 +1248,11 @@ export default function SocialMediaCreativeManagement() {
             <p className="text-zinc-400 text-lg">
               Direct API integrations and certified partnerships
             </p>
-          </motion.div>
+          </m.div>
           
           <div className="flex justify-center items-center gap-6 md:gap-10 flex-wrap">
             {platformIcons.map((platform, idx) => (
-              <motion.div 
+              <m.div 
                 key={idx}
                 initial={prefersReducedMotion ? {} : { opacity: 0, scale: 0.8 }}
                 whileInView={prefersReducedMotion ? {} : { opacity: 1, scale: 1 }}
@@ -1267,7 +1267,7 @@ export default function SocialMediaCreativeManagement() {
                   className="h-8 w-8 md:h-10 md:w-10" 
                   style={{ color: platform.color }}
                 />
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -1280,7 +1280,7 @@ export default function SocialMediaCreativeManagement() {
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iY2lyY3VpdCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0wIDUwIEg4MCBWMTBIMTI1IFY1MCBIMjAwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMTIzLDQ3LDI0NywwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz48cGF0aCBkPSJNMCAxNTAgSDUwIFYxMDAgSDEwMCBWMTUwIEgyMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMTA3LDE1NywwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz48Y2lyY2xlIGN4PSI4MCIgY3k9IjUwIiByPSI0IiBmaWxsPSJyZ2JhKDEyMyw0NywyNDcsMC41KSIvPjxjaXJjbGUgY3g9IjEyNSIgY3k9IjEwIiByPSIzIiBmaWxsPSJyZ2JhKDI1NSwxMDcsMTU3LDAuNSkiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjE1MCIgcj0iNCIgZmlsbD0icmdiYSgyNTUsMTA3LDgzLDAuNSkiLz48Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjMiIGZpbGw9InJnYmEoMTIzLDQ3LDI0NywwLjUpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2NpcmN1aXQpIi8+PC9zdmc+')]" />
         </div>
         <div className="max-w-6xl mx-auto relative z-10">
-          <motion.div 
+          <m.div 
             initial={fadeIn}
             whileInView={fadeInVisible}
             viewport={{ once: true }}
@@ -1293,11 +1293,11 @@ export default function SocialMediaCreativeManagement() {
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
               Built for <span className="text-white">Category Leaders</span>
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {useCases.map((useCase, idx) => (
-              <motion.div 
+              <m.div 
                 key={useCase.id}
                 initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
                 whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
@@ -1320,7 +1320,7 @@ export default function SocialMediaCreativeManagement() {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -1329,17 +1329,17 @@ export default function SocialMediaCreativeManagement() {
       {/* Trusted Brands - Dark theme */}
       <section className="py-16 px-6 bg-[#0f0f23]">
         <div className="max-w-6xl mx-auto">
-          <motion.p 
+          <m.p 
             initial={fadeIn}
             whileInView={fadeInVisible}
             viewport={{ once: true }}
             className="text-center text-lg text-zinc-400 mb-8"
           >
             Trusted by brands scaling from startup to enterprise
-          </motion.p>
+          </m.p>
           <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center justify-items-center">
             {brandLogos.map((logo, i) => (
-              <motion.div 
+              <m.div 
                 key={i}
                 initial={prefersReducedMotion ? {} : { opacity: 0, scale: 0.9 }}
                 whileInView={prefersReducedMotion ? {} : { opacity: 1, scale: 1 }}
@@ -1354,7 +1354,7 @@ export default function SocialMediaCreativeManagement() {
                   alt={`Brand ${i + 1}`}
                   className="max-h-full w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
                 />
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -1378,19 +1378,19 @@ export default function SocialMediaCreativeManagement() {
       {/* Final CTA - Vibrant Gradient */}
       <section className="py-24 px-6 bg-gradient-to-br from-[#7B2FF7] via-[#FF6B9D] to-[#FF6B53] relative overflow-hidden">
         {/* Decorative Elements */}
-        <motion.div 
+        <m.div 
           className="absolute top-10 left-10 w-40 h-40 bg-yellow-300/30 rounded-full blur-3xl motion-reduce:hidden"
           animate={prefersReducedMotion ? {} : { scale: [1, 1.3, 1] }}
           transition={prefersReducedMotion ? {} : { duration: 5, repeat: Infinity }}
-        ></motion.div>
-        <motion.div 
+        ></m.div>
+        <m.div 
           className="absolute bottom-10 right-10 w-60 h-60 bg-[#23AACA]/30 rounded-full blur-3xl motion-reduce:hidden"
           animate={prefersReducedMotion ? {} : { scale: [1.3, 1, 1.3] }}
           transition={prefersReducedMotion ? {} : { duration: 7, repeat: Infinity }}
-        ></motion.div>
+        ></m.div>
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <motion.div
+          <m.div
             initial={fadeIn}
             whileInView={fadeInVisible}
             viewport={{ once: true }}
@@ -1445,7 +1445,7 @@ export default function SocialMediaCreativeManagement() {
                 </div>
               </MagneticButton>
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </Layout>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { AlertTriangle, Zap, TrendingUp, Target, ArrowRight, CheckCircle2 } from "lucide-react";
 import { AnalysisResult } from "./analysisEngine";
 import { Button } from "@/components/ui/button";
@@ -15,7 +15,7 @@ export default function ReportGenerator({ analysisResult, onReset }: ReportGener
   const { detectedSector, blindSpots, tactics, confidenceScore } = analysisResult;
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       className="w-full max-w-4xl mx-auto p-6 space-y-8"
@@ -113,6 +113,6 @@ export default function ReportGenerator({ analysisResult, onReset }: ReportGener
           Run Another Scan
         </Button>
       </div>
-    </motion.div>
+    </m.div>
   );
 }

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowRight, Target, HeadphonesIcon, Brain, LayoutGrid, Megaphone, FileCheck, Calendar, Building2, Zap, Clock, Globe, MessageSquare, Database, CheckCircle2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import { createServiceSchema } from "@/utils/structuredData";
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import ScrollReveal from '@/components/ScrollReveal';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
@@ -153,14 +153,14 @@ export default function HireAIEmployees() {
         
         <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
           <ScrollReveal>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-3 mb-8"
             >
               <div className="px-5 py-2.5 bg-white/[0.05] backdrop-blur-md border border-white/15 rounded-full flex items-center gap-3">
-                <motion.div 
+                <m.div 
                   className="w-2 h-2 bg-white rounded-full"
                   animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -169,9 +169,9 @@ export default function HireAIEmployees() {
                   Production-Tested AI Workforce
                 </span>
               </div>
-            </motion.div>
+            </m.div>
             
-            <motion.h1 
+            <m.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -179,34 +179,34 @@ export default function HireAIEmployees() {
               data-testid="heading-talent-hub"
             >
               AI Virtual Talent Hub
-            </motion.h1>
+            </m.h1>
             
-            <motion.p 
+            <m.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-xl md:text-2xl text-white/60 mb-6 max-w-3xl leading-relaxed"
             >
               Hire autonomous AI agents as on-demand team members—thinking, adapting, and executing 24/7 while slashing your hiring costs.
-            </motion.p>
+            </m.p>
             
-            <motion.p 
+            <m.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-base text-zinc-500 mb-12 max-w-2xl"
             >
               Every agent is production-tested, not a prototype. Built from real-world MVPs that have already transformed how businesses operate.
-            </motion.p>
+            </m.p>
             
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex gap-5"
             >
               <Link href="/contact">
-                <motion.button 
+                <m.button 
                   className="group px-12 py-6 bg-white text-black font-bold text-lg inline-flex items-center gap-3 hover:bg-white/90 transition-all duration-300" 
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -214,18 +214,18 @@ export default function HireAIEmployees() {
                 >
                   Get Started
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                </motion.button>
+                </m.button>
               </Link>
               <Link href="/services">
-                <motion.button 
+                <m.button 
                   className="px-12 py-6 bg-white/[0.05] backdrop-blur-md border border-white/15 text-white font-semibold text-lg hover:bg-white/[0.1] hover:border-white/25 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   View All Services
-                </motion.button>
+                </m.button>
               </Link>
-            </motion.div>
+            </m.div>
           </ScrollReveal>
         </div>
       </section>
@@ -242,7 +242,7 @@ export default function HireAIEmployees() {
         <div className="relative max-w-6xl mx-auto px-6">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -250,7 +250,7 @@ export default function HireAIEmployees() {
               >
                 <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
                 <span className="text-xs text-white/70 uppercase tracking-[0.2em]">How AI Agents Work</span>
-              </motion.div>
+              </m.div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 See AI in Action
               </h2>
@@ -336,7 +336,7 @@ export default function HireAIEmployees() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                         
                         {/* Icon Badge with Glow */}
-                        <motion.div 
+                        <m.div 
                           className="absolute bottom-4 left-4"
                           whileHover={{ scale: 1.1 }}
                         >
@@ -344,7 +344,7 @@ export default function HireAIEmployees() {
                             <div className="absolute inset-0 bg-white/30 blur-lg" />
                             <Icon className="relative w-6 h-6 text-black" />
                           </div>
-                        </motion.div>
+                        </m.div>
                         
                         {/* Border effect */}
                         <div className="absolute inset-0 border border-white/10 group-hover:border-white/25 transition-colors rounded-lg" />
@@ -394,7 +394,7 @@ export default function HireAIEmployees() {
                 <ScrollReveal key={agent.id} delay={idx * 0.1}>
                   <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center`}>
                     <div className={isEven ? 'lg:order-1' : 'lg:order-2'}>
-                      <motion.div
+                      <m.div
                         whileHover={{ scale: 1.02 }}
                         transition={{ duration: 0.5 }}
                         className="relative group"
@@ -420,17 +420,17 @@ export default function HireAIEmployees() {
                           <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-white/30 rounded-bl-xl" />
                           <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-white/30 rounded-br-xl" />
                         </div>
-                      </motion.div>
+                      </m.div>
                     </div>
                     <div className={isEven ? 'lg:order-2' : 'lg:order-1'}>
                       <div className="flex items-center gap-5 mb-8">
-                        <motion.div 
+                        <m.div 
                           className="relative w-14 h-14 bg-white flex items-center justify-center"
                           whileHover={{ scale: 1.1 }}
                         >
                           <div className="absolute inset-0 bg-white/30 blur-xl" />
                           <Icon className="relative w-7 h-7 text-black" />
-                        </motion.div>
+                        </m.div>
                         <h3 className="text-3xl md:text-4xl font-bold text-white">{agent.title}</h3>
                       </div>
                       
@@ -450,13 +450,13 @@ export default function HireAIEmployees() {
                       </div>
                       
                       <Link href={`/services/${agent.slug}`}>
-                        <motion.button 
+                        <m.button 
                           className="group inline-flex items-center gap-3 text-white/70 hover:text-white transition-colors font-medium"
                           whileHover={{ x: 5 }}
                         >
                           Explore {agent.title}
                           <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                        </motion.button>
+                        </m.button>
                       </Link>
                     </div>
                   </div>
@@ -525,14 +525,14 @@ export default function HireAIEmployees() {
         
         <ScrollReveal>
           <div className="relative max-w-4xl mx-auto px-6 text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
               <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/[0.05] border border-white/15 rounded-full mb-8">
-                <motion.div 
+                <m.div 
                   className="w-2 h-2 bg-white rounded-full"
                   animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -548,7 +548,7 @@ export default function HireAIEmployees() {
               
               <div className="flex flex-col sm:flex-row gap-5 justify-center">
                 <Link href="/contact">
-                  <motion.button 
+                  <m.button 
                     className="group px-14 py-6 bg-white text-black font-bold text-lg inline-flex items-center justify-center gap-3 hover:bg-white/90 transition-all duration-300"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -556,19 +556,19 @@ export default function HireAIEmployees() {
                   >
                     Book Strategy Call
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                  </motion.button>
+                  </m.button>
                 </Link>
                 <Link href="/services">
-                  <motion.button 
+                  <m.button 
                     className="px-14 py-6 bg-white/[0.05] backdrop-blur-md border border-white/20 text-white font-semibold text-lg hover:bg-white/[0.1] hover:border-white/30 transition-all duration-300"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     Explore All Services
-                  </motion.button>
+                  </m.button>
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </ScrollReveal>
       </section>

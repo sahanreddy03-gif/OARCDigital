@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Code2, Database, Cloud, Server, Cpu, Zap, Monitor, Smartphone, Globe, Lock, Layers, Boxes, Terminal, GitBranch, Cog, ChevronRight, Users, BarChart3, Shield, Workflow } from 'lucide-react';
 import { SiReact, SiTypescript, SiNodedotjs, SiPostgresql, SiDocker, SiAmazon, SiPython, SiMongodb, SiKubernetes, SiGraphql, SiTensorflow, SiRedis, SiGithub } from 'react-icons/si';
 import Layout from '@/components/layout/Layout';
@@ -178,7 +178,7 @@ export default function CustomSoftwareDevelopment() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black pointer-events-none" />
 
         {/* Floating code snippet */}
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -190,19 +190,19 @@ export default function CustomSoftwareDevelopment() {
           <div className="pl-8">stack: <span className="text-green-400">'modern'</span>,</div>
           <div className="pl-8">scale: <span className="text-green-400">'enterprise'</span></div>
           <div className="pl-4">&#125;);</div>
-        </motion.div>
+        </m.div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 className="inline-flex items-center gap-3 mb-8"
               >
                 <div className="px-5 py-2.5 bg-white/[0.05] backdrop-blur-md border border-white/15 rounded-full flex items-center gap-3">
-                  <motion.div 
+                  <m.div 
                     className="w-2 h-2 bg-indigo-400 rounded-full"
                     animate={prefersReducedMotion ? {} : { scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
@@ -211,9 +211,9 @@ export default function CustomSoftwareDevelopment() {
                     Enterprise Development
                   </span>
                 </div>
-              </motion.div>
+              </m.div>
               
-              <motion.h1
+              <m.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -224,18 +224,18 @@ export default function CustomSoftwareDevelopment() {
                 <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
                   Just Works
                 </span>
-              </motion.h1>
+              </m.h1>
               
-              <motion.p
+              <m.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-xl text-white/60 mb-8 leading-relaxed max-w-xl"
               >
                 From web apps to enterprise platforms. No templates, no compromises—just code that solves real problems.
-              </motion.p>
+              </m.p>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -247,10 +247,10 @@ export default function CustomSoftwareDevelopment() {
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
-              </motion.div>
+              </m.div>
 
               {/* Quick capabilities */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -263,11 +263,11 @@ export default function CustomSoftwareDevelopment() {
                     <div className="text-white/50 text-xs">{cap.desc}</div>
                   </div>
                 ))}
-              </motion.div>
+              </m.div>
             </div>
 
             {/* Hero interface preview */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -294,7 +294,7 @@ export default function CustomSoftwareDevelopment() {
                   className="w-full h-[350px] object-cover"
                 />
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -305,7 +305,7 @@ export default function CustomSoftwareDevelopment() {
         <div className="relative max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -313,7 +313,7 @@ export default function CustomSoftwareDevelopment() {
               >
                 <Workflow className="w-4 h-4 text-indigo-400" />
                 <span className="text-xs text-white/70 uppercase tracking-[0.2em]">System Architecture</span>
-              </motion.div>
+              </m.div>
               <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
                 How We Build <span className="text-indigo-400">Scalable</span> Systems
               </h2>
@@ -331,7 +331,7 @@ export default function CustomSoftwareDevelopment() {
               
               <div className="space-y-6">
                 {architectureLayers.map((layer, index) => (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -385,7 +385,7 @@ export default function CustomSoftwareDevelopment() {
 
                       {/* Expanded details */}
                       {activeArch === index && (
-                        <motion.div
+                        <m.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: 'auto' }}
                           exit={{ opacity: 0, height: 0 }}
@@ -405,10 +405,10 @@ export default function CustomSoftwareDevelopment() {
                               <div className="text-white font-semibold">Enterprise-grade</div>
                             </div>
                           </div>
-                        </motion.div>
+                        </m.div>
                       )}
                     </GlassCard>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
             </div>
@@ -530,7 +530,7 @@ export default function CustomSoftwareDevelopment() {
             {/* Visual timeline */}
             <div className="grid md:grid-cols-5 gap-4">
               {buildProcess.map((step, i) => (
-                <motion.div 
+                <m.div 
                   key={i}
                   whileHover={{ scale: 1.02 }}
                   className={`relative p-6 rounded-2xl transition-all duration-500 cursor-pointer ${
@@ -561,7 +561,7 @@ export default function CustomSoftwareDevelopment() {
 
                   {/* Details list */}
                   {activeStep === i && (
-                    <motion.ul 
+                    <m.ul 
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       className="space-y-1 text-sm text-white/70"
@@ -572,15 +572,15 @@ export default function CustomSoftwareDevelopment() {
                           {detail}
                         </li>
                       ))}
-                    </motion.ul>
+                    </m.ul>
                   )}
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
             {/* Progress bar */}
             <div className="mt-8 h-2 bg-white/10 rounded-full overflow-hidden">
-              <motion.div 
+              <m.div 
                 className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${((activeStep + 1) / 5) * 100}%` }}

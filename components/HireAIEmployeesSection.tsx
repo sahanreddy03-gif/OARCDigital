@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, Cpu } from 'lucide-react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 
 const salesAgentAvatar = "/attached_assets/Sales_1768204442839.png";
 const customerSupportAvatar = "/attached_assets/Customer_support_specalist_1768204442837.png";
@@ -116,7 +116,7 @@ function NeuralNetworkBackground() {
           const distance = Math.sqrt(Math.pow(target.x - node.x, 2) + Math.pow(target.y - node.y, 2));
           if (distance < 35) {
             return (
-              <motion.line
+              <m.line
                 key={`${i}-${j}`}
                 x1={`${node.x}%`}
                 y1={`${node.y}%`}
@@ -134,7 +134,7 @@ function NeuralNetworkBackground() {
         })
       )}
       {nodes.map((node) => (
-        <motion.circle
+        <m.circle
           key={node.id}
           cx={`${node.x}%`}
           cy={`${node.y}%`}
@@ -185,7 +185,7 @@ function FloatingParticle({ delay, duration, size, left, top, color }: {
   if (prefersReducedMotion) return null;
   
   return (
-    <motion.div
+    <m.div
       className="absolute rounded-full pointer-events-none"
       style={{
         width: size,
@@ -216,7 +216,7 @@ function ScanLine() {
   if (prefersReducedMotion) return null;
   
   return (
-    <motion.div
+    <m.div
       className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#c4ff4d]/60 to-transparent pointer-events-none"
       style={{ boxShadow: '0 0 20px rgba(196,255,77,0.5), 0 0 40px rgba(196,255,77,0.3)' }}
       initial={{ top: '-2px', opacity: 0 }}
@@ -233,7 +233,7 @@ function ConcentricRings() {
   return (
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
       {[1, 2, 3, 4].map((ring) => (
-        <motion.div
+        <m.div
           key={ring}
           className="absolute rounded-full border border-[#c4ff4d]/10"
           style={{
@@ -362,13 +362,13 @@ export default function HireAIEmployeesSection() {
       <ScanLine />
       
       {/* Premium Gradient Orbs */}
-      <motion.div 
+      <m.div 
         className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[150px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(196,255,77,0.15) 0%, transparent 70%)' }}
         animate={prefersReducedMotion ? {} : { scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
-      <motion.div 
+      <m.div 
         className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[120px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(35,170,202,0.12) 0%, transparent 70%)' }}
         animate={prefersReducedMotion ? {} : { scale: [1, 1.15, 1], opacity: [0.4, 0.7, 0.4] }}
@@ -377,18 +377,18 @@ export default function HireAIEmployeesSection() {
       
       {/* Subtle floating tech icons - only visible on desktop */}
       {!prefersReducedMotion && (
-        <motion.div 
+        <m.div 
           className="absolute top-[30%] left-[8%] text-[#c4ff4d]/10 hidden lg:block"
           animate={{ y: [-5, 5, -5] }}
           transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
         >
           <Cpu className="w-6 h-6" />
-        </motion.div>
+        </m.div>
       )}
       
       {/* Content */}
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
-        <motion.div 
+        <m.div 
           className="text-center mb-8 lg:mb-12"
           initial={{ y: 20 }}
           whileInView={{ y: 0 }}
@@ -396,20 +396,20 @@ export default function HireAIEmployeesSection() {
           transition={{ duration: 0.6 }}
         >
           {/* Premium Badge */}
-          <motion.div 
+          <m.div 
             className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/[0.03] backdrop-blur-md rounded-full border border-[#c4ff4d]/20 mb-4"
             initial={{ scale: 0.95 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <motion.div 
+            <m.div 
               className="w-1.5 h-1.5 rounded-full bg-[#c4ff4d]"
               animate={prefersReducedMotion ? {} : { scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
             <span className="text-[9px] uppercase tracking-[0.2em] text-white/60 font-medium">Hire Our AI</span>
-          </motion.div>
+          </m.div>
           
           <h2 
             className="font-bold text-white mb-4 uppercase tracking-[0.08em]" 
@@ -428,7 +428,7 @@ export default function HireAIEmployeesSection() {
           <p className="text-xs text-white/40 max-w-lg mx-auto leading-relaxed">
             Hire production-tested agents to handle sales, support, operations—no training required.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Native scroll-snap carousel - smooth touch/swipe */}
         <div 
@@ -524,7 +524,7 @@ export default function HireAIEmployeesSection() {
           </button>
         </div>
 
-        <motion.div 
+        <m.div 
           className="text-center mt-10"
           initial={{ y: 20 }}
           whileInView={{ y: 0 }}
@@ -540,7 +540,7 @@ export default function HireAIEmployeesSection() {
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </Link>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

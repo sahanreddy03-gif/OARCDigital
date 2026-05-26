@@ -8,7 +8,7 @@ import ContactForm from "@/components/contact/ContactForm";
 import { Mail, Phone, MessageCircle, MapPin, Bot, Sparkles, ArrowRight, Send } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 const contactBokehBg = "/attached_assets/contact-bokeh-bg.jpg";
 import { NAP } from "@/lib/seo/nap";
 import { buildContactShellGraph } from "@/lib/schema/shellSchemas";
@@ -18,7 +18,7 @@ const WHATSAPP_MESSAGE = "Hi, I'm interested in your services";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 const FloatingParticle = ({ delay, duration, x, y, size }: { delay: number; duration: number; x: string; y: string; size: number }) => (
-  <motion.div
+  <m.div
     className="absolute rounded-full bg-gradient-to-r from-[#ff914d]/30 to-purple-500/20 blur-sm"
     style={{ left: x, top: y, width: size, height: size }}
     animate={{
@@ -89,7 +89,7 @@ export default function PageContent() {
         
         <div className="relative z-10 container mx-auto px-6 py-8 md:py-12">
           {/* Hero Content */}
-          <motion.div 
+          <m.div 
             className="text-center max-w-4xl mx-auto mb-10 md:mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -105,12 +105,12 @@ export default function PageContent() {
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
               Whether you need AI automation, creative campaigns, or growth strategy—we're here to transform your vision into reality.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Two Premium Cards - Speak With Us first, AI Strategist second */}
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Speak With Us Card - First */}
-            <motion.div 
+            <m.div 
               className="group relative order-1"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -158,10 +158,10 @@ export default function PageContent() {
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* AI Strategist Card - Second */}
-            <motion.div 
+            <m.div 
               className="group relative order-2"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -217,7 +217,7 @@ export default function PageContent() {
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
@@ -249,7 +249,7 @@ export default function PageContent() {
               
               {/* Form Column */}
               <div className="lg:col-span-3">
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -261,14 +261,14 @@ export default function PageContent() {
                   <p className="text-white/50 text-lg">
                     Tell us about your goals and we'll craft a tailored strategy.
                   </p>
-                </motion.div>
+                </m.div>
                 
                 <ContactForm />
               </div>
 
               {/* Contact Methods Column */}
               <div className="lg:col-span-2">
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -326,7 +326,7 @@ export default function PageContent() {
                   </a>
 
                   {/* AI Chatbot Card */}
-                  <motion.div 
+                  <m.div 
                     className="mt-8 p-6 bg-gradient-to-br from-purple-500/10 to-indigo-500/10 border border-purple-500/20 rounded-2xl"
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -354,8 +354,8 @@ export default function PageContent() {
                     >
                       Start Conversation
                     </button>
-                  </motion.div>
-                </motion.div>
+                  </m.div>
+                </m.div>
               </div>
             </div>
           </div>
@@ -461,7 +461,7 @@ export default function PageContent() {
       </section>
 
       {/* WhatsApp Floating Button - Contact Page Only */}
-      <motion.a
+      <m.a
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
@@ -482,7 +482,7 @@ export default function PageContent() {
           {/* Pulse ring */}
           <div className="absolute inset-0 rounded-full border-2 border-[#25D366] animate-ping opacity-30" />
         </div>
-      </motion.a>
+      </m.a>
     </Layout>
   );
 }

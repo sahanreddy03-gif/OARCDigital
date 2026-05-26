@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from 'react';
-import { motion, useMotionValue, useSpring, animate } from 'framer-motion';
+import { m, useMotionValue, useSpring, animate } from 'framer-motion';
 import { Check, MessageSquare, Phone, Bot, Users, Building2, Sparkles, Gift } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import QuickLeadModal from '@/components/QuickLeadModal';
@@ -183,7 +183,7 @@ export function PricingSection() {
   return (
     <section className="relative z-10 py-16 sm:py-24 px-0 sm:px-6 bg-black">
       <div className="max-w-7xl mx-auto">
-        <motion.div 
+        <m.div 
           className="text-center mb-12 sm:mb-16 px-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -195,7 +195,7 @@ export function PricingSection() {
           <p className="text-base sm:text-lg text-white/50 max-w-xl mx-auto">
             Choose your AI solution. We'll tailor pricing to your specific needs.
           </p>
-        </motion.div>
+        </m.div>
 
         <div className="hidden lg:grid lg:grid-cols-5 gap-4 px-4">
           {pricingTiers.map((tier, idx) => (
@@ -214,7 +214,7 @@ export function PricingSection() {
             }}
           >
             {pricingTiers.map((tier, idx) => (
-              <motion.div
+              <m.div
                 key={tier.id}
                 className="flex-shrink-0 w-[85vw] max-w-[340px] snap-center"
                 initial={{ opacity: 0, y: 30 }}
@@ -228,7 +228,7 @@ export function PricingSection() {
                 }}
               >
                 <PricingCard tier={tier} index={idx} onOpenModal={handleOpenModal} />
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
@@ -248,7 +248,7 @@ export function PricingSection() {
           </div>
         </div>
 
-        <motion.div 
+        <m.div 
           className="mt-16 sm:mt-20 mx-4 sm:mx-0"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -295,7 +295,7 @@ export function PricingSection() {
               </Button>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         <QuickLeadModal
           isOpen={isModalOpen}

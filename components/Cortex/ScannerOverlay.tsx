@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 interface ScannerOverlayProps {
   inputData: { type: string; value: string };
@@ -49,7 +49,7 @@ export default function ScannerOverlay({ inputData, onComplete }: ScannerOverlay
   }, [onComplete]);
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -66,7 +66,7 @@ export default function ScannerOverlay({ inputData, onComplete }: ScannerOverlay
             strokeWidth="2"
             fill="none"
           />
-          <motion.circle
+          <m.circle
             cx="50"
             cy="50"
             r="45"
@@ -89,14 +89,14 @@ export default function ScannerOverlay({ inputData, onComplete }: ScannerOverlay
       <div className="w-full max-w-lg h-48 bg-zinc-900/50 rounded-lg border border-white/10 p-4 overflow-hidden font-mono text-sm">
         <div className="space-y-1">
           {displayedLogs.map((log, i) => (
-            <motion.div
+            <m.div
               key={i}
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               className="text-cyan-400/80"
             >
               <span className="text-zinc-600">{">"}</span> {log}
-            </motion.div>
+            </m.div>
           ))}
           <span className="inline-block w-2 h-4 bg-cyan-400 animate-pulse" />
         </div>
@@ -106,6 +106,6 @@ export default function ScannerOverlay({ inputData, onComplete }: ScannerOverlay
       <p className="mt-6 text-zinc-500 text-sm">
         Analyzing: <span className="text-zinc-300">{inputData.type === "url" ? inputData.value : "User-provided context"}</span>
       </p>
-    </motion.div>
+    </m.div>
   );
 }

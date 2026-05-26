@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, ArrowUpRight, ExternalLink, Play, Users, Layers, Globe, TrendingUp, Shield, Zap } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const pjazzaLogo = "/attached_assets/logo.svg";
 const heroScreen = "/attached_assets/IMG_0605_1775068068190.jpeg";
@@ -47,7 +47,7 @@ export default function PjazzaCaseStudy() {
         <div className="absolute top-24 left-0 right-0 z-20">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <Link href="/our-work">
-              <motion.button
+              <m.button
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
@@ -56,13 +56,13 @@ export default function PjazzaCaseStudy() {
               >
                 <ArrowLeft className="w-4 h-4" />
                 Our Work
-              </motion.button>
+              </m.button>
             </Link>
           </div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-16 md:pb-24 w-full">
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+          <m.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#E11D48]/20 border border-[#E11D48]/40 rounded-full text-[#E11D48] text-xs font-bold uppercase tracking-widest mb-8">
               <span className="w-2 h-2 rounded-full bg-[#E11D48] animate-pulse" />
               Built by OARC Digital — Our Own Product
@@ -107,7 +107,7 @@ export default function PjazzaCaseStudy() {
               Visit maltaverse.live/pjazza
               <ExternalLink className="w-4 h-4" />
             </a>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -115,7 +115,7 @@ export default function PjazzaCaseStudy() {
       <section className="py-24 md:py-32 bg-zinc-950" data-testid="section-pjazza-story">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+            <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
               <div className="inline-flex items-center gap-2 mb-6">
                 <div className="w-8 h-[2px] bg-[#E11D48]" />
                 <span className="text-sm font-bold text-white/50 uppercase tracking-widest">The Brief</span>
@@ -128,16 +128,16 @@ export default function PjazzaCaseStudy() {
                 <p>The OARC team saw what platforms like Whatnot and TikTok Shop were doing globally and asked: <em className="text-white/80 not-italic">why doesn't Malta have this?</em></p>
                 <p>Rather than pitch the idea to a client, we built it ourselves. PJAZZA — meaning "town square" in Maltese — is a live commerce marketplace where any local business can broadcast, sell, and connect with Malta's community in real time.</p>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }} className="relative">
+            <m.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }} className="relative">
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50">
                 <img src={desktopShot} alt="PJAZZA desktop platform" className="w-full h-auto" loading="lazy" />
               </div>
               <div className="absolute -bottom-4 -right-4 rounded-xl overflow-hidden border border-white/10 shadow-xl w-36 h-52 md:w-44 md:h-64">
                 <img src={storeBrowse} alt="PJAZZA store browse" className="w-full h-full object-cover object-top" loading="lazy" />
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -146,7 +146,7 @@ export default function PjazzaCaseStudy() {
       <section className="py-24 md:py-32 bg-black" data-testid="section-pjazza-how-it-works">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -154,9 +154,9 @@ export default function PjazzaCaseStudy() {
               className="rounded-2xl overflow-hidden border border-white/10 max-w-xs mx-auto md:mx-0"
             >
               <img src={howItWorks} alt="See it. Chat it. Buy it." className="w-full h-auto" loading="lazy" />
-            </motion.div>
+            </m.div>
 
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }}>
+            <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }}>
               <div className="inline-flex items-center gap-2 mb-6">
                 <div className="w-8 h-[2px] bg-[#E11D48]" />
                 <span className="text-sm font-bold text-white/50 uppercase tracking-widest">How It Works</span>
@@ -185,7 +185,7 @@ export default function PjazzaCaseStudy() {
                   );
                 })}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -194,7 +194,7 @@ export default function PjazzaCaseStudy() {
       <section className="py-24 md:py-32 bg-zinc-950" data-testid="section-pjazza-sectors">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-2 gap-16 items-start">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <m.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <div className="inline-flex items-center gap-2 mb-6">
                 <div className="w-8 h-[2px] bg-[#E11D48]" />
                 <span className="text-sm font-bold text-white/50 uppercase tracking-widest">12 Sectors</span>
@@ -206,7 +206,7 @@ export default function PjazzaCaseStudy() {
 
               <div className="grid grid-cols-2 gap-2">
                 {sectors.map((sector, i) => (
-                  <motion.div
+                  <m.div
                     key={sector}
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -216,12 +216,12 @@ export default function PjazzaCaseStudy() {
                     data-testid={`sector-${i}`}
                   >
                     <span className="text-sm text-white/70 font-medium">{sector}</span>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -229,7 +229,7 @@ export default function PjazzaCaseStudy() {
               className="rounded-2xl overflow-hidden border border-white/10 max-w-xs mx-auto md:mx-0 md:max-w-none"
             >
               <img src={liveFeed} alt="PJAZZA live feed and sectors" className="w-full h-auto" loading="lazy" />
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -237,7 +237,7 @@ export default function PjazzaCaseStudy() {
       {/* SHOP & HIRE */}
       <section className="py-24 md:py-32 bg-black" data-testid="section-pjazza-shop-hire">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-14 text-center">
+          <m.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-14 text-center">
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-8 h-[2px] bg-[#E11D48]" />
               <span className="text-sm font-bold text-white/40 uppercase tracking-widest">Two-sided marketplace</span>
@@ -246,10 +246,10 @@ export default function PjazzaCaseStudy() {
             <h2 className="font-bold text-white" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}>
               Shop any store. Hire anyone.
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -264,9 +264,9 @@ export default function PjazzaCaseStudy() {
                 <h3 className="text-2xl font-bold text-white mb-2">Shop any store in Malta</h3>
                 <p className="text-white/60 text-sm leading-relaxed">Watch streams or video call — see products in real time. Same-day delivery across Malta.</p>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -281,7 +281,7 @@ export default function PjazzaCaseStudy() {
                 <h3 className="text-2xl font-bold text-white mb-2">Hire anyone in Malta</h3>
                 <p className="text-white/60 text-sm leading-relaxed">Watch them work live. Book instantly. Tradespeople, lawyers, trainers, and more — all verified and live.</p>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -290,7 +290,7 @@ export default function PjazzaCaseStudy() {
       <section className="py-24 md:py-32 bg-zinc-950" data-testid="section-pjazza-business">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+            <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
               <div className="inline-flex items-center gap-2 mb-6">
                 <div className="w-8 h-[2px] bg-[#E11D48]" />
                 <span className="text-sm font-bold text-white/50 uppercase tracking-widest">For Businesses</span>
@@ -317,9 +317,9 @@ export default function PjazzaCaseStudy() {
                   );
                 })}
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -327,7 +327,7 @@ export default function PjazzaCaseStudy() {
               className="rounded-2xl overflow-hidden border border-white/10 max-w-xs mx-auto md:mx-0"
             >
               <img src={businessScreen} alt="Your shop window is now live" className="w-full h-auto" loading="lazy" />
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -336,7 +336,7 @@ export default function PjazzaCaseStudy() {
       <section className="py-24 md:py-32 bg-black" data-testid="section-pjazza-why">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -344,9 +344,9 @@ export default function PjazzaCaseStudy() {
               className="rounded-2xl overflow-hidden border border-white/10 max-w-xs mx-auto md:mx-0 order-2 md:order-1"
             >
               <img src={whyPjazza} alt="Every objection turned into a strength" className="w-full h-auto" loading="lazy" />
-            </motion.div>
+            </m.div>
 
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }} className="order-1 md:order-2">
+            <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }} className="order-1 md:order-2">
               <div className="inline-flex items-center gap-2 mb-6">
                 <div className="w-8 h-[2px] bg-[#E11D48]" />
                 <span className="text-sm font-bold text-white/50 uppercase tracking-widest">Why This Matters</span>
@@ -359,7 +359,7 @@ export default function PjazzaCaseStudy() {
                 <p>With founding businesses already committed and Malta's only live shopping marketplace live at maltaverse.live, PJAZZA is on track to become the dominant commerce platform on the island — and a portfolio piece no other agency can match.</p>
                 <p>When you work with OARC, you're working with a team that has built, launched, and owns a marketplace. That's a different conversation entirely.</p>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -401,7 +401,7 @@ export default function PjazzaCaseStudy() {
       {/* BOTTOM CTA */}
       <section className="py-24 md:py-32 bg-zinc-950" data-testid="section-pjazza-cta">
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <h2 className="font-bold text-white mb-6 leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.02em' }}>
               Ready to build something<br /><span className="text-[#ff914d]">no one else has?</span>
             </h2>
@@ -419,7 +419,7 @@ export default function PjazzaCaseStudy() {
                 </button>
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </Layout>

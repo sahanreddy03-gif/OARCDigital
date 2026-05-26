@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 interface ARCMessageProps {
   content: string;
@@ -64,7 +64,7 @@ function renderContent(text: string): React.ReactNode[] {
 
 export function ARCMessage({ content, isUser, isStreaming }: ARCMessageProps) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.15 }}
@@ -90,6 +90,6 @@ export function ARCMessage({ content, isUser, isStreaming }: ARCMessageProps) {
           />
         )}
       </div>
-    </motion.div>
+    </m.div>
   );
 }

@@ -6,7 +6,7 @@ import { ArrowRight, TrendingUp, Target, Filter, Zap, Lightbulb, Clock, Globe } 
 import Layout from '@/components/layout/Layout';
 import ScrollReveal from '@/components/ScrollReveal';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
 import RelatedServices from '@/components/RelatedServices';
@@ -87,7 +87,7 @@ export default function RevenueHub() {
         
         <div className="relative max-w-7xl mx-auto z-10">
           <ScrollReveal className="text-center max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -96,27 +96,27 @@ export default function RevenueHub() {
               <span className="px-4 py-2 bg-white/[0.03] backdrop-blur-sm border border-white/10 text-[10px] font-medium text-white/60 uppercase tracking-[0.2em]">
                 Revenue Ignition Engine
               </span>
-            </motion.div>
+            </m.div>
             
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight mb-8"
             >
               Growth systems that run while you sleep
-            </motion.h1>
+            </m.h1>
             
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-xl md:text-2xl text-white/60 leading-relaxed max-w-2xl mx-auto mb-10"
             >
               End-to-end automation engines that optimize pipelines, acquire customers, and validate ideas on autopilot.
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -127,7 +127,7 @@ export default function RevenueHub() {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </Link>
-            </motion.div>
+            </m.div>
           </ScrollReveal>
         </div>
       </section>
@@ -211,7 +211,7 @@ export default function RevenueHub() {
                 { value: '2.5x', label: 'Conversion', icon: Filter },
                 { value: '85%', label: 'Time Saved', icon: Clock },
               ].map((metric, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -227,7 +227,7 @@ export default function RevenueHub() {
                     <div className="text-3xl md:text-4xl font-bold text-white mb-2">{metric.value}</div>
                     <div className="text-xs text-zinc-500 uppercase tracking-[0.2em]">{metric.label}</div>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -287,7 +287,7 @@ export default function RevenueHub() {
         
         <ScrollReveal>
           <div className="relative max-w-4xl mx-auto text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -314,7 +314,7 @@ export default function RevenueHub() {
                   </button>
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </ScrollReveal>
       </section>

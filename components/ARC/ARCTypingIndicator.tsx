@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 export function ARCTypingIndicator() {
   return (
@@ -14,7 +14,7 @@ export function ARCTypingIndicator() {
       >
         <div className="flex gap-1.5 items-center">
           {[0, 1, 2].map((i) => (
-            <motion.div
+            <m.div
               key={i}
               className="w-1.5 h-1.5 rounded-full"
               style={{ backgroundColor: '#8e8e93' }}

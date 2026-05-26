@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { X, Phone, Sparkles } from 'lucide-react';
 import { usePathname } from "next/navigation";
 import { ARCChat } from './ARCChat';
@@ -106,7 +106,7 @@ export function ARCWidget() {
       {/* Call Button - Above ARC - Only on landing pages */}
       <AnimatePresence>
         {!isOpen && isLandingPage && (
-          <motion.a
+          <m.a
             href={`tel:${PHONE_NUMBER}`}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -116,21 +116,21 @@ export function ARCWidget() {
             data-testid="link-call-float"
             aria-label="Call OARC"
           >
-            <motion.div 
+            <m.div 
               whileHover={{ scale: 1.05 }}
               className="relative w-10 h-10 bg-zinc-900/90 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10 shadow-lg transition-all hover:border-white/20"
             >
               <Phone className="w-4 h-4 text-white/70" aria-hidden="true" />
               <span className="sr-only">Call OARC</span>
-            </motion.div>
-          </motion.a>
+            </m.div>
+          </m.a>
         )}
       </AnimatePresence>
 
       {/* ARC Chat Button */}
       <AnimatePresence>
         {!isOpen && !hideFloatingButton && (
-          <motion.div
+          <m.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
@@ -141,7 +141,7 @@ export function ARCWidget() {
             {/* Proactive Popup */}
             <AnimatePresence>
               {showPopup && (
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 10, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -175,12 +175,12 @@ export function ARCWidget() {
                       }}
                     />
                   </div>
-                </motion.div>
+                </m.div>
               )}
             </AnimatePresence>
 
             {/* Premium black orb — AI spark + ARC */}
-            <motion.div
+            <m.div
               whileHover={{ scale: 1.06 }}
               className="relative w-16 h-16 rounded-full flex flex-col items-center justify-center gap-0.5"
               style={{
@@ -191,8 +191,8 @@ export function ARCWidget() {
             >
               <Sparkles size={13} className="text-white opacity-80" strokeWidth={1.5} />
               <span className="text-[11px] font-bold text-white tracking-[0.14em] uppercase leading-none">ARC</span>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

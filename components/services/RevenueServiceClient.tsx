@@ -12,7 +12,7 @@ import { NAP } from "@/lib/seo/nap";
 import ScrollReveal from '@/components/ScrollReveal';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
 import RelatedLinks from '@/components/RelatedLinks';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
 import { FlowDiagram, IntegrationHub } from '@/components/ui/flow-diagram';
@@ -187,7 +187,7 @@ export default function RevenueService({
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <motion.div
+          <m.div
             className="w-12 h-12 rounded-full border-2 border-white/20 border-t-white"
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
@@ -238,7 +238,7 @@ return (
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left: Content */}
             <ScrollReveal className="space-y-8">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -247,9 +247,9 @@ return (
                 <span className="px-4 py-2 bg-white/[0.03] backdrop-blur-sm border border-white/10 text-[10px] font-medium text-white/60 uppercase tracking-[0.2em]">
                   Revenue Ignition Engine
                 </span>
-              </motion.div>
+              </m.div>
               
-              <motion.h1
+              <m.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -257,9 +257,9 @@ return (
                 data-speakable
               >
                 {content.title}
-              </motion.h1>
+              </m.h1>
               
-              <motion.p
+              <m.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -267,18 +267,18 @@ return (
                 data-speakable
               >
                 {content.subtitle}
-              </motion.p>
+              </m.p>
               
-              <motion.p
+              <m.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="text-base text-zinc-500 leading-relaxed max-w-xl"
               >
                 {content.description}
-              </motion.p>
+              </m.p>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -295,13 +295,13 @@ return (
                     All Services
                   </button>
                 </Link>
-              </motion.div>
+              </m.div>
             </ScrollReveal>
 
             {/* Right: Hero Image with Glow */}
             {heroImage && (
               <ScrollReveal delay={0.2}>
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
@@ -319,7 +319,7 @@ return (
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     <div className="absolute inset-0 border border-white/10 group-hover:border-white/20 transition-colors duration-500" />
                   </div>
-                </motion.div>
+                </m.div>
               </ScrollReveal>
             )}
           </div>
@@ -337,7 +337,7 @@ return (
                 { label: 'Time to Value', value: content.metrics.speed, icon: Clock },
                 { label: 'ROI Impact', value: content.metrics.cost, icon: Zap },
               ].map((metric, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -356,7 +356,7 @@ return (
                     </div>
                     <div className="text-xs text-zinc-500 font-medium uppercase tracking-[0.2em]">{metric.label}</div>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -512,7 +512,7 @@ return (
           <ScrollReveal delay={0.3}>
             <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
               {content.integrations.map((integration, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -523,7 +523,7 @@ return (
                   data-testid={`integration-${index}`}
                 >
                   {integration}
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </ScrollReveal>
@@ -598,7 +598,7 @@ return (
         
         <ScrollReveal>
           <div className="relative max-w-4xl mx-auto text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -625,7 +625,7 @@ return (
                   </button>
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </ScrollReveal>
       </section>

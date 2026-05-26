@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Globe, MessageSquare, ArrowRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -29,7 +29,7 @@ export default function InputHub({ onSubmit }: InputHubProps) {
   return (
     <div className="w-full max-w-2xl mx-auto p-6 md:p-8">
       {/* Header */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-8"
@@ -43,7 +43,7 @@ export default function InputHub({ onSubmit }: InputHubProps) {
         <p className="text-zinc-400 text-sm max-w-md mx-auto">
           Provide context about your business and our AI will identify hidden revenue leaks and strategic opportunities.
         </p>
-      </motion.div>
+      </m.div>
 
       {/* Tab Selector */}
       <div className="flex gap-2 mb-6 p-1 bg-zinc-900/50 rounded-lg border border-white/5">
@@ -74,7 +74,7 @@ export default function InputHub({ onSubmit }: InputHubProps) {
       </div>
 
       {/* Input Area */}
-      <motion.div
+      <m.div
         key={activeTab}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -105,7 +105,7 @@ export default function InputHub({ onSubmit }: InputHubProps) {
             <p className="text-xs text-zinc-500">Be specific. The more detail you provide, the sharper the analysis.</p>
           </div>
         )}
-      </motion.div>
+      </m.div>
 
       {/* Submit Button */}
       <Button

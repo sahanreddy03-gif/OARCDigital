@@ -7,7 +7,7 @@ import Layout from '@/components/layout/Layout';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import { GlassCard } from '@/components/ui/glass-card';
 import { FlowDiagram } from '@/components/ui/flow-diagram';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const aiAutomationDashboard = "/attached_assets/generated_images/ai_automation_enterprise_dashboard.png";
 const aiLeadEngineDashboard = "/attached_assets/generated_images/ai_lead_engine_dashboard.png";
@@ -149,7 +149,7 @@ export default function NexGenRetailAICaseStudy() {
         
         <div className="relative z-10 w-full px-6 py-20">
           <div className="max-w-7xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -199,7 +199,7 @@ export default function NexGenRetailAICaseStudy() {
                   );
                 })}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -207,7 +207,7 @@ export default function NexGenRetailAICaseStudy() {
       {/* Product Showcase */}
       <section className="relative bg-black py-0" data-testid="section-showcase">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -222,7 +222,7 @@ export default function NexGenRetailAICaseStudy() {
                 data-testid="img-hero-product"
               />
             </GlassCard>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -230,7 +230,7 @@ export default function NexGenRetailAICaseStudy() {
       <section className="bg-black py-24 px-6" data-testid="section-about">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -269,9 +269,9 @@ export default function NexGenRetailAICaseStudy() {
                   <div className="text-white font-bold">90 Days</div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -301,7 +301,7 @@ export default function NexGenRetailAICaseStudy() {
                   })}
                 </div>
               </GlassCard>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -309,7 +309,7 @@ export default function NexGenRetailAICaseStudy() {
       {/* AI Employees Section */}
       <section className="bg-black py-24 px-6" data-testid="section-ai-employees">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -323,13 +323,13 @@ export default function NexGenRetailAICaseStudy() {
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
               Each AI employee was trained specifically for NexGen's processes, brand voice, and customer expectations.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="space-y-8">
             {aiEmployees.map((employee, idx) => {
               const Icon = employee.icon;
               return (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -368,7 +368,7 @@ export default function NexGenRetailAICaseStudy() {
                       </div>
                     </div>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
@@ -378,7 +378,7 @@ export default function NexGenRetailAICaseStudy() {
       {/* Workflow Automation Section */}
       <section className="bg-black py-24 px-6" data-testid="section-workflows">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -392,13 +392,13 @@ export default function NexGenRetailAICaseStudy() {
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
               We connected every system and automated every repeatable process—from order placement to delivery confirmation.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {workflows.map((workflow, idx) => {
               const Icon = workflow.icon;
               return (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -429,7 +429,7 @@ export default function NexGenRetailAICaseStudy() {
                       ))}
                     </div>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
@@ -439,7 +439,7 @@ export default function NexGenRetailAICaseStudy() {
       {/* Integrations Section */}
       <section className="bg-black py-16 px-6" data-testid="section-integrations">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -447,11 +447,11 @@ export default function NexGenRetailAICaseStudy() {
             className="text-center mb-12"
           >
             <div className="text-sm font-bold text-white/40 tracking-widest uppercase mb-4">Connected Systems</div>
-          </motion.div>
+          </m.div>
 
           <div className="flex flex-wrap justify-center gap-4">
             {integrations.map((integration, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -461,7 +461,7 @@ export default function NexGenRetailAICaseStudy() {
               >
                 <span className="text-white font-medium">{integration.name}</span>
                 <span className="text-white/40 text-sm ml-2">({integration.category})</span>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -470,7 +470,7 @@ export default function NexGenRetailAICaseStudy() {
       {/* Timeline Section */}
       <section className="bg-black py-24 px-6" data-testid="section-timeline">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -481,11 +481,11 @@ export default function NexGenRetailAICaseStudy() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
               From Kickoff to Full Deployment in 90 Days
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {timeline.map((phase, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -500,7 +500,7 @@ export default function NexGenRetailAICaseStudy() {
                   <h3 className="text-lg font-bold text-white mb-2">{phase.title}</h3>
                   <p className="text-white/60 text-sm">{phase.description}</p>
                 </GlassCard>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -509,7 +509,7 @@ export default function NexGenRetailAICaseStudy() {
       {/* Outcome Section */}
       <section className="bg-black py-24 px-6" data-testid="section-outcome">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -520,11 +520,11 @@ export default function NexGenRetailAICaseStudy() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
               Transformed Operations, Delighted Customers
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             {outcomes.map((outcome, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -540,11 +540,11 @@ export default function NexGenRetailAICaseStudy() {
                     </div>
                   </div>
                 </GlassCard>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -558,14 +558,14 @@ export default function NexGenRetailAICaseStudy() {
               </p>
               <p className="text-white/60">CEO, NexGen Retail Group</p>
             </GlassCard>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Related Case Studies */}
       <section className="bg-black py-24 px-6" data-testid="section-related">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -576,11 +576,11 @@ export default function NexGenRetailAICaseStudy() {
             <h2 className="text-3xl md:text-4xl font-black text-white">
               Similar AI Transformations
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {relatedCases.map((caseItem, idx) => (
-              <motion.div
+              <m.div
                 key={caseItem.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -610,7 +610,7 @@ export default function NexGenRetailAICaseStudy() {
                     </div>
                   </GlassCard>
                 </Link>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -619,7 +619,7 @@ export default function NexGenRetailAICaseStudy() {
       {/* CTA Section */}
       <section className="bg-black py-24 px-6" data-testid="section-cta">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -651,7 +651,7 @@ export default function NexGenRetailAICaseStudy() {
                 </button>
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </Layout>

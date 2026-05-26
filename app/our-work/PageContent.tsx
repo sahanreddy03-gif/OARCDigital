@@ -7,7 +7,7 @@ import { ArrowUpRight, Bot, Palette, Grid3X3, Sparkles } from "lucide-react";
 import { caseStudies, CaseStudy } from "@/data/caseStudies";
 import { supportingPagesSEO } from "@/data/seoMetadata";
 import { buildOurWorkShellGraph } from "@/lib/schema/shellSchemas";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 const heroBgImage = "/attached_assets/IMG_8144_1765567236984.jpeg";
 
 const AI_CATEGORIES = [
@@ -137,7 +137,7 @@ export default function PageContent() {
       <section className="relative min-h-[60vh] pt-24 pb-16 md:min-h-[70vh] md:pt-32 md:pb-20 flex items-center overflow-hidden">
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
-          <motion.div 
+          <m.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
@@ -159,7 +159,7 @@ export default function PageContent() {
             <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-lg">
               Award-winning campaigns, AI transformations, and creative strategies that set the standard for premium brands worldwide.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -201,7 +201,7 @@ export default function PageContent() {
       <section className="relative py-16 md:py-24 overflow-hidden min-h-screen">
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative">
-          <motion.div 
+          <m.div 
             className="grid grid-cols-12 gap-5 md:gap-6"
             initial="hidden"
             animate="visible"
@@ -227,7 +227,7 @@ export default function PageContent() {
               const height = isLarge ? 'h-[480px] md:h-[540px]' : isMedium ? 'h-[400px] md:h-[460px]' : 'h-[360px] md:h-[420px]';
 
               return (
-                <motion.div
+                <m.div
                   key={study.slug}
                   className={colSpan}
                   variants={{
@@ -279,10 +279,10 @@ export default function PageContent() {
                       </div>
                     </div>
                   </Link>
-                </motion.div>
+                </m.div>
               );
             })}
-          </motion.div>
+          </m.div>
 
           {/* Empty State */}
           {filteredStudies.length === 0 && (
@@ -299,7 +299,7 @@ export default function PageContent() {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-t from-[#ff914d]/10 to-transparent rounded-full blur-[120px]" />
         
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center relative z-10">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -315,7 +315,7 @@ export default function PageContent() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
-                <motion.button 
+                <m.button 
                   className="group inline-flex items-center justify-center gap-3 bg-[#ff914d] hover:bg-[#ffa366] text-zinc-900 font-bold px-10 py-5 rounded-xl transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -323,20 +323,20 @@ export default function PageContent() {
                 >
                   Start Your Project
                   <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </motion.button>
+                </m.button>
               </Link>
               <Link href="/services">
-                <motion.button 
+                <m.button 
                   className="inline-flex items-center justify-center gap-3 border border-white/20 text-white font-medium px-10 py-5 rounded-xl hover:bg-white/5 hover:border-white/30 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   data-testid="button-view-services"
                 >
                   Explore Services
-                </motion.button>
+                </m.button>
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
       </div>

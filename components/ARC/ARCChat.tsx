@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { X, ArrowLeft, ArrowUpRight, Send, Phone, Flame, TrendingDown, Users, MousePointerClick, Swords, ChevronLeft } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { ARCMessage } from './ARCMessage';
 import { ARCTypingIndicator } from './ARCTypingIndicator';
 import { getRandomGreeting, checkInstantResponse } from '@/lib/instantResponses';
@@ -245,7 +245,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
   const panelClass = isMobile ? 'fixed inset-0 z-[9999]' : 'fixed bottom-6 right-6 z-[9999] w-[420px] h-[600px] rounded-[28px] overflow-hidden';
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, scale: 0.96, y: 12 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.96, y: 12 }}
@@ -257,7 +257,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
       <AnimatePresence mode="wait">
         {!hasStarted ? (
           /* ──────────── IDLE SCREEN ──────────── */
-          <motion.div
+          <m.div
             key="idle"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -323,7 +323,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
             {/* Suggestion pills — Apple style */}
             <div className="relative z-10 flex flex-col gap-2 px-5 mt-6 overflow-y-auto pb-6">
               {SUGGESTIONS.map((s, i) => (
-                <motion.button
+                <m.button
                   key={i}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -340,13 +340,13 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
                   data-testid={`button-suggestion-${i}`}
                 >
                   {s}
-                </motion.button>
+                </m.button>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         ) : (
           /* ──────────── CHAT SCREEN — Apple light theme ──────────── */
-          <motion.div
+          <m.div
             key="chat"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -487,10 +487,10 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
                 </button>
               </div>
             </form>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </m.div>
   );
 }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Search, Settings, Rocket, ArrowRight, Check } from 'lucide-react';
 
@@ -38,7 +38,7 @@ export function PersonalizationSteps() {
   return (
     <div className="relative">
       <div className="text-center mb-16">
-        <motion.div 
+        <m.div 
           className="inline-flex items-center gap-2 px-4 py-2 bg-[#c4ff4d]/10 border border-[#c4ff4d]/20 rounded-full mb-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export function PersonalizationSteps() {
         >
           <Rocket className="w-4 h-4 text-[#c4ff4d]" />
           <span className="text-sm text-[#c4ff4d]">Your Journey</span>
-        </motion.div>
+        </m.div>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
           From Signup to <span className="text-[#c4ff4d]">AI-Powered</span>
         </h2>
@@ -64,7 +64,7 @@ export function PersonalizationSteps() {
             const isLast = idx === steps.length - 1;
             
             return (
-              <motion.div
+              <m.div
                 key={step.step}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -105,12 +105,12 @@ export function PersonalizationSteps() {
                     ))}
                   </div>
                 </GlassCard>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>
         
-        <motion.div 
+        <m.div 
           className="mt-12 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -120,7 +120,7 @@ export function PersonalizationSteps() {
           <p className="text-white/40 text-sm">
             Average time from first call to live AI agents: <span className="text-[#c4ff4d] font-semibold">14 days</span>
           </p>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   );

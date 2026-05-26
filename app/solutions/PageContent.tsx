@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import Link from "next/link";
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { m, useInView, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { GlassCard } from '@/components/ui/glass-card';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
@@ -285,14 +285,14 @@ export default function PageContent() {
           <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-purple-600/10 blur-[120px]" />
 
           <div className="relative z-10 max-w-6xl mx-auto px-6 py-24">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 40 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
               {/* Eyebrow */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={heroInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 }}
@@ -300,7 +300,7 @@ export default function PageContent() {
               >
                 <Sparkles className="w-4 h-4 text-[#c4ff4d]" />
                 <span className="text-sm text-white/70">Automation + Software Development</span>
-              </motion.div>
+              </m.div>
 
               <h1 
                 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-[1.1] mb-6"
@@ -348,12 +348,12 @@ export default function PageContent() {
                   </Button>
                 </a>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Two Pillars Visual */}
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {solutionPillars.map((pillar, index) => (
-                <motion.div
+                <m.div
                   key={pillar.id}
                   initial={{ opacity: 0, y: 40 }}
                   animate={heroInView ? { opacity: 1, y: 0 } : {}}
@@ -378,7 +378,7 @@ export default function PageContent() {
                     
                     <AnimatePresence>
                       {activePillar === pillar.id && (
-                        <motion.div
+                        <m.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: 'auto' }}
                           exit={{ opacity: 0, height: 0 }}
@@ -386,7 +386,7 @@ export default function PageContent() {
                         >
                           <ul className="space-y-2">
                             {pillar.features.map((feature, i) => (
-                              <motion.li 
+                              <m.li 
                                 key={i}
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
@@ -395,10 +395,10 @@ export default function PageContent() {
                               >
                                 <Check className="w-4 h-4 flex-shrink-0" style={{ color: pillar.color }} />
                                 {feature}
-                              </motion.li>
+                              </m.li>
                             ))}
                           </ul>
-                        </motion.div>
+                        </m.div>
                       )}
                     </AnimatePresence>
 
@@ -410,7 +410,7 @@ export default function PageContent() {
                       <ChevronRight className="w-5 h-5 text-white/40" />
                     </div>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -435,7 +435,7 @@ export default function PageContent() {
           </div>
           
           <div className="max-w-6xl mx-auto relative z-10">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -451,11 +451,11 @@ export default function PageContent() {
               <p className="text-white/50 text-lg max-w-2xl mx-auto">
                 Your tools working together. Manual tasks eliminated. More time for what matters.
               </p>
-            </motion.div>
+            </m.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {automationServices.map((service, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -469,7 +469,7 @@ export default function PageContent() {
                     <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
                     <p className="text-white/50 text-sm leading-relaxed">{service.description}</p>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -482,7 +482,7 @@ export default function PageContent() {
           </div>
           
           <div className="max-w-6xl mx-auto relative z-10">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -498,11 +498,11 @@ export default function PageContent() {
               <p className="text-white/50 text-lg max-w-2xl mx-auto">
                 Purpose-built applications for your unique challenges. From idea to production.
               </p>
-            </motion.div>
+            </m.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {softwareServices.map((service, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -516,7 +516,7 @@ export default function PageContent() {
                     <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
                     <p className="text-white/50 text-sm leading-relaxed">{service.description}</p>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -533,7 +533,7 @@ export default function PageContent() {
           />
           
           <div className="max-w-6xl mx-auto relative z-10">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -545,13 +545,13 @@ export default function PageContent() {
               <p className="text-white/50 text-lg max-w-2xl mx-auto">
                 From discovery to deployment - transparent, iterative, collaborative.
               </p>
-            </motion.div>
+            </m.div>
 
             {/* Desktop Timeline */}
             <div className="hidden lg:block">
               <div className="flex gap-4">
                 {processPhases.map((phase, i) => (
-                  <motion.div
+                  <m.div
                     key={i}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -578,7 +578,7 @@ export default function PageContent() {
                       <p className="text-sm text-white/40 mb-4">{phase.duration}</p>
                       <p className="text-white/60 text-sm leading-relaxed">{phase.description}</p>
                     </GlassCard>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
             </div>
@@ -616,7 +616,7 @@ export default function PageContent() {
         {/* ========== COMBINED VALUE PROP ========== */}
         <section className="py-24 px-6 border-t border-white/5">
           <div className="max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -661,14 +661,14 @@ export default function PageContent() {
                   </div>
                 </div>
               </GlassCard>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* ========== REVENUE LEAKAGE PROSE — Where Revenue Disappears ========== */}
         <section className="py-24 px-6 border-t border-white/5 bg-black" data-testid="section-solutions-prose">
           <div className="max-w-3xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -747,14 +747,14 @@ export default function PageContent() {
                   to the layers already running.
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* ========== TESTIMONIALS ========== */}
         <section className="py-24 px-6 border-t border-white/5">
           <div className="max-w-6xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -763,11 +763,11 @@ export default function PageContent() {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 What Our Clients Say
               </h2>
-            </motion.div>
+            </m.div>
 
             <div className="grid md:grid-cols-3 gap-6">
               {testimonials.map((testimonial, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -788,7 +788,7 @@ export default function PageContent() {
                       </div>
                     </div>
                   </GlassCard>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -797,7 +797,7 @@ export default function PageContent() {
         {/* ========== 90 / 180 / 360 DAY REVENUE ROADMAP ========== */}
         <section className="py-24 px-6 border-t border-white/5 bg-zinc-950" data-testid="section-solutions-roadmap">
           <div className="max-w-6xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -812,7 +812,7 @@ export default function PageContent() {
                 generating revenue. The OARC solutions stack addresses each layer in sequence — so results
                 compound as the engagement matures rather than flattening after the first sprint.
               </p>
-            </motion.div>
+            </m.div>
 
             <div className="grid md:grid-cols-3 gap-6">
               {[
@@ -850,7 +850,7 @@ export default function PageContent() {
                   outcomeDesc: "Businesses running the full OARC revenue stack typically see a 40 to 60 percent reduction in cost per acquired customer and three to five times the qualified lead volume they had at day one — without proportional increases in headcount or spend.",
                 },
               ].map((phase, idx) => (
-                <motion.div
+                <m.div
                   key={phase.period}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -880,7 +880,7 @@ export default function PageContent() {
                       <p className="text-white/70 text-sm leading-relaxed">{phase.outcomeDesc}</p>
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -889,7 +889,7 @@ export default function PageContent() {
         {/* ========== EXPLORE THE STACK — 10 SPOKES + IMAGE GRID ========== */}
         <section className="py-24 px-6 border-t border-white/5 bg-black" data-testid="section-solutions-spokes">
           <div className="max-w-6xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -903,7 +903,7 @@ export default function PageContent() {
                 Each one ships standalone, and they compound when run together — your AI workforce, your
                 marketing engine, and your funnel, on one balance sheet.
               </p>
-            </motion.div>
+            </m.div>
 
             {/* Image grid — hero + 4 supporting from the registry */}
             <div className="grid grid-cols-12 gap-3 mb-12" data-testid="grid-solutions-images">
@@ -1040,7 +1040,7 @@ export default function PageContent() {
           </div>
           
           <div className="max-w-3xl mx-auto text-center relative z-10">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1085,7 +1085,7 @@ export default function PageContent() {
               <p className="text-white/30 text-sm mt-8">
                 Average response time: 2 hours during business hours
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 

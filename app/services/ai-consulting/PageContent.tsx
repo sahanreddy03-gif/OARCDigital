@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { m, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -311,7 +311,7 @@ export default function AIConsulting() {
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left: Text Content */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -343,10 +343,10 @@ export default function AIConsulting() {
                   See Our Framework
                 </Button>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Right: Interactive Circular Framework Diagram */}
-            <motion.div
+            <m.div
               initial={prefersReducedMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.8, delay: 0.3 }}
@@ -372,7 +372,7 @@ export default function AIConsulting() {
                     strokeWidth="2"
                   />
                   {/* Animated Arc */}
-                  <motion.circle
+                  <m.circle
                     cx="250"
                     cy="250"
                     r="180"
@@ -404,7 +404,7 @@ export default function AIConsulting() {
                     const isExpanded = activePhase === phase.id;
 
                     return (
-                      <motion.div
+                      <m.div
                         key={phase.id}
                         initial={prefersReducedMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -416,7 +416,7 @@ export default function AIConsulting() {
                           transform: 'translate(-50%, -50%)'
                         }}
                       >
-                        <motion.button
+                        <m.button
                           id={`phase-${phase.id}`}
                           onClick={() => setActivePhase(isExpanded ? null : phase.id)}
                           onKeyDown={(e) => handlePhaseKeyDown(e, phase.id)}
@@ -435,8 +435,8 @@ export default function AIConsulting() {
                         >
                           <Icon className="w-6 h-6 mb-1" style={{ color: phase.color }} />
                           <span className="text-xs font-bold text-white">{phase.title}</span>
-                        </motion.button>
-                      </motion.div>
+                        </m.button>
+                      </m.div>
                     );
                   })}
                 </div>
@@ -453,7 +453,7 @@ export default function AIConsulting() {
                     const endY = 250 + radius * Math.sin(endAngle);
                     
                     return (
-                      <motion.path
+                      <m.path
                         key={i}
                         d={`M ${startX} ${startY} A ${radius} ${radius} 0 0 1 ${endX} ${endY}`}
                         fill="none"
@@ -472,7 +472,7 @@ export default function AIConsulting() {
               {/* Phase Detail Panel */}
               <AnimatePresence>
                 {activePhase && (
-                  <motion.div
+                  <m.div
                     id={`phase-panel-${activePhase}`}
                     role="region"
                     aria-labelledby={`phase-${activePhase}`}
@@ -506,10 +506,10 @@ export default function AIConsulting() {
                         </div>
                       );
                     })()}
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -540,7 +540,7 @@ export default function AIConsulting() {
                 </svg>
 
                 {/* Center - CEO/Decision Maker */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
@@ -549,13 +549,13 @@ export default function AIConsulting() {
                   <div className="w-24 h-24 rounded-full bg-zinc-900 border-2 border-zinc-700 flex items-center justify-center shadow-xl">
                     <Users className="w-10 h-10 text-zinc-400" />
                   </div>
-                </motion.div>
+                </m.div>
 
                 {/* Orbiting Keywords - Clean single-color styling */}
                 {confusionMessages.map((msg, index) => {
                   const baseAngle = (index * 72) - 90;
                   return (
-                    <motion.div
+                    <m.div
                       key={index}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
@@ -582,7 +582,7 @@ export default function AIConsulting() {
                           transform: `translate(-50%, -50%) translateY(-140px) rotate(${-baseAngle}deg)`
                         }}
                       >
-                        <motion.div
+                        <m.div
                           animate={prefersReducedMotion ? {} : {
                             rotate: [-baseAngle, -baseAngle - 360]
                           }}
@@ -597,9 +597,9 @@ export default function AIConsulting() {
                           <div className="bg-zinc-900/90 backdrop-blur-sm border border-zinc-700/50 rounded-lg px-3 py-1.5 whitespace-nowrap shadow-lg">
                             <span className="text-xs font-medium text-zinc-400">{msg.text}</span>
                           </div>
-                        </motion.div>
+                        </m.div>
                       </div>
-                    </motion.div>
+                    </m.div>
                   );
                 })}
 
@@ -609,7 +609,7 @@ export default function AIConsulting() {
             </div>
 
             {/* Right: Problem Statement */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -661,7 +661,7 @@ export default function AIConsulting() {
                   automated $7M+ in pipeline, and transformed operations for brands worldwide.
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -677,7 +677,7 @@ export default function AIConsulting() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left: Demo Visualization */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -714,7 +714,7 @@ export default function AIConsulting() {
                       { step: 3, title: 'AI Strategy Design', status: 'active', time: '2 weeks' },
                       { step: 4, title: 'Implementation', status: 'pending', time: '4-6 weeks' },
                     ].map((item, idx) => (
-                      <motion.div
+                      <m.div
                         key={idx}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -745,7 +745,7 @@ export default function AIConsulting() {
                         }`}>
                           {item.time}
                         </div>
-                      </motion.div>
+                      </m.div>
                     ))}
                   </div>
 
@@ -756,7 +756,7 @@ export default function AIConsulting() {
                       <span className="text-xs text-purple-400 font-semibold">55%</span>
                     </div>
                     <div className="h-2 bg-zinc-800 rounded-full overflow-hidden">
-                      <motion.div
+                      <m.div
                         initial={{ width: 0 }}
                         whileInView={{ width: '55%' }}
                         viewport={{ once: true }}
@@ -767,10 +767,10 @@ export default function AIConsulting() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Right: How It Works Text */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -799,7 +799,7 @@ export default function AIConsulting() {
                   { icon: Hammer, title: 'Build', desc: 'Hands-on implementation of AI solutions' },
                   { icon: Rocket, title: 'Deploy', desc: 'Launch, training, and ongoing optimization' }
                 ].map((item, idx) => (
-                  <motion.div
+                  <m.div
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -814,10 +814,10 @@ export default function AIConsulting() {
                       <h4 className="text-white font-semibold mb-1">{item.title}</h4>
                       <p className="text-white/60 text-sm">{item.desc}</p>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -826,7 +826,7 @@ export default function AIConsulting() {
       <section className="py-24 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -834,9 +834,9 @@ export default function AIConsulting() {
             >
               <Target className="w-4 h-4 text-indigo-400" />
               <span className="text-sm text-white/80">AI Maturity Model</span>
-            </motion.div>
+            </m.div>
 
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -844,9 +844,9 @@ export default function AIConsulting() {
               className="text-4xl md:text-5xl font-black text-white mb-4"
             >
               We meet you <span className="text-indigo-400">where you are</span>
-            </motion.h2>
+            </m.h2>
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -855,7 +855,7 @@ export default function AIConsulting() {
             >
               Every business is at a different stage of AI adoption. Click on each level to see what's involved, 
               the timeline, and what services we recommend.
-            </motion.p>
+            </m.p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -865,7 +865,7 @@ export default function AIConsulting() {
                 {maturityLevels.map((level, index) => {
                   const isSelected = activeLevel === level.level;
                   return (
-                    <motion.button
+                    <m.button
                       key={level.level}
                       initial={prefersReducedMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -917,7 +917,7 @@ export default function AIConsulting() {
                           </div>
                         )}
                       </div>
-                    </motion.button>
+                    </m.button>
                   );
                 })}
               </div>
@@ -926,7 +926,7 @@ export default function AIConsulting() {
             {/* Right: Level Details */}
             <div className="lg:sticky lg:top-8">
               <AnimatePresence mode="wait">
-                <motion.div
+                <m.div
                   key={activeLevel}
                   initial={prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -990,7 +990,7 @@ export default function AIConsulting() {
                       </>
                     );
                   })()}
-                </motion.div>
+                </m.div>
               </AnimatePresence>
             </div>
           </div>
@@ -1001,7 +1001,7 @@ export default function AIConsulting() {
       <section className="py-24 px-4 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1009,9 +1009,9 @@ export default function AIConsulting() {
             >
               <FileText className="w-4 h-4 text-purple-400" />
               <span className="text-sm text-white/80">Tangible Outcomes</span>
-            </motion.div>
+            </m.div>
 
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1021,9 +1021,9 @@ export default function AIConsulting() {
               Consulting means <span className="text-purple-400">deliverables</span>,
               <br />
               not just conversations
-            </motion.h2>
+            </m.h2>
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1031,14 +1031,14 @@ export default function AIConsulting() {
               className="text-lg text-white/70 max-w-2xl mx-auto"
             >
               Every engagement produces actionable documents you can use immediately—not PowerPoints that gather dust.
-            </motion.p>
+            </m.p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
             {deliverables.map((item, index) => {
               const Icon = item.icon;
               return (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1070,7 +1070,7 @@ export default function AIConsulting() {
                   <p className="text-sm text-white/60">{item.description}</p>
 
                   {/* Hover Effect */}
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: hoveredDeliverable === index ? 1 : 0 }}
                     className="absolute inset-0 rounded-2xl pointer-events-none"
@@ -1078,7 +1078,7 @@ export default function AIConsulting() {
                       background: `radial-gradient(circle at center, ${item.color}10 0%, transparent 70%)`
                     }}
                   />
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
@@ -1089,7 +1089,7 @@ export default function AIConsulting() {
       <section className="py-24 px-4 bg-zinc-900">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1097,9 +1097,9 @@ export default function AIConsulting() {
             >
               <Clock className="w-4 h-4 text-orange-500" />
               <span className="text-sm text-white/80">Engagement Timeline</span>
-            </motion.div>
+            </m.div>
 
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1107,9 +1107,9 @@ export default function AIConsulting() {
               className="text-4xl md:text-5xl font-black text-white mb-4"
             >
               From confusion to clarity in <span className="text-orange-500">6 weeks</span>
-            </motion.h2>
+            </m.h2>
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1117,12 +1117,12 @@ export default function AIConsulting() {
               className="text-lg text-white/70 max-w-2xl mx-auto"
             >
               A structured engagement that delivers results, not endless meetings.
-            </motion.p>
+            </m.p>
           </div>
 
           <div className="grid md:grid-cols-4 gap-6">
             {timelineWeeks.map((week, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1145,7 +1145,7 @@ export default function AIConsulting() {
 
                 {/* Progress Bar */}
                 <div className="h-2 bg-zinc-800 rounded-full mb-6 overflow-hidden">
-                  <motion.div
+                  <m.div
                     initial={{ width: 0 }}
                     whileInView={{ width: '100%' }}
                     viewport={{ once: true }}
@@ -1185,7 +1185,7 @@ export default function AIConsulting() {
                     <ChevronRight className="w-6 h-6" />
                   </div>
                 )}
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -1196,7 +1196,7 @@ export default function AIConsulting() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left: Text */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -1222,7 +1222,7 @@ export default function AIConsulting() {
                 {proofPoints.map((point, index) => {
                   const Icon = point.icon;
                   return (
-                    <motion.div
+                    <m.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -1234,7 +1234,7 @@ export default function AIConsulting() {
                       <Icon className="w-6 h-6 text-purple-400 mb-2" />
                       <div className="text-2xl font-black text-white">{point.metric}</div>
                       <div className="text-sm text-white/60">{point.label}</div>
-                    </motion.div>
+                    </m.div>
                   );
                 })}
               </div>
@@ -1245,10 +1245,10 @@ export default function AIConsulting() {
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
-            </motion.div>
+            </m.div>
 
             {/* Right: Visual Showcase */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -1298,7 +1298,7 @@ export default function AIConsulting() {
               <div className="absolute -top-4 -right-4 bg-purple-500 text-black text-xs font-bold px-4 py-2 rounded-full shadow-lg">
                 Consulting from Practitioners
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -1309,7 +1309,7 @@ export default function AIConsulting() {
       {/* SECTION 6: Final CTA */}
       <section className="py-24 px-4 bg-indigo-500">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1354,7 +1354,7 @@ export default function AIConsulting() {
                 <span className="text-white text-sm font-medium">100% money-back guarantee</span>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
