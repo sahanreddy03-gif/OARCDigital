@@ -142,6 +142,18 @@ export default function RestaurantsMaltaIndustryHub() {
       <main className="min-h-screen bg-background">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
 
+        <div className="bg-zinc-950 flex justify-center py-6 px-4" data-testid="section-restaurant-hero-image">
+          <img
+            src="/attached_assets/hf_20260420_110118_7550d988-bf93-45c0-b657-8533bafeeba7_1779836586701.png"
+            alt="OARC Digital restaurant and hotel systems Malta — direct ordering, self-order kiosks, automated review funnels, and real-time owner dashboards for Malta hospitality | OARC Digital"
+            width={1080}
+            height={1080}
+            className="w-full max-w-xl rounded-xl shadow-2xl"
+            fetchPriority="high"
+            data-testid="img-restaurant-hero"
+          />
+        </div>
+
         <section className="relative min-h-[65vh] flex items-center overflow-hidden">
           <div className="absolute inset-0">
             <img src={heroImage} alt={heroImageAlt} className="w-full h-full object-cover object-center" />
@@ -176,17 +188,6 @@ export default function RestaurantsMaltaIndustryHub() {
             </div>
           </div>
         </section>
-
-        <div className="bg-zinc-950 flex justify-center py-6 px-4" data-testid="section-restaurant-case-study">
-          <img
-            src="/attached_assets/hf_20260420_110118_7550d988-bf93-45c0-b657-8533bafeeba7_1779836586701.png"
-            alt="Malta restaurant and hotel marketing results — Google Business Profile, Instagram, TikTok content cadence and AI booking agent for Malta venues | OARC Digital"
-            width={1080}
-            height={1080}
-            className="w-full max-w-xl rounded-xl shadow-2xl"
-            data-testid="img-restaurant-case-study"
-          />
-        </div>
 
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16 space-y-16">
           <section>

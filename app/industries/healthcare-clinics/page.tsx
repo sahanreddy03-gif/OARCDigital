@@ -180,7 +180,7 @@ export default function HealthcareClinicsMaltaIndustryHub() {
         <div className="bg-zinc-950 flex justify-center py-6 px-4" data-testid="section-clinic-case-study">
           <img
             src="/attached_assets/Untitled_design_(96)_1779836586705.png"
-            alt="Malta healthcare clinic digital marketing — patient acquisition, AI appointment booker, and recall automation results for Malta private clinics | OARC Digital"
+            alt="Malta healthcare clinic reduced no-show rate from 28% to 4% in 6 weeks using OARC Digital automated patient flow — waitlist filled released slots within minutes | OARC Digital"
             width={1080}
             height={1080}
             className="w-full max-w-xl rounded-xl shadow-2xl"

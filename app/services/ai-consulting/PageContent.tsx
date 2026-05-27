@@ -1436,7 +1436,7 @@ export default function AIConsulting() {
         <div className="flex justify-center">
           <img
             src="/attached_assets/hf_20260420_104245_790561aa-c963-4bc2-a8ea-c979551e497d_1779836586703.png"
-            alt="Ready to grow your Malta business with AI — OARC Digital consulting results, strategy and deployment for competitive advantage | OARC Digital"
+            alt="OARC Digital AI consulting Malta — free business audit, no pitch, no pressure, ready to grow your Malta business with AI-powered strategy | OARC Digital"
             width={1080}
             height={1080}
             className="w-full max-w-xl rounded-xl shadow-2xl"
