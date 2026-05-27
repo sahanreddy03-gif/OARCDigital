@@ -4,6 +4,19 @@ import RelatedServices from "@/components/RelatedServices";
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import TrustBlock from "@/components/seo/TrustBlock";
 
+const IMG_HERO = "/attached_assets/hf_20260420_104453_5a0e2d7c-d9d4-4d73-95a0-501f663a9c73_1779836586702.png";
+
+const custAcqImageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  name: "OARC Digital organic customer acquisition — Malta businesses found before spending on ads",
+  description: "OARC Digital organic customer acquisition — Malta businesses found by their next 10 customers before spending on ads, using SEO and content strategy.",
+  url: "https://oarcdigital.com" + IMG_HERO,
+  width: 1080,
+  height: 1080,
+  contentUrl: "https://oarcdigital.com" + IMG_HERO,
+};
+
 const phases = [
   {
     step: "01",
@@ -74,6 +87,18 @@ const pricingTiers = [
 export default function PageContent() {
   return (
     <div className="border-t">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(custAcqImageSchema) }} />
+      <div className="bg-zinc-950 flex justify-center py-6 px-4" data-testid="section-hero-image">
+        <img
+          src={IMG_HERO}
+          alt="OARC Digital organic customer acquisition — Malta businesses found by their next 10 customers before spending on ads | OARC Digital"
+          width={1080}
+          height={1080}
+          className="w-full max-w-xl rounded-xl shadow-2xl"
+          fetchPriority="high"
+          data-testid="img-hero-customer-acquisition"
+        />
+      </div>
       <div className="bg-zinc-950 text-white py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">

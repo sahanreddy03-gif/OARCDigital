@@ -133,6 +133,31 @@ export default function PageContent() {
         </div>
       </section>
 
+      {/* SLIEMA CASE STUDY — BRANDED IMAGE */}
+      <div className="bg-zinc-950 flex justify-center py-6 px-4" data-testid="section-sliema-case-study">
+        <img
+          src="/attached_assets/hf_20260420_110651_c79565e9-5cf0-4a29-a4d8-966374bda9db_1779836586682.png"
+          alt="Sliema property agency Malta — a property agency in Sliema was losing 60% of enquiries after hours before deploying OARC AI Real Estate Agent | OARC Digital"
+          width={1080}
+          height={1080}
+          className="w-full max-w-xl rounded-xl shadow-2xl"
+          data-testid="img-sliema-case-study"
+        />
+      </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ImageObject",
+          name: "Sliema property agency Malta — a property agency was losing 60% of after-hours enquiries before OARC AI deployment",
+          description: "A property agency in Sliema was losing 60% of their enquiries after hours. OARC AI Real Estate Agent deployed to recover lost leads across Malta's busiest residential market.",
+          url: "https://oarcdigital.com/attached_assets/hf_20260420_110651_c79565e9-5cf0-4a29-a4d8-966374bda9db_1779836586682.png",
+          width: 1080,
+          height: 1080,
+          contentUrl: "https://oarcdigital.com/attached_assets/hf_20260420_110651_c79565e9-5cf0-4a29-a4d8-966374bda9db_1779836586682.png",
+        }) }}
+      />
+
       {/* THE PROBLEM */}
       <ScrollReveal>
         <section className="py-20 bg-background border-t" data-testid="section-problem">
@@ -364,6 +389,31 @@ export default function PageContent() {
         </section>
       </ScrollReveal>
 
+      {/* DEATH BY MISSED LEADS — BRANDED IMAGE */}
+      <div className="bg-zinc-950 flex justify-center py-6 px-4" data-testid="section-missed-leads-image">
+        <img
+          src="/attached_assets/hf_20260420_110400_f275b238-63f3-432e-9bf6-8c751eff68cf_1779836586700.png"
+          alt="Death by missed leads — Malta estate agent lost 60% of after-hours property enquiries before OARC AI agent deployment | OARC Digital"
+          width={1080}
+          height={1080}
+          className="w-full max-w-xl rounded-xl shadow-2xl"
+          data-testid="img-missed-leads"
+        />
+      </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ImageObject",
+          name: "Death by missed leads — Malta estate agency losing after-hours property enquiries",
+          description: "Malta estate agency losing after-hours property enquiries — every missed lead is a missed commission. OARC AI Real Estate Agent ensures no enquiry goes unanswered.",
+          url: "https://oarcdigital.com/attached_assets/hf_20260420_110400_f275b238-63f3-432e-9bf6-8c751eff68cf_1779836586700.png",
+          width: 1080,
+          height: 1080,
+          contentUrl: "https://oarcdigital.com/attached_assets/hf_20260420_110400_f275b238-63f3-432e-9bf6-8c751eff68cf_1779836586700.png",
+        }) }}
+      />
+
       {/* MONDAY MORNING */}
       <ScrollReveal>
         <section className="py-20 bg-zinc-950 text-white" data-testid="section-monday">
@@ -398,6 +448,31 @@ export default function PageContent() {
           </div>
         </section>
       </ScrollReveal>
+
+      {/* 340 ENQUIRIES CASE STUDY — BRANDED IMAGE */}
+      <div className="bg-zinc-950 flex justify-center py-6 px-4" data-testid="section-340-enquiries">
+        <img
+          src="/attached_assets/hf_20260420_104042_398e075c-5536-4b20-820c-844b0e6be0ed_1779836586703.png"
+          alt="340 property enquiries handled in one month by OARC AI Real Estate Agent for a Malta brokerage | OARC Digital"
+          width={1080}
+          height={1080}
+          className="w-full max-w-xl rounded-xl shadow-2xl"
+          data-testid="img-340-enquiries"
+        />
+      </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ImageObject",
+          name: "340 property enquiries handled in one month — Malta brokerage results with OARC AI agent",
+          description: "A Malta brokerage handled 340 portal and WhatsApp property enquiries in a single month using OARC AI Real Estate Agent — with four confirmed viewings booked by 9am every Monday.",
+          url: "https://oarcdigital.com/attached_assets/hf_20260420_104042_398e075c-5536-4b20-820c-844b0e6be0ed_1779836586703.png",
+          width: 1080,
+          height: 1080,
+          contentUrl: "https://oarcdigital.com/attached_assets/hf_20260420_104042_398e075c-5536-4b20-820c-844b0e6be0ed_1779836586703.png",
+        }) }}
+      />
 
       {/* ESTATE AGENT FEEDBACK */}
       <ScrollReveal>
@@ -490,6 +565,31 @@ export default function PageContent() {
           </div>
         </section>
       </ScrollReveal>
+
+      {/* DEATH BY SLOW REPLIES — BRANDED IMAGE */}
+      <div className="bg-zinc-950 flex justify-center py-6 px-4" data-testid="section-slow-replies-image">
+        <img
+          src="/attached_assets/hf_20260420_090006_17d4bf21-1268-4181-a191-d2cca6724f69_1779836586705.png"
+          alt="Death by slow replies — Malta property buyers choose whoever replies first, OARC AI Real Estate Agent responds in 40 seconds 24/7 | OARC Digital"
+          width={1080}
+          height={1080}
+          className="w-full max-w-xl rounded-xl shadow-2xl"
+          data-testid="img-slow-replies"
+        />
+      </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ImageObject",
+          name: "Death by slow replies — Malta property buyers choose whoever answers first",
+          description: "Death by slow replies in Malta property — buyers choose whoever replies first. OARC AI Real Estate Agent responds to enquiries in 40 seconds, 24 hours a day, 7 days a week.",
+          url: "https://oarcdigital.com/attached_assets/hf_20260420_090006_17d4bf21-1268-4181-a191-d2cca6724f69_1779836586705.png",
+          width: 1080,
+          height: 1080,
+          contentUrl: "https://oarcdigital.com/attached_assets/hf_20260420_090006_17d4bf21-1268-4181-a191-d2cca6724f69_1779836586705.png",
+        }) }}
+      />
 
       <MaltaContextBlock slug="ai-real-estate-agent" />
 

@@ -132,6 +132,7 @@ const collectionSchema = {
     { "@type": "CollectionPage", "@id": `${CANONICAL}#collection`, url: CANONICAL, name: "Restaurant Marketing in Malta", description: DESCRIPTION, inLanguage: "en-MT", isPartOf: { "@type": "WebSite", "@id": "https://oarcdigital.com/#website" }, dateModified: LAST_UPDATED, about: { "@type": "Thing", name: "Restaurant marketing in Malta" }, mainEntity: { "@id": `${CANONICAL}#services-list` } },
     { "@type": "ItemList", "@id": `${CANONICAL}#services-list`, name: "Restaurant Marketing Services for Malta Venues", numberOfItems: services.length, itemListOrder: "https://schema.org/ItemListOrderAscending", itemListElement: services.map((s, i) => ({ "@type": "ListItem", position: i + 1, url: `https://oarcdigital.com/services/${s.slug}`, name: s.title })) },
     { "@type": "FAQPage", "@id": `${CANONICAL}#faq`, mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
+    { "@type": "ImageObject", "@id": `${CANONICAL}#case-study-image`, url: "https://oarcdigital.com/attached_assets/hf_20260420_110118_7550d988-bf93-45c0-b657-8533bafeeba7_1779836586701.png", name: "Malta restaurant and hotel marketing results — Google Business Profile, Instagram, TikTok and AI booking", description: "OARC Digital restaurant and hospitality marketing results for Malta venues — Google Business Profile, Instagram, TikTok content cadence, and AI booking agent.", width: 1080, height: 1080, contentUrl: "https://oarcdigital.com/attached_assets/hf_20260420_110118_7550d988-bf93-45c0-b657-8533bafeeba7_1779836586701.png" },
   ],
 };
 
@@ -175,6 +176,17 @@ export default function RestaurantsMaltaIndustryHub() {
             </div>
           </div>
         </section>
+
+        <div className="bg-zinc-950 flex justify-center py-6 px-4" data-testid="section-restaurant-case-study">
+          <img
+            src="/attached_assets/hf_20260420_110118_7550d988-bf93-45c0-b657-8533bafeeba7_1779836586701.png"
+            alt="Malta restaurant and hotel marketing results — Google Business Profile, Instagram, TikTok content cadence and AI booking agent for Malta venues | OARC Digital"
+            width={1080}
+            height={1080}
+            className="w-full max-w-xl rounded-xl shadow-2xl"
+            data-testid="img-restaurant-case-study"
+          />
+        </div>
 
         <article className="max-w-4xl mx-auto px-6 md:px-8 py-16 space-y-16">
           <section>

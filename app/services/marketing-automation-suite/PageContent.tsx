@@ -1,9 +1,53 @@
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import RelatedServices from "@/components/RelatedServices";
 
+const IMG_HERO = "/attached_assets/hf_20260420_110134_9e1d7c1d-85b3-4676-b715-62b2b125577e_1779836586701.png";
+const IMG_IGAMING = "/attached_assets/hf_20260420_090501_ab407b9d-6ce2-45cc-bc91-2f74476e628a_1779836586705.png";
+
+const imageSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    name: "OARC Digital marketing automation suite — social media, ads, and AI handled weekly",
+    description: "OARC Digital marketing automation handling social media management, paid advertising, and AI automation every week for Malta businesses.",
+    url: "https://oarcdigital.com" + IMG_HERO,
+    width: 1080,
+    height: 1080,
+    contentUrl: "https://oarcdigital.com" + IMG_HERO,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    name: "iGaming operator Malta — marketing automation saved 14 hours per week",
+    description: "iGaming operator in Malta saved 14 hours per week using OARC Digital marketing automation — player reactivation rate increased 34% in the first month.",
+    url: "https://oarcdigital.com" + IMG_IGAMING,
+    width: 1080,
+    height: 1080,
+    contentUrl: "https://oarcdigital.com" + IMG_IGAMING,
+  },
+];
+
 export default function PageContent() {
     return (
-      <section className="py-16 md:py-24 bg-background border-t">
+      <>
+        {imageSchemas.map((s, i) => (
+          <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+        ))}
+
+        {/* HERO IMAGE */}
+        <div className="bg-zinc-950 flex justify-center py-6 px-4 border-t" data-testid="section-hero-image">
+          <img
+            src={IMG_HERO}
+            alt="OARC Digital marketing automation — social media management, paid ads, and AI automation handled every week for Malta businesses | OARC Digital"
+            width={1080}
+            height={1080}
+            className="w-full max-w-xl rounded-xl shadow-2xl"
+            fetchPriority="high"
+            data-testid="img-hero-marketing-automation"
+          />
+        </div>
+
+      <section className="py-16 md:py-24 bg-background">
         <div className="max-w-4xl mx-auto px-6 md:px-8">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
             The marketing automation layer your stack actually needs
@@ -59,10 +103,29 @@ export default function PageContent() {
             </p>
           </div>
         </div>
+
+        <div className="mt-12 pt-12 border-t" data-testid="section-igaming-case-study">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Results from a Malta iGaming operator</h2>
+          <div className="flex justify-center mb-6">
+            <img
+              src={IMG_IGAMING}
+              alt="iGaming operator Malta — marketing automation saved 14 hours per week and lifted player reactivation 34% in the first month | OARC Digital"
+              width={1080}
+              height={1080}
+              className="w-full max-w-xl rounded-xl shadow-2xl"
+              data-testid="img-igaming-case-study"
+            />
+          </div>
+          <p className="text-base text-foreground/70 leading-relaxed">
+            A Malta-licensed iGaming operator running acquisition across affiliate and paid channels, with a CRM that had never been properly configured for lifecycle beyond the welcome bonus flow. Inside six weeks we rebuilt the onboarding sequence, the first-deposit re-engagement, and the 30-day churn-prevention trigger. In month one: 14 hours per week saved on manual campaign management and a 34% increase in player reactivation rate against the previous quarter.
+          </p>
+        </div>
+
           <MaltaContextBlock slug="marketing-automation-suite" />
 
       <RelatedServices slug="/services/marketing-automation-suite" />
       </section>
+      </>
     );
   }
   

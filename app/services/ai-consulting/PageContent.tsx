@@ -1428,6 +1428,36 @@ export default function AIConsulting() {
         </div>
       </section>
 
+      <section className="py-12 px-4 bg-zinc-900" data-testid="section-ready-to-grow">
+        <div className="max-w-4xl mx-auto text-center mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Ready to grow with AI?</h2>
+          <p className="text-white/70 max-w-xl mx-auto">Strategy, deployment, and measurable results — AI consulting for Malta businesses at every stage.</p>
+        </div>
+        <div className="flex justify-center">
+          <img
+            src="/attached_assets/hf_20260420_104245_790561aa-c963-4bc2-a8ea-c979551e497d_1779836586703.png"
+            alt="Ready to grow your Malta business with AI — OARC Digital consulting results, strategy and deployment for competitive advantage | OARC Digital"
+            width={1080}
+            height={1080}
+            className="w-full max-w-xl rounded-xl shadow-2xl"
+            data-testid="img-ready-to-grow"
+          />
+        </div>
+      </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ImageObject",
+          name: "Ready to grow — OARC Digital AI consulting results for Malta businesses",
+          description: "OARC Digital AI consulting — ready to grow your business with artificial intelligence, tailored for Malta companies seeking competitive advantage.",
+          url: "https://oarcdigital.com/attached_assets/hf_20260420_104245_790561aa-c963-4bc2-a8ea-c979551e497d_1779836586703.png",
+          width: 1080,
+          height: 1080,
+          contentUrl: "https://oarcdigital.com/attached_assets/hf_20260420_104245_790561aa-c963-4bc2-a8ea-c979551e497d_1779836586703.png",
+        }) }}
+      />
+
       <RelatedServices slug="/services/ai-consulting" />
     </Layout>
   );
