@@ -58,7 +58,7 @@ const FOUNDER_FAQS: { question: string; answer: string }[] = [
   },
   {
     question: "What is the mission of OARC Digital?",
-    answer: "To be the Malta marketing agency that a serious operator can hand the entire growth stack to — brand, performance, AI agents, revenue automation — without stitching together three vendors and a quarterly review cadence. Weekly output, weekly revenue impact.",
+    answer: "To be the marketing agency Malta 2025 operators benchmark against — one that a serious business can hand its entire growth stack to, from brand and performance through to AI agents and revenue automation, without stitching together three vendors and a quarterly review cadence. Weekly output, weekly revenue impact.",
   },
 ];
 
@@ -67,6 +67,12 @@ const PILLARS = [
   { letter: "A", title: "Advanced",   body: "AI agents in production — SDR outreach, support triage, appointment booking, analytics — tuned specifically for the Maltese market." },
   { letter: "R", title: "Revenue",    body: "The only metric that matters. Brand work, paid media, automation — every surface connects to a measurable revenue outcome." },
   { letter: "C", title: "Creative",   body: "Organic-first, paid to amplify. Creative earns attention before a single euro is spent. We build brand work that makes performance work pay." },
+];
+
+const HARD_LIMITS = [
+  { n: "01", title: "No vendor lock-in",          body: "Every asset, domain, ad account, and data source belongs to you from day one. We have never had a client exit where we had to release their own property to them." },
+  { n: "02", title: "No black-box reporting",      body: "Every metric we present traces back to raw platform data. If we cannot show you the underlying number, we do not use it to justify your spend." },
+  { n: "03", title: "No month-seven scope creep",  body: "Objectives are fixed at kickoff. If they shift, we renegotiate in writing before the work changes — not after the invoice arrives." },
 ];
 
 const ANTI_PATTERNS = [
@@ -249,36 +255,7 @@ export default function PageContent() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          2. EDITORIAL IMAGE STRIP — art moment
-      ══════════════════════════════════════════════ */}
-      <div className="relative w-full overflow-hidden" style={{ height: "70vh" }} data-testid="section-hero-image">
-        <img
-          src={heroImage}
-          alt="OARC Digital — the future of Malta island businesses is being built right now, not by the biggest companies, by the fastest ones"
-          width={1080}
-          height={1350}
-          className="w-full h-full object-cover object-center"
-          fetchPriority="high"
-          data-testid="img-hero-editorial"
-        />
-        {/* vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent pointer-events-none" />
-        {/* pull quote on image */}
-        <div className="absolute bottom-12 left-8 md:left-16 lg:left-24">
-          <p className="font-thin text-white text-[clamp(1.4rem,3vw,2.5rem)] leading-snug max-w-xl tracking-tight opacity-90" data-speakable>
-            &ldquo;The fastest businesses on this island are being built right now.
-            Not by the biggest teams. By the sharpest ones.&rdquo;
-          </p>
-          <div className="flex items-center gap-3 mt-5">
-            <div className="w-6 h-px bg-white/30" />
-            <p className="text-white/30 text-xs tracking-widest uppercase">OARC Digital, Birkirkara Malta</p>
-          </div>
-        </div>
-      </div>
-
-      {/* ══════════════════════════════════════════════
-          3. MARQUEE TICKER
+          2. MARQUEE TICKER
       ══════════════════════════════════════════════ */}
       <div className="bg-black py-5 overflow-hidden" data-testid="section-marquee">
         <div className="flex whitespace-nowrap">
@@ -293,6 +270,33 @@ export default function PageContent() {
                 ))}
               </span>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ══════════════════════════════════════════════
+          3. EDITORIAL IMAGE STRIP — art moment
+      ══════════════════════════════════════════════ */}
+      <div className="relative w-full overflow-hidden" style={{ height: "70vh" }} data-testid="section-hero-image">
+        <img
+          src={heroImage}
+          alt="OARC Digital — the future of Malta island businesses is being built right now, not by the biggest companies, by the fastest ones"
+          width={1080}
+          height={1350}
+          className="w-full h-full object-cover object-center"
+          fetchPriority="high"
+          data-testid="img-hero-editorial"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute bottom-12 left-8 md:left-16 lg:left-24">
+          <p className="font-thin text-white text-[clamp(1.4rem,3vw,2.5rem)] leading-snug max-w-xl tracking-tight opacity-90" data-speakable>
+            &ldquo;The fastest businesses on this island are being built right now.
+            Not by the biggest teams. By the sharpest ones.&rdquo;
+          </p>
+          <div className="flex items-center gap-3 mt-5">
+            <div className="w-6 h-px bg-white/30" />
+            <p className="text-white/30 text-xs tracking-widest uppercase">OARC Digital, Birkirkara Malta</p>
           </div>
         </div>
       </div>
@@ -454,7 +458,32 @@ export default function PageContent() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          7. CAMPAIGN CAROUSEL
+          7. HARD LIMITS
+      ══════════════════════════════════════════════ */}
+      <section className="py-36 text-white" style={{ background: "#050a06" }} data-testid="section-hard-limits">
+        <div className="max-w-4xl mx-auto px-8 md:px-16">
+          <FadeIn>
+            <p className="text-[9px] tracking-[0.5em] uppercase text-white/20 mb-10">Non-negotiables</p>
+            <h2 className="font-thin text-[clamp(2.2rem,4.5vw,4rem)] leading-[1.05] mb-20 tracking-tight">
+              Three hard limits.<br />No exceptions.
+            </h2>
+            <div className="divide-y" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
+              {HARD_LIMITS.map((item) => (
+                <div key={item.n} className="flex gap-10 py-12" data-testid={`limit-${item.n}`}>
+                  <span className="text-[10px] font-mono text-white/15 mt-1 shrink-0 w-8">{item.n}</span>
+                  <div>
+                    <h3 className="text-base font-medium text-white/70 mb-3">{item.title}</h3>
+                    <p className="text-white/30 text-sm leading-relaxed">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          8. CAMPAIGN CAROUSEL
       ══════════════════════════════════════════════ */}
       <section className="py-36 overflow-hidden" style={{ background: "#050a06" }} data-testid="section-campaigns">
         <FadeIn>
