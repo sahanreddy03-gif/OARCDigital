@@ -272,7 +272,7 @@ export default function PageContent() {
           <div className="flex justify-center mb-6">
             <img
               src="/attached_assets/OPERATIONS_360._We_SAVE_YOU_TIME_&_MONEY_From_Chaos_to_Control_1779836586704.png"
-              alt="OARC Digital Operations 360 — we save you time and money, from chaos to control for Malta businesses | OARC Digital"
+              alt="Operations 360 case study Malta — business owner replaced 6 WhatsApp groups and 3 emails with one OARC Digital dashboard, now runs operations in 20 minutes daily | OARC Digital"
               width={1080}
               height={1080}
               className="w-full max-w-xl rounded-xl shadow-2xl"
