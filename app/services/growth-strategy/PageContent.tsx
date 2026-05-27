@@ -71,6 +71,31 @@ export default function GrowthStrategy() {
         </div>
       </section>
 
+      {/* BRANDED PROOF IMAGE */}
+      <section className="bg-zinc-950 flex justify-center py-6 px-4 border-t border-zinc-800" data-testid="section-growth-proof-image">
+        <img
+          src="/attached_assets/hf_20260420_104349_586e06ee-488a-4e5f-a60c-68de266bc921_1779836586702.png"
+          alt="OARC Digital growth strategy — while competitors post content, Malta clients build revenue systems that compound month after month | OARC Digital"
+          width={1080}
+          height={1080}
+          className="w-full max-w-xl rounded-xl shadow-2xl"
+          data-testid="img-growth-strategy-proof"
+        />
+      </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ImageObject",
+          name: "OARC Digital growth strategy — Malta businesses outperform competitors with systematic revenue growth",
+          description: "OARC Digital growth strategy results — while competitors post content, Malta clients build revenue systems that compound month after month.",
+          url: "https://oarcdigital.com/attached_assets/hf_20260420_104349_586e06ee-488a-4e5f-a60c-68de266bc921_1779836586702.png",
+          width: 1080,
+          height: 1080,
+          contentUrl: "https://oarcdigital.com/attached_assets/hf_20260420_104349_586e06ee-488a-4e5f-a60c-68de266bc921_1779836586702.png",
+        }) }}
+      />
+
       {/* Case Study */}
       <section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-6xl mx-auto">

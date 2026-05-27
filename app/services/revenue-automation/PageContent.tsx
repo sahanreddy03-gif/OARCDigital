@@ -266,6 +266,37 @@ export default function PageContent() {
           </div>
         </section>
 
+        {/* OPERATIONS 360 CASE STUDY */}
+        <section className="mb-16" data-testid="section-operations-360">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">From chaos to control: a Malta operations case study</h2>
+          <div className="flex justify-center mb-6">
+            <img
+              src="/attached_assets/OPERATIONS_360._We_SAVE_YOU_TIME_&_MONEY_From_Chaos_to_Control_1779836586704.png"
+              alt="OARC Digital Operations 360 — we save you time and money, from chaos to control for Malta businesses | OARC Digital"
+              width={1080}
+              height={1080}
+              className="w-full max-w-xl rounded-xl shadow-2xl"
+              data-testid="img-operations-360"
+            />
+          </div>
+          <p className="text-muted-foreground leading-relaxed">
+            A Malta professional services firm was running billing manually in spreadsheets, chasing unpaid invoices by hand, and had no reliable revenue forecast. OARC Revenue Automation connected Stripe, rebuilt the CRM, automated the invoice-to-chase sequence, and wired revenue data into a live dashboard. Within 60 days: billing handled automatically, accounts-receivable days reduced by 40%, and the weekly revenue call took 15 minutes instead of two hours.
+          </p>
+        </section>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ImageObject",
+            name: "OARC Operations 360 — from chaos to control for Malta businesses",
+            description: "OARC Digital Operations 360 — we save you time and money, transforming business operations from chaos to control through revenue automation for Malta businesses.",
+            url: "https://oarcdigital.com/attached_assets/OPERATIONS_360._We_SAVE_YOU_TIME_%26_MONEY_From_Chaos_to_Control_1779836586704.png",
+            width: 1080,
+            height: 1080,
+            contentUrl: "https://oarcdigital.com/attached_assets/OPERATIONS_360._We_SAVE_YOU_TIME_%26_MONEY_From_Chaos_to_Control_1779836586704.png",
+          }) }}
+        />
+
         {/* REVENUE AUTOMATION vs FUNNEL AUTOMATION */}
         <section className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Revenue Automation vs Funnel Automation — which do you need?</h2>

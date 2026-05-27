@@ -4,6 +4,19 @@ import RelatedServices from "@/components/RelatedServices";
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import TrustBlock from "@/components/seo/TrustBlock";
 
+const IMG_HERO = "/attached_assets/hf_20260420_105621_ca372d08-65bd-489e-94b8-64550a070e23_1779836586702.png";
+
+const leadGenImageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  name: "OARC Digital lead generation — while competitors post, clients close",
+  description: "OARC Digital lead generation results — while competitors post content, OARC clients close deals using targeted lead generation for Malta businesses.",
+  url: "https://oarcdigital.com" + IMG_HERO,
+  width: 1080,
+  height: 1080,
+  contentUrl: "https://oarcdigital.com" + IMG_HERO,
+};
+
 const phases = [
   {
     step: "01",
@@ -70,6 +83,18 @@ const pricingTiers = [
 export default function PageContent() {
   return (
     <div className="border-t">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(leadGenImageSchema) }} />
+      <div className="bg-zinc-950 flex justify-center py-6 px-4" data-testid="section-hero-image">
+        <img
+          src={IMG_HERO}
+          alt="OARC Digital lead generation — while competitors post content, OARC clients close deals in Malta | OARC Digital"
+          width={1080}
+          height={1080}
+          className="w-full max-w-xl rounded-xl shadow-2xl"
+          fetchPriority="high"
+          data-testid="img-hero-lead-generation"
+        />
+      </div>
       <div className="bg-zinc-950 text-white py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
