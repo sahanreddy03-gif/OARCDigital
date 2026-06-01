@@ -289,16 +289,6 @@ export default function PageContent() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent pointer-events-none" />
-        <div className="absolute bottom-12 left-8 md:left-16 lg:left-24">
-          <p className="font-thin text-white text-[clamp(1.4rem,3vw,2.5rem)] leading-snug max-w-xl tracking-tight opacity-90" data-speakable>
-            &ldquo;The fastest businesses on this island are being built right now.
-            Not by the biggest teams. By the sharpest ones.&rdquo;
-          </p>
-          <div className="flex items-center gap-3 mt-5">
-            <div className="w-6 h-px bg-white/30" />
-            <p className="text-white/30 text-xs tracking-widest uppercase">OARC Digital, Birkirkara Malta</p>
-          </div>
-        </div>
       </div>
 
       {/* ══════════════════════════════════════════════
@@ -306,6 +296,18 @@ export default function PageContent() {
       ══════════════════════════════════════════════ */}
       <section className="bg-black py-36 text-white" data-testid="section-pillars">
         <div className="max-w-7xl mx-auto px-8 md:px-16">
+          <FadeIn>
+            <blockquote className="text-center max-w-2xl mx-auto mb-24">
+              <p className="font-thin text-white/80 text-[clamp(1.1rem,2vw,1.6rem)] leading-relaxed tracking-tight" data-speakable>
+                &ldquo;The best marketing agencies in Malta don&rsquo;t just run campaigns&nbsp;&mdash; they build AI systems that generate revenue while you sleep.&rdquo;
+              </p>
+              <div className="flex items-center justify-center gap-3 mt-6">
+                <div className="w-6 h-px bg-white/20" />
+                <cite className="text-white/25 text-[9px] tracking-[0.5em] uppercase not-italic">OARC Digital, Birkirkara Malta</cite>
+                <div className="w-6 h-px bg-white/20" />
+              </div>
+            </blockquote>
+          </FadeIn>
           <FadeIn>
             <p className="text-[9px] tracking-[0.55em] uppercase text-white/20 text-center mb-5">
               What O.A.R.C. stands for
