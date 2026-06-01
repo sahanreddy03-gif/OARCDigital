@@ -89,7 +89,7 @@ const SUPPLEMENTAL_META: Record<string, { title: string; description: string }> 
   "/why-us": {
     title: "Who We Are | Our Founding Story | OARC Digital Malta",
     description:
-      "The founding story of OARC Digital — why Sahan Reddy started a Birkirkara studio that puts creative, AI engineering, and growth automation under one roof for Maltese businesses.",
+      "The founding story of OARC Digital — why Red started a Birkirkara studio that puts creative, AI engineering, and growth automation under one roof for Maltese businesses.",
   },
   "/blog": {
     title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies",

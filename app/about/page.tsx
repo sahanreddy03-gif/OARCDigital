@@ -2,7 +2,7 @@
 // footer-style, per Mr Reddy's stated low-visibility preference). This page
 // exists primarily as the Person schema entity anchor (E-E-A-T signal for
 // Google + AI answer engines). Visible prose uses "Reddy" / "Mr Reddy".
-// Schema entity name is the full "Sahan Reddy" form so it resolves
+// Schema entity name is the full "Red" form so it resolves
 // cleanly against the LinkedIn vanity URL `/in/sahanoarcdigital`.
 
 import type { Metadata } from "next";

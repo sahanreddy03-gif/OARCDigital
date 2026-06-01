@@ -202,7 +202,7 @@ export default function Influencer() {
           <div className="absolute inset-0 bg-gradient-to-br from-[#F5F3ED] via-white to-[#FFF9F0]"></div>
           <div className="max-w-5xl mx-auto relative">
             <div className="text-xs uppercase tracking-wider mb-3 text-[#6b9b12] font-semibold">
-              From Sahan Reddy, founder
+              From Red, founder
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-black mb-6">
               Why a local creator network beats a global one in Malta
