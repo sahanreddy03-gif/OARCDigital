@@ -83,7 +83,7 @@ export async function POST(request: NextRequest) {
         model: "deepseek-chat",
         messages,
         temperature: 0.8,
-        max_tokens: 1000,
+        max_tokens: 600,
         stream: true,
       }),
     });
