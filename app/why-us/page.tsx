@@ -6,7 +6,7 @@ import PageContent from "./PageContent";
 
 const TITLE = "Who We Are | Our Founding Story | OARC Digital Malta";
 const DESCRIPTION =
-  "The founding story of OARC Digital — why Sahan Reddy started a Birkirkara studio that puts creative, AI engineering, and growth automation under one roof for Maltese businesses.";
+  "The founding story of OARC Digital — why Red started a Birkirkara studio that puts creative, AI engineering, and growth automation under one roof for Maltese businesses.";
 const URL = "https://oarcdigital.com/why-us";
 
 export const metadata: Metadata = {

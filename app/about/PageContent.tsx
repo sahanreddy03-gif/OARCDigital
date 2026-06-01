@@ -8,7 +8,7 @@
 // Founder visibility is intentionally low per Mr Reddy's preference: no
 // hero photo of him, no homepage promotion, no quotes carved across other
 // pages. Prose uses "Reddy" or "Mr Reddy"; the schema name is the full
-// "Sahan Reddy" form so the LinkedIn entity resolves.
+// "Red" form so the LinkedIn entity resolves.
 
 import Link from "next/link";
 import Layout from "@/components/layout/Layout";

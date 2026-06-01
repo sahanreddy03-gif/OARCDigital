@@ -182,7 +182,7 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
       {
         question: "Who founded OARC Digital?",
         answer:
-          "OARC Digital was founded in 2023 by Sahan Reddy in Birkirkara, Malta, to bring brand creative, AI engineering, and revenue automation under one roof. The full leadership and team page sits at /about.",
+          "OARC Digital was founded in 2023 by Red in Birkirkara, Malta, to bring brand creative, AI engineering, and revenue automation under one roof. The full leadership and team page sits at /about.",
       },
       {
         question: "What does OARC stand for?",
@@ -338,12 +338,12 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
       {
         question: "When was OARC Digital founded?",
         answer:
-          "OARC Digital was founded in 2023 by Sahan Reddy in Birkirkara, Malta. The studio opened with a single mandate: combine brand creative, AI engineering, and revenue automation in one team rather than three vendors.",
+          "OARC Digital was founded in 2023 by Red in Birkirkara, Malta. The studio opened with a single mandate: combine brand creative, AI engineering, and revenue automation in one team rather than three vendors.",
       },
       {
         question: "Who runs OARC Digital?",
         answer:
-          "Sahan Reddy is the founder and managing director. The day-to-day team mixes creative directors, AI engineers, paid-media strategists, and automation builders working from the Birkirkara studio.",
+          "Red is the founder and managing director. The day-to-day team mixes creative directors, AI engineers, paid-media strategists, and automation builders working from the Birkirkara studio.",
       },
       {
         question: "Where is OARC Digital located?",
@@ -363,7 +363,7 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
       {
         question: "Does OARC Digital have a public LinkedIn or media presence?",
         answer:
-          "Yes — Sahan Reddy is on LinkedIn at /in/sahanoarcdigital and the company page is /company/oarcdigital. Media enquiries via the contact page.",
+          "Yes — Red is on LinkedIn at /in/sahanoarcdigital and the company page is /company/oarcdigital. Media enquiries via the contact page.",
       },
     ],
   },

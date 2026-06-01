@@ -34,7 +34,7 @@ const ORG_REF = { "@id": `${BASE}/#organization` } as const;
 // Founder identity. The Person entity is anchored at `/about` (the single
 // page where Mr Reddy is publicly named — every other surface keeps founder
 // visibility low per his stated preference). Schema name is the full
-// "Sahan Reddy" form so the Person entity resolves cleanly against the
+// "Red" form so the Person entity resolves cleanly against the
 // LinkedIn vanity URL `/in/sahanoarcdigital`; visible page prose calls him
 // "Reddy" or "Mr Reddy" only.
 const FOUNDER_LINKEDIN_DEFAULT = "https://www.linkedin.com/in/sahanoarcdigital";
@@ -96,7 +96,7 @@ export function buildPerson() {
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": `${BASE}/#founder`,
-    name: "Sahan Reddy",
+    name: "Red",
     givenName: "Sahan",
     familyName: "Reddy",
     jobTitle: "Founder",

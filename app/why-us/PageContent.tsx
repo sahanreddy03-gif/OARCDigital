@@ -46,7 +46,7 @@ const whyUsImageObjectSchema = {
 const FOUNDER_FAQS: { question: string; answer: string }[] = [
   {
     question: "Who founded OARC Digital and when?",
-    answer: "OARC Digital was founded in 2023 by Sahan Reddy, after a decade of running creative, engineering, and growth teams across Asia and the European Union. The studio was set up in Birkirkara, Malta, to put three disciplines that Maltese businesses usually have to source separately — creative, AI engineering, and revenue automation — under one roof.",
+    answer: "OARC Digital was founded in 2023 by Red, after a decade of running creative, engineering, and growth teams across Asia and the European Union. The studio was set up in Birkirkara, Malta, to put three disciplines that Maltese businesses usually have to source separately — creative, AI engineering, and revenue automation — under one roof.",
   },
   {
     question: "Where is OARC Digital based?",
@@ -153,14 +153,14 @@ export default function PageContent() {
     "@type": "AboutPage",
     url: PAGE_URL,
     name: TITLE,
-    description: "The founding story, principles, and mission of OARC Digital — a Birkirkara, Malta marketing agency founded in 2023 by Sahan Reddy.",
+    description: "The founding story, principles, and mission of OARC Digital — a Birkirkara, Malta marketing agency founded in 2023 by Red.",
     about: {
       "@type": "Organization",
       name: "OARC Digital",
       url: "https://oarcdigital.com",
       founder: {
         "@type": "Person",
-        name: "Sahan Reddy",
+        name: "Red",
         jobTitle: "Founder & Creative Director",
         worksFor: { "@type": "Organization", name: "OARC Digital" },
       },
@@ -348,7 +348,7 @@ export default function PageContent() {
                   We Saw a<br />Broken System.
                 </h2>
                 <p className="text-white/45 text-lg leading-relaxed">
-                  Before founding this Malta marketing agency, Sahan Reddy spent a decade running creative,
+                  Before founding this Malta marketing agency, Red spent a decade running creative,
                   engineering, and growth teams across Asia and the EU. The same problem appeared everywhere:
                   brand in one studio, performance in another, engineering in a third — each vendor blaming the
                   others when a launch slipped, and the client paying for all of it. In 2023, the AI-native
@@ -556,7 +556,7 @@ export default function PageContent() {
             </p>
             <div className="flex items-center gap-4">
               <div className="w-8 h-px bg-white/15" />
-              <p className="text-white/25 text-xs tracking-widest uppercase">Sahan Reddy — Founder, OARC Digital</p>
+              <p className="text-white/25 text-xs tracking-widest uppercase">Red — Founder, OARC Digital</p>
             </div>
             <p className="text-white/12 text-xs mt-3">
               {NAP.streetAddressShort}, {NAP.addressLocality} {NAP.postalCode} · Founded {new Date(ORG_FOUNDING_DATE).getFullYear()}

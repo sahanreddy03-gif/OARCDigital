@@ -107,7 +107,7 @@ SEO".
 1. **Crunchbase profile — LINKED in `ORG_SAMEAS`** at
    `https://www.crunchbase.com/organization/oarc-digital`. Operational
    owner must keep the page populated (logo, HQ Birkirkara/Malta,
-   founding date 2023-01-01, founder Sahan Reddy, website, social
+   founding date 2023-01-01, founder Red, website, social
    links, ≥1 news/funding event so it isn't a stub). The
    `audit-org-sameas-live` step in `gate:full` will hard-fail any
    deploy if the URL ever 4xxs, so a removed/blocked profile cannot
