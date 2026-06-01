@@ -15,14 +15,14 @@ export const runtime = "nodejs";
 
 const BASE = "https://oarcdigital.com";
 
-// Verified real OARC service page paths — every URL here actually exists
+// Specific service page lookup — only used when user asks about a very specific service
 const SERVICE_LINK_MAP: Array<{ keywords: string[]; path: string }> = [
-  { keywords: ["social media", "instagram", "tiktok", "facebook content", "content creation", "social"], path: "/services/social-media-creative-management" },
+  { keywords: ["social media", "instagram", "tiktok", "facebook content", "content creation"], path: "/services/social-media-creative-management" },
   { keywords: ["branding", "logo", "brand identity", "brand design"], path: "/services/branding" },
   { keywords: ["video production", "video", "film", "reel"], path: "/services/video-production" },
   { keywords: ["web design", "website design", "web development", "website"], path: "/services/web-design" },
-  { keywords: ["seo", "google ranking", "search engine optimisation", "organic search", "google rank"], path: "/services/seo-services" },
-  { keywords: ["paid ads", "ppc", "google ads", "facebook ads", "paid advertising", "media buying"], path: "/services/paid-advertising" },
+  { keywords: ["seo", "google ranking", "search engine optimisation", "organic search"], path: "/services/seo-services" },
+  { keywords: ["paid ads", "ppc", "google ads", "facebook ads", "paid advertising"], path: "/services/paid-advertising" },
   { keywords: ["content marketing", "blog", "copywriting", "article"], path: "/services/content-marketing" },
   { keywords: ["email marketing", "newsletter", "email campaign"], path: "/services/email-marketing" },
   { keywords: ["ai sdr", "sales agent", "ai sales rep", "outbound ai"], path: "/services/ai-sdr-agent" },
@@ -40,61 +40,36 @@ const SERVICE_LINK_MAP: Array<{ keywords: string[]; path: string }> = [
   { keywords: ["influencer", "ugc", "creator"], path: "/services/influencer-marketing" },
   { keywords: ["mobile app", "ios app", "android app", "mobile development"], path: "/services/mobile-apps-development" },
   { keywords: ["saas", "software development", "custom software"], path: "/services/saas-development" },
-  { keywords: ["performance analytics", "analytics", "data", "tracking"], path: "/services/performance-analytics" },
+  { keywords: ["analytics", "data", "tracking", "performance"], path: "/services/performance-analytics" },
   { keywords: ["motion design", "animation", "motion graphics"], path: "/services/motion-design" },
-  { keywords: ["illustration", "graphic design", "graphics"], path: "/services/illustration" },
 ];
 
-// Top 4 fallback pages — always safe to suggest when no specific match
-const TOP_4 = [BASE, `${BASE}/creative`, `${BASE}/ai-agents`, `${BASE}/solutions`];
-
-// FAQ — matched fast before hitting DeepSeek
-const FAQ: Array<{ triggers: string[]; answer: string }> = [
-  {
-    triggers: ["guarantee", "money back", "refund", "roi guarantee"],
-    answer: `OARC guarantees 30% ROI in 90 days or your money back. See [Pricing](${BASE}/pricing) for full terms.`,
-  },
-  {
-    triggers: ["where are you", "based", "location", "malta", "office"],
-    answer: `Malta-based, EU-compliant, global delivery. Everything runs remote — video calls, async updates, live dashboards.`,
-  },
-  {
-    triggers: ["speak to a human", "talk to someone", "real person", "call sahan"],
-    answer: `Absolutely. Call directly: ${NAP.phoneDisplay} or go to [Contact](${BASE}/contact). Sahan handles all first calls personally.`,
-  },
-  {
-    triggers: ["case studies", "portfolio", "examples", "proof", "results"],
-    answer: `See real results at [Our Work](${BASE}/our-work) and [Case Studies](${BASE}/case-studies).`,
-  },
-  {
-    triggers: ["pricing", "how much", "cost", "price", "rates", "packages"],
-    answer: `We don't publish rates publicly — every scope is custom. See [Pricing](${BASE}/pricing) or book a call for a tailored quote.`,
-  },
+// Pillar fallbacks — used when no specific service matches
+const PILLAR_LINKS = [
+  { keywords: ["creative", "marketing", "social", "brand", "content", "video", "seo", "ads", "email"], path: "/creative" },
+  { keywords: ["ai", "artificial intelligence", "automation", "bot", "agent", "chatbot", "automate"], path: "/ai-agents" },
+  { keywords: ["revenue", "growth", "funnel", "crm", "strategy", "scale", "leads", "sales"], path: "/solutions" },
 ];
 
 function getRelevantLinks(message: string, history: Array<{ content: string }>): string {
   const fullText = (message + " " + history.map((m) => m.content).join(" ")).toLowerCase();
-  const matched: string[] = [];
 
+  // Try specific service match first
   for (const entry of SERVICE_LINK_MAP) {
     if (entry.keywords.some((kw) => fullText.includes(kw))) {
-      matched.push(BASE + entry.path);
-      if (matched.length >= 3) break;
+      return `Most relevant OARC page for this conversation:\n${BASE + entry.path}\n\nDefault pillar links if you need others:\n${BASE}/creative\n${BASE}/ai-agents\n${BASE}/solutions`;
     }
   }
 
-  if (matched.length === 0) {
-    return `When linking naturally, use these top OARC pages:\n${TOP_4.join("\n")}`;
+  // Fall back to pillar match
+  for (const pillar of PILLAR_LINKS) {
+    if (pillar.keywords.some((kw) => fullText.includes(kw))) {
+      return `Relevant OARC pillar page for this conversation:\n${BASE + pillar.path}\n\nOther pillar links: ${BASE}/creative | ${BASE}/ai-agents | ${BASE}/solutions`;
+    }
   }
-  return `Most relevant OARC pages for this conversation (link to these naturally):\n${matched.join("\n")}`;
-}
 
-function matchFAQ(message: string): string | null {
-  const lower = message.toLowerCase();
-  for (const faq of FAQ) {
-    if (faq.triggers.some((t) => lower.includes(t))) return faq.answer;
-  }
-  return null;
+  // Default — use the three main pillars
+  return `When linking to OARC naturally, use these main pages:\n${BASE}/creative\n${BASE}/ai-agents\n${BASE}/solutions\n${BASE}`;
 }
 
 type ChatMessage = { role: "system" | "user" | "assistant"; content: string };
@@ -123,36 +98,12 @@ export async function POST(request: NextRequest) {
         },
       });
       return new Response(stream, {
-        headers: {
-          "Content-Type": "text/event-stream",
-          "Cache-Control": "no-cache",
-          Connection: "keep-alive",
-        },
-      });
-    }
-
-    // Fast-path: FAQ match
-    const faqAnswer = matchFAQ(message);
-    if (faqAnswer) {
-      const stream = new ReadableStream({
-        start(controller) {
-          const enc = new TextEncoder();
-          controller.enqueue(enc.encode(`event: content\ndata: ${JSON.stringify({ content: faqAnswer })}\n\n`));
-          controller.enqueue(enc.encode(`event: done\ndata: {}\n\n`));
-          controller.close();
-        },
-      });
-      return new Response(stream, {
-        headers: {
-          "Content-Type": "text/event-stream",
-          "Cache-Control": "no-cache",
-          Connection: "keep-alive",
-        },
+        headers: { "Content-Type": "text/event-stream", "Cache-Control": "no-cache", Connection: "keep-alive" },
       });
     }
 
     // Build system prompt
-    const safeHistory: ChatMessage[] = Array.isArray(history) ? history.slice(-10) : [];
+    const safeHistory: ChatMessage[] = Array.isArray(history) ? history.slice(-20) : [];
     const messageCount = safeHistory.length;
     const phase = getConversationPhase(messageCount);
     const phaseGuidance = getPhaseGuidance(phase, messageCount);
@@ -160,7 +111,7 @@ export async function POST(request: NextRequest) {
 
     let buttonContext = "";
     if (buttonId && BUTTON_OPENERS[buttonId as keyof typeof BUTTON_OPENERS]) {
-      buttonContext = `\n\n[USER CLICKED BUTTON: "${buttonId}". Use this opener:]\n${BUTTON_OPENERS[buttonId as keyof typeof BUTTON_OPENERS]}`;
+      buttonContext = `\n\n[USER CLICKED BUTTON: "${buttonId}". Respond with this opener:]\n${BUTTON_OPENERS[buttonId as keyof typeof BUTTON_OPENERS]}`;
     }
 
     let objectionContext = "";
@@ -169,7 +120,7 @@ export async function POST(request: NextRequest) {
       objectionContext = `\n\n${OBJECTION_CONTEXTS[objection as keyof typeof OBJECTION_CONTEXTS]}`;
     }
 
-    const followupInstruction = `\n\nAt the very end of your reply, after a blank line, write exactly 3 follow-up questions the user might want to ask next. Each one on its own line, starting with "FOLLOWUP: ". These should feel natural, not salesy.`;
+    const followupInstruction = `\n\nAt the very end of your reply, after a blank line, write exactly 3 natural follow-up questions the user might want to ask next. Each on its own line, starting with "FOLLOWUP: ". Keep them genuinely useful, not salesy.`;
 
     const fullSystemPrompt = `${ARC_SYSTEM_PROMPT}\n\n${phaseGuidance}${buttonContext}${objectionContext}\n\n${linkContext}${FORMAT_REMINDER}${followupInstruction}`;
 
@@ -181,7 +132,7 @@ export async function POST(request: NextRequest) {
 
     // Check DeepSeek key
     if (!process.env.DEEPSEEK_API_KEY) {
-      const fallback = `I'm running in demo mode right now. For a real conversation, email ${NAP.email} or call ${NAP.phoneDisplay}.`;
+      const fallback = `I'm running without an AI key right now — so I can't give you a proper answer. Email ${NAP.email} or call ${NAP.phoneDisplay} and the team will help you directly.`;
       const stream = new ReadableStream({
         start(controller) {
           const enc = new TextEncoder();
@@ -191,11 +142,7 @@ export async function POST(request: NextRequest) {
         },
       });
       return new Response(stream, {
-        headers: {
-          "Content-Type": "text/event-stream",
-          "Cache-Control": "no-cache",
-          Connection: "keep-alive",
-        },
+        headers: { "Content-Type": "text/event-stream", "Cache-Control": "no-cache", Connection: "keep-alive" },
       });
     }
 
@@ -209,8 +156,8 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify({
         model: "deepseek-chat",
         messages,
-        temperature: 0.72,
-        max_tokens: 700,
+        temperature: 0.75,
+        max_tokens: 900,
         stream: true,
       }),
     });
@@ -218,7 +165,7 @@ export async function POST(request: NextRequest) {
     if (!deepseekRes.ok) {
       const err = await deepseekRes.text().catch(() => "");
       console.error("DeepSeek error:", deepseekRes.status, err);
-      const fallback = `Something went wrong on my end. Email ${NAP.email} or call ${NAP.phoneDisplay} — Sahan responds fast.`;
+      const fallback = `Something went wrong on my end. Email ${NAP.email} or call ${NAP.phoneDisplay} — Red responds fast.`;
       const stream = new ReadableStream({
         start(controller) {
           const enc = new TextEncoder();
@@ -228,11 +175,7 @@ export async function POST(request: NextRequest) {
         },
       });
       return new Response(stream, {
-        headers: {
-          "Content-Type": "text/event-stream",
-          "Cache-Control": "no-cache",
-          Connection: "keep-alive",
-        },
+        headers: { "Content-Type": "text/event-stream", "Cache-Control": "no-cache", Connection: "keep-alive" },
       });
     }
 
@@ -273,14 +216,10 @@ export async function POST(request: NextRequest) {
 
                 fullContent += token;
 
-                // Once we hit the first FOLLOWUP marker, stop streaming to user and buffer the rest
                 if (!inFollowup && fullContent.includes("FOLLOWUP:")) {
                   inFollowup = true;
-                  // Stream only the content before the first FOLLOWUP marker
                   const splitIdx = fullContent.indexOf("FOLLOWUP:");
                   const visiblePart = fullContent.slice(0, splitIdx).trimEnd();
-                  // We've already been streaming tokens — just stop here
-                  // The visible part was already sent, only the new token might cross the boundary
                   const alreadySent = fullContent.slice(0, splitIdx - token.length);
                   const newVisible = visiblePart.slice(alreadySent.length);
                   if (newVisible) sendEvent("content", { content: newVisible });
@@ -306,16 +245,12 @@ export async function POST(request: NextRequest) {
             if (followups.length >= 3) break;
           }
 
-          if (followups.length > 0) {
-            sendEvent("followups", { followups });
-          }
-
+          if (followups.length > 0) sendEvent("followups", { followups });
           sendEvent("done", { phase });
+
         } catch (err) {
           console.error("Stream error:", err);
-          sendEvent("content", {
-            content: `Connection dropped. Email ${NAP.email} or call ${NAP.phoneDisplay}.`,
-          });
+          sendEvent("content", { content: `Connection dropped. Email ${NAP.email} or call ${NAP.phoneDisplay}.` });
           sendEvent("done", {});
         } finally {
           controller.close();
@@ -331,6 +266,7 @@ export async function POST(request: NextRequest) {
         "X-Accel-Buffering": "no",
       },
     });
+
   } catch (err) {
     console.error("Chat route error:", err);
     return new Response(JSON.stringify({ error: "Server error" }), {
