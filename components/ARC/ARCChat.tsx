@@ -404,7 +404,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
 
             {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4" style={{ backgroundColor: '#f2f2f7' }}>
-              {messages.map(msg => (
+              {messages.filter(msg => !(msg.isStreaming && !msg.content)).map(msg => (
                 <div key={msg.id}>
                   <ARCMessage content={msg.content} isUser={msg.isUser} isStreaming={msg.isStreaming} />
                   {msg.showPricingCTA && (
@@ -423,7 +423,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
                 </div>
               ))}
 
-              {isTyping && <ARCTypingIndicator />}
+              {isStreaming && messages.some(m => m.isStreaming && !m.content) && <ARCTypingIndicator />}
 
               {/* Follow-up suggestions — Apple blue links */}
               {followups.length > 0 && !isBusy && (
