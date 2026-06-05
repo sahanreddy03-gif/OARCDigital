@@ -7,6 +7,8 @@ import {
   getPhaseGuidance,
   BUTTON_OPENERS,
   detectObjection,
+  extractUserContext,
+  formatUserContext,
 } from "@/lib/arcSystemPrompt";
 
 export const runtime = "nodejs";
@@ -57,6 +59,12 @@ export async function POST(request: NextRequest) {
     const phaseHint   = getPhaseGuidance(phase);
     const linkContext = buildLinkContext(message, safeHistory);
 
+    // Extract durable facts about this user from the full conversation so far
+    // (include the current message so first-message introductions are captured)
+    const allMessages = [...safeHistory, { role: "user" as const, content: message }];
+    const userCtx         = extractUserContext(allMessages);
+    const userContextBlock = formatUserContext(userCtx);
+
     // Extra context: button opener or objection hint
     let extras = "";
     if (buttonId && BUTTON_OPENERS[buttonId as keyof typeof BUTTON_OPENERS]) {
@@ -65,7 +73,7 @@ export async function POST(request: NextRequest) {
     const objection = detectObjection(message);
     if (objection) extras += (extras ? "\n" : "") + `Detected objection signal: ${objection}`;
 
-    const systemPrompt = buildSystemPrompt(phaseHint, linkContext, extras);
+    const systemPrompt = buildSystemPrompt(phaseHint, linkContext, extras, userContextBlock);
 
     const messages: ChatMessage[] = [
       { role: "system", content: systemPrompt },
