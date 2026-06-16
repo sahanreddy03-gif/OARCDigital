@@ -1,396 +1,457 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, ChevronDown, MapPin, Star, AlertTriangle, Info, Map, Globe, Phone, TrendingDown, Clock, TrendingUp, Calendar, CreditCard, ChevronRight } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 
-const stages = [
-  {
-    id: 0,
-    title: "Invisible",
-    heading: "Your restaurant\nis invisible.",
-    sub: "Customers search. They find someone else.",
-    phoneContent: "google-maps"
-  },
-  {
-    id: 1,
-    title: "No reviews",
-    heading: "0 reviews.\n0 reason\nto choose you.",
-    sub: "Your Google profile is costing you customers daily.",
-    phoneContent: "google-profile"
-  },
-  {
-    id: 2,
-    title: "Losing to Wolt",
-    heading: "€42 order.\n€10.50 goes\nto Wolt.",
-    sub: "25% commission on every order. Forever.",
-    phoneContent: "receipt"
-  },
-  {
-    id: 3,
-    title: "Regulars forget",
-    heading: "Your regulars\nforgot\nyou exist.",
-    sub: "No loyalty system means no repeat business.",
-    phoneContent: "loyalty"
-  },
-  {
-    id: 4,
-    title: "H360 fixes it",
-    heading: "One system.\nEvery part\nof your restaurant.",
-    sub: "H360 handles visibility, orders, loyalty, and growth.",
-    phoneContent: "dashboard"
-  }
+/* ─── Design tokens (Owner.com exact) ───────────────────────────────────── */
+const G = {
+  bg:        '#ffffff',
+  text:      '#1a1a1a',
+  textMuted: '#6b7280',
+  textLight: '#9ca3af',
+  green:     '#094413',
+  greenMid:  '#1a6b30',
+  greenLt:   '#c2edce',
+  greenPale: '#edf7f0',
+  border:    '#e5e7eb',
+  pill:      '#f4f4f5',
+  star:      '#eab308',
+  red:       '#ef4444',
+  orange:    '#f97316',
+};
+
+/* ─── Cycling headline words ─────────────────────────────────────────────── */
+const WORDS = [
+  'drive repeat orders.',
+  'win online.',
+  'grow first-party sales.',
+  'grow online discovery.',
 ];
 
-export function Hero() {
-  const [currentStage, setCurrentStage] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+/* ─── Phone screen — single long scrollable content ─────────────────────── */
+function PhoneContent() {
+  return (
+    <div style={{ padding: '14px 14px 24px', display: 'flex', flexDirection: 'column', gap: 0 }}>
 
+      {/* ── Screen 1: Who's beating you ── */}
+      <div style={{ marginBottom: 20 }}>
+        <p style={{ fontSize: 13, fontWeight: 700, color: G.text, marginBottom: 10 }}>Who's beating you on Google</p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          {[
+            { rank: '1st', name: 'Competitor 1', stars: 4.8, score: '39/40', green: true },
+            { rank: '2nd', name: 'Competitor 2', stars: 4.0, score: '39/40', green: true },
+            { rank: '3rd', name: 'Competitor 3', stars: 3.1, score: '39/40', green: true },
+          ].map(r => (
+            <div key={r.rank} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '7px 10px', borderRadius: 10, background: '#f9fafb', border: `1px solid ${G.border}` }}>
+              <span style={{ fontSize: 10, color: G.textMuted, width: 24, fontWeight: 600 }}>{r.rank}</span>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 12, fontWeight: 600, color: G.text }}>{r.name}</div>
+                <div style={{ fontSize: 11, color: G.star }}>{'★'.repeat(Math.round(r.stars))} <span style={{ color: G.textMuted }}>{r.stars}</span></div>
+              </div>
+              <span style={{ fontSize: 12, fontWeight: 700, color: G.green }}>{r.score}</span>
+            </div>
+          ))}
+          <div style={{ textAlign: 'center', color: G.textMuted, fontSize: 16, letterSpacing: 3, padding: '2px 0' }}>···</div>
+          {/* Your restaurant */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 10px', borderRadius: 10, background: '#fffbeb', border: '1.5px solid #fde68a' }}>
+            <span style={{ fontSize: 10, color: G.textMuted, width: 24, fontWeight: 600 }}>10th</span>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: 12, fontWeight: 600, color: G.text }}>Your restaurant</div>
+              <div style={{ fontSize: 11, color: G.star }}>★★★★★ <span style={{ color: G.textMuted }}>4.9</span></div>
+            </div>
+            <span style={{ fontSize: 12, fontWeight: 700, color: G.orange }}>39/40</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div style={{ height: 1, background: G.border, margin: '0 -14px 20px' }} />
+
+      {/* ── Screen 2: Issues list ── */}
+      <div style={{ marginBottom: 20 }}>
+        <p style={{ fontSize: 13, fontWeight: 700, color: G.text, marginBottom: 4 }}>You're losing €450 a month in sales until you fix these issues:</p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 10 }}>
+          {[
+            { title: 'Not ranking in 3 nearby areas', desc: 'Missing keywords to rank nearby for terms competitors are winning with.' },
+            { title: 'Title missing primary keyword', desc: 'Including "Pizza in Malta" will increase Google rankings.' },
+            { title: '2 images missing alt tags', desc: 'Adding alt tags to all images will boost visibility on Google Maps.' },
+          ].map((item, i) => (
+            <div key={i} style={{ display: 'flex', gap: 8, padding: '8px 10px', borderRadius: 10, background: '#f9fafb', border: `1px solid ${G.border}` }}>
+              <div style={{ width: 20, height: 20, borderRadius: 4, background: '#fef2f2', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill={G.red}><path d="M12 2L1 21h22L12 2zm0 3.5L20.5 19h-17L12 5.5zM11 10v4h2v-4h-2zm0 6v2h2v-2h-2z"/></svg>
+              </div>
+              <div>
+                <div style={{ fontSize: 12, fontWeight: 600, color: G.text }}>{item.title}</div>
+                <div style={{ fontSize: 11, color: G.textMuted, lineHeight: 1.4, marginTop: 2 }}>{item.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p style={{ fontSize: 11, color: G.textMuted, textAlign: 'center', marginTop: 10 }}>Improve your score to drive more sales</p>
+        <div style={{ background: G.text, color: '#fff', borderRadius: 10, padding: '11px', textAlign: 'center', fontSize: 13, fontWeight: 600, marginTop: 8, cursor: 'pointer' }}>
+          Fix it now with AI
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div style={{ height: 1, background: G.border, margin: '0 -14px 20px' }} />
+
+      {/* ── Screen 3: Health score gauge ── */}
+      <div style={{ marginBottom: 20 }}>
+        {/* Restaurant header */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
+          <div style={{ width: 36, height: 36, borderRadius: 10, background: 'linear-gradient(135deg, #f97316, #ef4444)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>🍕</div>
+          <div>
+            <div style={{ fontSize: 13, fontWeight: 700, color: G.text }}>Your restaurant</div>
+            <div style={{ fontSize: 11, color: G.textMuted }}>Malta, MT</div>
+          </div>
+        </div>
+
+        {/* Gauge */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px 0 12px', background: '#fafafa', borderRadius: 12, marginBottom: 12 }}>
+          <svg width="110" height="60" viewBox="0 0 110 60">
+            <path d="M 10 55 A 45 45 0 0 1 100 55" stroke="#e5e7eb" strokeWidth="8" fill="none" strokeLinecap="round"/>
+            <path d="M 10 55 A 45 45 0 0 1 100 55" stroke="url(#gaugeGrad)" strokeWidth="8" fill="none" strokeLinecap="round" strokeDasharray="141" strokeDashoffset="92"/>
+            <defs>
+              <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor={G.red}/>
+                <stop offset="100%" stopColor={G.orange}/>
+              </linearGradient>
+            </defs>
+            <text x="55" y="52" textAnchor="middle" fontSize="22" fontWeight="800" fill={G.text}>36</text>
+            <text x="55" y="62" textAnchor="middle" fontSize="8" fill={G.textMuted}>/ 100</text>
+          </svg>
+          <div style={{ fontSize: 13, fontWeight: 700, color: G.orange, marginTop: -2 }}>Website health</div>
+          <div style={{ fontSize: 12, color: G.orange }}>Poor</div>
+        </div>
+
+        {/* Sub-scores */}
+        {[
+          { label: 'Search results', score: '12/40', status: 'Poor', color: G.red, pct: 30 },
+          { label: 'Guest experience', score: '35/40', status: 'Fair', color: G.orange, pct: 70 },
+          { label: 'Local listings', score: '4/20', status: 'Poor', color: G.red, pct: 20 },
+        ].map((s, i) => (
+          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+            <svg width="22" height="22" viewBox="0 0 22 22">
+              <circle cx="11" cy="11" r="9" stroke="#e5e7eb" strokeWidth="3" fill="none"/>
+              <circle cx="11" cy="11" r="9" stroke={s.color} strokeWidth="3" fill="none"
+                strokeDasharray={`${s.pct * 0.565} 100`} strokeLinecap="round"
+                transform="rotate(-90 11 11)"/>
+            </svg>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: 11, color: G.text, fontWeight: 500 }}>{s.label}</div>
+              <div style={{ fontSize: 10, color: s.color }}>{s.status}</div>
+            </div>
+            <span style={{ fontSize: 11, color: G.textMuted, fontWeight: 600 }}>{s.score}</span>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  );
+}
+
+/* ─── Main export ────────────────────────────────────────────────────────── */
+export default function H360Hero() {
+  const [wordIdx, setWordIdx] = useState(0);
+  const [wordVisible, setWordVisible] = useState(true);
+  const [phoneScrollY, setPhoneScrollY] = useState(0);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const maxPhoneScroll = 420; // px the phone content can travel up
+
+  /* Cycle words */
   useEffect(() => {
-    if (isAutoPlaying) {
-      timerRef.current = setInterval(() => {
-        setCurrentStage((prev) => (prev + 1) % stages.length);
-      }, 4000);
-    }
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
+    const id = setInterval(() => {
+      setWordVisible(false);
+      setTimeout(() => {
+        setWordIdx(i => (i + 1) % WORDS.length);
+        setWordVisible(true);
+      }, 320);
+    }, 2600);
+    return () => clearInterval(id);
+  }, []);
+
+  /* Scroll → phone content parallax */
+  useEffect(() => {
+    const onScroll = () => {
+      const el = heroRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const totalHeight = el.offsetHeight;
+      const scrolled = Math.max(0, -rect.top);
+      const pct = Math.min(1, scrolled / (totalHeight * 0.6));
+      setPhoneScrollY(pct * maxPhoneScroll);
     };
-  }, [isAutoPlaying]);
-
-  const handleStageClick = (index: number) => {
-    setCurrentStage(index);
-    setIsAutoPlaying(false);
-  };
-
-  const handleNextClick = () => {
-    setCurrentStage((prev) => (prev + 1) % stages.length);
-    setIsAutoPlaying(false);
-  };
-
-  const stage = stages[currentStage];
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <div className="relative min-h-screen w-full bg-[#080808] text-white overflow-hidden flex items-center justify-center font-['Space_Grotesk']">
-      
-      {/* Background Grid & Noise */}
-      <div 
-        className="absolute inset-0 z-0 opacity-20 pointer-events-none" 
-        style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}
-      />
-      <div 
-        className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-        }}
-      />
+    <div style={{ fontFamily: '"Inter", system-ui, -apple-system, Arial, sans-serif', background: G.bg, color: G.text, overflowX: 'hidden' }}>
+      {/* Google Font */}
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');`}</style>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
-        
-        {/* LEFT: 40% */}
-        <div className="w-full lg:w-[40%] flex flex-col items-start gap-8 z-20">
-          <div className="flex items-center gap-6">
-            {/* Dots */}
-            <div className="flex flex-col gap-3">
-              {stages.map((s, i) => (
-                <button
-                  key={s.id}
-                  onClick={() => handleStageClick(i)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    currentStage === i 
-                      ? 'bg-[#f59e0b] scale-125 shadow-[0_0_10px_rgba(245,159,11,0.5)]' 
-                      : 'bg-transparent border border-white/20 hover:border-white/50'
-                  }`}
-                  aria-label={`Go to stage ${i + 1}`}
-                />
-              ))}
-            </div>
+      {/* ── NAV ──────────────────────────────────────────────────────── */}
+      <nav style={{
+        position: 'sticky', top: 0, zIndex: 100,
+        background: G.bg,
+        borderBottom: `1px solid ${G.border}`,
+        padding: '0 40px', height: 64,
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <div style={{ width: 30, height: 30, borderRadius: 8, background: G.green, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span style={{ color: '#fff', fontSize: 13, fontWeight: 900, letterSpacing: '-0.05em' }}>H3</span>
+          </div>
+          <span style={{ fontSize: 17, fontWeight: 800, letterSpacing: '-0.04em', color: G.text }}>H360</span>
+        </div>
+        <div style={{ display: 'flex', gap: 32, fontSize: 14, fontWeight: 500, color: G.textMuted }}>
+          {['Product', 'Pricing', 'How it works', 'Company'].map(l => (
+            <span key={l} style={{ cursor: 'pointer' }}>{l}</span>
+          ))}
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          <span style={{ fontSize: 14, fontWeight: 500, color: G.textMuted, cursor: 'pointer' }}>Login</span>
+          <button style={{
+            padding: '9px 20px', background: G.green, color: '#f0f9f4',
+            border: 'none', borderRadius: 10, fontSize: 14, fontWeight: 600,
+            cursor: 'pointer', letterSpacing: '-0.01em',
+          }}>Get a free demo</button>
+        </div>
+      </nav>
 
-            <div className="flex flex-col gap-6">
-              <span className="text-[#f59e0b] text-xs uppercase tracking-[0.2em] font-mono">
-                H360 · Restaurant Growth System
-              </span>
+      {/* ── HERO ─────────────────────────────────────────────────────── */}
+      <div ref={heroRef} style={{ minHeight: '280vh' }}>
 
-              <div className="relative h-[240px] md:h-[280px] w-full">
-                {stages.map((s, i) => (
-                  <div 
-                    key={s.id}
-                    className={`absolute top-0 left-0 w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                      currentStage === i 
-                        ? 'opacity-100 translate-y-0 pointer-events-auto' 
-                        : 'opacity-0 translate-y-8 pointer-events-none'
-                    }`}
-                  >
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-['Anton'] tracking-wide leading-[1.1] uppercase text-white mb-6 whitespace-pre-line">
-                      {s.heading}
-                    </h1>
-                    <p className="text-lg md:text-xl text-gray-400 max-w-md">
-                      {s.sub}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+        {/* Top section: stars + heading + input */}
+        <div style={{ paddingTop: 56, paddingBottom: 0, textAlign: 'center', background: G.bg }}>
+
+          {/* Stars pill */}
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            marginBottom: 20, fontSize: 13, color: G.textMuted, letterSpacing: '-0.01em',
+          }}>
+            <span style={{ color: G.star, letterSpacing: 0, fontSize: 14 }}>★★★★★</span>
+            <span style={{ fontWeight: 700, color: G.text }}>4.8</span>
+            <span>across 1,000+ reviews</span>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 mt-4 ml-9">
-            <button className="px-8 py-4 bg-[#f59e0b] hover:bg-[#d97706] text-black font-semibold rounded-none transition-colors w-full sm:w-auto uppercase tracking-wider text-sm">
-              Get your free diagnosis
+          {/* H1 */}
+          <h1 style={{
+            fontSize: 'clamp(44px, 6.2vw, 80px)',
+            fontWeight: 800,
+            lineHeight: 1.06,
+            letterSpacing: '-0.035em',
+            color: G.text,
+            margin: '0 auto 10px',
+            maxWidth: 860,
+            padding: '0 20px',
+          }}>
+            The restaurant system Malta uses to{' '}
+            <span style={{
+              display: 'inline-block',
+              transition: 'opacity 0.28s ease, transform 0.28s ease',
+              opacity: wordVisible ? 1 : 0,
+              transform: wordVisible ? 'translateY(0)' : 'translateY(6px)',
+            }}>
+              {WORDS[wordIdx]}
+            </span>
+          </h1>
+
+          {/* Sub */}
+          <p style={{ fontSize: 18, color: G.textMuted, maxWidth: 500, margin: '0 auto 36px', lineHeight: 1.55, padding: '0 20px' }}>
+            H360 unifies Google visibility, reviews, direct orders, and guest loyalty — one platform built for Malta restaurants.
+          </p>
+
+          {/* Search pill — Owner.com exact */}
+          <div style={{
+            display: 'inline-flex', alignItems: 'center',
+            background: G.bg,
+            border: `1.5px solid ${G.border}`,
+            borderRadius: 14,
+            padding: '6px 6px 6px 16px',
+            boxShadow: '0 2px 20px rgba(0,0,0,0.07)',
+            gap: 8, width: '100%', maxWidth: 480,
+          }}>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={G.textMuted} strokeWidth="2.5">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input
+              type="text"
+              placeholder="Find your restaurant name"
+              style={{
+                flex: 1, border: 'none', outline: 'none',
+                fontSize: 15, color: G.text,
+                background: 'transparent', fontFamily: 'inherit',
+              }}
+            />
+            <button style={{
+              padding: '10px 18px',
+              background: G.green, color: '#f0f9f4',
+              border: 'none', borderRadius: 10,
+              fontSize: 14, fontWeight: 600,
+              cursor: 'pointer', whiteSpace: 'nowrap',
+              display: 'flex', alignItems: 'center', gap: 6,
+              letterSpacing: '-0.01em',
+            }}>
+              Get my AI report
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M12 19V5M5 12l7-7 7 7"/>
+              </svg>
             </button>
-            <div className="flex gap-2 w-full sm:w-auto">
-              <button className="px-8 py-4 border border-white/20 hover:border-white/60 text-white transition-colors w-full sm:w-auto uppercase tracking-wider text-sm">
-                See how it works
-              </button>
-              <button 
-                onClick={handleNextClick}
-                className="p-4 border border-white/20 hover:border-[#f59e0b] text-white hover:text-[#f59e0b] transition-colors group flex-shrink-0"
-              >
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
           </div>
         </div>
 
-        {/* CENTER: 20% Phone */}
-        <div className="w-full lg:w-[20%] flex justify-center relative z-20 my-12 lg:my-0">
-          
-          {/* Amber Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[600px] bg-[#f59e0b]/20 blur-[100px] rounded-full mix-blend-screen pointer-events-none transition-opacity duration-1000" />
-          
-          {/* Phone Frame */}
-          <div 
-            className="relative w-[280px] h-[560px] bg-[#0f0f0f] rounded-[40px] border-[8px] border-[#1a1a1a] shadow-[0_0_80px_rgba(245,159,11,0.15)] overflow-hidden shrink-0 ring-1 ring-[#2a2a2a] ring-inset"
-          >
+        {/* Phone + green card — sticky */}
+        <div style={{
+          position: 'sticky', top: 64,
+          height: 'calc(100vh - 64px)',
+          display: 'flex', alignItems: 'flex-start',
+          justifyContent: 'center',
+          paddingTop: 40,
+          overflow: 'hidden',
+          background: G.bg,
+        }}>
+
+          {/* Green gradient card behind phone — Owner.com exact */}
+          <div style={{
+            position: 'absolute',
+            bottom: 0,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '68%',
+            maxWidth: 880,
+            height: '78%',
+            borderRadius: '20px 20px 0 0',
+            background: 'linear-gradient(105deg, #094413 0%, #15692a 30%, #3db85e 65%, #c2edce 100%)',
+            overflow: 'hidden',
+          }}>
+            {/* Subtle diagonal lines texture (Owner.com) */}
+            <svg style={{ position: 'absolute', inset: 0, opacity: 0.12 }} width="100%" height="100%">
+              <defs>
+                <pattern id="lines" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+                  <line x1="0" y1="0" x2="0" y2="32" stroke="#fff" strokeWidth="1"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#lines)"/>
+            </svg>
+          </div>
+
+          {/* iPhone frame */}
+          <div style={{
+            position: 'relative',
+            zIndex: 1,
+            width: 275,
+            background: '#0d0d0d',
+            borderRadius: 46,
+            padding: '12px 10px',
+            boxShadow: '0 36px 88px rgba(0,0,0,0.32), 0 0 0 1px rgba(255,255,255,0.05)',
+            border: '0px solid transparent',
+            flexShrink: 0,
+          }}>
+            {/* Side buttons */}
+            <div style={{ position: 'absolute', left: -3, top: 90, width: 3, height: 32, background: '#2a2a2a', borderRadius: '3px 0 0 3px' }}/>
+            <div style={{ position: 'absolute', left: -3, top: 132, width: 3, height: 52, background: '#2a2a2a', borderRadius: '3px 0 0 3px' }}/>
+            <div style={{ position: 'absolute', left: -3, top: 194, width: 3, height: 52, background: '#2a2a2a', borderRadius: '3px 0 0 3px' }}/>
+            <div style={{ position: 'absolute', right: -3, top: 130, width: 3, height: 68, background: '#2a2a2a', borderRadius: '0 3px 3px 0' }}/>
+
             {/* Dynamic Island */}
-            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[80px] h-[24px] bg-black rounded-full z-50" />
-            
-            {/* Screen Content Container */}
-            <div className="relative w-full h-full pt-12 pb-6 px-4 overflow-hidden">
-              
-              {/* Stage 0: Google Maps */}
-              <div className={`absolute inset-0 pt-12 px-4 transition-all duration-700 bg-white/5 ${currentStage === 0 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}>
-                <div className="absolute inset-0 bg-red-900/10 pointer-events-none" />
-                <div className="w-full h-10 bg-white/10 rounded-full mb-6 flex items-center px-4 gap-2">
-                  <MapPin className="w-4 h-4 text-gray-400" />
-                  <span className="text-sm text-gray-300 font-mono">pizza malta</span>
-                </div>
-                
-                <div className="space-y-3">
-                  {[1, 2, 3].map(i => (
-                    <div key={i} className="bg-[#1a1a1a] p-3 rounded-xl flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold">P{i}</div>
-                      <div className="flex-1">
-                        <div className="text-sm font-bold text-white">Pizza Place {i}</div>
-                        <div className="flex items-center gap-1 text-xs text-yellow-500 mt-1">
-                          4.8 <Star className="w-3 h-3 fill-current" /> <span className="text-gray-500 ml-1">(12{i}) · {0.5 * i}km</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                  
-                  {/* The invisible restaurant */}
-                  <div className="bg-red-950/20 border border-red-900/50 p-3 rounded-xl flex items-center gap-3 opacity-60 grayscale mt-6">
-                    <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center text-red-500/50">?</div>
-                    <div className="flex-1">
-                      <div className="text-sm font-bold text-gray-500">Your Restaurant</div>
-                      <div className="flex items-center gap-1 text-xs text-gray-600 mt-1">
-                        ??? <AlertTriangle className="w-3 h-3 text-red-900/80" />
-                      </div>
-                    </div>
-                  </div>
+            <div style={{ width: 108, height: 32, background: '#000', borderRadius: 20, margin: '0 auto 0', position: 'relative', zIndex: 5 }}/>
+
+            {/* Screen */}
+            <div style={{
+              borderRadius: 36,
+              overflow: 'hidden',
+              background: G.bg,
+              height: 480,
+              marginTop: -2,
+            }}>
+              {/* Status bar */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 16px 4px', fontSize: 12, fontWeight: 700 }}>
+                <span>9:41</span>
+                <div style={{ display: 'flex', gap: 5, alignItems: 'center' }}>
+                  {/* Signal */}
+                  <svg width="18" height="12" viewBox="0 0 18 12" fill={G.text}>
+                    <rect x="0" y="7" width="3" height="5" rx="1"/>
+                    <rect x="4.5" y="5" width="3" height="7" rx="1"/>
+                    <rect x="9" y="2" width="3" height="10" rx="1"/>
+                    <rect x="13.5" y="0" width="3" height="12" rx="1" opacity="0.3"/>
+                  </svg>
+                  {/* WiFi */}
+                  <svg width="16" height="12" viewBox="0 0 16 12" fill={G.text}>
+                    <path d="M8 9.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/>
+                    <path d="M3.5 7A6.5 6.5 0 0112.5 7" stroke={G.text} strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                    <path d="M1 4.5A10 10 0 0115 4.5" stroke={G.text} strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                  </svg>
+                  {/* Battery */}
+                  <svg width="28" height="13" viewBox="0 0 28 13" fill="none">
+                    <rect x="0.5" y="0.5" width="23" height="12" rx="3.5" stroke={G.text} strokeOpacity="0.35"/>
+                    <rect x="2" y="2" width="18" height="9" rx="2" fill={G.text}/>
+                    <path d="M24.5 4.5v4c1-.6 1-3.4 0-4z" fill={G.text} opacity="0.4"/>
+                  </svg>
                 </div>
               </div>
 
-              {/* Stage 1: Google Profile */}
-              <div className={`absolute inset-0 pt-12 px-4 transition-all duration-700 bg-white/5 ${currentStage === 1 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}>
-                <div className="absolute inset-0 bg-gray-900/20 pointer-events-none" />
-                <div className="bg-[#1a1a1a] rounded-2xl p-5 border border-white/5">
-                  <h3 className="text-xl font-bold text-white mb-2">Your Restaurant</h3>
-                  <div className="flex items-center gap-1 text-gray-500 mb-6">
-                    0.0
-                    <div className="flex gap-0.5 ml-1">
-                      {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4" />)}
-                    </div>
-                    <span className="text-xs ml-1">(0 reviews)</span>
-                  </div>
-                  
-                  <div className="grid grid-cols-3 gap-2 mb-6">
-                    <div className="flex flex-col items-center gap-2 opacity-40">
-                      <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center"><Globe className="w-4 h-4 text-white" /></div>
-                      <span className="text-[10px]">Website</span>
-                    </div>
-                    <div className="flex flex-col items-center gap-2 opacity-40">
-                      <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center"><Map className="w-4 h-4 text-white" /></div>
-                      <span className="text-[10px]">Directions</span>
-                    </div>
-                    <div className="flex flex-col items-center gap-2 opacity-40">
-                      <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center"><Phone className="w-4 h-4 text-white" /></div>
-                      <span className="text-[10px]">Call</span>
-                    </div>
-                  </div>
-
-                  <button className="w-full py-3 bg-red-900/30 text-red-500 text-sm font-bold rounded-lg border border-red-900/50">
-                    Claim this profile
-                  </button>
-                </div>
+              {/* Scrolling phone content */}
+              <div style={{
+                transform: `translateY(-${phoneScrollY}px)`,
+                transition: 'transform 0.05s linear',
+                willChange: 'transform',
+              }}>
+                <PhoneContent />
               </div>
-
-              {/* Stage 2: Wolt */}
-              <div className={`absolute inset-0 pt-12 px-4 transition-all duration-700 bg-white/5 ${currentStage === 2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}>
-                <div className="absolute inset-0 bg-orange-900/10 pointer-events-none" />
-                <div className="bg-[#1a1a1a] rounded-2xl p-5 border border-white/5 font-mono text-sm">
-                  <div className="text-center text-gray-400 mb-6 pb-4 border-b border-dashed border-gray-700">
-                    RECEIPT #8492
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <div className="flex justify-between text-gray-300">
-                      <span>Order total</span>
-                      <span>€42.00</span>
-                    </div>
-                    
-                    <div className="flex justify-between text-red-400 font-bold bg-red-900/20 p-2 rounded -mx-2">
-                      <span>Wolt comm. (25%)</span>
-                      <span>-€10.50</span>
-                    </div>
-                    
-                    <div className="w-full h-px bg-gray-800 my-4" />
-                    
-                    <div className="flex justify-between text-white font-bold text-lg">
-                      <span>Net to you</span>
-                      <span>€31.50</span>
-                    </div>
-                  </div>
-
-                  <div className="mt-12 flex justify-center">
-                    <div className="w-16 h-16 rounded-full bg-red-900/30 flex items-center justify-center animate-pulse">
-                      <TrendingDown className="w-8 h-8 text-red-500" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Stage 3: Loyalty */}
-              <div className={`absolute inset-0 pt-12 px-4 transition-all duration-700 bg-white/5 ${currentStage === 3 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}>
-                <div className="absolute inset-0 bg-blue-900/10 pointer-events-none" />
-                <div className="bg-[#1a1a1a] rounded-2xl p-5 border border-white/5">
-                  <div className="flex items-center justify-between mb-8">
-                    <h3 className="font-bold text-white">Stamp Card</h3>
-                    <span className="text-xs bg-white/10 px-2 py-1 rounded text-gray-400">0 / 8</span>
-                  </div>
-                  
-                  <div className="grid grid-cols-4 gap-3 mb-8">
-                    {[1,2,3,4,5,6,7,8].map(i => (
-                      <div key={i} className="aspect-square rounded-full border-2 border-dashed border-gray-700 bg-white/5 flex items-center justify-center">
-                        {/* Empty */}
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <div className="bg-white/5 p-4 rounded-xl text-center">
-                    <div className="text-xs text-gray-500 mb-1">Your next free meal:</div>
-                    <div className="font-bold text-gray-300">never</div>
-                    <div className="text-[10px] text-gray-600 mt-2">(you have no system)</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Stage 4: Dashboard */}
-              <div className={`absolute inset-0 pt-12 px-4 transition-all duration-700 bg-[#f59e0b]/5 ${currentStage === 4 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}>
-                <div className="absolute inset-0 bg-green-900/10 pointer-events-none" />
-                
-                <h3 className="font-bold text-white mb-4">This week</h3>
-                
-                <div className="space-y-3 mb-6">
-                  <div className="bg-[#1a1a1a] p-4 rounded-xl border border-white/5 flex items-center justify-between">
-                    <div>
-                      <div className="text-xs text-gray-400 mb-1">Reviews</div>
-                      <div className="font-bold text-white">+12</div>
-                    </div>
-                    <TrendingUp className="w-5 h-5 text-green-500" />
-                  </div>
-                  
-                  <div className="bg-[#1a1a1a] p-4 rounded-xl border border-white/5 flex items-center justify-between">
-                    <div>
-                      <div className="text-xs text-gray-400 mb-1">Direct orders</div>
-                      <div className="font-bold text-white">€847</div>
-                    </div>
-                    <CreditCard className="w-5 h-5 text-green-500" />
-                  </div>
-                  
-                  <div className="bg-[#1a1a1a] p-4 rounded-xl border border-white/5 flex items-center justify-between">
-                    <div>
-                      <div className="text-xs text-gray-400 mb-1">Loyalty scans</div>
-                      <div className="font-bold text-white">34</div>
-                    </div>
-                    <Star className="w-5 h-5 text-green-500" />
-                  </div>
-                </div>
-                
-                {/* Notification sliding up */}
-                <div className="absolute bottom-4 left-4 right-4 bg-[#f59e0b] p-3 rounded-xl shadow-lg flex items-center gap-3 animate-[slideUp_0.5s_ease-out_1s_both] translate-y-[200%]">
-                  <div className="w-8 h-8 rounded-full bg-black/20 flex items-center justify-center">
-                    <Calendar className="w-4 h-4 text-black" />
-                  </div>
-                  <div className="text-black">
-                    <div className="text-xs font-bold">New booking</div>
-                    <div className="text-[10px] opacity-80">Table 4 · 8pm</div>
-                  </div>
-                </div>
-
-                <style dangerouslySetInnerHTML={{__html: `
-                  @keyframes slideUp {
-                    to { transform: translateY(0); }
-                  }
-                `}} />
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        {/* RIGHT: 40% Mini-map */}
-        <div className="w-full lg:w-[40%] flex flex-col items-end z-20">
-          <div className="w-full max-w-[280px]">
-            <div className="flex flex-col gap-6">
-              {stages.map((s, i) => {
-                const isActive = currentStage === i;
-                const isPast = currentStage > i;
-                
-                return (
-                  <div 
-                    key={s.id} 
-                    className="flex items-center gap-4 cursor-pointer group"
-                    onClick={() => handleStageClick(i)}
-                  >
-                    <div className={`font-mono text-sm transition-colors ${isActive ? 'text-[#f59e0b]' : isPast ? 'text-gray-500' : 'text-gray-700'}`}>
-                      0{i}
-                    </div>
-                    
-                    <div className="flex-1">
-                      <div className={`text-sm font-semibold transition-colors mb-2 ${isActive ? 'text-white' : isPast ? 'text-gray-400' : 'text-gray-600'}`}>
-                        {s.title}
-                      </div>
-                      
-                      <div className="h-0.5 w-full bg-white/10 rounded-full overflow-hidden">
-                        <div 
-                          className={`h-full bg-[#f59e0b] transition-all duration-[4000ms] ease-linear ${
-                            isActive && isAutoPlaying ? 'w-full' : isPast || (isActive && !isAutoPlaying) ? 'w-full duration-300' : 'w-0 duration-300'
-                          }`} 
-                        />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            
-            <div className="mt-16 flex items-center gap-2 text-gray-500 text-xs uppercase tracking-widest opacity-50">
-              Scroll to explore <ArrowRight className="w-3 h-3 animate-pulse" />
             </div>
           </div>
         </div>
       </div>
+
+      {/* ── CASE STUDIES ────────────────────────────────────────────── */}
+      <section style={{ padding: '80px 60px', background: G.bg, borderTop: `1px solid ${G.border}` }}>
+        <h2 style={{ fontSize: 40, fontWeight: 800, letterSpacing: '-0.03em', color: G.text, textAlign: 'center', marginBottom: 10 }}>
+          Grow sales like these owners
+        </h2>
+        <p style={{ textAlign: 'center', color: G.textMuted, fontSize: 16, marginBottom: 48 }}>
+          Real Malta restaurants. Real results.
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20, maxWidth: 980, margin: '0 auto' }}>
+          {[
+            { photo: '🍽️', stat: '+€4,200', label: 'Monthly direct sales', name: 'Jonathan Brincat', place: 'Noni, Valletta' },
+            { photo: '🏠', stat: '+41%',    label: 'Google visibility',   name: 'Maria Schembri', place: 'Ta\' Marija, Mdina' },
+            { photo: '⭐', stat: '29',       label: 'Reviews in 30 days',  name: 'Antoine Camilleri', place: 'Rubino, Valletta' },
+          ].map(c => (
+            <div key={c.name} style={{ borderRadius: 16, overflow: 'hidden', border: `1px solid ${G.border}`, background: G.bg }}>
+              <div style={{ height: 180, background: `linear-gradient(135deg, ${G.green}, ${G.greenMid})`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 52 }}>
+                {c.photo}
+              </div>
+              <div style={{ padding: '20px 22px' }}>
+                <div style={{ fontSize: 32, fontWeight: 800, color: G.green, letterSpacing: '-0.03em', lineHeight: 1 }}>{c.stat}</div>
+                <div style={{ fontSize: 13, color: G.textMuted, margin: '4px 0 14px' }}>{c.label}</div>
+                <div style={{ fontSize: 14, fontWeight: 600, color: G.text }}>{c.name}</div>
+                <div style={{ fontSize: 12, color: G.textMuted }}>{c.place}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── FINAL CTA ────────────────────────────────────────────────── */}
+      <section style={{ padding: '80px 40px', background: G.green, textAlign: 'center' }}>
+        <h2 style={{ fontSize: 42, fontWeight: 800, letterSpacing: '-0.03em', color: '#fff', marginBottom: 14 }}>
+          Ready to grow your restaurant?
+        </h2>
+        <p style={{ fontSize: 17, color: G.greenLt, marginBottom: 36, maxWidth: 460, margin: '0 auto 36px', lineHeight: 1.55 }}>
+          Get your free H360 audit. See exactly what's holding your restaurant back — in 60 seconds.
+        </p>
+        <div style={{
+          display: 'inline-flex', alignItems: 'center',
+          background: G.bg, border: `1.5px solid ${G.border}`,
+          borderRadius: 14, padding: '6px 6px 6px 16px',
+          boxShadow: '0 2px 24px rgba(0,0,0,0.18)',
+          gap: 8, width: '100%', maxWidth: 480,
+        }}>
+          <input type="text" placeholder="Find your restaurant in Malta" style={{ flex: 1, border: 'none', outline: 'none', fontSize: 15, color: G.text, background: 'transparent', fontFamily: 'inherit' }} />
+          <button style={{ padding: '10px 18px', background: G.text, color: '#fff', border: 'none', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap' }}>
+            Get my free audit
+          </button>
+        </div>
+      </section>
     </div>
   );
 }
