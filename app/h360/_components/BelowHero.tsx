@@ -2,21 +2,21 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-const G = {
-  bg:        '#ffffff',
-  bgSub:     '#f9fafb',
-  bgDark:    '#111111',
-  text:      '#1a1a1a',
-  textMuted: '#6b7280',
-  textLight: '#9ca3af',
-  green:     '#094413',
-  greenMid:  '#1a6b30',
-  greenLt:   '#c2edce',
-  border:    '#e5e7eb',
-  borderDark:'#2a2a2a',
-  star:      '#eab308',
-  red:       '#ef4444',
-  orange:    '#f97316',
+/* ─── tokens ──────────────────────────────────────────────── */
+const C = {
+  bg:       '#0a0a0a',
+  card:     '#111111',
+  card2:    '#161616',
+  border:   '#2a2a2a',
+  text:     '#ffffff',
+  muted:    '#9ca3af',
+  dim:      '#6b7280',
+  green:    '#094413',
+  greenMid: '#166b30',
+  greenLt:  '#c2edce',
+  pink:     '#e879f9',
+  pinkDark: '#a21caf',
+  blue:     '#3b82f6',
 };
 
 function useIsMobile() {
@@ -30,77 +30,33 @@ function useIsMobile() {
   return m;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   0. PILLAR HUB NAV — four anchor links visible on the page
-   ═══════════════════════════════════════════════════════════ */
-const PILLARS = [
-  { label: 'Direct Orders',   href: '#h360-direct-orders',   icon: '↗' },
-  { label: 'Google Ranking',  href: '#h360-google-ranking',  icon: '★' },
-  { label: 'Guest Loyalty',   href: '#h360-loyalty',         icon: '♥' },
-  { label: 'ARC AI Audit',    href: '#h360-audit',           icon: '⚡' },
-];
-
-function PillarNav({ m }: { m: boolean }) {
-  return (
-    <nav
-      id="h360-pillars"
-      aria-label="H360 product pillars"
-      style={{
-        background: '#f9fafb',
-        borderBottom: `1px solid ${G.border}`,
-        padding: m ? '0 16px' : '0 40px',
-        overflowX: 'auto',
-        scrollbarWidth: 'none',
-      }}
-    >
-      <div style={{ display: 'flex', gap: 0, maxWidth: 1040, margin: '0 auto', width: 'max-content', minWidth: '100%' }}>
-        {PILLARS.map((p) => (
-          <a
-            key={p.href}
-            href={p.href}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 7,
-              padding: m ? '14px 18px' : '16px 28px',
-              fontSize: m ? 13 : 14,
-              fontWeight: 600,
-              color: G.text,
-              textDecoration: 'none',
-              borderBottom: `2px solid transparent`,
-              whiteSpace: 'nowrap',
-              transition: 'border-color 0.15s, color 0.15s',
-            }}
-            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = G.green; (e.currentTarget as HTMLAnchorElement).style.color = G.green; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.color = G.text; }}
-            data-testid={`link-h360-pillar-${p.label.toLowerCase().replace(/\s+/g, '-')}`}
-          >
-            <span style={{ fontSize: 11, color: G.green }}>{p.icon}</span>
-            {p.label}
-          </a>
-        ))}
-      </div>
-    </nav>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════
-   1. STATS STRIP
-   ═══════════════════════════════════════════════════════════ */
-function StatsStrip({ m }: { m: boolean }) {
+/* ═══════════════════════════════════════════════════════════════
+   1. STATS — dark, 4 numbers
+   Sunday: "3,500+ Clients · 80M+ Diners · $176M Tips · 2M Reviews"
+   ═══════════════════════════════════════════════════════════════ */
+function Stats({ m }: { m: boolean }) {
   const stats = [
-    { value: '50+',    label: 'Malta restaurants' },
-    { value: '+34%',   label: 'Avg revenue uplift' },
-    { value: '4,200+', label: 'Reviews generated' },
-    { value: '€2.1M',  label: 'Commission saved from Wolt' },
+    { val: '50+',    lab: 'Malta restaurants' },
+    { val: '+34%',   lab: 'Average revenue uplift' },
+    { val: '4,200+', lab: 'Google reviews generated' },
+    { val: '€2.1M',  lab: 'Commission kept from Wolt' },
   ];
   return (
-    <section style={{ background: G.bg, borderTop: `1px solid ${G.border}`, borderBottom: `1px solid ${G.border}`, padding: m ? '40px 24px' : '56px 80px' }}>
-      <div style={{ maxWidth: 900, margin: '0 auto', display: 'grid', gridTemplateColumns: m ? 'repeat(2,1fr)' : 'repeat(4,1fr)', gap: m ? 32 : 0 }}>
+    <section style={{ background: C.bg, borderBottom: `1px solid ${C.border}` }}>
+      <div style={{
+        maxWidth: 1040, margin: '0 auto',
+        display: 'grid', gridTemplateColumns: m ? 'repeat(2,1fr)' : 'repeat(4,1fr)',
+        padding: m ? '40px 24px' : '52px 40px',
+        gap: m ? 32 : 0,
+      }}>
         {stats.map((s, i) => (
-          <div key={i} style={{ textAlign: 'center', padding: m ? 0 : '0 24px', borderRight: (!m && i < 3) ? `1px solid ${G.border}` : 'none' }}>
-            <div style={{ fontSize: m ? 36 : 44, fontWeight: 800, color: G.text, letterSpacing: '-0.04em', lineHeight: 1 }}>{s.value}</div>
-            <div style={{ fontSize: 14, color: G.textMuted, marginTop: 6, lineHeight: 1.4 }}>{s.label}</div>
+          <div key={i} style={{
+            textAlign: 'center',
+            padding: m ? 0 : '0 24px',
+            borderRight: (!m && i < 3) ? `1px solid ${C.border}` : 'none',
+          }}>
+            <div style={{ fontSize: m ? 38 : 52, fontWeight: 800, color: C.text, letterSpacing: '-0.04em', lineHeight: 1 }}>{s.val}</div>
+            <div style={{ fontSize: 13, color: C.muted, marginTop: 6 }}>{s.lab}</div>
           </div>
         ))}
       </div>
@@ -108,240 +64,238 @@ function StatsStrip({ m }: { m: boolean }) {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════
-   2. PROBLEM STATEMENT
-   ═══════════════════════════════════════════════════════════ */
-function ProblemStatement({ m }: { m: boolean }) {
+/* ═══════════════════════════════════════════════════════════════
+   2. PROBLEM STATEMENT — dark, large editorial text
+   Sunday: "Paying in restaurants used to be slow, awkward and frustrating."
+   ═══════════════════════════════════════════════════════════════ */
+function Problem({ m }: { m: boolean }) {
   return (
-    <section id="h360-how-it-works" style={{ padding: m ? '64px 24px' : '88px 80px', background: G.bg, maxWidth: '100%' }}>
-      <div style={{ maxWidth: 860, margin: '0 auto' }}>
-        <h2 style={{ fontSize: m ? 28 : 42, fontWeight: 800, letterSpacing: '-0.035em', color: G.text, lineHeight: 1.15, marginBottom: 24 }}>
-          Running a Malta restaurant used to mean losing revenue to Wolt, fighting for Google visibility, and watching guests walk out and never return.
+    <section id="h360-how-it-works" style={{ background: C.bg, padding: m ? '56px 24px 48px' : '80px 40px 64px' }}>
+      <div style={{ maxWidth: 900, margin: '0 auto' }}>
+        <h2 style={{
+          fontSize: m ? 'clamp(28px,8vw,36px)' : 'clamp(36px,4vw,54px)',
+          fontWeight: 800, lineHeight: 1.1,
+          letterSpacing: '-0.035em', color: C.text,
+          marginBottom: 24,
+        }}>
+          Ordering and paying in Malta restaurants used to be broken, expensive, and invisible to Google.
         </h2>
-        <p style={{ fontSize: m ? 16 : 19, color: G.textMuted, lineHeight: 1.65, maxWidth: 680 }}>
-          H360 changed that with ARC AI-powered tools that learn, adapt, and create value at every touchpoint. Direct orders or walk-in, Google ranking or guest loyalty — all in one platform.
+        <p style={{ fontSize: m ? 17 : 20, color: C.muted, lineHeight: 1.65, maxWidth: 680 }}>
+          H360 changed that with ARC AI-powered solutions that learn, adapt, and create value at every step. On-site or online, dine-in or delivery.
         </p>
       </div>
     </section>
   );
 }
 
-/* ═══════════════════════════════════════════════════════════
-   3. PRODUCT TAB SWITCHER
-   ═══════════════════════════════════════════════════════════ */
-const TABS = [
+/* ═══════════════════════════════════════════════════════════════
+   3. PRODUCT CARDS — horizontal scroll, dark cards + big visual
+   Sunday: Smart Handheld / Digital Bill / Hybrid / Order & Pay
+   ═══════════════════════════════════════════════════════════════ */
+const PRODUCTS = [
   {
-    label: 'Direct Orders',
-    headline: 'The fastest way to take direct orders.',
-    sub: 'QR-code table ordering and online checkout — no commission, no middleman. Guests order and pay in seconds, direct to your till.',
-    card: (
-      <div style={{ background: '#f9fafb', borderRadius: 16, padding: 20, border: '1px solid #e5e7eb' }}>
-        <div style={{ fontSize: 12, color: '#6b7280', marginBottom: 12 }}>Live orders — Table 7</div>
-        {[
-          { item: 'Braġjoli (x2)', price: '€28.00' },
-          { item: 'Lampuki Pie',   price: '€16.50' },
-          { item: 'Kinnie x3',    price: '€7.50' },
-        ].map((r, i) => (
-          <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: i < 2 ? '1px solid #e5e7eb' : 'none', fontSize: 14 }}>
-            <span style={{ color: '#1a1a1a' }}>{r.item}</span>
-            <span style={{ fontWeight: 600, color: '#1a1a1a' }}>{r.price}</span>
+    title: 'Direct Orders',
+    sub: 'QR ordering with zero commission.',
+    accent: '#22c55e',
+    visual: (
+      <div style={{ padding: '20px 16px 0', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+        {/* QR mockup */}
+        <div style={{ background: '#1a1a1a', borderRadius: 16, border: `1px solid #2a2a2a`, padding: 16, marginBottom: 0 }}>
+          <div style={{ fontSize: 11, color: '#6b7280', marginBottom: 8 }}>Table 7 · Live order</div>
+          {['Braġjoli (x2) — €28', 'Lampuki Pie — €16.50', 'Kinnie x3 — €7.50'].map((r, i) => (
+            <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '7px 0', borderBottom: i < 2 ? `1px solid #2a2a2a` : 'none', fontSize: 13, color: '#fff' }}>
+              <span style={{ color: '#d1d5db' }}>{r.split('—')[0]}</span>
+              <span style={{ fontWeight: 600 }}>{r.split('—')[1]}</span>
+            </div>
+          ))}
+          <div style={{ marginTop: 12, background: '#22c55e', color: '#000', borderRadius: 8, padding: '10px', textAlign: 'center', fontSize: 13, fontWeight: 700 }}>
+            Pay €52.00 — 0% fee
           </div>
-        ))}
-        <div style={{ marginTop: 12, padding: '10px 16px', background: '#094413', color: '#fff', borderRadius: 10, textAlign: 'center', fontSize: 14, fontWeight: 600 }}>
-          Pay €52.00 — direct
         </div>
       </div>
     ),
   },
   {
-    label: 'Google Ranking',
-    headline: 'Be the restaurant guests find first.',
-    sub: 'ARC AI fixes your Google Business profile, gets you reviewed, and puts you at the top for searches like "restaurant Malta" — automatically.',
-    card: (
-      <div style={{ background: '#f9fafb', borderRadius: 16, padding: 20, border: '1px solid #e5e7eb' }}>
-        <div style={{ fontSize: 12, color: '#6b7280', marginBottom: 10 }}>Google Maps — Valletta</div>
+    title: 'Google Ranking',
+    sub: 'Be the restaurant guests find first.',
+    accent: '#3b82f6',
+    visual: (
+      <div style={{ padding: '20px 16px 0', flex: 1 }}>
+        <div style={{ fontSize: 11, color: '#6b7280', marginBottom: 10 }}>Google Maps — Valletta</div>
         {[
-          { rank: '1', name: 'Your Restaurant', score: '4.9 ★', color: '#094413', bg: '#f0fdf4' },
-          { rank: '2', name: 'Competitor A',    score: '4.2 ★', color: '#6b7280', bg: '#f9fafb' },
-          { rank: '3', name: 'Competitor B',    score: '4.0 ★', color: '#6b7280', bg: '#f9fafb' },
+          { rank: '#1', name: 'Your Restaurant', score: '4.9★', c: '#22c55e', bg: 'rgba(34,197,94,0.1)' },
+          { rank: '#2', name: 'Competitor A',    score: '4.2★', c: '#6b7280', bg: 'transparent' },
+          { rank: '#3', name: 'Competitor B',    score: '4.0★', c: '#6b7280', bg: 'transparent' },
         ].map(r => (
-          <div key={r.rank} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 10px', borderRadius: 8, background: r.bg, marginBottom: 6, border: '1px solid #e5e7eb' }}>
-            <span style={{ fontSize: 11, fontWeight: 700, color: r.color, width: 18 }}>#{r.rank}</span>
-            <span style={{ flex: 1, fontSize: 13, color: r.color, fontWeight: r.rank === '1' ? 700 : 400 }}>{r.name}</span>
-            <span style={{ fontSize: 12, color: r.color }}>{r.score}</span>
+          <div key={r.rank} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '9px 10px', borderRadius: 10, background: r.bg, marginBottom: 6, border: `1px solid #2a2a2a` }}>
+            <span style={{ fontSize: 11, fontWeight: 700, color: r.c, width: 20 }}>{r.rank}</span>
+            <span style={{ flex: 1, fontSize: 13, color: r.c, fontWeight: r.rank === '#1' ? 700 : 400 }}>{r.name}</span>
+            <span style={{ fontSize: 12, color: r.c }}>{r.score}</span>
           </div>
         ))}
+        <div style={{ marginTop: 10, padding: '8px 12px', background: 'rgba(59,130,246,0.12)', borderRadius: 8, fontSize: 12, color: '#3b82f6', fontWeight: 600 }}>
+          ARC AI: +9 positions this month
+        </div>
       </div>
     ),
   },
   {
-    label: 'Guest Loyalty',
-    headline: 'Turn one-time guests into regulars.',
-    sub: 'ARC AI learns what your guests love. The right dish, the right moment, the right offer — sent automatically via WhatsApp or email.',
-    card: (
-      <div style={{ background: '#f9fafb', borderRadius: 16, padding: 20, border: '1px solid #e5e7eb' }}>
-        <div style={{ fontSize: 12, color: '#6b7280', marginBottom: 12 }}>ARC AI guest message</div>
-        <div style={{ background: '#094413', color: '#fff', borderRadius: 12, padding: '12px 14px', fontSize: 13, lineHeight: 1.5, marginBottom: 10 }}>
-          &ldquo;Hey Maria! It&apos;s been 3 weeks — your favourite Braġjoli is back on the menu. Table for 2 this Friday?&rdquo;
+    title: 'Guest Loyalty',
+    sub: 'Turn one-time guests into regulars.',
+    accent: '#e879f9',
+    visual: (
+      <div style={{ padding: '20px 16px 0', flex: 1 }}>
+        <div style={{ background: '#1a1a1a', borderRadius: 14, padding: '12px 14px', border: `1px solid #2a2a2a`, marginBottom: 10 }}>
+          <div style={{ fontSize: 11, color: '#6b7280', marginBottom: 6 }}>ARC AI — WhatsApp</div>
+          <div style={{ background: '#e879f9', color: '#000', borderRadius: 10, padding: '10px 12px', fontSize: 13, lineHeight: 1.45, fontWeight: 500 }}>
+            &ldquo;Hey Maria! Your favourite Braġjoli is back on the menu. Table for 2 this Friday?&rdquo;
+          </div>
         </div>
         <div style={{ display: 'flex', gap: 8 }}>
-          <div style={{ flex: 1, padding: '8px 12px', background: '#094413', color: '#fff', borderRadius: 8, textAlign: 'center', fontSize: 12, fontWeight: 600 }}>Book table</div>
-          <div style={{ flex: 1, padding: '8px 12px', background: '#f3f4f6', color: '#1a1a1a', borderRadius: 8, textAlign: 'center', fontSize: 12 }}>Maybe later</div>
+          <div style={{ flex: 1, padding: '9px 12px', background: '#e879f9', color: '#000', borderRadius: 8, textAlign: 'center', fontSize: 12, fontWeight: 700, cursor: 'pointer' }}>Book table</div>
+          <div style={{ flex: 1, padding: '9px 12px', background: '#1a1a1a', color: '#9ca3af', borderRadius: 8, textAlign: 'center', fontSize: 12, border: `1px solid #2a2a2a` }}>Maybe later</div>
         </div>
       </div>
     ),
   },
   {
-    label: 'ARC AI Audit',
-    headline: 'Know exactly what is costing you money.',
-    sub: 'ARC AI scans your Google presence, reviews, visibility, and ordering flow — and tells you exactly what to fix and in what order.',
-    card: (
-      <div style={{ background: '#f9fafb', borderRadius: 16, padding: 20, border: '1px solid #e5e7eb' }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: '#1a1a1a', marginBottom: 10 }}>ARC AI audit — Your Restaurant</div>
+    title: 'ARC AI Audit',
+    sub: 'Know exactly what is costing you money.',
+    accent: '#f97316',
+    visual: (
+      <div style={{ padding: '20px 16px 0', flex: 1 }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: C.text, marginBottom: 12 }}>Your restaurant score</div>
         {[
-          { label: 'Google ranking', score: 38, max: 40, color: '#22c55e' },
-          { label: 'Review velocity', score: 18, max: 40, color: '#f97316' },
-          { label: 'Direct orders',  score: 8,  max: 20, color: '#ef4444' },
+          { lab: 'Google ranking', pct: 95, color: '#22c55e' },
+          { lab: 'Review velocity', pct: 45, color: '#f97316' },
+          { lab: 'Direct orders',  pct: 20, color: '#ef4444' },
         ].map((b, i) => (
-          <div key={i} style={{ marginBottom: 12 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, color: '#6b7280', marginBottom: 4 }}>
-              <span>{b.label}</span><span style={{ fontWeight: 600, color: '#1a1a1a' }}>{b.score}/{b.max}</span>
+          <div key={i} style={{ marginBottom: 14 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, color: '#9ca3af', marginBottom: 6 }}>
+              <span>{b.lab}</span><span style={{ color: b.color, fontWeight: 600 }}>{b.pct}%</span>
             </div>
-            <div style={{ height: 6, background: '#e5e7eb', borderRadius: 99 }}>
-              <div style={{ height: '100%', width: `${(b.score/b.max)*100}%`, background: b.color, borderRadius: 99 }}/>
+            <div style={{ height: 5, background: '#2a2a2a', borderRadius: 99 }}>
+              <div style={{ height: '100%', width: `${b.pct}%`, background: b.color, borderRadius: 99 }}/>
             </div>
           </div>
         ))}
+        <div style={{ padding: '8px 12px', background: 'rgba(249,115,22,0.1)', borderRadius: 8, fontSize: 12, color: '#f97316', fontWeight: 600, marginTop: 4 }}>
+          2 critical issues to fix
+        </div>
       </div>
     ),
   },
   {
-    label: 'Revenue Dashboard',
-    headline: 'Your business. One clear view.',
-    sub: 'Real-time revenue, cover counts, review trends, and direct order growth — all in one dashboard, across every venue.',
-    card: (
-      <div style={{ background: '#f9fafb', borderRadius: 16, padding: 20, border: '1px solid #e5e7eb' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 14 }}>
-          <div>
-            <div style={{ fontSize: 11, color: '#6b7280' }}>Revenue this month</div>
-            <div style={{ fontSize: 26, fontWeight: 800, color: '#094413', letterSpacing: '-0.03em' }}>€18,420</div>
-            <div style={{ fontSize: 12, color: '#22c55e', fontWeight: 600 }}>↑ +34% vs last month</div>
-          </div>
-          <div style={{ textAlign: 'right' }}>
-            <div style={{ fontSize: 11, color: '#6b7280' }}>Direct orders</div>
-            <div style={{ fontSize: 20, fontWeight: 700, color: '#1a1a1a' }}>€6,100</div>
-            <div style={{ fontSize: 12, color: '#22c55e', fontWeight: 600 }}>↑ 0% commission</div>
-          </div>
+    title: 'Revenue Dashboard',
+    sub: 'One clear view across every service.',
+    accent: '#22c55e',
+    visual: (
+      <div style={{ padding: '20px 16px 0', flex: 1 }}>
+        <div style={{ marginBottom: 10 }}>
+          <div style={{ fontSize: 11, color: '#6b7280' }}>Revenue this month</div>
+          <div style={{ fontSize: 32, fontWeight: 800, color: '#22c55e', letterSpacing: '-0.04em', lineHeight: 1 }}>€18,420</div>
+          <div style={{ fontSize: 12, color: '#22c55e', fontWeight: 600 }}>↑ +34% vs last month</div>
         </div>
-        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 5, height: 60 }}>
-          {[30,45,38,60,52,70,65,80,75,90,82,95].map((h,i)=>(
-            <div key={i} style={{ flex: 1, background: i===11 ? '#094413' : '#c2edce', borderRadius: '3px 3px 0 0', height: `${h}%` }}/>
+        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 4, height: 56, marginBottom: 10 }}>
+          {[25,38,32,50,44,58,52,72,65,80,76,95].map((h, i) => (
+            <div key={i} style={{ flex: 1, background: i === 11 ? '#22c55e' : '#2a5c3a', borderRadius: '2px 2px 0 0', height: `${h}%`, opacity: i === 11 ? 1 : 0.6 }}/>
           ))}
         </div>
-        <div style={{ fontSize: 10, color: '#9ca3af', marginTop: 4, textAlign: 'center' }}>Last 12 months</div>
+        <div style={{ fontSize: 10, color: '#6b7280', textAlign: 'center' }}>Last 12 months</div>
       </div>
     ),
   },
 ];
 
-function ProductTabs({ m }: { m: boolean }) {
-  const [active, setActive] = useState(0);
+function ProductCards({ m }: { m: boolean }) {
   return (
-    <section id="h360-products" style={{ padding: m ? '48px 0' : '80px 0', background: G.bgSub, borderTop: `1px solid ${G.border}` }}>
-      {/* pillar anchors embedded so #h360-direct-orders, #h360-google-ranking etc resolve */}
-      <span id="h360-direct-orders"  style={{ display: 'block', visibility: 'hidden', height: 0 }}/>
-      <span id="h360-google-ranking" style={{ display: 'block', visibility: 'hidden', height: 0 }}/>
-      <span id="h360-audit"          style={{ display: 'block', visibility: 'hidden', height: 0 }}/>
-      <div style={{ maxWidth: 1040, margin: '0 auto', padding: m ? '0 20px' : '0 40px' }}>
-        <p style={{ fontSize: m ? 18 : 22, color: G.text, fontWeight: 600, marginBottom: 32, lineHeight: 1.4 }}>
-          H360 changed that with ARC AI-powered tools that learn, adapt, and create value at every step.
-          <span style={{ color: G.textMuted, fontWeight: 400 }}> On-site or online, dine-in or takeaway.</span>
-        </p>
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 32, background: '#efefef', borderRadius: 14, padding: 6, width: 'fit-content', maxWidth: '100%' }}>
-          {TABS.map((t, i) => (
-            <button
-              key={i}
-              onClick={() => setActive(i)}
-              style={{
-                padding: '8px 18px', borderRadius: 10, border: 'none', cursor: 'pointer', fontSize: 14, fontWeight: 600,
-                background: active === i ? G.bg : 'transparent',
-                color: active === i ? G.text : G.textMuted,
-                boxShadow: active === i ? '0 1px 6px rgba(0,0,0,0.10)' : 'none',
-                transition: 'all 0.18s ease',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              {t.label}
-            </button>
+    <section id="h360-products" style={{ background: C.bg, paddingBottom: m ? 48 : 72 }}>
+      <div style={{ padding: m ? '0 0 0 24px' : '0 0 0 40px', overflowX: 'auto', scrollbarWidth: 'none' }}>
+        <div style={{ display: 'flex', gap: 16, paddingRight: m ? 24 : 40, width: 'max-content' }}>
+          {/* pillar anchors */}
+          <span id="h360-direct-orders"  style={{ display: 'none' }}/>
+          <span id="h360-google-ranking" style={{ display: 'none' }}/>
+          <span id="h360-audit"          style={{ display: 'none' }}/>
+          {PRODUCTS.map((p, i) => (
+            <div key={i} style={{
+              width: m ? 280 : 320, height: m ? 340 : 380, flexShrink: 0,
+              background: C.card, border: `1px solid ${C.border}`,
+              borderRadius: 20, overflow: 'hidden',
+              display: 'flex', flexDirection: 'column',
+            }}>
+              <div style={{ padding: '22px 22px 0' }}>
+                <div style={{ width: 10, height: 10, borderRadius: 99, background: p.accent, marginBottom: 14 }}/>
+                <div style={{ fontSize: 18, fontWeight: 700, color: C.text, marginBottom: 4 }}>{p.title}</div>
+                <div style={{ fontSize: 13, color: C.muted }}>{p.sub}</div>
+              </div>
+              {p.visual}
+            </div>
           ))}
-        </div>
-        <div style={{ display: m ? 'flex' : 'grid', flexDirection: m ? 'column' : undefined, gridTemplateColumns: '1fr 1fr', gap: 40, alignItems: 'center' }}>
-          <div>
-            <h3 style={{ fontSize: m ? 24 : 34, fontWeight: 800, letterSpacing: '-0.03em', color: G.text, marginBottom: 14, lineHeight: 1.15 }}>
-              {TABS[active].headline}
-            </h3>
-            <p style={{ fontSize: m ? 15 : 17, color: G.textMuted, lineHeight: 1.65, marginBottom: 24 }}>
-              {TABS[active].sub}
-            </p>
-            <button style={{ padding: '11px 24px', background: G.text, color: '#fff', border: 'none', borderRadius: 99, fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>
-              Discover it for free
-            </button>
-          </div>
-          <div style={{ transition: 'opacity 0.2s', opacity: 1 }}>
-            {TABS[active].card}
-          </div>
         </div>
       </div>
     </section>
   );
 }
 
-/* ═══════════════════════════════════════════════════════════
-   4. LOGO TRUST STRIP + INLINE TESTIMONIALS
-   ═══════════════════════════════════════════════════════════ */
-const RESTAURANT_NAMES = [
-  'Noni', 'Rubino', "Ta' Marija", 'Bahia', "Guze'", 'Zen', 'Palazzo Preca',
-  'Terrone', 'De Mondion', 'Margo', 'Rock Salt', 'Tartarun',
-];
+/* ═══════════════════════════════════════════════════════════════
+   4. TRUSTED LOGOS — dark marquee
+   Sunday: "Trusted by thousands of restaurants..."
+   ═══════════════════════════════════════════════════════════════ */
+const RESTAURANTS = ['Noni', 'Rubino', "Ta' Marija", 'Bahia', "Ġużé", 'Zen', 'Palazzo Preca', 'Terrone', 'De Mondion', 'Margo', 'Rock Salt', 'Tartarun'];
 
-function LogoTrustStrip({ m }: { m: boolean }) {
+function TrustLogos({ m }: { m: boolean }) {
   return (
-    <section style={{ padding: m ? '48px 0' : '72px 0', background: G.bg, borderTop: `1px solid ${G.border}` }}>
-      <style>{`@keyframes h360marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } } .h360-marquee { animation: h360marquee 22s linear infinite; display: flex; gap: 16px; width: max-content; }`}</style>
-      <div style={{ maxWidth: 900, margin: '0 auto', padding: m ? '0 24px' : '0 80px', textAlign: 'center', marginBottom: 40 }}>
-        <h2 style={{ fontSize: m ? 22 : 30, fontWeight: 800, letterSpacing: '-0.03em', color: G.text, marginBottom: 8 }}>
+    <section style={{ background: C.bg, borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}`, padding: m ? '48px 0' : '64px 0' }}>
+      <style>{`@keyframes h360mq { from { transform: translateX(0) } to { transform: translateX(-50%) } } .h360mq { animation: h360mq 26s linear infinite; display: flex; gap: 0; width: max-content; }`}</style>
+      <div style={{ maxWidth: 900, margin: '0 auto', padding: m ? '0 24px' : '0 40px', textAlign: 'center', marginBottom: 36 }}>
+        <h2 style={{ fontSize: m ? 22 : 30, fontWeight: 700, letterSpacing: '-0.03em', color: C.text, marginBottom: 6 }}>
           Trusted by Malta&apos;s best restaurants.
         </h2>
-        <p style={{ fontSize: 15, color: G.textMuted }}>From casual trattorias to Michelin-recommended dining rooms.</p>
+        <p style={{ fontSize: 15, color: C.muted }}>From casual trattorias to Michelin-recommended dining rooms.</p>
       </div>
       <div style={{ overflow: 'hidden', position: 'relative' }}>
-        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to right, #fff, transparent)', zIndex: 2 }}/>
-        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to left, #fff, transparent)', zIndex: 2 }}/>
-        <div className="h360-marquee">
-          {[...RESTAURANT_NAMES, ...RESTAURANT_NAMES].map((name, i) => (
-            <div key={i} style={{ padding: '10px 22px', border: `1.5px solid ${G.border}`, borderRadius: 99, background: G.bg, fontSize: 14, fontWeight: 600, color: G.text, whiteSpace: 'nowrap' }}>
+        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 80, background: `linear-gradient(to right, ${C.bg}, transparent)`, zIndex: 2 }}/>
+        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 80, background: `linear-gradient(to left, ${C.bg}, transparent)`, zIndex: 2 }}/>
+        <div className="h360mq">
+          {[...RESTAURANTS, ...RESTAURANTS].map((name, i) => (
+            <div key={i} style={{ padding: '10px 28px', borderRight: `1px solid ${C.border}`, fontSize: 14, fontWeight: 500, color: C.muted, whiteSpace: 'nowrap' }}>
               {name}
             </div>
           ))}
         </div>
       </div>
-      <div style={{ maxWidth: 1040, margin: '48px auto 0', padding: m ? '0 20px' : '0 40px', display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3,1fr)', gap: 24 }}>
-        {[
-          { initials: 'JB', name: 'Jonathan Brincat', place: 'Noni, Valletta', quote: 'We\'ve had more Google reviews in one month with H360 than in the entire previous year.' },
-          { initials: 'MS', name: 'Maria Schembri',   place: "Ta' Marija, Mdina", quote: 'When we stopped paying Wolt, our direct revenue went up 41% in 3 months. Every time.' },
-          { initials: 'AC', name: 'Antoine Camilleri',place: 'Rubino, Valletta', quote: 'H360 gives our guests a faster, easier checkout. The time saved lets the team focus on hospitality.' },
-        ].map(t => (
-          <div key={t.name} style={{ padding: '24px 28px', border: `1px solid ${G.border}`, borderRadius: 16, background: G.bg }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-              <div style={{ width: 44, height: 44, borderRadius: 99, background: `linear-gradient(135deg,${G.green},${G.greenMid})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 15, flexShrink: 0 }}>
-                {t.initials}
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   5. INLINE TESTIMONIALS — 3 blocks (dark)
+   Sunday: 3 quote blocks with photo background thumbnails
+   ═══════════════════════════════════════════════════════════════ */
+const INLINE_QUOTES = [
+  { q: 'We\'ve had more Google reviews in one month with H360 than in the entire previous year.', name: 'Jonathan Brincat', place: 'Noni, Valletta', init: 'JB' },
+  { q: 'When we stopped paying Wolt, our direct revenue went up 41% in three months. Every time.', name: 'Maria Schembri', place: "Ta' Marija, Mdina", init: 'MS' },
+  { q: 'H360 gives our guests a faster, easier checkout. The time saved lets the team focus on hospitality.', name: 'Antoine Camilleri', place: 'Rubino, Valletta', init: 'AC' },
+];
+
+function InlineTestimonials({ m }: { m: boolean }) {
+  return (
+    <section style={{ background: C.bg, padding: m ? '48px 24px' : '72px 40px' }}>
+      <div style={{ maxWidth: 1040, margin: '0 auto', display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3,1fr)', gap: 24 }}>
+        {INLINE_QUOTES.map((t, i) => (
+          <div key={i} style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 20, padding: '28px 28px 24px', display: 'flex', flexDirection: 'column', gap: 20 }}>
+            <p style={{ fontSize: m ? 15 : 16, color: C.text, lineHeight: 1.6, flex: 1 }}>
+              &ldquo;{t.q}&rdquo;
+            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div style={{ width: 40, height: 40, borderRadius: 99, background: `linear-gradient(135deg,${C.green},${C.greenMid})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 13, flexShrink: 0 }}>
+                {t.init}
               </div>
               <div>
-                <div style={{ fontSize: 14, fontWeight: 600, color: G.text }}>{t.name}</div>
-                <div style={{ fontSize: 12, color: G.textMuted }}>{t.place}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: C.text }}>{t.name}</div>
+                <div style={{ fontSize: 12, color: C.muted }}>{t.place}</div>
               </div>
             </div>
-            <p style={{ fontSize: 14, color: G.text, lineHeight: 1.6, fontStyle: 'italic' }}>&ldquo;{t.quote}&rdquo;</p>
           </div>
         ))}
       </div>
@@ -349,48 +303,101 @@ function LogoTrustStrip({ m }: { m: boolean }) {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════
-   5. THREE-COLUMN VALUE SECTION
-   ═══════════════════════════════════════════════════════════ */
-function ValueSection({ m }: { m: boolean }) {
+/* ═══════════════════════════════════════════════════════════════
+   6. "EVERY VISIT NOW DRIVES VALUE" + 3 TALL CARDS
+   Sunday: Full-bleed photo cards stacked — FOR OPERATORS / STAFF / GUESTS
+   ═══════════════════════════════════════════════════════════════ */
+function ValueCards({ m }: { m: boolean }) {
   const cards = [
     {
       label: 'FOR OPERATORS',
-      headline: 'Faster table turns, more direct revenue, zero Wolt fees.',
-      sub: 'H360 eliminates commission payments, accelerates service with instant QR ordering, and gives you full data on every cover and order.',
-      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#094413" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>,
+      title: 'Faster table turns, more direct revenue, higher margin.',
+      accentColor: C.pink,
+      bg: 'linear-gradient(160deg, #1a0a1a 0%, #2d0f2d 40%, #111 100%)',
+      overlay: (
+        <div style={{ position: 'absolute', bottom: 36, left: 28, background: 'rgba(20,20,20,0.85)', backdropFilter: 'blur(12px)', borderRadius: 16, padding: '16px 20px', border: `1px solid rgba(232,121,249,0.2)`, minWidth: 200 }}>
+          <div style={{ fontSize: 11, color: C.muted, marginBottom: 4 }}>Last month</div>
+          <div style={{ fontSize: 36, fontWeight: 800, color: C.text, letterSpacing: '-0.04em', lineHeight: 1, marginBottom: 10 }}>€18,420</div>
+          <div style={{ display: 'flex', alignItems: 'flex-end', gap: 3, height: 36 }}>
+            {[20,35,28,50,42,60,55,70,65,80,72,95].map((h, i) => (
+              <div key={i} style={{ width: 10, background: i === 11 ? C.pink : 'rgba(232,121,249,0.3)', borderRadius: '2px 2px 0 0', height: `${h}%`, flex: 1 }}/>
+            ))}
+          </div>
+          <div style={{ display: 'flex', gap: 8, marginTop: 8, fontSize: 10, color: C.muted }}>
+            {['J','F','M','A','M','J','J','A','S','O','N','D'].map((mo, i) => <span key={i} style={{ flex: 1, textAlign: 'center' }}>{mo}</span>)}
+          </div>
+        </div>
+      ),
     },
     {
       label: 'FOR STAFF',
-      headline: 'Higher tips, smoother shifts, and no chasing the bill.',
-      sub: 'ARC AI-optimised tip suggestions boost staff earnings by an average of 30%. No more awkward moments waiting for card machines.',
-      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#094413" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+      title: 'Higher tips, smoother shifts, and no chasing the bill.',
+      accentColor: '#22c55e',
+      bg: 'linear-gradient(160deg, #0a1a0a 0%, #0f2d0f 40%, #111 100%)',
+      overlay: (
+        <div style={{ position: 'absolute', bottom: 36, left: 28, background: 'rgba(20,20,20,0.85)', backdropFilter: 'blur(12px)', borderRadius: 16, padding: '16px 20px', border: `1px solid rgba(34,197,94,0.2)` }}>
+          <div style={{ fontSize: 11, color: C.muted, marginBottom: 6 }}>ARC AI tip suggestion</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <div style={{ fontSize: 42, fontWeight: 800, color: '#22c55e', letterSpacing: '-0.04em' }}>+28%</div>
+            <div>
+              <div style={{ fontSize: 12, color: C.text, fontWeight: 600 }}>Average tip rate</div>
+              <div style={{ fontSize: 11, color: C.muted }}>Was 18% · +10pp improvement</div>
+            </div>
+          </div>
+        </div>
+      ),
     },
     {
       label: 'FOR GUESTS',
-      headline: 'Fast, simple, personalised checkout they\'ll remember.',
-      sub: 'Pay by QR in 10 seconds, split the bill without drama, and leave feeling valued — not forgotten. Every visit turns into a 5-star review.',
-      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#094413" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>,
+      title: 'Fast, simple, personalised checkout they\'ll remember.',
+      accentColor: '#3b82f6',
+      bg: 'linear-gradient(160deg, #0a0a1a 0%, #0f0f2d 40%, #111 100%)',
+      overlay: (
+        <div style={{ position: 'absolute', bottom: 36, left: 28, background: 'rgba(20,20,20,0.88)', backdropFilter: 'blur(12px)', borderRadius: 16, padding: '16px 20px', border: `1px solid rgba(59,130,246,0.2)`, maxWidth: 240 }}>
+          <div style={{ fontSize: 13, fontWeight: 600, color: C.text, marginBottom: 4 }}>Thanks, you&apos;re good to go.</div>
+          <div style={{ fontSize: 11, color: C.muted, marginBottom: 12, lineHeight: 1.4 }}>The waiter knows the bill is paid. Feel free to head out and don&apos;t hesitate to say bye!</div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: C.text }}>
+            <span style={{ color: C.muted }}>You paid</span>
+            <span style={{ fontWeight: 700 }}>€52.00</span>
+          </div>
+        </div>
+      ),
     },
   ];
+
   return (
-    <section style={{ padding: m ? '64px 24px' : '96px 80px', background: G.bg, borderTop: `1px solid ${G.border}` }}>
+    <section style={{ background: C.bg, padding: m ? '0 24px 64px' : '0 40px 96px', borderTop: `1px solid ${C.border}` }}>
       <div style={{ maxWidth: 1040, margin: '0 auto' }}>
-        <h2 style={{ fontSize: m ? 28 : 42, fontWeight: 800, letterSpacing: '-0.035em', color: G.text, marginBottom: 8 }}>
+        <h2 style={{ fontSize: m ? 28 : 42, fontWeight: 800, letterSpacing: '-0.035em', color: C.text, padding: m ? '48px 0 36px' : '72px 0 48px', lineHeight: 1.1 }}>
           Every visit now drives value.
         </h2>
-        <p style={{ fontSize: m ? 15 : 17, color: G.textMuted, marginBottom: 56, maxWidth: 560, lineHeight: 1.6 }}>
-          Every payment now creates value: ARC AI turns each transaction into better recommendations, smarter tips, and fewer errors.
-        </p>
-        <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3,1fr)', gap: 32 }}>
-          {cards.map(c => (
-            <div key={c.label} style={{ padding: 32, border: `1px solid ${G.border}`, borderRadius: 16, background: G.bg }}>
-              <div style={{ display: 'inline-flex', padding: '6px 12px', borderRadius: 99, background: '#f0fdf4', marginBottom: 20 }}>
-                <span style={{ fontSize: 11, fontWeight: 700, color: G.green, letterSpacing: '0.08em' }}>{c.label}</span>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          {cards.map((c, i) => (
+            <div key={i} style={{
+              position: 'relative',
+              borderRadius: 24,
+              overflow: 'hidden',
+              height: m ? 380 : 480,
+              background: c.bg,
+              border: `1px solid ${C.border}`,
+            }}>
+              {/* Pattern overlay */}
+              <svg style={{ position: 'absolute', inset: 0, opacity: 0.04, width: '100%', height: '100%' }}>
+                <defs><pattern id={`g${i}`} x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="#fff"/></pattern></defs>
+                <rect width="100%" height="100%" fill={`url(#g${i})`}/>
+              </svg>
+              {/* Accent glow */}
+              <div style={{ position: 'absolute', top: -80, right: -80, width: 300, height: 300, borderRadius: 99, background: c.accentColor, opacity: 0.08, filter: 'blur(60px)', pointerEvents: 'none' }}/>
+              {/* Content */}
+              <div style={{ position: 'absolute', top: 28, left: 28, right: 28 }}>
+                <div style={{ display: 'inline-flex', padding: '4px 10px', borderRadius: 99, background: 'rgba(255,255,255,0.08)', marginBottom: 14 }}>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: C.muted, letterSpacing: '0.08em' }}>{c.label}</span>
+                </div>
+                <h3 style={{ fontSize: m ? 22 : 28, fontWeight: 800, color: C.text, letterSpacing: '-0.03em', lineHeight: 1.15, maxWidth: 440 }}>
+                  {c.title}
+                </h3>
               </div>
-              <div style={{ marginBottom: 16 }}>{c.icon}</div>
-              <h3 style={{ fontSize: m ? 18 : 20, fontWeight: 700, color: G.text, marginBottom: 10, lineHeight: 1.3, letterSpacing: '-0.02em' }}>{c.headline}</h3>
-              <p style={{ fontSize: 14, color: G.textMuted, lineHeight: 1.65 }}>{c.sub}</p>
+              {c.overlay}
             </div>
           ))}
         </div>
@@ -399,199 +406,244 @@ function ValueSection({ m }: { m: boolean }) {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════
-   6. INTEGRATION / ECOSYSTEM
-   ═══════════════════════════════════════════════════════════ */
-function IntegrationSection({ m }: { m: boolean }) {
+/* ═══════════════════════════════════════════════════════════════
+   7. ECOSYSTEM — two landscape cards side by side
+   Sunday: "Built for your ecosystem" + "Your business, one clear view"
+   ═══════════════════════════════════════════════════════════════ */
+function Ecosystem({ m }: { m: boolean }) {
   const integrations = [
-    { name: 'Lightspeed', color: '#ff5c35' },
-    { name: 'TheFork',    color: '#01a55e' },
-    { name: 'Wolt',       color: '#009de0' },
-    { name: 'Bolt Food',  color: '#34d186' },
-    { name: 'Google',     color: '#4285f4' },
-    { name: 'Nory',       color: '#7c3aed' },
+    { name: 'Lightspeed', color: '#ff5c35' }, { name: 'TheFork', color: '#01a55e' },
+    { name: 'Wolt',       color: '#009de0' }, { name: 'Bolt',    color: '#34d186' },
+    { name: 'Google',     color: '#4285f4' }, { name: 'Nory',    color: '#7c3aed' },
   ];
   return (
-    <section style={{ padding: m ? '64px 24px' : '96px 80px', background: G.bgSub, borderTop: `1px solid ${G.border}` }}>
-      <div style={{ maxWidth: 1040, margin: '0 auto', display: m ? 'flex' : 'grid', flexDirection: m ? 'column' : undefined, gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
-        <div>
-          <div style={{ display: 'inline-flex', padding: '5px 12px', borderRadius: 99, background: '#f0fdf4', border: `1px solid ${G.greenLt}`, marginBottom: 20 }}>
-            <span style={{ fontSize: 11, fontWeight: 700, color: G.green, letterSpacing: '0.06em' }}>WORKS WITH YOUR SETUP</span>
-          </div>
-          <h2 style={{ fontSize: m ? 28 : 38, fontWeight: 800, letterSpacing: '-0.035em', color: G.text, marginBottom: 16, lineHeight: 1.15 }}>
-            We don&apos;t pile on more tech. We amplify what already works.
-          </h2>
-          <p style={{ fontSize: m ? 15 : 17, color: G.textMuted, lineHeight: 1.65, marginBottom: 32 }}>
-            H360 connects your tech stack — from POS to delivery — giving you one powerful, unified view of your restaurant. No rip-and-replace.
-          </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
-            {integrations.map(int => (
-              <div key={int.name} style={{ padding: '8px 16px', border: `1.5px solid ${G.border}`, borderRadius: 99, background: G.bg, fontSize: 13, fontWeight: 600, color: G.text, display: 'flex', alignItems: 'center', gap: 7 }}>
-                <div style={{ width: 8, height: 8, borderRadius: 99, background: int.color }}/>
-                {int.name}
+    <section style={{ background: C.bg, padding: m ? '0 24px 64px' : '0 40px 96px' }}>
+      <div style={{ maxWidth: 1040, margin: '0 auto' }}>
+        <h2 style={{ fontSize: m ? 24 : 36, fontWeight: 800, letterSpacing: '-0.03em', color: C.text, marginBottom: 8 }}>
+          We don&apos;t pile on more tech. We amplify what already works.
+        </h2>
+        <p style={{ fontSize: 16, color: C.muted, marginBottom: 40, maxWidth: 600 }}>
+          H360 connects your tech stack — from POS to delivery — giving you one powerful, unified view.
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: 20 }}>
+          {/* Built for your ecosystem */}
+          <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 20, padding: 28, minHeight: 300 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: C.muted, letterSpacing: '0.08em', marginBottom: 14 }}>INTEGRATIONS</div>
+            <h3 style={{ fontSize: m ? 20 : 24, fontWeight: 700, color: C.text, letterSpacing: '-0.03em', marginBottom: 8, lineHeight: 1.2 }}>
+              Built for your ecosystem.
+            </h3>
+            <p style={{ fontSize: 14, color: C.muted, marginBottom: 28, lineHeight: 1.55 }}>
+              Connects instantly with your POS, CRM, booking and loyalty tools — everything works together, automatically.
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
+              <div style={{ width: 52, height: 52, borderRadius: 14, background: C.green, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: 14, letterSpacing: '-0.06em', boxShadow: `0 0 0 8px rgba(9,68,19,0.25)` }}>
+                H360
               </div>
-            ))}
-          </div>
-        </div>
-        <div style={{ background: G.bg, border: `1px solid ${G.border}`, borderRadius: 20, padding: 28, position: 'relative' }}>
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
-            <div style={{ width: 64, height: 64, borderRadius: 16, background: G.green, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: 18, letterSpacing: '-0.05em', boxShadow: `0 0 0 8px ${G.greenLt}` }}>
-              H360
             </div>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 10 }}>
-            {integrations.map(int => (
-              <div key={int.name} style={{ padding: '10px 12px', border: `1px solid ${G.border}`, borderRadius: 12, background: G.bgSub, textAlign: 'center' }}>
-                <div style={{ width: 10, height: 10, borderRadius: 99, background: int.color, margin: '0 auto 6px' }}/>
-                <div style={{ fontSize: 12, fontWeight: 600, color: G.text }}>{int.name}</div>
-              </div>
-            ))}
-          </div>
-          <div style={{ marginTop: 16, padding: '10px 14px', background: '#f0fdf4', borderRadius: 10, fontSize: 13, color: G.green, fontWeight: 600, textAlign: 'center' }}>
-            Connected instantly · Zero manual setup
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════
-   7. DASHBOARD — dark section
-   ═══════════════════════════════════════════════════════════ */
-function DashboardSection({ m }: { m: boolean }) {
-  return (
-    <section style={{ background: G.bgDark, padding: m ? '64px 24px' : '96px 80px' }}>
-      <div style={{ maxWidth: 1040, margin: '0 auto', display: m ? 'flex' : 'grid', flexDirection: m ? 'column' : undefined, gridTemplateColumns: '1fr 1.4fr', gap: 56, alignItems: 'center' }}>
-        <div>
-          <h2 style={{ fontSize: m ? 28 : 40, fontWeight: 800, letterSpacing: '-0.035em', color: '#ffffff', marginBottom: 16, lineHeight: 1.15 }}>
-            Your restaurant. One clear view.
-          </h2>
-          <p style={{ fontSize: m ? 15 : 17, color: '#9ca3af', lineHeight: 1.65, marginBottom: 28 }}>
-            Real-time data across every table, every shift, every channel. See what drives revenue, what kills table turns, and where guests stop coming back.
-          </p>
-          <button style={{ padding: '11px 24px', background: '#ffffff', color: G.bgDark, border: 'none', borderRadius: 99, fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>
-            Hear from our clients
-          </button>
-        </div>
-        <div style={{ background: '#1a1a1a', border: '1px solid #2a2a2a', borderRadius: 20, padding: 24 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 12, marginBottom: 20 }}>
-            {[
-              { label: 'Revenue MTD', value: '€18,420', delta: '+34%' },
-              { label: 'Google rank', value: '#1',       delta: '▲ 9 places' },
-              { label: 'New reviews', value: '29',        delta: 'this month' },
-            ].map(s => (
-              <div key={s.label} style={{ background: '#242424', border: '1px solid #2a2a2a', borderRadius: 12, padding: '14px 14px' }}>
-                <div style={{ fontSize: 11, color: '#6b7280', marginBottom: 4 }}>{s.label}</div>
-                <div style={{ fontSize: 22, fontWeight: 800, color: '#ffffff', letterSpacing: '-0.04em', lineHeight: 1 }}>{s.value}</div>
-                <div style={{ fontSize: 11, color: '#22c55e', marginTop: 4, fontWeight: 600 }}>{s.delta}</div>
-              </div>
-            ))}
-          </div>
-          <div style={{ background: '#242424', border: '1px solid #2a2a2a', borderRadius: 12, padding: '16px 16px 12px' }}>
-            <div style={{ fontSize: 11, color: '#6b7280', marginBottom: 10 }}>Revenue trend — last 12 months</div>
-            <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, height: 72 }}>
-              {[25,38,32,50,44,58,52,72,65,80,76,95].map((h,i)=>(
-                <div key={i} style={{ flex: 1, background: i===11 ? G.green : '#2a5c3a', borderRadius: '3px 3px 0 0', height: `${h}%`, opacity: i===11 ? 1 : 0.7 }}/>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8 }}>
+              {integrations.map(int => (
+                <div key={int.name} style={{ padding: '8px 10px', border: `1px solid ${C.border}`, borderRadius: 10, background: C.card2, textAlign: 'center' }}>
+                  <div style={{ width: 8, height: 8, borderRadius: 99, background: int.color, margin: '0 auto 5px' }}/>
+                  <div style={{ fontSize: 11, fontWeight: 600, color: C.muted }}>{int.name}</div>
+                </div>
               ))}
             </div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginTop: 12 }}>
-            {[
-              { label: 'Direct orders today', value: '17', sub: '€940 captured direct' },
-              { label: 'Avg review score',    value: '4.9★', sub: '29 new this month' },
-            ].map(f => (
-              <div key={f.label} style={{ background: '#242424', border: '1px solid #2a2a2a', borderRadius: 12, padding: '12px 14px' }}>
-                <div style={{ fontSize: 11, color: '#6b7280', marginBottom: 3 }}>{f.label}</div>
-                <div style={{ fontSize: 20, fontWeight: 700, color: '#ffffff', letterSpacing: '-0.02em' }}>{f.value}</div>
-                <div style={{ fontSize: 11, color: '#22c55e' }}>{f.sub}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════
-   8. LARGE TESTIMONIALS CAROUSEL
-   ═══════════════════════════════════════════════════════════ */
-const LARGE_QUOTES = [
-  { quote: 'There\'s an art to dining in Malta, but no art to losing €1,200 a month to delivery apps. H360 fixed that.', name: 'Jonathan Brincat', role: 'Owner, Noni — Valletta' },
-  { quote: 'Large parties can pay how they want — split by dish, by person, by card. My staff focus on guests, not bills.', name: 'Maria Schembri', role: "Owner, Ta' Marija — Mdina" },
-  { quote: 'Tips went from 18% to 28% on average the month we switched. The team noticed immediately.', name: 'Antoine Camilleri', role: 'Owner, Rubino — Valletta' },
-];
-
-function LargeTestimonials({ m }: { m: boolean }) {
-  const ref = useRef<HTMLDivElement>(null);
-  return (
-    <section style={{ background: G.bg, borderTop: `1px solid ${G.border}`, padding: m ? '64px 0' : '96px 0' }}>
-      <div style={{ padding: m ? '0 24px' : '0 80px', maxWidth: 1040, margin: '0 auto 40px' }}>
-        <h2 style={{ fontSize: m ? 28 : 40, fontWeight: 800, letterSpacing: '-0.035em', color: G.text, marginBottom: 8 }}>Hear from our clients</h2>
-      </div>
-      <div ref={ref} style={{ display: 'flex', gap: 20, overflowX: 'auto', padding: m ? '0 24px 24px' : '0 80px 24px', scrollbarWidth: 'none', scrollBehavior: 'smooth' }}>
-        {LARGE_QUOTES.map((q, i) => (
-          <div key={i} style={{ minWidth: m ? 300 : 400, maxWidth: m ? 300 : 400, padding: '36px 32px', border: `1px solid ${G.border}`, borderRadius: 20, background: G.bg, flexShrink: 0 }}>
-            <div style={{ fontSize: 56, lineHeight: 1, color: G.border, fontFamily: 'Georgia, serif', marginBottom: 8, marginTop: -12 }}>&ldquo;</div>
-            <p style={{ fontSize: m ? 15 : 18, color: G.text, lineHeight: 1.65, marginBottom: 28, fontStyle: 'italic' }}>
-              {q.quote}
+          {/* Your business, one clear view */}
+          <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 20, padding: 28, minHeight: 300 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: C.muted, letterSpacing: '0.08em', marginBottom: 14 }}>DASHBOARD</div>
+            <h3 style={{ fontSize: m ? 20 : 24, fontWeight: 700, color: C.text, letterSpacing: '-0.03em', marginBottom: 8, lineHeight: 1.2 }}>
+              Your restaurant, one clear view.
+            </h3>
+            <p style={{ fontSize: 14, color: C.muted, marginBottom: 24, lineHeight: 1.55 }}>
+              Real-time data across every table, every shift, every channel.
             </p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <div style={{ width: 40, height: 40, borderRadius: 99, background: `linear-gradient(135deg,${G.green},${G.greenMid})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 13 }}>
-                {q.name.split(' ').map((w: string) => w[0]).join('')}
+            {/* Mini dashboard */}
+            <div style={{ background: '#0d0d0d', border: `1px solid ${C.border}`, borderRadius: 14, padding: '14px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8, marginBottom: 12 }}>
+                {[
+                  { lab: 'Revenue', val: '€18,420', delta: '+34%', c: '#22c55e' },
+                  { lab: 'Rank',    val: '#1',       delta: '↑9',   c: '#22c55e' },
+                  { lab: 'Reviews', val: '29',        delta: '★4.9', c: '#eab308' },
+                ].map(s => (
+                  <div key={s.lab} style={{ background: '#1a1a1a', border: `1px solid #2a2a2a`, borderRadius: 10, padding: '10px' }}>
+                    <div style={{ fontSize: 9, color: '#6b7280', marginBottom: 2 }}>{s.lab}</div>
+                    <div style={{ fontSize: 16, fontWeight: 800, color: '#fff', letterSpacing: '-0.03em' }}>{s.val}</div>
+                    <div style={{ fontSize: 10, color: s.c, fontWeight: 600 }}>{s.delta}</div>
+                  </div>
+                ))}
               </div>
-              <div>
-                <div style={{ fontSize: 14, fontWeight: 600, color: G.text }}>{q.name}</div>
-                <div style={{ fontSize: 12, color: G.textMuted }}>{q.role}</div>
+              <div style={{ display: 'flex', alignItems: 'flex-end', gap: 4, height: 48 }}>
+                {[25,38,32,50,44,58,52,72,65,80,76,95].map((h, i) => (
+                  <div key={i} style={{ flex: 1, background: i === 11 ? C.green : '#2a5c3a', borderRadius: '2px 2px 0 0', height: `${h}%`, opacity: i === 11 ? 1 : 0.5 }}/>
+                ))}
               </div>
             </div>
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );
 }
 
-/* ═══════════════════════════════════════════════════════════
-   9. LOYALTY / RETENTION — full-bleed green
-   ═══════════════════════════════════════════════════════════ */
-function LoyaltySection({ m }: { m: boolean }) {
+/* ═══════════════════════════════════════════════════════════════
+   8. "HEAR FROM OUR CLIENTS" — scrolling marquee title + quote carousel
+   Sunday: animated "Hear from our clients" marquee, then quote slides with prev/next
+   ═══════════════════════════════════════════════════════════════ */
+const QUOTES = [
+  {
+    q: 'There\'s an art to dining in Malta, but no art to losing €1,200 a month to delivery apps. H360 fixed that.',
+    name: 'Jonathan Brincat',
+    title: 'Founder, Noni — Valletta',
+    bg: 'linear-gradient(160deg,#0f1a0f,#1a2f1a)',
+  },
+  {
+    q: 'Large parties can pay how they want — split by dish, by person, by card. My staff focus on guests, not bills.',
+    name: 'Maria Schembri',
+    title: "Owner, Ta' Marija — Mdina",
+    bg: 'linear-gradient(160deg,#0a0a1a,#0f0f2d)',
+  },
+  {
+    q: 'Tips went from 18% to 28% on average the month we switched. The team noticed immediately.',
+    name: 'Antoine Camilleri',
+    title: 'Owner, Rubino — Valletta',
+    bg: 'linear-gradient(160deg,#1a0a0f,#2d0f1a)',
+  },
+];
+
+function QuoteCarousel({ m }: { m: boolean }) {
+  const [idx, setIdx] = useState(0);
+  const prev = () => setIdx(i => (i - 1 + QUOTES.length) % QUOTES.length);
+  const next = () => setIdx(i => (i + 1) % QUOTES.length);
+  const q = QUOTES[idx];
+
   return (
-    <section id="h360-loyalty" style={{ background: G.green, padding: m ? '72px 24px' : '96px 80px', borderTop: 'none' }}>
-      <div style={{ maxWidth: 1040, margin: '0 auto', display: m ? 'flex' : 'grid', flexDirection: m ? 'column' : undefined, gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
-        <div>
-          <div style={{ display: 'inline-flex', padding: '5px 12px', borderRadius: 99, background: 'rgba(255,255,255,0.12)', marginBottom: 20 }}>
-            <span style={{ fontSize: 11, fontWeight: 700, color: G.greenLt, letterSpacing: '0.08em' }}>GUEST PLATFORM · NEW</span>
+    <section style={{ background: C.bg, borderTop: `1px solid ${C.border}` }}>
+      {/* Marquee title */}
+      <style>{`@keyframes h360htmq { from { transform: translateX(0) } to { transform: translateX(-50%) } } .h360htmq { animation: h360htmq 18s linear infinite; display: flex; gap: 0; width: max-content; } .h360htmq-wrap { overflow: hidden; border-bottom: 1px solid ${C.border}; padding: 0; }`}</style>
+      <div className="h360htmq-wrap">
+        <div className="h360htmq">
+          {[...Array(6)].map((_, r) => (
+            <div key={r} style={{ display: 'flex', alignItems: 'center', gap: 0, flexShrink: 0 }}>
+              <span style={{ fontSize: m ? 32 : 48, fontWeight: 800, color: C.text, letterSpacing: '-0.04em', padding: m ? '20px 24px' : '28px 36px', whiteSpace: 'nowrap', borderRight: `1px solid ${C.border}` }}>
+                Hear from our clients
+              </span>
+              <span style={{ fontSize: m ? 28 : 40, padding: m ? '20px 20px' : '28px 28px', borderRight: `1px solid ${C.border}`, display: 'flex', alignItems: 'center' }}>
+                <svg width={m ? 28 : 36} height={m ? 28 : 36} viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="none" stroke={C.green} strokeWidth="2"/></svg>
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Quote slide */}
+      <div style={{ maxWidth: 1040, margin: '0 auto', padding: m ? '48px 24px' : '72px 40px' }}>
+        <div style={{ display: m ? 'flex' : 'grid', flexDirection: m ? 'column' : undefined, gridTemplateColumns: '1fr 1fr', gap: m ? 32 : 64, alignItems: 'center' }}>
+          {/* Quote text side */}
+          <div>
+            <div style={{ display: 'flex', gap: 12, marginBottom: 32 }}>
+              {/* Prev */}
+              <button
+                onClick={prev}
+                style={{ width: 44, height: 44, borderRadius: 99, border: `1px solid ${C.border}`, background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: C.text }}
+                data-testid="button-quote-prev"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button
+                onClick={next}
+                style={{ width: 44, height: 44, borderRadius: 99, border: `1px solid ${C.border}`, background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: C.text }}
+                data-testid="button-quote-next"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+              {/* Dots */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginLeft: 8 }}>
+                {QUOTES.map((_, i) => (
+                  <div key={i} style={{ width: i === idx ? 20 : 8, height: 8, borderRadius: 99, background: i === idx ? C.text : C.border, transition: 'all 0.2s' }}/>
+                ))}
+              </div>
+            </div>
+            <blockquote style={{ fontSize: m ? 22 : 32, fontWeight: 700, color: C.text, letterSpacing: '-0.03em', lineHeight: 1.25, marginBottom: 28, fontStyle: 'normal' }}>
+              &ldquo;{q.q}&rdquo;
+            </blockquote>
+            <div style={{ fontSize: 15, color: C.muted }}>
+              — {q.name}, <span style={{ color: C.dim }}>{q.title}</span>
+            </div>
           </div>
-          <h2 style={{ fontSize: m ? 30 : 44, fontWeight: 800, letterSpacing: '-0.035em', color: '#ffffff', marginBottom: 16, lineHeight: 1.1 }}>
-            From first visit to forever fan.
+          {/* Photo side */}
+          <div style={{
+            height: m ? 240 : 360,
+            borderRadius: 20,
+            background: q.bg,
+            border: `1px solid ${C.border}`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            overflow: 'hidden',
+            position: 'relative',
+            transition: 'background 0.3s',
+          }}>
+            <svg style={{ position: 'absolute', inset: 0, opacity: 0.04, width: '100%', height: '100%' }}>
+              <defs><pattern id="qp" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="#fff"/></pattern></defs>
+              <rect width="100%" height="100%" fill="url(#qp)"/>
+            </svg>
+            <div style={{ textAlign: 'center', padding: 32 }}>
+              <div style={{ width: 56, height: 56, borderRadius: 99, background: `linear-gradient(135deg,${C.green},${C.greenMid})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 20, margin: '0 auto 16px' }}>
+                {q.name.split(' ').map(w => w[0]).join('')}
+              </div>
+              <div style={{ fontSize: 16, fontWeight: 600, color: C.text }}>{q.name}</div>
+              <div style={{ fontSize: 13, color: C.muted, marginTop: 4 }}>{q.title}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   9. LOYALTY — full-bleed dark green
+   Sunday: "Guest platform NEW · From first visit to forever fan."
+   ═══════════════════════════════════════════════════════════════ */
+function Loyalty({ m }: { m: boolean }) {
+  return (
+    <section id="h360-loyalty" style={{ background: C.green, padding: m ? '72px 24px' : '96px 40px', borderTop: `1px solid rgba(255,255,255,0.06)` }}>
+      <div style={{ maxWidth: 1040, margin: '0 auto', display: m ? 'flex' : 'grid', flexDirection: m ? 'column' : undefined, gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'center' }}>
+        <div>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '5px 12px', borderRadius: 99, background: 'rgba(255,255,255,0.10)', marginBottom: 20 }}>
+            <span style={{ fontSize: 11, fontWeight: 700, color: C.greenLt, letterSpacing: '0.08em' }}>GUEST PLATFORM</span>
+            <span style={{ fontSize: 10, fontWeight: 700, color: '#fff', background: 'rgba(255,255,255,0.2)', padding: '2px 6px', borderRadius: 99 }}>NEW</span>
+          </div>
+          <h2 style={{ fontSize: m ? 30 : 48, fontWeight: 800, letterSpacing: '-0.04em', color: '#ffffff', marginBottom: 16, lineHeight: 1.08 }}>
+            From first visit<br/>to forever fan.
           </h2>
-          <p style={{ fontSize: m ? 15 : 17, color: G.greenLt, lineHeight: 1.65, marginBottom: 32, maxWidth: 440 }}>
+          <p style={{ fontSize: m ? 15 : 17, color: C.greenLt, lineHeight: 1.65, marginBottom: 32, maxWidth: 440 }}>
             With H360, ARC AI learns what your guests love — recommending the right dish, the right offer, the right moment. Guests order, pay, and come back. A virtuous circle of loyalty and revenue.
           </p>
-          <button style={{ padding: '12px 28px', background: '#ffffff', color: G.green, border: 'none', borderRadius: 99, fontSize: 15, fontWeight: 700, cursor: 'pointer' }}>
+          <a
+            href="/h360/demo"
+            style={{ display: 'inline-block', padding: '13px 28px', background: '#ffffff', color: C.green, border: 'none', borderRadius: 99, fontSize: 15, fontWeight: 700, cursor: 'pointer', textDecoration: 'none', letterSpacing: '-0.01em' }}
+            data-testid="button-h360-loyalty-cta"
+          >
             Discover
-          </button>
+          </a>
         </div>
-        <div style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 20, padding: 28 }}>
-          <div style={{ fontSize: 13, fontWeight: 700, color: G.greenLt, marginBottom: 20 }}>ARC AI guest loop</div>
+        {/* ARC AI loop visual */}
+        <div style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 20, padding: 28 }}>
+          <div style={{ fontSize: 12, fontWeight: 700, color: C.greenLt, marginBottom: 20, letterSpacing: '0.05em' }}>ARC AI GUEST LOOP</div>
           {[
-            { step: '01', label: 'First visit detected', sub: 'ARC AI profiles the guest from their first scan' },
-            { step: '02', label: 'Preference learned',   sub: 'Dish preferences, visit frequency, spend patterns' },
-            { step: '03', label: 'Perfect offer sent',   sub: 'WhatsApp or email — right dish, right moment' },
-            { step: '04', label: 'Guest returns',        sub: 'Every visit deepens the loyalty loop' },
-          ].map((s, i) => (
+            { n: '01', t: 'First visit detected',  s: 'ARC AI profiles the guest from their first scan' },
+            { n: '02', t: 'Preference learned',    s: 'Dish preferences, visit frequency, spend patterns' },
+            { n: '03', t: 'Perfect offer sent',    s: 'WhatsApp or email — right dish, right moment' },
+            { n: '04', t: 'Guest returns',         s: 'Every visit deepens the loyalty loop' },
+          ].map((step, i) => (
             <div key={i} style={{ display: 'flex', gap: 14, alignItems: 'flex-start', marginBottom: i < 3 ? 20 : 0, position: 'relative' }}>
-              <div style={{ width: 32, height: 32, borderRadius: 99, background: 'rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: 11, fontWeight: 700, color: '#fff' }}>
-                {s.step}
+              <div style={{ width: 32, height: 32, borderRadius: 99, background: 'rgba(255,255,255,0.10)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: 11, fontWeight: 700, color: '#fff' }}>
+                {step.n}
               </div>
-              {i < 3 && (
-                <div style={{ position: 'absolute', left: 15, top: 32, width: 2, height: 20, background: 'rgba(255,255,255,0.15)' }}/>
-              )}
+              {i < 3 && <div style={{ position: 'absolute', left: 15, top: 32, width: 2, height: 20, background: 'rgba(255,255,255,0.12)' }}/>}
               <div>
-                <div style={{ fontSize: 14, fontWeight: 600, color: '#ffffff' }}>{s.label}</div>
-                <div style={{ fontSize: 12, color: G.greenLt, marginTop: 2 }}>{s.sub}</div>
+                <div style={{ fontSize: 14, fontWeight: 600, color: '#ffffff' }}>{step.t}</div>
+                <div style={{ fontSize: 12, color: C.greenLt, marginTop: 2 }}>{step.s}</div>
               </div>
             </div>
           ))}
@@ -601,22 +653,22 @@ function LoyaltySection({ m }: { m: boolean }) {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════
-   10. SUPPORT STATS STRIP
-   ═══════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   10. SUPPORT STRIP — dark
+   ═══════════════════════════════════════════════════════════════ */
 function SupportStrip({ m }: { m: boolean }) {
   const items = [
-    { value: '24/7', label: 'Local Malta support ready for you' },
-    { value: '3',    label: 'Days to go live and start earning direct' },
-    { value: '100%', label: 'Direct-order coverage from day one' },
+    { val: '24/7', lab: 'Local Malta support' },
+    { val: '3 days', lab: 'To go live and start earning direct' },
+    { val: '100%', lab: 'Direct-order coverage from day one' },
   ];
   return (
-    <section style={{ background: G.bgSub, borderTop: `1px solid ${G.border}`, borderBottom: `1px solid ${G.border}`, padding: m ? '40px 24px' : '48px 80px' }}>
+    <section style={{ background: C.bg, borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}`, padding: m ? '40px 24px' : '52px 40px' }}>
       <div style={{ maxWidth: 900, margin: '0 auto', display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3,1fr)', gap: m ? 28 : 0 }}>
         {items.map((s, i) => (
-          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 16, padding: m ? 0 : '0 32px', borderRight: (!m && i < 2) ? `1px solid ${G.border}` : 'none' }}>
-            <div style={{ fontSize: m ? 36 : 44, fontWeight: 800, color: G.text, letterSpacing: '-0.04em', lineHeight: 1, flexShrink: 0 }}>{s.value}</div>
-            <div style={{ fontSize: 14, color: G.textMuted, lineHeight: 1.4 }}>{s.label}</div>
+          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 16, padding: m ? 0 : '0 32px', borderRight: (!m && i < 2) ? `1px solid ${C.border}` : 'none' }}>
+            <div style={{ fontSize: m ? 36 : 44, fontWeight: 800, color: C.text, letterSpacing: '-0.04em', lineHeight: 1, flexShrink: 0 }}>{s.val}</div>
+            <div style={{ fontSize: 14, color: C.muted, lineHeight: 1.4 }}>{s.lab}</div>
           </div>
         ))}
       </div>
@@ -624,37 +676,38 @@ function SupportStrip({ m }: { m: boolean }) {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════
-   11. FINAL CTA
-   ═══════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   11. FINAL CTA — dark
+   Sunday: "Try sunday for free! An expert will reach out to you today."
+   ═══════════════════════════════════════════════════════════════ */
 function FinalCTA({ m }: { m: boolean }) {
   return (
-    <section id="h360-cta" style={{ background: G.bg, padding: m ? '72px 24px' : '96px 80px' }}>
+    <section id="h360-cta" style={{ background: C.bg, padding: m ? '72px 24px 96px' : '96px 40px 120px' }}>
       <div style={{ maxWidth: 640, margin: '0 auto', textAlign: 'center' }}>
-        <h2 style={{ fontSize: m ? 30 : 48, fontWeight: 800, letterSpacing: '-0.04em', color: G.text, marginBottom: 14, lineHeight: 1.1 }}>
+        <h2 style={{ fontSize: m ? 30 : 52, fontWeight: 800, letterSpacing: '-0.04em', color: C.text, marginBottom: 14, lineHeight: 1.05 }}>
           Save your revenue. Start today.
         </h2>
-        <p style={{ fontSize: m ? 15 : 17, color: G.textMuted, marginBottom: 36, lineHeight: 1.6 }}>
+        <p style={{ fontSize: m ? 15 : 17, color: C.muted, marginBottom: 36, lineHeight: 1.6 }}>
           An ARC AI expert will reach out to you today. Ready to grow with H360?
         </p>
-        <div style={{ background: G.bg, border: `1.5px solid ${G.border}`, borderRadius: 14, padding: '6px 6px 6px 20px', display: 'flex', alignItems: 'center', gap: 8, maxWidth: 480, margin: '0 auto', boxShadow: '0 4px 32px rgba(0,0,0,0.08)' }}>
+        <div style={{ background: C.card, border: `1.5px solid ${C.border}`, borderRadius: 14, padding: '6px 6px 6px 20px', display: 'flex', alignItems: 'center', gap: 8, maxWidth: 480, margin: '0 auto', boxShadow: '0 4px 48px rgba(0,0,0,0.4)' }}>
           <input
             type="text"
             placeholder="Your restaurant name"
-            style={{ flex: 1, border: 'none', outline: 'none', fontSize: 15, color: G.text, background: 'transparent', fontFamily: 'inherit' }}
+            style={{ flex: 1, border: 'none', outline: 'none', fontSize: 15, color: C.text, background: 'transparent', fontFamily: 'inherit' }}
             data-testid="input-h360-final-cta"
           />
           <a
             href="/h360/demo"
-            style={{ padding: '11px 20px', background: G.text, color: '#fff', border: 'none', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap', textDecoration: 'none', display: 'inline-block' }}
+            style={{ padding: '11px 20px', background: '#ffffff', color: '#000', border: 'none', borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap', textDecoration: 'none', display: 'inline-block', letterSpacing: '-0.01em' }}
             data-testid="button-h360-final-cta"
           >
             Get a free demo
           </a>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, marginTop: 12, fontSize: 12, color: G.textMuted }}>
-          <div style={{ width: 16, height: 16, borderRadius: 4, background: G.text, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ color: '#fff', fontSize: 8, fontWeight: 800 }}>A</span>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, marginTop: 14, fontSize: 12, color: C.dim }}>
+          <div style={{ width: 16, height: 16, borderRadius: 4, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span style={{ color: '#000', fontSize: 8, fontWeight: 800 }}>A</span>
           </div>
           Powered by ARC AI · No commitment needed
         </div>
@@ -663,23 +716,22 @@ function FinalCTA({ m }: { m: boolean }) {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════════
    MAIN EXPORT
-   ═══════════════════════════════════════════════════════════ */
+   ═══════════════════════════════════════════════════════════════ */
 export default function H360BelowHero() {
   const m = useIsMobile();
   return (
-    <div style={{ fontFamily: '"Inter",system-ui,-apple-system,Arial,sans-serif', background: '#ffffff', color: '#1a1a1a', overflowX: 'hidden' }}>
-      <PillarNav         m={m} />
-      <StatsStrip        m={m} />
-      <ProblemStatement  m={m} />
-      <ProductTabs       m={m} />
-      <LogoTrustStrip    m={m} />
-      <ValueSection      m={m} />
-      <IntegrationSection m={m} />
-      <DashboardSection  m={m} />
-      <LargeTestimonials m={m} />
-      <LoyaltySection    m={m} />
+    <div style={{ fontFamily: '"Inter",system-ui,-apple-system,Arial,sans-serif', background: C.bg, color: C.text, overflowX: 'hidden' }}>
+      <Stats             m={m} />
+      <Problem           m={m} />
+      <ProductCards      m={m} />
+      <TrustLogos        m={m} />
+      <InlineTestimonials m={m} />
+      <ValueCards        m={m} />
+      <Ecosystem         m={m} />
+      <QuoteCarousel     m={m} />
+      <Loyalty           m={m} />
       <SupportStrip      m={m} />
       <FinalCTA          m={m} />
     </div>
