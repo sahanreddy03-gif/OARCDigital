@@ -185,7 +185,7 @@ export default function Navigation() {
               style={{ textShadow }}
               data-testid="link-h360"
             >
-              H360
+              H360 — Restaurants
             </Link>
             <Link 
               href="/our-work" 

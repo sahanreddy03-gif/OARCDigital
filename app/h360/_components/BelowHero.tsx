@@ -31,6 +31,60 @@ function useIsMobile() {
 }
 
 /* ═══════════════════════════════════════════════════════════
+   0. PILLAR HUB NAV — four anchor links visible on the page
+   ═══════════════════════════════════════════════════════════ */
+const PILLARS = [
+  { label: 'Direct Orders',   href: '#h360-direct-orders',   icon: '↗' },
+  { label: 'Google Ranking',  href: '#h360-google-ranking',  icon: '★' },
+  { label: 'Guest Loyalty',   href: '#h360-loyalty',         icon: '♥' },
+  { label: 'ARC AI Audit',    href: '#h360-audit',           icon: '⚡' },
+];
+
+function PillarNav({ m }: { m: boolean }) {
+  return (
+    <nav
+      id="h360-pillars"
+      aria-label="H360 product pillars"
+      style={{
+        background: '#f9fafb',
+        borderBottom: `1px solid ${G.border}`,
+        padding: m ? '0 16px' : '0 40px',
+        overflowX: 'auto',
+        scrollbarWidth: 'none',
+      }}
+    >
+      <div style={{ display: 'flex', gap: 0, maxWidth: 1040, margin: '0 auto', width: 'max-content', minWidth: '100%' }}>
+        {PILLARS.map((p) => (
+          <a
+            key={p.href}
+            href={p.href}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 7,
+              padding: m ? '14px 18px' : '16px 28px',
+              fontSize: m ? 13 : 14,
+              fontWeight: 600,
+              color: G.text,
+              textDecoration: 'none',
+              borderBottom: `2px solid transparent`,
+              whiteSpace: 'nowrap',
+              transition: 'border-color 0.15s, color 0.15s',
+            }}
+            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = G.green; (e.currentTarget as HTMLAnchorElement).style.color = G.green; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderBottomColor = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.color = G.text; }}
+            data-testid={`link-h360-pillar-${p.label.toLowerCase().replace(/\s+/g, '-')}`}
+          >
+            <span style={{ fontSize: 11, color: G.green }}>{p.icon}</span>
+            {p.label}
+          </a>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
    1. STATS STRIP
    ═══════════════════════════════════════════════════════════ */
 function StatsStrip({ m }: { m: boolean }) {
@@ -194,6 +248,10 @@ function ProductTabs({ m }: { m: boolean }) {
   const [active, setActive] = useState(0);
   return (
     <section id="h360-products" style={{ padding: m ? '48px 0' : '80px 0', background: G.bgSub, borderTop: `1px solid ${G.border}` }}>
+      {/* pillar anchors embedded so #h360-direct-orders, #h360-google-ranking etc resolve */}
+      <span id="h360-direct-orders"  style={{ display: 'block', visibility: 'hidden', height: 0 }}/>
+      <span id="h360-google-ranking" style={{ display: 'block', visibility: 'hidden', height: 0 }}/>
+      <span id="h360-audit"          style={{ display: 'block', visibility: 'hidden', height: 0 }}/>
       <div style={{ maxWidth: 1040, margin: '0 auto', padding: m ? '0 20px' : '0 40px' }}>
         <p style={{ fontSize: m ? 18 : 22, color: G.text, fontWeight: 600, marginBottom: 32, lineHeight: 1.4 }}>
           H360 changed that with ARC AI-powered tools that learn, adapt, and create value at every step.
@@ -500,7 +558,7 @@ function LargeTestimonials({ m }: { m: boolean }) {
    ═══════════════════════════════════════════════════════════ */
 function LoyaltySection({ m }: { m: boolean }) {
   return (
-    <section style={{ background: G.green, padding: m ? '72px 24px' : '96px 80px', borderTop: 'none' }}>
+    <section id="h360-loyalty" style={{ background: G.green, padding: m ? '72px 24px' : '96px 80px', borderTop: 'none' }}>
       <div style={{ maxWidth: 1040, margin: '0 auto', display: m ? 'flex' : 'grid', flexDirection: m ? 'column' : undefined, gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
         <div>
           <div style={{ display: 'inline-flex', padding: '5px 12px', borderRadius: 99, background: 'rgba(255,255,255,0.12)', marginBottom: 20 }}>
@@ -612,6 +670,7 @@ export default function H360BelowHero() {
   const m = useIsMobile();
   return (
     <div style={{ fontFamily: '"Inter",system-ui,-apple-system,Arial,sans-serif', background: '#ffffff', color: '#1a1a1a', overflowX: 'hidden' }}>
+      <PillarNav         m={m} />
       <StatsStrip        m={m} />
       <ProblemStatement  m={m} />
       <ProductTabs       m={m} />
