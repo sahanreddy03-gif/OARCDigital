@@ -233,20 +233,26 @@ export default function H360Hero() {
 
         {!isMobile && (
           <div style={{ display:'flex', gap:32, fontSize:14, fontWeight:500, color:G.textMuted }}>
-            {['Product','Pricing','How it works','Company'].map(l=>(
-              <span key={l} style={{ cursor:'pointer' }}>{l}</span>
+            {[
+              { label: 'Product',       href: '#h360-products' },
+              { label: 'Pricing',       href: '/h360/pricing' },
+              { label: 'How it works',  href: '#h360-how-it-works' },
+              { label: 'Company',       href: '/about' },
+            ].map(l=>(
+              <a key={l.label} href={l.href} style={{ cursor:'pointer', color:'inherit', textDecoration:'none' }}>{l.label}</a>
             ))}
           </div>
         )}
 
         <div style={{ display:'flex', alignItems:'center', gap:isMobile ? 10 : 14 }}>
           <span style={{ fontSize:14, fontWeight:500, color:G.text, cursor:'pointer' }}>Login</span>
-          <button
-            style={{ padding: isMobile ? '9px 16px' : '9px 20px', background:G.text, color:'#fff', border:'none', borderRadius:99, fontSize:14, fontWeight:600, cursor:'pointer', letterSpacing:'-0.01em', whiteSpace:'nowrap' }}
+          <a
+            href="#h360-cta"
+            style={{ padding: isMobile ? '9px 16px' : '9px 20px', background:G.text, color:'#fff', border:'none', borderRadius:99, fontSize:14, fontWeight:600, cursor:'pointer', letterSpacing:'-0.01em', whiteSpace:'nowrap', textDecoration:'none', display:'inline-block' }}
             data-testid="button-h360-nav-demo"
           >
             Get a free demo
-          </button>
+          </a>
           {isMobile && (
             <div style={{ display:'flex', flexDirection:'column', gap:4.5, cursor:'pointer' }}>
               {[0,1,2].map(i=><div key={i} style={{ width:20, height:2, background:G.text, borderRadius:2 }}/>)}
@@ -299,13 +305,14 @@ export default function H360Hero() {
                 style={{ flex:1, border:'none', outline:'none', fontSize:15, color:G.text, background:'transparent', fontFamily:'inherit' }}
                 data-testid="input-h360-hero-search"
               />
-              <button
-                style={{ padding:'10px 18px', background:G.green, color:'#f0f9f4', border:'none', borderRadius:10, fontSize:14, fontWeight:600, cursor:'pointer', whiteSpace:'nowrap', display:'flex', alignItems:'center', gap:6, letterSpacing:'-0.01em' }}
+              <a
+                href="#h360-products"
+                style={{ padding:'10px 18px', background:G.green, color:'#f0f9f4', border:'none', borderRadius:10, fontSize:14, fontWeight:600, cursor:'pointer', whiteSpace:'nowrap', display:'flex', alignItems:'center', gap:6, letterSpacing:'-0.01em', textDecoration:'none' }}
                 data-testid="button-h360-hero-cta"
               >
                 Get my AI report
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-              </button>
+              </a>
             </div>
           )}
           {!isMobile && (

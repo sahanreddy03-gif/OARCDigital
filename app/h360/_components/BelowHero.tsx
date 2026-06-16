@@ -59,7 +59,7 @@ function StatsStrip({ m }: { m: boolean }) {
    ═══════════════════════════════════════════════════════════ */
 function ProblemStatement({ m }: { m: boolean }) {
   return (
-    <section style={{ padding: m ? '64px 24px' : '88px 80px', background: G.bg, maxWidth: '100%' }}>
+    <section id="h360-how-it-works" style={{ padding: m ? '64px 24px' : '88px 80px', background: G.bg, maxWidth: '100%' }}>
       <div style={{ maxWidth: 860, margin: '0 auto' }}>
         <h2 style={{ fontSize: m ? 28 : 42, fontWeight: 800, letterSpacing: '-0.035em', color: G.text, lineHeight: 1.15, marginBottom: 24 }}>
           Running a Malta restaurant used to mean losing revenue to Wolt, fighting for Google visibility, and watching guests walk out and never return.
@@ -193,7 +193,7 @@ const TABS = [
 function ProductTabs({ m }: { m: boolean }) {
   const [active, setActive] = useState(0);
   return (
-    <section style={{ padding: m ? '48px 0' : '80px 0', background: G.bgSub, borderTop: `1px solid ${G.border}` }}>
+    <section id="h360-products" style={{ padding: m ? '48px 0' : '80px 0', background: G.bgSub, borderTop: `1px solid ${G.border}` }}>
       <div style={{ maxWidth: 1040, margin: '0 auto', padding: m ? '0 20px' : '0 40px' }}>
         <p style={{ fontSize: m ? 18 : 22, color: G.text, fontWeight: 600, marginBottom: 32, lineHeight: 1.4 }}>
           H360 changed that with ARC AI-powered tools that learn, adapt, and create value at every step.
@@ -571,7 +571,7 @@ function SupportStrip({ m }: { m: boolean }) {
    ═══════════════════════════════════════════════════════════ */
 function FinalCTA({ m }: { m: boolean }) {
   return (
-    <section style={{ background: G.bg, padding: m ? '72px 24px' : '96px 80px' }}>
+    <section id="h360-cta" style={{ background: G.bg, padding: m ? '72px 24px' : '96px 80px' }}>
       <div style={{ maxWidth: 640, margin: '0 auto', textAlign: 'center' }}>
         <h2 style={{ fontSize: m ? 30 : 48, fontWeight: 800, letterSpacing: '-0.04em', color: G.text, marginBottom: 14, lineHeight: 1.1 }}>
           Save your revenue. Start today.
@@ -586,12 +586,13 @@ function FinalCTA({ m }: { m: boolean }) {
             style={{ flex: 1, border: 'none', outline: 'none', fontSize: 15, color: G.text, background: 'transparent', fontFamily: 'inherit' }}
             data-testid="input-h360-final-cta"
           />
-          <button
-            style={{ padding: '11px 20px', background: G.text, color: '#fff', border: 'none', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap' }}
+          <a
+            href="/h360/demo"
+            style={{ padding: '11px 20px', background: G.text, color: '#fff', border: 'none', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap', textDecoration: 'none', display: 'inline-block' }}
             data-testid="button-h360-final-cta"
           >
             Get a free demo
-          </button>
+          </a>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, marginTop: 12, fontSize: 12, color: G.textMuted }}>
           <div style={{ width: 16, height: 16, borderRadius: 4, background: G.text, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
