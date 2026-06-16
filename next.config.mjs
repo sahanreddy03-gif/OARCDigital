@@ -67,6 +67,14 @@ const nextConfig = {
   compress: true,
   productionBrowserSourceMaps: false,
   poweredByHeader: false,
+  async rewrites() {
+    return [
+      {
+        source: '/__mockup/:path*',
+        destination: 'http://localhost:23636/__mockup/:path*',
+      },
+    ];
+  },
   async headers() {
     const immutableCache = [
       { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },

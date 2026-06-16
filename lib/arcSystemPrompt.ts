@@ -15,10 +15,177 @@ function loadBrain(): string {
 
 const BRAIN = loadBrain();
 
+// ─── User context extraction ─────────────────────────────────────────────────
+// Scans conversation history for durable facts about the user so ARC can
+// reference them naturally ("given you're in hospitality…").
+
+export interface UserContext {
+  name?: string;
+  business?: string;
+  industry?: string;
+  location?: string;
+  goals: string[];
+  painPoints: string[];
+}
+
+const NAME_PATTERNS = [
+  /my name(?:'s| is) ([A-Z][a-z]+)/i,
+  /(?:i'm|i am) ([A-Z][a-z]+)(?:,| —| -| from| and| here)/i,
+  /call me ([A-Z][a-z]+)/i,
+];
+
+const BUSINESS_PATTERNS = [
+  /i (?:run|own|manage|have|operate)(?: a| an) (.+?)(?:\.|,|$)/i,
+  /we (?:run|own|manage|have|operate)(?: a| an) (.+?)(?:\.|,|$)/i,
+  /my (?:business|company|shop|store|restaurant|hotel|agency|startup|firm|clinic|practice) is (.+?)(?:\.|,|$)/i,
+];
+
+const INDUSTRY_KEYWORDS: Record<string, string> = {
+  restaurant: "hospitality",
+  cafe: "hospitality",
+  hotel: "hospitality",
+  bar: "hospitality",
+  hospitality: "hospitality",
+  igaming: "iGaming",
+  gaming: "iGaming",
+  casino: "iGaming",
+  "real estate": "real estate",
+  property: "real estate",
+  fintech: "financial services",
+  finance: "financial services",
+  financial: "financial services",
+  retail: "retail",
+  ecommerce: "ecommerce",
+  "e-commerce": "ecommerce",
+  startup: "startup",
+  saas: "SaaS / tech",
+  software: "software development",
+  tech: "tech",
+  agency: "agency",
+  lawyer: "professional services",
+  legal: "professional services",
+  accounting: "professional services",
+  clinic: "healthcare",
+  medical: "healthcare",
+};
+
+const LOCATION_PATTERNS = [
+  /(?:based|located|i'm|we're|we are|i am) in ([A-Z][a-zA-Z\s]{2,30}?)(?:\.|,|$)/i,
+  /in ([A-Z][a-zA-Z]{2,20})(?:,| Malta| area|\.| —)/i,
+];
+
+const GOAL_PATTERNS = [
+  /(?:i want|we want|i need|we need|looking to|trying to|hoping to|our goal is to|i'd like to|we'd like to) (.+?)(?:\.|,|$)/i,
+  /(?:goal|objective|aim) (?:is|are) (?:to )?(.+?)(?:\.|,|$)/i,
+];
+
+const PAIN_KEYWORDS: Array<[RegExp, string]> = [
+  [/too expensive|can't afford|too much|costly/i, "price-sensitive"],
+  [/tried|didn't work|burned|failed/i, "had a bad experience with marketing before"],
+  [/no (?:leads|customers|sales|traffic|engagement)/i, "struggling to generate leads or customers"],
+  [/competitors? (?:are |is )?(?:beating|winning|ahead)/i, "losing ground to competitors"],
+  [/don't know where to start|overwhelmed/i, "overwhelmed, needs a clear starting point"],
+];
+
+export function extractUserContext(messages: Array<{ role: string; content: string }>): UserContext {
+  const ctx: UserContext = { goals: [], painPoints: [] };
+
+  const userText = messages
+    .filter(m => m.role === "user")
+    .map(m => m.content)
+    .join(" ");
+
+  if (!userText.trim()) return ctx;
+
+  const lowerText = userText.toLowerCase();
+
+  // Name
+  for (const pattern of NAME_PATTERNS) {
+    const match = userText.match(pattern);
+    const COMMON = new Set(["I", "We", "My", "Our", "The", "Just", "Not", "So", "Well"]);
+    if (match?.[1] && !COMMON.has(match[1])) {
+      ctx.name = match[1];
+      break;
+    }
+  }
+
+  // Business description
+  for (const pattern of BUSINESS_PATTERNS) {
+    const match = userText.match(pattern);
+    if (match?.[1]) {
+      ctx.business = match[1].trim().slice(0, 80);
+      break;
+    }
+  }
+
+  // Industry (keyword scan — first match wins)
+  for (const [kw, industry] of Object.entries(INDUSTRY_KEYWORDS)) {
+    if (lowerText.includes(kw)) {
+      ctx.industry = industry;
+      break;
+    }
+  }
+
+  // Location
+  for (const pattern of LOCATION_PATTERNS) {
+    const match = userText.match(pattern);
+    if (match?.[1]) {
+      const loc = match[1].trim();
+      if (loc.length >= 3 && loc.length <= 40) {
+        ctx.location = loc;
+        break;
+      }
+    }
+  }
+
+  // Goals (up to 2)
+  for (const pattern of GOAL_PATTERNS) {
+    const re = new RegExp(pattern.source, "gi");
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(userText)) !== null && ctx.goals.length < 2) {
+      const goal = m[1].trim();
+      if (goal.length > 5 && goal.length < 120) ctx.goals.push(goal);
+    }
+  }
+
+  // Pain points (up to 2)
+  for (const [re, label] of PAIN_KEYWORDS) {
+    if (re.test(userText)) {
+      ctx.painPoints.push(label);
+      if (ctx.painPoints.length >= 2) break;
+    }
+  }
+
+  return ctx;
+}
+
+export function formatUserContext(ctx: UserContext): string {
+  const lines: string[] = [];
+  if (ctx.name)              lines.push(`Name: ${ctx.name}`);
+  if (ctx.business)          lines.push(`Business: ${ctx.business}`);
+  if (ctx.industry)          lines.push(`Industry: ${ctx.industry}`);
+  if (ctx.location)          lines.push(`Location: ${ctx.location}`);
+  if (ctx.goals.length)      lines.push(`Goals: ${ctx.goals.join("; ")}`);
+  if (ctx.painPoints.length) lines.push(`Pain points: ${ctx.painPoints.join("; ")}`);
+
+  if (!lines.length) return "";
+
+  return `## WHAT WE KNOW ABOUT THIS PERSON
+
+${lines.join("\n")}
+
+Use these facts naturally — reference their industry, location, or goals where it genuinely adds value. Do not announce that you are remembering this. Just let it inform how you frame your answer. If they named themselves, you may address them by name occasionally (not every message).`;
+}
+
 // ─── Full system prompt ──────────────────────────────────────────────────────
 // This is intentionally short. The intelligence lives in brain.md.
 // We are giving ARC a thinking framework, not a script.
-export function buildSystemPrompt(phaseHint: string, linkContext: string, extras: string): string {
+export function buildSystemPrompt(
+  phaseHint: string,
+  linkContext: string,
+  extras: string,
+  userContextBlock: string,
+): string {
   return `${BRAIN}
 
 ---
@@ -35,6 +202,8 @@ ${phaseHint}
 ${linkContext}
 
 ${extras}
+
+${userContextBlock}
 
 ---
 
