@@ -27,6 +27,7 @@ export function coreSourcePath(c: CoreEntry): string {
 
 export const CORE: CoreEntry[] = [
   { path: "/", priority: 1.0, changefreq: "weekly", source: "app/page.tsx" },
+  { path: "/h360", priority: 0.9, changefreq: "weekly" },
   { path: "/services", priority: 0.9, changefreq: "weekly" },
   { path: "/our-work", priority: 0.9, changefreq: "weekly" },
   { path: "/contact", priority: 0.9, changefreq: "monthly" },
