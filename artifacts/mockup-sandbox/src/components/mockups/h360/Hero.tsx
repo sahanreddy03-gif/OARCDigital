@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import BelowHero from './BelowHero';
 
 /* ─── Design tokens ──────────────────────────────────────────────────────── */
 const G = {
@@ -446,6 +447,9 @@ export default function H360Hero() {
           </div>
         </div>
       )}
+
+      {/* ── BELOW HERO SECTIONS ──────────────────────────────────────── */}
+      <BelowHero />
     </div>
   );
 }
