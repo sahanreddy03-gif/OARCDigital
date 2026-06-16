@@ -329,14 +329,13 @@ export default function H360Hero() {
         <div style={{
           position:'sticky', top:64,
           height:'calc(100vh - 64px)',
-          display:'flex', alignItems:'flex-start',
-          justifyContent:'center',
-          paddingTop: isMobile ? 24 : 40,
           overflow:'hidden',
           background:G.bg,
         }}>
-          {greenCard}
-          {phoneMockup}
+          <div style={{ position:'relative', width:'100%', height:'100%', display:'flex', alignItems:'flex-start', justifyContent:'center', paddingTop: isMobile ? 24 : 40 }}>
+            {greenCard}
+            <div style={{ position:'relative', zIndex:2 }}>{phoneMockup}</div>
+          </div>
         </div>
       </div>
 

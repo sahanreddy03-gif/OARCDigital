@@ -1,0 +1,1 @@
+- [H360 page design](h360-design.md) — Sunday-clone dark theme; BelowHero uses #0a0a0a bg, horizontal scroll cards, full-bleed value cards, marquee + quote carousel
