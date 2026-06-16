@@ -149,6 +149,12 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/h360" className="group inline-flex items-center gap-1 text-[#4ade80] hover:text-white transition-colors text-sm font-semibold" data-testid="link-footer-h360">
+                  <span>H360 — Restaurants</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
                 <Link href="/why-us" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-why-us">
                   <span>Why Us</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />

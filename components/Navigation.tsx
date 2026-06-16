@@ -180,6 +180,14 @@ export default function Navigation() {
             </div>
 
             <Link 
+              href="/h360" 
+              className="text-xs xl:text-sm font-medium text-[#4ade80] hover:text-white transition-colors" 
+              style={{ textShadow }}
+              data-testid="link-h360"
+            >
+              H360
+            </Link>
+            <Link 
               href="/our-work" 
               className="text-xs xl:text-sm font-medium text-white/90 hover:text-white transition-colors" 
               style={{ textShadow }}
@@ -246,6 +254,11 @@ export default function Navigation() {
               <div className="text-base font-medium text-white py-3 flex items-center gap-2 border-b border-white/5">
                 All Services
                 <ArrowRight className="w-4 h-4" />
+              </div>
+            </Link>
+            <Link href="/h360" data-testid="link-mobile-h360" onClick={() => setShowMobileMenu(false)}>
+              <div className="text-base font-medium text-[#4ade80] py-3 border-b border-white/5">
+                H360 — Restaurants
               </div>
             </Link>
             <Link href="/our-work" data-testid="link-mobile-our-work" onClick={() => setShowMobileMenu(false)}>
