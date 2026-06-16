@@ -247,7 +247,7 @@ export default function H360Hero() {
         <div style={{ display:'flex', alignItems:'center', gap:isMobile ? 10 : 14 }}>
           <span style={{ fontSize:14, fontWeight:500, color:G.text, cursor:'pointer' }}>Login</span>
           <a
-            href="#h360-cta"
+            href="/h360/demo"
             style={{ padding: isMobile ? '9px 16px' : '9px 20px', background:G.text, color:'#fff', border:'none', borderRadius:99, fontSize:14, fontWeight:600, cursor:'pointer', letterSpacing:'-0.01em', whiteSpace:'nowrap', textDecoration:'none', display:'inline-block' }}
             data-testid="button-h360-nav-demo"
           >
@@ -306,7 +306,7 @@ export default function H360Hero() {
                 data-testid="input-h360-hero-search"
               />
               <a
-                href="#h360-products"
+                href="/h360/demo"
                 style={{ padding:'10px 18px', background:G.green, color:'#f0f9f4', border:'none', borderRadius:10, fontSize:14, fontWeight:600, cursor:'pointer', whiteSpace:'nowrap', display:'flex', alignItems:'center', gap:6, letterSpacing:'-0.01em', textDecoration:'none' }}
                 data-testid="button-h360-hero-cta"
               >
