@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import H360Hero from './_components/Hero';
+import H360FeatureCards from './_components/FeatureCards';
 import H360BelowHero from './_components/BelowHero';
 
 const TITLE = 'H360 — Restaurant Marketing, Reviews & Direct Orders | Malta';
@@ -96,6 +97,7 @@ export default function H360Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <H360Hero />
+      <H360FeatureCards />
       <H360BelowHero />
     </>
   );
