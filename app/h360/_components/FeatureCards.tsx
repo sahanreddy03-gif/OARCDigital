@@ -248,7 +248,7 @@ export default function H360FeatureCards() {
   const CardComp = CARDS[active];
 
   return (
-    <section style={{ background:WHITE, fontFamily:FONT, padding: isMobile ? '44px 0 52px' : '72px 0 88px', overflow:'hidden' }}>
+    <section style={{ background:WHITE, fontFamily:FONT, padding: isMobile ? '12px 0 0' : '72px 0 88px', overflow:'hidden' }}>
       <style>{CSS}</style>
 
       {/* ── Heading ── */}
