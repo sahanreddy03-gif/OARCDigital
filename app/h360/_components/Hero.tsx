@@ -351,8 +351,8 @@ export default function H360Hero() {
         </div>
       </nav>
 
-      {/* ── HERO — 290vh desktop / 160vh mobile, phone sticky ── */}
-      <div ref={heroRef} style={{ minHeight: isMobile ? '160vh' : '290vh' }}>
+      {/* ── HERO — 290vh desktop / content-height mobile (no trailing white) ── */}
+      <div ref={heroRef} style={{ minHeight: isMobile ? 'calc(100vh + 50px)' : '290vh' }}>
 
         {/* Text block — compact, no description, no wasted space */}
         <div style={{
