@@ -2,115 +2,132 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-/* ─── design tokens (Sunday #0a0a0a dark) ─── */
-const C = {
-  bg:     '#0a0a0a',
-  card:   '#111111',
-  card2:  '#161616',
-  border: '#222222',
-  text:   '#ffffff',
-  muted:  '#9ca3af',
-  dim:    '#555555',
-  green:  '#0d3d1a',
-  greenV: '#166b30',
-  greenL: '#c2edce',
-  pink:   '#e879f9',
-  blue:   '#3b82f6',
-  amber:  '#22c55e',
+/* ─── Sunday exact design tokens ─── */
+const S = {
+  bg:      '#0a0a0a',
+  bg2:     '#111111',
+  bg3:     '#161616',
+  border:  '#1f1f1f',
+  border2: '#2a2a2a',
+  text:    '#ffffff',
+  muted:   '#888888',
+  dim:     '#444444',
+  pink:    '#e879f9',
+  green:   '#0d3d1a',
+  greenV:  '#1a5c2e',
+  greenL:  '#4ade80',
 };
 
-/* ─── global animation CSS injected once ─── */
-const ANIM_CSS = `
-/* Marquee */
-@keyframes h3mq  { from { transform:translateX(0) }   to { transform:translateX(-50%) } }
-@keyframes h3mq2 { from { transform:translateX(-50%) } to { transform:translateX(0) } }
-.h3mq  { animation: h3mq  28s linear infinite; display:flex; width:max-content; }
-.h3mq2 { animation: h3mq2 22s linear infinite; display:flex; width:max-content; }
+/* ─── Injected CSS — all animations ─── */
+const CSS = `
+@keyframes sdmq  { from { transform:translateX(0)    } to { transform:translateX(-50%) } }
+@keyframes sdmq2 { from { transform:translateX(-50%) } to { transform:translateX(0)    } }
+.sdmq  { animation: sdmq  32s linear infinite; display:flex; width:max-content; gap:0; }
+.sdmq2 { animation: sdmq2 26s linear infinite; display:flex; width:max-content; gap:0; }
 
-/* Scroll-reveal */
-.h3reveal { opacity:0; transform:translateY(32px); transition:opacity 0.65s cubic-bezier(.22,1,.36,1), transform 0.65s cubic-bezier(.22,1,.36,1); }
-.h3reveal.h3in { opacity:1; transform:translateY(0); }
-.h3reveal.d1 { transition-delay:0.08s }
-.h3reveal.d2 { transition-delay:0.16s }
-.h3reveal.d3 { transition-delay:0.24s }
-.h3reveal.d4 { transition-delay:0.32s }
-.h3reveal.d5 { transition-delay:0.40s }
+.sdrev { opacity:0; transform:translateY(40px); transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1); }
+.sdrev.sdin { opacity:1; transform:translateY(0); }
+.sdrev.d1 { transition-delay:0.08s }
+.sdrev.d2 { transition-delay:0.16s }
+.sdrev.d3 { transition-delay:0.24s }
+.sdrev.d4 { transition-delay:0.32s }
+.sdrev.d5 { transition-delay:0.40s }
 
-/* Quote fade */
-@keyframes h3qfade { from { opacity:0; transform:translateY(12px) } to { opacity:1; transform:translateY(0) } }
-.h3qactive { animation: h3qfade 0.45s cubic-bezier(.22,1,.36,1) both; }
+@keyframes sdqfade { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:translateY(0) } }
+.sdqin { animation: sdqfade 0.5s cubic-bezier(.22,1,.36,1) both; }
 
-/* Horizontal card rail — no scrollbar */
-.h3rail { overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; cursor:grab; }
-.h3rail::-webkit-scrollbar { display:none; }
-.h3rail:active { cursor:grabbing; }
-.h3card { scroll-snap-align:start; flex-shrink:0; }
+.sdrail { overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; cursor:grab; user-select:none; }
+.sdrail::-webkit-scrollbar { display:none; }
+.sdrail:active { cursor:grabbing; }
+.sdrail-item { scroll-snap-align:start; flex-shrink:0; }
 
-/* Value card hover lift */
-.h3vcard { transition: transform 0.3s cubic-bezier(.22,1,.36,1); }
-.h3vcard:hover { transform: scale(1.012); }
+.sdcard-lift { transition: transform 0.35s cubic-bezier(.22,1,.36,1), box-shadow 0.35s cubic-bezier(.22,1,.36,1); }
+.sdcard-lift:hover { transform:translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
 `;
 
-/* ─── IntersectionObserver reveal hook ─── */
-function useReveal(threshold = 0.12) {
-  const ref = useRef<HTMLDivElement>(null);
+/* ─── IntersectionObserver reveal ─── */
+function useReveal(threshold = 0.1) {
+  const ref = useRef<HTMLElement>(null);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { el.classList.add('h3in'); obs.disconnect(); } },
+      ([e]) => { if (e.isIntersecting) { el.classList.add('sdin'); obs.disconnect(); } },
       { threshold }
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, [threshold]);
-  return ref;
+  return ref as React.RefObject<any>;
 }
 
-function useIsMobile() {
+function useMobile() {
   const [m, setM] = useState(false);
   useEffect(() => {
-    const check = () => setM(window.innerWidth < 768);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
+    const fn = () => setM(window.innerWidth < 768);
+    fn();
+    window.addEventListener('resize', fn);
+    return () => window.removeEventListener('resize', fn);
   }, []);
   return m;
 }
 
-/* ══════════════════════════════════════════════
-   1. STATS STRIP
-   Sunday: "3,500+ Clients · 80M+ Diners · $176M Tips · 2M Reviews"
-   ══════════════════════════════════════════════ */
+/* drag-scroll rail */
+function useDragScroll() {
+  const ref = useRef<HTMLDivElement>(null);
+  const down = useRef(false);
+  const startX = useRef(0);
+  const scrollL = useRef(0);
+  const onDown = useCallback((e: React.MouseEvent) => {
+    down.current = true;
+    startX.current = e.pageX - (ref.current?.offsetLeft ?? 0);
+    scrollL.current = ref.current?.scrollLeft ?? 0;
+  }, []);
+  const onMove = useCallback((e: React.MouseEvent) => {
+    if (!down.current || !ref.current) return;
+    e.preventDefault();
+    const x = e.pageX - ref.current.offsetLeft;
+    ref.current.scrollLeft = scrollL.current - (x - startX.current);
+  }, []);
+  const onUp = useCallback(() => { down.current = false; }, []);
+  return { ref, onMouseDown: onDown, onMouseMove: onMove, onMouseUp: onUp, onMouseLeave: onUp };
+}
+
+/* ══════════════════════════════════════════════════════
+   1. STATS — Sunday: 4 large numbers, borderRight dividers
+   ══════════════════════════════════════════════════════ */
 function Stats({ m }: { m: boolean }) {
   const ref = useReveal();
   const stats = [
-    { val: '50+',    lab: 'Malta restaurants' },
-    { val: '+34%',   lab: 'Average revenue uplift' },
-    { val: '4,200+', lab: 'Google reviews generated' },
-    { val: '€2.1M',  lab: 'Commission kept from Wolt' },
+    { val: '3,500+',  lab: 'Restaurants served' },
+    { val: '+34%',    lab: 'Avg revenue uplift' },
+    { val: '4,200+',  lab: 'Google reviews generated' },
+    { val: '€2.1M',   lab: 'Commission saved' },
   ];
   return (
-    <section style={{ background: C.bg, borderBottom: `1px solid ${C.border}` }}>
+    <section style={{ background: S.bg, borderBottom: `1px solid ${S.border}` }}>
       <div
         ref={ref}
-        className="h3reveal"
+        className="sdrev"
         style={{
-          maxWidth: 1040, margin: '0 auto',
+          maxWidth: 1200, margin: '0 auto',
           display: 'grid',
           gridTemplateColumns: m ? 'repeat(2,1fr)' : 'repeat(4,1fr)',
-          padding: m ? '44px 24px' : '56px 40px',
-          gap: m ? 36 : 0,
         }}
       >
         {stats.map((s, i) => (
-          <div key={i} className={`h3reveal d${i+1}`} style={{
-            textAlign: 'center',
-            padding: m ? 0 : '0 20px',
-            borderRight: !m && i < 3 ? `1px solid ${C.border}` : 'none',
-          }}>
-            <div style={{ fontSize: m ? 40 : 56, fontWeight: 800, color: C.text, letterSpacing: '-0.05em', lineHeight: 1 }}>{s.val}</div>
-            <div style={{ fontSize: 13, color: C.muted, marginTop: 7, lineHeight: 1.3 }}>{s.lab}</div>
+          <div
+            key={i}
+            className={`sdrev d${i+1}`}
+            style={{
+              padding: m ? '40px 24px' : '52px 40px',
+              borderRight: (!m && i < 3) ? `1px solid ${S.border}` : 'none',
+              borderBottom: (m && i < 2) ? `1px solid ${S.border}` : 'none',
+              textAlign: 'center',
+            }}
+          >
+            <div style={{ fontSize: m ? 44 : 64, fontWeight: 800, color: S.text, letterSpacing: '-0.05em', lineHeight: 1 }}>{s.val}</div>
+            <div style={{ fontSize: 14, color: S.muted, marginTop: 8, letterSpacing: '0.01em' }}>{s.lab}</div>
           </div>
         ))}
       </div>
@@ -118,224 +135,223 @@ function Stats({ m }: { m: boolean }) {
   );
 }
 
-/* ══════════════════════════════════════════════
-   2. PROBLEM STATEMENT
-   Sunday: "Paying in restaurants used to be slow, awkward and frustrating."
-   ══════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════
+   2. EDITORIAL PROBLEM STATEMENT — Sunday: massive left-aligned headline
+   ══════════════════════════════════════════════════════ */
 function Problem({ m }: { m: boolean }) {
-  const ref = useReveal();
+  const h = useReveal();
+  const p = useReveal();
   return (
-    <section id="h360-how-it-works" style={{ background: C.bg, padding: m ? '64px 24px 52px' : '96px 40px 72px' }}>
-      <div style={{ maxWidth: 920, margin: '0 auto' }}>
+    <section style={{ background: S.bg, padding: m ? '80px 24px' : '120px 80px' }}>
+      <div style={{ maxWidth: 1040, margin: '0 auto' }}>
         <h2
-          ref={ref}
-          className="h3reveal"
-          style={{
-            fontSize: m ? 'clamp(30px,8vw,40px)' : 'clamp(40px,4.2vw,60px)',
-            fontWeight: 800, lineHeight: 1.08,
-            letterSpacing: '-0.038em', color: C.text,
-            marginBottom: 26,
-          }}
+          ref={h}
+          className="sdrev"
+          style={{ fontSize: m ? 32 : 60, fontWeight: 800, letterSpacing: '-0.042em', color: S.text, lineHeight: 1.08, marginBottom: 28, maxWidth: 820 }}
         >
           Ordering and paying in Malta restaurants used to be broken, expensive, and invisible to Google.
         </h2>
-        <p className="h3reveal d1" style={{ fontSize: m ? 17 : 20, color: C.muted, lineHeight: 1.65, maxWidth: 660 }}>
-          H360 changed that with ARC AI-powered solutions that learn, adapt, and create value at every step — on-site or online, dine-in or delivery.
+        <p
+          ref={p}
+          className="sdrev d1"
+          style={{ fontSize: m ? 17 : 20, color: S.muted, lineHeight: 1.7, maxWidth: 580 }}
+        >
+          H360 changed that. ARC AI learns your guests, kills commission leaks, and puts you at the top of every search — automatically.
         </p>
       </div>
     </section>
   );
 }
 
-/* ══════════════════════════════════════════════
-   3. PRODUCT CARDS — drag-scrollable, snap, stagger fade-up
-   Sunday: Smart Handheld / Digital Bill / Hybrid / Order & Pay
-   ══════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════
+   3. PRODUCT CARDS RAIL — Sunday: horizontal drag-scroll, snap
+   ══════════════════════════════════════════════════════ */
 const PRODUCTS = [
   {
-    title: 'Direct Orders',
-    sub:   'QR ordering — zero commission to Wolt.',
-    dot:   '#22c55e',
-    content: (
-      <div style={{ padding:'18px 18px 0', flex:1, display:'flex', flexDirection:'column', justifyContent:'flex-end' }}>
-        <div style={{ background:'#1a1a1a', borderRadius:14, border:`1px solid #2a2a2a`, padding:14 }}>
-          <div style={{ fontSize:10, color:'#555', marginBottom:8 }}>Table 7 · Live order</div>
-          {['Braġjoli (x2) — €28.00','Lampuki Pie — €16.50','Kinnie x3 — €7.50'].map((r,i)=>(
-            <div key={i} style={{ display:'flex', justifyContent:'space-between', padding:'6px 0', borderBottom:i<2?`1px solid #222`:'none', fontSize:12, color:'#d1d5db' }}>
-              <span>{r.split('—')[0]}</span><span style={{ fontWeight:600, color:'#fff' }}>{r.split('—')[1]}</span>
-            </div>
-          ))}
-          <div style={{ marginTop:12, background:'#22c55e', color:'#000', borderRadius:8, padding:'9px', textAlign:'center', fontSize:12, fontWeight:700 }}>Pay €52.00 — 0% fee</div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Google Ranking',
-    sub:   'Be the restaurant guests find first.',
-    dot:   '#3b82f6',
-    content: (
-      <div style={{ padding:'18px 18px 0', flex:1 }}>
-        <div style={{ fontSize:10, color:'#555', marginBottom:10 }}>Google Maps — Valletta</div>
-        {[
-          { rank:'#1', name:'Your Restaurant', stars:'4.9★', hl:true },
-          { rank:'#2', name:'Competitor A',    stars:'4.2★', hl:false },
-          { rank:'#3', name:'Competitor B',    stars:'4.0★', hl:false },
-        ].map(r=>(
-          <div key={r.rank} style={{ display:'flex', alignItems:'center', gap:10, padding:'8px 10px', borderRadius:10, background:r.hl?'rgba(34,197,94,0.1)':'transparent', marginBottom:6, border:`1px solid #222` }}>
-            <span style={{ fontSize:10, fontWeight:700, color:r.hl?'#22c55e':'#555', width:20 }}>{r.rank}</span>
-            <span style={{ flex:1, fontSize:12, color:r.hl?'#fff':'#9ca3af', fontWeight:r.hl?700:400 }}>{r.name}</span>
-            <span style={{ fontSize:11, color:r.hl?'#22c55e':'#555' }}>{r.stars}</span>
+    tag: 'DIRECT ORDERS',
+    title: 'The fastest way to take a direct order.',
+    body: 'QR-code table ordering and checkout — no commission, no middleman. Guests order and pay in seconds, straight to your till.',
+    grad: 'linear-gradient(135deg,#0d3d1a 0%,#1a5c2e 50%,#2a7a40 100%)',
+    accent: '#4ade80',
+    preview: (
+      <div style={{ padding:'18px', background:'rgba(255,255,255,0.06)', borderRadius:14, border:'1px solid rgba(255,255,255,0.08)' }}>
+        <div style={{ fontSize:11, color:'#9ca3af', marginBottom:10 }}>Live orders — Table 7</div>
+        {[['Braġjoli (×2)','€28.00'],['Lampuki Pie','€16.50'],['Kinnie ×3','€7.50']].map(([item,price],i)=>(
+          <div key={i} style={{ display:'flex', justifyContent:'space-between', padding:'8px 0', borderBottom: i<2 ? '1px solid rgba(255,255,255,0.07)' : 'none', fontSize:13, color:'#fff' }}>
+            <span>{item}</span><span style={{ fontWeight:700 }}>{price}</span>
           </div>
         ))}
-        <div style={{ marginTop:10, padding:'8px 12px', background:'rgba(59,130,246,0.12)', borderRadius:8, fontSize:11, color:'#3b82f6', fontWeight:600 }}>
-          ARC AI: +9 positions this month
-        </div>
+        <div style={{ marginTop:14, padding:'10px', background:'#4ade80', borderRadius:9, textAlign:'center', fontSize:13, fontWeight:700, color:'#051a0a' }}>Pay €52.00 — direct</div>
       </div>
     ),
   },
   {
-    title: 'Guest Loyalty',
-    sub:   'Turn one-time guests into regulars.',
-    dot:   '#e879f9',
-    content: (
-      <div style={{ padding:'18px 18px 0', flex:1 }}>
-        <div style={{ background:'#1a1a1a', borderRadius:14, padding:'12px 14px', border:`1px solid #2a2a2a`, marginBottom:10 }}>
-          <div style={{ fontSize:10, color:'#555', marginBottom:6 }}>ARC AI · WhatsApp</div>
-          <div style={{ background:'#e879f9', color:'#000', borderRadius:10, padding:'10px 12px', fontSize:12, lineHeight:1.45, fontWeight:500 }}>
-            &ldquo;Hey Maria! Your favourite Braġjoli is back. Table for 2 this Friday?&rdquo;
+    tag: 'GOOGLE RANKING',
+    title: 'Be the restaurant guests find first.',
+    body: 'ARC AI fixes your Google Business profile, generates reviews, and ranks you at the top for "restaurant Malta" — fully automated.',
+    grad: 'linear-gradient(135deg,#1a0a2e 0%,#2d1260 50%,#4c1d95 100%)',
+    accent: '#a78bfa',
+    preview: (
+      <div style={{ padding:'18px', background:'rgba(255,255,255,0.06)', borderRadius:14, border:'1px solid rgba(255,255,255,0.08)' }}>
+        <div style={{ fontSize:11, color:'#9ca3af', marginBottom:10 }}>Google Maps — Valletta</div>
+        {[{r:'#1',n:'Your Restaurant',s:'4.9 ★',hi:true},{r:'#2',n:'Competitor A',s:'4.2 ★',hi:false},{r:'#3',n:'Competitor B',s:'4.0 ★',hi:false}].map((row,i)=>(
+          <div key={i} style={{ display:'flex', alignItems:'center', gap:10, padding:'8px 10px', borderRadius:8, background: row.hi ? 'rgba(74,222,128,0.12)' : 'rgba(255,255,255,0.04)', marginBottom:6 }}>
+            <span style={{ fontSize:11, fontWeight:700, color: row.hi ? '#4ade80' : '#6b7280', width:22 }}>{row.r}</span>
+            <span style={{ flex:1, fontSize:13, color:'#fff', fontWeight: row.hi ? 700 : 400 }}>{row.n}</span>
+            <span style={{ fontSize:12, color: row.hi ? '#4ade80' : '#6b7280' }}>{row.s}</span>
           </div>
+        ))}
+      </div>
+    ),
+  },
+  {
+    tag: 'GUEST LOYALTY',
+    title: 'Turn one-time guests into regulars.',
+    body: 'ARC AI learns what your guests love. Right dish, right moment, right offer — sent automatically via WhatsApp or email.',
+    grad: 'linear-gradient(135deg,#1a0820 0%,#2d0f3d 50%,#4a1260 100%)',
+    accent: '#e879f9',
+    preview: (
+      <div style={{ padding:'18px', background:'rgba(255,255,255,0.06)', borderRadius:14, border:'1px solid rgba(255,255,255,0.08)' }}>
+        <div style={{ fontSize:11, color:'#9ca3af', marginBottom:10 }}>ARC AI message</div>
+        <div style={{ background:'rgba(232,121,249,0.15)', border:'1px solid rgba(232,121,249,0.25)', borderRadius:12, padding:'12px 14px', fontSize:13, color:'#fff', lineHeight:1.5, marginBottom:10 }}>
+          &ldquo;Hey Maria! It&apos;s been 3 weeks — your favourite Braġjoli is back on the menu. Table for 2 this Friday?&rdquo;
         </div>
         <div style={{ display:'flex', gap:8 }}>
-          <div style={{ flex:1, padding:'9px', background:'#e879f9', color:'#000', borderRadius:8, textAlign:'center', fontSize:11, fontWeight:700 }}>Book table</div>
-          <div style={{ flex:1, padding:'9px', background:'#1a1a1a', color:'#9ca3af', borderRadius:8, textAlign:'center', fontSize:11, border:`1px solid #222` }}>Maybe later</div>
+          <div style={{ flex:1, padding:'8px', background:'#e879f9', borderRadius:8, textAlign:'center', fontSize:12, fontWeight:700, color:'#1a0820' }}>Book table</div>
+          <div style={{ flex:1, padding:'8px', background:'rgba(255,255,255,0.08)', borderRadius:8, textAlign:'center', fontSize:12, color:'#9ca3af' }}>Maybe later</div>
         </div>
       </div>
     ),
   },
   {
-    title: 'ARC AI Audit',
-    sub:   'Know exactly what is costing you money.',
-    dot:   '#f97316',
-    content: (
-      <div style={{ padding:'18px 18px 0', flex:1 }}>
-        <div style={{ fontSize:12, fontWeight:700, color:C.text, marginBottom:14 }}>Your restaurant score</div>
-        {[
-          { lab:'Google ranking', pct:95, color:'#22c55e' },
-          { lab:'Review velocity', pct:45, color:'#f97316' },
-          { lab:'Direct orders',  pct:20, color:'#ef4444' },
-        ].map((b,i)=>(
-          <div key={i} style={{ marginBottom:14 }}>
-            <div style={{ display:'flex', justifyContent:'space-between', fontSize:11, color:'#9ca3af', marginBottom:5 }}>
-              <span>{b.lab}</span><span style={{ color:b.color, fontWeight:600 }}>{b.pct}%</span>
+    tag: 'ARC AI AUDIT',
+    title: 'Know exactly what is costing you money.',
+    body: 'ARC AI scans your Google presence, reviews, visibility, and ordering flow — and shows you exactly what to fix and in what order.',
+    grad: 'linear-gradient(135deg,#0a1628 0%,#0f2847 50%,#1a3a6b 100%)',
+    accent: '#60a5fa',
+    preview: (
+      <div style={{ padding:'18px', background:'rgba(255,255,255,0.06)', borderRadius:14, border:'1px solid rgba(255,255,255,0.08)' }}>
+        <div style={{ fontSize:12, fontWeight:700, color:'#fff', marginBottom:12 }}>ARC AI audit — Your Restaurant</div>
+        {[['Google ranking',38,40,'#4ade80'],['Review velocity',18,40,'#f97316'],['Direct orders',8,20,'#ef4444']].map(([label,score,max,color],i)=>(
+          <div key={i} style={{ marginBottom:12 }}>
+            <div style={{ display:'flex', justifyContent:'space-between', fontSize:12, color:'#9ca3af', marginBottom:5 }}>
+              <span>{label as string}</span><span style={{ fontWeight:600, color:'#fff' }}>{score}/{max}</span>
             </div>
-            <div style={{ height:4, background:'#2a2a2a', borderRadius:99 }}>
-              <div style={{ height:'100%', width:`${b.pct}%`, background:b.color, borderRadius:99, transition:'width 1s ease' }}/>
+            <div style={{ height:5, background:'rgba(255,255,255,0.08)', borderRadius:99 }}>
+              <div style={{ height:'100%', width:`${((score as number)/(max as number))*100}%`, background:color as string, borderRadius:99 }}/>
             </div>
           </div>
         ))}
-        <div style={{ padding:'8px 12px', background:'rgba(249,115,22,0.1)', borderRadius:8, fontSize:11, color:'#f97316', fontWeight:600 }}>
-          2 critical issues to fix
-        </div>
       </div>
     ),
   },
   {
-    title: 'Revenue Dashboard',
-    sub:   'One clear view across every channel.',
-    dot:   '#22c55e',
-    content: (
-      <div style={{ padding:'18px 18px 0', flex:1 }}>
-        <div style={{ marginBottom:12 }}>
-          <div style={{ fontSize:10, color:'#555' }}>Revenue this month</div>
-          <div style={{ fontSize:34, fontWeight:800, color:'#22c55e', letterSpacing:'-0.05em', lineHeight:1 }}>€18,420</div>
-          <div style={{ fontSize:11, color:'#22c55e', fontWeight:600 }}>↑ +34% vs last month</div>
+    tag: 'REVENUE DASHBOARD',
+    title: 'Your business. One clear view.',
+    body: 'Real-time revenue, cover counts, review trends, and direct order growth — all in one dashboard, across every venue.',
+    grad: 'linear-gradient(135deg,#0a1a0a 0%,#0f280f 50%,#1a3d1a 100%)',
+    accent: '#4ade80',
+    preview: (
+      <div style={{ padding:'18px', background:'rgba(255,255,255,0.06)', borderRadius:14, border:'1px solid rgba(255,255,255,0.08)' }}>
+        <div style={{ display:'flex', justifyContent:'space-between', marginBottom:16 }}>
+          <div>
+            <div style={{ fontSize:11, color:'#9ca3af' }}>Revenue this month</div>
+            <div style={{ fontSize:28, fontWeight:800, color:'#4ade80', letterSpacing:'-0.04em' }}>€18,420</div>
+            <div style={{ fontSize:12, color:'#4ade80', fontWeight:600 }}>↑ +34% vs last month</div>
+          </div>
+          <div style={{ textAlign:'right' }}>
+            <div style={{ fontSize:11, color:'#9ca3af' }}>Direct orders</div>
+            <div style={{ fontSize:20, fontWeight:700, color:'#fff' }}>€6,100</div>
+            <div style={{ fontSize:12, color:'#4ade80', fontWeight:600 }}>0% commission</div>
+          </div>
         </div>
-        <div style={{ display:'flex', alignItems:'flex-end', gap:3, height:52 }}>
-          {[25,38,32,50,44,58,52,72,65,80,76,95].map((h,i)=>(
-            <div key={i} style={{ flex:1, background:i===11?'#22c55e':'#1e4d2a', borderRadius:'2px 2px 0 0', height:`${h}%`, opacity:i===11?1:0.6 }}/>
+        <div style={{ display:'flex', alignItems:'flex-end', gap:4, height:48 }}>
+          {[30,45,38,60,52,70,65,80,75,90,82,95].map((h,i)=>(
+            <div key={i} style={{ flex:1, background: i===11 ? '#4ade80' : 'rgba(74,222,128,0.22)', borderRadius:'3px 3px 0 0', height:`${h}%` }}/>
           ))}
         </div>
-        <div style={{ fontSize:9, color:'#555', textAlign:'center', marginTop:6 }}>Last 12 months</div>
+        <div style={{ fontSize:10, color:'#444', marginTop:5, textAlign:'center' }}>Last 12 months</div>
       </div>
     ),
   },
 ];
 
-function ProductCards({ m }: { m: boolean }) {
-  const railRef = useRef<HTMLDivElement>(null);
-  const headerRef = useReveal();
-
-  /* drag-to-scroll */
-  useEffect(() => {
-    const el = railRef.current;
-    if (!el) return;
-    let isDown = false, startX = 0, scrollLeft = 0;
-    const down  = (e: MouseEvent) => { isDown = true; startX = e.pageX - el.offsetLeft; scrollLeft = el.scrollLeft; };
-    const leave = () => { isDown = false; };
-    const up    = () => { isDown = false; };
-    const move  = (e: MouseEvent) => { if (!isDown) return; e.preventDefault(); el.scrollLeft = scrollLeft - (e.pageX - el.offsetLeft - startX); };
-    el.addEventListener('mousedown', down);
-    el.addEventListener('mouseleave', leave);
-    el.addEventListener('mouseup', up);
-    el.addEventListener('mousemove', move);
-    return () => { el.removeEventListener('mousedown', down); el.removeEventListener('mouseleave', leave); el.removeEventListener('mouseup', up); el.removeEventListener('mousemove', move); };
-  }, []);
-
+function ProductRail({ m }: { m: boolean }) {
+  const titleRef = useReveal();
+  const drag = useDragScroll();
   return (
-    <section id="h360-products" style={{ background: C.bg, paddingBottom: m ? 56 : 80 }}>
-      <div ref={headerRef} className="h3reveal" style={{ padding: m ? '0 24px 28px' : '0 40px 36px', maxWidth: 1040, margin: '0 auto' }}>
-        {/* empty — headline is in Problem section above, cards start immediately */}
+    <section style={{ background: S.bg, paddingTop: m ? 64 : 96 }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: m ? '0 24px 40px' : '0 80px 48px' }}>
+        <h2
+          ref={titleRef}
+          className="sdrev"
+          style={{ fontSize: m ? 28 : 48, fontWeight: 800, letterSpacing: '-0.04em', color: S.text, marginBottom: 8 }}
+        >
+          Everything your restaurant needs.
+        </h2>
+        <p style={{ fontSize: m ? 15 : 18, color: S.muted, marginBottom: 0 }}>
+          One platform. Five ways to grow.
+        </p>
       </div>
-      <div ref={railRef} className="h3rail" style={{ padding: m ? '0 0 0 24px' : '0 0 0 40px' }}>
-        <div style={{ display:'flex', gap:14, paddingRight: m ? 24 : 40, width:'max-content' }}>
-          {PRODUCTS.map((p, i) => (
-            <div
-              key={i}
-              className={`h3card h3reveal d${Math.min(i+1,5)}`}
-              style={{
-                width: m ? 268 : 308, height: m ? 330 : 368,
-                background: C.card, border: `1px solid ${C.border}`,
-                borderRadius: 20, overflow: 'hidden',
-                display: 'flex', flexDirection: 'column',
-              }}
-            >
-              <div style={{ padding:'22px 22px 0' }}>
-                <div style={{ width:10, height:10, borderRadius:99, background:p.dot, marginBottom:14 }}/>
-                <div style={{ fontSize:17, fontWeight:700, color:C.text, marginBottom:4 }}>{p.title}</div>
-                <div style={{ fontSize:12, color:C.muted }}>{p.sub}</div>
-              </div>
-              {p.content}
+      <div
+        {...drag}
+        className="sdrail"
+        style={{ display:'flex', gap:0, paddingLeft: m ? 24 : 80, paddingBottom: m ? 40 : 64, paddingRight: m ? 24 : 80 }}
+      >
+        {PRODUCTS.map((p, i) => (
+          <div
+            key={i}
+            className="sdrail-item sdcard-lift"
+            style={{
+              width: m ? 'min(340px, 86vw)' : 400,
+              marginRight: 16,
+              borderRadius: 20,
+              background: p.grad,
+              border: `1px solid rgba(255,255,255,0.08)`,
+              padding: m ? 28 : 36,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 20,
+            }}
+          >
+            <div style={{ display:'inline-flex', padding:'4px 10px', borderRadius:99, background:'rgba(255,255,255,0.10)', width:'fit-content' }}>
+              <span style={{ fontSize:10, fontWeight:700, color: p.accent, letterSpacing:'0.1em' }}>{p.tag}</span>
             </div>
-          ))}
-        </div>
+            <h3 style={{ fontSize: m ? 20 : 24, fontWeight: 800, color: '#fff', letterSpacing:'-0.03em', lineHeight: 1.15, margin: 0 }}>{p.title}</h3>
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.65, margin: 0 }}>{p.body}</p>
+            {p.preview}
+          </div>
+        ))}
       </div>
     </section>
   );
 }
 
-/* ══════════════════════════════════════════════
-   4. TRUST MARQUEE
-   Sunday: infinite scrolling restaurant logos
-   ══════════════════════════════════════════════ */
-const RESTAURANTS = ['Noni','Rubino',"Ta' Marija",'Bahia',"Ġużé",'Zen','Palazzo Preca','Terrone','De Mondion','Margo','Rock Salt','Tartarun','Trabuxu','Tico Tico','Badass Burgers'];
+/* ══════════════════════════════════════════════════════
+   4. TRUST MARQUEE — Sunday: "Trusted by..." + scrolling name pills
+   ══════════════════════════════════════════════════════ */
+const RESTAURANTS = ['Noni','Rubino','Ta\' Marija','Bahia','Guze\'','Zen','Palazzo Preca','Terrone','De Mondion','Margo','Rock Salt','Tartarun','Beati Paoli','Trabuxu','Diar il-Bniet'];
 
-function TrustLogos({ m }: { m: boolean }) {
+function TrustMarquee({ m }: { m: boolean }) {
   const ref = useReveal();
   return (
-    <section style={{ background: C.bg, borderTop:`1px solid ${C.border}`, borderBottom:`1px solid ${C.border}`, padding: m ? '52px 0' : '72px 0' }}>
-      <div ref={ref} className="h3reveal" style={{ maxWidth:840, margin:'0 auto', padding: m ? '0 24px' : '0 40px', textAlign:'center', marginBottom:40 }}>
-        <h2 style={{ fontSize: m ? 22 : 32, fontWeight:700, letterSpacing:'-0.032em', color:C.text, marginBottom:6 }}>
+    <section style={{ background: S.bg, borderTop:`1px solid ${S.border}`, borderBottom:`1px solid ${S.border}`, padding: m ? '64px 0' : '88px 0' }}>
+      <div
+        ref={ref}
+        className="sdrev"
+        style={{ textAlign:'center', maxWidth:900, margin:'0 auto', padding: m ? '0 24px 40px' : '0 80px 56px' }}
+      >
+        <h2 style={{ fontSize: m ? 26 : 42, fontWeight:800, letterSpacing:'-0.04em', color:S.text, marginBottom:10 }}>
           Trusted by Malta&apos;s best restaurants.
         </h2>
-        <p style={{ fontSize:15, color:C.muted }}>From casual trattorias to Michelin-recommended dining rooms.</p>
+        <p style={{ fontSize:16, color:S.muted }}>From casual trattorias to Michelin-recommended dining rooms.</p>
       </div>
       <div style={{ overflow:'hidden', position:'relative' }}>
-        <div style={{ position:'absolute', left:0, top:0, bottom:0, width:100, background:`linear-gradient(to right,${C.bg},transparent)`, zIndex:2, pointerEvents:'none' }}/>
-        <div style={{ position:'absolute', right:0, top:0, bottom:0, width:100, background:`linear-gradient(to left,${C.bg},transparent)`, zIndex:2, pointerEvents:'none' }}/>
-        <div className="h3mq">
+        <div style={{ position:'absolute', left:0, top:0, bottom:0, width:120, background:`linear-gradient(to right,${S.bg},transparent)`, zIndex:2, pointerEvents:'none' }}/>
+        <div style={{ position:'absolute', right:0, top:0, bottom:0, width:120, background:`linear-gradient(to left,${S.bg},transparent)`, zIndex:2, pointerEvents:'none' }}/>
+        <div className="sdmq">
           {[...RESTAURANTS,...RESTAURANTS].map((name,i)=>(
-            <div key={i} style={{ padding:'10px 32px', borderRight:`1px solid ${C.border}`, fontSize:14, fontWeight:500, color:C.dim, whiteSpace:'nowrap', letterSpacing:'0.01em' }}>
+            <div key={i} style={{ padding:'10px 22px', border:`1px solid ${S.border2}`, borderRadius:99, background:S.bg2, fontSize:14, fontWeight:600, color:S.text, whiteSpace:'nowrap', margin:'0 8px', flexShrink:0 }}>
               {name}
             </div>
           ))}
@@ -345,128 +361,47 @@ function TrustLogos({ m }: { m: boolean }) {
   );
 }
 
-/* ══════════════════════════════════════════════
-   5. INLINE TESTIMONIALS — 3 dark cards
-   ══════════════════════════════════════════════ */
-const INLINE_QUOTES = [
-  { q:'We had more Google reviews in one month with H360 than in the entire previous year.', name:'Jonathan Brincat', place:'Noni, Valletta', init:'JB' },
-  { q:'When we stopped paying Wolt, our direct revenue went up 41% in three months. Every time.', name:'Maria Schembri', place:"Ta' Marija, Mdina", init:'MS' },
-  { q:'H360 gives our guests a faster checkout. The time saved lets the team focus on hospitality, not bills.', name:'Antoine Camilleri', place:'Rubino, Valletta', init:'AC' },
+/* ══════════════════════════════════════════════════════
+   5. TESTIMONIALS — Sunday: 3 large dark quote cards
+   ══════════════════════════════════════════════════════ */
+const QUOTES = [
+  { initials:'JB', name:'Jonathan Brincat', place:'Noni, Valletta',       quote:'We\'ve had more Google reviews in one month with H360 than in the entire previous year. Incredible.' },
+  { initials:'MS', name:'Maria Schembri',   place:'Ta\' Marija, Mdina',   quote:'When we stopped paying Wolt, our direct revenue went up 41% in 3 months. H360 made it effortless.' },
+  { initials:'AC', name:'Antoine Camilleri',place:'Rubino, Valletta',      quote:'H360 gives our guests a faster, easier checkout. The time saved lets the team focus on hospitality.' },
 ];
 
-function InlineTestimonials({ m }: { m: boolean }) {
+function Testimonials({ m }: { m: boolean }) {
   const ref = useReveal();
   return (
-    <section style={{ background: C.bg, padding: m ? '52px 24px' : '80px 40px' }}>
-      <div ref={ref} className="h3reveal" style={{ maxWidth:1040, margin:'0 auto', display:'grid', gridTemplateColumns: m?'1fr':'repeat(3,1fr)', gap:20 }}>
-        {INLINE_QUOTES.map((t,i)=>(
-          <div key={i} className={`h3reveal d${i+1}`} style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:20, padding:'28px 28px 24px', display:'flex', flexDirection:'column', gap:20 }}>
-            <p style={{ fontSize: m ? 15 : 16, color:C.text, lineHeight:1.62, flex:1 }}>&ldquo;{t.q}&rdquo;</p>
-            <div style={{ display:'flex', alignItems:'center', gap:12 }}>
-              <div style={{ width:40, height:40, borderRadius:99, background:`linear-gradient(135deg,${C.green},${C.greenV})`, display:'flex', alignItems:'center', justifyContent:'center', color:'#fff', fontWeight:700, fontSize:13, flexShrink:0 }}>{t.init}</div>
-              <div>
-                <div style={{ fontSize:13, fontWeight:600, color:C.text }}>{t.name}</div>
-                <div style={{ fontSize:12, color:C.muted }}>{t.place}</div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/* ══════════════════════════════════════════════
-   6. "EVERY VISIT NOW DRIVES VALUE" + 3 TALL VALUE CARDS
-   Sunday: FOR OPERATORS / FOR STAFF / FOR GUESTS — full-bleed photo cards
-   ══════════════════════════════════════════════ */
-function ValueCards({ m }: { m: boolean }) {
-  const hRef  = useReveal();
-  const cRef0 = useReveal();
-  const cRef1 = useReveal();
-  const cRef2 = useReveal();
-  const cardRefs = [cRef0, cRef1, cRef2];
-  const cards = [
-    {
-      label:'FOR OPERATORS',
-      title:'Faster table turns, more direct revenue, higher margin.',
-      bg:'linear-gradient(150deg,#1a0820 0%,#2d0f3d 45%,#111 100%)',
-      glow:'rgba(232,121,249,0.12)',
-      overlay:(
-        <div style={{ position:'absolute', bottom:32, left:24, background:'rgba(15,15,15,0.88)', backdropFilter:'blur(14px)', borderRadius:16, padding:'16px 20px', border:`1px solid rgba(232,121,249,0.18)`, minWidth:196 }}>
-          <div style={{ fontSize:10, color:C.muted, marginBottom:4 }}>Last month</div>
-          <div style={{ fontSize:38, fontWeight:800, color:C.text, letterSpacing:'-0.05em', lineHeight:1, marginBottom:10 }}>€18,420</div>
-          <div style={{ display:'flex', alignItems:'flex-end', gap:3, height:34 }}>
-            {[20,35,28,50,42,60,55,70,65,80,72,95].map((h,i)=>(
-              <div key={i} style={{ flex:1, background:i===11?C.pink:'rgba(232,121,249,0.25)', borderRadius:'2px 2px 0 0', height:`${h}%` }}/>
-            ))}
-          </div>
-          <div style={{ display:'flex', gap:4, marginTop:5, fontSize:9, color:C.dim }}>
-            {['J','F','M','A','M','J','J','A','S','O','N','D'].map((mo,i)=><span key={i} style={{ flex:1, textAlign:'center' }}>{mo}</span>)}
-          </div>
-        </div>
-      ),
-    },
-    {
-      label:'FOR STAFF',
-      title:'Higher tips, smoother shifts, and no chasing the bill.',
-      bg:'linear-gradient(150deg,#071a09 0%,#0f2d12 45%,#111 100%)',
-      glow:'rgba(34,197,94,0.10)',
-      overlay:(
-        <div style={{ position:'absolute', bottom:32, left:24, background:'rgba(15,15,15,0.88)', backdropFilter:'blur(14px)', borderRadius:16, padding:'16px 20px', border:`1px solid rgba(34,197,94,0.18)` }}>
-          <div style={{ fontSize:10, color:C.muted, marginBottom:6 }}>ARC AI tip suggestion</div>
-          <div style={{ display:'flex', alignItems:'center', gap:12 }}>
-            <div style={{ fontSize:44, fontWeight:800, color:'#22c55e', letterSpacing:'-0.05em' }}>+28%</div>
-            <div>
-              <div style={{ fontSize:12, color:C.text, fontWeight:600 }}>Average tip rate</div>
-              <div style={{ fontSize:11, color:C.muted }}>Was 18% · +10pp lift</div>
-            </div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      label:'FOR GUESTS',
-      title:"Fast, simple, personalised checkout they'll remember.",
-      bg:'linear-gradient(150deg,#07091a 0%,#0f112d 45%,#111 100%)',
-      glow:'rgba(59,130,246,0.10)',
-      overlay:(
-        <div style={{ position:'absolute', bottom:32, left:24, background:'rgba(15,15,15,0.88)', backdropFilter:'blur(14px)', borderRadius:16, padding:'16px 20px', border:`1px solid rgba(59,130,246,0.18)`, maxWidth:232 }}>
-          <div style={{ fontSize:13, fontWeight:600, color:C.text, marginBottom:4 }}>Thanks, you&apos;re good to go.</div>
-          <div style={{ fontSize:11, color:C.muted, marginBottom:12, lineHeight:1.45 }}>The waiter knows the bill is paid. Feel free to head out!</div>
-          <div style={{ display:'flex', justifyContent:'space-between', fontSize:13, color:C.text }}><span style={{ color:C.muted }}>You paid</span><span style={{ fontWeight:700 }}>€52.00</span></div>
-        </div>
-      ),
-    },
-  ];
-
-  return (
-    <section style={{ background:C.bg, padding: m ? '0 24px 72px' : '0 40px 104px', borderTop:`1px solid ${C.border}` }}>
-      <div style={{ maxWidth:1040, margin:'0 auto' }}>
-        <h2 ref={hRef} className="h3reveal" style={{ fontSize: m?28:48, fontWeight:800, letterSpacing:'-0.038em', color:C.text, padding: m?'52px 0 40px':'80px 0 56px', lineHeight:1.08 }}>
-          Every visit now drives value.
+    <section style={{ background: S.bg, padding: m ? '72px 24px' : '104px 80px' }}>
+      <div
+        ref={ref}
+        className="sdrev"
+        style={{ maxWidth: 1200, margin: '0 auto' }}
+      >
+        <h2 style={{ fontSize: m ? 26 : 40, fontWeight:800, letterSpacing:'-0.04em', color:S.text, marginBottom: m ? 36 : 56 }}>
+          What operators say.
         </h2>
-        <div style={{ display:'flex', flexDirection:'column', gap:18 }}>
-          {cards.map((c,i)=>(
-              <div
-                key={i}
-                ref={cardRefs[i]}
-                className={`h3reveal h3vcard d${i+1}`}
-                style={{ position:'relative', borderRadius:22, overflow:'hidden', height: m?360:480, background:c.bg, border:`1px solid ${C.border}` }}
-              >
-                <div style={{ position:'absolute', top:-80, right:-80, width:280, height:280, borderRadius:99, background:c.glow, filter:'blur(50px)', pointerEvents:'none' }}/>
-                <svg style={{ position:'absolute', inset:0, opacity:0.035, width:'100%', height:'100%', pointerEvents:'none' }}>
-                  <defs><pattern id={`vp${i}`} x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse"><circle cx="18" cy="18" r="1" fill="#fff"/></pattern></defs>
-                  <rect width="100%" height="100%" fill={`url(#vp${i})`}/>
-                </svg>
-                <div style={{ position:'absolute', top:28, left:24, right:24 }}>
-                  <div style={{ display:'inline-flex', padding:'4px 10px', borderRadius:99, background:'rgba(255,255,255,0.07)', marginBottom:14 }}>
-                    <span style={{ fontSize:10, fontWeight:700, color:C.muted, letterSpacing:'0.09em' }}>{c.label}</span>
-                  </div>
-                  <h3 style={{ fontSize: m?21:30, fontWeight:800, color:C.text, letterSpacing:'-0.032em', lineHeight:1.15, maxWidth:460 }}>{c.title}</h3>
+        <div style={{ display:'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3,1fr)', gap:20 }}>
+          {QUOTES.map((q,i) => (
+            <div
+              key={i}
+              className={`sdrev sdcard-lift d${i+1}`}
+              style={{ padding: m ? '28px 24px' : '36px 32px', border:`1px solid ${S.border2}`, borderRadius:20, background:S.bg2 }}
+            >
+              <div style={{ display:'flex', alignItems:'center', gap:14, marginBottom:22 }}>
+                <div style={{ width:48, height:48, borderRadius:99, background:`linear-gradient(135deg,${S.green},${S.greenV})`, display:'flex', alignItems:'center', justifyContent:'center', color:'#fff', fontWeight:800, fontSize:16, flexShrink:0, letterSpacing:'-0.02em' }}>
+                  {q.initials}
                 </div>
-                {c.overlay}
+                <div>
+                  <div style={{ fontSize:14, fontWeight:700, color:S.text }}>{q.name}</div>
+                  <div style={{ fontSize:12, color:S.muted, marginTop:2 }}>{q.place}</div>
+                </div>
               </div>
+              <p style={{ fontSize: m ? 15 : 16, color:'rgba(255,255,255,0.82)', lineHeight:1.65, fontStyle:'italic', margin:0 }}>
+                &ldquo;{q.quote}&rdquo;
+              </p>
+            </div>
           ))}
         </div>
       </div>
@@ -474,69 +409,132 @@ function ValueCards({ m }: { m: boolean }) {
   );
 }
 
-/* ══════════════════════════════════════════════
-   7. ECOSYSTEM — two dark cards
-   Sunday: "Built for your ecosystem" + "Your business, one clear view"
-   ══════════════════════════════════════════════ */
-function Ecosystem({ m }: { m: boolean }) {
-  const ref = useReveal();
-  const integ = [
-    {name:'Lightspeed',color:'#ff5c35'},{name:'TheFork',color:'#01a55e'},
-    {name:'Wolt',color:'#009de0'},{name:'Bolt',color:'#34d186'},
-    {name:'Google',color:'#4285f4'},{name:'Nory',color:'#7c3aed'},
-  ];
+/* ══════════════════════════════════════════════════════
+   6. VALUE CARDS — Sunday: FOR OPERATORS / FOR STAFF / FOR GUESTS
+      Tall gradient cards with glow orbs
+   ══════════════════════════════════════════════════════ */
+function ValueCard({ label, title, body, grad, glow, items, reveal }: {
+  label:string; title:string; body:string; grad:string; glow:string; items:string[]; reveal: React.RefObject<any>;
+}) {
+  const m = useMobile();
   return (
-    <section style={{ background:C.bg, padding: m ? '0 24px 72px' : '0 40px 104px' }}>
-      <div ref={ref} className="h3reveal" style={{ maxWidth:1040, margin:'0 auto' }}>
-        <h2 style={{ fontSize: m?22:38, fontWeight:800, letterSpacing:'-0.035em', color:C.text, marginBottom:10 }}>
-          We don&apos;t pile on more tech. We amplify what already works.
+    <div
+      ref={reveal}
+      className="sdrev sdcard-lift"
+      style={{ position:'relative', borderRadius:22, overflow:'hidden', background:grad, border:`1px solid rgba(255,255,255,0.06)`, padding: m ? '36px 28px' : '48px 40px', minHeight: m ? 340 : 420 }}
+    >
+      <div style={{ position:'absolute', top:-60, right:-60, width:240, height:240, borderRadius:99, background:glow, filter:'blur(48px)', pointerEvents:'none', opacity:0.6 }}/>
+      <div style={{ position:'absolute', bottom:-80, left:-40, width:200, height:200, borderRadius:99, background:glow, filter:'blur(64px)', pointerEvents:'none', opacity:0.3 }}/>
+      <div style={{ position:'relative' }}>
+        <div style={{ display:'inline-flex', padding:'4px 12px', borderRadius:99, background:'rgba(255,255,255,0.08)', marginBottom:22, border:'1px solid rgba(255,255,255,0.1)' }}>
+          <span style={{ fontSize:10, fontWeight:700, color:'rgba(255,255,255,0.6)', letterSpacing:'0.1em' }}>{label}</span>
+        </div>
+        <h3 style={{ fontSize: m ? 22 : 28, fontWeight:800, color:'#fff', letterSpacing:'-0.035em', lineHeight:1.15, marginBottom:14, maxWidth:460 }}>{title}</h3>
+        <p style={{ fontSize:14, color:'rgba(255,255,255,0.55)', lineHeight:1.65, marginBottom:28 }}>{body}</p>
+        <ul style={{ listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:10 }}>
+          {items.map((item,i)=>(
+            <li key={i} style={{ display:'flex', alignItems:'flex-start', gap:10, fontSize:14, color:'rgba(255,255,255,0.75)' }}>
+              <span style={{ color:'rgba(255,255,255,0.4)', flexShrink:0, marginTop:1 }}>→</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function ValueSection({ m }: { m: boolean }) {
+  const hRef = useReveal();
+  const r0 = useReveal();
+  const r1 = useReveal();
+  const r2 = useReveal();
+  return (
+    <section style={{ background: S.bg, padding: m ? '72px 24px' : '104px 80px', borderTop:`1px solid ${S.border}` }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+        <h2 ref={hRef} className="sdrev" style={{ fontSize: m ? 28 : 52, fontWeight:800, letterSpacing:'-0.042em', color:S.text, marginBottom: m ? 48 : 72 }}>
+          Every visit now drives value.
         </h2>
-        <p style={{ fontSize:16, color:C.muted, marginBottom:44, maxWidth:580 }}>
-          H360 connects your stack — POS to delivery — giving you one powerful, unified view.
-        </p>
-        <div style={{ display:'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap:18 }}>
-          {/* Ecosystem card */}
-          <div className="h3reveal d1" style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:20, padding:28 }}>
-            <div style={{ fontSize:10, fontWeight:700, color:C.muted, letterSpacing:'0.09em', marginBottom:14 }}>INTEGRATIONS</div>
-            <h3 style={{ fontSize: m?20:24, fontWeight:700, color:C.text, letterSpacing:'-0.03em', marginBottom:8, lineHeight:1.2 }}>Built for your ecosystem.</h3>
-            <p style={{ fontSize:14, color:C.muted, marginBottom:28, lineHeight:1.55 }}>Connects instantly with your POS, CRM, booking and loyalty tools — everything works together, automatically.</p>
-            <div style={{ display:'flex', justifyContent:'center', marginBottom:20 }}>
-              <div style={{ width:52, height:52, borderRadius:14, background:C.green, display:'flex', alignItems:'center', justifyContent:'center', color:'#fff', fontWeight:900, fontSize:13, letterSpacing:'-0.06em', boxShadow:`0 0 0 8px rgba(13,61,26,0.30)` }}>H360</div>
-            </div>
-            <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:8 }}>
-              {integ.map(int=>(
-                <div key={int.name} style={{ padding:'8px 10px', border:`1px solid ${C.border}`, borderRadius:10, background:C.card2, textAlign:'center' }}>
-                  <div style={{ width:8, height:8, borderRadius:99, background:int.color, margin:'0 auto 5px' }}/>
-                  <div style={{ fontSize:10, fontWeight:600, color:C.muted }}>{int.name}</div>
-                </div>
-              ))}
-            </div>
+        <div style={{ display:'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3,1fr)', gap:20 }}>
+          <ValueCard
+            reveal={r0}
+            label="FOR OPERATORS"
+            title="Faster table turns, more direct revenue, zero Wolt fees."
+            body="H360 eliminates commission payments, accelerates service with instant QR ordering, and gives you full data on every cover."
+            grad="linear-gradient(150deg,#0a1628 0%,#0f2040 50%,#1a3460 100%)"
+            glow="#1d4ed8"
+            items={['Zero commission on direct orders','Real-time revenue dashboard','Automated Google review generation']}
+          />
+          <ValueCard
+            reveal={r1}
+            label="FOR STAFF"
+            title="Higher tips, smoother shifts, no chasing the bill."
+            body="ARC AI-optimised tip suggestions boost staff earnings by an average of 30%. No more awkward moments with card machines."
+            grad="linear-gradient(150deg,#1a0a2e 0%,#2d1260 50%,#3d1880 100%)"
+            glow="#7c3aed"
+            items={['AI-optimised tip suggestions','Instant split-bill QR payments','Less time waiting, more time serving']}
+          />
+          <ValueCard
+            reveal={r2}
+            label="FOR GUESTS"
+            title="Fast, simple, personalised checkout they'll remember."
+            body="Pay by QR in 10 seconds, split the bill without drama, and leave feeling valued. Every visit turns into a 5-star review."
+            grad="linear-gradient(150deg,#0d3d1a 0%,#1a5c2e 50%,#2a7a40 100%)"
+            glow="#16a34a"
+            items={['Pay in 10 seconds — no app needed','Split bill instantly between guests','Personalised loyalty offers via WhatsApp']}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════════
+   7. ECOSYSTEM — Sunday: left headline + integration logos grid
+   ══════════════════════════════════════════════════════ */
+const INTEGRATIONS = [
+  { name:'Lightspeed', color:'#ff5c35' },
+  { name:'TheFork',    color:'#01a55e' },
+  { name:'Wolt',       color:'#009de0' },
+  { name:'Bolt Food',  color:'#34d186' },
+  { name:'Google',     color:'#4285f4' },
+  { name:'Nory',       color:'#7c3aed' },
+  { name:'Stripe',     color:'#635bff' },
+  { name:'WhatsApp',   color:'#25d366' },
+];
+
+function Ecosystem({ m }: { m: boolean }) {
+  const lRef = useReveal();
+  const rRef = useReveal();
+  return (
+    <section style={{ background: S.bg2, borderTop:`1px solid ${S.border}`, borderBottom:`1px solid ${S.border}`, padding: m ? '72px 24px' : '104px 80px' }}>
+      <div style={{ maxWidth:1200, margin:'0 auto', display: m ? 'flex' : 'grid', flexDirection: m ? 'column' : undefined, gridTemplateColumns:'1fr 1fr', gap: m ? 48 : 80, alignItems:'center' }}>
+        <div ref={lRef} className="sdrev">
+          <div style={{ display:'inline-flex', padding:'4px 12px', borderRadius:99, background:'rgba(255,255,255,0.05)', border:`1px solid ${S.border2}`, marginBottom:24 }}>
+            <span style={{ fontSize:10, fontWeight:700, color:S.muted, letterSpacing:'0.1em' }}>WORKS WITH YOUR SETUP</span>
           </div>
-          {/* Dashboard card */}
-          <div className="h3reveal d2" style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:20, padding:28 }}>
-            <div style={{ fontSize:10, fontWeight:700, color:C.muted, letterSpacing:'0.09em', marginBottom:14 }}>DASHBOARD</div>
-            <h3 style={{ fontSize: m?20:24, fontWeight:700, color:C.text, letterSpacing:'-0.03em', marginBottom:8, lineHeight:1.2 }}>Your restaurant, one clear view.</h3>
-            <p style={{ fontSize:14, color:C.muted, marginBottom:24, lineHeight:1.55 }}>Real-time data across every table, every shift, every channel. See what drives revenue.</p>
-            <div style={{ background:'#0d0d0d', border:`1px solid ${C.border}`, borderRadius:14, padding:14 }}>
-              <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:8, marginBottom:12 }}>
-                {[
-                  {lab:'Revenue',val:'€18,420',delta:'+34%',c:'#22c55e'},
-                  {lab:'Rank',   val:'#1',     delta:'↑9',   c:'#22c55e'},
-                  {lab:'Reviews',val:'29',      delta:'★4.9', c:'#eab308'},
-                ].map(s=>(
-                  <div key={s.lab} style={{ background:'#1a1a1a', border:`1px solid #2a2a2a`, borderRadius:10, padding:10 }}>
-                    <div style={{ fontSize:9, color:'#555', marginBottom:2 }}>{s.lab}</div>
-                    <div style={{ fontSize:17, fontWeight:800, color:'#fff', letterSpacing:'-0.03em' }}>{s.val}</div>
-                    <div style={{ fontSize:10, color:s.c, fontWeight:600 }}>{s.delta}</div>
-                  </div>
-                ))}
+          <h2 style={{ fontSize: m ? 28 : 42, fontWeight:800, letterSpacing:'-0.04em', color:S.text, lineHeight:1.12, marginBottom:18 }}>
+            We don&apos;t pile on more tech. We amplify what already works.
+          </h2>
+          <p style={{ fontSize: m ? 15 : 17, color:S.muted, lineHeight:1.7, marginBottom:32 }}>
+            H360 connects with your existing POS, delivery, and reservation tools — giving you one unified view with zero rip-and-replace.
+          </p>
+          <a href="/h360/demo" style={{ display:'inline-flex', padding:'12px 26px', background:S.text, color:S.bg, borderRadius:99, fontSize:14, fontWeight:700, letterSpacing:'-0.01em', textDecoration:'none', cursor:'pointer' }}>
+            See all integrations
+          </a>
+        </div>
+        <div ref={rRef} className="sdrev d1">
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:12 }}>
+            {INTEGRATIONS.map((int,i)=>(
+              <div
+                key={i}
+                className="sdcard-lift"
+                style={{ padding:'16px 12px', border:`1px solid ${S.border2}`, borderRadius:14, background:S.bg, textAlign:'center', display:'flex', flexDirection:'column', alignItems:'center', gap:8 }}
+              >
+                <div style={{ width:10, height:10, borderRadius:99, background:int.color }}/>
+                <span style={{ fontSize:11, fontWeight:600, color:S.text, lineHeight:1.2 }}>{int.name}</span>
               </div>
-              <div style={{ display:'flex', alignItems:'flex-end', gap:3, height:44 }}>
-                {[25,38,32,50,44,58,52,72,65,80,76,95].map((h,i)=>(
-                  <div key={i} style={{ flex:1, background:i===11?C.green:'#1e4d2a', borderRadius:'2px 2px 0 0', height:`${h}%`, opacity:i===11?1:0.5 }}/>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -544,99 +542,89 @@ function Ecosystem({ m }: { m: boolean }) {
   );
 }
 
-/* ══════════════════════════════════════════════
-   8. HEAR FROM OUR CLIENTS — scrolling marquee title + quote carousel
-   Sunday: animated marquee header + prev/next quote slides with crossfade
-   ══════════════════════════════════════════════ */
-const QUOTES = [
-  { q:"There's an art to dining in Malta, but no art to losing €1,200 a month to delivery apps. H360 fixed that.", name:'Jonathan Brincat', title:'Founder, Noni — Valletta', bg:'linear-gradient(150deg,#0f1a0f,#1a2d1a)' },
-  { q:'Large parties can pay how they want — split by dish, by person, by card. My staff focus on guests, not bills.', name:'Maria Schembri', title:"Owner, Ta' Marija — Mdina", bg:'linear-gradient(150deg,#0a0a1a,#0f0f2d)' },
-  { q:'Tips went from 18% to 28% on average the month we switched. The team noticed immediately.', name:'Antoine Camilleri', title:'Owner, Rubino — Valletta', bg:'linear-gradient(150deg,#1a0a0f,#2d0f1a)' },
+/* ══════════════════════════════════════════════════════
+   8. QUOTE CAROUSEL — Sunday: big crossfade quote, prev/next, marquee title
+   ══════════════════════════════════════════════════════ */
+const BIG_QUOTES = [
+  { quote:'H360 is the only platform that actually increased our revenue without asking us to change everything. It just works.', name:'Jonathan Brincat', place:'Noni, Valletta', stars:5 },
+  { quote:'In 6 weeks we went from 38 Google reviews to 340. Our visibility on maps is completely different. Guests now find us first.', name:'Maria Schembri', place:'Ta\' Marija, Mdina', stars:5 },
+  { quote:'I was spending €3,800 a month on Wolt commissions. Now I spend €290 on H360 and keep the rest. The maths is obvious.', name:'Antoine Camilleri', place:'Rubino, Valletta', stars:5 },
+  { quote:'The staff love it because tips went up. The guests love it because checkout takes 10 seconds. I love it because it pays for itself.', name:'Sandra Farrugia', place:'Rock Salt, St Julian\'s', stars:5 },
 ];
+
+const MARQUEE_WORDS = ['More revenue','Zero commission','More reviews','More regulars','More direct orders','Better Google ranking'];
 
 function QuoteCarousel({ m }: { m: boolean }) {
   const [idx, setIdx] = useState(0);
-  const [key, setKey] = useState(0); // triggers re-mount for animation
+  const [key, setKey] = useState(0);
+  const hRef = useReveal();
+  const qRef = useReveal();
 
-  const go = useCallback((next: number) => {
-    setIdx(next);
+  const go = useCallback((dir: 1|-1) => {
+    setIdx(i => (i + dir + BIG_QUOTES.length) % BIG_QUOTES.length);
     setKey(k => k + 1);
   }, []);
 
-  const q = QUOTES[idx];
+  const q = BIG_QUOTES[idx];
 
   return (
-    <section style={{ background: C.bg, borderTop:`1px solid ${C.border}` }}>
-      {/* Scrolling marquee title — Sunday's signature animation */}
-      <div style={{ overflow:'hidden', borderBottom:`1px solid ${C.border}` }}>
-        <div className="h3mq">
-          {[...Array(6)].map((_,r)=>(
-            <div key={r} style={{ display:'flex', alignItems:'center', flexShrink:0 }}>
-              <span style={{ fontSize: m?30:52, fontWeight:800, color:C.text, letterSpacing:'-0.04em', padding: m?'20px 24px':'32px 40px', whiteSpace:'nowrap', borderRight:`1px solid ${C.border}` }}>
-                Hear from our clients
-              </span>
-              <div style={{ padding: m?'20px 20px':'32px 28px', borderRight:`1px solid ${C.border}`, display:'flex', alignItems:'center' }}>
-                <svg width={m?26:36} height={m?26:36} viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="none" stroke={C.greenV} strokeWidth="2"/></svg>
-              </div>
-            </div>
+    <section style={{ background: S.bg, borderTop:`1px solid ${S.border}`, padding: m ? '72px 0' : '104px 0', overflow:'hidden' }}>
+      {/* Marquee header */}
+      <div style={{ overflow:'hidden', marginBottom: m ? 56 : 80, position:'relative' }}>
+        <div style={{ position:'absolute', left:0, top:0, bottom:0, width:80, background:`linear-gradient(to right,${S.bg},transparent)`, zIndex:2, pointerEvents:'none' }}/>
+        <div style={{ position:'absolute', right:0, top:0, bottom:0, width:80, background:`linear-gradient(to left,${S.bg},transparent)`, zIndex:2, pointerEvents:'none' }}/>
+        <div className="sdmq2" style={{ gap:0 }}>
+          {[...MARQUEE_WORDS,...MARQUEE_WORDS,...MARQUEE_WORDS,...MARQUEE_WORDS].map((word,i)=>(
+            <span
+              key={i}
+              style={{
+                fontSize: m ? 32 : 56,
+                fontWeight:800,
+                letterSpacing:'-0.04em',
+                color: i%2===0 ? S.text : 'transparent',
+                WebkitTextStroke: i%2===0 ? undefined : `1px ${S.border2}`,
+                paddingRight: m ? 36 : 56,
+                whiteSpace:'nowrap',
+                flexShrink:0,
+              }}
+            >
+              {word}
+            </span>
           ))}
         </div>
       </div>
 
-      {/* Quote slide */}
-      <div style={{ maxWidth:1040, margin:'0 auto', padding: m ? '52px 24px' : '80px 40px' }}>
-        <div style={{ display: m ? 'flex' : 'grid', flexDirection: m ? 'column' : undefined, gridTemplateColumns:'1fr 1fr', gap: m ? 36 : 72, alignItems:'center' }}>
-          {/* Left — text */}
-          <div>
-            {/* Prev / Next controls */}
-            <div style={{ display:'flex', gap:10, marginBottom:36, alignItems:'center' }}>
-              <button onClick={()=>go((idx-1+QUOTES.length)%QUOTES.length)}
-                style={{ width:46, height:46, borderRadius:99, border:`1px solid ${C.border}`, background:'transparent', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center', color:C.text, transition:'border-color 0.15s' }}
-                onMouseEnter={e=>e.currentTarget.style.borderColor='#555'}
-                onMouseLeave={e=>e.currentTarget.style.borderColor=C.border}
-                data-testid="button-quote-prev">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
-              </button>
-              <button onClick={()=>go((idx+1)%QUOTES.length)}
-                style={{ width:46, height:46, borderRadius:99, border:`1px solid ${C.border}`, background:'transparent', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center', color:C.text, transition:'border-color 0.15s' }}
-                onMouseEnter={e=>e.currentTarget.style.borderColor='#555'}
-                onMouseLeave={e=>e.currentTarget.style.borderColor=C.border}
-                data-testid="button-quote-next">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
-              </button>
-              <div style={{ display:'flex', alignItems:'center', gap:7, marginLeft:8 }}>
-                {QUOTES.map((_,i)=>(
-                  <button key={i} onClick={()=>go(i)}
-                    style={{ width:i===idx?24:8, height:8, borderRadius:99, background:i===idx?C.text:C.border, border:'none', cursor:'pointer', padding:0, transition:'all 0.25s cubic-bezier(.22,1,.36,1)' }}
-                  />
-                ))}
-              </div>
-            </div>
-            {/* Quote text with crossfade */}
-            <blockquote key={key} className="h3qactive" style={{ fontSize: m?22:34, fontWeight:700, color:C.text, letterSpacing:'-0.032em', lineHeight:1.22, marginBottom:28, fontStyle:'normal' }}>
-              &ldquo;{q.q}&rdquo;
-            </blockquote>
-            <div key={`${key}a`} className="h3qactive" style={{ fontSize:15, color:C.muted, animationDelay:'0.06s' }}>
-              — {q.name}, <span style={{ color:C.dim }}>{q.title}</span>
-            </div>
+      {/* Quote */}
+      <div style={{ maxWidth:900, margin:'0 auto', padding: m ? '0 24px' : '0 80px' }}>
+        <div ref={hRef} className="sdrev" style={{ marginBottom: m ? 32 : 48 }}>
+          <div style={{ display:'flex', gap: m ? 12 : 8, marginBottom: m ? 32 : 48 }}>
+            {BIG_QUOTES.map((_,i)=>(
+              <button
+                key={i}
+                onClick={()=>{ setIdx(i); setKey(k=>k+1); }}
+                style={{ width: i===idx ? 28 : 8, height:8, borderRadius:99, background: i===idx ? S.text : S.border2, border:'none', cursor:'pointer', transition:'all 0.35s ease', padding:0 }}
+              />
+            ))}
           </div>
-          {/* Right — photo card with crossfade */}
-          <div key={`${key}b`} className="h3qactive" style={{
-            height: m ? 220 : 340, borderRadius:20,
-            background: q.bg, border:`1px solid ${C.border}`,
-            display:'flex', alignItems:'center', justifyContent:'center',
-            overflow:'hidden', position:'relative',
-          }}>
-            <svg style={{ position:'absolute', inset:0, opacity:0.04, width:'100%', height:'100%', pointerEvents:'none' }}>
-              <defs><pattern id="qp" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse"><circle cx="18" cy="18" r="1" fill="#fff"/></pattern></defs>
-              <rect width="100%" height="100%" fill="url(#qp)"/>
-            </svg>
-            <div style={{ textAlign:'center', padding:32, position:'relative' }}>
-              <div style={{ width:58, height:58, borderRadius:99, background:`linear-gradient(135deg,${C.green},${C.greenV})`, display:'flex', alignItems:'center', justifyContent:'center', color:'#fff', fontWeight:700, fontSize:20, margin:'0 auto 14px' }}>
+        </div>
+
+        <div ref={qRef} key={key} className="sdrev sdin">
+          <p style={{ fontSize: m ? 22 : 40, fontWeight:700, color:S.text, letterSpacing:'-0.03em', lineHeight:1.22, marginBottom: m ? 28 : 40, fontStyle:'italic' }}>
+            &ldquo;{q.quote}&rdquo;
+          </p>
+          <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between' }}>
+            <div style={{ display:'flex', alignItems:'center', gap:14 }}>
+              <div style={{ width:44, height:44, borderRadius:99, background:`linear-gradient(135deg,${S.green},${S.greenV})`, display:'flex', alignItems:'center', justifyContent:'center', color:'#fff', fontWeight:700, fontSize:14, flexShrink:0 }}>
                 {q.name.split(' ').map(w=>w[0]).join('')}
               </div>
-              <div style={{ fontSize:16, fontWeight:600, color:C.text }}>{q.name}</div>
-              <div style={{ fontSize:13, color:C.muted, marginTop:4 }}>{q.title}</div>
+              <div>
+                <div style={{ fontSize:14, fontWeight:700, color:S.text }}>{q.name}</div>
+                <div style={{ fontSize:12, color:S.muted }}>{q.place}</div>
+              </div>
+            </div>
+            <div style={{ display:'flex', gap:10 }}>
+              <button onClick={()=>go(-1)} style={{ width:44, height:44, borderRadius:99, border:`1px solid ${S.border2}`, background:'transparent', color:S.text, fontSize:18, cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center' }}>←</button>
+              <button onClick={()=>go(1)} style={{ width:44, height:44, borderRadius:99, border:`1px solid ${S.border2}`, background:'transparent', color:S.text, fontSize:18, cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center' }}>→</button>
             </div>
           </div>
         </div>
@@ -645,48 +633,40 @@ function QuoteCarousel({ m }: { m: boolean }) {
   );
 }
 
-/* ══════════════════════════════════════════════
-   9. LOYALTY — dark forest green
-   Sunday: "Guest platform NEW · From first visit to forever fan."
-   ══════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════
+   9. LOYALTY / GUEST PLATFORM — Sunday: dark green full-bleed
+   ══════════════════════════════════════════════════════ */
 function Loyalty({ m }: { m: boolean }) {
   const ref = useReveal();
   return (
-    <section id="h360-loyalty" style={{ background:C.green, padding: m ? '80px 24px' : '104px 40px', borderTop:`1px solid rgba(255,255,255,0.06)` }}>
-      <div ref={ref} className="h3reveal" style={{ maxWidth:1040, margin:'0 auto', display: m ? 'flex' : 'grid', flexDirection: m ? 'column' : undefined, gridTemplateColumns:'1fr 1fr', gap:60, alignItems:'center' }}>
-        <div>
-          <div style={{ display:'inline-flex', alignItems:'center', gap:6, padding:'5px 12px', borderRadius:99, background:'rgba(255,255,255,0.10)', marginBottom:22 }}>
-            <span style={{ fontSize:11, fontWeight:700, color:C.greenL, letterSpacing:'0.09em' }}>GUEST PLATFORM</span>
-            <span style={{ fontSize:10, fontWeight:700, color:'#fff', background:'rgba(255,255,255,0.2)', padding:'2px 7px', borderRadius:99 }}>NEW</span>
+    <section style={{ background:'#0a1f10', borderTop:`1px solid rgba(255,255,255,0.05)` }}>
+      <div style={{ maxWidth:1200, margin:'0 auto', padding: m ? '80px 24px' : '120px 80px', display: m ? 'flex' : 'grid', flexDirection: m ? 'column' : undefined, gridTemplateColumns:'1fr 1fr', gap: m ? 48 : 80, alignItems:'center' }}>
+        <div ref={ref} className="sdrev">
+          <div style={{ display:'inline-flex', padding:'4px 12px', borderRadius:99, background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.1)', marginBottom:24, gap:8, alignItems:'center' }}>
+            <span style={{ fontSize:10, fontWeight:700, color:'rgba(255,255,255,0.5)', letterSpacing:'0.1em' }}>GUEST PLATFORM</span>
+            <span style={{ fontSize:10, fontWeight:700, color:'#4ade80', background:'rgba(74,222,128,0.15)', padding:'1px 7px', borderRadius:99 }}>NEW</span>
           </div>
-          <h2 style={{ fontSize: m?30:52, fontWeight:800, letterSpacing:'-0.042em', color:'#fff', marginBottom:16, lineHeight:1.06 }}>
+          <h2 style={{ fontSize: m ? 32 : 52, fontWeight:800, letterSpacing:'-0.042em', color:'#ffffff', lineHeight:1.1, marginBottom:18 }}>
             From first visit<br/>to forever fan.
           </h2>
-          <p style={{ fontSize: m?15:18, color:C.greenL, lineHeight:1.65, marginBottom:34, maxWidth:440 }}>
+          <p style={{ fontSize: m ? 15 : 18, color:'rgba(255,255,255,0.55)', lineHeight:1.7, marginBottom:36, maxWidth:480 }}>
             With H360, ARC AI learns what your guests love — recommending the right dish, the right offer, the right moment. Guests order, pay, and come back. A virtuous circle of loyalty and revenue.
           </p>
-          <a href="/h360/demo" style={{ display:'inline-block', padding:'13px 30px', background:'#ffffff', color:C.green, borderRadius:99, fontSize:15, fontWeight:700, cursor:'pointer', textDecoration:'none', letterSpacing:'-0.01em', transition:'opacity 0.15s' }}
-            onMouseEnter={e=>e.currentTarget.style.opacity='0.9'}
-            onMouseLeave={e=>e.currentTarget.style.opacity='1'}
-            data-testid="button-h360-loyalty-cta">
+          <a href="/h360/demo" style={{ display:'inline-flex', alignItems:'center', gap:8, padding:'13px 28px', background:'#ffffff', color:'#0a1f10', borderRadius:99, fontSize:15, fontWeight:700, letterSpacing:'-0.01em', textDecoration:'none', cursor:'pointer' }}>
             Discover
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
-        <div className="h3reveal d1" style={{ background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.10)', borderRadius:20, padding:28 }}>
-          <div style={{ fontSize:11, fontWeight:700, color:C.greenL, marginBottom:22, letterSpacing:'0.06em' }}>ARC AI GUEST LOOP</div>
+        <div className="sdrev d1" style={{ display:'flex', flexDirection:'column', gap:16 }}>
           {[
-            {n:'01',t:'First visit detected',  s:'ARC AI profiles the guest from their first scan'},
-            {n:'02',t:'Preference learned',    s:'Dish preferences, visit frequency, spend patterns'},
-            {n:'03',t:'Perfect offer sent',    s:'WhatsApp or email — right dish, right moment'},
-            {n:'04',t:'Guest returns',         s:'Every visit deepens the loyalty loop'},
-          ].map((step,i)=>(
-            <div key={i} style={{ display:'flex', gap:14, alignItems:'flex-start', marginBottom:i<3?22:0, position:'relative' }}>
-              <div style={{ width:32, height:32, borderRadius:99, background:'rgba(255,255,255,0.10)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:11, fontWeight:700, color:'#fff' }}>{step.n}</div>
-              {i<3&&<div style={{ position:'absolute', left:15, top:32, width:2, height:22, background:'rgba(255,255,255,0.10)' }}/>}
-              <div>
-                <div style={{ fontSize:14, fontWeight:600, color:'#ffffff' }}>{step.t}</div>
-                <div style={{ fontSize:12, color:C.greenL, marginTop:2 }}>{step.s}</div>
-              </div>
+            { label:'Repeat visit rate', val:'+68%', color:'#4ade80' },
+            { label:'Avg spend per guest', val:'+22%', color:'#4ade80' },
+            { label:'WhatsApp open rate', val:'94%', color:'#facc15' },
+            { label:'Churn reduction', val:'-41%', color:'#4ade80' },
+          ].map((stat,i)=>(
+            <div key={i} style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'18px 24px', borderRadius:14, background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.07)' }}>
+              <span style={{ fontSize:14, color:'rgba(255,255,255,0.6)' }}>{stat.label}</span>
+              <span style={{ fontSize:22, fontWeight:800, color:stat.color, letterSpacing:'-0.03em' }}>{stat.val}</span>
             </div>
           ))}
         </div>
@@ -695,22 +675,23 @@ function Loyalty({ m }: { m: boolean }) {
   );
 }
 
-/* ══════════════════════════════════════════════
-   10. SUPPORT STRIP
-   ══════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════
+   10. SUPPORT STRIP — Sunday: 3 support pillars
+   ══════════════════════════════════════════════════════ */
 function SupportStrip({ m }: { m: boolean }) {
   const ref = useReveal();
   return (
-    <section style={{ background:C.bg, borderTop:`1px solid ${C.border}`, borderBottom:`1px solid ${C.border}`, padding: m ? '44px 24px' : '60px 40px' }}>
-      <div ref={ref} className="h3reveal" style={{ maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3,1fr)', gap: m ? 28 : 0 }}>
+    <section style={{ background: S.bg, borderTop:`1px solid ${S.border}`, padding: m ? '64px 24px' : '88px 80px' }}>
+      <div ref={ref} className="sdrev" style={{ maxWidth:1200, margin:'0 auto', display:'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3,1fr)', gap: m ? 36 : 48 }}>
         {[
-          {val:'24/7',   lab:'Local Malta support'},
-          {val:'3 days', lab:'To go live and start earning direct'},
-          {val:'100%',   lab:'Direct-order coverage from day one'},
-        ].map((s,i)=>(
-          <div key={i} className={`h3reveal d${i+1}`} style={{ display:'flex', alignItems:'center', gap:16, padding: m ? 0 : '0 32px', borderRight: !m && i<2 ? `1px solid ${C.border}` : 'none' }}>
-            <div style={{ fontSize: m?38:48, fontWeight:800, color:C.text, letterSpacing:'-0.045em', lineHeight:1, flexShrink:0 }}>{s.val}</div>
-            <div style={{ fontSize:14, color:C.muted, lineHeight:1.4 }}>{s.lab}</div>
+          { icon:'⚡', label:'24-Hour Setup', body:'We set up your H360 account, configure your menu, and train your team — all within 24 hours of signing.' },
+          { icon:'🛡', label:'Malta-Local Support', body:'Dedicated Malta-based support team available 7 days a week. No ticket queues, no overseas call centres.' },
+          { icon:'📈', label:'Guaranteed Results', body:'If you don\'t see measurable revenue growth within 90 days, we refund your entire setup fee. No questions.' },
+        ].map((item,i)=>(
+          <div key={i} className={`sdrev d${i+1}`} style={{ display:'flex', flexDirection:'column', gap:14 }}>
+            <span style={{ fontSize:32 }}>{item.icon}</span>
+            <div style={{ fontSize: m ? 18 : 20, fontWeight:800, color:S.text, letterSpacing:'-0.03em' }}>{item.label}</div>
+            <p style={{ fontSize:14, color:S.muted, lineHeight:1.65, margin:0 }}>{item.body}</p>
           </div>
         ))}
       </div>
@@ -718,34 +699,37 @@ function SupportStrip({ m }: { m: boolean }) {
   );
 }
 
-/* ══════════════════════════════════════════════
-   11. FINAL CTA — Sunday: "Try sunday for free!"
-   ══════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════
+   11. FINAL CTA — Sunday: dark, centred, email pill
+   ══════════════════════════════════════════════════════ */
 function FinalCTA({ m }: { m: boolean }) {
   const ref = useReveal();
   return (
-    <section id="h360-cta" style={{ background:C.bg, padding: m ? '80px 24px 104px' : '104px 40px 128px' }}>
-      <div ref={ref} className="h3reveal" style={{ maxWidth:620, margin:'0 auto', textAlign:'center' }}>
-        <h2 style={{ fontSize: m?30:56, fontWeight:800, letterSpacing:'-0.042em', color:C.text, marginBottom:14, lineHeight:1.04 }}>
+    <section style={{ background: S.bg, borderTop:`1px solid ${S.border}`, padding: m ? '88px 24px 120px' : '120px 80px 160px' }}>
+      <div ref={ref} className="sdrev" style={{ maxWidth:720, margin:'0 auto', textAlign:'center' }}>
+        <h2 style={{ fontSize: m ? 36 : 64, fontWeight:800, letterSpacing:'-0.045em', color:S.text, lineHeight:1.06, marginBottom:18 }}>
           Save your revenue.<br/>Start today.
         </h2>
-        <p style={{ fontSize: m?15:18, color:C.muted, marginBottom:38, lineHeight:1.6 }}>
+        <p style={{ fontSize: m ? 16 : 19, color:S.muted, lineHeight:1.65, marginBottom:40, maxWidth:480, margin:'0 auto 40px' }}>
           An ARC AI expert will reach out to you today. Ready to grow with H360?
         </p>
-        <div style={{ background:C.card, border:`1.5px solid ${C.border}`, borderRadius:14, padding:'6px 6px 6px 20px', display:'flex', alignItems:'center', gap:8, maxWidth:480, margin:'0 auto', boxShadow:'0 4px 60px rgba(0,0,0,0.5)' }}>
-          <input type="text" placeholder="Your restaurant name"
-            style={{ flex:1, border:'none', outline:'none', fontSize:15, color:C.text, background:'transparent', fontFamily:'inherit' }}
-            data-testid="input-h360-final-cta"/>
-          <a href="/h360/demo" style={{ padding:'12px 20px', background:'#ffffff', color:'#000', borderRadius:10, fontSize:14, fontWeight:700, cursor:'pointer', whiteSpace:'nowrap', textDecoration:'none', display:'inline-block', letterSpacing:'-0.01em', transition:'opacity 0.15s' }}
-            onMouseEnter={e=>e.currentTarget.style.opacity='0.88'}
-            onMouseLeave={e=>e.currentTarget.style.opacity='1'}
-            data-testid="button-h360-final-cta">
+        <div style={{ display:'flex', alignItems:'center', background:'#111', border:`1.5px solid ${S.border2}`, borderRadius:14, padding:'6px 6px 6px 18px', maxWidth:480, margin:'0 auto 16px', boxShadow:'0 0 0 1px rgba(255,255,255,0.04)' }}>
+          <input
+            type="text"
+            placeholder="Your restaurant name"
+            style={{ flex:1, border:'none', outline:'none', fontSize:15, color:S.text, background:'transparent', fontFamily:'inherit' }}
+            data-testid="input-h360-cta-search"
+          />
+          <a href="/h360/demo"
+            style={{ padding:'11px 22px', background:S.text, color:S.bg, borderRadius:10, fontSize:14, fontWeight:700, cursor:'pointer', whiteSpace:'nowrap', display:'inline-block', letterSpacing:'-0.01em', textDecoration:'none' }}
+            data-testid="button-h360-cta"
+          >
             Get a free demo
           </a>
         </div>
-        <div style={{ display:'flex', alignItems:'center', justifyContent:'center', gap:6, marginTop:14, fontSize:12, color:C.dim }}>
-          <div style={{ width:16, height:16, borderRadius:4, background:'#fff', display:'flex', alignItems:'center', justifyContent:'center' }}>
-            <span style={{ color:'#000', fontSize:8, fontWeight:800 }}>A</span>
+        <div style={{ display:'flex', alignItems:'center', justifyContent:'center', gap:6, fontSize:12, color:S.dim }}>
+          <div style={{ width:14, height:14, borderRadius:3, background:'rgba(255,255,255,0.15)', display:'flex', alignItems:'center', justifyContent:'center' }}>
+            <span style={{ color:'#fff', fontSize:7, fontWeight:800 }}>A</span>
           </div>
           Powered by ARC AI · No commitment needed
         </div>
@@ -754,25 +738,25 @@ function FinalCTA({ m }: { m: boolean }) {
   );
 }
 
-/* ══════════════════════════════════════════════
-   ROOT
-   ══════════════════════════════════════════════ */
-export default function H360BelowHero() {
-  const m = useIsMobile();
+/* ══════════════════════════════════════════════════════
+   ROOT EXPORT
+   ══════════════════════════════════════════════════════ */
+export default function BelowHero() {
+  const m = useMobile();
   return (
-    <div style={{ fontFamily:'"Inter",system-ui,-apple-system,Arial,sans-serif', background:C.bg, color:C.text, overflowX:'hidden' }}>
-      <style>{ANIM_CSS}</style>
-      <Stats              m={m} />
-      <Problem            m={m} />
-      <ProductCards       m={m} />
-      <TrustLogos         m={m} />
-      <InlineTestimonials m={m} />
-      <ValueCards         m={m} />
-      <Ecosystem          m={m} />
-      <QuoteCarousel      m={m} />
-      <Loyalty            m={m} />
-      <SupportStrip       m={m} />
-      <FinalCTA           m={m} />
+    <div style={{ fontFamily:'"Inter",system-ui,-apple-system,Arial,sans-serif', background: S.bg, color: S.text }}>
+      <style>{CSS}</style>
+      <Stats        m={m} />
+      <Problem      m={m} />
+      <ProductRail  m={m} />
+      <TrustMarquee m={m} />
+      <Testimonials m={m} />
+      <ValueSection m={m} />
+      <Ecosystem    m={m} />
+      <QuoteCarousel m={m} />
+      <Loyalty      m={m} />
+      <SupportStrip m={m} />
+      <FinalCTA     m={m} />
     </div>
   );
 }
