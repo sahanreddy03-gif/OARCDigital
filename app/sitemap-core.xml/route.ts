@@ -28,6 +28,8 @@ export function coreSourcePath(c: CoreEntry): string {
 export const CORE: CoreEntry[] = [
   { path: "/", priority: 1.0, changefreq: "weekly", source: "app/page.tsx" },
   { path: "/h360", priority: 0.9, changefreq: "weekly" },
+  { path: "/h360/restaurant-marketing-malta", priority: 0.85, changefreq: "weekly" },
+  { path: "/h360/demo", priority: 0.85, changefreq: "monthly" },
   { path: "/services", priority: 0.9, changefreq: "weekly" },
   { path: "/our-work", priority: 0.9, changefreq: "weekly" },
   { path: "/contact", priority: 0.9, changefreq: "monthly" },

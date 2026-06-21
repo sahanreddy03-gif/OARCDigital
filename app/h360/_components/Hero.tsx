@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import H360Nav from './H360Nav';
 
 const G = {
   bg:        '#ffffff',
@@ -321,35 +322,7 @@ export default function H360Hero() {
   return (
     <div style={{ fontFamily:'"Inter",system-ui,-apple-system,Arial,sans-serif', background:G.bg, color:G.text, overflowX:'hidden' }}>
 
-      {/* ── NAV ── */}
-      <nav style={{
-        position:'sticky', top:0, zIndex:100,
-        background:G.bg, borderBottom:`1px solid ${G.border}`,
-        padding: isMobile ? '0 18px' : '0 40px',
-        height:56, display:'flex', alignItems:'center', justifyContent:'space-between',
-      }}>
-        <div style={{ display:'flex', alignItems:'center', gap:8 }}>
-          <div style={{ width:28, height:28, borderRadius:7, background:G.green, display:'flex', alignItems:'center', justifyContent:'center' }}>
-            <span style={{ color:'#fff', fontSize:11, fontWeight:900, letterSpacing:'-0.05em' }}>H3</span>
-          </div>
-          <span style={{ fontSize:16, fontWeight:800, letterSpacing:'-0.04em', color:G.text }}>H360</span>
-        </div>
-
-        {!isMobile && (
-          <div style={{ display:'flex', gap:28, fontSize:14, fontWeight:500, color:G.textMuted }}>
-            {[['Product','#h360-products'],['Pricing','/h360/pricing'],['How it works','#h360-how-it-works'],['Company','/about']].map(([l,h])=>(
-              <a key={l} href={h} style={{ cursor:'pointer', color:'inherit', textDecoration:'none' }}>{l}</a>
-            ))}
-          </div>
-        )}
-
-        <div style={{ display:'flex', alignItems:'center', gap: isMobile ? 8 : 12 }}>
-          {!isMobile && <a href="/h360/demo" style={{ fontSize:14, fontWeight:500, color:G.text, textDecoration:'none' }}>Login</a>}
-          <a href="/h360/demo" style={{ padding: isMobile ? '8px 14px' : '8px 18px', background:G.text, color:'#fff', borderRadius:99, fontSize:13, fontWeight:600, cursor:'pointer', letterSpacing:'-0.01em', whiteSpace:'nowrap', textDecoration:'none' }} data-testid="button-h360-nav-demo">
-            Get a free demo
-          </a>
-        </div>
-      </nav>
+      <H360Nav />
 
       {/* ── HERO — 290vh desktop / content-height mobile (no trailing white) ── */}
       <div ref={heroRef} style={{ minHeight: isMobile ? 'calc(100vh + 50px)' : '290vh' }}>

@@ -5,7 +5,7 @@ import H360BelowHero from './_components/BelowHero';
 
 const TITLE = 'H360 — Restaurant Marketing, Reviews & Direct Orders | Malta';
 const DESCRIPTION =
-  'H360 by OARC Digital helps Malta restaurants stop paying Wolt 30%, rank #1 on Google, fill tables every night, and own every repeat guest — powered by ARC AI.';
+  'H360 helps Malta restaurants stop paying Wolt 30%, rank #1 on Google, fill tables every night, and own every repeat guest — powered by ARC AI.';
 const URL = 'https://oarcdigital.com/h360';
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: URL,
     title: TITLE,
     description: DESCRIPTION,
-    siteName: 'OARC Digital · H360',
+    siteName: 'H360',
     images: [{ url: 'https://oarcdigital.com/og-h360.jpg', width: 1200, height: 630, alt: 'H360 — Restaurant Growth Platform Malta' }],
   },
   twitter: {
@@ -65,7 +65,7 @@ const jsonLd = {
           name: 'How can a restaurant in Malta stop losing money to Wolt and Bolt?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'H360 by OARC Digital replaces delivery-app dependency with direct QR ordering — guests order and pay at the table with zero commission, keeping the full margin for the restaurant. The platform also builds a direct guest database so repeat customers re-order through WhatsApp or email rather than third-party apps.',
+            text: 'H360 replaces delivery-app dependency with direct QR ordering — guests order and pay at the table with zero commission, keeping the full margin for the restaurant. The platform also builds a direct guest database so repeat customers re-order through WhatsApp or email rather than third-party apps.',
           },
         },
         {
@@ -81,7 +81,7 @@ const jsonLd = {
           name: 'Who does restaurant marketing in Malta?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'OARC Digital — through its H360 hospitality platform — is Malta\'s specialist in restaurant marketing, Google visibility, direct ordering, and guest loyalty. Unlike generic agencies, OARC operates real Maltese venues and diagnoses the exact reason a restaurant is invisible before fixing it.',
+            text: 'H360 is Malta\'s specialist platform for restaurant marketing, Google visibility, direct ordering, and guest loyalty. Built by operators who run real Maltese venues — we diagnose the exact reason a restaurant is invisible before fixing it.',
           },
         },
       ],
