@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { G, FONT_LIGHT } from './tokens';
-import { H360_HOME, H360_NAV_LINKS } from './h360Site';
+import { H360_AUDIT, H360_HOME, H360_NAV_LINKS } from './h360Site';
 
 export default function H360Nav() {
   const [isMobile, setMobile] = useState(false);
@@ -59,13 +59,8 @@ export default function H360Nav() {
       )}
 
       <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? 8 : 12 }}>
-        {!isMobile && (
-          <Link href="/h360/demo" style={{ fontSize: 14, fontWeight: 500, color: G.text, textDecoration: 'none' }}>
-            Login
-          </Link>
-        )}
         <Link
-          href="/h360/demo"
+          href={H360_AUDIT}
           style={{
             padding: isMobile ? '8px 14px' : '8px 18px',
             background: G.text,

@@ -73,6 +73,12 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      { source: '/h360/restaurant-marketing-malta', destination: '/h360', permanent: true },
+      { source: '/h360/demo', destination: '/h360#h360-audit', permanent: true },
+    ];
+  },
   async headers() {
     const immutableCache = [
       { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },

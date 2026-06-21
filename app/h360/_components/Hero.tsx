@@ -328,10 +328,11 @@ export default function H360Hero() {
       <div ref={heroRef} style={{ minHeight: isMobile ? 'calc(100vh + 50px)' : '290vh' }}>
 
         {/* Text block — compact, no description, no wasted space */}
-        <div style={{
+        <div id="h360-audit" style={{
           padding: isMobile ? '24px 20px 0' : '40px 40px 0',
           textAlign: isMobile ? 'left' : 'center',
           background: G.bg,
+          scrollMarginTop: 72,
         }}>
           {/* Stars */}
           <div style={{ display:'flex', alignItems:'center', gap:6, marginBottom:12, justifyContent: isMobile ? 'flex-start' : 'center', fontSize:12, color:G.textMuted }}>
@@ -366,7 +367,7 @@ export default function H360Hero() {
               <div style={{ display:'inline-flex', alignItems:'center', background:G.bg, border:`1.5px solid ${G.border}`, borderRadius:14, padding:'6px 6px 6px 16px', boxShadow:'0 2px 20px rgba(0,0,0,0.07)', gap:8, width:'100%', maxWidth:460 }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={G.textMuted} strokeWidth="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
                 <input type="text" placeholder="Find your restaurant name" style={{ flex:1, border:'none', outline:'none', fontSize:15, color:G.text, background:'transparent', fontFamily:'inherit' }} data-testid="input-h360-hero-search"/>
-                <a href="/h360/demo" style={{ padding:'9px 16px', background:G.green, color:'#f0f9f4', borderRadius:10, fontSize:14, fontWeight:600, whiteSpace:'nowrap', display:'flex', alignItems:'center', gap:5, letterSpacing:'-0.01em', textDecoration:'none' }} data-testid="button-h360-hero-cta">
+                <a href="/h360#h360-audit" style={{ padding:'9px 16px', background:G.green, color:'#f0f9f4', borderRadius:10, fontSize:14, fontWeight:600, whiteSpace:'nowrap', display:'flex', alignItems:'center', gap:5, letterSpacing:'-0.01em', textDecoration:'none' }} data-testid="button-h360-hero-cta">
                   Get my AI report
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
                 </a>
@@ -406,7 +407,7 @@ export default function H360Hero() {
         }}>
           <div style={{ display:'flex', alignItems:'center', gap:8 }}>
             <input type="text" placeholder="Find your restaurant name" style={{ flex:1, border:`1.5px solid ${G.border}`, borderRadius:10, padding:'10px 13px', fontSize:14, color:G.text, background:G.bg, fontFamily:'inherit', outline:'none' }} data-testid="input-h360-mobile-search"/>
-            <a href="/h360/demo" style={{ width:44, height:44, borderRadius:10, background:G.green, display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, textDecoration:'none' }} data-testid="button-h360-mobile-cta">
+            <a href="/h360#h360-audit" style={{ width:44, height:44, borderRadius:10, background:G.green, display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, textDecoration:'none' }} data-testid="button-h360-mobile-cta">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
             </a>
           </div>

@@ -532,10 +532,10 @@ function Ecosystem({ m }: { m: boolean }) {
           </h2>
         </div>
         <div style={{ display:'flex', flexDirection: m?'column':'row', gap:12 }}>
-          <EcoCard title="Built for your ecosystem." sub="Connects instantly with your POS, CRM, booking and loyalty tools — everything works together, automatically." href="/h360/demo">
+          <EcoCard title="Built for your ecosystem." sub="Connects instantly with your POS, CRM, booking and loyalty tools — everything works together, automatically." href="/h360#h360-products">
             <HubSpoke/>
           </EcoCard>
-          <EcoCard title="Your business, one clear view." sub="Real-time data across every venue. See what drives revenue, what kills table turns, and where guests drop off." href="/h360/demo">
+          <EcoCard title="Your business, one clear view." sub="Real-time data across every venue. See what drives revenue, what kills table turns, and where guests drop off." href="/h360#h360-audit">
             <RevenueChart/>
           </EcoCard>
         </div>
@@ -684,7 +684,7 @@ function GuestPlatform({ m }: { m: boolean }) {
           <p style={{ fontSize: m?15:18, color:'rgba(255,255,255,0.5)', lineHeight:1.7, marginBottom:32, maxWidth:440 }}>
             With H360, ARC AI learns what your guests love — recommending the right dish, the right offer, the right moment. Guests come back. Every time.
           </p>
-          <a href="/h360/demo" style={{ display:'inline-flex', alignItems:'center', gap:8, padding:'12px 28px', background:'#fff', color:'#08140a', borderRadius:64, fontSize:15, fontWeight:700, textDecoration:'none' }}>
+          <a href="/h360#h360-audit" style={{ display:'inline-flex', alignItems:'center', gap:8, padding:'12px 28px', background:'#fff', color:'#08140a', borderRadius:64, fontSize:15, fontWeight:700, textDecoration:'none' }}>
             Discover
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -726,7 +726,7 @@ function FinalCTA({ m }: { m: boolean }) {
         </p>
         <div style={{ display:'flex', alignItems:'center', background:C.card2, border:`1px solid ${C.border}`, borderRadius:14, padding:'6px 6px 6px 18px', maxWidth:440, margin:'0 auto 14px' }}>
           <input type="text" placeholder="Your restaurant name" style={{ flex:1, border:'none', outline:'none', fontSize:15, color:C.white, background:'transparent', fontFamily:FONT }} data-testid="input-h360-cta"/>
-          <a href="/h360/demo" style={{ padding:'12px 22px', background:C.white, color:'#000', borderRadius:10, fontSize:14, fontWeight:700, textDecoration:'none', whiteSpace:'nowrap' }} data-testid="button-h360-cta">
+          <a href="/h360#h360-audit" style={{ padding:'12px 22px', background:C.white, color:'#000', borderRadius:10, fontSize:14, fontWeight:700, textDecoration:'none', whiteSpace:'nowrap' }} data-testid="button-h360-cta">
             Get a free demo
           </a>
         </div>
