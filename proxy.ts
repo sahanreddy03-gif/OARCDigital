@@ -51,7 +51,7 @@ function noindexResponse(): NextResponse {
   return res;
 }
 
-export function middleware(req: NextRequest): NextResponse | undefined {
+export function proxy(req: NextRequest): NextResponse | undefined {
   const { pathname } = req.nextUrl;
 
   if (HARD_410_PATHS.has(pathname)) return gone();
