@@ -123,7 +123,7 @@ function Stats({ m }: { m: boolean }) {
 function Problem({ m }: { m: boolean }) {
   const hRef = useReveal(); const pRef = useReveal();
   return (
-    <section style={{ background: C.bg, padding: m ? '72px 24px' : '112px 80px' }}>
+    <section id="h360-how-it-works" style={{ background: C.bg, padding: m ? '72px 24px' : '112px 80px', scrollMarginTop: 72 }}>
       <div style={{ maxWidth: 1160, margin: '0 auto', fontFamily: FONT }}>
         <h2 ref={hRef} className="sdr" style={{
           fontSize: m ? 32 : 56, fontWeight: 800, color: C.white,

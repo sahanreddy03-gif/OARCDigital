@@ -5,5 +5,5 @@ export const H360_NAV_LINKS: ReadonlyArray<{ label: string; href: string }> = [
   { label: 'Product', href: '/h360#h360-products' },
   { label: 'Marketing', href: '/h360/restaurant-marketing-malta' },
   { label: 'How it works', href: '/h360#h360-how-it-works' },
-  { label: 'Pricing', href: '/h360/pricing' },
+  { label: 'Demo', href: '/h360/demo' },
 ];

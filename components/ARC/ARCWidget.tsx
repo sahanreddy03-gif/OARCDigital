@@ -89,7 +89,9 @@ export function ARCWidget() {
   // On Contact page the floating launcher is hidden (the page has its own
   // "Launch AI Strategist" CTA which dispatches `arc:open`), but the chat
   // panel still mounts when triggered.
-  const hideFloatingButton = location === '/contact';
+  // H360 is its own site — no OARC floating launcher on /h360/*
+  const isH360 = location.startsWith('/h360');
+  const hideFloatingButton = location === '/contact' || isH360;
 
   return (
     <>
