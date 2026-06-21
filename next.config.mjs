@@ -89,17 +89,6 @@ const nextConfig = {
       },
     ];
   },
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...(config.resolve.alias || {}),
-      '@shared': path.resolve(__dirname, 'shared'),
-      '@/assets': path.resolve(__dirname, 'lib/assets'),
-      '@/config': path.resolve(__dirname, 'lib/config'),
-      '@/data': path.resolve(__dirname, 'lib/data'),
-      '@/hooks': path.resolve(__dirname, 'lib/hooks'),
-    };
-    return config;
-  },
 };
 
 export default withBundleAnalyzer(nextConfig);

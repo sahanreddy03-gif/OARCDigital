@@ -11,7 +11,7 @@
     "check": "tsc",
     "db:push": "drizzle-kit push",
     "assets:optimize": "node scripts/optimize-assets.mjs",
-    "analyze": "ANALYZE=true next build",
+    "analyze": "ANALYZE=true next build --turbopack",
     "prepare": "husky",
     "gate": "bash scripts/seo-gate.sh gate",
     "gate:fast": "bash scripts/seo-gate.sh gate:fast",
