@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { PRODUCT_CARDS } from './product-cards/productCardsData';
 import ProductCardShell from './product-cards/ProductCardShell';
 
@@ -8,6 +8,7 @@ const WHITE = '#ffffff';
 const DARK = '#111111';
 const MUTED = '#777777';
 const BORDER = '#e5e7eb';
+const ACTIVE_BG = 'rgba(9, 68, 19, 0.07)';
 const FONT = '"Inter",system-ui,-apple-system,Arial,sans-serif';
 const INTERVAL = 5200;
 const COUNT = PRODUCT_CARDS.length;
@@ -23,7 +24,9 @@ export default function H360FeatureCards() {
   const [progKey, setProgKey] = useState(0);
   const [isMobile, setMobile] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const tabScrollRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const syncingRef = useRef(false);
 
   useEffect(() => {
     const fn = () => setMobile(window.innerWidth < 768);
@@ -41,32 +44,64 @@ export default function H360FeatureCards() {
     };
   }, [active, isMobile]);
 
-  const scrollTo = (idx: number) => {
-    const el = scrollRef.current?.children[idx] as HTMLElement | undefined;
-    el?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+  const scrollCardTo = useCallback((idx: number) => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const card = container.children[idx] as HTMLElement | undefined;
+    if (!card) return;
+    syncingRef.current = true;
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     setActive(idx);
-  };
+    window.setTimeout(() => {
+      syncingRef.current = false;
+    }, 400);
+  }, []);
 
+  /** Mobile: keep tab row in sync when user swipes cards */
   useEffect(() => {
     if (!isMobile) return;
     const container = scrollRef.current;
     if (!container) return;
-    const obs = Array.from(container.children).map((card, i) => {
-      const ob = new IntersectionObserver(
-        ([e]) => {
-          if (e.isIntersecting && e.intersectionRatio >= 0.5) setActive(i);
-        },
-        { root: container, threshold: 0.5 },
-      );
-      ob.observe(card as Element);
-      return ob;
-    });
-    return () => obs.forEach((ob) => ob.disconnect());
+
+    const syncActiveFromScroll = () => {
+      if (syncingRef.current) return;
+      const cards = Array.from(container.children).slice(0, COUNT) as HTMLElement[];
+      if (!cards.length) return;
+
+      const center = container.scrollLeft + container.clientWidth / 2;
+      let best = 0;
+      let bestDist = Infinity;
+
+      cards.forEach((card, i) => {
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        const dist = Math.abs(center - cardCenter);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      });
+
+      setActive((prev) => (prev === best ? prev : best));
+    };
+
+    container.addEventListener('scroll', syncActiveFromScroll, { passive: true });
+    syncActiveFromScroll();
+    return () => container.removeEventListener('scroll', syncActiveFromScroll);
   }, [isMobile]);
+
+  /** Mobile: scroll active tab into view + highlight follows card swipe */
+  useEffect(() => {
+    if (!isMobile) return;
+    const tabRow = tabScrollRef.current;
+    if (!tabRow) return;
+    const tab = tabRow.children[active] as HTMLElement | undefined;
+    tab?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }, [active, isMobile]);
 
   const handleTab = (i: number) => {
     if (timerRef.current) clearTimeout(timerRef.current);
-    setActive(i);
+    if (isMobile) scrollCardTo(i);
+    else setActive(i);
   };
 
   const activeCard = PRODUCT_CARDS[active];
@@ -96,48 +131,56 @@ export default function H360FeatureCards() {
         </p>
       </div>
 
-      {/* Tab row — scrollable product tabs */}
+      {/* Tab row — scrollable product tabs (syncs with card swipe on mobile) */}
       <div
+        ref={tabScrollRef}
         className="fc-scroll"
+        data-lenis-prevent
         style={{
           display: 'flex',
-          padding: isMobile ? '0 20px' : '0 64px',
+          padding: isMobile ? '0 16px' : '0 64px',
           borderBottom: `1px solid ${BORDER}`,
           marginBottom: isMobile ? 20 : 36,
           overflowX: 'auto',
           scrollbarWidth: 'none',
+          gap: isMobile ? 6 : 0,
         }}
       >
-        {PRODUCT_CARDS.map((card, i) => (
-          <button
-            key={card.id}
-            onClick={() => (isMobile ? scrollTo(i) : handleTab(i))}
-            style={{
-              padding: '12px 0',
-              marginRight: isMobile ? 18 : 24,
-              fontSize: isMobile ? 12 : 13,
-              fontWeight: active === i ? 700 : 400,
-              color: active === i ? DARK : MUTED,
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              fontFamily: FONT,
-              whiteSpace: 'nowrap',
-              borderBottom: active === i ? `2px solid ${DARK}` : '2px solid transparent',
-              position: 'relative',
-              flexShrink: 0,
-              transition: 'color 0.2s, border-color 0.2s',
-            }}
-            data-testid={`tab-feature-${i}`}
-          >
-            {card.tab}
-            {!isMobile && active === i && (
-              <div style={{ position: 'absolute', bottom: -1, left: 0, width: '100%', height: 2, background: '#e5e7eb', borderRadius: 1, overflow: 'hidden' }}>
-                <div key={progKey} className="fc-prog" />
-              </div>
-            )}
-          </button>
-        ))}
+        {PRODUCT_CARDS.map((card, i) => {
+          const isActive = active === i;
+          return (
+            <button
+              key={card.id}
+              onClick={() => handleTab(i)}
+              style={{
+                padding: isMobile ? '10px 14px' : '12px 0',
+                marginRight: isMobile ? 0 : 24,
+                fontSize: isMobile ? 12 : 13,
+                fontWeight: isActive ? 700 : 500,
+                color: isActive ? DARK : MUTED,
+                background: isMobile && isActive ? ACTIVE_BG : 'none',
+                border: 'none',
+                borderRadius: isMobile ? 8 : 0,
+                cursor: 'pointer',
+                fontFamily: FONT,
+                whiteSpace: 'nowrap',
+                borderBottom: !isMobile && isActive ? `2px solid ${DARK}` : !isMobile ? '2px solid transparent' : 'none',
+                boxShadow: isMobile && isActive ? 'inset 0 -2px 0 #094413' : 'none',
+                position: 'relative',
+                flexShrink: 0,
+                transition: 'color 0.2s, background 0.2s, box-shadow 0.2s',
+              }}
+              data-testid={`tab-feature-${i}`}
+            >
+              {card.tab}
+              {!isMobile && isActive && (
+                <div style={{ position: 'absolute', bottom: -1, left: 0, width: '100%', height: 2, background: '#e5e7eb', borderRadius: 1, overflow: 'hidden' }}>
+                  <div key={progKey} className="fc-prog" />
+                </div>
+              )}
+            </button>
+          );
+        })}
       </div>
 
       {isMobile ? (
@@ -159,17 +202,17 @@ export default function H360FeatureCards() {
             {PRODUCT_CARDS.map((card, i) => (
               <ProductCardShell key={card.id} data={card} mobile playing={active === i} />
             ))}
-            <div style={{ flexShrink: 0, width: 4 }} />
+            <div style={{ flexShrink: 0, width: 4 }} aria-hidden />
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginTop: 20, paddingBottom: 24 }}>
             <span style={{ fontSize: 12, color: MUTED, marginRight: 4 }}>
               {active + 1} / {COUNT}
             </span>
-            <button onClick={() => scrollTo(Math.max(0, active - 1))} disabled={active === 0} style={arrowSt(active === 0)}>
+            <button onClick={() => scrollCardTo(Math.max(0, active - 1))} disabled={active === 0} style={arrowSt(active === 0)}>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
             </button>
-            <button onClick={() => scrollTo(Math.min(COUNT - 1, active + 1))} disabled={active === COUNT - 1} style={arrowSt(active === COUNT - 1)}>
+            <button onClick={() => scrollCardTo(Math.min(COUNT - 1, active + 1))} disabled={active === COUNT - 1} style={arrowSt(active === COUNT - 1)}>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"/></svg>
             </button>
           </div>

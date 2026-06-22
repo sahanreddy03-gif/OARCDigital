@@ -52,9 +52,9 @@ export const PRODUCT_CARDS: ProductCardData[] = [
   },
   {
     id: 'google-reviews',
-    tab: 'Google Reviews',
+    tab: 'Smart Google Reviews',
     entry: 'Competitors have 200 reviews. You have 12.',
-    headline: 'Get more Google reviews — asked automatically.',
+    headline: 'We turn every customer into a good Google review — smart timing, personalised strategy, and smart automation.',
     result: '3× more reviews in 90 days',
     href: '/h360/get-more-google-reviews-restaurant-malta',
     live: false,
