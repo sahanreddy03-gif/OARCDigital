@@ -286,6 +286,16 @@ const VISUAL_MAP: Record<ProductVisualId, (p: VisualProps) => React.ReactNode> =
       ]}
     />
   ),
+  'venue-360': (p) => (
+    <StepFlowVisual
+      playing={p.playing}
+      steps={[
+        ['Digital menu', 'Guests scan, browse, order on phone'],
+        ['Kitchen', 'Orders hit the screen — even offline'],
+        ['Owner', 'Sales, tables, and reports — live'],
+      ]}
+    />
+  ),
   'maps-rank': (p) => <MapsRankVisual {...p} />,
   'seo-climb': (p) => <CounterVisual playing={p.playing} label="Google ranking" from={8} to={2} suffix="" />,
   'reviews-stars': (p) => <ReviewsStarsVisual {...p} />,
@@ -303,7 +313,7 @@ const VISUAL_MAP: Record<ProductVisualId, (p: VisualProps) => React.ReactNode> =
   'stock-alert': (p) => <StepFlowVisual playing={p.playing} steps={[['Closing check', '3 questions · 30 sec'], ['Mozzarella low', 'Order by Tuesday'], ['Never 86', 'Bestseller stays on']]} />,
   'staff-roster': (p) => <StepFlowVisual playing={p.playing} steps={[['Set tomorrow', '4 staff · WhatsApp'], ['They confirm', 'Yes / No in 1 tap'], ['Sick cover', 'Replacement in minutes']]} />,
   'floor-map': (p) => <StepFlowVisual playing={p.playing} steps={[['Table map', '15 tables live'], ['T7 turns red', 'Occupied 48 min'], ['Host seats', 'Next free: T3']]} />,
-  'social-feed': (p) => <StepFlowVisual playing={p.playing} steps={[['You send photos', 'Phone shots OK'], ['We edit + caption', 'Ready to post'], ['Instagram live', 'Reach grows weekly']]} />,
+  'social-feed': (p) => <StepFlowVisual playing={p.playing} steps={[['Video + photos', 'We shoot and edit'], ['Social posts', 'Instagram and Facebook'], ['Paid ads', 'More guests book tables']]} />,
   'decision-hub': (p) => <StepFlowVisual playing={p.playing} steps={[['All signals', 'Orders · reviews · stock'], ['ARC reads it', 'One dashboard'], ['You decide', 'What to fix first']]} />,
   'local-search': (p) => <MapsRankVisual {...p} />,
 };
