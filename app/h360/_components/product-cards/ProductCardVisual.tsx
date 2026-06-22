@@ -279,7 +279,7 @@ const VISUAL_MAP: Record<ProductVisualId, (p: VisualProps) => React.ReactNode> =
   'maps-rank': (p) => <MapsRankVisual {...p} />,
   'seo-climb': (p) => <CounterVisual playing={p.playing} label="Google ranking" from={8} to={2} suffix="" />,
   'reviews-stars': (p) => <ReviewsStarsVisual {...p} />,
-  'website-phone': (p) => <StepFlowVisual playing={p.playing} icon="ENTRY → SYSTEM → RESULT" steps={[['Menu live', 'Photos + hours on mobile'], ['Google indexes', 'Shows in search'], ['Guest books', 'Walks in tonight']] as const} />,
+  'website-phone': (p) => <StepFlowVisual playing={p.playing} steps={[['Menu live', 'Photos + hours on mobile'], ['Google indexes', 'Shows in search'], ['Guest books', 'Walks in tonight']] as const} />,
   'booking-calendar': (p) => <StepFlowVisual playing={p.playing} steps={[['Guest picks time', '7:30pm · party of 4'], ['Slot locks', 'No double booking'], ['You see list', '4 covers confirmed']] as const} />,
   'direct-order': (p) => <DirectOrderVisual {...p} />,
   'qr-pay': (p) => <StepFlowVisual playing={p.playing} steps={[['Scan table QR', 'Bill on phone'], ['Pay in 10 sec', 'No waiter wait'], ['Full margin', '€0 platform fee']]} />,
