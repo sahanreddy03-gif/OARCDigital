@@ -731,7 +731,8 @@ function FinalCTA({ m }: { m: boolean }) {
           </a>
         </div>
         <div style={{ fontSize:12, color:C.dim }}>
-          Powered by ARC AI · No commitment needed
+          <a href="https://oarcdigital.com" style={{ color:C.muted, textDecoration:'underline', textUnderlineOffset:3 }}>H360 by OARC Digital</a>
+          {' · '}Powered by ARC AI · No commitment needed
         </div>
       </div>
     </section>
