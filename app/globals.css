@@ -484,7 +484,7 @@
      ENHANCED SMOOTH SCROLL - Lenis-style
      ======================================== */
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
   }
 
   html.lenis,

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import type { ProductVisualId } from './productCardsData';
 
 const WHITE = '#ffffff';
@@ -43,7 +43,7 @@ function MapsRankVisual({ playing }: VisualProps) {
         <span style={{ fontSize: 12, color: '#aaa' }}>restaurants near me — Malta</span>
       </div>
       {rows.map((row, i) => (
-        <motion.div
+        <m.div
           key={row.r}
           initial={{ opacity: 0, x: -12 }}
           animate={playing && !reduce ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
@@ -58,9 +58,9 @@ function MapsRankVisual({ playing }: VisualProps) {
             <div style={{ fontSize: 11, color: '#bbb', marginTop: 1 }}>{row.sub}</div>
           </div>
           {row.hi && (
-            <motion.svg initial={{ scale: 0 }} animate={playing ? { scale: 1 } : {}} transition={{ delay: 1.1, type: 'spring' }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></motion.svg>
+            <m.svg initial={{ scale: 0 }} animate={playing ? { scale: 1 } : {}} transition={{ delay: 1.1, type: 'spring' }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></m.svg>
           )}
-        </motion.div>
+        </m.div>
       ))}
     </Sheet>
   );
@@ -79,7 +79,7 @@ function DirectOrderVisual({ playing }: VisualProps) {
         <span style={{ fontSize: 12, fontWeight: 700, color: DARK }}>Direct order — Table 7</span>
       </div>
       {items.map(([item, price, sel], i) => (
-        <motion.div
+        <m.div
           key={item}
           initial={{ opacity: 0, y: 8 }}
           animate={playing && !reduce ? { opacity: 1, y: 0 } : {}}
@@ -92,15 +92,15 @@ function DirectOrderVisual({ playing }: VisualProps) {
             <div style={{ fontSize: 11, color: '#aaa' }}>{price}</div>
           </div>
           {sel ? (
-            <motion.div animate={playing ? { scale: [1, 1.15, 1] } : {}} transition={{ delay: 1.2, duration: 0.4 }} style={{ width: 26, height: 26, borderRadius: 13, background: GREEN, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <m.div animate={playing ? { scale: [1, 1.15, 1] } : {}} transition={{ delay: 1.2, duration: 0.4 }} style={{ width: 26, height: 26, borderRadius: 13, background: GREEN, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            </motion.div>
+            </m.div>
           ) : (
             <div style={{ width: 26, height: 26, borderRadius: 13, border: `1px solid ${BORDER}` }} />
           )}
-        </motion.div>
+        </m.div>
       ))}
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={playing && !reduce ? { opacity: 1 } : {}}
         transition={{ delay: 1.4 }}
@@ -108,7 +108,7 @@ function DirectOrderVisual({ playing }: VisualProps) {
       >
         <span style={{ fontSize: 12, color: '#fff' }}>€0 commission · You keep all</span>
         <span style={{ fontSize: 12, fontWeight: 800, color: '#4ade80' }}>€74.45</span>
-      </motion.div>
+      </m.div>
     </Sheet>
   );
 }
@@ -120,15 +120,15 @@ function WhatsappFlowVisual({ playing }: VisualProps) {
   const steps = ['Sent: Welcome + special offer', 'Sent: Recommended dishes', 'Sent: Weekend special offer'];
   return (
     <div style={{ width: '100%', maxWidth: 300, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 5 }}>
-      <motion.div initial={{ opacity: 0, y: -8 }} animate={playing && !reduce ? { opacity: 1, y: 0 } : {}} style={{ background: w(0.92), borderRadius: 99, padding: '9px 20px', display: 'flex', alignItems: 'center', gap: 10 }}>
+      <m.div initial={{ opacity: 0, y: -8 }} animate={playing && !reduce ? { opacity: 1, y: 0 } : {}} style={{ background: w(0.92), borderRadius: 99, padding: '9px 20px', display: 'flex', alignItems: 'center', gap: 10 }}>
         <div style={{ width: 28, height: 28, borderRadius: 14, background: 'linear-gradient(135deg,#f97316,#ec4899)', flexShrink: 0 }} />
         <div>
           <div style={{ fontSize: 10, color: '#888' }}>New guest</div>
           <div style={{ fontSize: 13, fontWeight: 700, color: DARK }}>Maria Borg</div>
         </div>
-      </motion.div>
+      </m.div>
       {steps.map((s, i) => (
-        <motion.div
+        <m.div
           key={s}
           initial={{ opacity: 0, scale: 0.92 }}
           animate={playing && !reduce ? { opacity: 1, scale: 1 } : {}}
@@ -136,11 +136,11 @@ function WhatsappFlowVisual({ playing }: VisualProps) {
           style={{ background: w(0.13), border: `1px solid ${w(0.35)}`, borderRadius: 99, padding: '8px 16px', fontSize: 12, color: '#fff', textAlign: 'center', width: '100%' }}
         >
           {s}
-        </motion.div>
+        </m.div>
       ))}
-      <motion.div initial={{ opacity: 0 }} animate={playing && !reduce ? { opacity: 1 } : {}} transition={{ delay: 2.2 }} style={{ fontSize: 12, color: '#fff', fontWeight: 700, marginTop: 4 }}>
+      <m.div initial={{ opacity: 0 }} animate={playing && !reduce ? { opacity: 1 } : {}} transition={{ delay: 2.2 }} style={{ fontSize: 12, color: '#fff', fontWeight: 700, marginTop: 4 }}>
         Maria becomes a regular ✓
-      </motion.div>
+      </m.div>
     </div>
   );
 }
@@ -160,7 +160,7 @@ function LoyaltyStampsVisual({ playing }: VisualProps) {
             <div style={{ fontSize: 11, color: w(0.4) }}>6 of 8 stamps</div>
           </div>
         </div>
-        <motion.div
+        <m.div
           key={playing ? 'on' : 'off'}
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -169,9 +169,9 @@ function LoyaltyStampsVisual({ playing }: VisualProps) {
         >
           <div style={{ fontSize: 40, fontWeight: 800, color: '#fff', lineHeight: 1 }}>6</div>
           <div style={{ fontSize: 11, color: w(0.4), marginTop: 3 }}>stamps earned</div>
-        </motion.div>
+        </m.div>
         <div style={{ height: 6, background: w(0.10), borderRadius: 3, overflow: 'hidden' }}>
-          <motion.div
+          <m.div
             initial={{ width: '0%' }}
             animate={playing && !reduce ? { width: `${pct}%` } : { width: `${pct}%` }}
             transition={{ duration: 1.2, ease: 'easeOut' }}
@@ -193,7 +193,7 @@ function ReviewsStarsVisual({ playing }: VisualProps) {
         <div style={{ fontSize: 12, color: '#888', marginBottom: 8 }}>Google review request sent</div>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 4, marginBottom: 12 }}>
           {[1, 2, 3, 4, 5].map((n) => (
-            <motion.span
+            <m.span
               key={n}
               initial={{ opacity: 0, scale: 0 }}
               animate={playing && !reduce ? { opacity: 1, scale: 1 } : { opacity: 0.3, scale: 1 }}
@@ -201,12 +201,12 @@ function ReviewsStarsVisual({ playing }: VisualProps) {
               style={{ fontSize: 22, color: '#eab308' }}
             >
               ★
-            </motion.span>
+            </m.span>
           ))}
         </div>
-        <motion.div initial={{ opacity: 0 }} animate={playing && !reduce ? { opacity: 1 } : {}} transition={{ delay: 1.2 }} style={{ fontSize: 28, fontWeight: 800, color: DARK }}>
+        <m.div initial={{ opacity: 0 }} animate={playing && !reduce ? { opacity: 1 } : {}} transition={{ delay: 1.2 }} style={{ fontSize: 28, fontWeight: 800, color: DARK }}>
           4.9
-        </motion.div>
+        </m.div>
         <div style={{ fontSize: 11, color: '#aaa', marginTop: 4 }}>+47 reviews this month</div>
       </div>
     </Sheet>
@@ -221,7 +221,7 @@ function StepFlowVisual({ playing, steps, icon }: { playing: boolean; steps: Rea
       <div style={{ padding: 14 }}>
         {icon && <div style={{ fontSize: 11, fontWeight: 700, color: GREEN, marginBottom: 10, letterSpacing: '0.04em' }}>{icon}</div>}
         {steps.map(([label, detail], i) => (
-          <motion.div
+          <m.div
             key={label}
             initial={{ opacity: 0, x: -10 }}
             animate={playing && !reduce ? { opacity: 1, x: 0 } : {}}
@@ -235,7 +235,7 @@ function StepFlowVisual({ playing, steps, icon }: { playing: boolean; steps: Rea
               <div style={{ fontSize: 12, fontWeight: 700, color: DARK }}>{label}</div>
               <div style={{ fontSize: 11, color: '#999', marginTop: 2 }}>{detail}</div>
             </div>
-          </motion.div>
+          </m.div>
         ))}
       </div>
     </Sheet>
@@ -249,21 +249,21 @@ function CounterVisual({ playing, label, from, to, suffix }: { playing: boolean;
     <Sheet>
       <div style={{ padding: 20, textAlign: 'center' }}>
         <div style={{ fontSize: 11, color: '#888', marginBottom: 8 }}>{label}</div>
-        <motion.div
+        <m.div
           key={playing ? `c-${to}` : 'c-off'}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <motion.span
+          <m.span
             initial={{ opacity: 0 }}
             animate={playing && !reduce ? { opacity: 1 } : {}}
             style={{ fontSize: 36, fontWeight: 800, color: DARK, letterSpacing: '-0.03em' }}
           >
             {playing && !reduce ? to : from}{suffix}
-          </motion.span>
-        </motion.div>
+          </m.span>
+        </m.div>
         <div style={{ marginTop: 12, height: 6, background: '#f0f0f0', borderRadius: 3, overflow: 'hidden' }}>
-          <motion.div
+          <m.div
             initial={{ width: '20%' }}
             animate={playing && !reduce ? { width: '78%' } : { width: '20%' }}
             transition={{ duration: 1.4, ease: 'easeOut' }}

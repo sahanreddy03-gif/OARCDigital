@@ -252,6 +252,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
       transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
       className={panelClass}
       style={{ boxShadow: isMobile ? 'none' : '0 24px 80px rgba(0,0,0,0.35)' }}
+      data-lenis-prevent
       data-testid="arc-chat-window"
     >
       <AnimatePresence mode="wait">

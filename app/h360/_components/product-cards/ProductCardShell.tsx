@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import type { ProductCardData } from './productCardsData';
 import { CARD_THEMES } from './cardPalette';
 import ProductCardVisual from './ProductCardVisual';
@@ -26,7 +26,7 @@ export default function ProductCardShell({ data, mobile, playing }: Props) {
       style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
       data-testid={`product-card-${data.id}`}
     >
-      <motion.div
+      <m.div
         whileHover={mobile ? undefined : { y: -2 }}
         transition={{ duration: 0.2 }}
         style={{
@@ -83,7 +83,7 @@ export default function ProductCardShell({ data, mobile, playing }: Props) {
           </span>
           <span style={{ fontSize: 11, color: theme.label, opacity: 0.7 }}>by OARC Digital</span>
         </div>
-      </motion.div>
+      </m.div>
     </Link>
   );
 }

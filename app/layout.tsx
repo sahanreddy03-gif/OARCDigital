@@ -165,7 +165,7 @@ export const metadata: Metadata = {
 // SpeculationRules: 8 high-conversion URLs prerendered on moderate eagerness
 // Hero preload : fetchPriority="high" <link> in <head> for the LCP AVIF
 // LazyMotion   : framer-motion features lazy-loaded via <LazyMotion> in Providers
-// SmoothScroll : Lenis sitewide via <ReactLenis root> in Providers (off when prefers-reduced-motion)
+// Motion stack: MotionConfig + LazyMotion strict + Lenis after idle — see app/providers.tsx, lib/motion/
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function RootLayout({
