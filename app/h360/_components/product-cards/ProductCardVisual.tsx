@@ -276,6 +276,16 @@ function CounterVisual({ playing, label, from, to, suffix }: { playing: boolean;
 }
 
 const VISUAL_MAP: Record<ProductVisualId, (p: VisualProps) => React.ReactNode> = {
+  'google-visibility': (p) => (
+    <StepFlowVisual
+      playing={p.playing}
+      steps={[
+        ['Profile stays active', 'Posts · photos · replies'],
+        ['You climb search', '"best pizza Malta" → top 3'],
+        ['Calls come in', '847 searches → 37 calls'],
+      ]}
+    />
+  ),
   'maps-rank': (p) => <MapsRankVisual {...p} />,
   'seo-climb': (p) => <CounterVisual playing={p.playing} label="Google ranking" from={8} to={2} suffix="" />,
   'reviews-stars': (p) => <ReviewsStarsVisual {...p} />,

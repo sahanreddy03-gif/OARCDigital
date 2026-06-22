@@ -1,5 +1,6 @@
 /**
- * 20 H360 products — journey order, brain-sourced hooks, cluster URLs.
+ * H360 products — journey order, brain-sourced hooks, cluster URLs.
+ * GBP + SEARCH merged → Google Visibility (carousel). LOCAL duplicate removed.
  * RATING merged into GOOGLE REVIEWS per brain URL lock.
  */
 export type ProductCardData = {
@@ -15,6 +16,7 @@ export type ProductCardData = {
 };
 
 export type ProductVisualId =
+  | 'google-visibility'
   | 'maps-rank'
   | 'seo-climb'
   | 'reviews-stars'
@@ -36,36 +38,25 @@ export type ProductVisualId =
   | 'decision-hub'
   | 'local-search';
 
-/** Money journey: get found → fill tables → keep margin → bring back → run smarter */
+/** Money journey: get found → reviews → own story → fill tables → keep margin → bring back → run smarter */
 export const PRODUCT_CARDS: ProductCardData[] = [
   {
-    id: 'google-profile',
-    tab: 'Google Profile',
-    entry: 'Your Google page goes stale. Nobody finds you.',
-    headline: 'Stay #1 on Google Maps — we post, reply, and keep you active.',
-    result: '847 searches → 37 calls this week',
+    id: 'google-visibility',
+    tab: 'Google Visibility',
+    entry: 'Your Google page goes stale — and when someone searches “best pizza Malta”, you’re not there.',
+    headline: 'Rank above every competitor on Malta Google Maps.',
+    result: '847 searches → 37 calls · Page 2 → top 3',
     href: '/h360/google-business-profile-restaurant-malta',
     live: false,
     themeIndex: 0,
-    visual: 'maps-rank',
-  },
-  {
-    id: 'search',
-    tab: 'Restaurant SEO',
-    entry: 'Someone searches “best pizza Malta” — you’re not there.',
-    headline: 'Show up first when they search for food in Malta.',
-    result: 'Page 2 → top 3 on Google',
-    href: '/h360/restaurant-seo-malta',
-    live: false,
-    themeIndex: 1,
-    visual: 'seo-climb',
+    visual: 'google-visibility',
   },
   {
     id: 'google-reviews',
     tab: 'Google Reviews',
     entry: 'Competitors have 200 reviews. You have 12.',
-    headline: 'Get 3× more Google reviews — asked automatically.',
-    result: 'More stars → more walk-ins',
+    headline: 'We turn every customer into a good Google review — smart timing, personalised strategy, and smart automation.',
+    result: '3× more reviews in 90 days',
     href: '/h360/get-more-google-reviews-restaurant-malta',
     live: false,
     themeIndex: 2,
@@ -246,16 +237,5 @@ export const PRODUCT_CARDS: ProductCardData[] = [
     live: false,
     themeIndex: 18,
     visual: 'decision-hub',
-  },
-  {
-    id: 'local',
-    tab: 'Local SEO',
-    entry: 'Tourists search “restaurant near me” — competitors win.',
-    headline: 'Win “restaurant near me” in Malta.',
-    result: 'Found locally — not just on Maps',
-    href: '/h360/restaurant-seo-malta',
-    live: false,
-    themeIndex: 19,
-    visual: 'local-search',
   },
 ];

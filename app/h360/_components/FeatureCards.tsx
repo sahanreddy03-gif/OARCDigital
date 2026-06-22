@@ -86,7 +86,7 @@ export default function H360FeatureCards() {
 
       <div style={{ padding: isMobile ? '0 20px' : '0 64px', marginBottom: 28 }}>
         <h2 style={{ fontSize: isMobile ? 27 : 36, fontWeight: 800, color: DARK, letterSpacing: '-0.035em', lineHeight: 1.1, margin: 0 }}>
-          Restaurant marketing Malta — 20 tools.
+          Restaurant marketing Malta — {COUNT} tools.
           <br />
           One platform. Every margin kept.
         </h2>
@@ -96,7 +96,7 @@ export default function H360FeatureCards() {
         </p>
       </div>
 
-      {/* Tab row — scrollable for 20 */}
+      {/* Tab row — scrollable product tabs */}
       <div
         className="fc-scroll"
         style={{

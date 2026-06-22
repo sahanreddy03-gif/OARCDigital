@@ -5,7 +5,7 @@ import H360BelowHero from './_components/BelowHero';
 
 const TITLE = 'Restaurant Marketing Malta | H360 — Google, Reviews & Direct Orders';
 const DESCRIPTION =
-  'H360 by OARC Digital helps Malta restaurants rank on Google, collect reviews, take direct orders with zero commission, and turn guests into regulars — 20 tools, one platform.';
+  'H360 by OARC Digital helps Malta restaurants rank on Google, collect reviews, take direct orders with zero commission, and turn guests into regulars — one platform for every margin.';
 const URL = 'https://oarcdigital.com/h360';
 const OARC = 'https://oarcdigital.com';
 
@@ -95,7 +95,7 @@ const jsonLd = {
           name: 'Who does restaurant marketing in Malta?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'H360 by OARC Digital is Malta\'s specialist platform for restaurant marketing — Google Maps visibility, review collection, direct QR ordering with zero commission, WhatsApp loyalty, and 20 integrated tools. Built by operators who run real Maltese venues.',
+            text: 'H360 by OARC Digital is Malta\'s specialist platform for restaurant marketing — Google Maps visibility, review collection, direct QR ordering with zero commission, WhatsApp loyalty, and integrated tools for every margin. Built by operators who run real Maltese venues.',
           },
         },
         {
