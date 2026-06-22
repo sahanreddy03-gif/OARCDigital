@@ -1,12 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Suspense } from "react";
 import { Nunito_Sans, Montserrat, Inter, Space_Grotesk, EB_Garamond, Orbitron, Anton } from "next/font/google";
 import { partytownSnippet } from "@qwik.dev/partytown/integration";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Providers } from "./providers";
-import ScrollToTop from "@/components/ScrollToTop";
 import SpeculationRules from "@/components/SpeculationRules";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Analytics from "@/components/Analytics";
@@ -167,6 +165,7 @@ export const metadata: Metadata = {
 // SpeculationRules: 8 high-conversion URLs prerendered on moderate eagerness
 // Hero preload : fetchPriority="high" <link> in <head> for the LCP AVIF
 // LazyMotion   : framer-motion features lazy-loaded via <LazyMotion> in Providers
+// SmoothScroll : Lenis sitewide via <ReactLenis root> in Providers (off when prefers-reduced-motion)
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function RootLayout({
@@ -229,9 +228,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSONLD) }}
         />
-        <Suspense fallback={null}>
-          <ScrollToTop />
-        </Suspense>
         <SpeculationRules />
         <Providers>{children}</Providers>
         <MobileStickyCTA />

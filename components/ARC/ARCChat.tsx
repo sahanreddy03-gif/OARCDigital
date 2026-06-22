@@ -321,7 +321,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
             </form>
 
             {/* Suggestion pills — Apple style */}
-            <div className="relative z-10 flex flex-col gap-2 px-5 mt-6 overflow-y-auto pb-6">
+            <div className="relative z-10 flex flex-col gap-2 px-5 mt-6 overflow-y-auto pb-6" data-lenis-prevent>
               {SUGGESTIONS.map((s, i) => (
                 <m.button
                   key={i}
@@ -403,7 +403,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4" style={{ backgroundColor: '#f2f2f7' }}>
+            <div className="flex-1 overflow-y-auto p-4" style={{ backgroundColor: '#f2f2f7' }} data-lenis-prevent>
               {messages.filter(msg => !(msg.isStreaming && !msg.content)).map(msg => (
                 <div key={msg.id}>
                   <ARCMessage content={msg.content} isUser={msg.isUser} isStreaming={msg.isStreaming} />

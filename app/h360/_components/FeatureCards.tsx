@@ -145,6 +145,7 @@ export default function H360FeatureCards() {
           <div
             ref={scrollRef}
             className="fc-scroll"
+            data-lenis-prevent
             style={{
               display: 'flex',
               gap: 12,

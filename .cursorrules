@@ -103,6 +103,12 @@
 #   Programmatic governance: /aeo/* (44), /industries/[industry] (19), /malta/[location]/* (~80) — follow programmatic-audit.md.
 # - H360 hospitality content lives at /h360 as a subfolder cluster (see OARC-H360-BUILD-SPEC.md Section 3B), built on top
 #   of the existing site, feeding the one domain's authority. Don't create a separate domain or duplicate the stack.
+# - H360 routing (locked): `/h360` IS the H360 site homepage AND Pillar 1 (restaurant marketing malta). Never ship a
+#   second page that repeats the hub. Other §3B routes = one different search intent each.
+# - H360 design (locked): match the LIVE `/h360` hub — Owner.com (light hero, phones, audit) + Sunday.com (dark, motion,
+#   cards). Same design ≠ same colours only: interactive UI mockups, motion, diagrams that SHOW the promise; minimal text
+#   walls. Content/wedges from H360-PRODUCT-CONTENT-BRAIN.md (do not edit that brain for design). Elevate per page per §6.
+#   Hub keyword/copy tweaks = separate approved task; not a licence to rebuild the hub.
 
 # ============================================================
 # HOW YOU WORK WITH ME (CURSOR BEHAVIOR)

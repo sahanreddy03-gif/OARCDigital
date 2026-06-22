@@ -2,10 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { useLenis } from "lenis/react";
 
 export default function ScrollToTop() {
   const pathname = usePathname();
   const search = useSearchParams();
+  const lenis = useLenis();
   const isPopRef = useRef(false);
 
   useEffect(() => {
@@ -27,8 +29,12 @@ export default function ScrollToTop() {
       isPopRef.current = false;
       return;
     }
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, [pathname, search]);
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+  }, [pathname, search, lenis]);
 
   return null;
 }

@@ -4,8 +4,9 @@
 
 > Each product = its own standalone page/cluster inside /h360, its own skin, its own schema, its own AEO answer. 21 products = 21 four-gate authority anchors, all feeding oarcdigital.com.
 
+> **Hub vs product pages:** `/h360` is the **live category homepage** (Owner + Sunday design) — upgrade it surgically; never duplicate as `/h360/restaurant-marketing-malta`. Each product page below = **one intent**, content FROM this file, **same H360 visual language** (phones, motion, Sunday dark bands — show don't tell). Do not copy-paste the hub layout as a text template.
 
----
+> **Reviews URL (locked):** build **`/h360/get-more-google-reviews-restaurant-malta`** only. Do not also build `/h360/get-more-restaurant-reviews-malta` (duplicate intent).
 
 ## ANALYTICS — Restaurant Business Data
 

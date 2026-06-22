@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import H360SmoothScroll from './_components/H360SmoothScroll';
 
 export default function H360Layout({ children }: { children: ReactNode }) {
   return (
@@ -21,9 +20,7 @@ export default function H360Layout({ children }: { children: ReactNode }) {
         .h360-root button { font-family: inherit; }
         .h360-root input { font-family: inherit; }
       `}</style>
-      <H360SmoothScroll>
-        <div className="h360-root">{children}</div>
-      </H360SmoothScroll>
+      <div className="h360-root">{children}</div>
     </div>
   );
 }

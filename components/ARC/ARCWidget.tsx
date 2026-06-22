@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
+import { useLenis } from 'lenis/react';
 import { X, Phone, Sparkles } from 'lucide-react';
 import { usePathname } from "next/navigation";
 import { ARCChat } from './ARCChat';
@@ -11,6 +12,7 @@ const PHONE_NUMBER = NAP.phoneE164;
 
 export function ARCWidget() {
   const location = usePathname();
+  const lenis = useLenis();
   const [isOpen, setIsOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [popupDismissed, setPopupDismissed] = useState(false);
@@ -40,6 +42,13 @@ export function ARCWidget() {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  useEffect(() => {
+    if (!lenis) return;
+    if (isOpen) lenis.stop();
+    else lenis.start();
+    return () => { lenis.start(); };
+  }, [isOpen, lenis]);
 
   useEffect(() => {
     if (isOpen || popupDismissed) return;
