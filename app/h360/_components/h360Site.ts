@@ -25,12 +25,12 @@ export const H360_CLUSTER = {
 
 export const OARC_OPERATOR_VENUES = 'Louisiana Mama · Palino · Calli Bistro' as const;
 export const JOURNEY_STEPS = [
-  { label: 'Get found', sub: 'Google', cardIndex: 0 },
-  { label: 'Build trust', sub: 'Reviews', cardIndex: 1 },
-  { label: 'Look pro', sub: 'Social', cardIndex: 2 },
-  { label: 'Run floor', sub: 'Menu & kitchen', cardIndex: 4 },
-  { label: 'Keep margin', sub: 'Direct orders', cardIndex: 6 },
-  { label: 'Bring back', sub: 'Loyalty', cardIndex: 8 },
+  { label: 'Get found', sub: 'Google', cardIndex: 0, glyph: '◎' },
+  { label: 'Build trust', sub: 'Reviews', cardIndex: 1, glyph: '★' },
+  { label: 'Look pro', sub: 'Social', cardIndex: 2, glyph: '▶' },
+  { label: 'Run floor', sub: 'Menu & kitchen', cardIndex: 4, glyph: '⌁' },
+  { label: 'Keep margin', sub: 'Direct orders', cardIndex: 6, glyph: '€' },
+  { label: 'Bring back', sub: 'Loyalty', cardIndex: 8, glyph: '↻' },
 ] as const;
 
 export const H360_CARD_EVENT = 'h360-select-card' as const;

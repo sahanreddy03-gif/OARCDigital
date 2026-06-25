@@ -27,10 +27,47 @@ export const ORDER_HERO = {
 };
 
 export const ORDER_STEPS = [
-  { label: 'Scan table QR', sub: 'Menu opens on their phone' },
-  { label: 'Tap & send', sub: 'Kitchen ticket prints' },
-  { label: 'You keep margin', sub: '€0 commission' },
+  { id: 'qr', label: 'Scan table QR', sub: 'Menu opens on their phone', icon: 'qr' as const },
+  { id: 'tap', label: 'Tap & send', sub: 'Kitchen ticket prints', icon: 'tap' as const },
+  { id: 'margin', label: 'You keep margin', sub: '€0 commission', icon: 'margin' as const },
 ] as const;
+
+/** Brain: ORDER flow + Wolt comparison maths */
+export const ORDER_FLOW_DIAGRAM = {
+  title: 'How table QR ordering works',
+  subtitle: ORDER_HERO.hook,
+  nodes: [
+    { id: 'guest', label: 'Guest at table', detail: 'Scans QR on tent card' },
+    { id: 'menu', label: 'Menu on phone', detail: 'Tap dishes · add a note' },
+    { id: 'kitchen', label: 'Kitchen ticket', detail: 'Printer or tablet — no shouting' },
+    { id: 'owner', label: 'You keep margin', detail: '€0 commission · guest is yours' },
+  ],
+} as const;
+
+export const ORDER_MARGIN_COMPARE = {
+  title: 'Same busy night. Two different outcomes.',
+  wolt: {
+    label: 'Wolt / Bolt',
+    daily: '€500/day orders',
+    fee: '22% commission',
+    monthly: '≈ €3,300/month in fees',
+    note: 'Guest data stays with the app',
+  },
+  direct: {
+    label: 'H360 ORDER',
+    daily: '€500/day orders',
+    fee: '€0 commission',
+    monthly: 'Margin stays in your till',
+    note: 'You own the guest list',
+  },
+  brainLine: 'On €500/day at 22% commission you pay roughly €3,300/month in fees. Direct QR ordering keeps that margin.',
+} as const;
+
+export const ORDER_DISH_COMPARE = {
+  dish: '€15 pasta',
+  woltFee: '−€4.50 (30%)',
+  youKeep: '€15.00 direct',
+} as const;
 
 export const ORDER_GATE2 = {
   question: 'How do guests order from the table by QR?',

@@ -142,8 +142,12 @@ export default function OarcBridge() {
                       fontWeight: 700,
                       color: isActive ? '#fff' : G.text,
                       letterSpacing: '-0.02em',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 6,
                     }}
                   >
+                    <span style={{ fontSize: 14, opacity: 0.9 }} aria-hidden>{step.glyph}</span>
                     {step.label}
                   </div>
                   <div style={{ fontSize: 10, color: isActive ? 'rgba(255,255,255,0.75)' : G.textMuted, marginTop: 3 }}>
