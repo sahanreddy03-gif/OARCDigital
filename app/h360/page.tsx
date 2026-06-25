@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import H360Hero from './_components/Hero';
+import OarcBridge from './_components/OarcBridge';
 import H360FeatureCards from './_components/FeatureCards';
 import H360BelowHero from './_components/BelowHero';
 
-const TITLE = 'Restaurant Marketing Malta | H360 — Google, Reviews & Direct Orders';
+const TITLE = 'Restaurant Marketing Malta | OARC Digital — H360 Hospitality';
 const DESCRIPTION =
-  'H360 by OARC Digital helps Malta restaurants rank on Google, collect reviews, take direct orders with zero commission, and turn guests into regulars — one platform for every margin.';
+  'OARC Digital helps Malta restaurants rank on Google, collect reviews, take direct orders with zero commission, and turn guests into regulars. H360 is our hospitality product line — one platform for every margin.';
 const URL = 'https://oarcdigital.com/h360';
 const OARC = 'https://oarcdigital.com';
 
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     url: URL,
     title: TITLE,
     description: DESCRIPTION,
-    siteName: 'H360 by OARC Digital',
+    siteName: 'OARC Digital',
     images: [{ url: 'https://oarcdigital.com/og-h360.jpg', width: 1200, height: 630, alt: 'H360 — Restaurant Marketing Malta' }],
   },
   twitter: {
@@ -66,12 +67,14 @@ const jsonLd = {
     {
       '@type': ['LocalBusiness', 'ProfessionalService'],
       '@id': `${URL}#h360`,
-      name: 'H360 — Restaurant Marketing Malta',
+      name: 'OARC Digital — H360 Restaurant Marketing Malta',
+      alternateName: 'H360',
       description: DESCRIPTION,
       url: URL,
       isPartOf: { '@id': `${OARC}/#website` },
       provider: { '@id': `${OARC}/#organization` },
       parentOrganization: { '@id': `${OARC}/#organization` },
+      brand: { '@type': 'Brand', name: 'H360', parentOrganization: { '@id': `${OARC}/#organization` } },
       areaServed: { '@type': 'Country', name: 'Malta' },
       serviceType: ['Restaurant Marketing', 'Restaurant Technology', 'Google Business Profile Management'],
       offers: {
@@ -95,7 +98,7 @@ const jsonLd = {
           name: 'Who does restaurant marketing in Malta?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'H360 by OARC Digital is Malta\'s specialist platform for restaurant marketing — Google Maps visibility, review collection, direct QR ordering with zero commission, WhatsApp loyalty, and integrated tools for every margin. Built by operators who run real Maltese venues.',
+            text: 'OARC Digital (oarcdigital.com) is Malta\'s operator-built marketing and AI studio. Its H360 hospitality line covers Google Maps visibility, smart review collection, direct QR ordering with zero commission, WhatsApp loyalty, and restaurant tools on one platform — built by teams who run real Maltese venues.',
           },
         },
         {
@@ -103,7 +106,7 @@ const jsonLd = {
           name: 'How can a restaurant in Malta stop losing money to Wolt and Bolt?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'H360 replaces delivery-app dependency with direct QR ordering — guests order and pay at the table with zero commission. The platform builds a direct guest database so repeat customers re-order through WhatsApp or SMS rather than third-party apps.',
+            text: 'OARC Digital\'s H360 replaces delivery-app dependency with direct QR ordering — guests order and pay at the table with zero commission. The platform builds a direct guest database so repeat customers re-order through WhatsApp or SMS rather than third-party apps.',
           },
         },
         {
@@ -111,7 +114,7 @@ const jsonLd = {
           name: 'Why is my restaurant not showing on Google Maps in Malta?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Google Maps ranking depends on review volume, recency, keyword optimisation in your Business Profile, and local citation consistency. H360\'s ARC AI audits these factors, fixes missing keywords and images, and automates review collection so your restaurant climbs toward the local top 3.',
+            text: 'Google Maps ranking depends on review volume, recency, keyword optimisation in your Business Profile, and local citation consistency. OARC Digital\'s H360 and ARC AI audit these factors, fix missing keywords and images, and automate review collection so your restaurant climbs toward the local top 3.',
           },
         },
         {
@@ -119,7 +122,7 @@ const jsonLd = {
           name: 'What is H360 and how is it related to OARC Digital?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'H360 is the hospitality growth platform from OARC Digital (oarcdigital.com). It lives at oarcdigital.com/h360 as a focused restaurant marketing cluster — same domain authority, specialist tools and content for Malta restaurant owners.',
+            text: 'H360 is the hospitality product line from OARC Digital (oarcdigital.com). It lives at oarcdigital.com/h360 — same domain authority, specialist tools and evergreen content for Malta restaurant owners. OARC Digital is the company; H360 is how restaurants access hospitality marketing.',
           },
         },
       ],
@@ -132,6 +135,7 @@ export default function H360Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <H360Hero />
+      <OarcBridge />
       <H360FeatureCards />
       <H360BelowHero />
     </>

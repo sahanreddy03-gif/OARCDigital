@@ -320,7 +320,7 @@ export default function H360Hero() {
   );
 
   return (
-    <div style={{ fontFamily:'"Inter",system-ui,-apple-system,Arial,sans-serif', background:G.bg, color:G.text, overflowX:'hidden' }}>
+    <div style={{ fontFamily:'var(--font-inter), system-ui, -apple-system, Arial, sans-serif', background:G.bg, color:G.text, overflowX:'hidden' }}>
 
       <H360Nav />
 
@@ -335,11 +335,27 @@ export default function H360Hero() {
           scrollMarginTop: 72,
         }}>
           {/* Stars */}
-          <div style={{ display:'flex', alignItems:'center', gap:6, marginBottom:12, justifyContent: isMobile ? 'flex-start' : 'center', fontSize:12, color:G.textMuted }}>
+          <div style={{ display:'flex', alignItems:'center', gap:6, marginBottom:12, justifyContent: isMobile ? 'flex-start' : 'center', fontSize:12, color:G.textMuted, flexWrap:'wrap' }}>
             <span style={{ color:G.star, fontSize:13, letterSpacing:1 }}>★★★★★</span>
             <span style={{ fontWeight:700, color:G.text }}>4.8</span>
             <span>across 1,000+ reviews</span>
+            <span style={{ color:G.border }}>·</span>
+            <a href="https://oarcdigital.com" style={{ color:G.green, fontWeight:600, textDecoration:'none' }}>OARC Digital</a>
           </div>
+
+          {/* Gate 4 capture — restaurant marketing Malta in first screen */}
+          <p style={{
+            fontSize: isMobile ? 13 : 15,
+            fontWeight: 600,
+            color: G.textMuted,
+            margin: '0 0 14px',
+            marginLeft: isMobile ? 0 : 'auto',
+            marginRight: isMobile ? 0 : 'auto',
+            maxWidth: 640,
+            letterSpacing: '-0.01em',
+          }}>
+            Restaurant marketing Malta — built by operators who run real venues.
+          </p>
 
           {/* H1 — "The AI platform..." */}
           <h1 style={{

@@ -24,5 +24,6 @@ export const C = {
   green: '#4ade80',
 } as const;
 
-export const FONT_LIGHT = '"Inter",system-ui,-apple-system,Arial,sans-serif';
-export const FONT_DARK = '"Helvetica Neue",Arial,system-ui,sans-serif';
+export const FONT_LIGHT = 'var(--font-inter), system-ui, -apple-system, Arial, sans-serif';
+export const FONT_DISPLAY = 'var(--font-space-grotesk), var(--font-inter), system-ui, sans-serif';
+export const FONT_DARK = '"Helvetica Neue", Arial, system-ui, sans-serif';

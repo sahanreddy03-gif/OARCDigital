@@ -4,12 +4,16 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { PRODUCT_CARDS } from './product-cards/productCardsData';
 import ProductCardShell from './product-cards/ProductCardShell';
 
+import { FONT_DISPLAY } from './tokens';
+import { OARC_HOME, H360_CARD_EVENT } from './h360Site';
+
 const WHITE = '#ffffff';
 const DARK = '#111111';
 const MUTED = '#777777';
 const BORDER = '#e5e7eb';
+const GREEN = '#094413';
 const ACTIVE_BG = 'rgba(9, 68, 19, 0.07)';
-const FONT = '"Inter",system-ui,-apple-system,Arial,sans-serif';
+const FONT = FONT_DISPLAY;
 const INTERVAL = 5200;
 const COUNT = PRODUCT_CARDS.length;
 
@@ -98,11 +102,22 @@ export default function H360FeatureCards() {
     tab?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   }, [active, isMobile]);
 
-  const handleTab = (i: number) => {
+  const handleTab = useCallback((i: number) => {
     if (timerRef.current) clearTimeout(timerRef.current);
     if (isMobile) scrollCardTo(i);
     else setActive(i);
-  };
+  }, [isMobile, scrollCardTo]);
+
+  /** Journey strip in OarcBridge can jump to a card */
+  useEffect(() => {
+    const onSelect = (e: Event) => {
+      const idx = (e as CustomEvent<number>).detail;
+      if (typeof idx !== 'number' || idx < 0 || idx >= COUNT) return;
+      handleTab(idx);
+    };
+    window.addEventListener(H360_CARD_EVENT, onSelect);
+    return () => window.removeEventListener(H360_CARD_EVENT, onSelect);
+  }, [handleTab]);
 
   const activeCard = PRODUCT_CARDS[active];
 
@@ -120,14 +135,26 @@ export default function H360FeatureCards() {
       <style>{CSS}</style>
 
       <div style={{ padding: isMobile ? '0 20px' : '0 64px', marginBottom: 28 }}>
-        <h2 style={{ fontSize: isMobile ? 27 : 36, fontWeight: 800, color: DARK, letterSpacing: '-0.035em', lineHeight: 1.1, margin: 0 }}>
-          Restaurant marketing Malta — {COUNT} tools.
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: GREEN, margin: '0 0 10px' }}>
+          H360 hospitality · by <a href={OARC_HOME} style={{ color: GREEN, textDecoration: 'none' }}>OARC Digital</a>
+        </p>
+        <h2
+          style={{
+            fontSize: isMobile ? 28 : 38,
+            fontWeight: 800,
+            color: DARK,
+            letterSpacing: '-0.04em',
+            lineHeight: 1.08,
+            margin: 0,
+          }}
+        >
+          Restaurant marketing Malta.
           <br />
-          One platform. Every margin kept.
+          {COUNT} tools. One journey. Every margin kept.
         </h2>
-        <p style={{ fontSize: isMobile ? 14 : 16, color: MUTED, marginTop: 12, maxWidth: 560, lineHeight: 1.55 }}>
-          Swipe the full H360 stack — from Google visibility to direct orders, loyalty, and operations. Built by{' '}
-          <a href="https://oarcdigital.com" style={{ color: DARK, fontWeight: 600 }}>OARC Digital</a> for Malta restaurants.
+        <p style={{ fontSize: isMobile ? 14 : 16, color: MUTED, marginTop: 12, maxWidth: 580, lineHeight: 1.55 }}>
+          Swipe the stack — Google, reviews, orders, loyalty, operations. Each card shows what you keep, what your guest gains, and why OARC beats the usual vendors.{' '}
+          <a href={OARC_HOME} style={{ color: DARK, fontWeight: 600 }}>oarcdigital.com</a>
         </p>
       </div>
 

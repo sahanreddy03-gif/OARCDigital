@@ -5,10 +5,8 @@ import { m } from 'framer-motion';
 import type { ProductCardData } from './productCardsData';
 import { CARD_THEMES } from './cardPalette';
 import ProductCardVisual from './ProductCardVisual';
-import { FONT_LIGHT, G } from '../tokens';
-import { H360_AUDIT } from '../h360Site';
-
-const FONT = FONT_LIGHT;
+import { FONT_DISPLAY, G } from '../tokens';
+import { H360_AUDIT, OARC_HOME } from '../h360Site';
 
 type Props = {
   data: ProductCardData;
@@ -21,41 +19,39 @@ export default function ProductCardShell({ data, mobile, playing }: Props) {
   const href = data.live ? data.href : H360_AUDIT;
 
   return (
-    <Link
-      href={href}
-      style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
+    <m.div
+      whileHover={mobile ? undefined : { y: -2 }}
+      transition={{ duration: 0.2 }}
+      style={{
+        flexShrink: 0,
+        width: mobile ? '88vw' : '100%',
+        minHeight: mobile ? 520 : 540,
+        borderRadius: 20,
+        background: theme.bg,
+        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        scrollSnapAlign: 'start',
+        fontFamily: FONT_DISPLAY,
+        position: 'relative',
+      }}
       data-testid={`product-card-${data.id}`}
+      data-brain-id={data.brainId}
+      data-brain-ids={data.brainIds?.join(',') ?? data.brainId}
     >
-      <m.div
-        whileHover={mobile ? undefined : { y: -2 }}
-        transition={{ duration: 0.2 }}
-        style={{
-          flexShrink: 0,
-          width: mobile ? '88vw' : '100%',
-          minHeight: mobile ? 500 : 520,
-          borderRadius: 20,
-          background: theme.bg,
-          overflow: 'hidden',
-          display: 'flex',
-          flexDirection: 'column',
-          scrollSnapAlign: 'start',
-          fontFamily: FONT,
-          position: 'relative',
-          cursor: 'pointer',
-        }}
-      >
-        {theme.dark && (
-          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 65% 25%, rgba(255,255,255,0.08) 0%, transparent 60%)', pointerEvents: 'none' }} />
-        )}
+      {theme.dark && (
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 65% 25%, rgba(255,255,255,0.08) 0%, transparent 60%)', pointerEvents: 'none' }} />
+      )}
 
+      <Link href={href} style={{ textDecoration: 'none', color: 'inherit', flex: 1, display: 'flex', flexDirection: 'column', cursor: 'pointer' }}>
         <div style={{ padding: mobile ? '22px 22px 8px' : '26px 28px 10px', position: 'relative' }}>
           <h3
             style={{
-              fontSize: mobile ? 22 : 24,
+              fontSize: mobile ? 21 : 23,
               fontWeight: 800,
               color: theme.headline,
-              lineHeight: 1.15,
-              letterSpacing: '-0.03em',
+              lineHeight: 1.18,
+              letterSpacing: '-0.035em',
               margin: '0 0 10px',
               maxWidth: 360,
             }}
@@ -64,15 +60,39 @@ export default function ProductCardShell({ data, mobile, playing }: Props) {
           </h3>
           <p
             style={{
+              fontSize: 12,
+              fontWeight: 600,
+              color: theme.dark ? 'rgba(255,255,255,0.72)' : G.green,
+              lineHeight: 1.45,
+              margin: '0 0 10px',
+              maxWidth: 360,
+            }}
+          >
+            {data.wedge}
+          </p>
+          <p
+            style={{
               fontSize: 13,
               color: theme.label,
               lineHeight: 1.5,
-              margin: '0 0 14px',
+              margin: '0 0 8px',
               maxWidth: 340,
-              opacity: 0.9,
+              opacity: 0.88,
             }}
           >
             {data.entry}
+          </p>
+          <p
+            style={{
+              fontSize: 11,
+              fontWeight: 600,
+              color: theme.dark ? 'rgba(255,255,255,0.55)' : G.textMuted,
+              lineHeight: 1.45,
+              margin: '0 0 14px',
+              maxWidth: 340,
+            }}
+          >
+            For your guest: {data.guestGain}
           </p>
           <div
             style={{
@@ -97,22 +117,33 @@ export default function ProductCardShell({ data, mobile, playing }: Props) {
 
         <ProductCardVisual visual={data.visual} playing={playing} dark={theme.dark} />
 
-        <div
-          style={{
-            padding: mobile ? '4px 22px 18px' : '4px 28px 22px',
-            position: 'relative',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginTop: 'auto',
-          }}
-        >
+        <div style={{ padding: mobile ? '4px 22px 10px' : '4px 28px 12px', marginTop: 'auto' }}>
           <span style={{ fontSize: 14, fontWeight: 600, color: theme.dark ? 'rgba(255,255,255,0.75)' : G.green }}>
             See how →
           </span>
-          <span style={{ fontSize: 11, color: theme.label, opacity: 0.65 }}>OARC Digital</span>
         </div>
-      </m.div>
-    </Link>
+      </Link>
+
+      <div
+        style={{
+          padding: mobile ? '0 22px 18px' : '0 28px 22px',
+          display: 'flex',
+          justifyContent: 'flex-end',
+        }}
+      >
+        <Link
+          href={OARC_HOME}
+          style={{
+            fontSize: 11,
+            fontWeight: 600,
+            color: theme.label,
+            opacity: 0.75,
+            textDecoration: 'none',
+          }}
+        >
+          OARC Digital ↗
+        </Link>
+      </div>
+    </m.div>
   );
 }
