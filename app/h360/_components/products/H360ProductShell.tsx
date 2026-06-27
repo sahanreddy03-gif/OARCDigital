@@ -9,10 +9,11 @@ type Props = {
   eyebrow: string;
   h1: string;
   live?: boolean;
+  ctaName?: string;
   children: React.ReactNode;
 };
 
-export default function H360ProductShell({ eyebrow, h1, live, children }: Props) {
+export default function H360ProductShell({ eyebrow, h1, live, ctaName = 'this tool', children }: Props) {
   return (
     <div style={{ fontFamily: FONT_DISPLAY, background: G.bg, color: G.text }}>
       <H360Nav />
@@ -54,7 +55,7 @@ export default function H360ProductShell({ eyebrow, h1, live, children }: Props)
 
       <section style={{ background: G.beige, borderTop: `1px solid ${G.border}`, padding: '48px 20px 64px' }}>
         <div style={{ maxWidth: 1140, margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ fontSize: 15, fontWeight: 600, margin: '0 0 16px' }}>See what ORDER would do at your venue.</p>
+          <p style={{ fontSize: 15, fontWeight: 600, margin: '0 0 16px' }}>See what {ctaName} would do at your venue.</p>
           <Link
             href={H360_AUDIT}
             style={{

@@ -15,7 +15,7 @@ import {
 
 export default function OrderProductPage() {
   return (
-    <H360ProductShell eyebrow={ORDER_HERO.eyebrow} h1={ORDER_HERO.h1} live>
+    <H360ProductShell eyebrow={ORDER_HERO.eyebrow} h1={ORDER_HERO.h1} live ctaName="ORDER">
       {/* Hero — owner + guest + phone mock */}
       <section style={{ padding: '0 20px 48px', maxWidth: 1140, margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 40, alignItems: 'center' }}>

@@ -94,7 +94,7 @@ export const PRODUCT_CARDS: ProductCardData[] = [
     guestGain: 'They trust you before they sit down — reviews already sold them.',
     result: '3× more reviews in 90 days',
     href: '/h360/get-more-google-reviews-restaurant-malta',
-    live: false,
+    live: true,
     themeIndex: 2,
     visual: 'reviews-stars',
   },
