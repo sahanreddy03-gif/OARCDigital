@@ -51,6 +51,13 @@ export const SOCIAL_PAGE: Omit<H360ProductPageConfig, 'flowFooter'> = {
       { id: 'book', label: 'Guests book', detail: 'Instagram → table' },
     ],
   },
+  compare: {
+    title: 'Empty feed vs completed posts every week.',
+    subtitle: 'Schedulers publish — they don\'t create. Restaurants need food photos and captions done.',
+    brainLine:
+      '€1,000/mo agencies write strategy decks. H360 SOCIAL delivers ready-to-publish restaurant posts — you tap publish in 30 seconds.',
+    visual: 'social-feed-mock',
+  },
   expertTitle: 'Why schedulers and agencies fail small venues.',
   expertSubtitle: '€1,000/mo agencies and $15/mo tools both leave you doing the hard part.',
   expertFails: [

@@ -10,29 +10,29 @@ import { STAFF_PAGE } from './staffProductContent';
 import { FLOOR_PLAN_PAGE } from './floorPlanProductContent';
 
 export function SocialProductPage() {
-  return <H360ProductPageLayout config={SOCIAL_PAGE} />;
+  return <H360ProductPageLayout config={{ ...SOCIAL_PAGE, live: true }} />;
 }
 
 export function EventProductPage() {
-  return <H360ProductPageLayout config={EVENT_PAGE} />;
+  return <H360ProductPageLayout config={{ ...EVENT_PAGE, live: true }} />;
 }
 
 export function AnalyticsProductPage() {
-  return <H360ProductPageLayout config={ANALYTICS_PAGE} />;
+  return <H360ProductPageLayout config={{ ...ANALYTICS_PAGE, live: true }} />;
 }
 
 export function RecipeProductPage() {
-  return <H360ProductPageLayout config={RECIPE_PAGE} />;
+  return <H360ProductPageLayout config={{ ...RECIPE_PAGE, live: true }} />;
 }
 
 export function InventoryProductPage() {
-  return <H360ProductPageLayout config={INVENTORY_PAGE} />;
+  return <H360ProductPageLayout config={{ ...INVENTORY_PAGE, live: true }} />;
 }
 
 export function StaffProductPage() {
-  return <H360ProductPageLayout config={STAFF_PAGE} />;
+  return <H360ProductPageLayout config={{ ...STAFF_PAGE, live: true }} />;
 }
 
 export function FloorPlanProductPage() {
-  return <H360ProductPageLayout config={FLOOR_PLAN_PAGE} />;
+  return <H360ProductPageLayout config={{ ...FLOOR_PLAN_PAGE, live: true }} />;
 }

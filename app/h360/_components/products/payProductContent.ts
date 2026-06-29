@@ -65,6 +65,13 @@ export const PAY_PAGE: Omit<H360ProductPageConfig, 'flowFooter'> = {
       { id: 'free', label: 'Table turns', detail: 'No bill wait' },
     ],
   },
+  compare: {
+    title: '€3,750 in terminals vs a QR tent card.',
+    subtitle: 'Guest pays from their seat — table turns faster, no 15-minute bill wait.',
+    brainLine:
+      'Zettle still needs the waiter with a reader. H360 PAY puts the bill on the guest\'s phone — split bills included, full margin kept.',
+    visual: 'pay-terminal-compare',
+  },
   expertTitle: 'Why Sunday and Zettle still slow you down.',
   expertSubtitle: 'Hardware per table or a waiter with a reader — same bottleneck, different device.',
   expertFails: [

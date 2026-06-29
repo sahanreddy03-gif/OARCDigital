@@ -51,6 +51,13 @@ export const ANALYTICS_PAGE: Omit<H360ProductPageConfig, 'flowFooter'> = {
       { id: 'act', label: 'You decide', detail: 'Staff · stock · hours' },
     ],
   },
+  compare: {
+    title: 'Gut feel vs one number at close.',
+    subtitle: '"I made €1,200 today" — that\'s all H360 needs to show trends without a POS.',
+    brainLine:
+      'Toast Analytics needs Toast POS. H360 ANALYTICS is for Malta venues on a cash register — WhatsApp reminds you at 9pm if you forget.',
+    visual: 'analytics-trend',
+  },
   expertTitle: 'Why POS analytics and spreadsheets fail you.',
   expertSubtitle: 'No POS data to connect — or a sheet nobody updates.',
   expertFails: [

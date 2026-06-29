@@ -88,8 +88,26 @@ export function ExpertFailCard({ name, fail, index }: { name: string; fail: stri
         border: `1px solid ${C.border}`,
         borderRadius: 12,
         borderLeft: `3px solid ${RED}`,
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
+      <m.div
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: 0,
+          right: 0,
+          height: 2,
+          background: RED,
+          opacity: 0.25,
+          transformOrigin: 'left',
+        }}
+      />
       <div style={{ fontSize: 13, fontWeight: 700, color: C.white, marginBottom: 8 }}>{name}</div>
       <p style={{ fontSize: 13, color: '#aaa', lineHeight: 1.55, margin: 0 }}>{fail}</p>
     </m.div>

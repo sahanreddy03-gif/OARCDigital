@@ -51,6 +51,13 @@ export const INVENTORY_PAGE: Omit<H360ProductPageConfig, 'flowFooter'> = {
       { id: 'order', label: 'Order list', detail: 'By supplier · day' },
     ],
   },
+  compare: {
+    title: 'Run out mid-service vs order before Friday.',
+    subtitle: '3 questions at close — 30 seconds. INVENTORY learns what you use each week.',
+    brainLine:
+      'MarketMan is $169/mo with weeks of supplier setup. H360 INVENTORY tells you to order mozzarella by Tuesday — before you 86 the bestseller.',
+    visual: 'stock-alert',
+  },
   expertTitle: 'Why MarketMan and spreadsheets fail small kitchens.',
   expertSubtitle: 'Enterprise pricing and setup — or a sheet nobody opens before ordering.',
   expertFails: [

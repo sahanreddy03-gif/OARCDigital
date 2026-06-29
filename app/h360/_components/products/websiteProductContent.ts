@@ -65,6 +65,13 @@ export const WEBSITE_PAGE: Omit<H360ProductPageConfig, 'flowFooter'> = {
       { id: 'walk', label: 'Walk-ins', detail: '1 in 5 visit' },
     ],
   },
+  compare: {
+    title: 'TripAdvisor owns your story vs your menu online.',
+    subtitle: 'When someone searches your name + Sliema, you need one place under your control.',
+    brainLine:
+      'Wix means hours tweaking templates. H360 WEBSITE is a real restaurant site — menu, hours, booking link — live in 10 minutes, updated via WhatsApp.',
+    visual: 'website-before-after',
+  },
   expertTitle: 'Why Wix and Facebook fail restaurants.',
   expertSubtitle: 'Too much DIY work — or not a real website at all.',
   expertFails: [

@@ -51,6 +51,13 @@ export const RECIPE_PAGE: Omit<H360ProductPageConfig, 'flowFooter'> = {
       { id: 'fix', label: 'Fix menu', detail: 'Raise or remove losers' },
     ],
   },
+  compare: {
+    title: '70% guess vs real food cost per plate.',
+    subtitle: 'Tomatoes doubled. Portions crept. The spreadsheet from 2023 is lying.',
+    brainLine:
+      'MarginEdge is $199/mo US tooling. H360 RECIPE enters ingredients once — shows real margin so you raise price or fix the portion.',
+    visual: 'recipe-margin',
+  },
   expertTitle: 'Why spreadsheets and chef guesses fail.',
   expertSubtitle: 'Nobody updates the sheet. "About €4" isn\'t a number you can bank on.',
   expertFails: [

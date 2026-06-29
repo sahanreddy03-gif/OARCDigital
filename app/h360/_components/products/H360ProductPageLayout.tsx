@@ -6,7 +6,10 @@ import ProductCardVisual from '../product-cards/ProductCardVisual';
 import type { ProductVisualId } from '../product-cards/productCardsData';
 import H360ProductShell from './H360ProductShell';
 import { ProductFlowDiagram, ExpertFailCard } from './sharedVisuals';
+import { PremiumCompare, type PremiumCompareId } from './premiumCompareVisuals';
 import { C, G } from '../tokens';
+
+export type { PremiumCompareId };
 
 export type H360ProductPageConfig = {
   eyebrow: string;
@@ -26,6 +29,12 @@ export type H360ProductPageConfig = {
     nodes: readonly { id: string; label: string; detail: string }[];
   };
   flowFooter?: React.ReactNode;
+  compare?: {
+    title: string;
+    subtitle?: string;
+    brainLine?: string;
+    visual: PremiumCompareId;
+  };
   expertTitle: string;
   expertSubtitle: string;
   expertFails: readonly { name: string; fail: string }[];
@@ -65,7 +74,20 @@ export default function H360ProductPageLayout({ config }: { config: H360ProductP
         </div>
       </section>
 
-      <section style={{ background: C.bg, borderTop: `1px solid ${C.border}`, padding: '0 20px 64px' }}>
+      {config.compare && (
+        <section style={{ background: '#050505', borderTop: `1px solid ${C.border}`, padding: '56px 20px 64px' }}>
+          <div style={{ maxWidth: 1140, margin: '0 auto' }}>
+            <PremiumCompare
+              visual={config.compare.visual}
+              title={config.compare.title}
+              subtitle={config.compare.subtitle}
+              brainLine={config.compare.brainLine}
+            />
+          </div>
+        </section>
+      )}
+
+      <section style={{ background: C.bg, borderTop: `1px solid ${C.border}`, padding: config.compare ? '56px 20px 64px' : '0 20px 64px' }}>
         <div style={{ maxWidth: 1140, margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 800, color: C.white, letterSpacing: '-0.03em', marginBottom: 8 }}>
             {config.expertTitle}

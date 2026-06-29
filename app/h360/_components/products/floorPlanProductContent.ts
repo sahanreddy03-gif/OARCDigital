@@ -51,6 +51,13 @@ export const FLOOR_PLAN_PAGE: Omit<H360ProductPageConfig, 'flowFooter'> = {
       { id: 'turn', label: 'Faster turns', detail: 'No empty tables hidden' },
     ],
   },
+  compare: {
+    title: 'Host guessing vs live floor map.',
+    subtitle: 'Green free · red full · yellow clearing — one tap to seat on any phone.',
+    brainLine:
+      'SevenRooms is $200+/mo enterprise table management. H360 FLOOR PLAN is just a map — so walk-ins get seated while empty tables aren\'t hidden.',
+    visual: 'floor-map-live',
+  },
   expertTitle: 'Why OpenTable bundles fail small floors.',
   expertSubtitle: 'Per-cover fees and reservation ERP — you need a map.',
   expertFails: [

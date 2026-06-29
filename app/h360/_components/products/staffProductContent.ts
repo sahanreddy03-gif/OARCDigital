@@ -51,6 +51,13 @@ export const STAFF_PAGE: Omit<H360ProductPageConfig, 'flowFooter'> = {
       { id: 'sick', label: 'Sick cover', detail: 'Blast off-duty staff' },
     ],
   },
+  compare: {
+    title: 'WhatsApp chaos vs confirmed roster.',
+    subtitle: 'Staff reply yes or no in the app they already use — sick cover in minutes.',
+    brainLine:
+      '7Shifts is $40+/mo and another app to download. H360 STAFF lives in WhatsApp — roster sent, confirmations tracked, cover blasted when someone\'s sick.',
+    visual: 'staff-whatsapp',
+  },
   expertTitle: 'Why 7Shifts and WhatsApp groups fail.',
   expertSubtitle: 'Another app to learn — or messages lost in the group chat.',
   expertFails: [

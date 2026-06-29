@@ -10,6 +10,7 @@ import { SERVICE_SCHEMAS, type ServiceSchemaEntry } from "./serviceSchemaConfig"
 import { PILLAR_SCHEMAS, type PillarSchemaEntry } from "./pillarSchemaConfig";
 import { NAP } from "./nap";
 import { buildSupplementalLlmsFullEntries } from "./llmsTxtGenerator";
+import { buildH360LlmsFullSection } from "./h360LlmsGenerator";
 
 export const LLMS_FULL_PATH = "public/llms-full.txt";
 export const LLMS_FULL_START = "<!-- AUTOGEN:LLMS-FULL:START -->";
@@ -152,6 +153,8 @@ export function buildLlmsFullBody(): string {
   if (supplemental) {
     lines.push(supplemental);
   }
+
+  lines.push(buildH360LlmsFullSection());
 
   lines.push(LLMS_FULL_END);
   return lines.join("\n");

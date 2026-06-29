@@ -6,7 +6,7 @@ import type { ProductCardData } from './productCardsData';
 import { CARD_THEMES } from './cardPalette';
 import ProductCardVisual from './ProductCardVisual';
 import { FONT_DISPLAY, G } from '../tokens';
-import { H360_AUDIT, OARC_HOME } from '../h360Site';
+import { OARC_HOME } from '../h360Site';
 
 type Props = {
   data: ProductCardData;
@@ -16,7 +16,7 @@ type Props = {
 
 export default function ProductCardShell({ data, mobile, playing }: Props) {
   const theme = CARD_THEMES[data.themeIndex] ?? CARD_THEMES[0];
-  const href = data.live ? data.href : H360_AUDIT;
+  const href = data.href;
 
   return (
     <m.div
@@ -117,10 +117,25 @@ export default function ProductCardShell({ data, mobile, playing }: Props) {
 
         <ProductCardVisual visual={data.visual} playing={playing} dark={theme.dark} />
 
-        <div style={{ padding: mobile ? '4px 22px 10px' : '4px 28px 12px', marginTop: 'auto' }}>
+        <div style={{ padding: mobile ? '4px 22px 10px' : '4px 28px 12px', marginTop: 'auto', display: 'flex', alignItems: 'center', gap: 10 }}>
           <span style={{ fontSize: 14, fontWeight: 600, color: theme.dark ? 'rgba(255,255,255,0.75)' : G.green }}>
             See how →
           </span>
+          {data.live && (
+            <span
+              style={{
+                fontSize: 9,
+                fontWeight: 800,
+                letterSpacing: '0.06em',
+                color: theme.dark ? '#7dffb0' : G.green,
+                background: theme.dark ? 'rgba(125,255,176,0.12)' : 'rgba(9,68,19,0.08)',
+                borderRadius: 6,
+                padding: '3px 7px',
+              }}
+            >
+              LIVE
+            </span>
+          )}
         </div>
       </Link>
 

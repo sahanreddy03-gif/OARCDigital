@@ -65,6 +65,13 @@ export const REST_PAGE: Omit<H360ProductPageConfig, 'flowFooter'> = {
       { id: 'owner', label: 'Owner view', detail: 'What sold today' },
     ],
   },
+  compare: {
+    title: 'Twelve tools vs one connected system.',
+    subtitle: 'Menu, kitchen, and owner view sharing the same data — not paper and WhatsApp chaos.',
+    brainLine:
+      'Toast and Lightspeed assume hardware contracts and multi-location ops. H360 Full System is what a 40-seat Malta restaurant actually runs daily.',
+    visual: 'rest-system-hub',
+  },
   expertTitle: 'Why enterprise POS is overkill here.',
   expertSubtitle: 'Toast and Lightspeed assume hardware contracts and multi-location ops.',
   expertFails: [

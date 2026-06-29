@@ -65,6 +65,13 @@ export const BOOKING_PAGE: Omit<H360ProductPageConfig, 'flowFooter'> = {
       { id: 'list', label: 'Morning list', detail: 'WhatsApp summary' },
     ],
   },
+  compare: {
+    title: 'OpenTable per-cover fees vs flat booking.',
+    subtitle: '30 covers Friday shouldn\'t cost €60 in platform fees — with double bookings from a notebook.',
+    brainLine:
+      'ResDiary is €39–199/mo for table-turn algorithms you don\'t need. H360 BOOKING replaces the notebook — slots lock, confirmations send, morning list on WhatsApp.',
+    visual: 'booking-fee-compare',
+  },
   expertTitle: 'Why OpenTable eats your margin.',
   expertSubtitle: 'Every booking product assumes you\'re already busy and need complex table management.',
   expertFails: [

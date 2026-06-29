@@ -51,6 +51,13 @@ export const EVENT_PAGE: Omit<H360ProductPageConfig, 'flowFooter'> = {
       { id: 'remind', label: 'Reminder', detail: '60% fewer no-shows' },
     ],
   },
+  compare: {
+    title: 'Facebook reach vs RSVPs you can prep for.',
+    subtitle: 'One event page, one link, real headcount before you buy ingredients.',
+    brainLine:
+      'Eventbrite takes 2–3% per ticket and lists you next to yoga classes. H360 EVENT fills the room — reminders cut no-shows ~60%.',
+    visual: 'event-rsvp-fill',
+  },
   expertTitle: 'Why Eventbrite and Facebook fail event night.',
   expertSubtitle: 'Fees, generic pages, or posts nobody sees.',
   expertFails: [

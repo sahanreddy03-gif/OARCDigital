@@ -65,6 +65,13 @@ export const GOOGLE_PROFILE_PAGE: Omit<H360ProductPageConfig, 'flowFooter'> = {
       { id: 'calls', label: '847 → 37', detail: 'Searches become walk-ins' },
     ],
   },
+  compare: {
+    title: 'Stale profile vs active GBP — the number that matters.',
+    subtitle: 'Google rewards profiles that post, reply, and stay accurate — not a one-time setup.',
+    brainLine:
+      'Yext charges €500+/mo for listings sync. H360 Google Visibility is built for Malta restaurants that need "847 searches → 37 calls" — not enterprise listing software.',
+    visual: 'google-maps-rank',
+  },
   expertTitle: 'Why Yext and DIY leave you invisible.',
   expertSubtitle: 'Every competitor either costs €500+/mo or expects you to do the work yourself.',
   expertFails: [

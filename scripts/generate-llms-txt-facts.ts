@@ -21,6 +21,7 @@ import {
   CORE_INDEX_START,
   CORE_INDEX_END,
 } from "../lib/seo/llmsTxtGenerator";
+import { spliceH360LlmsSection } from "../lib/seo/h360LlmsGenerator";
 
 const LLMS = path.join(process.cwd(), "public", "llms.txt");
 const START = "<!-- AUTOGEN:CITABLE-FACTS:START -->";
@@ -113,6 +114,7 @@ function applyTransform(txt: string): string {
       next = next.trimEnd() + "\n\n" + coreSection + "\n";
     }
   }
+  next = spliceH360LlmsSection(next);
   return next;
 }
 
