@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { FONT_DISPLAY, G } from './tokens';
-import { OARC_HOME, OARC_WHY, JOURNEY_STEPS, H360_CARD_EVENT, OARC_OPERATOR_VENUES } from './h360Site';
+import { OARC_HOME, JOURNEY_STEPS, H360_CARD_EVENT } from './h360Site';
 
 export default function OarcBridge() {
   const [active, setActive] = useState<number | null>(null);
@@ -41,63 +41,27 @@ export default function OarcBridge() {
           }}
         >
           <div style={{ maxWidth: 520 }}>
-            <p
-              style={{
-                fontSize: 11,
-                fontWeight: 700,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: G.green,
-                margin: '0 0 8px',
-              }}
-            >
-              OARC Digital · Malta
-            </p>
-            <p style={{ fontSize: 15, fontWeight: 600, color: G.text, margin: '0 0 6px', lineHeight: 1.35 }}>
+            <p style={{ fontSize: 17, fontWeight: 700, color: G.text, margin: 0, lineHeight: 1.35 }}>
               We run restaurants. H360 is how we fix yours.
             </p>
-            <p style={{ fontSize: 13, color: G.textMuted, margin: 0, lineHeight: 1.55, maxWidth: 460 }}>
-              H360 is one product line inside{' '}
-              <Link href={OARC_HOME} style={{ color: G.text, fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 3 }}>
-                OARC Digital
-              </Link>
-              {' '}— creative, AI, and revenue under one roof. Operators who run {OARC_OPERATOR_VENUES}.
-            </p>
           </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
-            <Link
-              href={OARC_HOME}
-              style={{
-                fontSize: 12,
-                fontWeight: 600,
-                color: G.text,
-                padding: '8px 14px',
-                borderRadius: 99,
-                border: `1px solid ${G.border}`,
-                background: '#fff',
-                textDecoration: 'none',
-              }}
-            >
-              oarcdigital.com →
-            </Link>
-            <Link
-              href={OARC_WHY}
-              style={{
-                fontSize: 12,
-                fontWeight: 600,
-                color: G.textMuted,
-                padding: '8px 14px',
-                textDecoration: 'none',
-              }}
-            >
-              Why OARC
-            </Link>
-          </div>
+          <Link
+            href={OARC_HOME}
+            style={{
+              fontSize: 13,
+              fontWeight: 600,
+              color: G.text,
+              padding: '10px 16px',
+              borderRadius: 99,
+              border: `1px solid ${G.border}`,
+              background: '#fff',
+              textDecoration: 'none',
+              alignSelf: 'flex-start',
+            }}
+          >
+            oarcdigital.com →
+          </Link>
         </div>
-
-        <p style={{ fontSize: 11, fontWeight: 600, color: G.textMuted, margin: '0 0 10px', letterSpacing: '0.04em' }}>
-          TAP A STEP — JUMP TO THE TOOL ↓
-        </p>
 
         <div
           style={{

@@ -7,8 +7,8 @@ export const OARC_CONTACT = 'https://oarcdigital.com/contact';
 
 export const H360_NAV_LINKS: ReadonlyArray<{ label: string; href: string }> = [
   { label: 'Products', href: '/h360#h360-products' },
+  { label: 'See it work', href: '/h360#h360-see-it-work' },
   { label: 'FAQ', href: '/h360/faq' },
-  { label: 'How it works', href: '/h360#h360-how-it-works' },
   { label: 'OARC Digital', href: OARC_HOME },
 ];
 

@@ -5,7 +5,7 @@ import { PRODUCT_CARDS } from './product-cards/productCardsData';
 import ProductCardShell from './product-cards/ProductCardShell';
 
 import { FONT_DISPLAY } from './tokens';
-import { OARC_HOME, H360_CARD_EVENT } from './h360Site';
+import { H360_CARD_EVENT } from './h360Site';
 
 const WHITE = '#ffffff';
 const DARK = '#111111';
@@ -135,9 +135,6 @@ export default function H360FeatureCards() {
       <style>{CSS}</style>
 
       <div style={{ padding: isMobile ? '0 20px' : '0 64px', marginBottom: 28 }}>
-        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: GREEN, margin: '0 0 10px' }}>
-          H360 hospitality · by <a href={OARC_HOME} style={{ color: GREEN, textDecoration: 'none' }}>OARC Digital</a>
-        </p>
         <h2
           style={{
             fontSize: isMobile ? 28 : 38,
@@ -150,12 +147,8 @@ export default function H360FeatureCards() {
         >
           Restaurant marketing Malta.
           <br />
-          {COUNT} tools. One journey. Every margin kept.
+          {COUNT} tools. One journey.
         </h2>
-        <p style={{ fontSize: isMobile ? 14 : 16, color: MUTED, marginTop: 12, maxWidth: 580, lineHeight: 1.55 }}>
-          Swipe the stack — Google, reviews, orders, loyalty, operations. Each card shows what you keep, what your guest gains, and why OARC beats the usual vendors.{' '}
-          <a href={OARC_HOME} style={{ color: DARK, fontWeight: 600 }}>oarcdigital.com</a>
-        </p>
       </div>
 
       {/* Tab row — scrollable product tabs (syncs with card swipe on mobile) */}
