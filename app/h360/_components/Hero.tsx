@@ -193,48 +193,44 @@ export default function H360Hero() {
       <H360Nav />
 
       <section style={{ minHeight: isMobile ? 'auto' : 'min(100vh, 920px)', paddingBottom: isMobile ? 88 : 48 }}>
-        {/* Copy */}
+        {/* Copy — minimal */}
         <div
           id="h360-audit"
           style={{
-            padding: isMobile ? '24px 20px 20px' : '36px 40px 28px',
+            padding: isMobile ? '20px 20px 12px' : '28px 40px 16px',
             textAlign: isMobile ? 'left' : 'center',
             background: G.bg,
             scrollMarginTop: 72,
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 12, justifyContent: isMobile ? 'flex-start' : 'center', fontSize: 12, color: G.textMuted, flexWrap: 'wrap' }}>
-            <span style={{ color: G.star, fontSize: 13, letterSpacing: 1 }}>★★★★★</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10, justifyContent: isMobile ? 'flex-start' : 'center', fontSize: 11, color: G.textMuted }}>
+            <span style={{ color: G.star, letterSpacing: 1 }}>★★★★★</span>
             <span style={{ fontWeight: 700, color: G.text }}>4.8</span>
-            <span>across 1,000+ reviews</span>
-            <span style={{ color: G.border }}>·</span>
+            <span>·</span>
             <a href="https://oarcdigital.com" style={{ color: G.green, fontWeight: 600, textDecoration: 'none' }}>OARC Digital</a>
           </div>
 
-          <p style={{ fontSize: isMobile ? 13 : 15, fontWeight: 600, color: G.textMuted, margin: '0 0 14px', maxWidth: 640, marginLeft: isMobile ? 0 : 'auto', marginRight: isMobile ? 0 : 'auto' }}>
-            Restaurant marketing Malta — built for venues aiming at the top.
-          </p>
-
           <h1
             style={{
-              fontSize: isMobile ? 'clamp(28px, 8vw, 42px)' : 'clamp(40px, 5.5vw, 72px)',
+              fontSize: isMobile ? 'clamp(30px, 8vw, 44px)' : 'clamp(44px, 5.5vw, 72px)',
               fontWeight: 800,
-              lineHeight: 1.08,
-              letterSpacing: '-0.035em',
+              lineHeight: 1.06,
+              letterSpacing: '-0.04em',
               color: G.text,
-              margin: '0 0 20px',
-              maxWidth: 860,
+              margin: '0 0 12px',
+              maxWidth: 720,
               marginLeft: isMobile ? 0 : 'auto',
               marginRight: isMobile ? 0 : 'auto',
             }}
           >
-            The AI platform Malta restaurants use to{' '}
+            Malta restaurants on the road to #1.{' '}
             <span
               style={{
                 display: 'inline-block',
                 transition: 'opacity 0.28s ease, transform 0.28s ease',
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0)' : 'translateY(6px)',
+                color: G.green,
               }}
             >
               {SLIDES[slideIdx].word}
@@ -278,7 +274,7 @@ export default function H360Hero() {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            minHeight: isMobile ? 480 : 520,
+            minHeight: isMobile ? 520 : 560,
             margin: isMobile ? '0 16px' : '0 auto',
             maxWidth: 960,
             padding: isMobile ? '0 0 24px' : '0 24px 32px',
@@ -310,6 +306,7 @@ export default function H360Hero() {
               borderRadius: 44,
               padding: '10px 8px',
               boxShadow: '0 36px 88px rgba(0,0,0,0.28)',
+              transform: isMobile ? 'scale(1.02)' : 'scale(1.08)',
             }}
           >
             <div style={{ width: 100, height: 28, background: '#000', borderRadius: 20, margin: '0 auto', position: 'relative', zIndex: 5 }} />

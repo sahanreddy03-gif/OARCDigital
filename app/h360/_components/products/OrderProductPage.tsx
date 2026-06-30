@@ -1,10 +1,8 @@
 'use client';
 
-import StandaloneProductPage from './StandaloneProductPage';
-import { buildStandalone } from './buildStandalone';
-import { STANDALONE_EXTRAS } from './productStandaloneExtras';
-import { ORDER_PAGE } from './orderProductContent';
+import OrderExperience from './orderExperience';
 
+/** Product #3 of 18 — bespoke experience */
 export default function OrderProductPage() {
-  return <StandaloneProductPage config={buildStandalone(ORDER_PAGE, STANDALONE_EXTRAS.order, true)} />;
+  return <OrderExperience />;
 }

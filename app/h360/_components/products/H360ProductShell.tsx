@@ -11,49 +11,64 @@ type Props = {
   live?: boolean;
   ctaName?: string;
   themeAccent?: string;
+  /** Motion-first layout — hides document-style header copy */
+  cinema?: boolean;
   children: React.ReactNode;
 };
 
-export default function H360ProductShell({ eyebrow, h1, live, ctaName = 'this tool', themeAccent = G.green, children }: Props) {
+export default function H360ProductShell({ eyebrow, h1, live, ctaName = 'this tool', themeAccent = G.green, cinema, children }: Props) {
   return (
     <div style={{ fontFamily: FONT_DISPLAY, background: G.bg, color: G.text }}>
       <H360Nav />
 
-      <div style={{ maxWidth: 1160, margin: '0 auto', padding: '28px 24px 0' }}>
-        <nav aria-label="Breadcrumb" style={{ fontSize: 12, color: G.textMuted, marginBottom: 20, display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center' }}>
-          <Link href={OARC_HOME} style={{ color: G.green, fontWeight: 600 }}>OARC Digital</Link>
-          <span aria-hidden>→</span>
-          <Link href={H360_HOME} style={{ color: G.textMuted }}>H360</Link>
-          <span aria-hidden>→</span>
-          <span style={{ color: G.text }}>{h1.replace(/\.$/, '')}</span>
-        </nav>
-
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, alignItems: 'center', marginBottom: 14 }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: themeAccent, margin: 0 }}>
-            {eyebrow}
-          </p>
-          {live && (
-            <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', color: G.green, border: `1px solid ${G.greenLt}`, background: 'rgba(9,68,19,0.06)', borderRadius: 99, padding: '4px 10px' }}>
-              LIVE
-            </span>
-          )}
+      {cinema ? (
+        <div style={{ padding: '12px 20px 0', maxWidth: 1160, margin: '0 auto' }}>
+          <nav aria-label="Breadcrumb" style={{ fontSize: 11, color: G.textMuted, display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center' }}>
+            <Link href={OARC_HOME} style={{ color: G.green, fontWeight: 600 }}>OARC</Link>
+            <span aria-hidden>→</span>
+            <Link href={H360_HOME} style={{ color: G.textMuted }}>H360</Link>
+            <span aria-hidden>→</span>
+            <span style={{ color: G.text }}>{ctaName}</span>
+          </nav>
+          <h1 style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)' }}>{h1}</h1>
         </div>
+      ) : (
+        <div style={{ maxWidth: 1160, margin: '0 auto', padding: '28px 24px 0' }}>
+          <nav aria-label="Breadcrumb" style={{ fontSize: 12, color: G.textMuted, marginBottom: 20, display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center' }}>
+            <Link href={OARC_HOME} style={{ color: G.green, fontWeight: 600 }}>OARC Digital</Link>
+            <span aria-hidden>→</span>
+            <Link href={H360_HOME} style={{ color: G.textMuted }}>H360</Link>
+            <span aria-hidden>→</span>
+            <span style={{ color: G.text }}>{h1.replace(/\.$/, '')}</span>
+          </nav>
 
-        <h1 style={{ fontSize: 'clamp(36px, 5.5vw, 56px)', fontWeight: 800, letterSpacing: '-0.045em', lineHeight: 1.05, margin: '0 0 12px', maxWidth: 800 }}>
-          {h1}
-        </h1>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, alignItems: 'center', marginBottom: 14 }}>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: themeAccent, margin: 0 }}>
+              {eyebrow}
+            </p>
+            {live && (
+              <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', color: G.green, border: `1px solid ${G.greenLt}`, background: 'rgba(9,68,19,0.06)', borderRadius: 99, padding: '4px 10px' }}>
+                LIVE
+              </span>
+            )}
+          </div>
 
-        <p style={{ fontSize: 14, color: G.textMuted, margin: '0 0 8px', maxWidth: 620, lineHeight: 1.55 }}>
-          {H360_POSITIONING}
-        </p>
-        <p style={{ fontSize: 12, color: G.textMuted, margin: '0 0 24px', maxWidth: 560, lineHeight: 1.5 }}>
-          By{' '}
-          <Link href={OARC_HOME} style={{ color: G.text, fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 3 }}>
-            OARC Digital
-          </Link>
-          {' '}— parent brand. H360 is the restaurant-only line.
-        </p>
-      </div>
+          <h1 style={{ fontSize: 'clamp(36px, 5.5vw, 56px)', fontWeight: 800, letterSpacing: '-0.045em', lineHeight: 1.05, margin: '0 0 12px', maxWidth: 800 }}>
+            {h1}
+          </h1>
+
+          <p style={{ fontSize: 14, color: G.textMuted, margin: '0 0 8px', maxWidth: 620, lineHeight: 1.55 }}>
+            {H360_POSITIONING}
+          </p>
+          <p style={{ fontSize: 12, color: G.textMuted, margin: '0 0 24px', maxWidth: 560, lineHeight: 1.5 }}>
+            By{' '}
+            <Link href={OARC_HOME} style={{ color: G.text, fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 3 }}>
+              OARC Digital
+            </Link>
+            {' '}— parent brand. H360 is the restaurant-only line.
+          </p>
+        </div>
+      )}
 
       {children}
 
