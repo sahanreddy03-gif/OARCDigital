@@ -1,8 +1,10 @@
 'use client';
 
-import GoogleReviewsExperience from './googleReviewsExperience';
+import StandaloneProductPage from './StandaloneProductPage';
+import { buildStandalone } from './buildStandalone';
+import { REVIEWS_PAGE } from './reviewsProductContent';
+import { STANDALONE_EXTRAS } from './productStandaloneExtras';
 
-/** Product #2 of 18 — bespoke experience */
 export default function ReviewsProductPage() {
-  return <GoogleReviewsExperience />;
+  return <StandaloneProductPage config={buildStandalone(REVIEWS_PAGE, STANDALONE_EXTRAS.reviews, true)} />;
 }

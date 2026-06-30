@@ -13,10 +13,10 @@ export type ProductTheme = {
 const THEMES: Record<string, ProductTheme> = {
   'google-visibility': {
     id: 'maps',
-    accent: '#38bdf8',
-    accentSoft: 'rgba(56,189,248,0.14)',
-    glow: 'radial-gradient(ellipse 80% 60% at 70% 20%, rgba(56,189,248,0.35) 0%, transparent 55%)',
-    gradient: 'linear-gradient(165deg, #020617 0%, #0c1a2e 45%, #061510 100%)',
+    accent: '#1a6b30',
+    accentSoft: 'rgba(26,107,48,0.18)',
+    glow: 'radial-gradient(ellipse 80% 60% at 70% 20%, rgba(194,237,206,0.28) 0%, transparent 55%)',
+    gradient: 'linear-gradient(165deg, #041208 0%, #0a1f12 45%, #061510 100%)',
     heroMetric: { value: '847→37', label: 'searches that become walk-ins' },
     doctrine: 'Posting photos is hygiene. Winning visibility is SEO + AEO + AI search — engineered weekly.',
   },

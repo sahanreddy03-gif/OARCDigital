@@ -33,8 +33,8 @@ export const STANDALONE_EXTRAS: Record<string, StandaloneExtras> = {
       ctaLine: 'Next post targets',
     },
     progress: {
-      title: 'Week 1 to week 12 — not a mystery.',
-      subtitle: 'Score climbs. Rank drops. Calls tracked on WhatsApp.',
+      title: 'Month 1 to month 3 — score, rank, calls on WhatsApp.',
+      subtitle: 'We know what moves first in Malta. You see it weekly, not in a PDF.',
       scoreLabel: 'Profile score',
       rankLabel: 'Maps rank',
       weeks: [wk(1, 42, 14, 'Claimed · baseline audit'), wk(4, 68, 9, '4 posts · review replies live'), wk(8, 81, 5, 'Articles indexing · AI cites'), wk(12, 91, 3, '847 searches → 37 calls', '847 → 37 calls')],

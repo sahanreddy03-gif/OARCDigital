@@ -6,6 +6,7 @@ import { C, G, FONT_DISPLAY } from '../tokens';
 import type { StackPreviewKind, StandaloneProductConfig } from './standaloneProductTypes';
 import { PremiumCompare } from './premiumCompareVisuals';
 import { OrderMarginCompare } from './OrderVisuals';
+import { KineticStackStage } from './kineticBroll';
 
 const GREEN = '#4ade80';
 const RED = '#f87171';
@@ -341,7 +342,15 @@ export function StackPreview({ kind }: { kind: StackPreviewKind }) {
   }
 }
 
-export function ProductStackBoard({ stack, accent }: { stack: StandaloneProductConfig['stack']; accent: string }) {
+export function ProductStackBoard({
+  stack,
+  accent,
+  kinetic = false,
+}: {
+  stack: StandaloneProductConfig['stack'];
+  accent: string;
+  kinetic?: boolean;
+}) {
   const [active, setActive] = useState(0);
   const item = stack.items[active];
   return (
@@ -358,12 +367,18 @@ export function ProductStackBoard({ stack, accent }: { stack: StandaloneProductC
             </button>
           ))}
         </div>
-        <m.div key={item.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} style={{ background: G.bg, border: `1px solid ${G.border}`, borderRadius: 16, boxShadow: '0 8px 32px rgba(0,0,0,0.06)', overflow: 'hidden' }}>
-          <div style={{ padding: '12px 16px', borderBottom: `1px solid ${G.border}`, background: '#fafafa' }}>
-            <div style={{ fontSize: 13, fontWeight: 700, color: G.text }}>{item.label}</div>
-            <div style={{ fontSize: 12, color: G.textMuted }}>{item.detail}</div>
-          </div>
-          <StackPreview kind={item.preview} />
+        <m.div key={item.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
+          {kinetic ? (
+            <KineticStackStage item={item} accent={accent} />
+          ) : (
+            <div style={{ background: G.bg, border: `1px solid ${G.border}`, borderRadius: 16, boxShadow: '0 8px 32px rgba(0,0,0,0.06)', overflow: 'hidden' }}>
+              <div style={{ padding: '12px 16px', borderBottom: `1px solid ${G.border}`, background: '#fafafa' }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: G.text }}>{item.label}</div>
+                <div style={{ fontSize: 12, color: G.textMuted }}>{item.detail}</div>
+              </div>
+              <StackPreview kind={item.preview} />
+            </div>
+          )}
         </m.div>
       </div>
     </div>
@@ -422,11 +437,14 @@ export function ProgressLiveBoard({ progress, accent }: { progress: StandalonePr
       <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 800, color: C.white, letterSpacing: '-0.03em', margin: '0 0 8px' }}>{progress.title}</h2>
       <p style={{ fontSize: 14, color: C.muted, marginBottom: 28, maxWidth: 480, lineHeight: 1.5 }}>{progress.subtitle}</p>
       <div style={{ display: 'flex', gap: 8, marginBottom: 20, flexWrap: 'wrap' }}>
-        {progress.weeks.map((wk, i) => (
-          <button key={wk.week} type="button" onClick={() => setStep(i)} style={{ padding: '8px 14px', borderRadius: 99, border: `1px solid ${i === step ? GREEN : C.border}`, background: i === step ? 'rgba(74,222,128,0.12)' : C.card, color: i === step ? GREEN : C.muted, fontSize: 12, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit' }}>
-            Wk {wk.week}
-          </button>
-        ))}
+        {progress.weeks.map((wk, i) => {
+          const month = wk.week <= 4 ? 'Month 1' : wk.week <= 8 ? 'Month 2' : 'Month 3';
+          return (
+            <button key={wk.week} type="button" onClick={() => setStep(i)} style={{ padding: '8px 14px', borderRadius: 99, border: `1px solid ${i === step ? G.greenLt : C.border}`, background: i === step ? 'rgba(194,237,206,0.15)' : C.card, color: i === step ? G.greenLt : C.muted, fontSize: 12, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit' }}>
+              {month} <span style={{ opacity: 0.65, fontWeight: 600 }}>· wk {wk.week}</span>
+            </button>
+          );
+        })}
       </div>
       <m.div key={w.week} initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} style={{ background: '#ffffff', borderRadius: 20, padding: 24, boxShadow: '0 20px 60px rgba(0,0,0,0.35)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 20 }}>
         <div>
