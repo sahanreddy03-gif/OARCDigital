@@ -1,13 +1,15 @@
-/** GOOGLE PROFILE + SEARCH — Google Visibility hub card; H360-PRODUCT-CONTENT-BRAIN.md */
+/**
+ * GOOGLE VISIBILITY — GOOGLE_PROFILE + SEARCH + LOCAL brain merge
+ * H360-PRODUCT-CONTENT-BRAIN.md
+ */
 import type { ProductMetaConfig } from './buildProductMetadata';
-import type { H360ProductPageConfig } from './H360ProductPageLayout';
 
 const PATH = '/h360/google-business-profile-restaurant-malta';
 
 const GATE2 = {
-  question: 'How do I set up my restaurant on Google?',
+  question: 'How do I get my restaurant to show on Google?',
   answer:
-    'Claim your Google Business Profile, keep it active with posts, photos, hours, and review replies — not a one-time setup you forget. OARC Digital\'s H360 Google Visibility manages GBP for Malta restaurants: weekly posts, holiday hours, the one number that matters ("847 searches → 37 calls"), and SEO that improves ranking without you reading 20-page reports. Built by Malta operators — not a €500/mo Yext contract.',
+    'H360 Google Visibility is a full discovery engine for Malta restaurants — not “post a photo once.” We claim and verify your Google Business Profile, run local SEO and AEO so AI search cites you, publish keyword-led GBP posts and articles with a human copywriter, reply to reviews in your voice, and track the one number owners care about: searches → calls. ARC data tells us what to target each week. You approve in 30 seconds — we do the strategy, writing, and technical work.',
 };
 
 export const GOOGLE_PROFILE_META: ProductMetaConfig = {
@@ -15,75 +17,190 @@ export const GOOGLE_PROFILE_META: ProductMetaConfig = {
   path: PATH,
   title: 'Google Business Profile Restaurant Malta | OARC Digital — H360',
   description:
-    'Google Business Profile management for Malta restaurants — active GBP, posts, photos, review replies, and local SEO. H360 by OARC Digital.',
-  keywords: ['google business profile restaurant malta', 'restaurant google maps malta', 'restaurant seo malta'],
-  og: { title: 'Google Visibility — stay active', subtitle: '847 searches → 37 calls · H360', eyebrow: 'H360 · Google Visibility' },
+    'H360 Google Visibility — local SEO, AEO, AI search, GBP posts, review replies, and Malta keyword strategy for restaurants. OARC Digital operators. Not a €500/mo listing tool.',
+  keywords: [
+    'google business profile restaurant malta',
+    'restaurant seo malta',
+    'restaurant google maps malta',
+    'aeo restaurant malta',
+    'ai search restaurant malta',
+  ],
+  og: {
+    title: 'Google Visibility — SEO + AEO + AI search',
+    subtitle: '847 searches → 37 calls · Malta operators',
+    eyebrow: 'H360 · Google Visibility',
+  },
   breadcrumbName: 'Google Business Profile Malta',
   serviceName: 'H360 Google Visibility — Malta',
-  serviceType: 'Restaurant Google Business Profile Management',
+  serviceType: 'Restaurant Google Visibility — SEO, AEO, GBP',
   faqs: [
     GATE2,
     {
+      question: 'Is this just posting pictures to Google?',
+      answer:
+        'Photos are one lever. H360 runs the full stack: technical SEO, structured data, AEO for AI answers, llms.txt indexing, competitor keyword gaps, copywriter-led posts and articles, review reply strategy, and weekly ARC scoring. Posting without strategy is noise — we target what Malta diners actually search.',
+    },
+    {
+      question: 'What is AEO and why does my restaurant need it?',
+      answer:
+        'Answer Engine Optimization means when someone asks ChatGPT, Perplexity, or Google AI “best seafood restaurant Sliema,” your venue can be cited. We structure your site, GBP, FAQs, and articles so machines can quote you — not your competitor.',
+    },
+    {
+      question: 'How fast will I see results?',
+      answer:
+        'GBP activity often moves in 1–2 weeks. SEO and AI citations compound over 8–12 weeks. Malta’s market is small — 300 venues in a zone, not 3,000 — so ranking gains are realistic when execution is weekly, not “set and forget.”',
+    },
+    {
       question: 'Can you post to GBP automatically?',
-      answer: 'We generate all content — you publish in 30 seconds. The bottleneck isn\'t the button — it\'s knowing what to publish. We handle that.',
+      answer:
+        'We generate everything — keyword-led copy, holiday hours, review replies. You publish in ~30 seconds. The bottleneck was never the button; it was knowing what to publish and why.',
     },
     {
-      question: 'Malta has too many public holidays — how do you track hours?',
-      answer: 'We track all 14 Malta public holidays. Auto-reminder 3 days before each one so your hours stay accurate.',
-    },
-    {
-      question: 'Reviews pile up and I never reply — can you help?',
-      answer: 'AI drafts replies in your tone. You approve or edit in one tap. A replied review ranks better than silence.',
-    },
-    {
-      question: 'How do I know if my Google profile is good or bad?',
-      answer: 'Weekly score: "Your Google Profile Score: 85/100. Missing: menu photos. Next step: upload them." Plus the one number: searches → calls.',
+      question: 'How do I know if it is working?',
+      answer:
+        'Weekly WhatsApp: Google Profile Score (e.g. 85/100), missing items, and the owner metric — “847 searches → 37 calls.” No 20-page PDFs.',
     },
   ],
 };
 
-export const GOOGLE_PROFILE_PAGE: Omit<H360ProductPageConfig, 'flowFooter'> = {
-  eyebrow: 'H360 · Google Visibility',
+export const VISIBILITY_HERO = {
+  eyebrow: 'H360 · Google Visibility · Live',
   h1: 'Google Business Profile for restaurants in Malta.',
+  ownerPain:
+    'Competitors rank above you on Maps. AI search recommends someone else. Your profile has not moved in months — and an agency quoted €1,500/mo for “SEO reports” you will never read.',
+  guestGain:
+    'They search “best pasta near me” — your photos, menu, and reviews show up first. They call or walk in before they open Wolt.',
+  wedge:
+    'Not Yext. Not BrightLocal dashboards. A Malta operator stack: SEO + AEO + AI search + copywriter keywords + ARC data — GBP posts are just the visible tip.',
+  hook: 'We engineer how Malta finds you — on Google, on Maps, and inside AI answers.',
+  metric: { value: '847→37', label: 'searches that become walk-ins' },
+  doctrine:
+    'Posting photos is hygiene. Winning visibility is strategy — keywords, structure, citations, and weekly motion.',
+};
+
+export const VISIBILITY_STACK = [
+  {
+    id: 'seo',
+    label: 'Local SEO',
+    short: 'Rank for what diners type',
+    detail: 'Category, citations, on-page signals, competitor gaps — tuned for Malta neighbourhoods.',
+  },
+  {
+    id: 'aeo',
+    label: 'AEO',
+    short: 'Win AI answer boxes',
+    detail: 'FAQ schema, speakable copy, entity clarity — so Google SGE and assistants cite you.',
+  },
+  {
+    id: 'aisearch',
+    label: 'AI search',
+    short: 'ChatGPT · Perplexity · Gemini',
+    detail: 'Structured facts, reviews, menu language — engineered so LLMs recommend your venue.',
+  },
+  {
+    id: 'llm',
+    label: 'LLM indexing',
+    short: 'llms.txt + entity graph',
+    detail: 'Machine-readable brand file so AI crawlers know who you are and what you serve.',
+  },
+  {
+    id: 'articles',
+    label: 'Articles',
+    short: 'Keyword-led content',
+    detail: 'Human copywriter + trend data — “best lampuki Malta,” festa hours, chef stories that rank.',
+  },
+  {
+    id: 'gbp',
+    label: 'GBP ops',
+    short: 'Posts · hours · replies',
+    detail: 'Weekly motion on your profile — the part owners see. Powered by everything above.',
+  },
+] as const;
+
+export const VISIBILITY_KEYWORDS = [
+  { term: 'best restaurant sliema', vol: 92, trend: '↑' },
+  { term: 'seafood restaurant malta', vol: 78, trend: '↑' },
+  { term: 'restaurant near me valletta', vol: 85, trend: '→' },
+  { term: 'lampuki season malta', vol: 64, trend: '↑' },
+  { term: 'romantic dinner malta', vol: 71, trend: '↑' },
+  { term: 'gluten free restaurant malta', vol: 48, trend: '↑' },
+] as const;
+
+export const VISIBILITY_FLOW = {
+  title: 'How we move you up — week by week',
+  subtitle: 'ARC scans competitors → copywriter targets gaps → you approve → rank climbs.',
+  nodes: [
+    { id: 'scan', label: 'ARC scan', detail: 'Maps rank · reviews · keywords' },
+    { id: 'strategy', label: 'Strategy', detail: 'SEO + AEO + AI targets' },
+    { id: 'copy', label: 'Copywriter', detail: 'Trend keywords → posts' },
+    { id: 'publish', label: 'You approve', detail: '30 sec · goes live' },
+    { id: 'rank', label: 'Rank + calls', detail: '847 → 37 tracked' },
+  ],
+} as const;
+
+export const VISIBILITY_WEEKS = [
+  { week: 1, score: 42, rank: 14, label: 'Claimed · baseline audit' },
+  { week: 4, score: 68, rank: 9, label: '4 posts · review replies live' },
+  { week: 8, score: 81, rank: 5, label: 'Articles indexing · AI cites' },
+  { week: 12, score: 91, rank: 3, label: '847 searches → 37 calls' },
+] as const;
+
+export const VISIBILITY_COMPARE = {
+  title: 'Stale profile vs visibility engine',
+  subtitle: 'Same search. Different outcome.',
+  brainLine:
+    'BrightLocal gives you a PDF. Yext syncs listings. H360 runs SEO, AEO, AI search, copy, and GBP — built for a 40-cover Malta restaurant, not enterprise software.',
+} as const;
+
+export const VISIBILITY_EXPERT_FAILS = [
+  {
+    name: 'SEO agencies (€500–€2,000/mo)',
+    fail: 'Quarterly decks, 6-month timelines. Restaurants cancel before ROI. You need weekly motion, not strategy theatre.',
+  },
+  {
+    name: 'BrightLocal / dashboards',
+    fail: 'Reports what is wrong. Does not fix it. You still write content, chase citations, and reply to reviews alone.',
+  },
+  {
+    name: 'Yext (€500+/mo)',
+    fail: 'Directory sync for chains. Will not move your Maps rank if GBP, reviews, and site copy are weak.',
+  },
+  {
+    name: 'Owner.com',
+    fail: 'US-only bundle. GBP is a checkbox inside someone else’s website — not a Malta visibility engine.',
+  },
+  {
+    name: 'DIY + “post when I remember”',
+    fail: 'Profile goes stale in 8 weeks. Google stops showing you. Competitors with weekly posts win “near me.”',
+  },
+] as const;
+
+export const VISIBILITY_FAQS = GOOGLE_PROFILE_META.faqs;
+
+export const VISIBILITY_RELATED = [
+  { label: 'Smart Google Reviews', href: '/h360/get-more-google-reviews-restaurant-malta' },
+  { label: 'Website', href: '/h360/restaurant-website-malta' },
+  { label: 'Social & Ads', href: '/h360/restaurant-social-media-malta' },
+  { label: 'All H360 tools', href: '/h360#h360-products' },
+] as const;
+
+/** @deprecated use custom page — kept for type compat */
+export const GOOGLE_PROFILE_PAGE = {
+  eyebrow: VISIBILITY_HERO.eyebrow,
+  h1: VISIBILITY_HERO.h1,
   ctaName: 'Google Visibility',
   hero: {
-    ownerPain:
-      'Your Google page is old. People search "restaurant near me" — they pick the place with fresh photos, recent posts, and stars. Yours looks abandoned.',
-    guestGain:
-      'Hungry nearby — they find you on Maps, see today\'s special, and walk in.',
-    wedge: 'Not a stale DIY profile — we keep GBP active and fix what stops you ranking.',
-    hook: 'Your restaurant\'s Google page. We keep it looking good so people find you.',
+    ownerPain: VISIBILITY_HERO.ownerPain,
+    guestGain: VISIBILITY_HERO.guestGain,
+    wedge: VISIBILITY_HERO.wedge,
+    hook: VISIBILITY_HERO.hook,
   },
-  visual: 'google-visibility',
-  flow: {
-    title: 'Claim → post → rank → calls.',
-    subtitle: 'Google rewards active profiles. We generate posts, photos, replies — you publish in 30 seconds.',
-    nodes: [
-      { id: 'claim', label: 'GBP claimed', detail: 'Hours · menu · photos' },
-      { id: 'post', label: 'Weekly posts', detail: 'Content we write' },
-      { id: 'rank', label: 'Maps ranking', detail: 'SEO + reviews lift' },
-      { id: 'calls', label: '847 → 37', detail: 'Searches become walk-ins' },
-    ],
-  },
-  compare: {
-    title: 'Stale profile vs active GBP — the number that matters.',
-    subtitle: 'Google rewards profiles that post, reply, and stay accurate — not a one-time setup.',
-    brainLine:
-      'Yext charges €500+/mo for listings sync. H360 Google Visibility is built for Malta restaurants that need "847 searches → 37 calls" — not enterprise listing software.',
-    visual: 'google-maps-rank',
-  },
-  expertTitle: 'Why Yext and DIY leave you invisible.',
-  expertSubtitle: 'Every competitor either costs €500+/mo or expects you to do the work yourself.',
-  expertFails: [
-    { name: 'Owner.com', fail: 'US only. GBP is one feature inside their website bundle — not the product.' },
-    { name: 'Yext', fail: '€500+/mo for a small restaurant that just needs hours updated and a photo posted.' },
-    { name: 'Broadly', fail: 'Shows existing data — doesn\'t post, doesn\'t update, doesn\'t improve ranking.' },
-    { name: 'Do it yourself', fail: 'Set up once, never touch again. Profile goes stale. Google stops showing you.' },
-  ],
-  faqs: GOOGLE_PROFILE_META.faqs,
-  related: [
-    { label: 'Smart Google Reviews', href: '/h360/get-more-google-reviews-restaurant-malta' },
-    { label: 'Website', href: '/h360/restaurant-website-malta' },
-    { label: 'All H360 tools', href: '/h360#h360-products' },
-  ],
+  visual: 'google-visibility' as const,
+  flow: VISIBILITY_FLOW,
+  compare: { ...VISIBILITY_COMPARE, visual: 'google-maps-rank' as const },
+  expertTitle: 'Why reports and listing tools do not win Maps',
+  expertSubtitle: 'Visibility is a system — not a photo upload.',
+  expertFails: VISIBILITY_EXPERT_FAILS,
+  faqs: VISIBILITY_FAQS,
+  related: VISIBILITY_RELATED,
 };

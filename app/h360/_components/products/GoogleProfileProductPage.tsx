@@ -1,8 +1,10 @@
 'use client';
 
-import H360ProductPageLayout from './H360ProductPageLayout';
+import StandaloneProductPage from './StandaloneProductPage';
+import { buildStandalone } from './buildStandalone';
 import { GOOGLE_PROFILE_PAGE } from './googleProfileProductContent';
+import { STANDALONE_EXTRAS } from './productStandaloneExtras';
 
 export default function GoogleProfileProductPage() {
-  return <H360ProductPageLayout config={{ ...GOOGLE_PROFILE_PAGE, live: true }} />;
+  return <StandaloneProductPage config={buildStandalone(GOOGLE_PROFILE_PAGE, STANDALONE_EXTRAS.googleVisibility, true)} />;
 }

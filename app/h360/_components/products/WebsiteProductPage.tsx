@@ -1,8 +1,10 @@
 'use client';
 
-import H360ProductPageLayout from './H360ProductPageLayout';
+import StandaloneProductPage from './StandaloneProductPage';
+import { buildStandalone } from './buildStandalone';
+import { STANDALONE_EXTRAS } from './productStandaloneExtras';
 import { WEBSITE_PAGE } from './websiteProductContent';
 
 export default function WebsiteProductPage() {
-  return <H360ProductPageLayout config={{ ...WEBSITE_PAGE, live: true }} />;
+  return <StandaloneProductPage config={buildStandalone(WEBSITE_PAGE, STANDALONE_EXTRAS.website, true)} />;
 }

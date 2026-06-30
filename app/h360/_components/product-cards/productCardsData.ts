@@ -76,7 +76,7 @@ export const PRODUCT_CARDS: ProductCardData[] = [
     tab: 'Google Visibility',
     entry: 'Your Google page is old. People search — they don’t find you.',
     headline: 'Show up first on Google Maps in Malta.',
-    wedge: 'Not a stale DIY profile — we keep GBP active and fix what stops you ranking.',
+    wedge: 'Not photos-only — SEO + AEO + AI search + copywriter keywords + ARC data. GBP posts are the tip.',
     guestGain: 'Hungry nearby — they find you on Maps and walk in.',
     result: '847 searches → 37 calls this week',
     href: '/h360/google-business-profile-restaurant-malta',

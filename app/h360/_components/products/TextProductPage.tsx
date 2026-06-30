@@ -1,9 +1,10 @@
 'use client';
 
-import H360ProductPageLayout from './H360ProductPageLayout';
+import StandaloneProductPage from './StandaloneProductPage';
+import { buildStandalone } from './buildStandalone';
+import { STANDALONE_EXTRAS } from './productStandaloneExtras';
 import { TEXT_PAGE } from './textProductContent';
-import { WinBackVisual } from './sharedVisuals';
 
 export default function TextProductPage() {
-  return <H360ProductPageLayout config={{ ...TEXT_PAGE, flowFooter: <WinBackVisual /> }} />;
+  return <StandaloneProductPage config={buildStandalone(TEXT_PAGE, STANDALONE_EXTRAS.text, true)} />;
 }

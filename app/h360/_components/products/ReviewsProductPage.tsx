@@ -1,9 +1,10 @@
 'use client';
 
-import H360ProductPageLayout from './H360ProductPageLayout';
+import StandaloneProductPage from './StandaloneProductPage';
+import { buildStandalone } from './buildStandalone';
+import { STANDALONE_EXTRAS } from './productStandaloneExtras';
 import { REVIEWS_PAGE } from './reviewsProductContent';
-import { ReviewsClimbVisual } from './sharedVisuals';
 
 export default function ReviewsProductPage() {
-  return <H360ProductPageLayout config={{ ...REVIEWS_PAGE, flowFooter: <ReviewsClimbVisual /> }} />;
+  return <StandaloneProductPage config={buildStandalone(REVIEWS_PAGE, STANDALONE_EXTRAS.reviews, true)} />;
 }

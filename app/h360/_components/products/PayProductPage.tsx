@@ -1,8 +1,10 @@
 'use client';
 
-import H360ProductPageLayout from './H360ProductPageLayout';
+import StandaloneProductPage from './StandaloneProductPage';
+import { buildStandalone } from './buildStandalone';
+import { STANDALONE_EXTRAS } from './productStandaloneExtras';
 import { PAY_PAGE } from './payProductContent';
 
 export default function PayProductPage() {
-  return <H360ProductPageLayout config={{ ...PAY_PAGE, live: true }} />;
+  return <StandaloneProductPage config={buildStandalone(PAY_PAGE, STANDALONE_EXTRAS.pay, true)} />;
 }

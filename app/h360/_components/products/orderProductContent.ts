@@ -129,3 +129,27 @@ export const ORDER_RELATED = [
   { label: 'WhatsApp', href: '/h360/whatsapp-marketing-restaurant-malta' },
   { label: 'All H360 tools', href: '/h360#h360-products' },
 ] as const;
+
+/** Page shell for standalone builder */
+export const ORDER_PAGE = {
+  eyebrow: ORDER_HERO.eyebrow,
+  h1: ORDER_HERO.h1,
+  ctaName: 'ORDER',
+  hero: {
+    ownerPain: ORDER_HERO.ownerPain,
+    guestGain: ORDER_HERO.guestGain,
+    wedge: ORDER_HERO.wedge,
+    hook: ORDER_HERO.hook,
+  },
+  visual: 'direct-order' as const,
+  flow: {
+    title: ORDER_FLOW_DIAGRAM.title,
+    subtitle: ORDER_FLOW_DIAGRAM.subtitle,
+    nodes: ORDER_FLOW_DIAGRAM.nodes,
+  },
+  expertTitle: 'Why Wolt is not the same as owning the order.',
+  expertSubtitle: 'Master the experts, then beat them — built for small Malta restaurants, not US chains.',
+  expertFails: ORDER_EXPERT_FAILS,
+  faqs: ORDER_FAQS,
+  related: ORDER_RELATED,
+};
