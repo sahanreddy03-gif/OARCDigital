@@ -24,7 +24,8 @@ export const H360_CLUSTER = {
   demo: '/h360/demo',
 } as const;
 
-export const OARC_OPERATOR_VENUES = 'Louisiana Mama · Palino · Calli Bistro' as const;
+/** Positioning line — no client venue name-drops */
+export const H360_POSITIONING = 'Malta-built restaurant growth — for venues aiming at #1, not average.';
 export const JOURNEY_STEPS = [
   { label: 'Get found', sub: 'Google', cardIndex: 0, glyph: '◎' },
   { label: 'Build trust', sub: 'Reviews', cardIndex: 1, glyph: '★' },

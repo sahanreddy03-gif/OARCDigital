@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { G, FONT_LIGHT } from './tokens';
-import { H360_AUDIT, H360_HOME, H360_NAV_LINKS } from './h360Site';
+import { H360_HOME, H360_NAV_LINKS } from './h360Site';
 
 export default function H360Nav() {
   const [isMobile, setMobile] = useState(false);
@@ -57,26 +57,6 @@ export default function H360Nav() {
           ))}
         </div>
       )}
-
-      <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? 8 : 12 }}>
-        <Link
-          href={H360_AUDIT}
-          style={{
-            padding: isMobile ? '8px 14px' : '8px 18px',
-            background: G.text,
-            color: '#fff',
-            borderRadius: 99,
-            fontSize: 13,
-            fontWeight: 600,
-            letterSpacing: '-0.01em',
-            whiteSpace: 'nowrap',
-            textDecoration: 'none',
-          }}
-          data-testid="button-h360-nav-demo"
-        >
-          Get a free demo
-        </Link>
-      </div>
     </nav>
   );
 }

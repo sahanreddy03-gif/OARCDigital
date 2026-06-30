@@ -14,11 +14,13 @@ export function ProductFlowDiagram({
   subtitle,
   nodes,
   footer,
+  accent = GREEN,
 }: {
   title: string;
   subtitle: string;
   nodes: readonly FlowNode[];
   footer?: React.ReactNode;
+  accent?: string;
 }) {
   const [pulse, setPulse] = useState(0);
 
@@ -40,13 +42,13 @@ export function ProductFlowDiagram({
           return (
             <div key={node.id} style={{ display: 'flex', alignItems: 'center', flex: '1 1 140px', minWidth: 120, maxWidth: 220 }}>
               <m.div
-                animate={active ? { scale: [1, 1.04, 1], borderColor: [C.border, GREEN, C.border] } : {}}
+                animate={active ? { scale: [1, 1.04, 1], borderColor: [C.border, accent, C.border] } : {}}
                 transition={{ duration: 0.6 }}
                 style={{
                   flex: 1,
                   padding: '20px 14px',
-                  background: active ? 'rgba(74,222,128,0.08)' : C.card,
-                  border: `2px solid ${active ? GREEN : C.border}`,
+                  background: active ? `${accent}14` : C.card,
+                  border: `2px solid ${active ? accent : C.border}`,
                   borderRadius: 16,
                   textAlign: 'center',
                   minHeight: 132,
@@ -57,12 +59,12 @@ export function ProductFlowDiagram({
                   gap: 8,
                 }}
               >
-                <div style={{ fontSize: 11, fontWeight: 800, color: active ? GREEN : C.muted }}>0{i + 1}</div>
+                <div style={{ fontSize: 11, fontWeight: 800, color: active ? accent : C.muted }}>0{i + 1}</div>
                 <div style={{ fontSize: 13, fontWeight: 800, color: C.white, lineHeight: 1.25 }}>{node.label}</div>
                 <div style={{ fontSize: 11, color: '#888', lineHeight: 1.35 }}>{node.detail}</div>
               </m.div>
               {i < nodes.length - 1 && (
-                <span style={{ color: GREEN, fontSize: 22, padding: '0 4px', opacity: active ? 1 : 0.35, flexShrink: 0 }} aria-hidden>
+                <span style={{ color: accent, fontSize: 22, padding: '0 4px', opacity: active ? 1 : 0.35, flexShrink: 0 }} aria-hidden>
                   →
                 </span>
               )}

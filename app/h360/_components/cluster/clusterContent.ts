@@ -183,7 +183,7 @@ export const PAIN_EMPTY: PainPageConfig = {
       {
         question: 'Why is my restaurant not getting customers in Malta?',
         answer:
-          'Usually a combination: not visible on Google Maps, too few reviews vs competitors, leaking margin to Wolt/Bolt, no system to bring guests back, or invisible to tourists searching on phones. OARC Digital H360 diagnoses which gaps apply to your venue — operators who run Louisiana Mama, Palino, and Calli Bistro in Malta.',
+          'Usually a combination: not visible on Google Maps, too few reviews vs competitors, leaking margin to Wolt/Bolt, no system to bring guests back, or invisible to tourists searching on phones. OARC Digital H360 diagnoses which gaps apply to your venue — built in Malta for restaurants aiming at the top, not the middle.',
       },
       {
         question: 'My food is good but tables are empty — why?',
@@ -466,7 +466,7 @@ export const FAQ_HUB_META: ClusterMetaConfig = {
     {
       question: 'What is H360?',
       answer:
-        'H360 is OARC Digital\'s hospitality product line for Malta restaurants — modular tools for Google visibility, reviews, direct orders, loyalty, WhatsApp, and operations. Built by operators who run Louisiana Mama, Palino, and Calli Bistro. Not a generic agency retainer.',
+        'H360 is OARC Digital\'s hospitality product line for Malta restaurants — modular tools for Google visibility, reviews, direct orders, loyalty, WhatsApp, and operations. Built in Malta for venues on the road to #1. Not a generic agency retainer.',
     },
     {
       question: 'How is H360 different from a marketing agency?',

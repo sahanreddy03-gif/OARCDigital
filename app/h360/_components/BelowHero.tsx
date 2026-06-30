@@ -320,8 +320,8 @@ function AllProductsRail({ m }: { m: boolean }) {
    We use text pills (no logo images available)
    Two rows scrolling in opposite directions
 ═══════════════════════════════════════════════ */
-const NAMES = ['Noni','Rubino','Ta\' Marija','Bahia','Guze\'','Zen','Palazzo Preca','Terrone','De Mondion','Margo','Rock Salt','Tartarun','Beati Paoli','Trabuxu','Palazzo Parisio','Rickshaw'];
-const NAMES2 = ['Cugó Gran','Sciacca Grill','Medina','The Harbour Club','Palazzo Consiglia','Tal-Familja','Ta\' Kris','Diar il-Bniet','Commando','Bacchus','Vecchia Napoli','Il-Girna'];
+const CAPS = ['Google Maps','Direct orders','Reviews','Loyalty','WhatsApp','Bookings','Events','Analytics'];
+const CAPS2 = ['QR pay','Digital menu','Social','Website','Stock','Staff','Floor plan','Margin'];
 
 function TrustLogos({ m }: { m: boolean }) {
   const ref = useReveal();
@@ -329,10 +329,13 @@ function TrustLogos({ m }: { m: boolean }) {
     <section style={{ background: C.bg, padding: m ? '64px 0' : '96px 0', borderTop: `1px solid ${C.border}` }}>
       <div ref={ref} className="sdr" style={{ textAlign:'center', padding: m?'0 24px 36px':'0 80px 48px', fontFamily:FONT }}>
         <h2 style={{ fontSize: m?24:38, fontWeight:800, letterSpacing:'-0.04em', color:C.white, margin:0 }}>
-          Trusted by Malta restaurants.
+          Every tool on the road to #1.
         </h2>
+        <p style={{ fontSize: 14, color: C.muted, marginTop: 12, maxWidth: 480, marginLeft: 'auto', marginRight: 'auto' }}>
+          One modular stack — pick what you need, grow when you are ready.
+        </p>
       </div>
-      {[NAMES, NAMES2].map((row, ri) => (
+      {[CAPS, CAPS2].map((row, ri) => (
         <div key={ri} style={{ overflow:'hidden', position:'relative', marginBottom: ri===0?12:0 }}>
           <div style={{ position:'absolute', left:0, top:0, bottom:0, width:80, background:`linear-gradient(to right,${C.bg},transparent)`, zIndex:2, pointerEvents:'none' }}/>
           <div style={{ position:'absolute', right:0, top:0, bottom:0, width:80, background:`linear-gradient(to left,${C.bg},transparent)`, zIndex:2, pointerEvents:'none' }}/>
@@ -446,9 +449,9 @@ function Ecosystem({ m }: { m: boolean }) {
    Sunday: Large photo on left, bold quote right
 ═══════════════════════════════════════════════ */
 const TESTIMONIALS = [
-  { quote: 'We\'ve had more reviews in one month with H360 than in the entire previous year.', name:'Jonathan Brincat', place:'Noni, Valletta', bg:'#1a0d00' },
-  { quote: 'Top-line revenue went up 34% in 3 months when we stopped paying Wolt. The maths is obvious.', name:'Maria Schembri', place:'Ta\' Marija, Mdina', bg:'#0a0a14' },
-  { quote: 'H360 gives guests a faster, easier way to pay — no more waiting for the check. Team focuses on hospitality.', name:'Antoine Camilleri', place:'Rubino, Valletta', bg:'#0d1208' },
+  { quote: 'More reviews in one month than the entire previous year — without chasing guests at the door.', name:'Owner', place:'Valletta · 40 covers', bg:'#1a0d00' },
+  { quote: 'Top-line revenue up when we stopped paying delivery-app commission. The maths is obvious.', name:'Operator', place:'Central Malta · trattoria', bg:'#0a0a14' },
+  { quote: 'Guests pay from the table. The team focuses on hospitality — not running card readers.', name:'GM', place:'Sliema · dinner service', bg:'#0d1208' },
 ];
 
 function TestimonialRow({ t, m }: { t: typeof TESTIMONIALS[0]; m: boolean }) {
@@ -495,9 +498,9 @@ function Testimonials({ m }: { m: boolean }) {
    crossfade quote, dot indicators, prev/next
 ═══════════════════════════════════════════════ */
 const BIG_QS = [
-  { q:'"There\'s an art to dining, but no art to paying 30% to a delivery app."',         n:'Jonathan Brincat',  p:'Noni, Valletta' },
-  { q:'"Tips went from a coin to 20% on average — staff haven\'t been happier."',         n:'Maria Schembri',    p:'Ta\' Marija, Mdina' },
-  { q:'"Large parties can pay how they want — staff can focus entirely on guests."',       n:'Antoine Camilleri', p:'Rubino, Valletta' },
+  { q:'"There\'s an art to dining, but no art to paying 30% to a delivery app."', n:'Owner', p:'Malta · independent' },
+  { q:'"Tips went up when guests could pay without waiting for the bill."', n:'Floor manager', p:'Malta · full service' },
+  { q:'"Large parties split the bill on their phones — staff stay with the table."', n:'Operator', p:'Malta · harbour district' },
 ];
 const SCROLL_WORDS = ['More revenue','Zero commission','More reviews','More regulars','More direct orders','#1 on Google'];
 

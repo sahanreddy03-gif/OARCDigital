@@ -11,7 +11,7 @@ export const ORDER_PATH = '/h360/restaurant-table-ordering-qr-malta';
 export const ORDER_META = {
   title: 'Restaurant Table Ordering QR Malta | OARC Digital — H360',
   description:
-    'Malta restaurant table ordering by QR — guests scan, order from their phone, kitchen prints it. Zero commission, no POS required. Built by OARC Digital operators who run real Maltese venues.',
+    'Malta restaurant table ordering by QR — guests scan, order from their phone, kitchen prints it. Zero commission, no POS required. H360 by OARC Digital — built for Malta restaurants on the road to #1.',
 };
 
 export const ORDER_HERO = {
@@ -72,7 +72,7 @@ export const ORDER_DISH_COMPARE = {
 export const ORDER_GATE2 = {
   question: 'How do guests order from the table by QR?',
   answer:
-    'Guests scan a QR code on the table. It opens your digital menu on their phone. They pick dishes, add a note if needed, and submit — the order prints in the kitchen or shows on a tablet. OARC Digital\'s H360 ORDER runs without a POS or delivery-app commission: built by operators who run Maltese venues so the restaurant keeps the full order value and owns the guest relationship.',
+    'Guests scan a QR code on the table. It opens your digital menu on their phone. They pick dishes, add a note if needed, and submit — the order prints in the kitchen or shows on a tablet. OARC Digital\'s H360 ORDER runs without a POS or delivery-app commission: the restaurant keeps the full order value and owns the guest relationship.',
 };
 
 export const ORDER_EXPERT_FAILS = [
