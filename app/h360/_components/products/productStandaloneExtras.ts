@@ -11,8 +11,8 @@ const wk = (week: number, score: number, rank: number, label: string, highlight?
 
 export const STANDALONE_EXTRAS: Record<string, StandaloneExtras> = {
   googleVisibility: {
-    doctrine: 'Posting photos is hygiene. Winning visibility is SEO + AEO + AI search — engineered weekly.',
-    metric: { value: '847→37', label: 'searches that become walk-ins' },
+    doctrine: 'Photos are hygiene. Visibility is SEO + AEO + weekly motion.',
+    metric: { value: '847→37', label: 'searches → walk-ins' },
     stack: {
       title: 'Photos are 5%. This is the other 95%.',
       subtitle: 'SEO, AEO, AI search, LLM files, articles, GBP — one engine. You see the post; we run the physics.',
@@ -26,18 +26,18 @@ export const STANDALONE_EXTRAS: Record<string, StandaloneExtras> = {
       ],
     },
     signals: {
-      title: 'We target keywords that bring covers — not vanity traffic.',
+      title: 'Keywords that bring covers.',
       subtitle: 'ARC reads gaps. Copywriter turns trend terms into posts and articles you approve.',
       boardLabel: 'MALTA · LIVE KEYWORD PULSE',
       items: [sig('best restaurant sliema', 92), sig('seafood restaurant malta', 78), sig('restaurant near me valletta', 85), sig('lampuki season malta', 64), sig('romantic dinner malta', 71)],
-      ctaLine: 'Next post targets',
+      ctaLine: 'Next post',
     },
     progress: {
-      title: 'Month 1 to month 3 — score, rank, calls on WhatsApp.',
+      title: 'Month 1 → 3. Score. Rank. Calls.',
       subtitle: 'We know what moves first in Malta. You see it weekly, not in a PDF.',
       scoreLabel: 'Profile score',
       rankLabel: 'Maps rank',
-      weeks: [wk(1, 42, 14, 'Claimed · baseline audit'), wk(4, 68, 9, '4 posts · review replies live'), wk(8, 81, 5, 'Articles indexing · AI cites'), wk(12, 91, 3, '847 searches → 37 calls', '847 → 37 calls')],
+      weeks: [wk(1, 42, 14, 'Baseline audit'), wk(4, 68, 9, '4 posts live'), wk(8, 81, 5, 'AI cites you'), wk(12, 91, 3, '847 → 37 calls', '847 → 37 calls')],
     },
     compare: {
       title: 'Stale profile vs visibility engine',
@@ -52,10 +52,10 @@ export const STANDALONE_EXTRAS: Record<string, StandaloneExtras> = {
   },
 
   reviews: {
-    doctrine: 'One tap to the review form beats a generic Maps QR every time.',
+    doctrine: 'One tap to the review form beats a Maps QR.',
     metric: { value: '3×', label: 'more reviews in 90 days' },
     stack: {
-      title: 'Reviews are visibility fuel — we engineer the ask.',
+      title: 'Reviews are fuel — we engineer the ask.',
       subtitle: 'QR timing · AEO trust signals · Google ranking lift · owner replies — not a paper sign.',
       items: [
         st('qr', 'Direct QR', 'One tap', 'Review form — not Maps search', 'review-qr'),
@@ -66,18 +66,18 @@ export const STANDALONE_EXTRAS: Record<string, StandaloneExtras> = {
       ],
     },
     signals: {
-      title: 'Target the searches reviews unlock.',
+      title: 'Searches reviews unlock.',
       subtitle: '“Best rated restaurant Malta” — we grow the signal that wins it.',
       boardLabel: 'REVIEW · INTENT SIGNALS',
       items: [sig('best rated restaurant malta', 88), sig('google reviews sliema', 76), sig('restaurant 4.8 stars malta', 82), sig('trusted restaurant valletta', 70)],
-      ctaLine: 'Review push aligned to',
+      ctaLine: 'Review push',
     },
     progress: {
-      title: 'Stars climb — you watch the number.',
+      title: 'Stars climb. You watch.',
       subtitle: 'From 12 reviews to a Maps weapon.',
-      scoreLabel: 'Review count',
+      scoreLabel: 'Reviews',
       rankLabel: 'Avg rating',
-      weeks: [wk(1, 12, 4, 'QR live on every table'), wk(4, 48, 5, '4.6★ · replies going live'), wk(8, 112, 5, '4.7★ · AI cites your stars'), wk(12, 186, 5, '3× reviews · Maps climb', '4.8★ · 186 reviews')],
+      weeks: [wk(1, 12, 4, 'QR on every table'), wk(4, 48, 5, '4.6★ live'), wk(8, 112, 5, 'AI cites stars'), wk(12, 186, 5, '4.8★ · 186 reviews', '4.8★ · 186 reviews')],
     },
     compare: {
       title: 'Free QR vs direct review form',
@@ -260,14 +260,14 @@ export const STANDALONE_EXTRAS: Record<string, StandaloneExtras> = {
       ],
     },
     signals: {
-      title: 'Shift “order near me” to your link.',
+      title: 'Shift orders to your link.',
       subtitle: 'Every direct order is margin you were giving Wolt.',
       boardLabel: 'ORDER · DIRECT INTENT',
       items: [sig('order food malta direct', 71), sig('qr menu restaurant', 83), sig('takeaway no commission', 77), sig('table ordering malta', 80)],
       ctaLine: 'Push order link on',
     },
     progress: {
-      title: 'Week 1 → commission saved.',
+      title: 'Week 1 → margin back.',
       subtitle: 'See direct orders climb — feel margin return.',
       scoreLabel: 'Direct orders/day',
       rankLabel: 'Commission saved',

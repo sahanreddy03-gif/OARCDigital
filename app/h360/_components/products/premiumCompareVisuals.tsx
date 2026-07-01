@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { m, useReducedMotion } from 'framer-motion';
 import { C } from '../tokens';
+import { MapsRankClimb } from './logicVisuals';
 
 const GREEN = '#4ade80';
 const RED = '#f87171';
@@ -39,11 +40,11 @@ function CompareShell({
         {title}
       </h2>
       {subtitle && (
-        <p style={{ fontSize: 15, color: C.muted, marginBottom: 28, maxWidth: 560, lineHeight: 1.5 }}>{subtitle}</p>
+        <p style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)' }} data-speakable>{subtitle}</p>
       )}
       {children}
       {brainLine && (
-        <p style={{ fontSize: 14, color: '#bbb', lineHeight: 1.6, maxWidth: 640, margin: '24px 0 0' }} data-speakable>
+        <p style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)' }} data-speakable>
           {brainLine}
         </p>
       )}
@@ -89,39 +90,30 @@ function GoodCol({ label, children }: { label: string; children: React.ReactNode
 }
 
 export function GoogleMapsRankCompare({ title, subtitle, brainLine }: { title: string; subtitle?: string; brainLine?: string }) {
-  const [rank, setRank] = useState(11);
-  useEffect(() => {
-    const t = setInterval(() => setRank((r) => (r <= 2 ? 11 : r - 1)), 900);
-    return () => clearInterval(t);
-  }, []);
   return (
     <CompareShell title={title} subtitle={subtitle} brainLine={brainLine}>
       <VsColumns
         left={
-          <BadCol label="STALE GBP · DIY">
-            <div style={{ fontSize: 13, color: '#aaa', marginBottom: 12 }}>Last post: 8 months ago</div>
-            <div style={{ fontSize: 42, fontWeight: 800, color: RED, marginBottom: 4 }}>#{rank}</div>
-            <div style={{ fontSize: 12, color: C.muted }}>Maps ranking · "restaurant near me"</div>
-            <div style={{ marginTop: 16, fontSize: 28, fontWeight: 800, color: C.white }}>12</div>
-            <div style={{ fontSize: 12, color: C.muted }}>calls this month</div>
+          <BadCol label="STALE · DIY">
+            <div style={{ fontSize: 12, color: C.muted, marginBottom: 12 }}>Maps · last post 8 months ago</div>
+            <div style={{ opacity: 0.85, pointerEvents: 'none' }}>
+              <MapsRankClimb compact targetRank={11} />
+            </div>
+            <div style={{ fontSize: 24, fontWeight: 800, color: C.white, marginTop: 12, textAlign: 'center' }}>12 calls</div>
           </BadCol>
         }
         right={
-          <GoodCol label="H360 GOOGLE VISIBILITY">
-            <div style={{ fontSize: 13, color: GREEN, marginBottom: 12 }}>Posted this week · hours updated</div>
-            <m.div key={rank} initial={{ scale: 0.9 }} animate={{ scale: 1 }} style={{ fontSize: 42, fontWeight: 800, color: GREEN, marginBottom: 4 }}>
-              #{Math.min(rank, 3)}
-            </m.div>
-            <div style={{ fontSize: 12, color: C.muted }}>Climbing · fresh photos + replies</div>
-            <div style={{ display: 'flex', gap: 16, marginTop: 16 }}>
+          <GoodCol label="H360 VISIBILITY">
+            <MapsRankClimb compact />
+            <div style={{ display: 'flex', gap: 16, marginTop: 14, justifyContent: 'center' }}>
               <div>
-                <div style={{ fontSize: 28, fontWeight: 800, color: C.white }}>847</div>
-                <div style={{ fontSize: 11, color: C.muted }}>searches</div>
+                <div style={{ fontSize: 24, fontWeight: 800, color: C.white }}>847</div>
+                <div style={{ fontSize: 10, color: C.muted }}>searches</div>
               </div>
-              <div style={{ fontSize: 24, color: GREEN, alignSelf: 'center' }}>→</div>
+              <div style={{ fontSize: 20, color: GREEN, alignSelf: 'center' }}>→</div>
               <div>
-                <div style={{ fontSize: 28, fontWeight: 800, color: GREEN }}>37</div>
-                <div style={{ fontSize: 11, color: C.muted }}>walk-ins</div>
+                <div style={{ fontSize: 24, fontWeight: 800, color: GREEN }}>37</div>
+                <div style={{ fontSize: 10, color: C.muted }}>walk-ins</div>
               </div>
             </div>
           </GoodCol>

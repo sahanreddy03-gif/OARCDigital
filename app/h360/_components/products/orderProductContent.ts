@@ -17,13 +17,10 @@ export const ORDER_META = {
 export const ORDER_HERO = {
   eyebrow: 'H360 · Direct Orders · Live',
   h1: 'Restaurant table ordering by QR in Malta.',
-  ownerPain:
-    'Wolt and Bolt take up to 30% of every order. On a busy night that is hundreds of euros gone — and those guests are not yours to bring back. You need table orders that stay on your margin.',
-  guestGain:
-    'Your guest scans the QR, browses the menu on their phone, and taps what they want — no waving down a waiter, no order written wrong on a pad.',
-  wedge:
-    'Not Wolt or Bolt — scan, order, kitchen prints it. No POS required. No €250 Sunday terminal.',
-  hook: 'You look at the menu on your phone. You tap what you want. The kitchen sees it. Done.',
+  ownerPain: 'Wolt takes 30%. Hundreds gone on a busy night — and those guests are not yours.',
+  guestGain: 'Scan. Tap. Kitchen sees it. No wrong order on a pad.',
+  wedge: 'Not Wolt. Scan → order → kitchen. No POS. No Sunday terminal.',
+  hook: 'Menu on their phone. Tap what they want. You keep the margin.',
 };
 
 export const ORDER_STEPS = [
@@ -34,13 +31,13 @@ export const ORDER_STEPS = [
 
 /** Brain: ORDER flow + Wolt comparison maths */
 export const ORDER_FLOW_DIAGRAM = {
-  title: 'How table QR ordering works',
+  title: 'Scan → tap → kitchen',
   subtitle: ORDER_HERO.hook,
   nodes: [
-    { id: 'guest', label: 'Guest at table', detail: 'Scans QR on tent card' },
-    { id: 'menu', label: 'Menu on phone', detail: 'Tap dishes · add a note' },
-    { id: 'kitchen', label: 'Kitchen ticket', detail: 'Printer or tablet — no shouting' },
-    { id: 'owner', label: 'You keep margin', detail: '€0 commission · guest is yours' },
+    { id: 'guest', label: 'Scan QR', detail: 'Tent card on table' },
+    { id: 'menu', label: 'Tap order', detail: 'Menu on phone' },
+    { id: 'kitchen', label: 'Kitchen', detail: 'Ticket prints' },
+    { id: 'owner', label: 'Keep margin', detail: '€0 commission' },
   ],
 } as const;
 
@@ -76,22 +73,10 @@ export const ORDER_GATE2 = {
 };
 
 export const ORDER_EXPERT_FAILS = [
-  {
-    name: 'Wolt / Bolt / Uber Eats',
-    fail: '15–30% commission per order. A €15 pasta costs you €4.50 in fees. Guest data stays with the app — you cannot win them back.',
-  },
-  {
-    name: 'Owner.com / ChowNow / GloriaFood',
-    fail: '$99–199/mo subscription. You bring every customer yourself. No discovery, no Malta focus.',
-  },
-  {
-    name: 'Toast online ordering',
-    fail: 'Requires Toast POS. Not available in Malta for most small venues.',
-  },
-  {
-    name: 'WhatsApp DIY orders',
-    fail: 'Messages get lost during service. Wrong items, no payment flow, no kitchen ticket — every mistake is on you.',
-  },
+  { name: 'Wolt / Bolt', fail: '15–30% per order. Guest data stays with the app.' },
+  { name: 'Owner.com / ChowNow', fail: '$99–199/mo. You bring every customer.' },
+  { name: 'Toast ordering', fail: 'Requires Toast POS. Rare in Malta.' },
+  { name: 'WhatsApp DIY', fail: 'Lost messages. Wrong items. No kitchen ticket.' },
 ] as const;
 
 export const ORDER_FAQS = [
@@ -147,8 +132,8 @@ export const ORDER_PAGE = {
     subtitle: ORDER_FLOW_DIAGRAM.subtitle,
     nodes: ORDER_FLOW_DIAGRAM.nodes,
   },
-  expertTitle: 'Why Wolt is not the same as owning the order.',
-  expertSubtitle: 'Master the experts, then beat them — built for small Malta restaurants, not US chains.',
+  expertTitle: 'Wolt is not owning the order.',
+  expertSubtitle: 'Built for Malta restaurants — not US chains.',
   expertFails: ORDER_EXPERT_FAILS,
   faqs: ORDER_FAQS,
   related: ORDER_RELATED,

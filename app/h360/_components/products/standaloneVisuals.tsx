@@ -7,6 +7,9 @@ import type { StackPreviewKind, StandaloneProductConfig } from './standaloneProd
 import { PremiumCompare } from './premiumCompareVisuals';
 import { OrderMarginCompare } from './OrderVisuals';
 import { KineticStackStage } from './kineticBroll';
+import { FlowStepVisual, LogicVisual, MapsRankClimb, KeywordHit } from './logicVisuals';
+
+const LOGIC_PREVIEWS = new Set<StackPreviewKind>(['maps-rank', 'review-qr', 'review-climb', 'order-qr', 'kitchen-print', 'margin']);
 
 const GREEN = '#4ade80';
 const RED = '#f87171';
@@ -15,19 +18,7 @@ export function StackPreview({ kind }: { kind: StackPreviewKind }) {
   const pad = { padding: 16 };
   switch (kind) {
     case 'maps-rank':
-      return (
-        <div style={pad}>
-          {[14, 11, 8, 5, 3].map((r, i) => (
-            <div key={r} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
-              <span style={{ fontSize: 11, color: G.textMuted, width: 22 }}>#{r}</span>
-              <div style={{ flex: 1, height: 8, borderRadius: 99, background: G.border, overflow: 'hidden' }}>
-                <m.div initial={{ width: 0 }} animate={{ width: `${100 - i * 18}%` }} style={{ height: '100%', background: i === 4 ? G.green : '#cbd5e1' }} />
-              </div>
-              {i === 4 && <span style={{ fontSize: 10, fontWeight: 700, color: G.green }}>You</span>}
-            </div>
-          ))}
-        </div>
-      );
+      return <MapsRankClimb />;
     case 'aeo-answer':
       return (
         <div style={pad}>
@@ -355,27 +346,25 @@ export function ProductStackBoard({
   const item = stack.items[active];
   return (
     <div style={{ width: '100%' }}>
-      <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', color: G.green, marginBottom: 12 }}>THE FULL STACK</p>
-      <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 800, color: G.text, letterSpacing: '-0.04em', margin: '0 0 8px', fontFamily: FONT_DISPLAY, maxWidth: 640, lineHeight: 1.1 }}>{stack.title}</h2>
-      <p style={{ fontSize: 15, color: G.textMuted, marginBottom: 28, maxWidth: 520, lineHeight: 1.55 }}>{stack.subtitle}</p>
+      <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 800, color: G.text, letterSpacing: '-0.04em', margin: '0 0 24px', fontFamily: FONT_DISPLAY, maxWidth: 640, lineHeight: 1.1 }}>{stack.title}</h2>
+      {stack.subtitle && <p style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)' }} data-speakable>{stack.subtitle}</p>}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
           {stack.items.map((s, i) => (
-            <button key={s.id} type="button" onClick={() => setActive(i)} style={{ padding: '10px 14px', borderRadius: 12, border: `2px solid ${i === active ? G.green : G.border}`, background: i === active ? G.greenLt : G.bg, cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit', flex: '1 1 45%', minWidth: 120 }}>
-              <div style={{ fontSize: 12, fontWeight: 800, color: G.text }}>{s.label}</div>
-              <div style={{ fontSize: 11, color: G.textMuted, marginTop: 2 }}>{s.short}</div>
+            <button key={s.id} type="button" onClick={() => setActive(i)} style={{ padding: '10px 16px', borderRadius: 12, border: `2px solid ${i === active ? G.green : G.border}`, background: i === active ? G.greenLt : G.bg, cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit', flex: '1 1 45%', minWidth: 100 }}>
+              <div style={{ fontSize: 13, fontWeight: 800, color: G.text }}>{s.label}</div>
             </button>
           ))}
         </div>
         <m.div key={item.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
-          {kinetic ? (
+          {LOGIC_PREVIEWS.has(item.preview) ? (
+            <div style={{ background: G.bg, border: `1px solid ${G.border}`, borderRadius: 16, overflow: 'hidden', boxShadow: '0 8px 32px rgba(0,0,0,0.06)' }}>
+              <LogicVisual kind={item.preview} />
+            </div>
+          ) : kinetic ? (
             <KineticStackStage item={item} accent={accent} />
           ) : (
             <div style={{ background: G.bg, border: `1px solid ${G.border}`, borderRadius: 16, boxShadow: '0 8px 32px rgba(0,0,0,0.06)', overflow: 'hidden' }}>
-              <div style={{ padding: '12px 16px', borderBottom: `1px solid ${G.border}`, background: '#fafafa' }}>
-                <div style={{ fontSize: 13, fontWeight: 700, color: G.text }}>{item.label}</div>
-                <div style={{ fontSize: 12, color: G.textMuted }}>{item.detail}</div>
-              </div>
               <StackPreview kind={item.preview} />
             </div>
           )}
@@ -385,7 +374,7 @@ export function ProductStackBoard({
   );
 }
 
-export function SignalPulseBoard({ signals, accent }: { signals: StandaloneProductConfig['signals']; accent: string }) {
+export function SignalPulseBoard({ signals, accent, mapsPulse }: { signals: StandaloneProductConfig['signals']; accent: string; mapsPulse?: boolean }) {
   const reduce = useReducedMotion();
   const [idx, setIdx] = useState(0);
   useEffect(() => {
@@ -393,13 +382,13 @@ export function SignalPulseBoard({ signals, accent }: { signals: StandaloneProdu
     const t = setInterval(() => setIdx((i) => (i + 1) % signals.items.length), 2400);
     return () => clearInterval(t);
   }, [reduce, signals.items.length]);
+  const hot = signals.items[idx];
   return (
     <div style={{ width: '100%' }}>
-      <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', color: accent, marginBottom: 12 }}>SEO · AEO · DATA</p>
-      <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 800, color: C.white, letterSpacing: '-0.03em', margin: '0 0 8px' }}>{signals.title}</h2>
-      <p style={{ fontSize: 14, color: C.muted, marginBottom: 24, maxWidth: 520, lineHeight: 1.5 }}>{signals.subtitle}</p>
+      <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 800, color: C.white, letterSpacing: '-0.03em', margin: '0 0 20px', fontFamily: FONT_DISPLAY }}>{signals.title}</h2>
+      {signals.subtitle && <p style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)' }} data-speakable>{signals.subtitle}</p>}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20, alignItems: 'start' }}>
       <div style={{ background: '#ffffff', borderRadius: 16, padding: 20, boxShadow: '0 12px 40px rgba(0,0,0,0.25)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: G.textMuted, marginBottom: 16, letterSpacing: '0.06em' }}>{signals.boardLabel}</div>
         {signals.items.map((kw, i) => {
           const hot = i === idx;
           return (
@@ -414,9 +403,13 @@ export function SignalPulseBoard({ signals, accent }: { signals: StandaloneProdu
             </div>
           );
         })}
-        <div style={{ marginTop: 16, padding: '12px 14px', background: G.greenLt, borderRadius: 10, fontSize: 12, fontWeight: 600, color: G.green }}>
-          {signals.ctaLine}: <span style={{ color: G.text }}>{signals.items[idx].term}</span>
+        <div style={{ marginTop: 16, padding: '12px 14px', background: G.greenLt, borderRadius: 10, fontSize: 13, fontWeight: 700, color: G.green, textAlign: 'center' }}>
+          {signals.ctaLine} → <span style={{ color: G.text }}>{hot.term}</span>
         </div>
+      </div>
+      <div style={{ background: G.bg, border: `1px solid ${G.border}`, borderRadius: 16, overflow: 'hidden' }}>
+        {mapsPulse ? <MapsRankClimb compact /> : <KeywordHit term={hot.term} vol={hot.vol} />}
+      </div>
       </div>
     </div>
   );
@@ -426,6 +419,9 @@ export function ProgressLiveBoard({ progress, accent }: { progress: StandalonePr
   const reduce = useReducedMotion();
   const [step, setStep] = useState(0);
   const w = progress.weeks[step];
+  const showMaps = /maps rank/i.test(progress.rankLabel);
+  const showReviews = /avg rating|review/i.test(progress.rankLabel) && !showMaps;
+  const showMargin = /commission|margin/i.test(progress.rankLabel);
   useEffect(() => {
     if (reduce) return;
     const t = setInterval(() => setStep((s) => (s + 1) % progress.weeks.length), 3200);
@@ -433,33 +429,39 @@ export function ProgressLiveBoard({ progress, accent }: { progress: StandalonePr
   }, [reduce, progress.weeks.length]);
   return (
     <div style={{ width: '100%' }}>
-      <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', color: GREEN, marginBottom: 12 }}>PROGRESS YOU CAN SEE</p>
-      <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 800, color: C.white, letterSpacing: '-0.03em', margin: '0 0 8px' }}>{progress.title}</h2>
-      <p style={{ fontSize: 14, color: C.muted, marginBottom: 28, maxWidth: 480, lineHeight: 1.5 }}>{progress.subtitle}</p>
+      <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 800, color: C.white, letterSpacing: '-0.03em', margin: '0 0 24px', fontFamily: FONT_DISPLAY }}>{progress.title}</h2>
+      {progress.subtitle && <p style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)' }} data-speakable>{progress.subtitle}</p>}
       <div style={{ display: 'flex', gap: 8, marginBottom: 20, flexWrap: 'wrap' }}>
         {progress.weeks.map((wk, i) => {
           const month = wk.week <= 4 ? 'Month 1' : wk.week <= 8 ? 'Month 2' : 'Month 3';
           return (
             <button key={wk.week} type="button" onClick={() => setStep(i)} style={{ padding: '8px 14px', borderRadius: 99, border: `1px solid ${i === step ? G.greenLt : C.border}`, background: i === step ? 'rgba(194,237,206,0.15)' : C.card, color: i === step ? G.greenLt : C.muted, fontSize: 12, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit' }}>
-              {month} <span style={{ opacity: 0.65, fontWeight: 600 }}>· wk {wk.week}</span>
+              {month}
             </button>
           );
         })}
       </div>
-      <m.div key={w.week} initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} style={{ background: '#ffffff', borderRadius: 20, padding: 24, boxShadow: '0 20px 60px rgba(0,0,0,0.35)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 20 }}>
-        <div>
-          <div style={{ fontSize: 11, color: G.textMuted }}>{progress.scoreLabel}</div>
-          <div style={{ fontSize: 36, fontWeight: 800, color: G.green }}>{w.score}</div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, alignItems: 'stretch' }}>
+        <m.div key={w.week} initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} style={{ background: '#ffffff', borderRadius: 20, padding: 24, boxShadow: '0 20px 60px rgba(0,0,0,0.35)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: 20 }}>
+          <div>
+            <div style={{ fontSize: 11, color: G.textMuted }}>{progress.scoreLabel}</div>
+            <div style={{ fontSize: 36, fontWeight: 800, color: G.green }}>{w.score}</div>
+          </div>
+          <div>
+            <div style={{ fontSize: 11, color: G.textMuted }}>{progress.rankLabel}</div>
+            <div style={{ fontSize: 36, fontWeight: 800, color: G.text }}>{showReviews ? `${w.rank}.0★` : showMargin ? `€${w.rank}` : `#${w.rank}`}</div>
+          </div>
+          <div style={{ gridColumn: '1 / -1', paddingTop: 8, borderTop: `1px solid ${G.border}` }}>
+            <div style={{ fontSize: 15, fontWeight: 700, color: G.text }}>{w.highlight ?? w.label}</div>
+          </div>
+        </m.div>
+        <div style={{ background: '#fff', borderRadius: 20, overflow: 'hidden', border: `1px solid ${G.border}`, boxShadow: '0 12px 40px rgba(0,0,0,0.2)' }}>
+          {showMaps && <MapsRankClimb compact targetRank={w.rank} />}
+          {showReviews && <LogicVisual kind="review-climb" />}
+          {showMargin && <LogicVisual kind="margin" />}
+          {!showMaps && !showReviews && !showMargin && <KeywordHit term={w.label} vol={Math.min(95, w.score)} />}
         </div>
-        <div>
-          <div style={{ fontSize: 11, color: G.textMuted }}>{progress.rankLabel}</div>
-          <div style={{ fontSize: 36, fontWeight: 800, color: G.text }}>#{w.rank}</div>
-        </div>
-        <div style={{ gridColumn: '1 / -1', paddingTop: 8, borderTop: `1px solid ${G.border}` }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: G.text }}>{w.label}</div>
-          {w.highlight && <div style={{ fontSize: 14, fontWeight: 700, color: G.green, marginTop: 10 }}>{w.highlight}</div>}
-        </div>
-      </m.div>
+      </div>
     </div>
   );
 }
@@ -474,23 +476,32 @@ export function ProductFlowDiagram({ flow, accent }: { flow: StandaloneProductCo
   }, [flow.nodes.length, reduce]);
   return (
     <div style={{ width: '100%' }}>
-      <h2 style={{ fontSize: 'clamp(22px, 3.5vw, 34px)', fontWeight: 800, color: G.text, letterSpacing: '-0.03em', margin: '0 0 8px' }}>{flow.title}</h2>
-      <p style={{ fontSize: 15, color: G.textMuted, marginBottom: 32, maxWidth: 520, lineHeight: 1.5 }}>{flow.subtitle}</p>
-      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'stretch', gap: 0, justifyContent: 'center' }}>
-        {flow.nodes.map((node, i) => {
-          const active = pulse === i;
-          return (
-            <div key={node.id} style={{ display: 'flex', alignItems: 'center', flex: '1 1 120px', minWidth: 100, maxWidth: 200 }}>
-              <m.div animate={active && !reduce ? { scale: [1, 1.04, 1] } : {}} style={{ flex: 1, padding: '18px 12px', background: active ? G.greenLt : G.bg, border: `2px solid ${active ? G.green : G.border}`, borderRadius: 14, textAlign: 'center', minHeight: 120 }}>
-                <div style={{ fontSize: 11, fontWeight: 800, color: active ? G.green : G.textMuted }}>0{i + 1}</div>
-                <div style={{ fontSize: 13, fontWeight: 800, color: G.text, marginTop: 6 }}>{node.label}</div>
-                <div style={{ fontSize: 11, color: G.textMuted, marginTop: 4 }}>{node.detail}</div>
-              </m.div>
-              {i < flow.nodes.length - 1 && <span style={{ color: G.green, fontSize: 20, padding: '0 4px', opacity: active ? 1 : 0.35 }}>→</span>}
-            </div>
-          );
-        })}
+      <h2 style={{ fontSize: 'clamp(22px, 3.5vw, 34px)', fontWeight: 800, color: G.text, letterSpacing: '-0.03em', margin: '0 0 28px', fontFamily: FONT_DISPLAY }}>{flow.title}</h2>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, alignItems: 'start' }}>
+        <div style={{ background: G.bg, border: `1px solid ${G.border}`, borderRadius: 16, overflow: 'hidden', minHeight: 200 }}>
+          <FlowStepVisual stepIndex={pulse} total={flow.nodes.length} nodeId={flow.nodes[pulse].id} />
+        </div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'stretch', gap: 0, justifyContent: 'flex-start' }}>
+          {flow.nodes.map((node, i) => {
+            const active = pulse === i;
+            return (
+              <div key={node.id} style={{ display: 'flex', alignItems: 'center', flex: '1 1 100px', minWidth: 90, maxWidth: 160 }}>
+                <m.button
+                  type="button"
+                  onClick={() => setPulse(i)}
+                  animate={active && !reduce ? { scale: [1, 1.03, 1] } : {}}
+                  style={{ flex: 1, padding: '14px 10px', background: active ? G.greenLt : G.bg, border: `2px solid ${active ? G.green : G.border}`, borderRadius: 14, textAlign: 'center', cursor: 'pointer', fontFamily: 'inherit' }}
+                >
+                  <div style={{ fontSize: 11, fontWeight: 800, color: active ? G.green : G.textMuted }}>0{i + 1}</div>
+                  <div style={{ fontSize: 13, fontWeight: 800, color: G.text, marginTop: 6 }}>{node.label}</div>
+                </m.button>
+                {i < flow.nodes.length - 1 && <span style={{ color: G.green, fontSize: 18, padding: '0 2px', opacity: active ? 1 : 0.3 }}>→</span>}
+              </div>
+            );
+          })}
+        </div>
       </div>
+      <p style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)' }} data-speakable>{flow.subtitle}. {flow.nodes.map((n) => `${n.label}: ${n.detail}`).join('. ')}</p>
     </div>
   );
 }
@@ -507,8 +518,7 @@ export function ProductCompareBoard({ compare }: { compare: StandaloneProductCon
   }
   return (
     <div style={{ width: '100%' }}>
-      <h2 style={{ fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 800, color: C.white, letterSpacing: '-0.03em', margin: '0 0 8px' }}>{compare.title}</h2>
-      <p style={{ fontSize: 15, color: C.muted, marginBottom: 28, maxWidth: 560, lineHeight: 1.5 }}>{compare.subtitle}</p>
+      <h2 style={{ fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 800, color: C.white, letterSpacing: '-0.03em', margin: '0 0 24px', fontFamily: FONT_DISPLAY }}>{compare.title}</h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
         <div style={{ background: '#fff', borderRadius: 16, padding: 20, border: `2px solid ${RED}44` }}>
           <div style={{ fontSize: 12, fontWeight: 700, color: RED, marginBottom: 14 }}>{compare.badLabel}</div>
@@ -528,7 +538,7 @@ export function ProductCompareBoard({ compare }: { compare: StandaloneProductCon
           )}
         </div>
       </div>
-      <p style={{ fontSize: 14, color: '#bbb', lineHeight: 1.6, maxWidth: 640, margin: '24px 0 0' }} data-speakable>{compare.brainLine}</p>
+      <p style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)' }} data-speakable>{compare.subtitle}. {compare.brainLine}</p>
     </div>
   );
 }

@@ -31,18 +31,18 @@ export default function StandaloneProductPage({ config }: { config: StandalonePr
               <span style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 800, color: G.greenLt, letterSpacing: '-0.03em', fontFamily: FONT_DISPLAY }}>{config.hero.metric.value}</span>
               <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.72)', lineHeight: 1.4, maxWidth: 200 }}>{config.hero.metric.label}</span>
             </m.div>
-            <h2 style={{ fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: 800, lineHeight: 1.2, color: 'rgba(255,255,255,0.95)', margin: '0 0 14px', maxWidth: 520, letterSpacing: '-0.03em', fontFamily: FONT_DISPLAY }} data-speakable>
-              {config.hero.ownerPain}
+            <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 32px)', fontWeight: 800, lineHeight: 1.15, color: 'rgba(255,255,255,0.95)', margin: '0 0 12px', maxWidth: 520, letterSpacing: '-0.03em', fontFamily: FONT_DISPLAY }} data-speakable>
+              {config.hero.hook ?? config.hero.ownerPain}
             </h2>
-            <p style={{ fontSize: 16, fontWeight: 600, color: G.greenLt, lineHeight: 1.5, margin: '0 0 10px', maxWidth: 520 }}>
+            <p style={{ fontSize: 17, fontWeight: 700, color: G.greenLt, lineHeight: 1.35, margin: '0 0 8px', maxWidth: 480 }}>
               {config.hero.guestGain}
             </p>
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.5, margin: 0, maxWidth: 520 }}>{config.hero.wedge}</p>
+            <p style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)' }} data-speakable>{config.hero.ownerPain}. {config.hero.wedge}</p>
           </div>
           <DeviceFrame visual={config.visual} theme={theme} playing />
         </div>
-        <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 24px 40px' }}>
-          <m.blockquote initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} style={{ margin: 0, padding: '20px 24px', borderLeft: `3px solid ${G.greenLt}`, background: 'rgba(0,0,0,0.25)', borderRadius: '0 14px 14px 0', fontSize: 'clamp(15px, 2vw, 18px)', fontWeight: 600, color: 'rgba(255,255,255,0.88)', lineHeight: 1.5, fontFamily: FONT_DISPLAY }}>
+        <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 24px 32px' }}>
+          <m.blockquote initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} style={{ margin: 0, padding: '16px 20px', borderLeft: `3px solid ${G.greenLt}`, background: 'rgba(0,0,0,0.25)', borderRadius: '0 12px 12px 0', fontSize: 'clamp(14px, 2vw, 16px)', fontWeight: 700, color: 'rgba(255,255,255,0.88)', lineHeight: 1.4, fontFamily: FONT_DISPLAY, maxWidth: 560 }}>
             {config.hero.doctrine}
           </m.blockquote>
         </div>
@@ -53,7 +53,7 @@ export default function StandaloneProductPage({ config }: { config: StandalonePr
       </section>
 
       <section style={{ background: C.bg, borderTop: `1px solid ${C.border}`, padding: '72px 24px 80px' }}>
-        <div style={{ maxWidth: 1160, margin: '0 auto' }}><SignalPulseBoard signals={config.signals} accent={G.greenLt} /></div>
+        <div style={{ maxWidth: 1160, margin: '0 auto' }}><SignalPulseBoard signals={config.signals} accent={G.greenLt} mapsPulse={config.visual === 'google-visibility'} /></div>
       </section>
 
       <section style={{ background: '#030303', borderTop: `1px solid ${C.border}`, padding: '72px 24px 80px' }}>
@@ -73,8 +73,8 @@ export default function StandaloneProductPage({ config }: { config: StandalonePr
       <section style={{ background: G.bg, borderTop: `1px solid ${G.border}`, padding: '72px 24px 80px' }}>
         <div style={{ maxWidth: 1160, margin: '0 auto' }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', color: G.green, marginBottom: 12 }}>WHY THE OLD WAY LOSES</p>
-          <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 800, color: G.text, letterSpacing: '-0.04em', marginBottom: 10, maxWidth: 640, lineHeight: 1.1, fontFamily: FONT_DISPLAY }}>{config.expert.title}</h2>
-          <p style={{ fontSize: 15, color: G.textMuted, marginBottom: 36, maxWidth: 560, lineHeight: 1.55 }}>{config.expert.subtitle}</p>
+          <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 800, color: G.text, letterSpacing: '-0.04em', marginBottom: 28, maxWidth: 640, lineHeight: 1.1, fontFamily: FONT_DISPLAY }}>{config.expert.title}</h2>
+          <p style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)' }} data-speakable>{config.expert.subtitle}</p>
           <div style={{ display: 'grid', gap: 14, gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
             {config.expert.fails.map((row, i) => (
               <ExpertFailCard key={row.name} name={row.name} fail={row.fail} index={i} />

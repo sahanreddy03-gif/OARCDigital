@@ -66,16 +66,12 @@ export const GOOGLE_PROFILE_META: ProductMetaConfig = {
 export const VISIBILITY_HERO = {
   eyebrow: 'H360 · Google Visibility · Live',
   h1: 'Google Business Profile for restaurants in Malta.',
-  ownerPain:
-    'Competitors rank above you on Maps. AI search recommends someone else. Your profile has not moved in months — and an agency quoted €1,500/mo for “SEO reports” you will never read.',
-  guestGain:
-    'They search “best pasta near me” — your photos, menu, and reviews show up first. They call or walk in before they open Wolt.',
-  wedge:
-    'Not Yext. Not BrightLocal dashboards. A Malta operator stack: SEO + AEO + AI search + copywriter keywords + ARC data — GBP posts are just the visible tip.',
-  hook: 'We engineer how Malta finds you — on Google, on Maps, and inside AI answers.',
-  metric: { value: '847→37', label: 'searches that become walk-ins' },
-  doctrine:
-    'Posting photos is hygiene. Winning visibility is strategy — keywords, structure, citations, and weekly motion.',
+  ownerPain: 'Competitors rank above you. AI recommends someone else. Your profile has not moved in months.',
+  guestGain: 'They search — you show up first. They call before they open Wolt.',
+  wedge: 'Not Yext. Not PDF dashboards. SEO + AEO + AI search + ARC — built for Malta operators.',
+  hook: 'We engineer how Malta finds you — Maps, Google, and AI answers.',
+  metric: { value: '847→37', label: 'searches → walk-ins' },
+  doctrine: 'Photos are hygiene. Visibility is strategy — weekly motion.',
 };
 
 export const VISIBILITY_STACK = [
@@ -127,13 +123,13 @@ export const VISIBILITY_KEYWORDS = [
 ] as const;
 
 export const VISIBILITY_FLOW = {
-  title: 'How we move you up — week by week',
+  title: 'How you climb — week by week',
   subtitle: 'ARC scans competitors → copywriter targets gaps → you approve → rank climbs.',
   nodes: [
     { id: 'scan', label: 'ARC scan', detail: 'Maps rank · reviews · keywords' },
     { id: 'strategy', label: 'Strategy', detail: 'SEO + AEO + AI targets' },
     { id: 'copy', label: 'Copywriter', detail: 'Trend keywords → posts' },
-    { id: 'publish', label: 'You approve', detail: '30 sec · goes live' },
+    { id: 'publish', label: 'Approve', detail: '30 sec · goes live' },
     { id: 'rank', label: 'Rank + calls', detail: '847 → 37 tracked' },
   ],
 } as const;
@@ -198,9 +194,15 @@ export const GOOGLE_PROFILE_PAGE = {
   visual: 'google-visibility' as const,
   flow: VISIBILITY_FLOW,
   compare: { ...VISIBILITY_COMPARE, visual: 'google-maps-rank' as const },
-  expertTitle: 'Why reports and listing tools do not win Maps',
+  expertTitle: 'Reports do not win Maps.',
   expertSubtitle: 'Visibility is a system — not a photo upload.',
-  expertFails: VISIBILITY_EXPERT_FAILS,
+  expertFails: [
+    { name: 'SEO agencies', fail: 'Quarterly decks. You need weekly motion.' },
+    { name: 'BrightLocal', fail: 'Reports problems. Does not fix them.' },
+    { name: 'Yext', fail: 'Directory sync. Will not move Maps rank alone.' },
+    { name: 'Owner.com', fail: 'US bundle. GBP is a checkbox.' },
+    { name: 'DIY posting', fail: 'Stale in 8 weeks. Competitors win near-me.' },
+  ],
   faqs: VISIBILITY_FAQS,
   related: VISIBILITY_RELATED,
 };
