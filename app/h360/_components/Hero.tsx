@@ -147,16 +147,6 @@ export default function H360Hero() {
     return () => window.removeEventListener('resize', check);
   }, []);
 
-  /** Always open at top unless user landed on a hash anchor */
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const { hash } = window.location;
-    if (!hash) {
-      window.history.scrollRestoration = 'manual';
-      window.scrollTo(0, 0);
-    }
-  }, []);
-
   const goTo = useCallback((idx: number, manual = false) => {
     if (fadeTimer.current) clearTimeout(fadeTimer.current);
     if (manual) pauseUntil.current = Date.now() + 12000;

@@ -1,9 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import { useLenis } from 'lenis/react';
 import H360Nav from '../H360Nav';
 import { FONT_DISPLAY, G } from '../tokens';
 import { H360_AUDIT, H360_HOME, H360_POSITIONING, OARC_HOME } from '../h360Site';
+import { scrollToPageTop } from '@/lib/scrollToPageTop';
 
 type Props = {
   eyebrow: string;
@@ -17,6 +19,8 @@ type Props = {
 };
 
 export default function H360ProductShell({ eyebrow, h1, live, ctaName = 'this tool', themeAccent = G.green, cinema, children }: Props) {
+  const lenis = useLenis();
+
   return (
     <div style={{ fontFamily: FONT_DISPLAY, background: G.bg, color: G.text }}>
       <H360Nav />
@@ -95,7 +99,7 @@ export default function H360ProductShell({ eyebrow, h1, live, ctaName = 'this to
             Get free ARC audit →
           </Link>
           <p style={{ fontSize: 12, color: G.textMuted, marginTop: 18 }}>
-            <Link href={H360_HOME} style={{ color: G.textMuted }}>← Back to H360 hub</Link>
+            <Link href={H360_HOME} onClick={() => scrollToPageTop(lenis)} scroll style={{ color: G.textMuted }}>← Back to H360 hub</Link>
           </p>
         </div>
       </section>

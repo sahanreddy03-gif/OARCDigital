@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useLenis } from "lenis/react";
+import { scrollToPageTop } from "@/lib/scrollToPageTop";
 
 export default function ScrollToTop() {
   const pathname = usePathname();
@@ -13,7 +14,7 @@ export default function ScrollToTop() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "auto";
+      window.history.scrollRestoration = "manual";
     }
     const onPop = () => {
       isPopRef.current = true;
@@ -29,11 +30,7 @@ export default function ScrollToTop() {
       isPopRef.current = false;
       return;
     }
-    if (lenis) {
-      lenis.scrollTo(0, { immediate: true });
-    } else {
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    }
+    scrollToPageTop(lenis);
   }, [pathname, search, lenis]);
 
   return null;

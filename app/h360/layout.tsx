@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import H360ScrollReset from './_components/H360ScrollReset';
 
 export default function H360Layout({ children }: { children: ReactNode }) {
   return (
@@ -20,6 +21,7 @@ export default function H360Layout({ children }: { children: ReactNode }) {
         .h360-root input { font-family: inherit; }
       `}</style>
       <div className="h360-root">{children}</div>
+      <H360ScrollReset />
     </div>
   );
 }

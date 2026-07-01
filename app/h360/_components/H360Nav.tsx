@@ -2,11 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useLenis } from 'lenis/react';
 import { G, FONT_LIGHT } from './tokens';
 import { H360_HOME, H360_NAV_LINKS } from './h360Site';
+import { scrollToPageTop } from '@/lib/scrollToPageTop';
 
 export default function H360Nav() {
   const [isMobile, setMobile] = useState(false);
+  const lenis = useLenis();
 
   useEffect(() => {
     const fn = () => setMobile(window.innerWidth < 768);
@@ -14,6 +17,10 @@ export default function H360Nav() {
     window.addEventListener('resize', fn);
     return () => window.removeEventListener('resize', fn);
   }, []);
+
+  const goHubTop = () => {
+    if (!window.location.hash) scrollToPageTop(lenis);
+  };
 
   return (
     <nav
@@ -31,7 +38,7 @@ export default function H360Nav() {
         fontFamily: FONT_LIGHT,
       }}
     >
-      <Link href={H360_HOME} style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: 'inherit' }}>
+      <Link href={H360_HOME} onClick={goHubTop} scroll style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: 'inherit' }}>
         <div
           style={{
             width: 28,
