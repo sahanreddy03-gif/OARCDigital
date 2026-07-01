@@ -157,6 +157,123 @@ function ResultPingVisual() {
   );
 }
 
+/** Instagram-style feed — posts stack in (social product) */
+export function SocialFeedVisual({ compact = false, postCount }: { compact?: boolean; postCount?: number }) {
+  const posts = [
+    { title: 'Friday lampuki special', tag: 'Ready to publish' },
+    { title: 'Behind the pass', tag: 'Caption + hashtags' },
+    { title: 'Book a table →', tag: 'Link in bio' },
+  ];
+  const [shown, setShown] = useState(postCount ?? 1);
+
+  useEffect(() => {
+    if (postCount != null) {
+      setShown(postCount === 0 ? 0 : Math.min(postCount, 3));
+      return;
+    }
+    const t = setInterval(() => setShown((s) => (s >= 3 ? 1 : s + 1)), 1400);
+    return () => clearInterval(t);
+  }, [postCount]);
+
+  const visible = postCount === 0 ? [] : posts.slice(0, Math.max(1, Math.min(3, shown)));
+
+  return (
+    <div style={{ padding: compact ? 12 : 16 }}>
+      <div style={{ background: '#111', borderRadius: 16, overflow: 'hidden', border: `1px solid ${compact ? G.border : '#333'}`, boxShadow: compact ? 'none' : '0 12px 40px rgba(0,0,0,0.15)' }}>
+        <div style={{ padding: '12px 14px', borderBottom: '1px solid #333', display: 'flex', alignItems: 'center', gap: 10 }}>
+          <div style={{ width: 32, height: 32, borderRadius: '50%', background: `linear-gradient(135deg, ${G.green}, ${G.greenMid})` }} />
+          <div>
+            <div style={{ fontSize: 13, fontWeight: 700, color: '#fff' }}>@yourrestaurant</div>
+            <div style={{ fontSize: 10, color: '#888' }}>Malta · H360 SOCIAL</div>
+          </div>
+          <span style={{ marginLeft: 'auto', fontSize: 10, fontWeight: 700, color: G.greenLt }}>LIVE</span>
+        </div>
+        <AnimatePresence mode="popLayout">
+          {visible.length === 0 ? (
+            <div style={{ padding: '48px 14px', textAlign: 'center', fontSize: 13, color: '#666', fontWeight: 600 }}>No posts in 3 weeks</div>
+          ) : (
+            visible.map((p, i) => (
+            <m.div
+              key={p.title}
+              layout
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              style={{ padding: '12px 14px', borderBottom: i < visible.length - 1 ? '1px solid #222' : 'none' }}
+            >
+              <div style={{ height: compact ? 72 : 96, borderRadius: 10, background: `linear-gradient(145deg, #2d2d2d 0%, ${G.greenMid}44 100%)`, marginBottom: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28 }}>🍽</div>
+              <div style={{ fontSize: 13, fontWeight: 600, color: '#eee' }}>{p.title}</div>
+              <div style={{ fontSize: 10, fontWeight: 700, color: G.greenLt, marginTop: 4 }}>{p.tag}</div>
+            </m.div>
+            ))
+          )}
+        </AnimatePresence>
+        {!compact && (
+          <div style={{ padding: '10px 14px', textAlign: 'center', fontSize: 11, fontWeight: 700, color: G.greenLt, letterSpacing: '0.06em' }}>
+            0/wk → 4/wk · same feed
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function SocialEditVisual() {
+  return (
+    <div style={{ padding: 16, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, alignItems: 'center' }}>
+      <div style={{ textAlign: 'center' }}>
+        <div style={{ height: 80, borderRadius: 10, background: '#d1d5db', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, color: '#666', fontWeight: 600 }}>Phone shot</div>
+        <div style={{ fontSize: 10, color: G.textMuted, marginTop: 6 }}>Before</div>
+      </div>
+      <div style={{ textAlign: 'center' }}>
+        <m.div animate={{ scale: [1, 1.02, 1] }} transition={{ repeat: Infinity, duration: 2 }} style={{ height: 80, borderRadius: 10, background: `linear-gradient(145deg, ${G.greenLt}, #fff)`, border: `2px solid ${G.green}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>🍝</m.div>
+        <div style={{ fontSize: 10, fontWeight: 700, color: G.green, marginTop: 6 }}>Pro edit</div>
+      </div>
+    </div>
+  );
+}
+
+function SocialReelVisual() {
+  return (
+    <div style={{ padding: 20, textAlign: 'center' }}>
+      <m.div animate={{ scale: [1, 1.06, 1] }} transition={{ repeat: Infinity, duration: 1.8 }} style={{ width: 64, height: 64, margin: '0 auto 12px', borderRadius: '50%', background: G.green, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 22, fontWeight: 800 }}>▶</m.div>
+      <div style={{ fontSize: 13, fontWeight: 700, color: G.text }}>Reel ready</div>
+      <div style={{ fontSize: 11, color: G.textMuted, marginTop: 4 }}>Hook in 2 sec</div>
+    </div>
+  );
+}
+
+function SocialBoostVisual() {
+  return (
+    <div style={{ padding: 20, textAlign: 'center' }}>
+      <m.div animate={{ opacity: [0.7, 1] }} transition={{ repeat: Infinity, duration: 1.5 }} style={{ fontSize: 28, fontWeight: 800, color: G.green }}>2.4k</m.div>
+      <div style={{ fontSize: 12, fontWeight: 600, color: G.text }}>locals reached</div>
+      <div style={{ fontSize: 11, color: G.textMuted, marginTop: 6 }}>€20 boost · Malta</div>
+    </div>
+  );
+}
+
+function SocialBookVisual() {
+  return (
+    <div style={{ padding: 16, textAlign: 'center' }}>
+      <m.div animate={{ y: [0, -4, 0] }} transition={{ repeat: Infinity, duration: 1.6 }} style={{ background: G.greenLt, borderRadius: 12, padding: '14px 16px', fontSize: 13, fontWeight: 700, color: G.text }}>
+        DM → Table booked · Fri 20:00
+      </m.div>
+    </div>
+  );
+}
+
+function SocialWhatsAppVisual() {
+  return (
+    <div style={{ padding: 16 }}>
+      <div style={{ background: '#dcfce7', borderRadius: 12, padding: '12px 14px', fontSize: 12, fontWeight: 600, color: G.text, lineHeight: 1.5 }}>
+        <strong>WhatsApp</strong>
+        <br />
+        3 photos sent · Thursday
+      </div>
+    </div>
+  );
+}
+
 const FLOW_NODE_VISUAL: Record<string, () => ReactNode> = {
   scan: () => <MapsRankClimb compact />,
   strategy: () => <KeywordHit term="best restaurant sliema" vol={88} />,
@@ -172,6 +289,10 @@ const FLOW_NODE_VISUAL: Record<string, () => ReactNode> = {
   kitchen: () => <OrderFlowVisual />,
   owner: () => <MarginVisual />,
   margin: () => <MarginVisual />,
+  send: () => <SocialWhatsAppVisual />,
+  edit: () => <SocialEditVisual />,
+  post: () => <SocialFeedVisual compact postCount={3} />,
+  book: () => <SocialBookVisual />,
 };
 
 /** Flow step — visual matches the node, not a random chart */
@@ -188,5 +309,8 @@ export function LogicVisual({ kind }: { kind: StackPreviewKind }) {
   if (kind === 'review-climb') return <ReviewClimbVisual />;
   if (kind === 'order-qr' || kind === 'kitchen-print') return <OrderFlowVisual />;
   if (kind === 'margin') return <MarginVisual />;
+  if (kind === 'social-post') return <SocialFeedVisual />;
+  if (kind === 'reels') return <SocialReelVisual />;
+  if (kind === 'ad-boost') return <SocialBoostVisual />;
   return null;
 }

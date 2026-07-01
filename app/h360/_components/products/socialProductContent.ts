@@ -17,7 +17,7 @@ export const SOCIAL_META: ProductMetaConfig = {
   description:
     'Restaurant social media for Malta — completed posts every week, food photos, captions, and paid ads support. H360 by OARC Digital.',
   keywords: ['restaurant social media malta', 'restaurant instagram malta', 'social media management restaurant malta'],
-  og: { title: 'Posts done for you', subtitle: 'Not another scheduler · H360', eyebrow: 'H360 · Social & Ads' },
+  og: { title: 'Posts done for you', subtitle: '4/wk · not a scheduler · H360', eyebrow: 'H360 · Social & Ads' },
   breadcrumbName: 'Restaurant social media Malta',
   serviceName: 'H360 Restaurant Social Media — Malta',
   serviceType: 'Restaurant Social Media Management',
@@ -31,40 +31,39 @@ export const SOCIAL_META: ProductMetaConfig = {
 };
 
 export const SOCIAL_PAGE: Omit<H360ProductPageConfig, 'flowFooter'> = {
-  eyebrow: 'H360 · Social & Ads',
+  eyebrow: 'H360 · Social & Ads · Live',
   h1: 'Restaurant social media for Malta.',
   ctaName: 'Social & Ads',
   hero: {
-    ownerPain: 'Bad photos. No posts. No ads. Competitors look better online while you\'re plating.',
-    guestGain: 'They see your food looking real — and book before a competitor.',
-    wedge: 'Not generic agency posts — completed restaurant content every week, plus paid ads.',
-    hook: 'We take photos of your food and post them. More people see your restaurant.',
+    ownerPain: 'Empty feed. Bad photos. Competitors look pro while you plate.',
+    guestGain: 'They scroll your food — and book before the weekend fills.',
+    wedge: 'Not Buffer. Not €1k agency decks. Posts done for you.',
+    hook: 'We edit your shots. Write the caption. Post every week.',
   },
   visual: 'social-feed',
   flow: {
-    title: 'Photos → posts → publish → book.',
-    subtitle: 'Completed content every week — not a tool that waits for you to write captions.',
+    title: 'Photo → post → book',
+    subtitle: 'Completed content every week — not a tool waiting for captions.',
     nodes: [
-      { id: 'send', label: 'Send photos', detail: 'WhatsApp · any phone' },
+      { id: 'send', label: 'WhatsApp', detail: 'Any phone · 3 photos' },
       { id: 'edit', label: 'We edit', detail: 'Food looks pro' },
-      { id: 'post', label: 'Posts ready', detail: 'Caption + hashtags' },
-      { id: 'book', label: 'Guests book', detail: 'Instagram → table' },
+      { id: 'post', label: 'Post ready', detail: 'Caption + hashtags' },
+      { id: 'book', label: 'They book', detail: 'Instagram → table' },
     ],
   },
   compare: {
-    title: 'Empty feed vs completed posts every week.',
-    subtitle: 'Schedulers publish — they don\'t create. Restaurants need food photos and captions done.',
-    brainLine:
-      '€1,000/mo agencies write strategy decks. H360 SOCIAL delivers ready-to-publish restaurant posts — you tap publish in 30 seconds.',
+    title: 'Empty feed vs 4 posts a week',
+    subtitle: 'Schedulers publish — they do not create.',
+    brainLine: '€1,000/mo agencies write decks. H360 SOCIAL delivers ready posts — tap publish in 30 seconds.',
     visual: 'social-feed-mock',
   },
-  expertTitle: 'Why schedulers and agencies fail small venues.',
-  expertSubtitle: '€1,000/mo agencies and $15/mo tools both leave you doing the hard part.',
+  expertTitle: 'Schedulers do not create content.',
+  expertSubtitle: 'Agencies and $15/mo tools both leave you doing the hard part.',
   expertFails: [
-    { name: 'Buffer / Later', fail: 'YOU create content. The tool just publishes. Restaurants need creation, not scheduling.' },
-    { name: 'Socially Powerful', fail: '€1,000–5,000/mo. Strategy docs and KPI calls — you just want posts on your feed.' },
-    { name: 'Broadly AI posts', fail: 'Generic small business fluff — not restaurant food photography or menu highlights.' },
-    { name: 'Freelancer', fail: 'Inconsistent. Leaves after 3 months. You spend more time managing them than posting.' },
+    { name: 'Buffer / Later', fail: 'You create. It publishes. That is not the job.' },
+    { name: 'Socially Powerful', fail: '€1k+/mo. Strategy decks — you want posts.' },
+    { name: 'Broadly AI', fail: 'Generic fluff — not your food or menu.' },
+    { name: 'Freelancer', fail: 'Gone in 3 months. You manage them.' },
   ],
   faqs: SOCIAL_META.faqs,
   related: [

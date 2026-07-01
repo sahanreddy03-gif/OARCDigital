@@ -90,10 +90,10 @@ export const STANDALONE_EXTRAS: Record<string, StandaloneExtras> = {
   },
 
   social: {
-    doctrine: 'Creation beats scheduling. Your feed should look alive before service starts.',
-    metric: { value: '4/wk', label: 'finished posts — not blank calendars' },
+    doctrine: 'Creation beats scheduling. Feed alive before service starts.',
+    metric: { value: '4/wk', label: 'finished posts' },
     stack: {
-      title: 'Not Buffer. Completed restaurant content.',
+      title: 'Not Buffer. Posts done for you.',
       subtitle: 'Photo edit · captions · Reels · paid boost · AEO social signals — weekly.',
       items: [
         st('photo', 'Food edit', 'Any phone shot', 'Pro lighting · crop · colour', 'social-post'),
@@ -104,21 +104,21 @@ export const STANDALONE_EXTRAS: Record<string, StandaloneExtras> = {
       ],
     },
     signals: {
-      title: 'Trend keywords become posts — not generic fluff.',
+      title: 'Trends become posts.',
       subtitle: '“Lampuki special” beats “We love our customers.”',
       boardLabel: 'SOCIAL · TREND PULSE',
       items: [sig('lampuki malta instagram', 74), sig('valletta dinner reel', 68), sig('malta food blogger', 62), sig('book table instagram', 80)],
-      ctaLine: 'This week\'s post angle',
+      ctaLine: 'This week',
     },
     progress: {
-      title: 'Empty feed → booked-out weekend.',
+      title: 'Empty feed → full weekend.',
       subtitle: 'See posts go live — not strategy decks.',
       scoreLabel: 'Posts / month',
       rankLabel: 'Reach index',
-      weeks: [wk(1, 0, 2, 'Archive audit · tone set'), wk(4, 12, 5, '3 posts/wk live'), wk(8, 16, 7, 'Reels + boost running'), wk(12, 16, 9, 'Feed looks pro · bookings ↑', '4 posts/wk · ads on')],
+      weeks: [wk(1, 0, 2, 'Tone set'), wk(4, 12, 5, '3 posts/wk'), wk(8, 16, 7, 'Reels + boost'), wk(12, 16, 9, '4 posts/wk · ads on', '4 posts/wk · ads on')],
     },
     compare: {
-      title: 'Empty feed vs completed posts',
+      title: 'Empty feed vs 4 posts a week',
       subtitle: 'Schedulers publish — they do not create.',
       brainLine: '€1,000/mo agencies write decks. H360 delivers ready posts.',
       badLabel: 'BUFFER / DIY', goodLabel: 'H360 SOCIAL',

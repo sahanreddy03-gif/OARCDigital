@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { m, useReducedMotion } from 'framer-motion';
 import { C } from '../tokens';
-import { MapsRankClimb } from './logicVisuals';
+import { MapsRankClimb, SocialFeedVisual } from './logicVisuals';
 
 const GREEN = '#4ade80';
 const RED = '#f87171';
@@ -124,47 +124,31 @@ export function GoogleMapsRankCompare({ title, subtitle, brainLine }: { title: s
 }
 
 export function SocialFeedCompare({ title, subtitle, brainLine }: { title: string; subtitle?: string; brainLine?: string }) {
-  const posts = ['Friday special · Lampuki', 'Behind the pass', 'Book a table →'];
-  const [shown, setShown] = useState(0);
-  useEffect(() => {
-    const t = setInterval(() => setShown((s) => (s >= posts.length ? 0 : s + 1)), 1400);
-    return () => clearInterval(t);
-  }, [posts.length]);
   return (
     <CompareShell title={title} subtitle={subtitle} brainLine={brainLine}>
       <VsColumns
         left={
           <BadCol label="BUFFER / DIY">
-            <div style={{ background: '#111', borderRadius: 12, padding: 14, minHeight: 200 }}>
-              <div style={{ fontSize: 11, color: '#666', marginBottom: 12 }}>@yourrestaurant</div>
-              <div style={{ fontSize: 13, color: '#555', textAlign: 'center', paddingTop: 48 }}>No posts in 3 weeks</div>
+            <div style={{ opacity: 0.9, pointerEvents: 'none' }}>
+              <SocialFeedVisual compact postCount={0} />
             </div>
-            <p style={{ fontSize: 12, color: C.muted, margin: '12px 0 0' }}>You still write captions, find hashtags, edit photos</p>
+            <div style={{ textAlign: 'center', marginTop: 12, fontSize: 24, fontWeight: 800, color: RED }}>0/wk</div>
           </BadCol>
         }
         right={
           <GoodCol label="H360 SOCIAL">
-            <div style={{ background: '#111', borderRadius: 12, padding: 14, minHeight: 200 }}>
-              <div style={{ fontSize: 11, color: GREEN, marginBottom: 10 }}>@yourrestaurant · ready to publish</div>
-              {posts.slice(0, shown).map((p, i) => (
-                <m.div
-                  key={p}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  style={{
-                    background: 'rgba(255,255,255,0.06)',
-                    borderRadius: 8,
-                    padding: '10px 12px',
-                    marginBottom: 8,
-                    fontSize: 12,
-                    color: '#eee',
-                  }}
-                >
-                  {p}
-                </m.div>
-              ))}
+            <SocialFeedVisual compact postCount={3} />
+            <div style={{ display: 'flex', gap: 16, marginTop: 14, justifyContent: 'center' }}>
+              <div>
+                <div style={{ fontSize: 24, fontWeight: 800, color: C.white }}>4/wk</div>
+                <div style={{ fontSize: 10, color: C.muted }}>posts</div>
+              </div>
+              <div style={{ fontSize: 20, color: GREEN, alignSelf: 'center' }}>→</div>
+              <div>
+                <div style={{ fontSize: 24, fontWeight: 800, color: GREEN }}>2.4k</div>
+                <div style={{ fontSize: 10, color: C.muted }}>reach</div>
+              </div>
             </div>
-            <p style={{ fontSize: 12, color: C.muted, margin: '12px 0 0' }}>Completed posts every week — you tap publish</p>
           </GoodCol>
         }
       />

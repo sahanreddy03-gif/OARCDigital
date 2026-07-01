@@ -53,7 +53,7 @@ export default function StandaloneProductPage({ config }: { config: StandalonePr
       </section>
 
       <section style={{ background: C.bg, borderTop: `1px solid ${C.border}`, padding: '72px 24px 80px' }}>
-        <div style={{ maxWidth: 1160, margin: '0 auto' }}><SignalPulseBoard signals={config.signals} accent={G.greenLt} mapsPulse={config.visual === 'google-visibility'} /></div>
+        <div style={{ maxWidth: 1160, margin: '0 auto' }}><SignalPulseBoard signals={config.signals} accent={G.greenLt} mapsPulse={config.visual === 'google-visibility'} socialPulse={config.visual === 'social-feed'} /></div>
       </section>
 
       <section style={{ background: '#030303', borderTop: `1px solid ${C.border}`, padding: '72px 24px 80px' }}>

@@ -7,9 +7,9 @@ import type { StackPreviewKind, StandaloneProductConfig } from './standaloneProd
 import { PremiumCompare } from './premiumCompareVisuals';
 import { OrderMarginCompare } from './OrderVisuals';
 import { KineticStackStage } from './kineticBroll';
-import { FlowStepVisual, LogicVisual, MapsRankClimb, KeywordHit } from './logicVisuals';
+import { FlowStepVisual, LogicVisual, MapsRankClimb, KeywordHit, SocialFeedVisual } from './logicVisuals';
 
-const LOGIC_PREVIEWS = new Set<StackPreviewKind>(['maps-rank', 'review-qr', 'review-climb', 'order-qr', 'kitchen-print', 'margin']);
+const LOGIC_PREVIEWS = new Set<StackPreviewKind>(['maps-rank', 'review-qr', 'review-climb', 'order-qr', 'kitchen-print', 'margin', 'social-post', 'reels', 'ad-boost']);
 
 const GREEN = '#4ade80';
 const RED = '#f87171';
@@ -374,7 +374,7 @@ export function ProductStackBoard({
   );
 }
 
-export function SignalPulseBoard({ signals, accent, mapsPulse }: { signals: StandaloneProductConfig['signals']; accent: string; mapsPulse?: boolean }) {
+export function SignalPulseBoard({ signals, accent, mapsPulse, socialPulse }: { signals: StandaloneProductConfig['signals']; accent: string; mapsPulse?: boolean; socialPulse?: boolean }) {
   const reduce = useReducedMotion();
   const [idx, setIdx] = useState(0);
   useEffect(() => {
@@ -408,7 +408,7 @@ export function SignalPulseBoard({ signals, accent, mapsPulse }: { signals: Stan
         </div>
       </div>
       <div style={{ background: G.bg, border: `1px solid ${G.border}`, borderRadius: 16, overflow: 'hidden' }}>
-        {mapsPulse ? <MapsRankClimb compact /> : <KeywordHit term={hot.term} vol={hot.vol} />}
+        {mapsPulse ? <MapsRankClimb compact /> : socialPulse ? <SocialFeedVisual compact postCount={2} /> : <KeywordHit term={hot.term} vol={hot.vol} />}
       </div>
       </div>
     </div>
@@ -422,6 +422,7 @@ export function ProgressLiveBoard({ progress, accent }: { progress: StandalonePr
   const showMaps = /maps rank/i.test(progress.rankLabel);
   const showReviews = /avg rating|review/i.test(progress.rankLabel) && !showMaps;
   const showMargin = /commission|margin/i.test(progress.rankLabel);
+  const showSocial = /posts|reach/i.test(progress.scoreLabel) || /reach/i.test(progress.rankLabel);
   useEffect(() => {
     if (reduce) return;
     const t = setInterval(() => setStep((s) => (s + 1) % progress.weeks.length), 3200);
@@ -459,7 +460,10 @@ export function ProgressLiveBoard({ progress, accent }: { progress: StandalonePr
           {showMaps && <MapsRankClimb compact targetRank={w.rank} />}
           {showReviews && <LogicVisual kind="review-climb" />}
           {showMargin && <LogicVisual kind="margin" />}
-          {!showMaps && !showReviews && !showMargin && <KeywordHit term={w.label} vol={Math.min(95, w.score)} />}
+          {showSocial && !showMaps && !showReviews && !showMargin && (
+            <SocialFeedVisual compact postCount={Math.min(3, Math.max(1, Math.round(w.score / 4)))} />
+          )}
+          {!showMaps && !showReviews && !showMargin && !showSocial && <KeywordHit term={w.label} vol={Math.min(95, w.score)} />}
         </div>
       </div>
     </div>
