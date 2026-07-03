@@ -51,6 +51,47 @@ export const STANDALONE_EXTRAS: Record<string, StandaloneExtras> = {
     },
   },
 
+  voiceAi: {
+    doctrine: 'Missed calls are empty tables. A brain that learns your menu never forgets promos.',
+    metric: { value: '24/7', label: 'every call answered' },
+    stack: {
+      title: 'AGI host → ASI brain. We train it. You control it.',
+      subtitle: 'Voice, booking, guest care, staff alerts, dashboard — one Malta restaurant brain. Only OARC operators train it.',
+      items: [
+        st('voice', 'Voice brain', 'Warm · human pace', 'Menu · tone · Malta context · bilingual', 'voice-call'),
+        st('book', 'Auto booking', 'Talk → table locked', 'H360 BOOKING sync · no doubles', 'voice-book'),
+        st('guest', 'Guest answers', 'Hours · allergies · parking', 'Accurate — trained on your venue', 'voice-learn'),
+        st('alert', 'Staff alerts', 'VIP · events · complaints', 'Real-time ping · full transcript', 'voice-alert'),
+        st('dash', 'Owner dashboard', 'Every call logged', 'Approve · tune · human handoff rules', 'voice-dash'),
+        st('handoff', 'Human handoff', 'When they ask', 'Transfer with context — no repeat', 'voice-call'),
+      ],
+    },
+    signals: {
+      title: 'Searches owners type when calls pile up.',
+      subtitle: 'Voice AI intent — Malta restaurants looking for phone relief.',
+      boardLabel: 'MALTA · VOICE AI INTENT',
+      items: [sig('restaurant phone answering malta', 88), sig('ai receptionist restaurant', 76), sig('missed calls restaurant malta', 82), sig('book table by phone malta', 71), sig('restaurant after hours calls', 68)],
+      ctaLine: 'Next call saved',
+    },
+    progress: {
+      title: 'Week 1 → 8. Live. Learning. Booking.',
+      subtitle: 'Go live fast — brain gets sharper every week you approve training.',
+      scoreLabel: 'Calls answered',
+      rankLabel: 'Book rate',
+      weeks: [wk(1, 100, 72, 'Live on your line · menu trained'), wk(2, 100, 81, 'Bookings syncing · staff alerts'), wk(4, 100, 88, 'VIP routing · event briefs'), wk(8, 100, 92, 'Brain self-educates · you approve', 'Self-learning brain live')],
+    },
+    compare: {
+      title: 'Voicemail vs voice brain',
+      subtitle: 'Same caller. One books. One hangs up.',
+      brainLine: 'Call centres read scripts. H360 trains a Malta restaurant brain — books, learns, escalates.',
+      badLabel: 'VOICEMAIL', goodLabel: 'H360 VOICE HOST',
+      badNote: 'Caller books elsewhere', goodNote: 'Answered · booked · confirmed',
+      badMetric: '0%', goodMetric: '24/7',
+      goodExtra: { left: '100', leftLabel: 'calls logged', right: 'You', rightLabel: 'full control' },
+      premiumVisual: 'voice-phone',
+    },
+  },
+
   reviews: {
     doctrine: 'One tap to the review form beats a Maps QR.',
     metric: { value: '3×', label: 'more reviews in 90 days' },

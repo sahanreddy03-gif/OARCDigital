@@ -52,7 +52,6 @@ export default function H360Nav() {
         >
           <span style={{ color: '#fff', fontSize: 11, fontWeight: 900, letterSpacing: '-0.05em' }}>H3</span>
         </div>
-        <span style={{ fontSize: 16, fontWeight: 800, letterSpacing: '-0.04em', color: G.text }}>H360</span>
       </Link>
 
       {!isMobile && (

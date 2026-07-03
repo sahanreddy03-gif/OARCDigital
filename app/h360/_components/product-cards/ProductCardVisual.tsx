@@ -2,6 +2,7 @@
 
 import { m, useReducedMotion } from 'framer-motion';
 import type { ProductVisualId } from './productCardsData';
+import VoiceAiLiveDemo from '../products/VoiceAiLiveDemo';
 
 const WHITE = '#ffffff';
 const DARK = '#111111';
@@ -285,6 +286,11 @@ const VISUAL_MAP: Record<ProductVisualId, (p: VisualProps) => React.ReactNode> =
         ['Calls come in', '847 searches → 37 calls'],
       ]}
     />
+  ),
+  'voice-ai': (p) => (
+    <div style={{ width: '100%', transform: 'scale(0.92)', transformOrigin: 'center center' }}>
+      <VoiceAiLiveDemo compact />
+    </div>
   ),
   'venue-360': (p) => (
     <StepFlowVisual

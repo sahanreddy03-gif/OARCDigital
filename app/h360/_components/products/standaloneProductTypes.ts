@@ -51,7 +51,12 @@ export type StackPreviewKind =
   | 'roster-wa'
   | 'shift-yes'
   | 'floor-green'
-  | 'seat-tap';
+  | 'seat-tap'
+  | 'voice-call'
+  | 'voice-book'
+  | 'voice-alert'
+  | 'voice-dash'
+  | 'voice-learn';
 
 export type StandaloneProductConfig = {
   eyebrow: string;

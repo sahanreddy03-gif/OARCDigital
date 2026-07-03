@@ -21,7 +21,8 @@ export type PremiumCompareId =
   | 'recipe-margin'
   | 'stock-alert'
   | 'staff-whatsapp'
-  | 'floor-map-live';
+  | 'floor-map-live'
+  | 'voice-phone';
 
 function CompareShell({
   title,
@@ -514,6 +515,30 @@ export function FloorMapLiveCompare({ title, subtitle, brainLine }: { title: str
   );
 }
 
+function VoicePhoneCompare({ title, subtitle, brainLine }: { title: string; subtitle?: string; brainLine?: string }) {
+  const reduce = useReducedMotion();
+  return (
+    <CompareShell title={title} subtitle={subtitle} brainLine={brainLine}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, maxWidth: 480, margin: '0 auto' }}>
+        <div style={{ background: '#1a1a1a', borderRadius: 16, padding: 20, border: `1px solid ${RED}44`, textAlign: 'center' }}>
+          <div style={{ fontSize: 32, marginBottom: 8 }}>📭</div>
+          <div style={{ fontSize: 13, fontWeight: 700, color: RED }}>Voicemail</div>
+          <div style={{ fontSize: 11, color: C.muted, marginTop: 8 }}>Caller hangs up · books elsewhere</div>
+        </div>
+        <m.div
+          animate={reduce ? {} : { boxShadow: ['0 0 0 rgba(74,222,128,0)', '0 0 24px rgba(74,222,128,0.35)', '0 0 0 rgba(74,222,128,0)'] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+          style={{ background: '#041208', borderRadius: 16, padding: 20, border: `1px solid ${GREEN}66`, textAlign: 'center' }}
+        >
+          <div style={{ fontSize: 32, marginBottom: 8 }}>🎙</div>
+          <div style={{ fontSize: 13, fontWeight: 700, color: GREEN }}>H360 Voice Host</div>
+          <div style={{ fontSize: 11, color: '#86efac', marginTop: 8 }}>Answered · booked · confirmed</div>
+        </m.div>
+      </div>
+    </CompareShell>
+  );
+}
+
 const COMPARE_MAP: Record<
   PremiumCompareId,
   React.ComponentType<{ title: string; subtitle?: string; brainLine?: string }>
@@ -530,6 +555,7 @@ const COMPARE_MAP: Record<
   'stock-alert': StockAlertCompare,
   'staff-whatsapp': StaffWhatsappCompare,
   'floor-map-live': FloorMapLiveCompare,
+  'voice-phone': VoicePhoneCompare,
 };
 
 export function PremiumCompare({ visual, title, subtitle, brainLine }: { visual: PremiumCompareId; title: string; subtitle?: string; brainLine?: string }) {

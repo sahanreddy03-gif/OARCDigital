@@ -174,6 +174,7 @@ export const VISIBILITY_EXPERT_FAILS = [
 export const VISIBILITY_FAQS = GOOGLE_PROFILE_META.faqs;
 
 export const VISIBILITY_RELATED = [
+  { label: 'Voice Host — Phone AI', href: '/h360/restaurant-phone-ai-malta' },
   { label: 'Smart Google Reviews', href: '/h360/get-more-google-reviews-restaurant-malta' },
   { label: 'Website', href: '/h360/restaurant-website-malta' },
   { label: 'Social & Ads', href: '/h360/restaurant-social-media-malta' },

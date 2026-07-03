@@ -11,6 +11,15 @@ export type ProductTheme = {
 };
 
 const THEMES: Record<string, ProductTheme> = {
+  'voice-ai': {
+    id: 'voice',
+    accent: '#4ade80',
+    accentSoft: 'rgba(74,222,128,0.16)',
+    glow: 'radial-gradient(ellipse 80% 60% at 65% 18%, rgba(74,222,128,0.32) 0%, transparent 55%)',
+    gradient: 'linear-gradient(165deg, #020806 0%, #0a1a12 45%, #041008 100%)',
+    heroMetric: { value: '24/7', label: 'every call answered — even Friday rush' },
+    doctrine: 'Missed calls are empty tables. A host that learns your menu pays for itself on one Saturday.',
+  },
   'google-visibility': {
     id: 'maps',
     accent: '#1a6b30',

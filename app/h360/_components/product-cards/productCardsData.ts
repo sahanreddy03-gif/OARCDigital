@@ -24,6 +24,7 @@ export type BrainProductId =
   | 'STAFF'
   | 'STAMP'
   | 'TEXT'
+  | 'VOICE'
   | 'WEBSITE';
 
 export type ProductCardData = {
@@ -46,6 +47,7 @@ export type ProductCardData = {
 
 export type ProductVisualId =
   | 'google-visibility'
+  | 'voice-ai'
   | 'venue-360'
   | 'maps-rank'
   | 'seo-climb'
@@ -83,6 +85,20 @@ export const PRODUCT_CARDS: ProductCardData[] = [
     live: true,
     themeIndex: 0,
     visual: 'google-visibility',
+  },
+  {
+    id: 'voice-ai',
+    brainId: 'VOICE',
+    tab: 'Voice Host',
+    entry: 'Phone rings during service. Voicemail fills. Covers walk next door.',
+    headline: 'AI answers every call — books tables, learns your menu, never sleeps.',
+    wedge: 'Not a call-centre script — OARC trains a Malta restaurant brain. Dashboard control. Human handoff when it matters.',
+    guestGain: 'They call at 2am — someone warm answers, books them, sends confirmation.',
+    result: '24/7 · zero missed booking calls',
+    href: '/h360/restaurant-phone-ai-malta',
+    live: true,
+    themeIndex: 1,
+    visual: 'voice-ai',
   },
   {
     id: 'google-reviews',

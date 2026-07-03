@@ -7,9 +7,9 @@ import type { StackPreviewKind, StandaloneProductConfig } from './standaloneProd
 import { PremiumCompare } from './premiumCompareVisuals';
 import { OrderMarginCompare } from './OrderVisuals';
 import { KineticStackStage } from './kineticBroll';
-import { FlowStepVisual, LogicVisual, MapsRankClimb, KeywordHit, SocialFeedVisual } from './logicVisuals';
+import { FlowStepVisual, LogicVisual, MapsRankClimb, KeywordHit, SocialFeedVisual, VoiceCallPulse } from './logicVisuals';
 
-const LOGIC_PREVIEWS = new Set<StackPreviewKind>(['maps-rank', 'review-qr', 'review-climb', 'order-qr', 'kitchen-print', 'margin', 'social-post', 'reels', 'ad-boost']);
+const LOGIC_PREVIEWS = new Set<StackPreviewKind>(['maps-rank', 'review-qr', 'review-climb', 'order-qr', 'kitchen-print', 'margin', 'social-post', 'reels', 'ad-boost', 'voice-call', 'voice-book', 'voice-alert', 'voice-dash', 'voice-learn']);
 
 const GREEN = '#4ade80';
 const RED = '#f87171';
@@ -374,7 +374,7 @@ export function ProductStackBoard({
   );
 }
 
-export function SignalPulseBoard({ signals, accent, mapsPulse, socialPulse }: { signals: StandaloneProductConfig['signals']; accent: string; mapsPulse?: boolean; socialPulse?: boolean }) {
+export function SignalPulseBoard({ signals, accent, mapsPulse, socialPulse, voicePulse }: { signals: StandaloneProductConfig['signals']; accent: string; mapsPulse?: boolean; socialPulse?: boolean; voicePulse?: boolean }) {
   const reduce = useReducedMotion();
   const [idx, setIdx] = useState(0);
   useEffect(() => {
@@ -408,7 +408,7 @@ export function SignalPulseBoard({ signals, accent, mapsPulse, socialPulse }: { 
         </div>
       </div>
       <div style={{ background: G.bg, border: `1px solid ${G.border}`, borderRadius: 16, overflow: 'hidden' }}>
-        {mapsPulse ? <MapsRankClimb compact /> : socialPulse ? <SocialFeedVisual compact postCount={2} /> : <KeywordHit term={hot.term} vol={hot.vol} />}
+        {mapsPulse ? <MapsRankClimb compact /> : socialPulse ? <SocialFeedVisual compact postCount={2} /> : voicePulse ? <VoiceCallPulse compact /> : <KeywordHit term={hot.term} vol={hot.vol} />}
       </div>
       </div>
     </div>

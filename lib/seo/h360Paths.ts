@@ -36,6 +36,14 @@ export const H360_PATHS: H360PathEntry[] = [
     kind: "product",
   },
   {
+    path: "/h360/restaurant-phone-ai-malta",
+    title: "Restaurant Phone AI Malta — H360 Voice Host",
+    description: "H360 Voice Host answers restaurant phones in Malta 24/7 — AI reception, table booking, allergies, VIP routing, owner dashboard. OARC-trained brain.",
+    priority: 0.9,
+    changefreq: "monthly",
+    kind: "product",
+  },
+  {
     path: "/h360/restaurant-seo-malta",
     title: "Restaurant SEO Malta",
     description: "Restaurant SEO for Malta — rank for 'best pizza Malta', menu keywords, and local search without reading 20-page reports.",

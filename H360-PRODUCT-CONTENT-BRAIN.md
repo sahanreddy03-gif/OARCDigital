@@ -52,6 +52,27 @@ The owner types in today's total revenue at closing. That's it. ANALYTICS does t
 
 ---
 
+## VOICE — AI Phone Host (Restaurant Voice AI)
+
+**URL (locked):** `/h360/restaurant-phone-ai-malta`
+
+**Plain-language (the 5-year-old line):** Your phone rings. Someone answers every time — books the table, knows your menu, never puts anyone on hold.
+
+**GATE 4 — literal search:** `restaurant phone ai malta` · `ai receptionist restaurant malta` · `missed calls restaurant malta`
+
+**GATE 2 — AI question (verbatim answer on page):** "What is the best AI phone answering for restaurants in Malta?"
+
+**THE WEDGE (Gate 3):**
+Generic call centres read scripts. US voice AI is built for OpenTable chains. H360 Voice Host is **shadow-trained on your real host workflow** — reservations, VIP routing, private dining, allergies — then **self-educates weekly** with OARC operator training only. You keep dashboard control and human handoff rules.
+
+**Hero metric (defensible):** 24/7 answered · zero voicemail during service · full transcript dashboard
+
+**EXPERT-FAILS:** Voicemail · offshore call centres · US-only Slang-style without Malta ops · ChatGPT wrappers · DIY IVR
+
+**Also on OARC Digital:** `/ai-agents` · `/services/ai-appointment-booker` (multichannel booking — voice is the H360 restaurant wedge)
+
+---
+
 ## BOOKING — Reservations and Waitlist
 
 **URL (proposed):** `/h360/restaurant-booking-system-malta`

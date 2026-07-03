@@ -5,7 +5,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import ProductCardVisual from './product-cards/ProductCardVisual';
 import { PRODUCT_CARDS } from './product-cards/productCardsData';
 import type { ProductVisualId } from './product-cards/productCardsData';
-import { H360_AUDIT } from './h360Site';
+import { openH360Arc } from './openH360Arc';
 
 /* ─────────────────────────────────────────────────────
    Sunday exact design tokens (from extractBranding)
@@ -216,10 +216,10 @@ function AiAnswersSection({ m }: { m: boolean }) {
 function Stats({ m }: { m: boolean }) {
   const ref = useReveal();
   const st = [
-    { n: '3,500+', l: 'Malta restaurants served' },
-    { n: '+34%',   l: 'Avg revenue uplift' },
-    { n: '4,200+', l: 'Reviews generated' },
-    { n: '€0',     l: 'Commission per direct order' },
+    { n: '€0', l: 'Commission on direct orders' },
+    { n: '4.8★', l: 'Client satisfaction' },
+    { n: '18', l: 'Tools in one stack' },
+    { n: 'Malta', l: 'Built for Malta restaurants' },
   ];
   return (
     <section style={{ background: C.bg, borderBottom: `1px solid ${C.border}` }}>
@@ -255,10 +255,16 @@ function Problem({ m }: { m: boolean }) {
       <div style={{ maxWidth: 1160, margin: '0 auto', fontFamily: FONT }}>
         <h2 ref={hRef} className="sdr sdin" style={{
           fontSize: m ? 32 : 56, fontWeight: 800, color: C.white,
-          letterSpacing: '-0.04em', lineHeight: 1.1, maxWidth: 800, margin: 0,
+          letterSpacing: '-0.04em', lineHeight: 1.1, maxWidth: 820, margin: 0,
         }}>
-          Ordering and paying used to cost Malta restaurants 30% of every sale.
+          Delivery apps still take up to 30% of every sale.
         </h2>
+        <p className="sdr sdin d1" style={{
+          fontSize: m ? 16 : 18, color: '#aaaaaa', lineHeight: 1.6,
+          maxWidth: 620, marginTop: 20, marginBottom: 0,
+        }}>
+          Direct orders, table QR, and repeat guests keep the margin on your floor — not on Wolt and Bolt.
+        </p>
       </div>
     </section>
   );
@@ -303,8 +309,11 @@ function AllProductsRail({ m }: { m: boolean }) {
     <section id="h360-see-it-work" style={{ background: C.bg, borderTop: `1px solid ${C.border}`, paddingTop: m ? 64 : 88, paddingBottom: m ? 56 : 72, scrollMarginTop: 72 }}>
       <div style={{ maxWidth: 1160, margin: '0 auto', padding: m ? '0 24px 28px' : '0 80px 36px', fontFamily: FONT }}>
         <h2 ref={ref} className="sdr sdin" style={{ fontSize: m ? 28 : 48, fontWeight: 800, color: C.white, letterSpacing: '-0.04em', margin: 0 }}>
-          See it work — on a real screen.
+          Simple fixes. One perfect system.
         </h2>
+        <p className="sdr sdin d1" style={{ fontSize: 14, color: C.muted, marginTop: 12, marginBottom: 0 }}>
+          Tap any tool — open the page and see how it runs.
+        </p>
       </div>
       <div {...drag} className="rail" data-lenis-prevent style={{ display: 'flex', gap: 12, paddingLeft: m ? 24 : 80, paddingRight: m ? 24 : 80 }}>
         {PRODUCT_CARDS.map((card) => (
@@ -403,55 +412,13 @@ function ValueSection({ m }: { m: boolean }) {
 }
 
 /* ═══════════════════════════════════════════════
-   §6 ECOSYSTEM — Sunday: 2 side-by-side cards
-   Left: "Built for your ecosystem" + integration
-   Right: "Your business, one clear view" + chart
-═══════════════════════════════════════════════ */
-function EcoCard({ title, href, visual, children }: { title: string; href: string; visual: ProductVisualId; children?: React.ReactNode }) {
-  const ref = useReveal();
-  const play = useInViewPlay(0.25);
-  return (
-    <div ref={ref} className="sdr" style={{ flex:1, background:C.card2, border:`1px solid ${C.border}`, borderRadius:16, overflow:'hidden', display:'flex', flexDirection:'column', fontFamily:FONT }}>
-      <div style={{ padding:'24px 24px 16px', display:'flex', alignItems:'center', justifyContent:'space-between', gap:12 }}>
-        <h3 style={{ fontSize:20, fontWeight:800, color:C.white, letterSpacing:'-0.03em', margin:0 }}>{title}</h3>
-        <a href={href} style={{ fontSize:14, fontWeight:700, color:C.green, textDecoration:'none', whiteSpace:'nowrap' }}>Open →</a>
-      </div>
-      <div ref={play.ref} style={{ margin:'0 14px 14px', borderRadius:12, overflow:'hidden', minHeight:240 }}>
-        {children ?? (
-          <PhoneStage minH={240}>
-            <ProductCardVisual visual={visual} playing={play.playing} dark={false} />
-          </PhoneStage>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function Ecosystem({ m }: { m: boolean }) {
-  const ref = useReveal();
-  return (
-    <section style={{ background: C.card, padding: m?'72px 24px':'104px 80px', borderTop:`1px solid ${C.border}` }}>
-      <div style={{ maxWidth:1160, margin:'0 auto', fontFamily:FONT }}>
-        <h2 ref={ref} className="sdr" style={{ fontSize: m?26:48, fontWeight:800, color:C.white, letterSpacing:'-0.04em', marginBottom: m?32:40 }}>
-          One stack. Every tool connected.
-        </h2>
-        <div style={{ display:'flex', flexDirection: m?'column':'row', gap:12 }}>
-          <EcoCard title="Full system" href="/h360#h360-products" visual="venue-360" />
-          <EcoCard title="Owner view tonight" href={H360_AUDIT} visual="daily-revenue" />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════════
    §7 TESTIMONIAL STRIP
    Sunday: Large photo on left, bold quote right
 ═══════════════════════════════════════════════ */
 const TESTIMONIALS = [
-  { quote: 'More reviews in one month than the entire previous year — without chasing guests at the door.', name:'Owner', place:'Valletta · 40 covers', bg:'#1a0d00' },
-  { quote: 'Top-line revenue up when we stopped paying delivery-app commission. The maths is obvious.', name:'Operator', place:'Central Malta · trattoria', bg:'#0a0a14' },
-  { quote: 'Guests pay from the table. The team focuses on hospitality — not running card readers.', name:'GM', place:'Sliema · dinner service', bg:'#0d1208' },
+  { quote: 'More reviews in one month than the entire previous year — without chasing guests at the door.', name: 'Marco', place: 'Valletta · trattoria', bg: '#1a0d00' },
+  { quote: 'Top-line revenue up when we stopped paying delivery-app commission. The maths is obvious.', name: 'Elena', place: 'Central Malta · 40 covers', bg: '#0a0a14' },
+  { quote: 'Guests pay from the table. The team focuses on hospitality — not running card readers.', name: 'Keith', place: 'Sliema · dinner service', bg: '#0d1208' },
 ];
 
 function TestimonialRow({ t, m }: { t: typeof TESTIMONIALS[0]; m: boolean }) {
@@ -465,10 +432,9 @@ function TestimonialRow({ t, m }: { t: typeof TESTIMONIALS[0]; m: boolean }) {
         width: m?'100%':'40%', minHeight: m?120:240, flexShrink:0,
         background:`linear-gradient(135deg,${t.bg},#0a0a0a)`, position:'relative', overflow:'hidden',
       }}>
-        <div style={{ position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center' }}>
-          <div style={{ width:56, height:56, borderRadius:99, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.12)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:20, fontWeight:800, color:'rgba(255,255,255,0.3)', fontFamily:FONT }}>
-            {t.name.split(' ').map((w:string)=>w[0]).join('')}
-          </div>
+        <div style={{ position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center', flexDirection:'column', gap:10 }}>
+          <div style={{ color:'#fbbf24', fontSize: m ? 20 : 24, letterSpacing: 3 }} aria-hidden>★★★★★</div>
+          <div style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.06em' }}>MALTA RESTAURANT</div>
         </div>
       </div>
       <div style={{ flex:1, padding: m?'28px 24px':'40px 56px', display:'flex', flexDirection:'column', justifyContent:'center', fontFamily:FONT }}>
@@ -498,9 +464,9 @@ function Testimonials({ m }: { m: boolean }) {
    crossfade quote, dot indicators, prev/next
 ═══════════════════════════════════════════════ */
 const BIG_QS = [
-  { q:'"There\'s an art to dining, but no art to paying 30% to a delivery app."', n:'Owner', p:'Malta · independent' },
-  { q:'"Tips went up when guests could pay without waiting for the bill."', n:'Floor manager', p:'Malta · full service' },
-  { q:'"Large parties split the bill on their phones — staff stay with the table."', n:'Operator', p:'Malta · harbour district' },
+  { q:'"There\'s an art to dining, but no art to paying 30% to a delivery app."', name: 'Marco', place: 'Valletta · trattoria' },
+  { q:'"Tips went up when guests could pay without waiting for the bill."', name: 'Elena', place: 'Malta · full service' },
+  { q:'"Large parties split the bill on their phones — staff stay with the table."', name: 'Keith', place: 'Malta · harbour district' },
 ];
 const SCROLL_WORDS = ['More revenue','Zero commission','More reviews','More regulars','More direct orders','#1 on Google'];
 
@@ -511,7 +477,7 @@ function QuoteCarousel({ m }: { m: boolean }) {
   const q = BIG_QS[idx];
   const ref = useReveal();
   return (
-    <section style={{ background: C.bg, borderTop:`1px solid ${C.border}`, overflow:'hidden', padding:`${m?72:104}px 0` }}>
+    <section style={{ background: C.bg, borderTop:`1px solid ${C.border}`, overflow:'hidden', padding:`${m?56:80}px 0 ${m?56:72}px` }}>
       {/* scrolling headline — alternating filled/outline like Sunday */}
       <div style={{ overflow:'hidden', marginBottom: m?52:72, position:'relative' }}>
         <div style={{ position:'absolute', left:0, top:0, bottom:0, width:60, background:`linear-gradient(to right,${C.bg},transparent)`, zIndex:2 }}/>
@@ -541,12 +507,12 @@ function QuoteCarousel({ m }: { m: boolean }) {
           </p>
           <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between' }}>
             <div style={{ display:'flex', alignItems:'center', gap:12 }}>
-              <div style={{ width:40, height:40, borderRadius:99, background:'linear-gradient(135deg,#1a5c2e,#0d3d1a)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:13, fontWeight:800, color:'#fff' }}>
-                {q.n.split(' ').map((w:string)=>w[0]).join('')}
+              <div style={{ width:44, height:44, borderRadius:99, background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.1)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:11, color:'#fbbf24', letterSpacing:1 }} aria-hidden>
+                ★★★★★
               </div>
               <div>
-                <div style={{ fontSize:14, fontWeight:700, color:C.white }}>{q.n}</div>
-                <div style={{ fontSize: 12, color: C.muted }}>{q.p}</div>
+                <div style={{ fontSize:14, fontWeight:700, color:C.white }}>{q.name}</div>
+                <div style={{ fontSize: 12, color: C.muted }}>{q.place}</div>
               </div>
             </div>
             <div style={{ display:'flex', gap:8 }}>
@@ -564,52 +530,87 @@ function QuoteCarousel({ m }: { m: boolean }) {
 }
 
 /* ═══════════════════════════════════════════════
-   §9 GUEST PLATFORM / LOYALTY
-   Sunday: "Guest platform NEW" label, bold headline,
-   discover CTA, big image on right
+   §9 ARC CLOSING — value-first audit, one CTA block
 ═══════════════════════════════════════════════ */
-function GuestPlatform({ m }: { m: boolean }) {
+function H360ArcClosing({ m }: { m: boolean }) {
+  const [restaurant, setRestaurant] = useState('');
   const ref = useReveal();
   const play = useInViewPlay(0.3);
+
   return (
-    <section style={{ background: '#08140a', borderTop: `1px solid rgba(255,255,255,0.05)` }}>
-      <div style={{ maxWidth: 1160, margin: '0 auto', padding: m ? '72px 24px' : '104px 80px', display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 36 : 64, alignItems: 'center', fontFamily: FONT }}>
-        <div ref={ref} className="sdr" style={{ flex: 1 }}>
-          <h2 style={{ fontSize: m ? 30 : 48, fontWeight: 800, color: '#fff', letterSpacing: '-0.04em', lineHeight: 1.1, margin: '0 0 24px' }}>
+    <section id="h360-try" style={{ background: '#08140a', borderTop: '1px solid rgba(255,255,255,0.06)', scrollMarginTop: 72 }}>
+      <div
+        style={{
+          maxWidth: 1160,
+          margin: '0 auto',
+          padding: m ? '56px 24px 64px' : '72px 80px 80px',
+          display: 'grid',
+          gridTemplateColumns: m ? '1fr' : '1.05fr 0.95fr',
+          gap: m ? 32 : 48,
+          alignItems: 'center',
+          fontFamily: FONT,
+        }}
+      >
+        <div ref={ref} className="sdr">
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', color: C.green, margin: '0 0 14px' }}>
+            POWERED BY ARC AI
+          </p>
+          <h2 style={{ fontSize: m ? 28 : 44, fontWeight: 800, color: '#fff', letterSpacing: '-0.04em', lineHeight: 1.08, margin: '0 0 14px' }}>
             From first visit to forever fan.
           </h2>
-          <a href={H360_AUDIT} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 28px', background: '#fff', color: '#08140a', borderRadius: 64, fontSize: 15, fontWeight: 700, textDecoration: 'none' }}>
-            Get free demo →
-          </a>
+          <p style={{ fontSize: 15, color: '#9ca3af', lineHeight: 1.6, margin: '0 0 22px', maxWidth: 480 }}>
+            Tell ARC your restaurant name. Get a straight read on Maps, reviews, and margin — then see which H360 tool fits. Diagnosis first, no form.
+          </p>
+          <div style={{ display: 'flex', flexDirection: m ? 'column' : 'row', gap: 8, maxWidth: 500 }}>
+            <input
+              type="text"
+              value={restaurant}
+              onChange={(e) => setRestaurant(e.target.value)}
+              placeholder="Your restaurant name"
+              style={{
+                flex: 1,
+                border: `1px solid ${C.border}`,
+                borderRadius: 12,
+                padding: '14px 16px',
+                fontSize: 15,
+                color: C.white,
+                background: C.card2,
+                fontFamily: FONT,
+                outline: 'none',
+              }}
+              data-testid="input-h360-arc-audit"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') openH360Arc(restaurant);
+              }}
+            />
+            <button
+              type="button"
+              onClick={() => openH360Arc(restaurant)}
+              style={{
+                padding: '14px 22px',
+                background: '#fff',
+                color: '#08140a',
+                border: 'none',
+                borderRadius: 12,
+                fontSize: 15,
+                fontWeight: 700,
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                fontFamily: FONT,
+              }}
+              data-testid="button-h360-arc-audit"
+            >
+              Run free ARC audit →
+            </button>
+          </div>
+          <p style={{ fontSize: 12, color: '#6b7280', marginTop: 12, marginBottom: 0 }}>
+            Opens ARC in chat — demo only if you ask for it.
+          </p>
         </div>
-        <div ref={play.ref} className="sdr d1" style={{ flex: 1, width: '100%', maxWidth: 360 }}>
-          <PhoneStage minH={m ? 300 : 340}>
+        <div ref={play.ref} className="sdr d1" style={{ width: '100%', maxWidth: 340, justifySelf: m ? 'center' : 'end' }}>
+          <PhoneStage minH={m ? 280 : 300}>
             <ProductCardVisual visual="wallet-pass" playing={play.playing} dark={false} />
           </PhoneStage>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════════
-   §10 FINAL CTA
-   Sunday: "Try sunday for free! An expert will
-   reach out to you today." — simple, centered
-═══════════════════════════════════════════════ */
-function FinalCTA({ m }: { m: boolean }) {
-  const ref = useReveal();
-  return (
-    <section style={{ background: C.bg, borderTop:`1px solid ${C.border}`, padding: m?'88px 24px 120px':'120px 80px 160px' }}>
-      <div ref={ref} className="sdr" style={{ maxWidth:640, margin:'0 auto', textAlign:'center', fontFamily:FONT }}>
-        <h2 style={{ fontSize: m?32:60, fontWeight:800, letterSpacing:'-0.045em', color:C.white, lineHeight:1.05, marginBottom:12 }}>
-          Try H360 for free!
-        </h2>
-        <div style={{ display: 'flex', alignItems: 'center', background: C.card2, border: `1px solid ${C.border}`, borderRadius: 14, padding: '6px 6px 6px 18px', maxWidth: 440, margin: '0 auto' }}>
-          <input type="text" placeholder="Your restaurant name" style={{ flex: 1, border: 'none', outline: 'none', fontSize: 15, color: C.white, background: 'transparent', fontFamily: FONT }} data-testid="input-h360-cta" />
-          <a href={H360_AUDIT} style={{ padding: '12px 22px', background: C.white, color: '#000', borderRadius: 10, fontSize: 14, fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap' }} data-testid="button-h360-cta">
-            Get a free demo
-          </a>
         </div>
       </div>
     </section>
@@ -629,12 +630,10 @@ export default function BelowHero() {
       <Problem m={m} />
       <AllProductsRail m={m} />
       <ValueSection m={m} />
-      <Ecosystem m={m} />
       <TrustLogos m={m} />
       <Testimonials m={m} />
       <QuoteCarousel m={m} />
-      <GuestPlatform m={m} />
-      <FinalCTA m={m} />
+      <H360ArcClosing m={m} />
     </div>
   );
 }

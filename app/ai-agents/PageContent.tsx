@@ -17,6 +17,8 @@ import {
   CommandConsolePanel, 
   PersonalizationSteps
 } from '@/components/ai';
+import VoiceProductSuite from '@/components/voice-products/VoiceProductSuite';
+import { AI_AGENTS_HERO_POSTER, AI_AGENTS_HERO_VIDEO } from '@/lib/media/aiAgentsHeroVideo';
 import { 
   ArrowRight, Check,
   Zap, Shield, TrendingUp, MessageSquare, Play, Pause, RotateCcw,
@@ -280,11 +282,11 @@ export default function PageContent() {
               muted
               playsInline
               preload="auto"
-              poster="/ai-agents-hero-poster.jpg"
+              poster={AI_AGENTS_HERO_POSTER}
               className="absolute inset-0 w-full h-full object-cover"
               style={{ objectPosition: 'center top' }}
             >
-              <source src="/2026-01-11_01_1768174240415.mp4" type="video/mp4" />
+              <source src={AI_AGENTS_HERO_VIDEO} type="video/mp4" />
             </video>
           </div>
           
@@ -340,6 +342,8 @@ export default function PageContent() {
             </div>
           </div>
         </section>
+
+        <VoiceProductSuite />
         
         {/* AI Agents Carousel Section - 2nd Section */}
         <section className="relative z-10 py-12 sm:py-16 px-4 sm:px-6 bg-black overflow-hidden">

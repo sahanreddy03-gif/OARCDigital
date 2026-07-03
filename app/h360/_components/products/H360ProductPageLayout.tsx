@@ -48,7 +48,7 @@ export default function H360ProductPageLayout({ config }: { config: H360ProductP
   const theme = themeForVisual(config.visual);
 
   return (
-    <H360ProductShell eyebrow={config.eyebrow} h1={config.h1} live={config.live} ctaName={config.ctaName} themeAccent={theme.accent}>
+    <H360ProductShell eyebrow={config.eyebrow} h1={config.h1} live={config.live} ctaName={config.ctaName} themeAccent={theme.accent} cinema>
       {/* Cinematic hero */}
       <section
         style={{

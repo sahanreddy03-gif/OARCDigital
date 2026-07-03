@@ -21,7 +21,7 @@ export default function StandaloneProductPage({ config }: { config: StandalonePr
   const theme = themeForVisual(config.visual);
 
   return (
-    <H360ProductShell eyebrow={config.eyebrow} h1={config.h1} live={config.live} ctaName={config.ctaName} themeAccent={theme.accent}>
+    <H360ProductShell eyebrow={config.eyebrow} h1={config.h1} live={config.live} ctaName={config.ctaName} themeAccent={theme.accent} cinema>
       {/* Hero — one live device preview; value headlines only */}
       <section style={{ position: 'relative', overflow: 'hidden', background: theme.gradient, borderBottom: `1px solid ${C.border}`, marginTop: -8 }}>
         <div style={{ position: 'absolute', inset: 0, background: theme.glow, pointerEvents: 'none' }} />

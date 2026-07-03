@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import H360Nav from './H360Nav';
+import { openH360Arc } from './openH360Arc';
 
 const G = {
   bg: '#ffffff',
@@ -18,10 +19,10 @@ const G = {
 
 /** One headline line + one phone screen — same index, timer-only (no scroll hijack) */
 const SLIDES = [
-  { word: 'take direct orders at the table.', label: 'Direct orders' },
-  { word: 'rank on Malta Google.', label: 'Google Visibility' },
-  { word: 'fill tables every night.', label: 'ARC audit' },
-  { word: 'turn guests into regulars.', label: 'Loyalty' },
+  { word: 'Take direct orders at the table.', label: 'Direct orders' },
+  { word: 'Rank on Google Maps in Malta.', label: 'Google Maps' },
+  { word: 'Fill tables on quiet nights.', label: 'Quiet night radar' },
+  { word: 'Turn guests into regulars.', label: 'Loyalty' },
 ] as const;
 
 const CYCLE_MS = 4500;
@@ -60,9 +61,9 @@ function Screen1() {
       <p style={{ fontSize: 13, fontWeight: 700, color: G.text, marginBottom: 10 }}>Who&apos;s ranking above you on Google</p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 5, marginBottom: 12 }}>
         {[
-          { rank: '1st', name: 'Competitor 1', stars: 4.8 },
-          { rank: '2nd', name: 'Competitor 2', stars: 4.0 },
-          { rank: '3rd', name: 'Competitor 3', stars: 3.1 },
+          { rank: '1st', name: 'Trattoria — Sliema', stars: 4.8 },
+          { rank: '2nd', name: 'Steakhouse — St Julian\u2019s', stars: 4.0 },
+          { rank: '3rd', name: 'Bistro — Valletta', stars: 3.1 },
         ].map((r) => (
           <div key={r.rank} style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '8px 10px', borderRadius: 9, background: '#f9fafb', border: `1px solid ${G.border}` }}>
             <span style={{ fontSize: 10, color: G.textMuted, width: 24, fontWeight: 600 }}>{r.rank}</span>
@@ -77,7 +78,7 @@ function Screen1() {
           <span style={{ fontSize: 10, color: G.textMuted, width: 24, fontWeight: 600 }}>10th</span>
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 12, fontWeight: 600, color: G.text }}>Your restaurant</div>
-            <div style={{ fontSize: 11, color: G.star }}>★★★★★</div>
+            <div style={{ fontSize: 11, color: G.star }}>★★★☆</div>
           </div>
         </div>
       </div>
@@ -96,8 +97,8 @@ function Screen2() {
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /></svg>
         </div>
         <div>
-          <div style={{ fontSize: 13, fontWeight: 700, color: G.text }}>ARC audit</div>
-          <div style={{ fontSize: 11, color: G.textMuted }}>Tonight&apos;s covers forecast</div>
+          <div style={{ fontSize: 13, fontWeight: 700, color: G.text }}>Quiet night radar</div>
+          <div style={{ fontSize: 11, color: G.textMuted }}>Covers forecast · ARC AI</div>
         </div>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '12px 0', background: '#fafafa', borderRadius: 12, marginBottom: 12 }}>
@@ -134,11 +135,18 @@ function Screen3() {
 const SCREENS = [<Screen0 key="0" />, <Screen1 key="1" />, <Screen2 key="2" />, <Screen3 key="3" />];
 
 export default function H360Hero() {
-  const [slideIdx, setSlideIdx] = useState(0);
+  const [slideIdx, setSlideIdx] = useState(1);
   const [visible, setVisible] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const pauseUntil = useRef(0);
   const fadeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const desktopSearchRef = useRef<HTMLInputElement>(null);
+  const mobileSearchRef = useRef<HTMLInputElement>(null);
+
+  const runArcAudit = () => {
+    const name = (desktopSearchRef.current?.value || mobileSearchRef.current?.value || '').trim();
+    openH360Arc(name || undefined);
+  };
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -194,8 +202,9 @@ export default function H360Hero() {
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10, justifyContent: isMobile ? 'flex-start' : 'center', fontSize: 11, color: G.textMuted }}>
-            <span style={{ color: G.star, letterSpacing: 1 }}>★★★★★</span>
+            <span style={{ color: G.star, letterSpacing: 0.5 }}>★★★★☆</span>
             <span style={{ fontWeight: 700, color: G.text }}>4.8</span>
+            <span style={{ color: G.textMuted }}>client satisfaction</span>
             <span>·</span>
             <a href="https://oarcdigital.com" style={{ color: G.green, fontWeight: 600, textDecoration: 'none' }}>OARC Digital</a>
           </div>
@@ -227,6 +236,21 @@ export default function H360Hero() {
             </span>
           </h1>
 
+          <p
+            style={{
+              fontSize: isMobile ? 15 : 17,
+              color: G.textMuted,
+              lineHeight: 1.55,
+              margin: '0 0 16px',
+              maxWidth: 560,
+              marginLeft: isMobile ? 0 : 'auto',
+              marginRight: isMobile ? 0 : 'auto',
+              textAlign: isMobile ? 'left' : 'center',
+            }}
+          >
+            Free ARC audit — name your restaurant and see what&apos;s leaking on Maps, reviews, and margin.
+          </p>
+
           {!isMobile && (
             <>
               <div
@@ -244,10 +268,10 @@ export default function H360Hero() {
                 }}
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={G.textMuted} strokeWidth="2.5"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
-                <input type="text" placeholder="Find your restaurant name" style={{ flex: 1, border: 'none', outline: 'none', fontSize: 15, color: G.text, background: 'transparent', fontFamily: 'inherit' }} data-testid="input-h360-hero-search" />
-                <a href="#h360-audit" style={{ padding: '9px 16px', background: G.green, color: '#f0f9f4', borderRadius: 10, fontSize: 14, fontWeight: 600, whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: 5, textDecoration: 'none' }} data-testid="button-h360-hero-cta">
+                <input ref={desktopSearchRef} type="text" placeholder="Your restaurant name" style={{ flex: 1, border: 'none', outline: 'none', fontSize: 15, color: G.text, background: 'transparent', fontFamily: 'inherit' }} data-testid="input-h360-hero-search" onKeyDown={(e) => { if (e.key === 'Enter') runArcAudit(); }} />
+                <button type="button" onClick={runArcAudit} style={{ padding: '9px 16px', background: G.green, color: '#f0f9f4', border: 'none', borderRadius: 10, fontSize: 14, fontWeight: 600, whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: 5, cursor: 'pointer', fontFamily: 'inherit' }} data-testid="button-h360-hero-cta">
                   Get my AI report
-                </a>
+                </button>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, marginTop: 8, fontSize: 12, color: G.textMuted }}>
                 Powered by ARC AI · Instant restaurant audit
@@ -364,11 +388,14 @@ export default function H360Hero() {
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <input type="text" placeholder="Find your restaurant name" style={{ flex: 1, border: `1.5px solid ${G.border}`, borderRadius: 10, padding: '10px 13px', fontSize: 14, color: G.text, background: G.bg, fontFamily: 'inherit', outline: 'none' }} data-testid="input-h360-mobile-search" />
-            <a href="#h360-audit" style={{ width: 44, height: 44, borderRadius: 10, background: G.green, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, textDecoration: 'none' }} data-testid="button-h360-mobile-cta">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
-            </a>
+            <input ref={mobileSearchRef} type="text" placeholder="Your restaurant name" style={{ flex: 1, border: `1.5px solid ${G.border}`, borderRadius: 10, padding: '10px 13px', fontSize: 14, color: G.text, background: G.bg, fontFamily: 'inherit', outline: 'none' }} data-testid="input-h360-mobile-search" onKeyDown={(e) => { if (e.key === 'Enter') runArcAudit(); }} />
+            <button type="button" onClick={runArcAudit} style={{ padding: '10px 14px', borderRadius: 10, background: G.green, color: '#f0f9f4', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, border: 'none', cursor: 'pointer', fontSize: 13, fontWeight: 600, fontFamily: 'inherit', whiteSpace: 'nowrap' }} data-testid="button-h360-mobile-cta">
+              Get my AI report
+            </button>
           </div>
+          <p style={{ fontSize: 11, color: G.textMuted, textAlign: 'center', marginTop: 8, marginBottom: 0 }}>
+            Powered by ARC AI · Instant restaurant audit
+          </p>
         </div>
       )}
     </div>

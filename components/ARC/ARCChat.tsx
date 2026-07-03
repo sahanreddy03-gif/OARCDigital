@@ -5,7 +5,8 @@ import { X, ArrowLeft, ArrowUpRight, Send, Phone, Flame, TrendingDown, Users, Mo
 import { m, AnimatePresence } from 'framer-motion';
 import { ARCMessage } from './ARCMessage';
 import { ARCTypingIndicator } from './ARCTypingIndicator';
-import { getRandomGreeting, checkInstantResponse } from '@/lib/instantResponses';
+import { checkInstantResponse } from '@/lib/instantResponses';
+import { getRandomGreeting, H360_SUGGESTIONS } from '@/lib/arcSystemPrompt';
 import { NAP } from "@/lib/seo/nap";
 
 interface Message {
@@ -20,6 +21,7 @@ interface ARCChatProps {
   onClose: () => void;
   isMobile: boolean;
   initialPrompt?: string | null;
+  contextMode?: 'default' | 'h360';
 }
 
 const EMAIL_RE = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/;
@@ -54,7 +56,7 @@ const QUICK_ACTIONS = [
   { id: 'talk',               label: 'Talk to a Human Now',         icon: Phone,            type: 'phone' as const },
 ];
 
-export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
+export function ARCChat({ onClose, isMobile, initialPrompt, contextMode = 'default' }: ARCChatProps) {
   const [messages, setMessages]           = useState<Message[]>([]);
   const [input, setInput]                 = useState('');
   const [isTyping, setIsTyping]           = useState(false);
@@ -77,8 +79,8 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
   // Initial greeting loads in background — shown once chat starts
   const greetingRef = useRef<string | null>(null);
   useEffect(() => {
-    greetingRef.current = getRandomGreeting();
-  }, []);
+    greetingRef.current = getRandomGreeting(contextMode);
+  }, [contextMode]);
 
   // Auto-send initialPrompt once provided
   useEffect(() => {
@@ -158,6 +160,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
           message: messageText,
           history: newMessages.map(m => ({ role: m.isUser ? 'user' : 'assistant', content: m.content })),
           buttonId: buttonId ?? null,
+          contextMode,
         }),
       });
 
@@ -240,6 +243,8 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
   };
 
   const isBusy = isTyping || isStreaming;
+  const idleSuggestions = contextMode === 'h360' ? H360_SUGGESTIONS : SUGGESTIONS;
+  const idlePlaceholder = contextMode === 'h360' ? 'Your restaurant name or biggest headache…' : 'What Can We Help You Achieve?';
 
   // ─── Panel wrapper ───────────────────────────────────────────────────────────
   const panelClass = isMobile ? 'fixed inset-0 z-[9999]' : 'fixed bottom-6 right-6 z-[9999] w-[420px] h-[600px] rounded-[28px] overflow-hidden';
@@ -301,7 +306,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
                   type="text"
                   value={input}
                   onChange={e => setInput(e.target.value)}
-                  placeholder="What Can We Help You Achieve?"
+                  placeholder={idlePlaceholder}
                   className="flex-1 bg-transparent text-white text-[15px] font-medium outline-none placeholder-zinc-400"
                   data-testid="input-idle"
                 />
@@ -323,7 +328,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
 
             {/* Suggestion pills — Apple style */}
             <div className="relative z-10 flex flex-col gap-2 px-5 mt-6 overflow-y-auto pb-6" data-lenis-prevent>
-              {SUGGESTIONS.map((s, i) => (
+              {idleSuggestions.map((s, i) => (
                 <m.button
                   key={i}
                   initial={{ opacity: 0, y: 8 }}
@@ -367,7 +372,7 @@ export function ARCChat({ onClose, isMobile, initialPrompt }: ARCChatProps) {
             >
               <div className="flex items-center gap-3">
                 <button
-                  onClick={() => { setHasStarted(false); setMessages([]); setFollowups([]); }}
+                  onClick={() => { setHasStarted(false); setMessages([]); setFollowups([]); greetingRef.current = getRandomGreeting(contextMode); }}
                   className="transition-colors mr-1"
                   style={{ color: '#8e8e93' }}
                   data-testid="button-back-to-idle"

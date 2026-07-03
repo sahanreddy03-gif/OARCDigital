@@ -155,6 +155,12 @@ export const allServiceSlugs = [
   'ai-content-strategist',
   'ai-compliance-auditor',
   'ai-appointment-booker',
+  'ai-restaurant-voice-host',
+  'ai-voice-receptionist',
+  'ai-voice-csr',
+  'ai-voice-dispatcher',
+  'ai-voice-sales',
+  'ai-voice-follow-up',
   'ai-real-estate-agent',
   // Revenue Automation Hub
   // Task #116: removed ai-revenue-engine, funnel-optimization-agent — 308'd.

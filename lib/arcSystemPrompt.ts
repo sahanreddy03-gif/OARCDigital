@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { NAP } from "@/lib/seo/nap";
+import { buildH360LinkHint } from "@/lib/arc/h360Links";
 
 // ─── Load the brain once at module level ────────────────────────────────────
 // brain.md is the single source of truth for everything ARC knows and how it
@@ -185,7 +186,13 @@ export function buildSystemPrompt(
   linkContext: string,
   extras: string,
   userContextBlock: string,
+  contextMode: "default" | "h360" = "default",
 ): string {
+  const h360Block =
+    contextMode === "h360"
+      ? `\n## ACTIVE MODE: H360 RESTAURANT\n\nThe user is on oarcdigital.com/h360. Follow the H360 MODE section in your brain. Diagnose first (Maps, reviews, Wolt margin, repeat guests). Link to specific /h360 product pages only when clearly relevant — never in the opening reply unless they asked for a page.\n`
+      : "";
+
   return `${BRAIN}
 
 ---
@@ -198,6 +205,8 @@ Email: ${NAP.email}
 Website: https://oarcdigital.com
 
 ${phaseHint}
+
+${h360Block}
 
 ${linkContext}
 
@@ -224,9 +233,16 @@ export function getConversationPhase(n: number): "early" | "mid" | "deep" {
   return "deep";
 }
 
-export function getPhaseGuidance(phase: string): string {
-  if (phase === "early") return "This is an early message — focus on understanding what they actually need.";
-  if (phase === "mid")   return "You have context now — go deeper and more specific.";
+export function getPhaseGuidance(phase: string, contextMode: "default" | "h360" = "default"): string {
+  if (phase === "early") {
+    const base = "This is an early message — focus on understanding what they actually need.";
+    const noLink =
+      contextMode === "default"
+        ? " Do not lead with page links — answer or ask one sharp question first."
+        : " Diagnose their restaurant situation first; no demo pitch and no links in the opening reply unless they asked for a URL.";
+    return base + noLink;
+  }
+  if (phase === "mid") return "You have context now — go deeper and more specific.";
   return "Long conversation — keep being useful. Only suggest human contact if it naturally fits.";
 }
 
@@ -265,7 +281,15 @@ const PILLAR_LINKS = [
   { keywords: ["revenue", "growth", "funnel", "crm", "strategy", "scale", "sales"], path: "/solutions" },
 ];
 
-export function buildLinkContext(message: string, history: Array<{ content: string }>): string {
+export function buildLinkContext(
+  message: string,
+  history: Array<{ content: string }>,
+  contextMode: "default" | "h360" = "default",
+): string {
+  if (contextMode === "h360") {
+    return buildH360LinkHint(message, history);
+  }
+
   const text = (message + " " + history.map(m => m.content).join(" ")).toLowerCase();
 
   for (const entry of SERVICE_LINKS) {
@@ -308,6 +332,17 @@ export const INSTANT_GREETINGS = [
   `Hey. I'm ARC — ask me anything about marketing, AI, or growing your business.`,
 ];
 
-export function getRandomGreeting(): string {
+export const H360_GREETING =
+  "Tell me your restaurant name or what's hurting most — empty tables, Maps, reviews, or Wolt eating your margin. I'll diagnose first, then point you to the right fix.";
+
+export const H360_SUGGESTIONS = [
+  "Why isn't my restaurant showing on Google Maps?",
+  "How do I get more Google reviews?",
+  "How do I stop losing money to Wolt and Bolt?",
+  "What's the fastest way to get more walk-ins?",
+];
+
+export function getRandomGreeting(contextMode: "default" | "h360" = "default"): string {
+  if (contextMode === "h360") return H360_GREETING;
   return INSTANT_GREETINGS[Math.floor(Math.random() * INSTANT_GREETINGS.length)];
 }

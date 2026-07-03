@@ -274,12 +274,82 @@ function SocialWhatsAppVisual() {
   );
 }
 
+export function VoiceCallPulse({ compact = false }: { compact?: boolean }) {
+  const [line, setLine] = useState(0);
+  const lines = ['Incoming call…', 'Table for 8 Saturday?', 'Terrace 7:30 — lock it?', 'Booked ✓ · staff alerted'];
+  useEffect(() => {
+    const t = setInterval(() => setLine((l) => (l + 1) % lines.length), 1800);
+    return () => clearInterval(t);
+  }, [lines.length]);
+  return (
+    <div style={{ padding: compact ? 12 : 16 }}>
+      <div style={{ background: '#0a0a0a', borderRadius: 14, border: `1px solid ${G.greenMid}`, overflow: 'hidden' }}>
+        <div style={{ padding: '10px 12px', borderBottom: '1px solid #222', display: 'flex', alignItems: 'center', gap: 8 }}>
+          <m.div animate={{ scale: [1, 1.2, 1] }} transition={{ repeat: Infinity, duration: 0.8 }} style={{ width: 10, height: 10, borderRadius: '50%', background: G.greenLt }} />
+          <span style={{ fontSize: 11, fontWeight: 700, color: '#fff' }}>H360 Voice Host</span>
+        </div>
+        <div style={{ padding: '14px 12px', minHeight: compact ? 72 : 96 }}>
+          <AnimatePresence mode="wait">
+            <m.div key={line} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} style={{ fontSize: 13, fontWeight: 600, color: '#e2fbe8' }}>
+              {lines[line]}
+            </m.div>
+          </AnimatePresence>
+          <div style={{ display: 'flex', gap: 3, marginTop: 12, alignItems: 'flex-end', height: 20 }}>
+            {[0, 1, 2, 3, 4].map((i) => (
+              <m.div key={i} animate={{ height: [4, 14 + i * 2, 6] }} transition={{ repeat: Infinity, duration: 0.5 + i * 0.05 }} style={{ width: 3, borderRadius: 99, background: G.greenLt }} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function VoiceBookPreview() {
+  return (
+    <div style={{ padding: 16, textAlign: 'center' }}>
+      <div style={{ fontSize: 12, fontWeight: 700, color: G.text }}>Sat 19:30 · party of 8</div>
+      <m.div animate={{ scale: [1, 1.05, 1] }} transition={{ repeat: Infinity, duration: 1.6 }} style={{ fontSize: 28, fontWeight: 800, color: G.green, marginTop: 8 }}>Locked ✓</m.div>
+    </div>
+  );
+}
+
+function VoiceAlertPreview() {
+  return (
+    <div style={{ padding: 14, background: '#fef3c7', margin: 12, borderRadius: 12, fontSize: 12, fontWeight: 700, color: '#92400e', lineHeight: 1.45 }}>
+      Staff alert · GF noted · terrace
+    </div>
+  );
+}
+
+function VoiceDashPreview() {
+  return (
+    <div style={{ padding: 16 }}>
+      <div style={{ fontSize: 22, fontWeight: 800, color: G.green }}>47</div>
+      <div style={{ fontSize: 11, fontWeight: 700, color: G.textMuted }}>calls this week · you approved 3 brain updates</div>
+    </div>
+  );
+}
+
+function VoiceLearnPreview() {
+  return (
+    <div style={{ padding: 16, textAlign: 'center' }}>
+      <m.div animate={{ opacity: [0.6, 1] }} transition={{ repeat: Infinity, duration: 1.4 }} style={{ fontSize: 13, fontWeight: 800, color: G.green }}>Brain update ready</m.div>
+      <div style={{ fontSize: 11, color: G.textMuted, marginTop: 6 }}>New lunch menu · approve in dashboard</div>
+    </div>
+  );
+}
+
 const FLOW_NODE_VISUAL: Record<string, () => ReactNode> = {
   scan: () => <MapsRankClimb compact />,
   strategy: () => <KeywordHit term="best restaurant sliema" vol={88} />,
   copy: () => <KeywordHit term="lampuki season malta" vol={72} />,
   publish: () => <ProfileScoreVisual />,
   rank: () => <ResultPingVisual />,
+  ring: () => <VoiceCallPulse compact />,
+  brain: () => <VoiceCallPulse compact />,
+  alert: () => <VoiceAlertPreview />,
+  dash: () => <VoiceDashPreview />,
   qr: () => <ReviewTapVisual />,
   form: () => <ReviewTapVisual />,
   stars: () => <ReviewClimbVisual />,
@@ -312,5 +382,10 @@ export function LogicVisual({ kind }: { kind: StackPreviewKind }) {
   if (kind === 'social-post') return <SocialFeedVisual />;
   if (kind === 'reels') return <SocialReelVisual />;
   if (kind === 'ad-boost') return <SocialBoostVisual />;
+  if (kind === 'voice-call') return <VoiceCallPulse />;
+  if (kind === 'voice-book') return <VoiceBookPreview />;
+  if (kind === 'voice-alert') return <VoiceAlertPreview />;
+  if (kind === 'voice-dash') return <VoiceDashPreview />;
+  if (kind === 'voice-learn') return <VoiceLearnPreview />;
   return null;
 }

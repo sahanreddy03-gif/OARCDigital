@@ -28,13 +28,13 @@ export default function H360ProductShell({ eyebrow, h1, live, ctaName = 'this to
       {cinema ? (
         <div style={{ padding: '12px 20px 0', maxWidth: 1160, margin: '0 auto' }}>
           <nav aria-label="Breadcrumb" style={{ fontSize: 11, color: G.textMuted, display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center' }}>
-            <Link href={OARC_HOME} style={{ color: G.green, fontWeight: 600 }}>OARC</Link>
+            <Link href={OARC_HOME} style={{ color: G.green, fontWeight: 600 }}>OARC Digital</Link>
             <span aria-hidden>→</span>
             <Link href={H360_HOME} style={{ color: G.textMuted }}>H360</Link>
             <span aria-hidden>→</span>
             <span style={{ color: G.text }}>{ctaName}</span>
           </nav>
-          <h1 style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)' }}>{h1}</h1>
+          <h1 style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap' }}>{h1}</h1>
         </div>
       ) : (
         <div style={{ maxWidth: 1160, margin: '0 auto', padding: '28px 24px 0' }}>
