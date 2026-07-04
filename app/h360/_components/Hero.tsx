@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import H360Nav from './H360Nav';
 import { openH360Arc } from './openH360Arc';
 
 const G = {
@@ -188,8 +187,6 @@ export default function H360Hero() {
 
   return (
     <div style={{ fontFamily: 'var(--font-inter), system-ui, -apple-system, Arial, sans-serif', background: G.bg, color: G.text, overflowX: 'hidden' }}>
-      <H360Nav />
-
       <section style={{ minHeight: isMobile ? 'auto' : 'min(100vh, 920px)', paddingBottom: isMobile ? 88 : 48 }}>
         {/* Copy — minimal */}
         <div
@@ -198,7 +195,7 @@ export default function H360Hero() {
             padding: isMobile ? '20px 20px 12px' : '28px 40px 16px',
             textAlign: isMobile ? 'left' : 'center',
             background: G.bg,
-            scrollMarginTop: 72,
+            scrollMarginTop: 24,
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10, justifyContent: isMobile ? 'flex-start' : 'center', fontSize: 11, color: G.textMuted }}>

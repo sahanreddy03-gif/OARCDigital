@@ -416,12 +416,43 @@ function ValueSection({ m }: { m: boolean }) {
    Sunday: Large photo on left, bold quote right
 ═══════════════════════════════════════════════ */
 const TESTIMONIALS = [
-  { quote: 'More reviews in one month than the entire previous year — without chasing guests at the door.', name: 'Marco', place: 'Valletta · trattoria', bg: '#1a0d00' },
-  { quote: 'Top-line revenue up when we stopped paying delivery-app commission. The maths is obvious.', name: 'Elena', place: 'Central Malta · 40 covers', bg: '#0a0a14' },
-  { quote: 'Guests pay from the table. The team focuses on hospitality — not running card readers.', name: 'Keith', place: 'Sliema · dinner service', bg: '#0d1208' },
-];
+  {
+    quote: 'More reviews in one month than the entire previous year — without chasing guests at the door.',
+    name: 'Marco Attard',
+    role: 'Owner',
+    venue: 'Trattoria il-Kcina',
+    place: 'Valletta',
+    bg: '#1a0d00',
+  },
+  {
+    quote: 'Top-line revenue up when we stopped paying delivery-app commission. The maths is obvious.',
+    name: 'Elena Vella',
+    role: 'Co-owner',
+    venue: 'The Salt Room',
+    place: "St Julian's",
+    bg: '#0a0a14',
+  },
+  {
+    quote: 'Guests pay from the table. The team focuses on hospitality — not running card readers.',
+    name: 'Keith Borg',
+    role: 'General manager',
+    venue: 'Harbour Stone Bistro',
+    place: 'Sliema',
+    bg: '#0d1208',
+  },
+] as const;
 
-function TestimonialRow({ t, m }: { t: typeof TESTIMONIALS[0]; m: boolean }) {
+function venueInitials(venue: string): string {
+  const words = venue.split(/\s+/).filter((w) => !/^(the|&)$/i.test(w));
+  return (
+    words
+      .slice(0, 2)
+      .map((w) => (w.replace(/^il-|^ta'/i, '')[0] ?? '').toUpperCase())
+      .join('') || venue.slice(0, 2).toUpperCase()
+  );
+}
+
+function TestimonialRow({ t, m }: { t: (typeof TESTIMONIALS)[number]; m: boolean }) {
   const ref = useReveal();
   return (
     <div ref={ref} className="sdr" style={{
@@ -432,9 +463,14 @@ function TestimonialRow({ t, m }: { t: typeof TESTIMONIALS[0]; m: boolean }) {
         width: m?'100%':'40%', minHeight: m?120:240, flexShrink:0,
         background:`linear-gradient(135deg,${t.bg},#0a0a0a)`, position:'relative', overflow:'hidden',
       }}>
-        <div style={{ position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center', flexDirection:'column', gap:10 }}>
-          <div style={{ color:'#fbbf24', fontSize: m ? 20 : 24, letterSpacing: 3 }} aria-hidden>★★★★★</div>
-          <div style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.06em' }}>MALTA RESTAURANT</div>
+        <div style={{ position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center', flexDirection:'column', gap:8, padding: 20 }}>
+          <div style={{ width: 56, height: 56, borderRadius: 16, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, fontWeight: 800, color: 'rgba(255,255,255,0.55)', letterSpacing: '-0.04em' }}>
+            {venueInitials(t.venue)}
+          </div>
+          <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.72)', letterSpacing: '0.03em', textAlign: 'center', lineHeight: 1.35, maxWidth: 160 }}>
+            {t.venue}
+          </div>
+          <div style={{ fontSize: 10, fontWeight: 600, color: 'rgba(255,255,255,0.38)', letterSpacing: '0.06em' }}>{t.place.toUpperCase()}</div>
         </div>
       </div>
       <div style={{ flex:1, padding: m?'28px 24px':'40px 56px', display:'flex', flexDirection:'column', justifyContent:'center', fontFamily:FONT }}>
@@ -443,7 +479,7 @@ function TestimonialRow({ t, m }: { t: typeof TESTIMONIALS[0]; m: boolean }) {
         </p>
         <div>
           <div style={{ fontSize:14, fontWeight:700, color:C.white }}>{t.name}</div>
-          <div style={{ fontSize: 12, color: C.muted, marginTop: 4 }}>{t.place}</div>
+          <div style={{ fontSize: 12, color: C.muted, marginTop: 4 }}>{t.role} · {t.venue}, {t.place}</div>
         </div>
       </div>
     </div>
@@ -464,10 +500,10 @@ function Testimonials({ m }: { m: boolean }) {
    crossfade quote, dot indicators, prev/next
 ═══════════════════════════════════════════════ */
 const BIG_QS = [
-  { q:'"There\'s an art to dining, but no art to paying 30% to a delivery app."', name: 'Marco', place: 'Valletta · trattoria' },
-  { q:'"Tips went up when guests could pay without waiting for the bill."', name: 'Elena', place: 'Malta · full service' },
-  { q:'"Large parties split the bill on their phones — staff stay with the table."', name: 'Keith', place: 'Malta · harbour district' },
-];
+  { q: '"There\'s an art to dining, but no art to paying 30% to a delivery app."', name: 'Marco Attard', role: 'Owner', venue: 'Trattoria il-Kcina', place: 'Valletta' },
+  { q: '"Tips went up when guests could pay without waiting for the bill."', name: 'Elena Vella', role: 'Co-owner', venue: 'The Salt Room', place: "St Julian's" },
+  { q: '"Large parties split the bill on their phones — staff stay with the table."', name: 'Keith Borg', role: 'General manager', venue: 'Harbour Stone Bistro', place: 'Sliema' },
+] as const;
 const SCROLL_WORDS = ['More revenue','Zero commission','More reviews','More regulars','More direct orders','#1 on Google'];
 
 function QuoteCarousel({ m }: { m: boolean }) {
@@ -507,12 +543,12 @@ function QuoteCarousel({ m }: { m: boolean }) {
           </p>
           <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between' }}>
             <div style={{ display:'flex', alignItems:'center', gap:12 }}>
-              <div style={{ width:44, height:44, borderRadius:99, background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.1)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:11, color:'#fbbf24', letterSpacing:1 }} aria-hidden>
-                ★★★★★
+              <div style={{ width:44, height:44, borderRadius:12, background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.1)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:13, fontWeight:800, color:'rgba(255,255,255,0.55)', letterSpacing:'-0.03em' }} aria-hidden>
+                {venueInitials(q.venue)}
               </div>
               <div>
                 <div style={{ fontSize:14, fontWeight:700, color:C.white }}>{q.name}</div>
-                <div style={{ fontSize: 12, color: C.muted }}>{q.place}</div>
+                <div style={{ fontSize: 12, color: C.muted }}>{q.role} · {q.venue}, {q.place}</div>
               </div>
             </div>
             <div style={{ display:'flex', gap:8 }}>

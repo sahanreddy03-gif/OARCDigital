@@ -1,13 +1,15 @@
 'use client';
 
+import Image from 'next/image';
 import { m } from 'framer-motion';
 import { G, FONT_DISPLAY } from '../tokens';
 import { openH360Arc } from '../openH360Arc';
+import { VOICE_HERO_IMAGE } from './voiceProductContent';
 
 /** Sameday-style "Talk to AI" — opens ARC with voice-host audit framing */
 export function VoiceTalkCTA() {
   return (
-    <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 24px 40px' }}>
+    <div style={{ padding: '28px 0 8px' }}>
       <m.button
         type="button"
         onClick={() => openH360Arc()}
@@ -70,8 +72,14 @@ const WEDGES = [
   { title: 'Private dining', detail: 'Large parties briefed · events looped in' },
 ] as const;
 
-/** Founder-sized wedge — restaurants column from Greg Isenberg framework */
-export function VoiceFounderWedge() {
+const SCORES = [
+  { label: 'Frequency', value: 'Hourly' },
+  { label: 'Pain', value: 'Missed' },
+  { label: 'Finish line', value: 'Booked' },
+] as const;
+
+/** Merged founder wedge + workflow score — one tight story block */
+export function VoiceWhyThisJob() {
   return (
     <section
       style={{
@@ -82,38 +90,78 @@ export function VoiceFounderWedge() {
         backgroundSize: '48px 48px',
       }}
     >
-      <div style={{ maxWidth: 1160, margin: '0 auto' }}>
-        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', color: G.greenLt, marginBottom: 12 }}>FOUNDER-SIZED WEDGE</p>
-        <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 800, color: '#fff', letterSpacing: '-0.04em', marginBottom: 8, maxWidth: 720, lineHeight: 1.1, fontFamily: FONT_DISPLAY }}>
-          The boring job people already pay for.
-        </h2>
-        <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.55)', maxWidth: 560, marginBottom: 36, lineHeight: 1.5 }}>
-          Phone host that picks up every time — reservations, VIP routing, private dining. Malta restaurants bleed covers when nobody answers.
-        </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
-          {WEDGES.map((w, i) => (
-            <m.div
-              key={w.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              style={{
-                padding: 24,
-                borderRadius: 18,
-                border: '1px solid rgba(255,255,255,0.12)',
-                background: 'rgba(255,255,255,0.04)',
-                boxShadow: 'inset 0 0 0 1px rgba(74,222,128,0.08)',
-              }}
-            >
-              <div style={{ fontSize: 18, fontWeight: 800, color: G.greenLt, marginBottom: 8, fontFamily: FONT_DISPLAY }}>{w.title}</div>
-              <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', lineHeight: 1.5 }}>{w.detail}</div>
-            </m.div>
-          ))}
+      <div style={{ maxWidth: 1160, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 40, alignItems: 'center' }}>
+        <div>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', color: G.greenLt, marginBottom: 12 }}>WHY THIS JOB PAYS</p>
+          <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 800, color: '#fff', letterSpacing: '-0.04em', marginBottom: 8, maxWidth: 560, lineHeight: 1.1, fontFamily: FONT_DISPLAY }}>
+            The boring job people already pay for — with a paycheck attached.
+          </h2>
+          <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.55)', maxWidth: 520, marginBottom: 28, lineHeight: 1.5 }}>
+            Phone host that picks up every time. Malta restaurants bleed covers when nobody answers — this workflow hits every box.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12, marginBottom: 24 }}>
+            {WEDGES.map((w, i) => (
+              <m.div
+                key={w.title}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06 }}
+                style={{
+                  padding: 18,
+                  borderRadius: 16,
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  background: 'rgba(255,255,255,0.04)',
+                }}
+              >
+                <div style={{ fontSize: 16, fontWeight: 800, color: G.greenLt, marginBottom: 6, fontFamily: FONT_DISPLAY }}>{w.title}</div>
+                <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', lineHeight: 1.45 }}>{w.detail}</div>
+              </m.div>
+            ))}
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+            {SCORES.map((s) => (
+              <div key={s.label} style={{ padding: '10px 14px', borderRadius: 99, border: '1px solid rgba(74,222,128,0.25)', background: 'rgba(74,222,128,0.08)' }}>
+                <span style={{ fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,0.45)', letterSpacing: '0.08em', marginRight: 8 }}>{s.label.toUpperCase()}</span>
+                <span style={{ fontSize: 14, fontWeight: 800, color: G.greenLt, fontFamily: FONT_DISPLAY }}>{s.value}</span>
+              </div>
+            ))}
+          </div>
         </div>
+
+        <m.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          style={{
+            position: 'relative',
+            borderRadius: 24,
+            overflow: 'hidden',
+            aspectRatio: '4/5',
+            maxHeight: 520,
+            boxShadow: '0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(74,222,128,0.15)',
+          }}
+        >
+          <Image src={VOICE_HERO_IMAGE} alt="Malta restaurant phone host — H360 Voice AI" fill sizes="(max-width:768px) 100vw, 480px" style={{ objectFit: 'cover', objectPosition: 'center top' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 50%)' }} />
+          <div style={{ position: 'absolute', bottom: 18, left: 18, right: 18 }}>
+            <p style={{ margin: 0, fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', color: G.greenLt, marginBottom: 6 }}>MALTA RESTAURANT LINE</p>
+            <p style={{ margin: 0, fontSize: 15, fontWeight: 800, color: '#fff', lineHeight: 1.35, fontFamily: FONT_DISPLAY }}>Every ring answered. Every cover counted.</p>
+          </div>
+        </m.div>
       </div>
     </section>
   );
+}
+
+/** @deprecated merged into VoiceWhyThisJob */
+export function VoiceFounderWedge() {
+  return <VoiceWhyThisJob />;
+}
+
+/** @deprecated merged into VoiceWhyThisJob */
+export function VoiceWorkflowScore() {
+  return null;
 }
 
 const SHADOW_STEPS = [
@@ -137,7 +185,7 @@ const SHADOW_STEPS = [
   },
 ] as const;
 
-/** Shadow the human — training methodology (screenshot framework) */
+/** Shadow the human — training methodology with visual proof */
 export function VoiceShadowTraining() {
   return (
     <section style={{ background: G.beige, borderTop: `1px solid ${G.border}`, padding: '72px 24px 80px' }}>
@@ -150,8 +198,31 @@ export function VoiceShadowTraining() {
           Generic bots read a FAQ. H360 watches your best host handle allergies, large parties, and festa nights — then self-educates every week you approve.
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, position: 'relative' }}>
-          {SHADOW_STEPS.map((step, i) => (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 32, alignItems: 'start' }}>
+          <m.div
+            initial={{ opacity: 0, x: -16 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            style={{
+              position: 'relative',
+              borderRadius: 22,
+              overflow: 'hidden',
+              aspectRatio: '3/4',
+              minHeight: 320,
+              boxShadow: '0 24px 60px rgba(9,68,19,0.15)',
+              border: `1px solid ${G.border}`,
+            }}
+          >
+            <Image src={VOICE_HERO_IMAGE} alt="" aria-hidden="true" fill sizes="(max-width:768px) 100vw, 400px" style={{ objectFit: 'cover', objectPosition: 'center 20%' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9,68,19,0.85) 0%, transparent 55%)' }} />
+            <div style={{ position: 'absolute', bottom: 20, left: 20, right: 20 }}>
+              <p style={{ margin: 0, fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', color: G.greenLt, marginBottom: 6 }}>REAL MALTA VENUE CONTEXT</p>
+              <p style={{ margin: 0, fontSize: 15, fontWeight: 800, color: '#fff', lineHeight: 1.35, fontFamily: FONT_DISPLAY }}>We train on your menu, tone, and Friday rush — not a California script.</p>
+            </div>
+          </m.div>
+
+          <div style={{ display: 'grid', gap: 16 }}>
+            {SHADOW_STEPS.map((step, i) => (
             <m.div
               key={step.id}
               initial={{ opacity: 0, y: 20 }}
@@ -183,6 +254,7 @@ export function VoiceShadowTraining() {
               )}
             </m.div>
           ))}
+          </div>
         </div>
 
         <m.p
@@ -193,60 +265,6 @@ export function VoiceShadowTraining() {
         >
           Example: your host is really doing urgency, terrace capacity, allergies, VIP names, and private dining — we extract that spec, then the brain runs it 24/7.
         </m.p>
-      </div>
-    </section>
-  );
-}
-
-const SCORES = [
-  { label: 'Frequency', value: 'Hourly', detail: 'Friday lunch to Sunday close — phone never stops' },
-  { label: 'Pain', value: 'Missed', detail: 'Voicemail · slow callback · covers walk next door' },
-  { label: 'Finish line', value: 'Booked', detail: 'Slot locked · SMS sent · staff alerted' },
-  { label: 'Tools', value: 'H360', detail: 'BOOKING · WhatsApp · Google · your line' },
-  { label: 'Budget', value: 'You pay', detail: 'Host overtime · agency · missed covers today' },
-] as const;
-
-/** Pick a workflow with a paycheck attached — scored for restaurant phone */
-export function VoiceWorkflowScore() {
-  return (
-    <section style={{ background: '#030303', borderTop: `1px solid ${G.border}`, padding: '72px 24px 80px' }}>
-      <div style={{ maxWidth: 1160, margin: '0 auto' }}>
-        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', color: G.greenLt, marginBottom: 12 }}>SCORE THE JOB</p>
-        <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 800, color: '#fff', letterSpacing: '-0.04em', marginBottom: 8, maxWidth: 720, lineHeight: 1.1, fontFamily: FONT_DISPLAY }}>
-          A workflow with a paycheck attached.
-        </h2>
-        <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.55)', maxWidth: 620, marginBottom: 36, lineHeight: 1.5 }}>
-          Work that happens often, has a finish line, touches software, and costs money when dropped — restaurant phone hits every box.
-        </p>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 12 }}>
-          {SCORES.map((s, i) => (
-            <m.div
-              key={s.label}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.06 }}
-              style={{
-                padding: '20px 16px',
-                borderRadius: 16,
-                border: '1px solid rgba(255,255,255,0.1)',
-                background: 'rgba(255,255,255,0.04)',
-                textAlign: 'center',
-              }}
-            >
-              <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.45)', marginBottom: 8 }}>{s.label.toUpperCase()}</div>
-              <div style={{ fontSize: 22, fontWeight: 800, color: G.greenLt, marginBottom: 8, fontFamily: FONT_DISPLAY }}>{s.value}</div>
-              <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.55)', lineHeight: 1.4 }}>{s.detail}</div>
-            </m.div>
-          ))}
-        </div>
-
-        <div style={{ marginTop: 28, padding: '18px 22px', borderRadius: 14, background: 'rgba(127,29,29,0.35)', border: '1px solid rgba(248,113,113,0.25)' }}>
-          <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: '#fecaca', lineHeight: 1.5 }}>
-            First rep: one niche · Malta restaurants · phone host · score 5/5 · ship the brain.
-          </p>
-        </div>
       </div>
     </section>
   );

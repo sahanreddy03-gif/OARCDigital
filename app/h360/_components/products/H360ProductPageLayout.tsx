@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { m } from 'framer-motion';
 import type { ProductVisualId } from '../product-cards/productCardsData';
 import H360ProductShell from './H360ProductShell';
+import H360CinemaBreadcrumb from './H360CinemaBreadcrumb';
 import DeviceFrame from './DeviceFrame';
 import { ProductFlowDiagram, ExpertFailCard } from './sharedVisuals';
 import { PremiumCompare, type PremiumCompareId } from './premiumCompareVisuals';
@@ -73,6 +74,8 @@ export default function H360ProductPageLayout({ config }: { config: H360ProductP
           }}
         >
           <div>
+            <H360CinemaBreadcrumb ctaName={config.ctaName} />
+            <h1 style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap' }}>{config.h1}</h1>
             <m.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}

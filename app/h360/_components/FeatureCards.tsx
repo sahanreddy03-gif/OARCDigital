@@ -127,14 +127,14 @@ export default function H360FeatureCards() {
       style={{
         background: WHITE,
         fontFamily: FONT,
-        padding: isMobile ? '12px 0 0' : '72px 0 88px',
+        padding: isMobile ? '20px 0 0' : '56px 0 72px',
         overflow: 'hidden',
-        scrollMarginTop: 72,
+        scrollMarginTop: 64,
       }}
     >
       <style>{CSS}</style>
 
-      <div style={{ padding: isMobile ? '0 20px' : '0 64px', marginBottom: 28 }}>
+      <div style={{ padding: isMobile ? '0 20px' : '0 64px', marginBottom: isMobile ? 16 : 24 }}>
         <h2
           style={{
             fontSize: isMobile ? 28 : 38,
@@ -160,7 +160,7 @@ export default function H360FeatureCards() {
           display: 'flex',
           padding: isMobile ? '0 16px' : '0 64px',
           borderBottom: `1px solid ${BORDER}`,
-          marginBottom: isMobile ? 20 : 36,
+          marginBottom: isMobile ? 14 : 28,
           overflowX: 'auto',
           scrollbarWidth: 'none',
           gap: isMobile ? 6 : 0,
@@ -211,12 +211,13 @@ export default function H360FeatureCards() {
             data-lenis-prevent
             style={{
               display: 'flex',
-              gap: 12,
+              gap: 10,
               overflowX: 'auto',
               scrollSnapType: 'x mandatory',
+              scrollPaddingLeft: 20,
               WebkitOverflowScrolling: 'touch',
               scrollbarWidth: 'none',
-              padding: '0 20px',
+              padding: '0 20px 4px',
             }}
           >
             {PRODUCT_CARDS.map((card, i) => (
@@ -225,7 +226,7 @@ export default function H360FeatureCards() {
             <div style={{ flexShrink: 0, width: 4 }} aria-hidden />
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginTop: 20, paddingBottom: 24 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginTop: 14, paddingBottom: 18 }}>
             <span style={{ fontSize: 12, color: MUTED, marginRight: 4 }}>
               {active + 1} / {COUNT}
             </span>
@@ -238,8 +239,8 @@ export default function H360FeatureCards() {
           </div>
         </>
       ) : (
-        <div style={{ padding: '0 64px', display: 'grid', gridTemplateColumns: '260px 1fr', gap: 48, alignItems: 'start', maxWidth: 1140 }}>
-          <div className="fc-scroll" style={{ maxHeight: 540, overflowY: 'auto', scrollbarWidth: 'none' }}>
+        <div style={{ padding: '0 64px', display: 'grid', gridTemplateColumns: '260px 1fr', gap: 40, alignItems: 'start', maxWidth: 1140 }}>
+          <div className="fc-scroll" style={{ maxHeight: 480, overflowY: 'auto', scrollbarWidth: 'none' }}>
             {PRODUCT_CARDS.map((card, i) => (
               <button
                 key={card.id}

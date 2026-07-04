@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { useLenis } from 'lenis/react';
-import H360Nav from '../H360Nav';
 import { FONT_DISPLAY, G } from '../tokens';
 import { H360_AUDIT, H360_HOME, H360_POSITIONING, OARC_HOME } from '../h360Site';
 import { scrollToPageTop } from '@/lib/scrollToPageTop';
@@ -23,20 +22,7 @@ export default function H360ProductShell({ eyebrow, h1, live, ctaName = 'this to
 
   return (
     <div style={{ fontFamily: FONT_DISPLAY, background: G.bg, color: G.text }}>
-      <H360Nav />
-
-      {cinema ? (
-        <div style={{ padding: '12px 20px 0', maxWidth: 1160, margin: '0 auto' }}>
-          <nav aria-label="Breadcrumb" style={{ fontSize: 11, color: G.textMuted, display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center' }}>
-            <Link href={OARC_HOME} style={{ color: G.green, fontWeight: 600 }}>OARC Digital</Link>
-            <span aria-hidden>→</span>
-            <Link href={H360_HOME} style={{ color: G.textMuted }}>H360</Link>
-            <span aria-hidden>→</span>
-            <span style={{ color: G.text }}>{ctaName}</span>
-          </nav>
-          <h1 style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap' }}>{h1}</h1>
-        </div>
-      ) : (
+      {!cinema && (
         <div style={{ maxWidth: 1160, margin: '0 auto', padding: '28px 24px 0' }}>
           <nav aria-label="Breadcrumb" style={{ fontSize: 12, color: G.textMuted, marginBottom: 20, display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center' }}>
             <Link href={OARC_HOME} style={{ color: G.green, fontWeight: 600 }}>OARC Digital</Link>

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { m } from 'framer-motion';
 import type { ProductCardData } from './productCardsData';
 import { CARD_THEMES } from './cardPalette';
+import { getCardLayout } from './cardLayout';
 import ProductCardVisual from './ProductCardVisual';
 import { FONT_DISPLAY, G } from '../tokens';
 import { OARC_HOME } from '../h360Site';
@@ -17,6 +18,7 @@ type Props = {
 export default function ProductCardShell({ data, mobile, playing }: Props) {
   const theme = CARD_THEMES[data.themeIndex] ?? CARD_THEMES[0];
   const href = data.href;
+  const layout = getCardLayout(data.visual, mobile);
 
   return (
     <m.div
@@ -24,14 +26,15 @@ export default function ProductCardShell({ data, mobile, playing }: Props) {
       transition={{ duration: 0.2 }}
       style={{
         flexShrink: 0,
-        width: mobile ? '88vw' : '100%',
-        minHeight: mobile ? 520 : 540,
-        borderRadius: 20,
+        width: mobile ? '86vw' : '100%',
+        maxWidth: mobile ? 360 : undefined,
+        minHeight: layout.minCardH,
+        borderRadius: 18,
         background: theme.bg,
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
-        scrollSnapAlign: 'start',
+        scrollSnapAlign: 'center',
         fontFamily: FONT_DISPLAY,
         position: 'relative',
       }}
@@ -44,15 +47,15 @@ export default function ProductCardShell({ data, mobile, playing }: Props) {
       )}
 
       <Link href={href} style={{ textDecoration: 'none', color: 'inherit', flex: 1, display: 'flex', flexDirection: 'column', cursor: 'pointer' }}>
-        <div style={{ padding: mobile ? '22px 22px 8px' : '26px 28px 10px', position: 'relative' }}>
+        <div style={{ padding: layout.headerPad, position: 'relative' }}>
           <h3
             style={{
-              fontSize: mobile ? 21 : 23,
+              fontSize: mobile ? 19 : 21,
               fontWeight: 800,
               color: theme.headline,
-              lineHeight: 1.18,
+              lineHeight: 1.2,
               letterSpacing: '-0.035em',
-              margin: '0 0 10px',
+              margin: '0 0 8px',
               maxWidth: 360,
             }}
           >
@@ -60,11 +63,11 @@ export default function ProductCardShell({ data, mobile, playing }: Props) {
           </h3>
           <p
             style={{
-              fontSize: 12,
+              fontSize: 11,
               fontWeight: 600,
               color: theme.dark ? 'rgba(255,255,255,0.72)' : G.green,
-              lineHeight: 1.45,
-              margin: '0 0 10px',
+              lineHeight: 1.4,
+              margin: '0 0 8px',
               maxWidth: 360,
             }}
           >
@@ -72,10 +75,10 @@ export default function ProductCardShell({ data, mobile, playing }: Props) {
           </p>
           <p
             style={{
-              fontSize: 13,
+              fontSize: 12,
               color: theme.label,
-              lineHeight: 1.5,
-              margin: '0 0 8px',
+              lineHeight: 1.45,
+              margin: '0 0 6px',
               maxWidth: 340,
               opacity: 0.88,
             }}
@@ -84,11 +87,11 @@ export default function ProductCardShell({ data, mobile, playing }: Props) {
           </p>
           <p
             style={{
-              fontSize: 11,
+              fontSize: 10,
               fontWeight: 600,
               color: theme.dark ? 'rgba(255,255,255,0.55)' : G.textMuted,
-              lineHeight: 1.45,
-              margin: '0 0 14px',
+              lineHeight: 1.4,
+              margin: '0 0 10px',
               maxWidth: 340,
             }}
           >
@@ -98,13 +101,13 @@ export default function ProductCardShell({ data, mobile, playing }: Props) {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: 7,
-              fontSize: 12,
+              gap: 6,
+              fontSize: 11,
               fontWeight: 700,
               color: theme.result,
               background: theme.dark ? 'rgba(255,255,255,0.09)' : 'rgba(9,68,19,0.08)',
-              borderRadius: 10,
-              padding: '7px 12px',
+              borderRadius: 8,
+              padding: '5px 10px',
               lineHeight: 1.35,
             }}
           >
@@ -115,10 +118,10 @@ export default function ProductCardShell({ data, mobile, playing }: Props) {
           </div>
         </div>
 
-        <ProductCardVisual visual={data.visual} playing={playing} dark={theme.dark} />
+        <ProductCardVisual visual={data.visual} playing={playing} dark={theme.dark} mobile={mobile} />
 
-        <div style={{ padding: mobile ? '4px 22px 10px' : '4px 28px 12px', marginTop: 'auto', display: 'flex', alignItems: 'center', gap: 10 }}>
-          <span style={{ fontSize: 14, fontWeight: 600, color: theme.dark ? 'rgba(255,255,255,0.75)' : G.green }}>
+        <div style={{ padding: layout.footerPad, marginTop: 'auto', display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{ fontSize: 13, fontWeight: 600, color: theme.dark ? 'rgba(255,255,255,0.75)' : G.green }}>
             See how →
           </span>
           {data.live && (
@@ -141,7 +144,8 @@ export default function ProductCardShell({ data, mobile, playing }: Props) {
 
       <div
         style={{
-          padding: mobile ? '0 22px 18px' : '0 28px 22px',
+          padding: layout.footerPad,
+          paddingTop: 0,
           display: 'flex',
           justifyContent: 'flex-end',
         }}

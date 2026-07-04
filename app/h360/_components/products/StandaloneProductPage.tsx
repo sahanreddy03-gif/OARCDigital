@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { m } from 'framer-motion';
 import H360ProductShell from './H360ProductShell';
+import H360CinemaBreadcrumb from './H360CinemaBreadcrumb';
 import DeviceFrame from './DeviceFrame';
 import { themeForVisual } from './productThemes';
 import { C, G, FONT_DISPLAY } from '../tokens';
@@ -27,6 +28,8 @@ export default function StandaloneProductPage({ config }: { config: StandalonePr
         <div style={{ position: 'absolute', inset: 0, background: theme.glow, pointerEvents: 'none' }} />
         <div style={{ maxWidth: 1160, margin: '0 auto', padding: '48px 24px 56px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 48, alignItems: 'center', position: 'relative' }}>
           <div>
+            <H360CinemaBreadcrumb ctaName={config.ctaName} />
+            <h1 style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap' }}>{config.h1}</h1>
             <m.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} style={{ display: 'inline-flex', alignItems: 'baseline', gap: 12, marginBottom: 24, padding: '14px 18px', borderRadius: 16, background: 'rgba(0,0,0,0.35)', border: `1px solid ${G.greenMid}66` }}>
               <span style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 800, color: G.greenLt, letterSpacing: '-0.03em', fontFamily: FONT_DISPLAY }}>{config.hero.metric.value}</span>
               <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.72)', lineHeight: 1.4, maxWidth: 200 }}>{config.hero.metric.label}</span>

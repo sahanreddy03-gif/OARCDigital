@@ -27,7 +27,7 @@ export default function OarcBridge() {
         style={{
           maxWidth: 1140,
           margin: '0 auto',
-          padding: '28px 20px 32px',
+          padding: '24px 20px 28px',
         }}
       >
         <div

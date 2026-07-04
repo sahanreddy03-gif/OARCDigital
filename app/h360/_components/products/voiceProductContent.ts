@@ -6,6 +6,8 @@ import type { ProductMetaConfig } from './buildProductMetadata';
 
 const PATH = '/h360/restaurant-phone-ai-malta';
 
+export const VOICE_HERO_IMAGE = '/voice-products/voice-host-restaurant-hero.png';
+
 const GATE2 = {
   question: 'What is the best AI phone answering for restaurants in Malta?',
   answer:

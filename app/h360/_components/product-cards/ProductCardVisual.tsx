@@ -2,7 +2,8 @@
 
 import { m, useReducedMotion } from 'framer-motion';
 import type { ProductVisualId } from './productCardsData';
-import VoiceAiLiveDemo from '../products/VoiceAiLiveDemo';
+import VoiceHubCardVisual from './VoiceHubCardVisual';
+import { getCardLayout } from './cardLayout';
 
 const WHITE = '#ffffff';
 const DARK = '#111111';
@@ -219,22 +220,22 @@ function StepFlowVisual({ playing, steps, icon }: { playing: boolean; steps: Rea
   const reduce = useReducedMotion();
   return (
     <Sheet>
-      <div style={{ padding: 14 }}>
-        {icon && <div style={{ fontSize: 11, fontWeight: 700, color: GREEN, marginBottom: 10, letterSpacing: '0.04em' }}>{icon}</div>}
+      <div style={{ padding: '10px 12px' }}>
+        {icon && <div style={{ fontSize: 10, fontWeight: 700, color: GREEN, marginBottom: 8, letterSpacing: '0.04em' }}>{icon}</div>}
         {steps.map(([label, detail], i) => (
           <m.div
             key={label}
             initial={{ opacity: 0, x: -10 }}
             animate={playing && !reduce ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.25 + i * 0.4 }}
-            style={{ display: 'flex', gap: 10, padding: '10px 0', borderBottom: i < 2 ? `1px solid ${BORDER}` : 'none' }}
+            style={{ display: 'flex', gap: 8, padding: '7px 0', borderBottom: i < steps.length - 1 ? `1px solid ${BORDER}` : 'none' }}
           >
-            <div style={{ width: 22, height: 22, borderRadius: 11, background: i === 2 ? GREEN : '#f3f4f6', color: i === 2 ? '#fff' : '#999', fontSize: 11, fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            <div style={{ width: 20, height: 20, borderRadius: 10, background: i === steps.length - 1 ? GREEN : '#f3f4f6', color: i === steps.length - 1 ? '#fff' : '#999', fontSize: 10, fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
               {i + 1}
             </div>
             <div>
-              <div style={{ fontSize: 12, fontWeight: 700, color: DARK }}>{label}</div>
-              <div style={{ fontSize: 11, color: '#999', marginTop: 2 }}>{detail}</div>
+              <div style={{ fontSize: 11, fontWeight: 700, color: DARK, lineHeight: 1.25 }}>{label}</div>
+              <div style={{ fontSize: 10, color: '#999', marginTop: 1, lineHeight: 1.3 }}>{detail}</div>
             </div>
           </m.div>
         ))}
@@ -287,11 +288,7 @@ const VISUAL_MAP: Record<ProductVisualId, (p: VisualProps) => React.ReactNode> =
       ]}
     />
   ),
-  'voice-ai': (p) => (
-    <div style={{ width: '100%', transform: 'scale(0.92)', transformOrigin: 'center center' }}>
-      <VoiceAiLiveDemo compact />
-    </div>
-  ),
+  'voice-ai': (p) => <VoiceHubCardVisual playing={p.playing} />,
   'venue-360': (p) => (
     <StepFlowVisual
       playing={p.playing}
@@ -324,7 +321,22 @@ const VISUAL_MAP: Record<ProductVisualId, (p: VisualProps) => React.ReactNode> =
   'local-search': (p) => <MapsRankVisual {...p} />,
 };
 
-export default function ProductCardVisual({ visual, playing, dark }: { visual: ProductVisualId; playing: boolean; dark?: boolean }) {
+export default function ProductCardVisual({ visual, playing, dark, mobile = false }: { visual: ProductVisualId; playing: boolean; dark?: boolean; mobile?: boolean }) {
   const Comp = VISUAL_MAP[visual];
-  return <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 28px 28px' }}>{Comp({ playing, dark })}</div>;
+  const layout = getCardLayout(visual, mobile);
+  return (
+    <div
+      style={{
+        height: layout.visualH,
+        display: 'flex',
+        alignItems: layout.tier === 'compact' ? 'flex-start' : 'center',
+        justifyContent: 'center',
+        padding: layout.visualPad,
+        overflow: 'hidden',
+        boxSizing: 'border-box',
+      }}
+    >
+      {Comp({ playing, dark })}
+    </div>
+  );
 }

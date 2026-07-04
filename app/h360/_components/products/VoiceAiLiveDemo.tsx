@@ -30,25 +30,31 @@ function WaveBars({ active }: { active: boolean }) {
   );
 }
 
-function Orb({ speaking, reduce, compact }: { speaking: boolean; reduce: boolean | null; compact?: boolean }) {
-  if (compact) {
-    return (
-      <div style={{ maxWidth: 280, margin: '0 auto' }}>
-        <AiAgentsVideoShowcase speaking={speaking && !reduce} accentLight="#4ade80" label={speaking ? 'SPEAKING' : 'LISTENING'} />
-      </div>
-    );
-  }
+function Orb({ speaking, reduce }: { speaking: boolean; reduce: boolean | null }) {
   return (
-    <AiAgentsVideoShowcase speaking={speaking && !reduce} accentLight="#4ade80" label={speaking ? 'SPEAKING' : 'LISTENING'} />
+    <AiAgentsVideoShowcase
+      speaking={speaking && !reduce}
+      accentLight="#4ade80"
+      label={speaking ? 'SPEAKING' : 'LISTENING'}
+    />
   );
 }
 
 export default function VoiceAiLiveDemo({ compact = false }: { compact?: boolean }) {
   const reduce = useReducedMotion();
-  const [phase, setPhase] = useState(0);
   const [ringing, setRinging] = useState(true);
   const [visibleLines, setVisibleLines] = useState<Line[]>([]);
   const [aiSpeaking, setAiSpeaking] = useState(false);
+  const [narrow, setNarrow] = useState(false);
+
+  useEffect(() => {
+    const fn = () => setNarrow(window.innerWidth < 768);
+    fn();
+    window.addEventListener('resize', fn);
+    return () => window.removeEventListener('resize', fn);
+  }, []);
+
+  const stacked = compact || narrow;
 
   useEffect(() => {
     if (reduce) {
@@ -59,14 +65,12 @@ export default function VoiceAiLiveDemo({ compact = false }: { compact?: boolean
 
     let cancelled = false;
     const run = async () => {
-      setPhase(0);
       setRinging(true);
       setVisibleLines([]);
       setAiSpeaking(false);
       await wait(1400);
       if (cancelled) return;
       setRinging(false);
-      setPhase(1);
 
       for (let i = 0; i < SCRIPT.length; i++) {
         if (cancelled) return;
@@ -90,60 +94,74 @@ export default function VoiceAiLiveDemo({ compact = false }: { compact?: boolean
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: compact ? '1fr' : 'minmax(240px, 1fr) minmax(280px, 1.1fr)',
-        gap: compact ? 24 : 40,
-        alignItems: 'center',
+        gridTemplateColumns: stacked ? '1fr' : 'minmax(0, 0.95fr) minmax(0, 1.05fr)',
+        gap: stacked ? 20 : 32,
+        alignItems: 'stretch',
         width: '100%',
       }}
     >
-      <div style={{ order: compact ? 2 : 0 }}>
-        <Orb speaking={aiSpeaking && !ringing} reduce={reduce} compact={compact} />
+      <div style={{ order: stacked ? 1 : 0, minWidth: 0 }}>
+        <Orb speaking={aiSpeaking && !ringing} reduce={reduce} />
         {!compact && (
-          <p style={{ textAlign: 'center', marginTop: 16, fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,0.55)', letterSpacing: '0.08em' }}>
+          <p
+            style={{
+              textAlign: stacked ? 'left' : 'center',
+              marginTop: 14,
+              fontSize: 11,
+              fontWeight: 700,
+              color: 'rgba(255,255,255,0.5)',
+              letterSpacing: '0.08em',
+            }}
+          >
             AGI HOST → ASI BRAIN · OARC-TRAINED · MALTA MENUS
           </p>
         )}
       </div>
 
-      <div
-        style={{
-          perspective: 1000,
-          order: compact ? 1 : 0,
-        }}
-      >
+      <div style={{ perspective: 1000, order: stacked ? 2 : 0, minWidth: 0 }}>
         <m.div
-          animate={reduce ? {} : { rotateY: -6, rotateX: 4 }}
+          animate={reduce || stacked ? {} : { rotateY: -5, rotateX: 3 }}
           style={{
             background: 'linear-gradient(165deg,#0a0a0a,#141414)',
-            borderRadius: 28,
+            borderRadius: 24,
             border: '1px solid rgba(255,255,255,0.1)',
             boxShadow: '0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(74,222,128,0.08)',
             overflow: 'hidden',
             transformStyle: 'preserve-3d',
           }}
         >
-          <div style={{ padding: '14px 18px', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <div style={{ padding: '14px 16px', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
               <AnimatePresence mode="wait">
                 {ringing ? (
-                  <m.div key="ring" initial={{ scale: 0.8 }} animate={{ scale: [1, 1.08, 1] }} transition={{ repeat: Infinity, duration: 0.9 }} style={{ width: 36, height: 36, borderRadius: 12, background: '#166534', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bbf7d0" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <m.div
+                    key="ring"
+                    initial={{ scale: 0.8 }}
+                    animate={{ scale: [1, 1.08, 1] }}
+                    transition={{ repeat: Infinity, duration: 0.9 }}
+                    style={{ width: 36, height: 36, borderRadius: 12, background: '#166534', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bbf7d0" strokeWidth="2">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
                   </m.div>
                 ) : (
-                  <m.div key="live" initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ width: 36, height: 36, borderRadius: 12, background: G.green, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <m.div key="live" initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ width: 36, height: 36, borderRadius: 12, background: G.green, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <WaveBars active={aiSpeaking} />
                   </m.div>
                 )}
               </AnimatePresence>
-              <div>
-                <div style={{ fontSize: 13, fontWeight: 800, color: '#fff', fontFamily: FONT_DISPLAY }}>{ringing ? 'Incoming call…' : 'H360 Voice Host · Live'}</div>
+              <div style={{ minWidth: 0 }}>
+                <div style={{ fontSize: 13, fontWeight: 800, color: '#fff', fontFamily: FONT_DISPLAY, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                  {ringing ? 'Incoming call…' : 'H360 Voice Host · Live'}
+                </div>
                 <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)' }}>Malta restaurant line · 24/7</div>
               </div>
             </div>
-            <div style={{ fontSize: 10, fontWeight: 700, color: '#4ade80', letterSpacing: '0.1em' }}>{ringing ? 'RING' : 'ON CALL'}</div>
+            <div style={{ fontSize: 10, fontWeight: 700, color: '#4ade80', letterSpacing: '0.1em', flexShrink: 0 }}>{ringing ? 'RING' : 'ON CALL'}</div>
           </div>
 
-          <div style={{ padding: '16px 18px 20px', minHeight: compact ? 200 : 280, display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <div style={{ padding: '14px 16px 18px', minHeight: stacked ? 220 : 260, display: 'flex', flexDirection: 'column', gap: 10 }}>
             <AnimatePresence>
               {visibleLines.map((line, i) => (
                 <m.div
@@ -153,7 +171,7 @@ export default function VoiceAiLiveDemo({ compact = false }: { compact?: boolean
                   transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                   style={{
                     alignSelf: line.who === 'guest' ? 'flex-end' : 'flex-start',
-                    maxWidth: '92%',
+                    maxWidth: '94%',
                   }}
                 >
                   {line.who === 'staff' ? (
@@ -185,7 +203,7 @@ export default function VoiceAiLiveDemo({ compact = false }: { compact?: boolean
             <m.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              style={{ margin: '0 18px 18px', padding: '12px 14px', borderRadius: 12, background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.2)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+              style={{ margin: '0 16px 16px', padding: '12px 14px', borderRadius: 12, background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.2)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}
             >
               <div>
                 <div style={{ fontSize: 10, fontWeight: 700, color: '#86efac', letterSpacing: '0.08em' }}>DASHBOARD</div>
