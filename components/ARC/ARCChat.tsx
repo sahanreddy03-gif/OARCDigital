@@ -6,7 +6,7 @@ import { m, AnimatePresence } from 'framer-motion';
 import { ARCMessage } from './ARCMessage';
 import { ARCTypingIndicator } from './ARCTypingIndicator';
 import { checkInstantResponse } from '@/lib/instantResponses';
-import { getRandomGreeting, H360_SUGGESTIONS } from '@/lib/arcSystemPrompt';
+import { getRandomGreeting, H360_SUGGESTIONS } from '@/lib/arc/arcPromptShared';
 import { NAP } from "@/lib/seo/nap";
 
 interface Message {
