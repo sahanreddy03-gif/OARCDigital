@@ -54,7 +54,7 @@ export default function H360FeatureCards() {
     const card = container.children[idx] as HTMLElement | undefined;
     if (!card) return;
     syncingRef.current = true;
-    card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    card.scrollIntoView({ behavior: isMobile ? 'auto' : 'smooth', block: 'nearest', inline: 'start' });
     setActive(idx);
     window.setTimeout(() => {
       syncingRef.current = false;
@@ -156,6 +156,7 @@ export default function H360FeatureCards() {
         ref={tabScrollRef}
         className="fc-scroll"
         data-lenis-prevent
+        data-scroll-x="true"
         style={{
           display: 'flex',
           padding: isMobile ? '0 16px' : '0 64px',
@@ -209,6 +210,7 @@ export default function H360FeatureCards() {
             ref={scrollRef}
             className="fc-scroll"
             data-lenis-prevent
+            data-scroll-x="true"
             style={{
               display: 'flex',
               gap: 10,

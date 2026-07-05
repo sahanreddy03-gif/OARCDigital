@@ -62,7 +62,7 @@ export default function H360ProductShell({ eyebrow, h1, live, ctaName = 'this to
 
       {children}
 
-      <section style={{ background: G.beige, borderTop: `1px solid ${G.border}`, padding: '56px 24px 72px' }}>
+      <section id="h360-audit" style={{ background: G.beige, borderTop: `1px solid ${G.border}`, padding: '56px 24px 72px', scrollMarginTop: 80 }}>
         <div style={{ maxWidth: 1160, margin: '0 auto', textAlign: 'center' }}>
           <p style={{ fontSize: 'clamp(17px, 2.5vw, 22px)', fontWeight: 700, margin: '0 0 8px', letterSpacing: '-0.02em' }}>
             See what {ctaName} does at your venue.

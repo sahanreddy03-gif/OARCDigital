@@ -45,7 +45,7 @@ const CSS = `
 
   /* drag-scroll rail */
   .rail { overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
-          scrollbar-width:none; cursor:grab; user-select:none; }
+          scrollbar-width:none; cursor:grab; user-select:none; touch-action:pan-x pan-y; }
   .rail::-webkit-scrollbar { display:none; }
   .rail:active { cursor:grabbing; }
   .snap { scroll-snap-align:start; flex-shrink:0; }

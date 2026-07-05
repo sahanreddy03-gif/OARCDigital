@@ -30,7 +30,12 @@ export default function ScrollToTop() {
       isPopRef.current = false;
       return;
     }
+
+    const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
+    if (nav?.type === 'back_forward') return;
+
     scrollToPageTop(lenis);
+    lenis?.resize();
   }, [pathname, search, lenis]);
 
   return null;

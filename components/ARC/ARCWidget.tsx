@@ -24,9 +24,25 @@ export function ARCWidget() {
   useEffect(() => {
     const handler = (e: Event) => {
       const custom = e as CustomEvent<{ prompt?: string; contextMode?: 'default' | 'h360' }>;
+      const path = window.location.pathname;
+
+      /** H360 is its own flow — audit scroll, not full-screen chat overlay. */
+      if (path.startsWith('/h360') || custom.detail?.contextMode === 'h360') {
+        const target =
+          document.getElementById('h360-audit') ??
+          document.getElementById('h360-try') ??
+          document.getElementById('product-faq');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          window.location.href = '/h360#h360-audit';
+        }
+        return;
+      }
+
       if (custom.detail?.prompt) setInitialPrompt(custom.detail.prompt);
       else setInitialPrompt(null);
-      setContextMode(custom.detail?.contextMode === 'h360' ? 'h360' : 'default');
+      setContextMode('default');
       setIsOpen(true);
       setShowPopup(false);
       setPopupDismissed(true);

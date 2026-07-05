@@ -59,6 +59,16 @@ export const VOICE_META: ProductMetaConfig = {
         'Yes. We forward your line or provision a Malta number for web and Google — your choice at onboarding. Guests dial the same number they always have.',
     },
     {
+      question: 'What languages can H360 Voice Host speak on calls?',
+      answer:
+        'English, Maltese, and Italian on inbound restaurant lines — with code-switching when guests mix languages mid-call. Voice and phrasing are trained on your venue, not a generic US accent. You pick the default; the brain adapts per caller from transcripts you approve.',
+    },
+    {
+      question: 'What data does the brain collect for the owner?',
+      answer:
+        'Every call logs to your dashboard: peak ring times, booking conversion, allergy and menu questions, promo interest, VIP repeat callers, and escalation reasons. That feeds H360 BOOKING and your weekly training review — useful for staffing, menu changes, and promos, not just answering phones.',
+    },
+    {
       question: 'What is AGI to ASI training?',
       answer:
         'Generic phone bots read a FAQ once. H360 gives your host a brain that self-educates — every call teaches menu gaps, new promos, and phrasing that converts. Only OARC operators train Malta restaurant brains; you approve updates in the dashboard.',
@@ -75,9 +85,9 @@ export const VOICE_HERO = {
   eyebrow: 'H360 · Voice Host · Live',
   h1: 'Restaurant phone AI in Malta — answers every call, books tables, learns your menu.',
   ownerPain: 'Friday rush. Phone rings. Host is seating. Voicemail fills. Covers walk to the place that picked up.',
-  guestGain: 'They call at 2am — someone warm answers, books them, sends confirmation.',
-  wedge: 'Not a call centre script — OARC trains a brain on your menu, tone, and Malta ops. Dashboard control. Human handoff when it matters.',
-  hook: 'Talk to book. We train the brain. You keep control.',
+  guestGain: 'They call at 2am — someone warm answers in their language, books them, sends confirmation.',
+  wedge: 'OARC trains a brain on your menu, tone, and Malta ops — multi-language, dashboard control, human handoff when it matters.',
+  hook: 'Step into your phone host.',
   metric: { value: '24/7', label: 'every call answered' },
   doctrine: 'Missed calls are empty tables. A host that never sleeps pays for itself on one Saturday.',
 };

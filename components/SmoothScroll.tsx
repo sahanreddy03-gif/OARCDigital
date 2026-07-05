@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type ComponentType, type ReactNode } from 'react';
 import type { LenisProps } from 'lenis/react';
-import { LENIS_OPTIONS, prefersReducedMotion } from '@/lib/motion/lenisOptions';
+import { LENIS_OPTIONS, shouldEnableLenis } from '@/lib/motion/lenisOptions';
 
 type ReactLenisType = ComponentType<LenisProps>;
 
@@ -15,14 +15,19 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
   const [blocked, setBlocked] = useState(false);
 
   useEffect(() => {
-    if (prefersReducedMotion()) {
-      setBlocked(true);
-      return;
-    }
+    const sync = () => setBlocked(!shouldEnableLenis());
+    sync();
 
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const onChange = () => setBlocked(mq.matches);
-    mq.addEventListener('change', onChange);
+    const mqs = [
+      window.matchMedia('(prefers-reduced-motion: reduce)'),
+      window.matchMedia('(pointer: coarse)'),
+      window.matchMedia('(hover: none)'),
+    ];
+    mqs.forEach((mq) => mq.addEventListener('change', sync));
+
+    if (!shouldEnableLenis()) {
+      return () => mqs.forEach((mq) => mq.removeEventListener('change', sync));
+    }
 
     const load = () => {
       import('lenis/react').then((mod) => setReactLenis(() => mod.ReactLenis));
@@ -38,7 +43,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
     }
 
     return () => {
-      mq.removeEventListener('change', onChange);
+      mqs.forEach((mq) => mq.removeEventListener('change', sync));
       if (idleId !== undefined) window.cancelIdleCallback(idleId);
       if (timeoutId !== undefined) clearTimeout(timeoutId);
     };
