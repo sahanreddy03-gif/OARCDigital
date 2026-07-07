@@ -23,14 +23,14 @@ export function ARCWidget() {
   // to launch ARC and (optionally) seed the first user message.
   useEffect(() => {
     const handler = (e: Event) => {
-      const custom = e as CustomEvent<{ prompt?: string; contextMode?: 'default' | 'h360' }>;
+      const custom = e as CustomEvent<{ prompt?: string; contextMode?: 'default' | 'h360'; openChat?: boolean }>;
       const path = window.location.pathname;
+      const wantsChat = Boolean(custom.detail?.openChat || custom.detail?.prompt);
 
-      /** H360 is its own flow — audit scroll, not full-screen chat overlay. */
-      if (path.startsWith('/h360') || custom.detail?.contextMode === 'h360') {
+      /** Passive H360 links scroll to audit; explicit audit CTA opens ARC chat. */
+      if ((path.startsWith('/h360') || custom.detail?.contextMode === 'h360') && !wantsChat) {
         const target =
           document.getElementById('h360-audit') ??
-          document.getElementById('h360-try') ??
           document.getElementById('product-faq');
         if (target) {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -42,7 +42,7 @@ export function ARCWidget() {
 
       if (custom.detail?.prompt) setInitialPrompt(custom.detail.prompt);
       else setInitialPrompt(null);
-      setContextMode('default');
+      setContextMode(custom.detail?.contextMode === 'h360' ? 'h360' : 'default');
       setIsOpen(true);
       setShowPopup(false);
       setPopupDismissed(true);

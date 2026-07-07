@@ -190,7 +190,6 @@ export default function H360Hero() {
       <section style={{ minHeight: isMobile ? 'auto' : 'min(100vh, 920px)', paddingBottom: isMobile ? 88 : 48 }}>
         {/* Copy — minimal */}
         <div
-          id="h360-audit"
           style={{
             padding: isMobile ? '20px 20px 12px' : '28px 40px 16px',
             textAlign: isMobile ? 'left' : 'center',

@@ -574,7 +574,7 @@ function H360ArcClosing({ m }: { m: boolean }) {
   const play = useInViewPlay(0.3);
 
   return (
-    <section id="h360-try" style={{ background: '#08140a', borderTop: '1px solid rgba(255,255,255,0.06)', scrollMarginTop: 72 }}>
+    <section id="h360-audit" style={{ background: '#08140a', borderTop: '1px solid rgba(255,255,255,0.06)', scrollMarginTop: 72 }}>
       <div
         style={{
           maxWidth: 1160,

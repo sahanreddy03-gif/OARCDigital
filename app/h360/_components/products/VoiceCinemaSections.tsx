@@ -57,7 +57,7 @@ export function VoiceTalkCTA() {
       </m.button>
       <p style={{ textAlign: 'center', marginTop: 14, fontSize: 13, color: 'rgba(255,255,255,0.45)' }}>
         Or{' '}
-        <a href="#h360-try" style={{ color: G.greenLt, fontWeight: 700, textDecoration: 'underline' }}>
+        <a href="#h360-audit" style={{ color: G.greenLt, fontWeight: 700, textDecoration: 'underline' }}>
           get your free ARC audit
         </a>{' '}
         — see what missed calls cost you
