@@ -37,7 +37,7 @@ const USE_CASES = [
     label: 'Guest care',
     headline: 'Nut allergy, kids menu, wheelchair — accurate from your trained menu.',
     detail:
-      'Not guessing from the web — answers from the brain OARC built on your dishes, modifiers, and how your kitchen actually handles dietary requests.',
+      'Not guessing from the web — answers from the agentic ASI brain OARC built on your dishes, modifiers, and how your kitchen actually handles dietary requests.',
     metric: '100%',
     metricLabel: 'menu-grounded',
     brainInsight: 'Allergy questions feed a weekly report — spot menu gaps before a incident.',
@@ -113,7 +113,7 @@ export default function VoiceUseCaseRail() {
           }}
           data-speakable
         >
-          Five front-desk jobs — one brain trained on Malta restaurants.
+          Five front-desk jobs — one agentic ASI brain trained on Malta restaurants.
         </h2>
         <p style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)' }} data-speakable>
           H360 Voice Host handles AI reception, table booking, guest care and allergies, private events and large parties, and booking confirmation with no-show recovery for restaurants in Malta.

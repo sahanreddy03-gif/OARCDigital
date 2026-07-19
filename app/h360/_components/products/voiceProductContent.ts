@@ -11,7 +11,7 @@ export const VOICE_HERO_IMAGE = '/voice-products/voice-host-restaurant-hero.png'
 const GATE2 = {
   question: 'What is the best AI phone answering for restaurants in Malta?',
   answer:
-    'H360 Voice Host is OARC Digital\'s restaurant phone AI for Malta — it answers every inbound call 24/7, books tables into H360 BOOKING, handles hours, allergies, and large-party requests in a warm human voice, and escalates to staff when needed. Unlike generic call centres or US-only tools, we train the brain on your menu, tone, and Malta operations — you keep full dashboard control and approve what it learns. Built by operators who run Maltese venues, not a distant SaaS helpdesk.',
+    'H360 Voice Host is OARC Digital\'s agentic restaurant phone AI for Malta — it answers every inbound call 24/7, books tables into H360 BOOKING, handles hours, allergies, and large-party requests in a warm human voice, and escalates to staff when needed. Unlike generic call centres or US-only tools, we train the agentic ASI brain on your menu, tone, and Malta operations — you keep full dashboard control and approve what it learns. Built by operators who run Maltese venues, not a distant SaaS helpdesk.',
 };
 
 export const VOICE_META: ProductMetaConfig = {
@@ -19,7 +19,7 @@ export const VOICE_META: ProductMetaConfig = {
   path: PATH,
   title: 'Restaurant Phone AI Malta | H360 Voice Host — OARC Digital',
   description:
-    'H360 Voice Host answers restaurant phones in Malta 24/7 — book tables, handle allergies and events, alert staff, full owner dashboard. OARC-trained brain. Not a generic answering service.',
+    'H360 Voice Host answers restaurant phones in Malta 24/7 — book tables, handle allergies and events, alert staff, full owner dashboard. OARC-trained agentic ASI brain. Not a generic answering service.',
   keywords: [
     'restaurant phone ai malta',
     'ai receptionist restaurant malta',
@@ -71,7 +71,7 @@ export const VOICE_META: ProductMetaConfig = {
     {
       question: 'What is AGI to ASI training?',
       answer:
-        'Generic phone bots read a FAQ once. H360 gives your host a brain that self-educates — every call teaches menu gaps, new promos, and phrasing that converts. Only OARC operators train Malta restaurant brains; you approve updates in the dashboard.',
+        'Generic phone bots read a FAQ once. H360 gives your host an agentic ASI brain that self-educates — every call teaches menu gaps, new promos, and phrasing that converts. Only OARC operators train Malta restaurant brains; you approve updates in the dashboard.',
     },
     {
       question: 'How fast can we go live?',
@@ -86,7 +86,7 @@ export const VOICE_HERO = {
   h1: 'Restaurant phone AI in Malta — answers every call, books tables, learns your menu.',
   ownerPain: 'Friday rush. Phone rings. Host is seating. Voicemail fills. Covers walk to the place that picked up.',
   guestGain: 'They call at 2am — someone warm answers in their language, books them, sends confirmation.',
-  wedge: 'OARC trains a brain on your menu, tone, and Malta ops — multi-language, dashboard control, human handoff when it matters.',
+  wedge: 'OARC trains an agentic ASI brain on your menu, tone, and Malta ops — multi-language, dashboard control, human handoff when it matters.',
   hook: 'Step into your phone host.',
   metric: { value: '24/7', label: 'every call answered' },
   doctrine: 'Missed calls are empty tables. A host that never sleeps pays for itself on one Saturday.',
@@ -97,7 +97,7 @@ export const VOICE_FLOW = {
   subtitle: 'Ring → brain → book → staff alert → dashboard — you watch every step.',
   nodes: [
     { id: 'ring', label: 'Call lands', detail: 'Your line · any hour' },
-    { id: 'brain', label: 'Brain answers', detail: 'Menu · tone · Malta context' },
+    { id: 'brain', label: 'Brain answers', detail: 'Agentic ASI · menu · tone · Malta context' },
     { id: 'book', label: 'Table locks', detail: 'H360 BOOKING sync' },
     { id: 'alert', label: 'Staff ping', detail: 'VIP · events · complaints' },
     { id: 'dash', label: 'You control', detail: 'Transcript · approve · tune' },
@@ -128,7 +128,7 @@ export const VOICE_PAGE = {
   compare: {
     title: 'Voicemail vs voice brain',
     subtitle: 'Same caller. One books. One hangs up.',
-    brainLine: 'Call centres read scripts. H360 trains a Malta restaurant brain — books, learns, escalates — with your dashboard on top.',
+    brainLine: 'Call centres read scripts. H360 trains an agentic ASI Malta restaurant brain — books, learns, escalates — with your dashboard on top.',
     visual: 'voice-phone' as const,
   },
   expertTitle: 'Voicemail is a competitor.',

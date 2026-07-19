@@ -56,7 +56,7 @@ export const STANDALONE_EXTRAS: Record<string, StandaloneExtras> = {
     metric: { value: '24/7', label: 'every call answered' },
     stack: {
       title: 'AGI host → ASI brain. We train it. You control it.',
-      subtitle: 'Voice, booking, guest care, staff alerts, dashboard — one Malta restaurant brain. Only OARC operators train it.',
+      subtitle: 'Voice, booking, guest care, staff alerts, dashboard — one agentic ASI Malta restaurant brain. Only OARC operators train it.',
       items: [
         st('voice', 'Voice brain', 'Warm · human pace', 'Menu · tone · Malta context · bilingual', 'voice-call'),
         st('book', 'Auto booking', 'Talk → table locked', 'H360 BOOKING sync · no doubles', 'voice-book'),
@@ -83,7 +83,7 @@ export const STANDALONE_EXTRAS: Record<string, StandaloneExtras> = {
     compare: {
       title: 'Voicemail vs voice brain',
       subtitle: 'Same caller. One books. One hangs up.',
-      brainLine: 'Call centres read scripts. H360 trains a Malta restaurant brain — books, learns, escalates.',
+      brainLine: 'Call centres read scripts. H360 trains an agentic ASI Malta restaurant brain — books, learns, escalates.',
       badLabel: 'VOICEMAIL', goodLabel: 'H360 VOICE HOST',
       badNote: 'Caller books elsewhere', goodNote: 'Answered · booked · confirmed',
       badMetric: '0%', goodMetric: '24/7',

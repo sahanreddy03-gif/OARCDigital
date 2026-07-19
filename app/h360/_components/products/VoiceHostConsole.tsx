@@ -300,7 +300,7 @@ export default function VoiceHostConsole({ hero }: { hero: HeroCopy }) {
         <StatusRow
           tag="YOU"
           accent="#fbbf24"
-          lines={bookingLocked ? ['Missed calls today: 0', 'Cover saved · approve brain update in dashboard'] : ['Watching every ring', 'Dashboard · transcript · handoff rules']}
+          lines={bookingLocked ? ['Missed calls today: 0', 'Cover saved · approve agentic ASI update in dashboard'] : ['Watching every ring', 'Dashboard · transcript · handoff rules']}
           pulse={false}
         />
       </div>

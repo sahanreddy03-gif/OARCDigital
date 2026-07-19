@@ -15,7 +15,7 @@ const PIPELINE = [
   {
     id: 'train',
     title: 'OARC trains it',
-    body: 'We shadow your workflow, extract the spec, then retrain weekly on real calls. You approve every update in the dashboard — nothing goes live without you.',
+    body: 'We shadow your workflow, extract the spec, then retrain the agentic ASI layer weekly on real calls. You approve every update in the dashboard — nothing goes live without you.',
     outputs: ['Multi-language voice', 'Allergy + event paths', 'Human handoff with full context'],
   },
   {
@@ -60,7 +60,7 @@ export default function VoiceBrainSystem() {
           }}
           data-speakable
         >
-          A restaurant phone brain that trains on your calls — not a FAQ dump.
+          An agentic ASI restaurant phone brain that trains on your calls — not a FAQ dump.
         </h2>
         <p style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)' }} data-speakable>
           H360 Voice Host by OARC Digital trains on Malta restaurant menus, supports English Maltese and Italian on inbound calls, logs transcripts to an owner dashboard, syncs bookings to H360 BOOKING, and learns from every conversation with operator approval.
