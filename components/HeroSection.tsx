@@ -1,16 +1,38 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
+const heroBackground = "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
 
-/** Exact same AVIF bytes as before — no re-encode, no quality change. */
-const heroBackground =
-  "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
+const HERO_PLACEHOLDER = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERAgMSIv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABcRAQEBAQAAAAAAAAAAAAAAAAARAQL/2gAMAwEAAhEDEQA/AOUODgIwlnPNZsz85MnNwu9uB2nnUQ7ugLToEq//2Q==';
 
-const HERO_PLACEHOLDER =
-  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERAgMSIv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABcRAQEBAQAAAAAAAAAAAAAAAAARAQL/2gAMAwEAAhEDEQA/AOUODgIwlnPNZsz85MnNwu9uB2nnUQ7ugLToEq//2Q==";
+function useImagePreload(src: string) {
+  // Check if image is already cached IMMEDIATELY (synchronously)
+  const checkCached = () => {
+    if (typeof window === 'undefined') return false;
+    const img = new Image();
+    img.src = src;
+    return img.complete && img.naturalWidth > 0;
+  };
+  
+  const [loaded, setLoaded] = useState(() => checkCached());
+  
+  useEffect(() => {
+    if (loaded) return; // Already loaded, skip
+    const img = new Image();
+    img.src = src;
+    if (img.complete && img.naturalWidth > 0) {
+      setLoaded(true);
+    } else {
+      img.onload = () => setLoaded(true);
+    }
+  }, [src, loaded]);
+  
+  return loaded;
+}
 
 function SnowfallEffect() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -19,13 +41,15 @@ function SnowfallEffect() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (prefersReducedMotion) return;
-
-    const ctx = canvas.getContext("2d", { alpha: true });
+    const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize);
 
     interface Snowflake {
       x: number;
@@ -35,101 +59,84 @@ function SnowfallEffect() {
       baseOpacity: number;
       wobbleOffset: number;
       wobbleSpeed: number;
+      twinkleSpeed: number;
+      twinkleOffset: number;
+      layer: number;
     }
 
-    let width = 0;
-    let height = 0;
-    let dpr = 1;
-    let animationId = 0;
-    let time = 0;
-    let running = true;
-
-    const isCoarse =
-      window.matchMedia("(pointer: coarse)").matches ||
-      window.innerWidth < 768;
-    const snowflakeCount = isCoarse ? 36 : 52;
-
     const snowflakes: Snowflake[] = [];
-
-    const resize = () => {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = Math.floor(width * dpr);
-      canvas.height = Math.floor(height * dpr);
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
-    resize();
+    const snowflakeCount = 80;
 
     for (let i = 0; i < snowflakeCount; i++) {
       const layer = Math.random();
-      const isFar = layer < 0.45;
-      const isMid = layer >= 0.45 && layer < 0.8;
+      const isFar = layer < 0.4;
+      const isMid = layer >= 0.4 && layer < 0.75;
+      
       snowflakes.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: isFar
-          ? Math.random() * 1 + 0.5
-          : isMid
-            ? Math.random() * 1.5 + 1
-            : Math.random() * 2 + 1.5,
-        speed: isFar
-          ? Math.random() * 0.4 + 0.2
-          : isMid
-            ? Math.random() * 0.6 + 0.4
-            : Math.random() * 0.8 + 0.6,
-        baseOpacity: isFar
-          ? Math.random() * 0.2 + 0.35
-          : isMid
-            ? Math.random() * 0.25 + 0.5
-            : Math.random() * 0.2 + 0.7,
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: isFar ? Math.random() * 1 + 0.5 : isMid ? Math.random() * 1.5 + 1 : Math.random() * 2 + 1.5,
+        speed: isFar ? Math.random() * 0.4 + 0.2 : isMid ? Math.random() * 0.6 + 0.4 : Math.random() * 0.8 + 0.6,
+        baseOpacity: isFar ? Math.random() * 0.2 + 0.3 : isMid ? Math.random() * 0.25 + 0.5 : Math.random() * 0.2 + 0.7,
         wobbleOffset: Math.random() * Math.PI * 2,
         wobbleSpeed: Math.random() * 0.02 + 0.01,
+        twinkleSpeed: Math.random() * 0.03 + 0.02,
+        twinkleOffset: Math.random() * Math.PI * 2,
+        layer: layer,
       });
     }
 
+    let animationId: number;
+    let time = 0;
+
     const animate = () => {
-      if (!running) return;
-      ctx.clearRect(0, 0, width, height);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       time += 1;
 
-      for (let i = 0; i < snowflakes.length; i++) {
-        const flake = snowflakes[i];
+      snowflakes.forEach((flake) => {
         flake.y += flake.speed;
-        const displayX =
-          flake.x + Math.sin(time * flake.wobbleSpeed + flake.wobbleOffset) * 0.4;
+        
+        const wobble = Math.sin(time * flake.wobbleSpeed + flake.wobbleOffset) * 0.4;
+        let displayX = flake.x + wobble;
+        
+        displayX = Math.max(0, Math.min(canvas.width, displayX));
+        
+        const twinkle = Math.sin(time * flake.twinkleSpeed + flake.twinkleOffset) * 0.12 + 1;
+        const currentOpacity = Math.min(flake.baseOpacity * twinkle, 1);
 
-        if (flake.y > height + 10) {
+        if (flake.y > canvas.height + 10) {
           flake.y = -10 - Math.random() * 20;
-          flake.x = Math.random() * width;
+          flake.x = Math.random() * canvas.width;
           flake.wobbleOffset = Math.random() * Math.PI * 2;
+          flake.twinkleOffset = Math.random() * Math.PI * 2;
         }
 
         ctx.beginPath();
         ctx.arc(displayX, flake.y, flake.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${flake.baseOpacity})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${currentOpacity})`;
         ctx.fill();
-      }
+
+        const glowSize = flake.radius * 2.5;
+        const gradient = ctx.createRadialGradient(displayX, flake.y, 0, displayX, flake.y, glowSize);
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${currentOpacity * 0.35})`);
+        gradient.addColorStop(0.5, `rgba(255, 255, 255, ${currentOpacity * 0.1})`);
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.beginPath();
+        ctx.arc(displayX, flake.y, glowSize, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+      });
 
       animationId = requestAnimationFrame(animate);
     };
 
-    const onVisibility = () => {
-      running = document.visibilityState === "visible";
-      if (running) animationId = requestAnimationFrame(animate);
-      else cancelAnimationFrame(animationId);
-    };
-
-    window.addEventListener("resize", resize);
-    document.addEventListener("visibilitychange", onVisibility);
-    animate();
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+      animate();
+    }
 
     return () => {
-      running = false;
-      window.removeEventListener("resize", resize);
-      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener('resize', resize);
       cancelAnimationFrame(animationId);
     };
   }, []);
@@ -156,6 +163,8 @@ const MobileGlassCard = ({ icon: Icon, label, href, testId }: { icon: typeof Pal
 );
 
 export default function HeroSection() {
+  const imageLoaded = useImagePreload(heroBackground);
+  
   const styles = `
     @keyframes float {
       0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
@@ -200,42 +209,49 @@ export default function HeroSection() {
         
         {/* ========== MOBILE LAYOUT ========== */}
         <div className="md:hidden absolute inset-0">
-          <div
+          {/* Instant placeholder - blurred, loads immediately */}
+          <div 
             className="absolute inset-0 bg-cover bg-no-repeat"
-            style={{
+            style={{ 
               backgroundImage: `url(${HERO_PLACEHOLDER})`,
-              backgroundPosition: "60% center",
-              filter: "blur(20px)",
-              transform: "scale(1.1)",
+              backgroundPosition: '60% center',
+              filter: 'blur(20px)',
+              transform: 'scale(1.1)'
             }}
           />
-          <div
+          {/* Real background - always visible */}
+          <div 
             className="absolute inset-0 bg-cover bg-no-repeat"
-            style={{
+            style={{ 
               backgroundImage: `url(${heroBackground})`,
-              backgroundPosition: "60% center",
+              backgroundPosition: '60% center',
             }}
           />
+          {/* Gradient overlay - always visible for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%" />
+          
         </div>
 
         {/* ========== DESKTOP LAYOUT ========== */}
-        <div
+        {/* Desktop instant placeholder - blurred, loads immediately */}
+        <div 
           className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-fixed"
-          style={{
+          style={{ 
             backgroundImage: `url(${HERO_PLACEHOLDER})`,
-            backgroundPosition: "35% center",
-            filter: "blur(20px)",
-            transform: "scale(1.1)",
+            backgroundPosition: '35% center',
+            filter: 'blur(20px)',
+            transform: 'scale(1.1)'
           }}
         />
-        <div
+        {/* Desktop real background - always visible */}
+        <div 
           className="hidden md:block absolute inset-0 bg-cover bg-no-repeat"
-          style={{
+          style={{ 
             backgroundImage: `url(${heroBackground})`,
-            backgroundPosition: "35% center",
+            backgroundPosition: '35% center',
           }}
         />
+        {/* Desktop gradient overlays - always visible for text readability */}
         <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
         <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
         <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60" />

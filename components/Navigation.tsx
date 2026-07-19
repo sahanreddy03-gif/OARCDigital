@@ -33,9 +33,9 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 md:h-18 lg:h-20">
           <Link href="/" className="flex items-center gap-3" data-testid="link-logo-home">
-            <img
-              src={greenLogo}
-              alt="OARC Digital logo"
+            <img 
+              src={greenLogo} 
+              alt="OARC Digital logo" 
               className="h-10 w-10 lg:h-11 lg:w-11 object-contain"
               data-testid="img-logo"
             />

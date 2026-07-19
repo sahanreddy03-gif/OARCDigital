@@ -147,7 +147,6 @@ export default function FAQSection({
                   <span className="flex-1 pr-4">{faq.question}</span>
                 </AccordionTrigger>
                 <AccordionContent
-                  forceMount
                   className={cn(
                     "faq-answer px-6 pb-6 pt-0 text-base leading-relaxed",
                     darkMode ? "text-white/80" : "text-[#1a2e29]/80"

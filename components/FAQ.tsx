@@ -62,10 +62,7 @@ export default function FAQ() {
               <AccordionTrigger className="text-left text-base md:text-lg font-bold hover:no-underline py-4">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent
-                forceMount
-                className="faq-answer text-muted-foreground leading-relaxed pb-4"
-              >
+              <AccordionContent className="text-muted-foreground leading-relaxed pb-4">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
