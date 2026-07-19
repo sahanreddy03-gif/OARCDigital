@@ -1,38 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
-const heroBackground = "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
 
-const HERO_PLACEHOLDER = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERAgMSIv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABcRAQEBAQAAAAAAAAAAAAAAAAARAQL/2gAMAwEAAhEDEQA/AOUODgIwlnPNZsz85MnNwu9uB2nnUQ7ugLToEq//2Q==';
+/** Exact same AVIF bytes as before — no re-encode, no quality change. */
+const heroBackground =
+  "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
 
-function useImagePreload(src: string) {
-  // Check if image is already cached IMMEDIATELY (synchronously)
-  const checkCached = () => {
-    if (typeof window === 'undefined') return false;
-    const img = new Image();
-    img.src = src;
-    return img.complete && img.naturalWidth > 0;
-  };
-  
-  const [loaded, setLoaded] = useState(() => checkCached());
-  
-  useEffect(() => {
-    if (loaded) return; // Already loaded, skip
-    const img = new Image();
-    img.src = src;
-    if (img.complete && img.naturalWidth > 0) {
-      setLoaded(true);
-    } else {
-      img.onload = () => setLoaded(true);
-    }
-  }, [src, loaded]);
-  
-  return loaded;
-}
+const HERO_PLACEHOLDER =
+  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERAgMSIv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABcRAQEBAQAAAAAAAAAAAAAAAAARAQL/2gAMAwEAAhEDEQA/AOUODgIwlnPNZsz85MnNwu9uB2nnUQ7ugLToEq//2Q==";
 
 function SnowfallEffect() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -163,8 +141,6 @@ const MobileGlassCard = ({ icon: Icon, label, href, testId }: { icon: typeof Pal
 );
 
 export default function HeroSection() {
-  const imageLoaded = useImagePreload(heroBackground);
-  
   const styles = `
     @keyframes float {
       0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
@@ -209,49 +185,51 @@ export default function HeroSection() {
         
         {/* ========== MOBILE LAYOUT ========== */}
         <div className="md:hidden absolute inset-0">
-          {/* Instant placeholder - blurred, loads immediately */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-no-repeat"
-            style={{ 
+            style={{
               backgroundImage: `url(${HERO_PLACEHOLDER})`,
-              backgroundPosition: '60% center',
-              filter: 'blur(20px)',
-              transform: 'scale(1.1)'
+              backgroundPosition: "60% center",
+              filter: "blur(20px)",
+              transform: "scale(1.1)",
             }}
           />
-          {/* Real background - always visible */}
-          <div 
-            className="absolute inset-0 bg-cover bg-no-repeat"
-            style={{ 
-              backgroundImage: `url(${heroBackground})`,
-              backgroundPosition: '60% center',
-            }}
+          {/* Same AVIF file as before — <img> so preload + fetchpriority apply */}
+          <img
+            src={heroBackground}
+            alt=""
+            width={3524}
+            height={1181}
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: "60% center" }}
+            aria-hidden="true"
           />
-          {/* Gradient overlay - always visible for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%" />
-          
         </div>
 
         {/* ========== DESKTOP LAYOUT ========== */}
-        {/* Desktop instant placeholder - blurred, loads immediately */}
-        <div 
+        <div
           className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-fixed"
-          style={{ 
+          style={{
             backgroundImage: `url(${HERO_PLACEHOLDER})`,
-            backgroundPosition: '35% center',
-            filter: 'blur(20px)',
-            transform: 'scale(1.1)'
+            backgroundPosition: "35% center",
+            filter: "blur(20px)",
+            transform: "scale(1.1)",
           }}
         />
-        {/* Desktop real background - always visible */}
-        <div 
-          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat"
-          style={{ 
-            backgroundImage: `url(${heroBackground})`,
-            backgroundPosition: '35% center',
-          }}
+        <img
+          src={heroBackground}
+          alt=""
+          width={3524}
+          height={1181}
+          fetchPriority="high"
+          decoding="async"
+          className="hidden md:block absolute inset-0 h-full w-full object-cover"
+          style={{ objectPosition: "35% center" }}
+          aria-hidden="true"
         />
-        {/* Desktop gradient overlays - always visible for text readability */}
         <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
         <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
         <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60" />

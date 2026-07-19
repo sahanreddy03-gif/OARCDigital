@@ -183,14 +183,13 @@ export default function RootLayout({
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        {/* LCP hero image — fetchPriority="high" tells the browser to fetch
-            this AVIF before the CSS paint fires, cutting LCP on mobile */}
+        {/* LCP hero image — must match HeroSection src exactly (attached_assets). */}
         <link
           rel="preload"
           as="image"
-          href="/assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif"
+          href="/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif"
           type="image/avif"
-          fetchPriority="high"
+          {...{ fetchPriority: "high" }}
         />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
