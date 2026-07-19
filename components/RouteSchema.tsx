@@ -235,32 +235,15 @@ export default function RouteSchema(props: RouteSchemaProps) {
   const id =
     props.scriptId ?? `route-schema-${props.path.replace(/[^a-z0-9]+/gi, "-")}`;
 
-  const faqs =
-    "faqs" in props && props.faqs && props.faqs.length ? props.faqs : null;
-
   // Plain inline <script> renders deterministically in SSR HTML. next/script
   // with strategy="beforeInteractive" is silently dropped outside app/layout
   // (Next.js docs), which previously prevented Service / BreadcrumbList nodes
   // from reaching the rendered page on every /services/<slug> route.
-  //
-  // Always-present `.faq-answer` nodes keep SpeakableSpecification valid when
-  // visible FAQs live in closed accordions (not in initial HTML).
   return (
-    <>
-      <script
-        id={id}
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
-      />
-      {faqs ? (
-        <div className="sr-only" aria-hidden="true">
-          {faqs.map((f, i) => (
-            <p key={`faq-speakable-${i}`} className="faq-answer">
-              {f.answer}
-            </p>
-          ))}
-        </div>
-      ) : null}
-    </>
+    <script
+      id={id}
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+    />
   );
 }
