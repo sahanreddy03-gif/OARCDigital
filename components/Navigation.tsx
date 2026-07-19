@@ -5,8 +5,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Menu, ChevronDown, ArrowRight, X } from "lucide-react";
 import { getPreviewServices, servicesCatalog } from '@/config/servicesConfig';
-/** Retina-correct 88px asset (displayed ~40–44px). Same mark; no soft re-encode. */
-const greenLogo = "/attached_assets/oarc-logo-nav.png";
+const greenLogo = "/attached_assets/image_1767660951950.png";
 
 export default function Navigation() {
   const [showServicesMenu, setShowServicesMenu] = useState(false);
@@ -37,10 +36,7 @@ export default function Navigation() {
             <img
               src={greenLogo}
               alt="OARC Digital logo"
-              width={44}
-              height={44}
               className="h-10 w-10 lg:h-11 lg:w-11 object-contain"
-              decoding="async"
               data-testid="img-logo"
             />
             <div 

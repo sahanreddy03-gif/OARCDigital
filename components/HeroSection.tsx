@@ -19,15 +19,13 @@ function SnowfallEffect() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (prefersReducedMotion) return;
 
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    resize();
-    window.addEventListener('resize', resize);
+    const ctx = canvas.getContext("2d", { alpha: true });
+    if (!ctx) return;
 
     interface Snowflake {
       x: number;
@@ -37,84 +35,101 @@ function SnowfallEffect() {
       baseOpacity: number;
       wobbleOffset: number;
       wobbleSpeed: number;
-      twinkleSpeed: number;
-      twinkleOffset: number;
-      layer: number;
     }
 
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
+    let animationId = 0;
+    let time = 0;
+    let running = true;
+
+    const isCoarse =
+      window.matchMedia("(pointer: coarse)").matches ||
+      window.innerWidth < 768;
+    const snowflakeCount = isCoarse ? 36 : 52;
+
     const snowflakes: Snowflake[] = [];
-    const snowflakeCount = 80;
+
+    const resize = () => {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    resize();
 
     for (let i = 0; i < snowflakeCount; i++) {
       const layer = Math.random();
-      const isFar = layer < 0.4;
-      const isMid = layer >= 0.4 && layer < 0.75;
-      
+      const isFar = layer < 0.45;
+      const isMid = layer >= 0.45 && layer < 0.8;
       snowflakes.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: isFar ? Math.random() * 1 + 0.5 : isMid ? Math.random() * 1.5 + 1 : Math.random() * 2 + 1.5,
-        speed: isFar ? Math.random() * 0.4 + 0.2 : isMid ? Math.random() * 0.6 + 0.4 : Math.random() * 0.8 + 0.6,
-        baseOpacity: isFar ? Math.random() * 0.2 + 0.3 : isMid ? Math.random() * 0.25 + 0.5 : Math.random() * 0.2 + 0.7,
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: isFar
+          ? Math.random() * 1 + 0.5
+          : isMid
+            ? Math.random() * 1.5 + 1
+            : Math.random() * 2 + 1.5,
+        speed: isFar
+          ? Math.random() * 0.4 + 0.2
+          : isMid
+            ? Math.random() * 0.6 + 0.4
+            : Math.random() * 0.8 + 0.6,
+        baseOpacity: isFar
+          ? Math.random() * 0.2 + 0.35
+          : isMid
+            ? Math.random() * 0.25 + 0.5
+            : Math.random() * 0.2 + 0.7,
         wobbleOffset: Math.random() * Math.PI * 2,
         wobbleSpeed: Math.random() * 0.02 + 0.01,
-        twinkleSpeed: Math.random() * 0.03 + 0.02,
-        twinkleOffset: Math.random() * Math.PI * 2,
-        layer: layer,
       });
     }
 
-    let animationId: number;
-    let time = 0;
-
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (!running) return;
+      ctx.clearRect(0, 0, width, height);
       time += 1;
 
-      snowflakes.forEach((flake) => {
+      for (let i = 0; i < snowflakes.length; i++) {
+        const flake = snowflakes[i];
         flake.y += flake.speed;
-        
-        const wobble = Math.sin(time * flake.wobbleSpeed + flake.wobbleOffset) * 0.4;
-        let displayX = flake.x + wobble;
-        
-        displayX = Math.max(0, Math.min(canvas.width, displayX));
-        
-        const twinkle = Math.sin(time * flake.twinkleSpeed + flake.twinkleOffset) * 0.12 + 1;
-        const currentOpacity = Math.min(flake.baseOpacity * twinkle, 1);
+        const displayX =
+          flake.x + Math.sin(time * flake.wobbleSpeed + flake.wobbleOffset) * 0.4;
 
-        if (flake.y > canvas.height + 10) {
+        if (flake.y > height + 10) {
           flake.y = -10 - Math.random() * 20;
-          flake.x = Math.random() * canvas.width;
+          flake.x = Math.random() * width;
           flake.wobbleOffset = Math.random() * Math.PI * 2;
-          flake.twinkleOffset = Math.random() * Math.PI * 2;
         }
 
         ctx.beginPath();
         ctx.arc(displayX, flake.y, flake.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${currentOpacity})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${flake.baseOpacity})`;
         ctx.fill();
-
-        const glowSize = flake.radius * 2.5;
-        const gradient = ctx.createRadialGradient(displayX, flake.y, 0, displayX, flake.y, glowSize);
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${currentOpacity * 0.35})`);
-        gradient.addColorStop(0.5, `rgba(255, 255, 255, ${currentOpacity * 0.1})`);
-        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-        ctx.beginPath();
-        ctx.arc(displayX, flake.y, glowSize, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
-        ctx.fill();
-      });
+      }
 
       animationId = requestAnimationFrame(animate);
     };
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReducedMotion) {
-      animate();
-    }
+    const onVisibility = () => {
+      running = document.visibilityState === "visible";
+      if (running) animationId = requestAnimationFrame(animate);
+      else cancelAnimationFrame(animationId);
+    };
+
+    window.addEventListener("resize", resize);
+    document.addEventListener("visibilitychange", onVisibility);
+    animate();
 
     return () => {
-      window.removeEventListener('resize', resize);
+      running = false;
+      window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", onVisibility);
       cancelAnimationFrame(animationId);
     };
   }, []);
@@ -194,17 +209,12 @@ export default function HeroSection() {
               transform: "scale(1.1)",
             }}
           />
-          {/* Same AVIF file as before — <img> so preload + fetchpriority apply */}
-          <img
-            src={heroBackground}
-            alt=""
-            width={3524}
-            height={1181}
-            fetchPriority="high"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover"
-            style={{ objectPosition: "60% center" }}
-            aria-hidden="true"
+          <div
+            className="absolute inset-0 bg-cover bg-no-repeat"
+            style={{
+              backgroundImage: `url(${heroBackground})`,
+              backgroundPosition: "60% center",
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%" />
         </div>
@@ -219,16 +229,12 @@ export default function HeroSection() {
             transform: "scale(1.1)",
           }}
         />
-        <img
-          src={heroBackground}
-          alt=""
-          width={3524}
-          height={1181}
-          fetchPriority="high"
-          decoding="async"
-          className="hidden md:block absolute inset-0 h-full w-full object-cover"
-          style={{ objectPosition: "35% center" }}
-          aria-hidden="true"
+        <div
+          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat"
+          style={{
+            backgroundImage: `url(${heroBackground})`,
+            backgroundPosition: "35% center",
+          }}
         />
         <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
         <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
