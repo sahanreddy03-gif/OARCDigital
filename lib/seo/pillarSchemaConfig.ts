@@ -27,7 +27,7 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
   "/": {
     title: "OARC Digital | Malta's First AI-Native Creative + Automation Agency",
     description:
-      `OARC Digital is Malta's first AI-native agency: brand strategy, social, video, AI agents, and revenue automation under one ${NAP.addressLocality} roof. Built for businesses that want growth measured in revenue, not slides.`,
+      "OARC Digital — Malta's AI-native agency for brand, social, video, AI agents & revenue automation. Growth measured in revenue, not slides.",
     faqs: [
       {
         question: "What does OARC Digital do?",
