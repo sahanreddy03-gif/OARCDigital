@@ -300,7 +300,7 @@ export default function AICreativeSection() {
 
       {/* Desktop: Horizontal Auto-Scrolling Carousel — hidden on mobile via CSS */}
       <div className="hidden lg:block relative w-full" data-testid="ai-creative-desktop-carousel">
-        <div className="flex gap-4 md:gap-6 lg:gap-8 cursor-grab active:cursor-grabbing" data-testid="carousel-track" ref={trackRef} style={{ willChange: 'transform' }}>
+        <div className="flex gap-4 md:gap-6 lg:gap-8 cursor-grab active:cursor-grabbing" data-testid="carousel-track" data-cursor="Drag" ref={trackRef} style={{ willChange: 'transform' }}>
           {duplicatedServices.map((service, index) => (
             <Link
               href="/services"
