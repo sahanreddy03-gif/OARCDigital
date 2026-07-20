@@ -40,80 +40,67 @@ const services = [
   { text: "MVP Development", image: customAI },
 ];
 
+/** Matches the original 1.2px/frame loop (~72px/s at 60fps). */
+const SCROLL_PX_PER_SEC = 72;
+
+const carouselStyles = `
+  @keyframes hero-chip-marquee {
+    from { transform: translate3d(calc(-1 * var(--chip-loop, 3200px)), 0, 0); }
+    to { transform: translate3d(0, 0, 0); }
+  }
+  .hero-chip-track {
+    animation: hero-chip-marquee var(--chip-duration, 44s) linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-chip-track {
+      animation: none;
+      transform: translate3d(calc(-1 * var(--chip-loop, 3200px)), 0, 0);
+    }
+  }
+`;
+
 function StraightCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number | undefined>(undefined);
-  const positionRef = useRef(0);
-  const contentWidthRef = useRef(0);
-
   const tripleServices = [...services, ...services, ...services];
 
   useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
+    const track = scrollRef.current;
+    if (!track) return;
 
     const measure = () => {
-      const children = scrollContainer.children;
-      if (children.length < services.length) return;
-      let singleSetWidth = 0;
+      if (track.children.length < services.length) return;
+      let loop = 0;
       for (let i = 0; i < services.length; i++) {
-        singleSetWidth += (children[i] as HTMLElement).offsetWidth + 12;
+        loop += (track.children[i] as HTMLElement).offsetWidth + 12;
       }
-      if (singleSetWidth > 0) {
-        contentWidthRef.current = singleSetWidth;
-        if (positionRef.current === 0) {
-          positionRef.current = singleSetWidth;
-        }
-      }
+      if (loop <= 0) return;
+      track.style.setProperty("--chip-loop", `${loop}px`);
+      track.style.setProperty("--chip-duration", `${loop / SCROLL_PX_PER_SEC}s`);
     };
 
     measure();
-    const ro = typeof ResizeObserver !== "undefined"
-      ? new ResizeObserver(measure)
-      : null;
-    ro?.observe(scrollContainer);
+    const ro =
+      typeof ResizeObserver !== "undefined"
+        ? new ResizeObserver(measure)
+        : null;
+    ro?.observe(track);
+    document.fonts?.ready.then(measure).catch(() => measure());
 
-    const speed = 1.2;
-
-    const animate = () => {
-      positionRef.current -= speed;
-
-      if (positionRef.current <= 0) {
-        positionRef.current = contentWidthRef.current;
-      }
-
-      scrollContainer.style.transform = `translate3d(-${positionRef.current}px, 0, 0)`;
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    animationRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      ro?.disconnect();
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
+    return () => ro?.disconnect();
   }, []);
 
   return (
     <div className="w-full overflow-hidden" style={{ maxWidth: "100vw" }}>
-      <div
-        ref={scrollRef}
-        className="flex whitespace-nowrap gap-3"
-        style={{
-          willChange: "transform",
-          backfaceVisibility: "hidden",
-          transform: "translate3d(0, 0, 0)",
-        }}
-      >
+      <div ref={scrollRef} className="hero-chip-track flex whitespace-nowrap gap-3">
         {tripleServices.map((service, index) => (
           <div
             key={index}
             className="inline-flex flex-shrink-0"
             data-testid={`carousel-chip-${index}`}
           >
-            <div className="group flex items-center gap-2 sm:gap-3 px-2.5 sm:px-3 py-2 sm:py-2.5 bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
+            <div className="group flex items-center gap-2 sm:gap-3 px-2.5 sm:px-3 py-2 sm:py-2.5 bg-white rounded-lg sm:rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 hover:bg-white transition-all duration-300 cursor-pointer border border-white/20 hover:border-[#c4ff4d]/30">
               <div className="w-[56px] h-[56px] sm:w-[72px] sm:h-[72px] rounded-lg sm:rounded-xl overflow-hidden flex-shrink-0 bg-zinc-100 ring-1 ring-white/30 group-hover:ring-[#c4ff4d]/40 transition-all duration-300">
                 <img
                   src={service.image}
@@ -138,6 +125,7 @@ function StraightCarousel() {
 export default function FloatingChipCarousel() {
   return (
     <div className="w-full">
+      <style>{carouselStyles}</style>
       <StraightCarousel />
     </div>
   );

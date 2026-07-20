@@ -24,6 +24,9 @@ function SnowfallEffect() {
       window.matchMedia("(max-width: 767px)").matches ||
       window.matchMedia("(pointer: coarse)").matches;
 
+    // Phone: skip canvas snow — frees the main thread for hero paint + scroll.
+    if (isMobile) return;
+
     const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
@@ -77,8 +80,8 @@ function SnowfallEffect() {
       return { sprite, spriteHalf: half };
     };
 
-    const snowflakeCount = isMobile ? 36 : 80;
-    const withGlow = !isMobile;
+    const snowflakeCount = 80;
+    const withGlow = true;
     const snowflakes: Snowflake[] = [];
 
     for (let i = 0; i < snowflakeCount; i++) {
@@ -117,16 +120,8 @@ function SnowfallEffect() {
 
     let animationId = 0;
     let time = 0;
-    let lastFrame = 0;
-    const frameGapMs = isMobile ? 33 : 0;
 
-    const animate = (now: number) => {
-      if (frameGapMs > 0 && now - lastFrame < frameGapMs) {
-        animationId = requestAnimationFrame(animate);
-        return;
-      }
-      lastFrame = now;
-
+    const animate = () => {
       ctx.clearRect(0, 0, width, height);
       time += 1;
 
@@ -156,7 +151,20 @@ function SnowfallEffect() {
       animationId = requestAnimationFrame(animate);
     };
 
-    animationId = requestAnimationFrame(animate);
+    const start = () => {
+      animationId = requestAnimationFrame(animate);
+    };
+
+    if (typeof requestIdleCallback !== "undefined") {
+      const idleId = requestIdleCallback(start, { timeout: 500 });
+      return () => {
+        cancelIdleCallback(idleId);
+        window.removeEventListener("resize", resize);
+        cancelAnimationFrame(animationId);
+      };
+    }
+
+    start();
 
     return () => {
       window.removeEventListener("resize", resize);
@@ -167,7 +175,7 @@ function SnowfallEffect() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 pointer-events-none z-20 motion-reduce:hidden"
+      className="absolute inset-0 pointer-events-none z-20 motion-reduce:hidden hidden md:block"
       style={{ opacity: 0.9 }}
     />
   );
@@ -226,17 +234,19 @@ export default function HeroSection() {
   return (
     <>
       <style>{styles}</style>
-      <section className="relative min-h-[92vh] md:min-h-screen flex flex-col overflow-hidden bg-black">
+      <section
+        className="relative min-h-[92vh] md:min-h-screen flex flex-col overflow-hidden bg-black"
+        style={{ isolation: "isolate" }}
+      >
         
         {/* ========== MOBILE LAYOUT ========== */}
         <div className="md:hidden absolute inset-0">
           {/* Instant placeholder - blurred, loads immediately */}
           <div 
-            className="absolute inset-0 bg-cover bg-no-repeat"
+            className="absolute inset-0 bg-cover bg-no-repeat bg-zinc-950/90"
             style={{ 
               backgroundImage: `url(${HERO_PLACEHOLDER})`,
               backgroundPosition: '60% center',
-              filter: 'blur(20px)',
               transform: 'scale(1.1)'
             }}
           />
@@ -284,8 +294,8 @@ export default function HeroSection() {
           {/* Light Sweep Effect */}
           <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
             <div 
-              className="absolute w-1/3 h-[200%] -top-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-[lightSweep_15s_ease-in-out_infinite]" 
-              style={{ animationDelay: '2s' }} 
+              className="absolute w-1/3 h-[200%] -top-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-[lightSweep_15s_ease-in-out_infinite] motion-reduce:hidden"
+              style={{ animationDelay: '2s', willChange: 'transform', transform: 'translateZ(0)' }} 
             />
           </div>
         </>
