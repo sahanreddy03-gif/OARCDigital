@@ -345,6 +345,7 @@
   --font-heading: var(--font-montserrat), var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-display: var(--font-space-grotesk), var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-serif: var(--font-eb-garamond), Georgia, serif;
+  --font-editorial: var(--font-instrument-serif), Georgia, serif;
   --font-garamond: var(--font-eb-garamond), Georgia, serif;
   --font-blackpast: 'Blackpast', Georgia, serif;
   --font-mono: Menlo, monospace;
