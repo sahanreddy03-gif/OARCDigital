@@ -40,44 +40,73 @@ const services = [
   { text: "MVP Development", image: customAI },
 ];
 
-/** ~1.2px/frame at 60fps — matches the old JS carousel speed. */
-const SCROLL_PX_PER_SEC = 72;
-
-const carouselStyles = `
-  @keyframes hero-chip-scroll {
-    from { transform: translate3d(-33.333333%, 0, 0); }
-    to { transform: translate3d(-66.666666%, 0, 0); }
-  }
-  .hero-chip-track {
-    animation: hero-chip-scroll var(--hero-chip-duration, 45s) linear infinite;
-    will-change: transform;
-    backface-visibility: hidden;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero-chip-track { animation: none; transform: translate3d(-33.333333%, 0, 0); }
-  }
-`;
-
 function StraightCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number | undefined>(undefined);
+  const positionRef = useRef(0);
+  const contentWidthRef = useRef(0);
+
   const tripleServices = [...services, ...services, ...services];
 
   useEffect(() => {
-    const track = scrollRef.current;
-    if (!track || track.children.length < services.length) return;
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
 
-    let setWidth = 0;
-    for (let i = 0; i < services.length; i++) {
-      setWidth += (track.children[i] as HTMLElement).offsetWidth + 12;
-    }
-    if (setWidth <= 0) return;
+    const measure = () => {
+      const children = scrollContainer.children;
+      if (children.length < services.length) return;
+      let singleSetWidth = 0;
+      for (let i = 0; i < services.length; i++) {
+        singleSetWidth += (children[i] as HTMLElement).offsetWidth + 12;
+      }
+      if (singleSetWidth > 0) {
+        contentWidthRef.current = singleSetWidth;
+        if (positionRef.current === 0) {
+          positionRef.current = singleSetWidth;
+        }
+      }
+    };
 
-    track.style.setProperty("--hero-chip-duration", `${setWidth / SCROLL_PX_PER_SEC}s`);
+    measure();
+    const ro = typeof ResizeObserver !== "undefined"
+      ? new ResizeObserver(measure)
+      : null;
+    ro?.observe(scrollContainer);
+
+    const speed = 1.2;
+
+    const animate = () => {
+      positionRef.current -= speed;
+
+      if (positionRef.current <= 0) {
+        positionRef.current = contentWidthRef.current;
+      }
+
+      scrollContainer.style.transform = `translate3d(-${positionRef.current}px, 0, 0)`;
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      ro?.disconnect();
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
   }, []);
 
   return (
     <div className="w-full overflow-hidden" style={{ maxWidth: "100vw" }}>
-      <div ref={scrollRef} className="hero-chip-track flex whitespace-nowrap gap-3">
+      <div
+        ref={scrollRef}
+        className="flex whitespace-nowrap gap-3"
+        style={{
+          willChange: "transform",
+          backfaceVisibility: "hidden",
+          transform: "translate3d(0, 0, 0)",
+        }}
+      >
         {tripleServices.map((service, index) => (
           <div
             key={index}
@@ -109,7 +138,6 @@ function StraightCarousel() {
 export default function FloatingChipCarousel() {
   return (
     <div className="w-full">
-      <style>{carouselStyles}</style>
       <StraightCarousel />
     </div>
   );

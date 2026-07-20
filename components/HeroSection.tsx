@@ -15,15 +15,29 @@ function SnowfallEffect() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (prefersReducedMotion) return;
+
+    const isMobile =
+      window.matchMedia("(max-width: 767px)").matches ||
+      window.matchMedia("(pointer: coarse)").matches;
+
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
+    let width = 0;
+    let height = 0;
+
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
     };
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener("resize", resize);
 
     interface Snowflake {
       x: number;
@@ -35,14 +49,13 @@ function SnowfallEffect() {
       wobbleSpeed: number;
       twinkleSpeed: number;
       twinkleOffset: number;
-      layer: number;
       sprite: HTMLCanvasElement;
       spriteHalf: number;
     }
 
-    const makeSprite = (radius: number) => {
+    const makeSprite = (radius: number, withGlow: boolean) => {
       const glowSize = radius * 2.5;
-      const half = Math.ceil(glowSize) + 1;
+      const half = withGlow ? Math.ceil(glowSize) + 1 : Math.ceil(radius) + 1;
       const sprite = document.createElement("canvas");
       sprite.width = half * 2;
       sprite.height = half * 2;
@@ -51,38 +64,52 @@ function SnowfallEffect() {
       sctx.arc(half, half, radius, 0, Math.PI * 2);
       sctx.fillStyle = "rgba(255, 255, 255, 1)";
       sctx.fill();
-      const gradient = sctx.createRadialGradient(half, half, 0, half, half, glowSize);
-      gradient.addColorStop(0, "rgba(255, 255, 255, 0.35)");
-      gradient.addColorStop(0.5, "rgba(255, 255, 255, 0.1)");
-      gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
-      sctx.beginPath();
-      sctx.arc(half, half, glowSize, 0, Math.PI * 2);
-      sctx.fillStyle = gradient;
-      sctx.fill();
+      if (withGlow) {
+        const gradient = sctx.createRadialGradient(half, half, 0, half, half, glowSize);
+        gradient.addColorStop(0, "rgba(255, 255, 255, 0.35)");
+        gradient.addColorStop(0.5, "rgba(255, 255, 255, 0.1)");
+        gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+        sctx.beginPath();
+        sctx.arc(half, half, glowSize, 0, Math.PI * 2);
+        sctx.fillStyle = gradient;
+        sctx.fill();
+      }
       return { sprite, spriteHalf: half };
     };
 
+    const snowflakeCount = isMobile ? 36 : 80;
+    const withGlow = !isMobile;
     const snowflakes: Snowflake[] = [];
-    const snowflakeCount = 80;
 
     for (let i = 0; i < snowflakeCount; i++) {
       const layer = Math.random();
       const isFar = layer < 0.4;
       const isMid = layer >= 0.4 && layer < 0.75;
-      const radius = isFar ? Math.random() * 1 + 0.5 : isMid ? Math.random() * 1.5 + 1 : Math.random() * 2 + 1.5;
-      const { sprite, spriteHalf } = makeSprite(radius);
+      const radius = isFar
+        ? Math.random() * 1 + 0.5
+        : isMid
+          ? Math.random() * 1.5 + 1
+          : Math.random() * 2 + 1.5;
+      const { sprite, spriteHalf } = makeSprite(radius, withGlow);
 
       snowflakes.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
+        x: Math.random() * width,
+        y: Math.random() * height,
         radius,
-        speed: isFar ? Math.random() * 0.4 + 0.2 : isMid ? Math.random() * 0.6 + 0.4 : Math.random() * 0.8 + 0.6,
-        baseOpacity: isFar ? Math.random() * 0.2 + 0.3 : isMid ? Math.random() * 0.25 + 0.5 : Math.random() * 0.2 + 0.7,
+        speed: isFar
+          ? Math.random() * 0.4 + 0.2
+          : isMid
+            ? Math.random() * 0.6 + 0.4
+            : Math.random() * 0.8 + 0.6,
+        baseOpacity: isFar
+          ? Math.random() * 0.2 + 0.35
+          : isMid
+            ? Math.random() * 0.25 + 0.5
+            : Math.random() * 0.2 + 0.7,
         wobbleOffset: Math.random() * Math.PI * 2,
         wobbleSpeed: Math.random() * 0.02 + 0.01,
         twinkleSpeed: Math.random() * 0.03 + 0.02,
         twinkleOffset: Math.random() * Math.PI * 2,
-        layer: layer,
         sprite,
         spriteHalf,
       });
@@ -90,9 +117,17 @@ function SnowfallEffect() {
 
     let animationId = 0;
     let time = 0;
+    let lastFrame = 0;
+    const frameGapMs = isMobile ? 33 : 0;
 
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const animate = (now: number) => {
+      if (frameGapMs > 0 && now - lastFrame < frameGapMs) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
+      lastFrame = now;
+
+      ctx.clearRect(0, 0, width, height);
       time += 1;
 
       for (let i = 0; i < snowflakes.length; i++) {
@@ -101,14 +136,14 @@ function SnowfallEffect() {
 
         const wobble = Math.sin(time * flake.wobbleSpeed + flake.wobbleOffset) * 0.4;
         let displayX = flake.x + wobble;
-        displayX = Math.max(0, Math.min(canvas.width, displayX));
+        displayX = Math.max(0, Math.min(width, displayX));
 
         const twinkle = Math.sin(time * flake.twinkleSpeed + flake.twinkleOffset) * 0.12 + 1;
         const currentOpacity = Math.min(flake.baseOpacity * twinkle, 1);
 
-        if (flake.y > canvas.height + 10) {
+        if (flake.y > height + 10) {
           flake.y = -10 - Math.random() * 20;
-          flake.x = Math.random() * canvas.width;
+          flake.x = Math.random() * width;
           flake.wobbleOffset = Math.random() * Math.PI * 2;
           flake.twinkleOffset = Math.random() * Math.PI * 2;
         }
@@ -121,13 +156,10 @@ function SnowfallEffect() {
       animationId = requestAnimationFrame(animate);
     };
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReducedMotion) {
-      animate();
-    }
+    animationId = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener('resize', resize);
+      window.removeEventListener("resize", resize);
       cancelAnimationFrame(animationId);
     };
   }, []);
