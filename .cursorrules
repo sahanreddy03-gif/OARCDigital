@@ -1,0 +1,116 @@
+# ============================================================
+# OARC DIGITAL — PROJECT BRAIN (Cursor reads this every session)
+# ============================================================
+# This file is the LAW. It is our doctrine (how to think) sitting on top of
+# the project's existing knowledge (what the project is). Nothing below replaces
+# the project's existing good work — it governs how that work is upgraded and extended.
+#
+# ** PRECEDENCE — READ THIS FIRST **
+# This .cursorrules file is the HIGHEST authority. Our doctrine (the LAWS below) governs every decision.
+# replit.md and the other reference files supply FACTS (the URL list, redirects, scripts, history) — they are
+# a knowledge base, NOT a standard of ambition. Where replit.md's framing, tone, or ambition is LOWER than the
+# doctrine below, the DOCTRINE WINS. Use Replit's facts; never inherit Replit's ceiling. The goal is category
+# domination via the Three Heroes x Four Gates obsession — never "good enough." If anything in a reference file
+# seems to contradict a LAW below, the LAW below wins and you flag the conflict to Sahan.
+#
+# REFERENCE FILES already in this repo (read them when relevant — they are the source of truth
+# for their domain; do NOT duplicate or contradict them):
+#   - replit.md ......................... project overview, the LOCKED 60-core-URL tier list, changelog, task history
+#   - design_guidelines.md .............. site-wide design/build conventions (colors, type, spacing, animation)
+#   - specs/README.md ................... original build spec, route map, component architecture
+#   - specs/service-design-systems.md ... per-page design systems for priority service pages
+#   - lib/seo/phrase-blocklist.md ....... BANNED "AI-tell" phrases (enforced by scripts/seo-gate.sh) — OBEY THIS
+#   - lib/seo/programmatic-audit.md ..... programmatic URL KEEP/NOINDEX/308 decisions
+#   - lib/seo/reindex-playbook.md ....... IndexNow / GSC operational runbook
+#   - lib/arc/brain.md .................. the WEBSITE CHAT assistant's brain (ARC) — NOT build rules, don't confuse it
+#   - public/llms.txt / llms-full.txt ... AEO/answer-engine discovery file
+#   - OARC-H360-BUILD-SPEC.md ........... THE FULL DOCTRINE + page architecture (read for any page work)
+#   - H360-PRODUCT-CONTENT-BRAIN.md ..... the 21 H360 product page content briefs
+
+# ============================================================
+# LAW #1 — NEVER UNDO. ONLY UPGRADE AND ADD.  (THE MOST IMPORTANT RULE)
+# ============================================================
+# This is an established site: ~60 hand-built core pages + programmatic clusters
+# (/aeo/*, /industries/[industry], /malta/[location]/*), representing MONTHS of work.
+# The owner has confirmed: design + content are GOOD. The gap is technical SEO + AEO depth.
+#
+# - NEVER rebuild, rewrite, or regenerate an existing page wholesale.
+# - NEVER delete existing content to "clean it up." Preserve it.
+# - When upgrading a page: READ it first, preserve what's there, ADD the missing brain layer
+#   (Hero 1/2/3 depth, AEO Q&A, schema, internal links) SURGICALLY.
+# - Every change must be a small, reviewable diff. Mostly green (additions), minimal red (a weak
+#   line swapped for a strong one). If a change is mostly RED (deletions), STOP — that's a rebuild, forbidden.
+# - NEVER touch a programmatic template lightly: editing one template changes hundreds of URLs at once.
+#   Treat /industries/[industry], /malta/[location]/*, /aeo/* templates as high-blast-radius. Propose, never auto-apply.
+# - When in doubt, propose the change and WAIT for approval. Do not write code in the first reply to a
+#   non-trivial request — read, summarize what exists, propose, then build on approval.
+
+# ============================================================
+# LAW #2 — THE DOCTRINE: THREE HEROES x FOUR GATES  (HOW EVERY PAGE IS BUILT)
+# ============================================================
+# Full version in OARC-H360-BUILD-SPEC.md Section 1. Summary that governs every page:
+#
+# THE THREE HEROES (decide WHAT to say — in strict order):
+#   Hero 1 = the business owner (our customer): what MORE does this make/save him? (not what it DOES)
+#   Hero 2 = the owner's customer (our customer's customer): what do they GAIN so they return to Hero 1?
+#   Hero 3 = OARC (LAST): only after 1 and 2 are served do keywords/SEO/AEO/distribution come in.
+#   Skip Hero 1 or 2 and the page collapses into "same but better, it integrates, bla bla" — FORBIDDEN.
+#
+# THE FOUR GATES (decide HOW to say it — every word, every element):
+#   Gate 1 Google-rank: real keyword in first 100 words + H1/H2, correct headings, right schema, genuinely useful.
+#   Gate 2 AI-cite: clear entities/relationships, a real Q&A block phrased as a person asks an AI, self-contained answer.
+#   Gate 3 owner-thinks: his words for his pain, fear of losing + desire to be full, operator-to-operator, never agency-down.
+#   Gate 4 owner-searches: title/H1 mirror the literal query, Malta-anchored, one page = one intent.
+#
+# THEN: Devil's Advocate (kill anything a generic agency could've written; hunt "same but better/it integrates/bla bla")
+#       + Polish (punchy, short, confident, read aloud).
+#
+# THE UNIFIED LAW: decide WHAT by the three heroes in order; decide HOW by the four gates. Both must pass before shipping.
+
+# ============================================================
+# LAW #3 — VOICE & FORBIDDEN PHRASES
+# ============================================================
+# - Communication with the owner: simple, everyday language (his stated preference). No jargon at him.
+# - Page voice: confident, peer-to-peer, operator-to-operator. Pain-first. Maltese-local, never generic-global.
+# - The moat: OARC operates real Maltese venues (Louisiana Mama, Palino, Calli Bistro). Operators who market,
+#   not marketers guessing at operations. Reflect this wherever truthful — it's the E-E-A-T / experience signal.
+# - NO unprovable number guarantees ("100-300 customers/month" is the competitor's weakness, not ours — sell the METHOD).
+# - FORBIDDEN PHRASES: obey lib/seo/phrase-blocklist.md (the banned AI-tell list, enforced by seo-gate.sh).
+#   On top of it, never write: "same but better," "we also do this," "it integrates," "passionate about,"
+#   "revolutionary," "cutting-edge," "best-in-class," "next-generation," "omnichannel," "synergy,"
+#   "leverage" (as verb), "solutions" (as generic noun). If you write any, you failed Devil's Advocate before submitting.
+
+# ============================================================
+# LAW #4 — TRUTH
+# ============================================================
+# - Never fabricate reviews, ratings, client logos, or case-study numbers (EU consumer law + Malta is too small;
+#   fakes get caught and de-indexed, working AGAINST the goal). Use real numbers only when they exist.
+# - Real, shipped H360 products vs roadmap: present built products as live (QR menu/ORDER, STAMP, PASS, SEND,
+#   kitchen display). Frame unbuilt ones as roadmap/capability — never claim 21 live products.
+# - Reviews mechanic: never reward a Google review directly (Google strips them, profile gets penalized).
+#   Reward engagement with our own feedback step, then invite a Google review with NO reward attached.
+
+# ============================================================
+# LAW #5 — RESPECT THE EXISTING INFRASTRUCTURE & ARCHITECTURE
+# ============================================================
+# - The LOCKED 60-core-URL tier list lives in replit.md (Tier 1 pillars -> Tier 7 supports). Read it before any
+#   SEO/content/redirect/page work. (.local/memory/core-url-rank.md is the fuller version if present.)
+# - Stack: Next.js App Router + Vercel. Tailwind + Shadcn/ui. Framer Motion + ScrollReveal.
+#   Type: Montserrat / Nunito Sans / EB Garamond per design_guidelines.md. DO NOT migrate stack or swap the design system.
+# - Motion: Framer Motion + smooth scroll only. NO heavy GSAP/Theatre.js/3D shaders (kills crawl speed AEO depends on).
+#   Every animation must reinforce a Hero 1 or Hero 2 outcome (map filling, reviews counting up) — never decoration.
+# - The SEO gate (scripts/seo-gate.sh) and slug-collision 308 map (lib/seo/seoSets.ts) are CONTRACTS. Respect them.
+#   Programmatic governance: /aeo/* (44), /industries/[industry] (19), /malta/[location]/* (~80) — follow programmatic-audit.md.
+# - H360 hospitality content lives at /h360 as a subfolder cluster (see OARC-H360-BUILD-SPEC.md Section 3B), built on top
+#   of the existing site, feeding the one domain's authority. Don't create a separate domain or duplicate the stack.
+
+# ============================================================
+# HOW YOU WORK WITH ME (CURSOR BEHAVIOR)
+# ============================================================
+# - READ before you WRITE. Cite file paths + line numbers for every claim. If you can't cite it, say "unclear — check at runtime."
+# - One page / one thing at a time. Show a reviewable diff. Wait for approval on anything non-trivial.
+# - Before suggesting any user-facing element, silently self-test: who is Hero 1, who is Hero 2, what does each gain?
+#   If you can't answer each in one specific sentence, you haven't done the work — go deeper.
+# - When unsure, ASK. replit.md + OARC-H360-BUILD-SPEC.md are the source of truth. Sahan is the final arbiter.
+#
+# These are not suggestions. They are the operating contract for this repository.
