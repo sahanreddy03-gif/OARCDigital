@@ -62,7 +62,39 @@ function SnowfallEffect() {
       twinkleSpeed: number;
       twinkleOffset: number;
       layer: number;
+      sprite: HTMLCanvasElement;
+      spriteHalf: number;
     }
+
+    // Pre-render each flake (core + glow) ONCE into a tiny offscreen sprite.
+    // Same radii, same gradient stops, same glow size as the per-frame version
+    // — but per frame we only stamp cached images with globalAlpha, so there
+    // are zero allocations and no GC hitches (the cause of the visible
+    // stutter when the page is busy).
+    const makeSprite = (radius: number) => {
+      const glowSize = radius * 2.5;
+      const half = Math.ceil(glowSize) + 1;
+      const sprite = document.createElement('canvas');
+      sprite.width = half * 2;
+      sprite.height = half * 2;
+      const sctx = sprite.getContext('2d')!;
+
+      sctx.beginPath();
+      sctx.arc(half, half, radius, 0, Math.PI * 2);
+      sctx.fillStyle = 'rgba(255, 255, 255, 1)';
+      sctx.fill();
+
+      const gradient = sctx.createRadialGradient(half, half, 0, half, half, glowSize);
+      gradient.addColorStop(0, 'rgba(255, 255, 255, 0.35)');
+      gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.1)');
+      gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      sctx.beginPath();
+      sctx.arc(half, half, glowSize, 0, Math.PI * 2);
+      sctx.fillStyle = gradient;
+      sctx.fill();
+
+      return { sprite, spriteHalf: half };
+    };
 
     const snowflakes: Snowflake[] = [];
     const snowflakeCount = 80;
@@ -71,11 +103,13 @@ function SnowfallEffect() {
       const layer = Math.random();
       const isFar = layer < 0.4;
       const isMid = layer >= 0.4 && layer < 0.75;
-      
+      const radius = isFar ? Math.random() * 1 + 0.5 : isMid ? Math.random() * 1.5 + 1 : Math.random() * 2 + 1.5;
+      const { sprite, spriteHalf } = makeSprite(radius);
+
       snowflakes.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: isFar ? Math.random() * 1 + 0.5 : isMid ? Math.random() * 1.5 + 1 : Math.random() * 2 + 1.5,
+        radius,
         speed: isFar ? Math.random() * 0.4 + 0.2 : isMid ? Math.random() * 0.6 + 0.4 : Math.random() * 0.8 + 0.6,
         baseOpacity: isFar ? Math.random() * 0.2 + 0.3 : isMid ? Math.random() * 0.25 + 0.5 : Math.random() * 0.2 + 0.7,
         wobbleOffset: Math.random() * Math.PI * 2,
@@ -83,24 +117,29 @@ function SnowfallEffect() {
         twinkleSpeed: Math.random() * 0.03 + 0.02,
         twinkleOffset: Math.random() * Math.PI * 2,
         layer: layer,
+        sprite,
+        spriteHalf,
       });
     }
 
-    let animationId: number;
+    let animationId = 0;
     let time = 0;
+    let running = false;
 
     const animate = () => {
+      if (!running) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       time += 1;
 
-      snowflakes.forEach((flake) => {
+      for (let i = 0; i < snowflakes.length; i++) {
+        const flake = snowflakes[i];
         flake.y += flake.speed;
-        
+
         const wobble = Math.sin(time * flake.wobbleSpeed + flake.wobbleOffset) * 0.4;
         let displayX = flake.x + wobble;
-        
+
         displayX = Math.max(0, Math.min(canvas.width, displayX));
-        
+
         const twinkle = Math.sin(time * flake.twinkleSpeed + flake.twinkleOffset) * 0.12 + 1;
         const currentOpacity = Math.min(flake.baseOpacity * twinkle, 1);
 
@@ -111,32 +150,53 @@ function SnowfallEffect() {
           flake.twinkleOffset = Math.random() * Math.PI * 2;
         }
 
-        ctx.beginPath();
-        ctx.arc(displayX, flake.y, flake.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${currentOpacity})`;
-        ctx.fill();
-
-        const glowSize = flake.radius * 2.5;
-        const gradient = ctx.createRadialGradient(displayX, flake.y, 0, displayX, flake.y, glowSize);
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${currentOpacity * 0.35})`);
-        gradient.addColorStop(0.5, `rgba(255, 255, 255, ${currentOpacity * 0.1})`);
-        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-        ctx.beginPath();
-        ctx.arc(displayX, flake.y, glowSize, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
-        ctx.fill();
-      });
+        ctx.globalAlpha = currentOpacity;
+        ctx.drawImage(flake.sprite, displayX - flake.spriteHalf, flake.y - flake.spriteHalf);
+      }
+      ctx.globalAlpha = 1;
 
       animationId = requestAnimationFrame(animate);
     };
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReducedMotion) {
-      animate();
-    }
+
+    let inView = true;
+    let tabVisible = document.visibilityState === 'visible';
+
+    const syncRunning = () => {
+      const shouldRun = !prefersReducedMotion && inView && tabVisible;
+      if (shouldRun && !running) {
+        running = true;
+        animationId = requestAnimationFrame(animate);
+      } else if (!shouldRun && running) {
+        running = false;
+        cancelAnimationFrame(animationId);
+      }
+    };
+
+    // Pause the loop when the hero is scrolled out of view or the tab is
+    // hidden — it was drawing at full speed for the whole page session.
+    const io = typeof IntersectionObserver !== 'undefined'
+      ? new IntersectionObserver(([entry]) => {
+          inView = Boolean(entry?.isIntersecting);
+          syncRunning();
+        })
+      : null;
+    io?.observe(canvas);
+
+    const onVisibility = () => {
+      tabVisible = document.visibilityState === 'visible';
+      syncRunning();
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+
+    syncRunning();
 
     return () => {
+      running = false;
       window.removeEventListener('resize', resize);
+      document.removeEventListener('visibilitychange', onVisibility);
+      io?.disconnect();
       cancelAnimationFrame(animationId);
     };
   }, []);
