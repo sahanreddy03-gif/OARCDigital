@@ -1,38 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 const heroBackground = "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
 
 const HERO_PLACEHOLDER = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERAgMSIv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABcRAQEBAQAAAAAAAAAAAAAAAAARAQL/2gAMAwEAAhEDEQA/AOUODgIwlnPNZsz85MnNwu9uB2nnUQ7ugLToEq//2Q==';
-
-function useImagePreload(src: string) {
-  // Check if image is already cached IMMEDIATELY (synchronously)
-  const checkCached = () => {
-    if (typeof window === 'undefined') return false;
-    const img = new Image();
-    img.src = src;
-    return img.complete && img.naturalWidth > 0;
-  };
-  
-  const [loaded, setLoaded] = useState(() => checkCached());
-  
-  useEffect(() => {
-    if (loaded) return; // Already loaded, skip
-    const img = new Image();
-    img.src = src;
-    if (img.complete && img.naturalWidth > 0) {
-      setLoaded(true);
-    } else {
-      img.onload = () => setLoaded(true);
-    }
-  }, [src, loaded]);
-  
-  return loaded;
-}
 
 function SnowfallEffect() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -62,7 +36,31 @@ function SnowfallEffect() {
       twinkleSpeed: number;
       twinkleOffset: number;
       layer: number;
+      sprite: HTMLCanvasElement;
+      spriteHalf: number;
     }
+
+    const makeSprite = (radius: number) => {
+      const glowSize = radius * 2.5;
+      const half = Math.ceil(glowSize) + 1;
+      const sprite = document.createElement("canvas");
+      sprite.width = half * 2;
+      sprite.height = half * 2;
+      const sctx = sprite.getContext("2d")!;
+      sctx.beginPath();
+      sctx.arc(half, half, radius, 0, Math.PI * 2);
+      sctx.fillStyle = "rgba(255, 255, 255, 1)";
+      sctx.fill();
+      const gradient = sctx.createRadialGradient(half, half, 0, half, half, glowSize);
+      gradient.addColorStop(0, "rgba(255, 255, 255, 0.35)");
+      gradient.addColorStop(0.5, "rgba(255, 255, 255, 0.1)");
+      gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+      sctx.beginPath();
+      sctx.arc(half, half, glowSize, 0, Math.PI * 2);
+      sctx.fillStyle = gradient;
+      sctx.fill();
+      return { sprite, spriteHalf: half };
+    };
 
     const snowflakes: Snowflake[] = [];
     const snowflakeCount = 80;
@@ -71,11 +69,13 @@ function SnowfallEffect() {
       const layer = Math.random();
       const isFar = layer < 0.4;
       const isMid = layer >= 0.4 && layer < 0.75;
-      
+      const radius = isFar ? Math.random() * 1 + 0.5 : isMid ? Math.random() * 1.5 + 1 : Math.random() * 2 + 1.5;
+      const { sprite, spriteHalf } = makeSprite(radius);
+
       snowflakes.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: isFar ? Math.random() * 1 + 0.5 : isMid ? Math.random() * 1.5 + 1 : Math.random() * 2 + 1.5,
+        radius,
         speed: isFar ? Math.random() * 0.4 + 0.2 : isMid ? Math.random() * 0.6 + 0.4 : Math.random() * 0.8 + 0.6,
         baseOpacity: isFar ? Math.random() * 0.2 + 0.3 : isMid ? Math.random() * 0.25 + 0.5 : Math.random() * 0.2 + 0.7,
         wobbleOffset: Math.random() * Math.PI * 2,
@@ -83,24 +83,26 @@ function SnowfallEffect() {
         twinkleSpeed: Math.random() * 0.03 + 0.02,
         twinkleOffset: Math.random() * Math.PI * 2,
         layer: layer,
+        sprite,
+        spriteHalf,
       });
     }
 
-    let animationId: number;
+    let animationId = 0;
     let time = 0;
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       time += 1;
 
-      snowflakes.forEach((flake) => {
+      for (let i = 0; i < snowflakes.length; i++) {
+        const flake = snowflakes[i];
         flake.y += flake.speed;
-        
+
         const wobble = Math.sin(time * flake.wobbleSpeed + flake.wobbleOffset) * 0.4;
         let displayX = flake.x + wobble;
-        
         displayX = Math.max(0, Math.min(canvas.width, displayX));
-        
+
         const twinkle = Math.sin(time * flake.twinkleSpeed + flake.twinkleOffset) * 0.12 + 1;
         const currentOpacity = Math.min(flake.baseOpacity * twinkle, 1);
 
@@ -111,21 +113,10 @@ function SnowfallEffect() {
           flake.twinkleOffset = Math.random() * Math.PI * 2;
         }
 
-        ctx.beginPath();
-        ctx.arc(displayX, flake.y, flake.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${currentOpacity})`;
-        ctx.fill();
-
-        const glowSize = flake.radius * 2.5;
-        const gradient = ctx.createRadialGradient(displayX, flake.y, 0, displayX, flake.y, glowSize);
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${currentOpacity * 0.35})`);
-        gradient.addColorStop(0.5, `rgba(255, 255, 255, ${currentOpacity * 0.1})`);
-        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-        ctx.beginPath();
-        ctx.arc(displayX, flake.y, glowSize, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
-        ctx.fill();
-      });
+        ctx.globalAlpha = currentOpacity;
+        ctx.drawImage(flake.sprite, displayX - flake.spriteHalf, flake.y - flake.spriteHalf);
+      }
+      ctx.globalAlpha = 1;
 
       animationId = requestAnimationFrame(animate);
     };
@@ -163,8 +154,6 @@ const MobileGlassCard = ({ icon: Icon, label, href, testId }: { icon: typeof Pal
 );
 
 export default function HeroSection() {
-  const imageLoaded = useImagePreload(heroBackground);
-  
   const styles = `
     @keyframes float {
       0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }

@@ -40,106 +40,44 @@ const services = [
   { text: "MVP Development", image: customAI },
 ];
 
-function StraightCarousel() {
-  const rootRef = useRef<HTMLDivElement>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number | undefined>(undefined);
-  const positionRef = useRef(0);
-  const contentWidthRef = useRef(0);
-  const runningRef = useRef(false);
+/** ~1.2px/frame at 60fps — matches the old JS carousel speed. */
+const SCROLL_PX_PER_SEC = 72;
 
+const carouselStyles = `
+  @keyframes hero-chip-scroll {
+    from { transform: translate3d(-33.333333%, 0, 0); }
+    to { transform: translate3d(-66.666666%, 0, 0); }
+  }
+  .hero-chip-track {
+    animation: hero-chip-scroll var(--hero-chip-duration, 45s) linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-chip-track { animation: none; transform: translate3d(-33.333333%, 0, 0); }
+  }
+`;
+
+function StraightCarousel() {
+  const scrollRef = useRef<HTMLDivElement>(null);
   const tripleServices = [...services, ...services, ...services];
 
   useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    const root = rootRef.current;
-    if (!scrollContainer || !root) return;
+    const track = scrollRef.current;
+    if (!track || track.children.length < services.length) return;
 
-    const children = scrollContainer.children;
-    if (children.length > 0) {
-      let singleSetWidth = 0;
-      for (let i = 0; i < services.length; i++) {
-        const child = children[i] as HTMLElement;
-        singleSetWidth += child.offsetWidth + 12;
-      }
-      contentWidthRef.current = singleSetWidth;
-      positionRef.current = singleSetWidth;
+    let setWidth = 0;
+    for (let i = 0; i < services.length; i++) {
+      setWidth += (track.children[i] as HTMLElement).offsetWidth + 12;
     }
+    if (setWidth <= 0) return;
 
-    const speed = 1.2;
-
-    const animate = () => {
-      if (!runningRef.current) return;
-      positionRef.current -= speed;
-
-      if (positionRef.current <= 0) {
-        positionRef.current = contentWidthRef.current;
-      }
-
-      scrollContainer.style.transform = `translate3d(-${positionRef.current}px, 0, 0)`;
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    let inView = true;
-    let tabVisible = document.visibilityState === "visible";
-
-    const syncRunning = () => {
-      const shouldRun = inView && tabVisible;
-      if (shouldRun && !runningRef.current) {
-        runningRef.current = true;
-        animationRef.current = requestAnimationFrame(animate);
-      } else if (!shouldRun && runningRef.current) {
-        runningRef.current = false;
-        if (animationRef.current) cancelAnimationFrame(animationRef.current);
-      }
-    };
-
-    const io =
-      typeof IntersectionObserver !== "undefined"
-        ? new IntersectionObserver(
-            ([entry]) => {
-              inView = Boolean(entry?.isIntersecting);
-              syncRunning();
-            },
-            { rootMargin: "80px 0px" },
-          )
-        : null;
-    io?.observe(root);
-
-    const onVisibility = () => {
-      tabVisible = document.visibilityState === "visible";
-      syncRunning();
-    };
-    document.addEventListener("visibilitychange", onVisibility);
-
-    // Let hero + snow paint before the carousel loop starts competing for rAF.
-    const startTimer = window.setTimeout(syncRunning, 400);
-
-    return () => {
-      runningRef.current = false;
-      window.clearTimeout(startTimer);
-      document.removeEventListener("visibilitychange", onVisibility);
-      io?.disconnect();
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
-    };
+    track.style.setProperty("--hero-chip-duration", `${setWidth / SCROLL_PX_PER_SEC}s`);
   }, []);
 
   return (
-    <div
-      ref={rootRef}
-      className="w-full overflow-hidden"
-      style={{ maxWidth: "100vw" }}
-    >
-      <div
-        ref={scrollRef}
-        className="flex whitespace-nowrap gap-3"
-        style={{
-          willChange: "transform",
-          backfaceVisibility: "hidden",
-          perspective: 1000,
-          transform: "translate3d(0, 0, 0)",
-        }}
-      >
+    <div className="w-full overflow-hidden" style={{ maxWidth: "100vw" }}>
+      <div ref={scrollRef} className="hero-chip-track flex whitespace-nowrap gap-3">
         {tripleServices.map((service, index) => (
           <div
             key={index}
@@ -171,6 +109,7 @@ function StraightCarousel() {
 export default function FloatingChipCarousel() {
   return (
     <div className="w-full">
+      <style>{carouselStyles}</style>
       <StraightCarousel />
     </div>
   );
