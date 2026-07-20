@@ -11,10 +11,13 @@
  *   based) so sound and GSAP motion can share one clock and never drift.
  */
 
+type SynthFn = (ctx: BaseAudioContext) => AudioBuffer;
+
 type SpriteState = {
   raw: ArrayBuffer | null;
   buffer: AudioBuffer | null;
   loading: Promise<void> | null;
+  synth?: SynthFn;
 };
 
 type Listener = (enabled: boolean) => void;
@@ -72,6 +75,27 @@ class SoundManager {
       });
     this.sprites.set(name, state);
     return state.loading;
+  }
+
+  /**
+   * Register a procedurally synthesized sprite. The synth function runs
+   * once the AudioContext exists (it needs the context's sample rate).
+   * Used by the Beat 00 intro — no audio files ship with the site.
+   */
+  loadSynth(name: string, synth: SynthFn) {
+    if (this.sprites.get(name)?.buffer) return;
+    const state: SpriteState = { raw: null, buffer: null, loading: null, synth };
+    this.sprites.set(name, state);
+    if (this.ctx) this.buildSynth(name, state);
+  }
+
+  private buildSynth(name: string, state: SpriteState) {
+    if (!this.ctx || state.buffer || !state.synth) return;
+    try {
+      state.buffer = state.synth(this.ctx);
+    } catch (err) {
+      console.warn(`[sound] synth failed for ${name}`, err);
+    }
   }
 
   private async decode(name: string, state: SpriteState) {
@@ -159,6 +183,7 @@ class SoundManager {
     // Decode anything fetched before the context existed
     this.sprites.forEach((state, name) => {
       if (state.raw && !state.buffer) void this.decode(name, state);
+      if (state.synth && !state.buffer) this.buildSynth(name, state);
     });
   }
 

@@ -50,6 +50,8 @@ import RouteSchema from "@/components/RouteSchema";
 import RevealScope from "@/components/motion/RevealScope";
 import ColorMorph from "@/components/motion/ColorMorph";
 import SoundToggle from "@/components/motion/SoundToggle";
+import IntroOverlay from "@/components/motion/IntroOverlay";
+import ChromeDust from "@/components/motion/ChromeDust";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 // ─── AggregateRating + Review JSON-LD ────────────────────────────────────────
@@ -130,6 +132,10 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(REVIEW_SCHEMA) }}
       />
+      {/* Beat 00 — Logo Strike intro (SSR'd overlay, removes itself) */}
+      <IntroOverlay />
+      {/* Chrome-dust ambient layer — fed by the intro's shatter */}
+      <ChromeDust />
       {/* Scroll-driven color-grade veil (motion engine) */}
       <ColorMorph />
       {/* Web Audio scaffolding — off by default, unlocks on tap */}
