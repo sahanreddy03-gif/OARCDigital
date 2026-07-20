@@ -8,9 +8,10 @@
  */
 
 const HERO_IMAGES = [
-  // LCP hero background (also <link rel=preload>'d in the layout head —
-  // decode() here guarantees it is rasterized, not just fetched)
-  "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif",
+  // The logo mark — the Monolith's texture source and the mobile/static
+  // fallback composition's centerpiece. decode() guarantees it is
+  // rasterized, not just fetched, before the intro's hit 3 fires.
+  "/attached_assets/image_1767660951950.png",
 ];
 
 function decodeImage(src: string): Promise<void> {

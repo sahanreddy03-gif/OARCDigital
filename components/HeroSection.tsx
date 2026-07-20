@@ -1,384 +1,379 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+/**
+ * Hero — the Monolith centerpiece.
+ *
+ * Editorial serif headline (Instrument Serif) over a deep-charcoal room.
+ * The same logo-mark that shattered the screen in Beat 00 stands here as a
+ * WebGL sculpture (MonolithScene) and transmutes its material when the
+ * CREATE / DEPLOY / BUILD tabs are hovered; clicking dives the camera into
+ * the material as the transition into that vertical's page.
+ *
+ * SEO / performance contract:
+ * - Every word of hero text is real SSR HTML from millisecond zero.
+ * - The word-by-word reveal only *moves* text (transform/opacity) and is
+ *   triggered by the intro's `oarc:shatter` event (3.8s failsafe).
+ * - The WebGL scene is dynamic-imported, desktop-only, and skipped for
+ *   prefers-reduced-motion and the fps governor's "static" tier — those
+ *   paths get the floating logo-mark composition instead.
+ */
+
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Palette, Bot, Rocket } from "lucide-react";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
+import { gsap } from "gsap";
+import { Palette, Bot, Code2 } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
-const heroBackground = "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
+import {
+  getQualityTier,
+  onQualityTierChange,
+} from "@/lib/motion/fpsGovernor";
+import type { Vertical } from "./motion/monolith/MonolithScene";
 
-const HERO_PLACEHOLDER = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERAgMSIv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABcRAQEBAQAAAAAAAAAAAAAAAAARAQL/2gAMAwEAAhEDEQA/AOUODgIwlnPNZsz85MnNwu9uB2nnUQ7ugLToEq//2Q==';
+const MonolithScene = dynamic(() => import("./motion/monolith/MonolithScene"), {
+  ssr: false,
+});
 
-function useImagePreload(src: string) {
-  // Check if image is already cached IMMEDIATELY (synchronously)
-  const checkCached = () => {
-    if (typeof window === 'undefined') return false;
-    const img = new Image();
-    img.src = src;
-    return img.complete && img.naturalWidth > 0;
-  };
-  
-  const [loaded, setLoaded] = useState(() => checkCached());
-  
+const MARK_SRC = "/attached_assets/image_1767660951950.png";
+
+// ── Copy ─────────────────────────────────────────────────────────────────────
+const EYEBROW = "CREATIVE · AI AGENTS · CUSTOM SOFTWARE";
+// One italic serif accent word — the emotional beat of the line.
+const HEADLINE_WORDS: { text: string; accent?: boolean }[] = [
+  { text: "We" },
+  { text: "win" },
+  { text: "attention" },
+  { text: "—" },
+  { text: "then" },
+  { text: "engineer", accent: true },
+  { text: "it" },
+  { text: "into" },
+  { text: "revenue." },
+];
+const SUBLINE =
+  "A creative studio, an AI-agent workforce, and a custom-software team — one agency behind your growth.";
+
+// ── Tabs — the verbs; the pages carry the nouns ──────────────────────────────
+const TABS: {
+  verb: string;
+  noun: string;
+  href: string;
+  vertical: Exclude<Vertical, "idle">;
+  icon: typeof Palette;
+  testId: string;
+}[] = [
+  { verb: "CREATE", noun: "OARC Studio", href: "/creative", vertical: "create", icon: Palette, testId: "button-nav-creative" },
+  { verb: "DEPLOY", noun: "OARC Agents", href: "/ai-agents", vertical: "deploy", icon: Bot, testId: "button-nav-ai" },
+  { verb: "BUILD", noun: "OARC Systems", href: "/solutions", vertical: "build", icon: Code2, testId: "button-nav-growth" },
+];
+
+// Room light-temperature tints per vertical (opacity-animated overlays)
+const TINTS: Record<Exclude<Vertical, "idle">, string> = {
+  create: "radial-gradient(ellipse 90% 70% at 65% 35%, rgba(255,138,76,0.14), transparent 65%)",
+  deploy: "radial-gradient(ellipse 90% 70% at 65% 35%, rgba(96,156,255,0.14), transparent 65%)",
+  build: "radial-gradient(ellipse 90% 70% at 65% 35%, rgba(214,228,255,0.12), transparent 65%)",
+};
+
+const MOBILE_GLOW: Record<Exclude<Vertical, "idle">, string> = {
+  create: "drop-shadow(0 0 46px rgba(255,138,76,0.35))",
+  deploy: "drop-shadow(0 0 46px rgba(96,156,255,0.35))",
+  build: "drop-shadow(0 0 46px rgba(214,228,255,0.3))",
+};
+
+const VERTICAL_CYCLE: Exclude<Vertical, "idle">[] = ["create", "deploy", "build"];
+
+export default function HeroSection() {
+  const router = useRouter();
+  const rootRef = useRef<HTMLElement>(null);
+  const [vertical, setVertical] = useState<Vertical>("idle");
+  const [diving, setDiving] = useState(false);
+  const [sceneEnabled, setSceneEnabled] = useState(false);
+  const [sceneFailed, setSceneFailed] = useState(false);
+  const divingRef = useRef(false);
+
+  // Decide whether the live WebGL Monolith runs: desktop, motion allowed,
+  // and the fps governor hasn't floored out to "static".
   useEffect(() => {
-    if (loaded) return; // Already loaded, skip
-    const img = new Image();
-    img.src = src;
-    if (img.complete && img.naturalWidth > 0) {
-      setLoaded(true);
-    } else {
-      img.onload = () => setLoaded(true);
-    }
-  }, [src, loaded]);
-  
-  return loaded;
-}
-
-function SnowfallEffect() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    resize();
-    window.addEventListener('resize', resize);
-
-    interface Snowflake {
-      x: number;
-      y: number;
-      radius: number;
-      speed: number;
-      baseOpacity: number;
-      wobbleOffset: number;
-      wobbleSpeed: number;
-      twinkleSpeed: number;
-      twinkleOffset: number;
-      layer: number;
-    }
-
-    const snowflakes: Snowflake[] = [];
-    const snowflakeCount = 80;
-
-    for (let i = 0; i < snowflakeCount; i++) {
-      const layer = Math.random();
-      const isFar = layer < 0.4;
-      const isMid = layer >= 0.4 && layer < 0.75;
-      
-      snowflakes.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: isFar ? Math.random() * 1 + 0.5 : isMid ? Math.random() * 1.5 + 1 : Math.random() * 2 + 1.5,
-        speed: isFar ? Math.random() * 0.4 + 0.2 : isMid ? Math.random() * 0.6 + 0.4 : Math.random() * 0.8 + 0.6,
-        baseOpacity: isFar ? Math.random() * 0.2 + 0.3 : isMid ? Math.random() * 0.25 + 0.5 : Math.random() * 0.2 + 0.7,
-        wobbleOffset: Math.random() * Math.PI * 2,
-        wobbleSpeed: Math.random() * 0.02 + 0.01,
-        twinkleSpeed: Math.random() * 0.03 + 0.02,
-        twinkleOffset: Math.random() * Math.PI * 2,
-        layer: layer,
-      });
-    }
-
-    let animationId: number;
-    let time = 0;
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      time += 1;
-
-      snowflakes.forEach((flake) => {
-        flake.y += flake.speed;
-        
-        const wobble = Math.sin(time * flake.wobbleSpeed + flake.wobbleOffset) * 0.4;
-        let displayX = flake.x + wobble;
-        
-        displayX = Math.max(0, Math.min(canvas.width, displayX));
-        
-        const twinkle = Math.sin(time * flake.twinkleSpeed + flake.twinkleOffset) * 0.12 + 1;
-        const currentOpacity = Math.min(flake.baseOpacity * twinkle, 1);
-
-        if (flake.y > canvas.height + 10) {
-          flake.y = -10 - Math.random() * 20;
-          flake.x = Math.random() * canvas.width;
-          flake.wobbleOffset = Math.random() * Math.PI * 2;
-          flake.twinkleOffset = Math.random() * Math.PI * 2;
-        }
-
-        ctx.beginPath();
-        ctx.arc(displayX, flake.y, flake.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${currentOpacity})`;
-        ctx.fill();
-
-        const glowSize = flake.radius * 2.5;
-        const gradient = ctx.createRadialGradient(displayX, flake.y, 0, displayX, flake.y, glowSize);
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${currentOpacity * 0.35})`);
-        gradient.addColorStop(0.5, `rgba(255, 255, 255, ${currentOpacity * 0.1})`);
-        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-        ctx.beginPath();
-        ctx.arc(displayX, flake.y, glowSize, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
-        ctx.fill();
-      });
-
-      animationId = requestAnimationFrame(animate);
-    };
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReducedMotion) {
-      animate();
-    }
-
+    const md = window.matchMedia("(min-width: 768px)");
+    const rm = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const compute = () =>
+      setSceneEnabled(md.matches && !rm.matches && getQualityTier() !== "static");
+    compute();
+    md.addEventListener("change", compute);
+    rm.addEventListener("change", compute);
+    const unsub = onQualityTierChange(compute);
     return () => {
-      window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationId);
+      md.removeEventListener("change", compute);
+      rm.removeEventListener("change", compute);
+      unsub();
     };
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 pointer-events-none z-20 motion-reduce:hidden"
-      style={{ opacity: 0.9 }}
-    />
+  // Word-by-word headline reveal, choreographed off the intro's shatter.
+  // Text is SSR'd fully visible; we only hide it *after* hydration (the
+  // opaque intro overlay is covering the hero at that moment), so crawlers
+  // and reduced-motion users always see complete text.
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const words = root.querySelectorAll<HTMLElement>("[data-hero-word]");
+    const rest = root.querySelectorAll<HTMLElement>("[data-hero-fade]");
+    if (!words.length) return;
+
+    gsap.set(words, { yPercent: 112 });
+    gsap.set(rest, { autoAlpha: 0, y: 14 });
+
+    let revealed = false;
+    let tl: gsap.core.Timeline | null = null;
+    const reveal = () => {
+      if (revealed) return;
+      revealed = true;
+      tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+      tl.to(words, { yPercent: 0, duration: 0.9, stagger: 0.055 }, 0.05)
+        .to(rest, { autoAlpha: 1, y: 0, duration: 0.7, stagger: 0.12 }, 0.55);
+    };
+
+    window.addEventListener("oarc:shatter", reveal);
+    // Failsafe — if the intro never fires (blocked, errored), the hero must
+    // still land complete.
+    const failsafe = window.setTimeout(reveal, 3800);
+
+    return () => {
+      window.removeEventListener("oarc:shatter", reveal);
+      window.clearTimeout(failsafe);
+      tl?.kill();
+      gsap.set(words, { clearProps: "all" });
+      gsap.set(rest, { clearProps: "all" });
+    };
+  }, []);
+
+  // The click = the transition. With the live scene running, the camera
+  // dives into the material while the room fades to charcoal, then we route.
+  const dive = useCallback(
+    (e: React.MouseEvent, href: string) => {
+      if (!sceneEnabled || sceneFailed || divingRef.current) return; // plain <Link> navigation
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      e.preventDefault();
+      divingRef.current = true;
+      setDiving(true);
+      window.setTimeout(() => router.push(href), 520);
+    },
+    [sceneEnabled, sceneFailed, router],
   );
-}
 
-const MobileGlassCard = ({ icon: Icon, label, href, testId }: { icon: typeof Palette; label: string; href: string; testId: string }) => (
-  <Link href={href}>
-    <div 
-      className="group flex items-center gap-2 md:gap-3 px-4 md:px-6 py-3 md:py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 hover:border-white/50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-white/10"
-      data-testid={testId}
-    >
-      <Icon className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
-      <span className="text-sm md:text-base font-bold text-white tracking-wide">{label}</span>
-    </div>
-  </Link>
-);
+  // Mobile fallback: tapping the mark cycles the room's light temperature.
+  const cycleVertical = useCallback(() => {
+    setVertical((v) => {
+      const idx = v === "idle" ? -1 : VERTICAL_CYCLE.indexOf(v as Exclude<Vertical, "idle">);
+      return VERTICAL_CYCLE[(idx + 1) % VERTICAL_CYCLE.length];
+    });
+  }, []);
 
-export default function HeroSection() {
-  const imageLoaded = useImagePreload(heroBackground);
-  
+  const liveScene = sceneEnabled && !sceneFailed;
+
   const styles = `
-    @keyframes float {
-      0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
-      50% { transform: translateY(-60px) translateX(30px); opacity: 0.8; }
-    }
-    @keyframes lightSweep {
-      0% { transform: translateX(-100%) rotate(-15deg); }
-      100% { transform: translateX(200%) rotate(-15deg); }
-    }
-    @keyframes scanHorizontal1 {
-      0% { transform: translateX(-100%); opacity: 0; }
-      10% { opacity: 0.4; }
-      90% { opacity: 0.4; }
-      100% { transform: translateX(100vw); opacity: 0; }
-    }
-    @keyframes scanHorizontal2 {
-      0% { transform: translateX(-100%); opacity: 0; }
-      10% { opacity: 0.3; }
-      90% { opacity: 0.3; }
-      100% { transform: translateX(100vw); opacity: 0; }
-    }
-    @keyframes gridPulse {
-      0%, 100% { opacity: 0.25; }
-      50% { opacity: 0.45; }
-    }
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      @keyframes fadeSlideUp {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
+    @keyframes monolithFloat {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-16px) rotate(2deg); }
     }
   `;
-  
+
   return (
     <>
       <style>{styles}</style>
-      <section className="relative min-h-[92vh] md:min-h-screen flex flex-col overflow-hidden bg-black">
-        
-        {/* ========== MOBILE LAYOUT ========== */}
-        <div className="md:hidden absolute inset-0">
-          {/* Instant placeholder - blurred, loads immediately */}
-          <div 
-            className="absolute inset-0 bg-cover bg-no-repeat"
-            style={{ 
-              backgroundImage: `url(${HERO_PLACEHOLDER})`,
-              backgroundPosition: '60% center',
-              filter: 'blur(20px)',
-              transform: 'scale(1.1)'
-            }}
+      <section
+        ref={rootRef}
+        className="relative min-h-[92vh] md:min-h-screen flex flex-col overflow-hidden"
+        style={{ backgroundColor: "#0b0b0d" }}
+      >
+        {/* ── The room — deep charcoal, one soft volumetric light ── */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 55% at 68% 20%, rgba(208,218,238,0.10), transparent 60%), radial-gradient(ellipse 120% 90% at 50% 115%, rgba(10,12,16,0.9), transparent 55%)",
+          }}
+        />
+        {/* Volumetric cone from the key light */}
+        <div
+          className="absolute inset-0 pointer-events-none hidden md:block"
+          style={{
+            background:
+              "conic-gradient(from 200deg at 72% -8%, transparent 40%, rgba(198,210,232,0.05) 47%, rgba(198,210,232,0.09) 50%, rgba(198,210,232,0.05) 53%, transparent 60%)",
+          }}
+        />
+        {/* Light-temperature shift per vertical — opacity-only crossfade */}
+        {VERTICAL_CYCLE.map((v) => (
+          <div
+            key={v}
+            aria-hidden="true"
+            className="absolute inset-0 pointer-events-none transition-opacity duration-700"
+            style={{ background: TINTS[v], opacity: vertical === v ? 1 : 0 }}
           />
-          {/* Real background - always visible */}
-          <div 
-            className="absolute inset-0 bg-cover bg-no-repeat"
-            style={{ 
-              backgroundImage: `url(${heroBackground})`,
-              backgroundPosition: '60% center',
-            }}
-          />
-          {/* Gradient overlay - always visible for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%" />
-          
-        </div>
+        ))}
 
-        {/* ========== DESKTOP LAYOUT ========== */}
-        {/* Desktop instant placeholder - blurred, loads immediately */}
-        <div 
-          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-fixed"
-          style={{ 
-            backgroundImage: `url(${HERO_PLACEHOLDER})`,
-            backgroundPosition: '35% center',
-            filter: 'blur(20px)',
-            transform: 'scale(1.1)'
-          }}
-        />
-        {/* Desktop real background - always visible */}
-        <div 
-          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat"
-          style={{ 
-            backgroundImage: `url(${heroBackground})`,
-            backgroundPosition: '35% center',
-          }}
-        />
-        {/* Desktop gradient overlays - always visible for text readability */}
-        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
-        <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
-        <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60" />
-        
-        {/* Desktop animations - always show immediately */}
-        <>
-          {/* Christmas Snowfall Effect */}
-          <SnowfallEffect />
-          {/* Light Sweep Effect */}
-          <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
-            <div 
-              className="absolute w-1/3 h-[200%] -top-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-[lightSweep_15s_ease-in-out_infinite]" 
-              style={{ animationDelay: '2s' }} 
+        {/* ── The Monolith — live WebGL on desktop ── */}
+        {liveScene && (
+          <div className="absolute inset-0 z-[1] pointer-events-none hidden md:block">
+            <MonolithScene
+              vertical={vertical}
+              diving={diving}
+              onContextFail={() => setSceneFailed(true)}
             />
           </div>
-        </>
-        
-        {/* ========== CONTENT ========== */}
-        <div className="relative flex-1 flex flex-col justify-end pt-14 md:pt-16 lg:pt-20 pb-6 -mt-8 md:mt-0">
-          <div className="w-full">
-            {/* Mobile: centered with px-3, Desktop: left-aligned with minimal left padding */}
-            <div className="w-full px-3 md:pl-8 lg:pl-12 md:pr-0">
-              <div className="w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl text-center md:text-left">
-                {/* Mobile glassmorphism panel */}
-                <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
-                  
-                  {/* Headline - Viewport-based on mobile for all screen sizes, bigger on desktop */}
-                  {/* lg: breakpoint uses slightly smaller max to keep "Revenue" on same line as "Drives" */}
-                  <h1 
-                    className="mb-3 md:mb-6 lg:mb-8 text-white" 
-                    data-testid="text-hero-headline"
-                    data-speakable
-                  >
-                    {/* Mobile: 8.5vw scales from ~27px on iPhone SE to ~36px on iPhone 16 Pro Max */}
-                    <span 
-                      className="block tracking-tight leading-[1.05] text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)]"
-                      style={{ fontFamily: 'var(--font-swarsh)' }}
-                    >
-                      AI-Native Marketing Agency
-                    </span>
-                    <span 
-                      className="block font-extralight italic font-serif tracking-tight leading-[1.05] mt-0.5 md:mt-2 text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)] lg:ml-[12rem]"
-                    >
-                      That Drives <span className="text-[#e8ffb0] font-semibold not-italic">Revenue</span>
-                    </span>
-                  </h1>
+        )}
 
-                  {/* Subheading - emphasized with glass strip and underline */}
-                  <div className="flex justify-center md:justify-start mb-4 md:mb-6">
-                    <div 
-                      className="relative inline-block px-2 py-1 md:px-4 md:py-2 rounded-lg"
-                      style={{
-                        background: 'rgba(255, 255, 255, 0.08)',
-                        backdropFilter: 'blur(8px)',
-                        border: '1px solid rgba(255, 255, 255, 0.1)'
-                      }}
-                    >
-                      <p 
-                        className="text-white tracking-wide whitespace-nowrap text-[2.8vw] md:text-[clamp(0.9rem,1.5vw,1.25rem)] lg:text-[clamp(1rem,1.6vw,1.35rem)]"
-                        style={{
-                          fontFamily: 'var(--font-halfre)',
-                          textShadow: '0 0 30px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 255, 255, 0.2)'
-                        }}
-                        data-testid="text-hero-subheadline"
+        {/* ── Fallback sculpture — mobile / reduced-motion / static tier.
+               SSR'd so the composition is present at first paint; hidden on
+               desktop once the live scene takes over. ── */}
+        <div
+          className={`absolute inset-0 z-[1] flex items-start md:items-center justify-center md:justify-end pointer-events-none ${liveScene ? "md:hidden" : ""}`}
+          aria-hidden="true"
+        >
+          <button
+            type="button"
+            tabIndex={-1}
+            onClick={cycleVertical}
+            className="pointer-events-auto mt-[14vh] md:mt-0 md:mr-[9vw] cursor-default"
+            data-testid="button-monolith-fallback"
+            aria-label="Shift the hero light"
+          >
+            <img
+              src={MARK_SRC}
+              alt=""
+              aria-hidden="true"
+              width={1024}
+              height={1024}
+              decoding="async"
+              className="w-[44vw] max-w-[230px] md:w-[26vw] md:max-w-[380px] h-auto select-none motion-reduce:animate-none"
+              style={{
+                animation: "monolithFloat 7s ease-in-out infinite",
+                filter:
+                  vertical === "idle"
+                    ? "drop-shadow(0 24px 60px rgba(0,0,0,0.6)) drop-shadow(0 0 40px rgba(198,210,232,0.12))"
+                    : `drop-shadow(0 24px 60px rgba(0,0,0,0.6)) ${MOBILE_GLOW[vertical as Exclude<Vertical, "idle">]}`,
+                transition: "filter 700ms ease",
+              }}
+              draggable={false}
+            />
+          </button>
+        </div>
+
+        {/* ── Content — real HTML from ms 0 ── */}
+        <div className="relative z-10 flex-1 flex flex-col justify-end pt-14 md:pt-16 lg:pt-20 pb-6">
+          <div className="w-full px-4 md:pl-8 lg:pl-12 md:pr-0">
+            <div className="w-full md:max-w-3xl lg:max-w-4xl xl:max-w-5xl text-center md:text-left">
+              {/* Eyebrow — spaced small caps */}
+              <p
+                className="mb-4 md:mb-6 text-[11px] md:text-[13px] font-semibold text-white/60 uppercase"
+                style={{
+                  fontFamily: "var(--font-sans)",
+                  letterSpacing: "0.08em",
+                }}
+                data-hero-fade
+                data-testid="text-hero-eyebrow"
+              >
+                {EYEBROW}
+              </p>
+
+              {/* Headline — high-contrast editorial serif */}
+              <h1
+                className="mb-5 md:mb-7 text-white"
+                style={{
+                  fontFamily: "var(--font-editorial)",
+                  fontSize: "clamp(44px, 7vw, 108px)",
+                  lineHeight: 1.04,
+                  letterSpacing: "-0.022em",
+                  fontWeight: 400,
+                }}
+                data-testid="text-hero-headline"
+                data-speakable
+              >
+                {HEADLINE_WORDS.map((w, i) => (
+                  <span
+                    key={i}
+                    className="inline-block overflow-hidden align-bottom"
+                    style={{ paddingBottom: "0.12em", marginBottom: "-0.12em" }}
+                  >
+                    <span data-hero-word className="inline-block will-change-transform">
+                      {w.accent ? (
+                        <em className="italic" style={{ color: "#e8ffb0" }}>
+                          {w.text}
+                        </em>
+                      ) : (
+                        w.text
+                      )}
+                    </span>
+                    {i < HEADLINE_WORDS.length - 1 ? "\u00A0" : ""}
+                  </span>
+                ))}
+              </h1>
+
+              {/* Subline */}
+              <p
+                className="max-w-xl md:max-w-2xl mx-auto md:mx-0 mb-7 md:mb-9 text-[15px] md:text-[clamp(1.05rem,1.4vw,1.25rem)] leading-relaxed text-white/70"
+                style={{ fontFamily: "var(--font-sans)" }}
+                data-hero-fade
+                data-testid="text-hero-subheadline"
+                data-speakable
+              >
+                {SUBLINE}
+              </p>
+
+              {/* The three verbs — hovering transmutes the Monolith */}
+              <div
+                className="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start"
+                data-hero-fade
+              >
+                {TABS.map((tab) => (
+                  <Link
+                    key={tab.verb}
+                    href={tab.href}
+                    onMouseEnter={() => setVertical(tab.vertical)}
+                    onMouseLeave={() => setVertical("idle")}
+                    onFocus={() => setVertical(tab.vertical)}
+                    onBlur={() => setVertical("idle")}
+                    onClick={(e) => dive(e, tab.href)}
+                    className="group flex items-center gap-3 px-5 md:px-6 py-3 md:py-4 rounded-2xl bg-white/[0.07] backdrop-blur-md border border-white/20 hover:bg-white/[0.14] hover:border-white/40 transition-colors duration-300"
+                    data-testid={tab.testId}
+                  >
+                    <tab.icon className="w-5 h-5 text-white/80 group-hover:text-white transition-colors duration-300" />
+                    <span className="text-left">
+                      <span
+                        className="block text-sm md:text-base font-bold text-white"
+                        style={{ letterSpacing: "0.08em" }}
                       >
-                        For Brands That Compete on Value, Not Price
-                      </p>
-                      {/* Subtle white underline */}
-                      <div 
-                        className="absolute bottom-1 md:bottom-2 left-3 md:left-6 right-3 md:right-6 h-[1px] md:h-[2px]"
-                        style={{
-                          background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent)'
-                        }}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Value proposition - readable with better contrast */}
-                  <p 
-                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-2 md:mb-4 font-normal tracking-[0.08em] text-[2.8vw] md:text-[clamp(0.9rem,1.5vw,1.2rem)]"
-                    style={{ color: 'rgba(255, 255, 255, 0.85)' }}
-                    data-testid="text-value-proposition"
-                    data-speakable
-                  >
-                    Creative AI Talent + Social-Led Marketing + Custom Workflows
-                  </p>
-                  {/* Result line - white only with typography variation */}
-                  <p 
-                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-5 md:mb-7 lg:mb-9 text-[4.2vw] md:text-[clamp(1.2rem,2.2vw,1.8rem)]"
-                    data-testid="text-result-line"
-                  >
-                    <span className="text-white/70 font-light">=</span>{' '}
-                    <span className="text-white font-bold italic">Less Waste</span>
-                    <span className="text-white/50 font-light"> + </span>
-                    <span className="text-white font-semibold">More Reach</span>
-                    <span className="text-white/50 font-light"> + </span>
-                    <span className="text-white font-bold tracking-wide">More Sales</span>
-                  </p>
-
-                  {/* Premium Service Navigation Cards */}
-                  <div className="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start">
-                    <MobileGlassCard icon={Palette} label="Creative" href="/creative" testId="button-nav-creative" />
-                    <MobileGlassCard icon={Bot} label="AI" href="/ai-agents" testId="button-nav-ai" />
-                    <MobileGlassCard icon={Rocket} label="Growth" href="/solutions" testId="button-nav-growth" />
-                  </div>
-                </div>
+                        {tab.verb}
+                      </span>
+                      <span className="block text-[10px] md:text-[11px] text-white/50 tracking-wide">
+                        {tab.noun}
+                      </span>
+                    </span>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Carousel with green wave */}
+          {/* Carousel with green wave — kept from the previous hero */}
           <div className="w-full mt-8 md:mt-5 relative">
             <FloatingChipCarousel />
-            {/* Subtle green curved wave below carousel - barely visible */}
             <div className="absolute -bottom-8 md:-bottom-16 left-0 right-0 pointer-events-none">
-              <svg 
-                viewBox="0 0 1440 120" 
+              <svg
+                viewBox="0 0 1440 120"
                 className="w-full h-auto lg:scale-y-75"
                 preserveAspectRatio="none"
               >
-                <path 
-                  d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z" 
+                <path
+                  d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z"
                   fill="#c4ff4d"
                   opacity="0.08"
                 />
-                <path 
-                  d="M0,80 C320,40 640,100 960,60 C1200,30 1360,70 1440,50 L1440,120 L0,120 Z" 
+                <path
+                  d="M0,80 C320,40 640,100 960,60 C1200,30 1360,70 1440,50 L1440,120 L0,120 Z"
                   fill="#c4ff4d"
                   opacity="0.05"
                 />
@@ -386,6 +381,14 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
+
+        {/* Dive-to-charcoal veil — covers the route change */}
+        <div
+          aria-hidden="true"
+          className={`fixed inset-0 z-[60] transition-opacity duration-500 ${diving ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+          style={{ backgroundColor: "#0b0b0d" }}
+          data-testid="overlay-hero-dive"
+        />
       </section>
     </>
   );

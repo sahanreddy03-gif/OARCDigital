@@ -533,6 +533,7 @@ export default function IntroOverlay() {
             ref={markRef}
             src={MARK_SRC}
             alt=""
+            aria-hidden="true"
             width={380}
             height={380}
             className="h-[38vmin] w-[38vmin] object-contain select-none"
