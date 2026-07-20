@@ -9,6 +9,7 @@ import { Providers } from "./providers";
 import ScrollToTop from "@/components/ScrollToTop";
 import SpeculationRules from "@/components/SpeculationRules";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
+import MotionEngine from "@/components/motion/MotionEngine";
 import Analytics from "@/components/Analytics";
 import { NAP, POSTAL_ADDRESS, GEO_COORDINATES } from "@/lib/seo/nap";
 import { ORG_SAMEAS } from "@/lib/schema";
@@ -234,6 +235,7 @@ export default function RootLayout({
         </Suspense>
         <SpeculationRules />
         <Providers>{children}</Providers>
+        <MotionEngine />
         <MobileStickyCTA />
         <Analytics />
 

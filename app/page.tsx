@@ -47,6 +47,9 @@ import CTASections from "@/components/CTASections";
 import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import RouteSchema from "@/components/RouteSchema";
+import RevealScope from "@/components/motion/RevealScope";
+import ColorMorph from "@/components/motion/ColorMorph";
+import SoundToggle from "@/components/motion/SoundToggle";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 // ─── AggregateRating + Review JSON-LD ────────────────────────────────────────
@@ -127,7 +130,11 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(REVIEW_SCHEMA) }}
       />
-      <div className="overflow-x-hidden">
+      {/* Scroll-driven color-grade veil (motion engine) */}
+      <ColorMorph />
+      {/* Web Audio scaffolding — off by default, unlocks on tap */}
+      <SoundToggle />
+      <RevealScope className="overflow-x-hidden">
         <HeroSection />
 
         {/* SHIFT HAPPENS — editorial identity */}
@@ -139,7 +146,8 @@ export default function Page() {
         {/* Stat ticker strip — original position, old logo strip style */}
         <TrustedBrandsSection />
 
-        {/* Every type of creative work */}
+        {/* Every type of creative work — warm creative zone */}
+        <div data-morph-bg="rgba(214, 255, 224, 0.05)" aria-hidden="true" />
         <AICreativeSection />
 
         {/* Services Showcase + industry chips */}
@@ -151,11 +159,13 @@ export default function Page() {
         {/* SUCCESS IN NUMBERS — proof after the difference is established */}
         <SuccessInNumbers />
 
-        {/* AI Services Pillars - Dark Premium Zone */}
+        {/* AI Services Pillars - Dark Premium Zone — cool the room */}
+        <div data-morph-bg="rgba(5, 8, 18, 0.12)" aria-hidden="true" />
         <HireAIEmployeesSection />
         <LetsTalkRevenueSection />
 
-        {/* Tech & Services */}
+        {/* Tech & Services — back to the warm zone */}
+        <div data-morph-bg="rgba(214, 255, 224, 0.05)" aria-hidden="true" />
         <TechEnabledSection />
 
         {/* Case Studies & Social Proof */}
@@ -166,20 +176,23 @@ export default function Page() {
 
         {/* Why OARC - Comparison */}
         <ComparisonSection />
+        <div data-morph-bg="rgba(5, 8, 18, 0.12)" aria-hidden="true" />
         <GrowthSimulator />
 
         {/* Business Diagnostics Teaser */}
         <DiagnosticsTeaser />
 
-        {/* Final CTAs */}
+        {/* Final CTAs — warm close */}
+        <div data-morph-bg="rgba(214, 255, 224, 0.04)" aria-hidden="true" />
         <MoneyBackGuaranteeSection />
         <BlogPreviewSection />
         <CTASections />
         <NeedHelpCTA />
         {/* Top-30 internal-link funnel */}
+        <div data-morph-bg="rgba(5, 8, 18, 0.10)" aria-hidden="true" />
         <MostPopularServices />
         <FAQ />
-      </div>
+      </RevealScope>
     </Layout>
   );
 }
