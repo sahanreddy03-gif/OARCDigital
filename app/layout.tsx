@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Suspense } from "react";
-import { Nunito_Sans, Montserrat, Inter, Space_Grotesk, EB_Garamond, Orbitron, Anton, Instrument_Serif } from "next/font/google";
+import { Nunito_Sans, Montserrat, Inter, Space_Grotesk, EB_Garamond, Orbitron, Anton } from "next/font/google";
 import { partytownSnippet } from "@qwik.dev/partytown/integration";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -9,7 +9,6 @@ import { Providers } from "./providers";
 import ScrollToTop from "@/components/ScrollToTop";
 import SpeculationRules from "@/components/SpeculationRules";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
-import MotionEngine from "@/components/motion/MotionEngine";
 import Analytics from "@/components/Analytics";
 import { NAP, POSTAL_ADDRESS, GEO_COORDINATES } from "@/lib/seo/nap";
 import { ORG_SAMEAS } from "@/lib/schema";
@@ -51,16 +50,6 @@ const anton = Anton({
   variable: "--font-anton",
   weight: "400",
 });
-// Editorial display serif for the hero headline (Instrument Serif only ships
-// weight 400 in normal + italic — that is the whole family).
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-instrument-serif",
-  weight: "400",
-  style: ["normal", "italic"],
-});
-
 const fontVariables = [
   nunitoSans.variable,
   montserrat.variable,
@@ -69,7 +58,6 @@ const fontVariables = [
   ebGaramond.variable,
   orbitron.variable,
   anton.variable,
-  instrumentSerif.variable,
 ].join(" ");
 
 const ORGANIZATION_JSONLD = [
@@ -176,8 +164,7 @@ export const metadata: Metadata = {
 //                production — main thread free during first-paint window
 // SpeedInsights: @vercel/speed-insights/next wired below — real-user data
 // SpeculationRules: 8 high-conversion URLs prerendered on moderate eagerness
-// Hero LCP     : the H1 itself (real SSR text) — the old background AVIF was
-//                retired with the Monolith hero, so no image preload is needed
+// Hero preload : fetchPriority="high" <link> in <head> for the LCP AVIF
 // LazyMotion   : framer-motion features lazy-loaded via <LazyMotion> in Providers
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -198,6 +185,15 @@ export default function RootLayout({
         />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        {/* LCP hero image — fetchPriority="high" tells the browser to fetch
+            this AVIF before the CSS paint fires, cutting LCP on mobile */}
+        <link
+          rel="preload"
+          as="image"
+          href="/assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif"
+          type="image/avif"
+          fetchPriority="high"
+        />
       </head>
       <body suppressHydrationWarning>
         {/* Swallow the cross-origin SecurityError emitted by the Replit
@@ -237,7 +233,6 @@ export default function RootLayout({
         </Suspense>
         <SpeculationRules />
         <Providers>{children}</Providers>
-        <MotionEngine />
         <MobileStickyCTA />
         <Analytics />
 

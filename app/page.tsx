@@ -47,16 +47,11 @@ import CTASections from "@/components/CTASections";
 import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import RouteSchema from "@/components/RouteSchema";
-import RevealScope from "@/components/motion/RevealScope";
-import ColorMorph from "@/components/motion/ColorMorph";
-import SoundToggle from "@/components/motion/SoundToggle";
 import IntroOverlay from "@/components/motion/IntroOverlay";
 import ChromeDust from "@/components/motion/ChromeDust";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 // ─── AggregateRating + Review JSON-LD ────────────────────────────────────────
-// Kept as a standalone script so it does not mutate the shared RouteSchema graph.
-// Google's Rich Results Test validates these nodes independently.
 const REVIEW_SCHEMA = {
   "@context": "https://schema.org",
   "@graph": [
@@ -126,7 +121,6 @@ export default function Page() {
         faqs={pillar.faqs}
         aggregateRating={{ ratingValue: 4.9, reviewCount: 47, bestRating: 5 }}
       />
-      {/* AggregateRating + Review nodes — separate graph for Rich Results eligibility */}
       <script
         id="homepage-reviews-schema"
         type="application/ld+json"
@@ -136,69 +130,44 @@ export default function Page() {
       <IntroOverlay />
       {/* Chrome-dust ambient layer — fed by the intro's shatter */}
       <ChromeDust />
-      {/* Scroll-driven color-grade veil (motion engine) */}
-      <ColorMorph />
-      {/* Web Audio scaffolding — off by default, unlocks on tap */}
-      <SoundToggle />
-      <RevealScope className="overflow-x-hidden">
+      <div className="overflow-x-hidden">
         <HeroSection />
 
-        {/* SHIFT HAPPENS — editorial identity */}
         <ShiftHappensSection />
 
-        {/* OARC Brand Section - video background */}
         <OARCBrandSection videoSrc={oarcBgVideo} />
 
-        {/* Stat ticker strip — original position, old logo strip style */}
         <TrustedBrandsSection />
 
-        {/* Every type of creative work — warm creative zone */}
-        <div data-morph-bg="rgba(214, 255, 224, 0.05)" aria-hidden="true" />
         <AICreativeSection />
 
-        {/* Services Showcase + industry chips */}
         <Section2 />
 
-        {/* Our Difference */}
         <Section5 />
 
-        {/* SUCCESS IN NUMBERS — proof after the difference is established */}
         <SuccessInNumbers />
 
-        {/* AI Services Pillars - Dark Premium Zone — cool the room */}
-        <div data-morph-bg="rgba(5, 8, 18, 0.12)" aria-hidden="true" />
         <HireAIEmployeesSection />
         <LetsTalkRevenueSection />
 
-        {/* Tech & Services — back to the warm zone */}
-        <div data-morph-bg="rgba(214, 255, 224, 0.05)" aria-hidden="true" />
         <TechEnabledSection />
 
-        {/* Case Studies & Social Proof */}
         <BrandShowcaseSection />
 
-        {/* Testimonials */}
         <Testimonials />
 
-        {/* Why OARC - Comparison */}
         <ComparisonSection />
-        <div data-morph-bg="rgba(5, 8, 18, 0.12)" aria-hidden="true" />
         <GrowthSimulator />
 
-        {/* Business Diagnostics Teaser */}
         <DiagnosticsTeaser />
 
-        {/* Final CTAs — warm close */}
-        <div data-morph-bg="rgba(214, 255, 224, 0.04)" aria-hidden="true" />
         <MoneyBackGuaranteeSection />
         <BlogPreviewSection />
         <CTASections />
         <NeedHelpCTA />
-        {/* Top-30 internal-link funnel */}
-        <div data-morph-bg="rgba(5, 8, 18, 0.10)" aria-hidden="true" />
         <MostPopularServices />
         <FAQ />
-      </RevealScope>
+      </div>
     </Layout>
   );
 }
