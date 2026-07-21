@@ -23,7 +23,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
-import { Palette, Bot, Code2 } from "lucide-react";
+import { Palette, Bot, Code2, CheckCircle2 } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import {
   getQualityTier,
@@ -41,18 +41,17 @@ const MARK_SRC = "/attached_assets/image_1767660951950.png";
 const EYEBROW = "CREATIVE · AI AGENTS · CUSTOM SOFTWARE";
 // One italic serif accent word — the emotional beat of the line.
 const HEADLINE_WORDS: { text: string; accent?: boolean }[] = [
-  { text: "We" },
-  { text: "win" },
-  { text: "attention" },
-  { text: "—" },
-  { text: "then" },
-  { text: "engineer", accent: true },
-  { text: "it" },
-  { text: "into" },
-  { text: "revenue." },
+  { text: "AI-Native", accent: true },
+  { text: "Marketing" },
+  { text: "Agency" },
 ];
 const SUBLINE =
-  "A creative studio, an AI-agent workforce, and a custom-software team — one agency behind your growth.";
+  "Creative content that ranks where customers search. An army of AI agents working 24/7 · Custom software · A sales team — one agency behind your growth.";
+
+const TRUST_BADGES = [
+  "30% ROI Guaranteed",
+  "Trusted by 47+ Brands",
+];
 
 // ── Tabs — the verbs; the pages carry the nouns ──────────────────────────────
 const TABS: {
@@ -322,6 +321,23 @@ export default function HeroSection() {
               >
                 {SUBLINE}
               </p>
+
+              {/* Trust badges */}
+              <div
+                className="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start mb-6 md:mb-8"
+                data-hero-fade
+                data-testid="text-hero-trust"
+              >
+                {TRUST_BADGES.map((badge) => (
+                  <span
+                    key={badge}
+                    className="inline-flex items-center gap-1.5 text-[13px] md:text-sm font-medium text-white/80"
+                  >
+                    <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: "#c4ff4d" }} />
+                    {badge}
+                  </span>
+                ))}
+              </div>
 
               {/* The three verbs — hovering transmutes the Monolith */}
               <div
