@@ -154,21 +154,35 @@ function ATCard({ card }: { card: (typeof CARDS)[number] }) {
 
 export default function HeroATCard() {
   return (
-    <div
-      style={
-        {
-          "--at-s": "clamp(140px, 26vw, 210px)",
-          "--at-g": "clamp(8px, 1vw, 14px)",
+    <>
+      <style>{`
+        /* Mobile: triangle fits centered below text */
+        .at-wrap { --at-s: clamp(90px, 26vw, 130px); --at-g: 7px; }
+
+        /* md 768px+: two-column — right col ≈46% vw, cards use 12vw each */
+        @media (min-width: 768px)  { .at-wrap { --at-s: clamp(100px, 12vw, 145px); --at-g: 9px; } }
+
+        /* lg 1024px+: more room */
+        @media (min-width: 1024px) { .at-wrap { --at-s: clamp(130px, 12.5vw, 165px); --at-g: 10px; } }
+
+        /* xl 1280px+ */
+        @media (min-width: 1280px) { .at-wrap { --at-s: clamp(150px, 13vw, 195px); --at-g: 12px; } }
+
+        /* 2xl 1536px+ */
+        @media (min-width: 1536px) { .at-wrap { --at-s: clamp(170px, 13vw, 210px); --at-g: 13px; } }
+      `}</style>
+      <div
+        className="at-wrap"
+        style={{
           position: "relative",
           width: "calc(3 * var(--at-s) + 2 * var(--at-g))",
           height: "calc(var(--at-s) * 1.55)",
-          margin: "0 auto",
-        } as React.CSSProperties
-      }
-    >
-      {CARDS.map((card) => (
-        <ATCard key={card.id} card={card} />
-      ))}
-    </div>
+        }}
+      >
+        {CARDS.map((card) => (
+          <ATCard key={card.id} card={card} />
+        ))}
+      </div>
+    </>
   );
 }
