@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
+import HeroVideoCards from "./HeroVideoCards";
 const heroBackground = "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
 
 
@@ -34,17 +32,6 @@ function useImagePreload(src: string) {
 }
 
 
-const MobileGlassCard = ({ icon: Icon, label, href, testId }: { icon: typeof Palette; label: string; href: string; testId: string }) => (
-  <Link href={href}>
-    <div 
-      className="group flex items-center gap-2 md:gap-3 px-4 md:px-6 py-3 md:py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 hover:border-white/50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-white/10"
-      data-testid={testId}
-    >
-      <Icon className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
-      <span className="text-sm md:text-base font-bold text-white tracking-wide">{label}</span>
-    </div>
-  </Link>
-);
 
 export default function HeroSection() {
   const imageLoaded = useImagePreload(heroBackground);
@@ -213,12 +200,8 @@ export default function HeroSection() {
                     <span className="text-white font-bold tracking-wide">More Sales</span>
                   </p>
 
-                  {/* Premium Service Navigation Cards */}
-                  <div className="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start">
-                    <MobileGlassCard icon={Palette} label="Creative" href="/creative" testId="button-nav-creative" />
-                    <MobileGlassCard icon={Bot} label="AI" href="/ai-agents" testId="button-nav-ai" />
-                    <MobileGlassCard icon={Rocket} label="Growth" href="/solutions" testId="button-nav-growth" />
-                  </div>
+                  {/* Hero Video Cards */}
+                  <HeroVideoCards />
                 </div>
               </div>
             </div>
