@@ -12,7 +12,7 @@ export default function HeroATCard() {
     const container = containerRef.current;
     if (!container) return;
 
-    // Test WebGL support before committing to Three.js
+    // Test WebGL support
     const testCanvas = document.createElement("canvas");
     const gl =
       testCanvas.getContext("webgl2") ||
@@ -40,7 +40,6 @@ export default function HeroATCard() {
       return;
     }
 
-    // Double-check renderer actually created a context
     if (!renderer.getContext()) {
       renderer.dispose();
       setWebglFailed(true);
@@ -56,7 +55,7 @@ export default function HeroATCard() {
     pt.position.set(5, 5, 5);
     scene.add(pt);
 
-    // Card — PlaneGeometry + ShaderMaterial
+    // Card — PlaneGeometry + ShaderMaterial (rounded corners SDF + vignette)
     const cardGeometry = new THREE.PlaneGeometry(3.2, 1.8);
     const cardMaterial = new THREE.ShaderMaterial({
       transparent: true,
@@ -109,34 +108,6 @@ export default function HeroATCard() {
     videoTexture.magFilter = THREE.LinearFilter;
     cardMaterial.uniforms.tMap.value = videoTexture;
 
-    // 100 ambient cyan dots
-    const particleCount = 100;
-    const particleGeo = new THREE.BufferGeometry();
-    const positions  = new Float32Array(particleCount * 3);
-    const velocities = new Float32Array(particleCount * 3);
-
-    for (let i = 0; i < particleCount; i++) {
-      positions[i * 3]     = (Math.random() - 0.5) * 10;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 5;
-      velocities[i * 3]     = (Math.random() - 0.5) * 0.007;
-      velocities[i * 3 + 1] = (Math.random() - 0.5) * 0.007;
-      velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.003;
-    }
-
-    particleGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-
-    const particleMat = new THREE.PointsMaterial({
-      color: 0x8ecfd1,
-      size: 0.04,
-      sizeAttenuation: true,
-      transparent: true,
-      opacity: 0.5,
-    });
-
-    const particles = new THREE.Points(particleGeo, particleMat);
-    scene.add(particles);
-
     // Mouse → lerp rotation
     const mouse = { x: 0, y: 0 };
     const rot   = { x: 0, y: 0 };
@@ -169,19 +140,6 @@ export default function HeroATCard() {
       cardMesh.rotation.x = rot.x;
       cardMesh.rotation.y = rot.y;
 
-      const posAttr = particles.geometry.getAttribute("position");
-      const pos = posAttr.array as Float32Array;
-      for (let i = 0; i < particleCount; i++) {
-        pos[i * 3]     += velocities[i * 3];
-        pos[i * 3 + 1] += velocities[i * 3 + 1];
-        pos[i * 3 + 2] += velocities[i * 3 + 2];
-        if (Math.abs(pos[i * 3])     > 5)   velocities[i * 3]     *= -1;
-        if (Math.abs(pos[i * 3 + 1]) > 5)   velocities[i * 3 + 1] *= -1;
-        if (Math.abs(pos[i * 3 + 2]) > 2.5) velocities[i * 3 + 2] *= -1;
-      }
-      posAttr.needsUpdate = true;
-      particles.rotation.z += 0.00008;
-
       renderer.render(scene, camera);
     };
     animate();
@@ -196,14 +154,12 @@ export default function HeroATCard() {
       renderer.dispose();
       cardGeometry.dispose();
       cardMaterial.dispose();
-      particleGeo.dispose();
-      particleMat.dispose();
       videoTexture.dispose();
       video.pause();
     };
   }, []);
 
-  // Fallback: plain HTML video card when WebGL is unavailable
+  // Fallback when WebGL unavailable
   if (webglFailed) {
     return (
       <div
@@ -218,7 +174,10 @@ export default function HeroATCard() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%)" }} />
+        <div
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%)" }}
+        />
         <div className="absolute inset-0 flex flex-col justify-end p-5 select-none">
           <p className="text-[10px] tracking-[0.25em] uppercase text-cyan-300/80 mb-1 font-light">
             Creative Studio
@@ -245,13 +204,10 @@ export default function HeroATCard() {
       className="relative w-full max-w-sm"
       style={{ aspectRatio: "16/9" }}
     >
-      {/* WebGL canvas mount */}
       <div
         ref={containerRef}
         className="absolute inset-0 rounded-xl overflow-hidden"
       />
-
-      {/* Text overlay */}
       <div className="absolute inset-0 flex flex-col justify-end p-5 pointer-events-none select-none">
         <p className="text-[10px] tracking-[0.25em] uppercase text-cyan-300/80 mb-1 font-light">
           Creative Studio
