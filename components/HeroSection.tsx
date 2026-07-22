@@ -148,54 +148,55 @@ export default function HeroSection() {
                     </span>
                   </h1>
 
-                  {/* Subheading - emphasized with glass strip and underline */}
-                  <div className="flex justify-center md:justify-start mb-4 md:mb-6">
-                    <div 
-                      className="relative inline-block px-2 py-1 md:px-4 md:py-2 rounded-lg"
-                      style={{
-                        background: 'rgba(255, 255, 255, 0.08)',
-                        backdropFilter: 'blur(8px)',
-                        border: '1px solid rgba(255, 255, 255, 0.1)'
-                      }}
-                    >
+                  {/* Subheading — editorial identity: bold declarative, lime accent bar */}
+                  <div className="flex justify-center md:justify-start mb-3 md:mb-5">
+                    <div className="relative">
+                      {/* Lime left accent bar */}
+                      <span
+                        className="absolute left-0 top-1 bottom-1 w-[2px] md:w-[3px] rounded-full"
+                        style={{ background: '#c4ff4d' }}
+                        aria-hidden="true"
+                      />
                       <p 
-                        className="text-white tracking-wide whitespace-nowrap text-[2.8vw] md:text-[clamp(0.9rem,1.5vw,1.25rem)] lg:text-[clamp(1rem,1.6vw,1.35rem)]"
+                        className="pl-3 md:pl-5 text-white tracking-wide whitespace-nowrap text-[2.8vw] md:text-[clamp(0.95rem,1.6vw,1.35rem)] lg:text-[clamp(1rem,1.7vw,1.45rem)]"
                         style={{
                           fontFamily: 'var(--font-halfre)',
-                          textShadow: '0 0 30px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 255, 255, 0.2)'
+                          textShadow: '0 0 24px rgba(255,255,255,0.35)',
                         }}
                         data-testid="text-hero-subheadline"
                       >
                         Pioneers in visibility — from search to sales.
                       </p>
-                      {/* Subtle white underline */}
-                      <div 
-                        className="absolute bottom-1 md:bottom-2 left-3 md:left-6 right-3 md:right-6 h-[1px] md:h-[2px]"
-                        style={{
-                          background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent)'
-                        }}
-                      />
                     </div>
                   </div>
 
-                  {/* Value proposition - readable with better contrast */}
+                  {/* Value proposition — service trio, technical precision feel */}
                   <p 
-                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-2 md:mb-4 font-normal tracking-[0.08em] text-[2.8vw] md:text-[clamp(0.9rem,1.5vw,1.2rem)]"
-                    style={{ color: 'rgba(255, 255, 255, 0.85)' }}
+                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-3 md:mb-5 tracking-[0.12em] text-[2.4vw] md:text-[clamp(0.75rem,1.25vw,1.05rem)]"
+                    style={{
+                      color: 'rgba(255,255,255,0.6)',
+                      fontFamily: 'var(--font-montserrat, Montserrat, sans-serif)',
+                      fontWeight: 300,
+                    }}
                     data-testid="text-value-proposition"
                     data-speakable
                   >
-                    Creative studio · Autonomous AI agents · Full AI systems built for you
+                    <span style={{ color: 'rgba(255,255,255,0.85)', fontWeight: 400 }}>Creative studio</span>
+                    <span style={{ color: '#c4ff4d', margin: '0 0.4em' }}>·</span>
+                    <span style={{ color: 'rgba(255,255,255,0.85)', fontWeight: 400 }}>Autonomous AI agents</span>
+                    <span style={{ color: '#c4ff4d', margin: '0 0.4em' }}>·</span>
+                    <span style={{ color: 'rgba(255,255,255,0.85)', fontWeight: 400 }}>Full AI systems built for you</span>
                   </p>
-                  {/* Result line - white only with typography variation */}
+
+                  {/* Trust line — intentionally smaller, supporting role */}
                   <p 
-                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-5 md:mb-7 lg:mb-9 text-[4.2vw] md:text-[clamp(1.2rem,2.2vw,1.8rem)]"
+                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-5 md:mb-7 lg:mb-9 text-[3vw] md:text-[clamp(0.7rem,1.1vw,0.9rem)]"
                     data-testid="text-result-line"
                   >
-                    <span className="text-[#c4ff4d] font-semibold">✓</span>{' '}
-                    <span className="text-white font-semibold">30% ROI Guaranteed</span>
-                    <span className="text-white/40 font-light"> · </span>
-                    <span className="text-white/75 font-normal">Trusted by 47+ Brands</span>
+                    <span className="text-[#c4ff4d] font-medium">✓</span>{' '}
+                    <span className="text-white/60 font-normal">30% ROI Guaranteed</span>
+                    <span className="text-white/30 font-light"> · </span>
+                    <span className="text-white/50 font-normal">Trusted by 47+ Brands</span>
                   </p>
 
                   {/* Hero AT Card — Active Theory style, single card */}
