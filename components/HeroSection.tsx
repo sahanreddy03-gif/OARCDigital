@@ -166,7 +166,7 @@ export default function HeroSection() {
                         }}
                         data-testid="text-hero-subheadline"
                       >
-                        For Brands That Compete on Value, Not Price
+                        Pioneers in visibility — from search to sales.
                       </p>
                       {/* Subtle white underline */}
                       <div 
@@ -185,19 +185,17 @@ export default function HeroSection() {
                     data-testid="text-value-proposition"
                     data-speakable
                   >
-                    Creative AI Talent + Social-Led Marketing + Custom Workflows
+                    Creative studio · Autonomous AI agents · Full AI systems built for you
                   </p>
                   {/* Result line - white only with typography variation */}
                   <p 
                     className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-5 md:mb-7 lg:mb-9 text-[4.2vw] md:text-[clamp(1.2rem,2.2vw,1.8rem)]"
                     data-testid="text-result-line"
                   >
-                    <span className="text-white/70 font-light">=</span>{' '}
-                    <span className="text-white font-bold italic">Less Waste</span>
-                    <span className="text-white/50 font-light"> + </span>
-                    <span className="text-white font-semibold">More Reach</span>
-                    <span className="text-white/50 font-light"> + </span>
-                    <span className="text-white font-bold tracking-wide">More Sales</span>
+                    <span className="text-[#c4ff4d] font-semibold">✓</span>{' '}
+                    <span className="text-white font-semibold">30% ROI Guaranteed</span>
+                    <span className="text-white/40 font-light"> · </span>
+                    <span className="text-white/75 font-normal">Trusted by 47+ Brands</span>
                   </p>
 
                   {/* Hero AT Card — Active Theory style, single card */}

@@ -47,7 +47,6 @@ import CTASections from "@/components/CTASections";
 import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import RouteSchema from "@/components/RouteSchema";
-import IntroOverlay from "@/components/motion/IntroOverlay";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 // ─── AggregateRating + Review JSON-LD ────────────────────────────────────────
@@ -125,8 +124,6 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(REVIEW_SCHEMA) }}
       />
-      {/* Beat 00 — Logo Strike intro (SSR'd overlay, removes itself) */}
-      <IntroOverlay />
       <div className="overflow-x-hidden">
         <HeroSection />
 
