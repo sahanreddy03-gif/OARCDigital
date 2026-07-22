@@ -1,48 +1,69 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import * as THREE from "three";
 
 export default function HeroATCard() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [webglFailed, setWebglFailed] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
+    // Test WebGL support before committing to Three.js
+    const testCanvas = document.createElement("canvas");
+    const gl =
+      testCanvas.getContext("webgl2") ||
+      testCanvas.getContext("webgl") ||
+      testCanvas.getContext("experimental-webgl");
+    if (!gl) {
+      setWebglFailed(true);
+      return;
+    }
+
     const w = container.clientWidth;
     const h = container.clientHeight;
 
-    // Scene
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x080808);
 
-    // Camera
     const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
     camera.position.z = 2.5;
 
-    // Renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+    } catch {
+      setWebglFailed(true);
+      return;
+    }
+
+    // Double-check renderer actually created a context
+    if (!renderer.getContext()) {
+      renderer.dispose();
+      setWebglFailed(true);
+      return;
+    }
+
     renderer.setSize(w, h);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
-    // Lighting
     scene.add(new THREE.AmbientLight(0xffffff, 0.6));
     const pt = new THREE.PointLight(0xffffff, 0.8);
     pt.position.set(5, 5, 5);
     scene.add(pt);
 
-    // Card — PlaneGeometry with ShaderMaterial
-    // Rounded corners via SDF in fragment shader, subtle wave in vertex shader
+    // Card — PlaneGeometry + ShaderMaterial
     const cardGeometry = new THREE.PlaneGeometry(3.2, 1.8);
     const cardMaterial = new THREE.ShaderMaterial({
       transparent: true,
       uniforms: {
-        tMap: { value: new THREE.Texture() },
+        tMap:   { value: new THREE.Texture() },
         uAlpha: { value: 1.0 },
-        uTime: { value: 0.0 },
+        uTime:  { value: 0.0 },
       },
       vertexShader: `
         varying vec2 vUv;
@@ -88,10 +109,10 @@ export default function HeroATCard() {
     videoTexture.magFilter = THREE.LinearFilter;
     cardMaterial.uniforms.tMap.value = videoTexture;
 
-    // Ambient particles — 100 slow cyan dots
+    // 100 ambient cyan dots
     const particleCount = 100;
     const particleGeo = new THREE.BufferGeometry();
-    const positions = new Float32Array(particleCount * 3);
+    const positions  = new Float32Array(particleCount * 3);
     const velocities = new Float32Array(particleCount * 3);
 
     for (let i = 0; i < particleCount; i++) {
@@ -116,7 +137,7 @@ export default function HeroATCard() {
     const particles = new THREE.Points(particleGeo, particleMat);
     scene.add(particles);
 
-    // Mouse → smooth lerp rotation on card
+    // Mouse → lerp rotation
     const mouse = { x: 0, y: 0 };
     const rot   = { x: 0, y: 0 };
 
@@ -141,16 +162,13 @@ export default function HeroATCard() {
     const animate = () => {
       rafId = requestAnimationFrame(animate);
       time += 0.016;
-
       cardMaterial.uniforms.uTime.value = time;
 
-      // Lerp rotation toward mouse
       rot.x += (mouse.y * 0.35 - rot.x) * 0.08;
       rot.y += (mouse.x * 0.35 - rot.y) * 0.08;
       cardMesh.rotation.x = rot.x;
       cardMesh.rotation.y = rot.y;
 
-      // Drift particles
       const posAttr = particles.geometry.getAttribute("position");
       const pos = posAttr.array as Float32Array;
       for (let i = 0; i < particleCount; i++) {
@@ -185,18 +203,55 @@ export default function HeroATCard() {
     };
   }, []);
 
+  // Fallback: plain HTML video card when WebGL is unavailable
+  if (webglFailed) {
+    return (
+      <div
+        className="relative w-full max-w-sm overflow-hidden rounded-xl"
+        style={{ aspectRatio: "16/9", background: "#080808" }}
+      >
+        <video
+          src="/media/2026-01-07_01_1767825976557.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%)" }} />
+        <div className="absolute inset-0 flex flex-col justify-end p-5 select-none">
+          <p className="text-[10px] tracking-[0.25em] uppercase text-cyan-300/80 mb-1 font-light">
+            Creative Studio
+          </p>
+          <h3 className="text-white font-semibold text-base leading-tight mb-3">
+            Media. Brand. Content.
+          </h3>
+          <Link
+            href="/creative"
+            className="inline-flex items-center gap-1.5 text-[11px] tracking-widest uppercase text-white/60 hover:text-white transition-colors duration-200 w-fit"
+          >
+            <span>Explore</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="shrink-0">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className="relative w-full max-w-sm"
       style={{ aspectRatio: "16/9" }}
     >
-      {/* WebGL canvas mount point */}
+      {/* WebGL canvas mount */}
       <div
         ref={containerRef}
         className="absolute inset-0 rounded-xl overflow-hidden"
       />
 
-      {/* HTML text overlay — pointer-events-none keeps mouse events on canvas */}
+      {/* Text overlay */}
       <div className="absolute inset-0 flex flex-col justify-end p-5 pointer-events-none select-none">
         <p className="text-[10px] tracking-[0.25em] uppercase text-cyan-300/80 mb-1 font-light">
           Creative Studio
