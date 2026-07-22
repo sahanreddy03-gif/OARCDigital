@@ -33,28 +33,6 @@ export default function HeroSection() {
 
   return (
     <>
-      <style>{`
-        @keyframes lightSweep {
-          0%   { transform: translateX(-100%) rotate(-15deg); }
-          100% { transform: translateX(200%)  rotate(-15deg); }
-        }
-        @keyframes fadeSlideUp {
-          from { opacity: 0; transform: translateY(18px); }
-          to   { opacity: 1; transform: translateY(0);    }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          @keyframes fadeSlideUp {
-            from { opacity: 0; }
-            to   { opacity: 1; }
-          }
-        }
-        .hero-text { animation: fadeSlideUp 0.8s ease both; }
-        .hero-text-d1 { animation-delay: 0.05s; }
-        .hero-text-d2 { animation-delay: 0.15s; }
-        .hero-text-d3 { animation-delay: 0.25s; }
-        .hero-text-d4 { animation-delay: 0.35s; }
-      `}</style>
-
       <section className="relative flex flex-col overflow-hidden bg-black min-h-[100svh]">
 
         {/* ─── Background ─────────────────────────────────── */}
@@ -65,21 +43,18 @@ export default function HeroSection() {
             backgroundPosition: "60% center",
           }}
         />
-        {/* Gradient: left text zone always dark, right zone keeps image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/60" />
+        {/* Gradient: lighter — artwork must read through clearly */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/30 to-black/5" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40" />
 
         {/* Light sweep */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
-          <div
-            className="absolute w-1/3 h-[200%] -top-1/2 bg-gradient-to-r from-transparent via-white/4 to-transparent"
-            style={{ animation: "lightSweep 18s ease-in-out infinite", animationDelay: "3s" }}
-          />
+          <div className="hero-light-sweep absolute w-1/3 h-[200%] -top-1/2 bg-gradient-to-r from-transparent via-white/4 to-transparent" />
         </div>
 
         {/* ─── Main content ───────────────────────────────── */}
         <div className="relative flex-1 flex flex-col justify-center pt-20 pb-4">
-          <div className="w-full max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
+          <div className="w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20">
 
             {/*
               Two-column on desktop:
@@ -99,13 +74,13 @@ export default function HeroSection() {
                   data-speakable
                 >
                   <span
-                    className="block tracking-tight leading-[1.04] text-[9.5vw] sm:text-[7vw] md:text-[clamp(2rem,3.8vw,3.6rem)] lg:text-[clamp(2.2rem,4vw,3.8rem)]"
+                    className="block tracking-tight leading-[1.04] text-[9.5vw] sm:text-[7vw] md:text-[clamp(2.6rem,4.6vw,5rem)] lg:text-[clamp(3rem,4.8vw,5.2rem)]"
                     style={{ fontFamily: "var(--font-swarsh)" }}
                   >
                     AI-Native Marketing Agency
                   </span>
                   <span
-                    className="block font-extralight italic font-serif tracking-tight leading-[1.04] mt-1 md:mt-2 text-[9.5vw] sm:text-[7vw] md:text-[clamp(2rem,3.8vw,3.6rem)] lg:text-[clamp(2.2rem,4vw,3.8rem)] md:ml-[8%]"
+                    className="block font-extralight italic font-serif tracking-tight leading-[1.04] mt-1 md:mt-2 text-[9.5vw] sm:text-[7vw] md:text-[clamp(2.6rem,4.6vw,5rem)] lg:text-[clamp(3rem,4.8vw,5.2rem)] md:ml-[8%]"
                   >
                     That Drives{" "}
                     <span className="text-[#e8ffb0] font-semibold not-italic">
@@ -122,7 +97,7 @@ export default function HeroSection() {
                     aria-hidden="true"
                   />
                   <p
-                    className="text-white text-[4.2vw] sm:text-[2.8vw] md:text-[clamp(0.95rem,1.5vw,1.3rem)] tracking-wide leading-snug"
+                    className="text-white text-[4.2vw] sm:text-[2.8vw] md:text-[clamp(1.1rem,1.85vw,1.65rem)] tracking-wide leading-snug"
                     style={{
                       fontFamily: "var(--font-halfre)",
                       textShadow: "0 0 20px rgba(255,255,255,0.3)",
@@ -149,14 +124,14 @@ export default function HeroSection() {
                   ].map((item) => (
                     <li
                       key={item}
-                      className="flex items-center gap-2.5 text-[3.8vw] sm:text-[2.4vw] md:text-[clamp(0.78rem,1.2vw,1rem)]"
+                      className="flex items-center gap-2.5 text-[3.8vw] sm:text-[2.4vw] md:text-[clamp(0.95rem,1.5vw,1.3rem)]"
                     >
                       <span
                         className="flex-shrink-0 w-3.5 md:w-4 h-[1px]"
                         style={{ background: "#c4ff4d", opacity: 0.7 }}
                         aria-hidden="true"
                       />
-                      <span style={{ color: "rgba(255,255,255,0.82)", fontWeight: 400 }}>
+                      <span style={{ color: "rgba(255,255,255,0.92)", fontWeight: 400, textShadow: "0 1px 8px rgba(0,0,0,0.7)" }}>
                         {item}
                       </span>
                     </li>

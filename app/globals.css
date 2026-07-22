@@ -1490,3 +1490,34 @@
     }
   }
 }
+/* ── Hero AT Card — responsive triangle sizes ─────────────────── */
+.at-wrap { --at-s: clamp(90px, 26vw, 130px); --at-g: 7px; }
+@media (min-width: 768px)  { .at-wrap { --at-s: clamp(100px, 12vw, 145px); --at-g: 9px; } }
+@media (min-width: 1024px) { .at-wrap { --at-s: clamp(130px, 12.5vw, 165px); --at-g: 10px; } }
+@media (min-width: 1280px) { .at-wrap { --at-s: clamp(160px, 13.5vw, 215px); --at-g: 13px; } }
+@media (min-width: 1536px) { .at-wrap { --at-s: clamp(185px, 14vw, 235px); --at-g: 14px; } }
+
+/* ── Hero section text animations ─────────────────────────────── */
+@keyframes heroLightSweep {
+  0%   { transform: translateX(-100%) rotate(-15deg); }
+  100% { transform: translateX(200%)  rotate(-15deg); }
+}
+@keyframes heroFadeSlideUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  @keyframes heroFadeSlideUp {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+}
+.hero-text    { animation: heroFadeSlideUp 0.8s ease both; }
+.hero-text-d1 { animation-delay: 0.05s; }
+.hero-text-d2 { animation-delay: 0.15s; }
+.hero-text-d3 { animation-delay: 0.25s; }
+.hero-text-d4 { animation-delay: 0.35s; }
+.hero-light-sweep {
+  animation: heroLightSweep 18s ease-in-out infinite;
+  animation-delay: 3s;
+}
