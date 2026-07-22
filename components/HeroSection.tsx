@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
-import HeroVideoCards from "./HeroVideoCards";
+import HeroATCard from "./HeroATCard";
 const heroBackground = "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
 
 
@@ -200,8 +200,8 @@ export default function HeroSection() {
                     <span className="text-white font-bold tracking-wide">More Sales</span>
                   </p>
 
-                  {/* Hero Video Cards */}
-                  <HeroVideoCards />
+                  {/* Hero AT Card — Active Theory style, single card */}
+                  <HeroATCard />
                 </div>
               </div>
             </div>
