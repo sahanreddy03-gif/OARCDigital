@@ -11,15 +11,6 @@ const CARDS = [
     title: "CREATIVE",
     tagline: "Art Direction & Design",
     pos: "top" as const,
-    /* Forge — molten iron cooling: deep crimson core bleeding into charred copper and smoky violet */
-    bg: [
-      "radial-gradient(ellipse at 38% 62%, rgba(180,55,18,0.95) 0%, transparent 50%)",
-      "radial-gradient(ellipse at 72% 30%, rgba(140,40,10,0.8) 0%, transparent 44%)",
-      "radial-gradient(ellipse at 15% 20%, rgba(200,110,30,0.55) 0%, transparent 38%)",
-      "radial-gradient(ellipse at 60% 88%, rgba(90,18,35,0.7) 0%, transparent 48%)",
-      "radial-gradient(ellipse at 85% 70%, rgba(55,12,25,0.5) 0%, transparent 42%)",
-      "linear-gradient(152deg, #0c0200 0%, #1e0602 40%, #130210 100%)",
-    ].join(","),
   },
   {
     id: "ai-agents",
@@ -28,15 +19,6 @@ const CARDS = [
     title: "AI AGENTS",
     tagline: "Intelligent Automation",
     pos: "left" as const,
-    /* Aurora Chrome — iridescent magenta-violet shifting through cold pewter and near-black */
-    bg: [
-      "radial-gradient(ellipse at 30% 65%, rgba(140,30,120,0.9) 0%, transparent 50%)",
-      "radial-gradient(ellipse at 70% 28%, rgba(80,10,100,0.75) 0%, transparent 45%)",
-      "radial-gradient(ellipse at 80% 72%, rgba(160,80,140,0.5) 0%, transparent 44%)",
-      "radial-gradient(ellipse at 14% 18%, rgba(60,15,80,0.6) 0%, transparent 38%)",
-      "radial-gradient(ellipse at 50% 50%, rgba(30,5,50,0.4) 0%, transparent 55%)",
-      "linear-gradient(152deg, #06000e 0%, #110218 40%, #080014 100%)",
-    ].join(","),
   },
   {
     id: "solutions",
@@ -45,15 +27,6 @@ const CARDS = [
     title: "SOLUTIONS",
     tagline: "Revenue & Growth",
     pos: "right" as const,
-    /* Obsidian Amber — polished dark resin with deep cognac light bleeding through from within */
-    bg: [
-      "radial-gradient(ellipse at 40% 60%, rgba(175,90,10,0.9) 0%, transparent 50%)",
-      "radial-gradient(ellipse at 68% 24%, rgba(140,65,5,0.7) 0%, transparent 44%)",
-      "radial-gradient(ellipse at 18% 75%, rgba(110,45,8,0.6) 0%, transparent 45%)",
-      "radial-gradient(ellipse at 82% 78%, rgba(60,22,4,0.55) 0%, transparent 42%)",
-      "radial-gradient(ellipse at 50% 50%, rgba(30,10,2,0.4) 0%, transparent 55%)",
-      "linear-gradient(152deg, #080300 0%, #160800 40%, #0e0500 100%)",
-    ].join(","),
   },
 ];
 
@@ -97,7 +70,11 @@ function ATCard({ card }: { card: (typeof CARDS)[number] }) {
         height: "var(--at-s)",
         borderRadius: "clamp(14px, 1.6vw, 20px)",
         overflow: "hidden",
-        background: card.bg,
+        background: "rgba(255,255,255,0.06)",
+        backdropFilter: "blur(18px) saturate(1.4)",
+        WebkitBackdropFilter: "blur(18px) saturate(1.4)",
+        border: "1px solid rgba(255,255,255,0.14)",
+        boxShadow: "0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.12)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -111,40 +88,18 @@ function ATCard({ card }: { card: (typeof CARDS)[number] }) {
         willChange: "transform",
       }}
     >
-      {/* Vignette */}
+      {/* Glass top highlight */}
       <span
         aria-hidden="true"
         style={{
           position: "absolute",
-          inset: 0,
-          background:
-            "radial-gradient(ellipse at 50% 50%, transparent 28%, rgba(0,0,0,0.72) 100%)",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "40%",
+          background: "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 100%)",
           pointerEvents: "none",
           zIndex: 1,
-        }}
-      />
-      {/* Top/bottom darkening bands */}
-      <span
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "linear-gradient(180deg, rgba(0,0,0,0.38) 0%, transparent 32%, transparent 68%, rgba(0,0,0,0.38) 100%)",
-          pointerEvents: "none",
-          zIndex: 1,
-        }}
-      />
-      {/* Inner border shine */}
-      <span
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          borderRadius: "inherit",
-          boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.13)",
-          pointerEvents: "none",
-          zIndex: 2,
         }}
       />
       {/* Label */}
