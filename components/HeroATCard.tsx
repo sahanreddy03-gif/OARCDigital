@@ -127,15 +127,13 @@ function ATCard({ card }: { card: (typeof CARDS)[number] }) {
         <source src={card.video} type="video/mp4" />
       </video>
 
-      {/* Glass overlay on top of video */}
+      {/* Minimal dark scrim — video stays crystal clear */}
       <span
         aria-hidden="true"
         style={{
           position: "absolute",
           inset: 0,
-          background: "rgba(0,0,0,0.28)",
-          backdropFilter: "blur(2px) saturate(1.2)",
-          WebkitBackdropFilter: "blur(2px) saturate(1.2)",
+          background: "rgba(0,0,0,0.18)",
           zIndex: 1,
         }}
       />
