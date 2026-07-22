@@ -49,3 +49,7 @@ VERCEL_DEPLOY_HOOK = "https://api.vercel.com/v1/integrations/deploy/prj_Qk3PU0iT
 NEXT_PUBLIC_CALCOM_BOOKING_URL = "https://cal.com/oarc-digital-srwvnv"
 NEXT_PUBLIC_FOUNDER_LINKEDIN = "https://www.linkedin.com/in/sahanoarcdigital"
 CLOUDFLARE_AI_MODEL = "@cf/meta/llama-3-8b-instruct"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
