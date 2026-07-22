@@ -1,230 +1,224 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
-import * as THREE from "three";
 
-export default function HeroATCard() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [webglFailed, setWebglFailed] = useState(false);
+const CARDS = [
+  {
+    id: "creative",
+    href: "/creative",
+    label: "OARC DIGITAL",
+    title: "CREATIVE",
+    tagline: "Art Direction & Design",
+    pos: "top" as const,
+    /* Forge — molten iron cooling: deep crimson core bleeding into charred copper and smoky violet */
+    bg: [
+      "radial-gradient(ellipse at 38% 62%, rgba(180,55,18,0.95) 0%, transparent 50%)",
+      "radial-gradient(ellipse at 72% 30%, rgba(140,40,10,0.8) 0%, transparent 44%)",
+      "radial-gradient(ellipse at 15% 20%, rgba(200,110,30,0.55) 0%, transparent 38%)",
+      "radial-gradient(ellipse at 60% 88%, rgba(90,18,35,0.7) 0%, transparent 48%)",
+      "radial-gradient(ellipse at 85% 70%, rgba(55,12,25,0.5) 0%, transparent 42%)",
+      "linear-gradient(152deg, #0c0200 0%, #1e0602 40%, #130210 100%)",
+    ].join(","),
+  },
+  {
+    id: "ai-agents",
+    href: "/ai-agents",
+    label: "OARC DIGITAL",
+    title: "AI AGENTS",
+    tagline: "Intelligent Automation",
+    pos: "left" as const,
+    /* Aurora Chrome — iridescent magenta-violet shifting through cold pewter and near-black */
+    bg: [
+      "radial-gradient(ellipse at 30% 65%, rgba(140,30,120,0.9) 0%, transparent 50%)",
+      "radial-gradient(ellipse at 70% 28%, rgba(80,10,100,0.75) 0%, transparent 45%)",
+      "radial-gradient(ellipse at 80% 72%, rgba(160,80,140,0.5) 0%, transparent 44%)",
+      "radial-gradient(ellipse at 14% 18%, rgba(60,15,80,0.6) 0%, transparent 38%)",
+      "radial-gradient(ellipse at 50% 50%, rgba(30,5,50,0.4) 0%, transparent 55%)",
+      "linear-gradient(152deg, #06000e 0%, #110218 40%, #080014 100%)",
+    ].join(","),
+  },
+  {
+    id: "solutions",
+    href: "/solutions",
+    label: "OARC DIGITAL",
+    title: "SOLUTIONS",
+    tagline: "Revenue & Growth",
+    pos: "right" as const,
+    /* Obsidian Amber — polished dark resin with deep cognac light bleeding through from within */
+    bg: [
+      "radial-gradient(ellipse at 40% 60%, rgba(175,90,10,0.9) 0%, transparent 50%)",
+      "radial-gradient(ellipse at 68% 24%, rgba(140,65,5,0.7) 0%, transparent 44%)",
+      "radial-gradient(ellipse at 18% 75%, rgba(110,45,8,0.6) 0%, transparent 45%)",
+      "radial-gradient(ellipse at 82% 78%, rgba(60,22,4,0.55) 0%, transparent 42%)",
+      "radial-gradient(ellipse at 50% 50%, rgba(30,10,2,0.4) 0%, transparent 55%)",
+      "linear-gradient(152deg, #080300 0%, #160800 40%, #0e0500 100%)",
+    ].join(","),
+  },
+];
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+function ATCard({ card }: { card: (typeof CARDS)[number] }) {
+  const ref = useRef<HTMLAnchorElement>(null);
+  const [tilt, setTilt] = useState({ rx: 0, ry: 0 });
+  const [hovered, setHovered] = useState(false);
 
-    // Test WebGL support
-    const testCanvas = document.createElement("canvas");
-    const gl =
-      testCanvas.getContext("webgl2") ||
-      testCanvas.getContext("webgl") ||
-      testCanvas.getContext("experimental-webgl");
-    if (!gl) {
-      setWebglFailed(true);
-      return;
-    }
-
-    const w = container.clientWidth;
-    const h = container.clientHeight;
-
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x080808);
-
-    const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
-    camera.position.z = 2.5;
-
-    let renderer: THREE.WebGLRenderer;
-    try {
-      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
-    } catch {
-      setWebglFailed(true);
-      return;
-    }
-
-    if (!renderer.getContext()) {
-      renderer.dispose();
-      setWebglFailed(true);
-      return;
-    }
-
-    renderer.setSize(w, h);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
-
-    scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-    const pt = new THREE.PointLight(0xffffff, 0.8);
-    pt.position.set(5, 5, 5);
-    scene.add(pt);
-
-    // Card — PlaneGeometry + ShaderMaterial (rounded corners SDF + vignette)
-    const cardGeometry = new THREE.PlaneGeometry(3.2, 1.8);
-    const cardMaterial = new THREE.ShaderMaterial({
-      transparent: true,
-      uniforms: {
-        tMap:   { value: new THREE.Texture() },
-        uAlpha: { value: 1.0 },
-        uTime:  { value: 0.0 },
-      },
-      vertexShader: `
-        varying vec2 vUv;
-        uniform float uTime;
-        void main() {
-          vUv = uv;
-          vec3 pos = position;
-          pos.z += sin(uv.x * 3.14159 + uTime * 0.5) * 0.018;
-          pos.z += sin(uv.y * 3.14159 + uTime * 0.3) * 0.018;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-        }
-      `,
-      fragmentShader: `
-        varying vec2 vUv;
-        uniform sampler2D tMap;
-        uniform float uAlpha;
-        void main() {
-          vec2 p = vUv - 0.5;
-          float r = 0.12;
-          float d = length(max(abs(p) - (0.5 - r), 0.0)) - r;
-          float mask = smoothstep(0.01, -0.01, d);
-          vec4 tex = texture2D(tMap, vUv);
-          float vignette = 1.0 - length(p) * 0.28;
-          gl_FragColor = vec4(tex.rgb * vignette, tex.a * mask * uAlpha);
-        }
-      `,
-    });
-
-    const cardMesh = new THREE.Mesh(cardGeometry, cardMaterial);
-    scene.add(cardMesh);
-
-    // Video texture
-    const video = document.createElement("video");
-    video.src = "/media/2026-01-07_01_1767825976557.mp4";
-    video.loop = true;
-    video.muted = true;
-    video.playsInline = true;
-    video.autoplay = true;
-    video.play().catch(() => {});
-
-    const videoTexture = new THREE.VideoTexture(video);
-    videoTexture.minFilter = THREE.LinearFilter;
-    videoTexture.magFilter = THREE.LinearFilter;
-    cardMaterial.uniforms.tMap.value = videoTexture;
-
-    // Mouse → lerp rotation
-    const mouse = { x: 0, y: 0 };
-    const rot   = { x: 0, y: 0 };
-
-    const onMouseMove = (e: MouseEvent) => {
-      mouse.x =  (e.clientX / window.innerWidth)  * 2 - 1;
-      mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
-    };
-    window.addEventListener("mousemove", onMouseMove);
-
-    const onResize = () => {
-      const cw = container.clientWidth;
-      const ch = container.clientHeight;
-      camera.aspect = cw / ch;
-      camera.updateProjectionMatrix();
-      renderer.setSize(cw, ch);
-    };
-    window.addEventListener("resize", onResize);
-
-    let rafId: number;
-    let time = 0;
-
-    const animate = () => {
-      rafId = requestAnimationFrame(animate);
-      time += 0.016;
-      cardMaterial.uniforms.uTime.value = time;
-
-      rot.x += (mouse.y * 0.35 - rot.x) * 0.08;
-      rot.y += (mouse.x * 0.35 - rot.y) * 0.08;
-      cardMesh.rotation.x = rot.x;
-      cardMesh.rotation.y = rot.y;
-
-      renderer.render(scene, camera);
-    };
-    animate();
-
-    return () => {
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("resize", onResize);
-      cancelAnimationFrame(rafId);
-      if (container.contains(renderer.domElement)) {
-        container.removeChild(renderer.domElement);
-      }
-      renderer.dispose();
-      cardGeometry.dispose();
-      cardMaterial.dispose();
-      videoTexture.dispose();
-      video.pause();
-    };
-  }, []);
-
-  // Fallback when WebGL unavailable
-  if (webglFailed) {
-    return (
-      <div
-        className="relative w-full max-w-sm overflow-hidden rounded-xl"
-        style={{ aspectRatio: "16/9", background: "#080808" }}
-      >
-        <video
-          src="/media/2026-01-07_01_1767825976557.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%)" }}
-        />
-        <div className="absolute inset-0 flex flex-col justify-end p-5 select-none">
-          <p className="text-[10px] tracking-[0.25em] uppercase text-cyan-300/80 mb-1 font-light">
-            Creative Studio
-          </p>
-          <h3 className="text-white font-semibold text-base leading-tight mb-3">
-            Media. Brand. Content.
-          </h3>
-          <Link
-            href="/creative"
-            className="inline-flex items-center gap-1.5 text-[11px] tracking-widest uppercase text-white/60 hover:text-white transition-colors duration-200 w-fit"
-          >
-            <span>Explore</span>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="shrink-0">
-              <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </Link>
-        </div>
-      </div>
-    );
+  function onMove(e: React.MouseEvent<HTMLAnchorElement>) {
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    setTilt({ rx: -y * 14, ry: x * 14 });
   }
 
+  function onLeave() {
+    setTilt({ rx: 0, ry: 0 });
+    setHovered(false);
+  }
+
+  const posStyle: React.CSSProperties =
+    card.pos === "top"
+      ? { top: 0, left: "calc(var(--at-s) + var(--at-g))" }
+      : card.pos === "left"
+      ? { top: "calc(var(--at-s) / 2)", left: 0 }
+      : { top: "calc(var(--at-s) / 2)", left: "calc(2 * (var(--at-s) + var(--at-g)))" };
+
+  return (
+    <Link
+      ref={ref}
+      href={card.href}
+      onMouseMove={onMove}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={onLeave}
+      style={{
+        position: "absolute",
+        ...posStyle,
+        width: "var(--at-s)",
+        height: "var(--at-s)",
+        borderRadius: "clamp(14px, 1.6vw, 20px)",
+        overflow: "hidden",
+        background: card.bg,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "clamp(9px, 1.1vw, 14px) clamp(8px, 1vw, 12px)",
+        textDecoration: "none",
+        transform: `perspective(700px) rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg) scale(${hovered ? 1.04 : 1})`,
+        transition: hovered
+          ? "transform 0.08s linear"
+          : "transform 0.55s cubic-bezier(0.23,1,0.32,1)",
+        willChange: "transform",
+      }}
+    >
+      {/* Vignette */}
+      <span
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse at 50% 50%, transparent 28%, rgba(0,0,0,0.72) 100%)",
+          pointerEvents: "none",
+          zIndex: 1,
+        }}
+      />
+      {/* Top/bottom darkening bands */}
+      <span
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(180deg, rgba(0,0,0,0.38) 0%, transparent 32%, transparent 68%, rgba(0,0,0,0.38) 100%)",
+          pointerEvents: "none",
+          zIndex: 1,
+        }}
+      />
+      {/* Inner border shine */}
+      <span
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          borderRadius: "inherit",
+          boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.13)",
+          pointerEvents: "none",
+          zIndex: 2,
+        }}
+      />
+      {/* Label */}
+      <span
+        style={{
+          position: "relative",
+          zIndex: 3,
+          fontSize: "clamp(5.5px, 0.65vw, 7.5px)",
+          letterSpacing: "0.22em",
+          color: "rgba(255,255,255,0.55)",
+          textTransform: "uppercase",
+          fontFamily: "var(--font-montserrat, Montserrat, 'Helvetica Neue', sans-serif)",
+          fontWeight: 500,
+          whiteSpace: "nowrap",
+        }}
+      >
+        {card.label}
+      </span>
+      {/* Title */}
+      <span
+        style={{
+          position: "relative",
+          zIndex: 3,
+          fontSize: "clamp(11px, 1.4vw, 16px)",
+          letterSpacing: "0.18em",
+          color: "#ffffff",
+          textTransform: "uppercase",
+          fontFamily: "var(--font-montserrat, Montserrat, 'Helvetica Neue', sans-serif)",
+          fontWeight: 800,
+          textAlign: "center",
+          lineHeight: 1.15,
+          textShadow: "0 1px 12px rgba(0,0,0,0.6)",
+        }}
+      >
+        {card.title}
+      </span>
+      {/* Tagline */}
+      <span
+        style={{
+          position: "relative",
+          zIndex: 3,
+          fontSize: "clamp(5px, 0.6vw, 7px)",
+          letterSpacing: "0.14em",
+          color: "rgba(255,255,255,0.45)",
+          textTransform: "uppercase",
+          fontFamily: "var(--font-montserrat, Montserrat, 'Helvetica Neue', sans-serif)",
+          fontWeight: 400,
+          textAlign: "center",
+          whiteSpace: "nowrap",
+        }}
+      >
+        {card.tagline}
+      </span>
+    </Link>
+  );
+}
+
+export default function HeroATCard() {
   return (
     <div
-      className="relative w-full max-w-sm"
-      style={{ aspectRatio: "16/9" }}
+      style={
+        {
+          "--at-s": "clamp(100px, 22vw, 158px)",
+          "--at-g": "10px",
+          position: "relative",
+          width: "calc(3 * var(--at-s) + 2 * var(--at-g))",
+          height: "calc(var(--at-s) * 1.5 + var(--at-g) * 0.5)",
+          margin: "0 auto",
+        } as React.CSSProperties
+      }
     >
-      <div
-        ref={containerRef}
-        className="absolute inset-0 rounded-xl overflow-hidden"
-      />
-      <div className="absolute inset-0 flex flex-col justify-end p-5 pointer-events-none select-none">
-        <p className="text-[10px] tracking-[0.25em] uppercase text-cyan-300/80 mb-1 font-light">
-          Creative Studio
-        </p>
-        <h3 className="text-white font-semibold text-base leading-tight mb-3">
-          Media. Brand. Content.
-        </h3>
-        <Link
-          href="/creative"
-          className="pointer-events-auto inline-flex items-center gap-1.5 text-[11px] tracking-widest uppercase text-white/60 hover:text-white transition-colors duration-200 w-fit"
-        >
-          <span>Explore</span>
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="shrink-0">
-            <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </Link>
-      </div>
+      {CARDS.map((card) => (
+        <ATCard key={card.id} card={card} />
+      ))}
     </div>
   );
 }

@@ -48,7 +48,6 @@ import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import RouteSchema from "@/components/RouteSchema";
 import IntroOverlay from "@/components/motion/IntroOverlay";
-import ChromeDust from "@/components/motion/ChromeDust";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 // ─── AggregateRating + Review JSON-LD ────────────────────────────────────────
@@ -128,8 +127,6 @@ export default function Page() {
       />
       {/* Beat 00 — Logo Strike intro (SSR'd overlay, removes itself) */}
       <IntroOverlay />
-      {/* Chrome-dust ambient layer — fed by the intro's shatter */}
-      <ChromeDust />
       <div className="overflow-x-hidden">
         <HeroSection />
 
