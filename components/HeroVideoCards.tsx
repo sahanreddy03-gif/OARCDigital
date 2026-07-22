@@ -31,6 +31,11 @@ const styles = `
   .hvc-card:nth-child(2) { animation-delay: 0.20s; }
   .hvc-card:nth-child(3) { animation-delay: 0.35s; }
 
+  /* Mobile: fixed 76vw so snap-scroll works */
+  .hvc-card { min-width: 76vw; scroll-snap-align: start; }
+  /* Desktop: let flex-1 take over, no min-width forcing overflow */
+  @media (min-width: 768px) { .hvc-card { min-width: 0; scroll-snap-align: none; } }
+
   .hvc-grad-creative {
     background: linear-gradient(135deg, #c2410c, #f97316, #be185d, #9333ea, #f97316);
     background-size: 300% 300%;
@@ -147,10 +152,6 @@ export default function HeroVideoCards() {
             key={card.href}
             href={card.href}
             className="hvc-card flex-none md:flex-1"
-            style={{
-              minWidth: "76vw",
-              scrollSnapAlign: "start",
-            }}
             data-testid={card.testId}
           >
             <div

@@ -34,7 +34,7 @@ function useImagePreload(src: string) {
 
 
 export default function HeroSection() {
-  const imageLoaded = useImagePreload(heroBackground);
+  useImagePreload(heroBackground);
   
   const styles = `
     @keyframes float {
