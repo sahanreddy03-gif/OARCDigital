@@ -82,11 +82,11 @@ export default function HeroSection() {
               <div className="hero-text hero-text-d2 flex items-center gap-3">
                 <span
                   className="flex-shrink-0 w-[2px] self-stretch rounded-full"
-                  style={{ background: "#c4ff4d", opacity: 0.3 }}
+                  style={{ background: "#c4ff4d", opacity: 0.7 }}
                   aria-hidden="true"
                 />
                 <p
-                  className="text-white/80 text-[4.2vw] sm:text-[2.8vw] md:text-[clamp(0.95rem,1.4vw,1.25rem)] tracking-wide leading-snug"
+                  className="text-white text-[4.2vw] sm:text-[2.8vw] md:text-[clamp(1.1rem,1.7vw,1.45rem)] tracking-wide leading-snug"
                   style={{ fontFamily: "var(--font-halfre)" }}
                   data-testid="text-hero-subheadline"
                 >
@@ -108,14 +108,14 @@ export default function HeroSection() {
                 ].map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-2.5 text-[3.8vw] sm:text-[2.4vw] md:text-[clamp(0.95rem,1.4vw,1.25rem)]"
+                    className="flex items-center gap-2.5 text-[3.8vw] sm:text-[2.4vw] md:text-[clamp(1.15rem,1.85vw,1.55rem)]"
                   >
                     <span
-                      className="flex-shrink-0 w-3 md:w-3.5 h-[1px]"
-                      style={{ background: "#c4ff4d", opacity: 0.35 }}
+                      className="flex-shrink-0 w-3 md:w-4 h-[1.5px]"
+                      style={{ background: "#c4ff4d", opacity: 0.75 }}
                       aria-hidden="true"
                     />
-                    <span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 400 }}>
+                    <span style={{ color: "rgba(255,255,255,0.96)", fontWeight: 500 }}>
                       {item}
                     </span>
                   </li>
