@@ -52,7 +52,7 @@ export default function HeroSection() {
         </div>
 
         {/* ─── Main content ───────────────────────────────── */}
-        <div className="relative flex-1 flex flex-col justify-center pt-20 pb-6">
+        <div className="relative flex-1 flex flex-col justify-end pt-16 pb-8">
           <div className="w-full px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12">
             <div className="flex flex-col gap-3 md:gap-4">
 
@@ -79,20 +79,14 @@ export default function HeroSection() {
               </h1>
 
               {/* Subheadline */}
-              <div className="hero-text hero-text-d2 flex items-center gap-3">
-                <span
-                  className="flex-shrink-0 w-[2px] self-stretch rounded-full"
-                  style={{ background: "#c4ff4d", opacity: 0.7 }}
-                  aria-hidden="true"
-                />
-                <p
-                  className="text-white text-[4.2vw] sm:text-[2.8vw] md:text-[clamp(1.1rem,1.7vw,1.45rem)] tracking-wide leading-snug"
-                  style={{ fontFamily: "var(--font-halfre)" }}
-                  data-testid="text-hero-subheadline"
-                >
-                  Pioneers in visibility — from search to sales.
-                </p>
-              </div>
+              <p
+                className="hero-text hero-text-d2 text-white/90 text-[4.2vw] sm:text-[2.8vw] md:text-[clamp(1.1rem,1.7vw,1.45rem)] tracking-wide leading-snug"
+                style={{ fontFamily: "var(--font-halfre)" }}
+                data-testid="text-hero-subheadline"
+                data-speakable
+              >
+                Pioneers in visibility — from search to sales.
+              </p>
 
               {/* Service trio — bigger on desktop */}
               <ul
@@ -108,14 +102,9 @@ export default function HeroSection() {
                 ].map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-2.5 text-[3.8vw] sm:text-[2.4vw] md:text-[clamp(1.15rem,1.85vw,1.55rem)]"
+                    className="text-[3.8vw] sm:text-[2.4vw] md:text-[clamp(1.15rem,1.85vw,1.55rem)]"
                   >
-                    <span
-                      className="flex-shrink-0 w-3 md:w-4 h-[1.5px]"
-                      style={{ background: "#c4ff4d", opacity: 0.75 }}
-                      aria-hidden="true"
-                    />
-                    <span style={{ color: "rgba(255,255,255,0.96)", fontWeight: 500 }}>
+                    <span style={{ color: "rgba(255,255,255,0.94)", fontWeight: 500 }}>
                       {item}
                     </span>
                   </li>
