@@ -138,7 +138,7 @@ export default function HeroSection() {
           </div>
 
           {/* ── Video cards — bottom on desktop, below text on mobile ── */}
-          <div className="w-full px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 mt-7 md:mt-auto md:mb-2">
+          <div className="w-full px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 mt-7 md:mt-6 md:mb-0">
             <div className="flex justify-start overflow-visible">
               <HeroATCard />
             </div>
