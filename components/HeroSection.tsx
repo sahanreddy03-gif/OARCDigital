@@ -52,13 +52,7 @@ export default function HeroSection() {
         </div>
 
         {/* ─── Main content ───────────────────────────────── */}
-        {/*
-          Mobile:  justify-center — text + cards stack in middle of hero
-          Desktop: justify-between — text anchors top, cards anchor bottom near carousel
-        */}
-        <div className="relative flex-1 flex flex-col justify-center md:justify-between pt-28 md:pt-24 pb-4">
-
-          {/* ── Text block ─────────────────────────────────── */}
+        <div className="relative flex-1 flex flex-col justify-center pt-20 pb-6">
           <div className="w-full px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12">
             <div className="flex flex-col gap-3 md:gap-4">
 
