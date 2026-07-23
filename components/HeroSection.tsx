@@ -43,8 +43,9 @@ export default function HeroSection() {
             backgroundPosition: "60% center",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/25" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
+        {/* Lighter overlays — artwork must read through vividly */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/35" />
 
         {/* Light sweep */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
@@ -52,29 +53,30 @@ export default function HeroSection() {
         </div>
 
         {/* ─── Main content ───────────────────────────────── */}
-        <div className="relative flex-1 flex flex-col justify-center pt-20 pb-6">
-          <div className="w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20">
+        {/* pt-28 md:pt-32 — extra breathing room so H1 doesn't crowd nav */}
+        <div className="relative flex-1 flex flex-col justify-center pt-28 md:pt-32 pb-6">
+          {/* px-5 on mobile, small padding on desktop — starts near left edge */}
+          <div className="w-full px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12">
 
-            {/* Stacked: text top, cards below */}
-            <div className="flex flex-col gap-8 md:gap-10">
+            <div className="flex flex-col gap-7 md:gap-9">
 
               {/* ── Text ─────────────────────────────────── */}
               <div className="flex flex-col">
 
-                {/* H1 */}
+                {/* H1 — slightly smaller on desktop */}
                 <h1
-                  className="hero-text hero-text-d1 mb-5 md:mb-7 text-white text-left"
+                  className="hero-text hero-text-d1 mb-4 md:mb-6 text-white text-left"
                   data-testid="text-hero-headline"
                   data-speakable
                 >
                   <span
-                    className="block tracking-tight leading-[1.04] text-[9.5vw] sm:text-[7vw] md:text-[clamp(2.6rem,4.6vw,5rem)] lg:text-[clamp(3rem,4.8vw,5.2rem)]"
+                    className="block tracking-tight leading-[1.04] text-[9.5vw] sm:text-[7vw] md:text-[clamp(2rem,3.5vw,3.8rem)] lg:text-[clamp(2.2rem,3.8vw,4rem)]"
                     style={{ fontFamily: "var(--font-swarsh)" }}
                   >
                     AI-Native Marketing Agency
                   </span>
                   <span
-                    className="block font-extralight italic font-serif tracking-tight leading-[1.04] mt-1 md:mt-2 text-[9.5vw] sm:text-[7vw] md:text-[clamp(2.6rem,4.6vw,5rem)] lg:text-[clamp(3rem,4.8vw,5.2rem)] md:ml-[8%]"
+                    className="block font-extralight italic font-serif tracking-tight leading-[1.04] mt-1 md:mt-2 text-[9.5vw] sm:text-[7vw] md:text-[clamp(2rem,3.5vw,3.8rem)] lg:text-[clamp(2.2rem,3.8vw,4rem)] md:ml-[6%]"
                   >
                     That Drives{" "}
                     <span className="text-[#e8ffb0] font-semibold not-italic">
@@ -84,14 +86,14 @@ export default function HeroSection() {
                 </h1>
 
                 {/* Subheadline — subtle lime bar, no glow */}
-                <div className="hero-text hero-text-d2 flex items-center gap-3 mb-5 md:mb-6">
+                <div className="hero-text hero-text-d2 flex items-center gap-3 mb-4 md:mb-5">
                   <span
                     className="flex-shrink-0 w-[2px] self-stretch rounded-full"
                     style={{ background: "#c4ff4d", opacity: 0.3 }}
                     aria-hidden="true"
                   />
                   <p
-                    className="text-white/80 text-[4.2vw] sm:text-[2.8vw] md:text-[clamp(1.1rem,1.85vw,1.65rem)] tracking-wide leading-snug"
+                    className="text-white/80 text-[4.2vw] sm:text-[2.8vw] md:text-[clamp(0.95rem,1.5vw,1.35rem)] tracking-wide leading-snug"
                     style={{ fontFamily: "var(--font-halfre)" }}
                     data-testid="text-hero-subheadline"
                   >
@@ -101,12 +103,10 @@ export default function HeroSection() {
 
                 {/* Service trio */}
                 <ul
-                  className="hero-text hero-text-d3 list-none mb-5 md:mb-6 flex flex-col gap-1.5 md:gap-2"
+                  className="hero-text hero-text-d3 list-none mb-4 md:mb-5 flex flex-col gap-1.5"
                   data-testid="text-value-proposition"
                   data-speakable
-                  style={{
-                    fontFamily: "var(--font-montserrat, Montserrat, sans-serif)",
-                  }}
+                  style={{ fontFamily: "var(--font-montserrat, Montserrat, sans-serif)" }}
                 >
                   {[
                     "Creative studio",
@@ -115,10 +115,10 @@ export default function HeroSection() {
                   ].map((item) => (
                     <li
                       key={item}
-                      className="flex items-center gap-2.5 text-[3.8vw] sm:text-[2.4vw] md:text-[clamp(0.95rem,1.5vw,1.3rem)]"
+                      className="flex items-center gap-2.5 text-[3.8vw] sm:text-[2.4vw] md:text-[clamp(0.82rem,1.2vw,1.05rem)]"
                     >
                       <span
-                        className="flex-shrink-0 w-3.5 md:w-4 h-[1px]"
+                        className="flex-shrink-0 w-3 md:w-3.5 h-[1px]"
                         style={{ background: "#c4ff4d", opacity: 0.35 }}
                         aria-hidden="true"
                       />
@@ -131,7 +131,7 @@ export default function HeroSection() {
 
                 {/* Trust line */}
                 <p
-                  className="hero-text hero-text-d4 text-[3vw] sm:text-[1.8vw] md:text-[clamp(0.65rem,0.95vw,0.82rem)] leading-tight"
+                  className="hero-text hero-text-d4 text-[3vw] sm:text-[1.8vw] md:text-[clamp(0.62rem,0.88vw,0.78rem)] leading-tight"
                   style={{ color: "rgba(255,255,255,0.38)", fontWeight: 300 }}
                   data-testid="text-result-line"
                 >
@@ -142,8 +142,8 @@ export default function HeroSection() {
                 </p>
               </div>
 
-              {/* ── Video cards — one row ─────────────────── */}
-              <div className="flex justify-center md:justify-start overflow-visible">
+              {/* ── Video cards — one row, left-aligned ──── */}
+              <div className="flex justify-start overflow-visible">
                 <HeroATCard />
               </div>
 
