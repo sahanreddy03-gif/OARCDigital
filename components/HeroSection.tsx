@@ -43,7 +43,6 @@ export default function HeroSection() {
             backgroundPosition: "60% center",
           }}
         />
-        {/* Lighter overlays — artwork must read through vividly */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/0" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/35" />
 
@@ -53,102 +52,104 @@ export default function HeroSection() {
         </div>
 
         {/* ─── Main content ───────────────────────────────── */}
-        {/* pt-28 md:pt-32 — extra breathing room so H1 doesn't crowd nav */}
-        <div className="relative flex-1 flex flex-col justify-center pt-28 md:pt-32 pb-6">
-          {/* px-5 on mobile, small padding on desktop — starts near left edge */}
+        {/*
+          Mobile:  justify-center — text + cards stack in middle of hero
+          Desktop: justify-between — text anchors top, cards anchor bottom near carousel
+        */}
+        <div className="relative flex-1 flex flex-col justify-center md:justify-between pt-28 md:pt-24 pb-4">
+
+          {/* ── Text block ─────────────────────────────────── */}
           <div className="w-full px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+            <div className="flex flex-col gap-3 md:gap-4">
 
-            <div className="flex flex-col gap-7 md:gap-9">
-
-              {/* ── Text ─────────────────────────────────── */}
-              <div className="flex flex-col">
-
-                {/* H1 — slightly smaller on desktop */}
-                <h1
-                  className="hero-text hero-text-d1 mb-4 md:mb-6 text-white text-left"
-                  data-testid="text-hero-headline"
-                  data-speakable
+              {/* H1 — wider tracking on desktop makes words feel bigger without growing taller */}
+              <h1
+                className="hero-text hero-text-d1 text-white text-left"
+                data-testid="text-hero-headline"
+                data-speakable
+              >
+                <span
+                  className="block leading-[1.04] text-[9.5vw] sm:text-[7vw] md:text-[clamp(2.2rem,3.8vw,4rem)] lg:text-[clamp(2.4rem,4vw,4.3rem)] tracking-tight md:tracking-wide"
+                  style={{ fontFamily: "var(--font-swarsh)" }}
                 >
-                  <span
-                    className="block tracking-tight leading-[1.04] text-[9.5vw] sm:text-[7vw] md:text-[clamp(2rem,3.5vw,3.8rem)] lg:text-[clamp(2.2rem,3.8vw,4rem)]"
-                    style={{ fontFamily: "var(--font-swarsh)" }}
-                  >
-                    AI-Native Marketing Agency
-                  </span>
-                  <span
-                    className="block font-extralight italic font-serif tracking-tight leading-[1.04] mt-1 md:mt-2 text-[9.5vw] sm:text-[7vw] md:text-[clamp(2rem,3.5vw,3.8rem)] lg:text-[clamp(2.2rem,3.8vw,4rem)] md:ml-[6%]"
-                  >
-                    That Drives{" "}
-                    <span className="text-[#e8ffb0] font-semibold not-italic">
-                      Revenue
-                    </span>
-                  </span>
-                </h1>
-
-                {/* Subheadline — subtle lime bar, no glow */}
-                <div className="hero-text hero-text-d2 flex items-center gap-3 mb-4 md:mb-5">
-                  <span
-                    className="flex-shrink-0 w-[2px] self-stretch rounded-full"
-                    style={{ background: "#c4ff4d", opacity: 0.3 }}
-                    aria-hidden="true"
-                  />
-                  <p
-                    className="text-white/80 text-[4.2vw] sm:text-[2.8vw] md:text-[clamp(0.95rem,1.5vw,1.35rem)] tracking-wide leading-snug"
-                    style={{ fontFamily: "var(--font-halfre)" }}
-                    data-testid="text-hero-subheadline"
-                  >
-                    Pioneers in visibility — from search to sales.
-                  </p>
-                </div>
-
-                {/* Service trio */}
-                <ul
-                  className="hero-text hero-text-d3 list-none mb-4 md:mb-5 flex flex-col gap-1.5"
-                  data-testid="text-value-proposition"
-                  data-speakable
-                  style={{ fontFamily: "var(--font-montserrat, Montserrat, sans-serif)" }}
+                  AI-Native Marketing Agency
+                </span>
+                <span
+                  className="block font-extralight italic font-serif leading-[1.04] mt-1 md:mt-1.5 text-[9.5vw] sm:text-[7vw] md:text-[clamp(2.2rem,3.8vw,4rem)] lg:text-[clamp(2.4rem,4vw,4.3rem)] tracking-tight md:tracking-wide md:ml-[5%]"
                 >
-                  {[
-                    "Creative studio",
-                    "Autonomous AI agents",
-                    "Full AI systems built for you",
-                  ].map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center gap-2.5 text-[3.8vw] sm:text-[2.4vw] md:text-[clamp(0.82rem,1.2vw,1.05rem)]"
-                    >
-                      <span
-                        className="flex-shrink-0 w-3 md:w-3.5 h-[1px]"
-                        style={{ background: "#c4ff4d", opacity: 0.35 }}
-                        aria-hidden="true"
-                      />
-                      <span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 400 }}>
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                  That Drives{" "}
+                  <span className="text-[#e8ffb0] font-semibold not-italic">
+                    Revenue
+                  </span>
+                </span>
+              </h1>
 
-                {/* Trust line */}
+              {/* Subheadline */}
+              <div className="hero-text hero-text-d2 flex items-center gap-3">
+                <span
+                  className="flex-shrink-0 w-[2px] self-stretch rounded-full"
+                  style={{ background: "#c4ff4d", opacity: 0.3 }}
+                  aria-hidden="true"
+                />
                 <p
-                  className="hero-text hero-text-d4 text-[3vw] sm:text-[1.8vw] md:text-[clamp(0.62rem,0.88vw,0.78rem)] leading-tight"
-                  style={{ color: "rgba(255,255,255,0.38)", fontWeight: 300 }}
-                  data-testid="text-result-line"
+                  className="text-white/80 text-[4.2vw] sm:text-[2.8vw] md:text-[clamp(0.95rem,1.4vw,1.25rem)] tracking-wide leading-snug"
+                  style={{ fontFamily: "var(--font-halfre)" }}
+                  data-testid="text-hero-subheadline"
                 >
-                  <span style={{ color: "#c4ff4d", fontWeight: 500 }}>✓</span>{" "}
-                  30% ROI Guaranteed{" "}
-                  <span style={{ opacity: 0.5 }}>·</span>{" "}
-                  Trusted by 47+ Brands
+                  Pioneers in visibility — from search to sales.
                 </p>
               </div>
 
-              {/* ── Video cards — one row, left-aligned ──── */}
-              <div className="flex justify-start overflow-visible">
-                <HeroATCard />
-              </div>
+              {/* Service trio — bigger on desktop */}
+              <ul
+                className="hero-text hero-text-d3 list-none flex flex-col gap-1.5"
+                data-testid="text-value-proposition"
+                data-speakable
+                style={{ fontFamily: "var(--font-montserrat, Montserrat, sans-serif)" }}
+              >
+                {[
+                  "Creative studio",
+                  "Autonomous AI agents",
+                  "Full AI systems built for you",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-2.5 text-[3.8vw] sm:text-[2.4vw] md:text-[clamp(0.95rem,1.4vw,1.25rem)]"
+                  >
+                    <span
+                      className="flex-shrink-0 w-3 md:w-3.5 h-[1px]"
+                      style={{ background: "#c4ff4d", opacity: 0.35 }}
+                      aria-hidden="true"
+                    />
+                    <span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 400 }}>
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Trust line */}
+              <p
+                className="hero-text hero-text-d4 text-[3vw] sm:text-[1.8vw] md:text-[clamp(0.62rem,0.88vw,0.78rem)] leading-tight"
+                style={{ color: "rgba(255,255,255,0.38)", fontWeight: 300 }}
+                data-testid="text-result-line"
+              >
+                <span style={{ color: "#c4ff4d", fontWeight: 500 }}>✓</span>{" "}
+                30% ROI Guaranteed{" "}
+                <span style={{ opacity: 0.5 }}>·</span>{" "}
+                Trusted by 47+ Brands
+              </p>
 
             </div>
           </div>
+
+          {/* ── Video cards — bottom on desktop, below text on mobile ── */}
+          <div className="w-full px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 mt-7 md:mt-0 md:mb-5">
+            <div className="flex justify-start overflow-visible">
+              <HeroATCard />
+            </div>
+          </div>
+
         </div>
 
         {/* ─── Carousel ───────────────────────────────────── */}
