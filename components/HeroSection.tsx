@@ -124,7 +124,7 @@ export default function HeroSection() {
 
               {/* Trust line */}
               <p
-                className="hero-text hero-text-d4 text-[3vw] sm:text-[1.8vw] md:text-[clamp(0.62rem,0.88vw,0.78rem)] leading-tight"
+                className="hero-text hero-text-d4 text-[3vw] sm:text-[1.8vw] md:text-[clamp(0.78rem,1.05vw,0.95rem)] leading-tight"
                 style={{ color: "rgba(255,255,255,0.38)", fontWeight: 300 }}
                 data-testid="text-result-line"
               >
@@ -138,7 +138,7 @@ export default function HeroSection() {
           </div>
 
           {/* ── Video cards — bottom on desktop, below text on mobile ── */}
-          <div className="w-full px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 mt-7 md:mt-0 md:mb-5">
+          <div className="w-full px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12 mt-7 md:mt-auto md:mb-2">
             <div className="flex justify-start overflow-visible">
               <HeroATCard />
             </div>
