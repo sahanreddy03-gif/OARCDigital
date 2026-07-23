@@ -43,9 +43,8 @@ export default function HeroSection() {
             backgroundPosition: "60% center",
           }}
         />
-        {/* Gradient: lighter — artwork must read through clearly */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/30 to-black/5" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
 
         {/* Light sweep */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
@@ -53,19 +52,14 @@ export default function HeroSection() {
         </div>
 
         {/* ─── Main content ───────────────────────────────── */}
-        <div className="relative flex-1 flex flex-col justify-center pt-20 pb-4">
+        <div className="relative flex-1 flex flex-col justify-center pt-20 pb-6">
           <div className="w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20">
 
-            {/*
-              Two-column on desktop:
-                LEFT  ~55% → headline + text
-                RIGHT ~45% → video cards
-              Single column on mobile: text first, then cards
-            */}
-            <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-0">
+            {/* Stacked: text top, cards below */}
+            <div className="flex flex-col gap-8 md:gap-10">
 
-              {/* ── LEFT: Text ───────────────────────────── */}
-              <div className="flex flex-col md:w-[54%] md:pr-8 lg:pr-12">
+              {/* ── Text ─────────────────────────────────── */}
+              <div className="flex flex-col">
 
                 {/* H1 */}
                 <h1
@@ -89,26 +83,23 @@ export default function HeroSection() {
                   </span>
                 </h1>
 
-                {/* Subheadline — lime bar accent */}
+                {/* Subheadline — subtle lime bar, no glow */}
                 <div className="hero-text hero-text-d2 flex items-center gap-3 mb-5 md:mb-6">
                   <span
-                    className="flex-shrink-0 w-[3px] self-stretch rounded-full"
-                    style={{ background: "#c4ff4d" }}
+                    className="flex-shrink-0 w-[2px] self-stretch rounded-full"
+                    style={{ background: "#c4ff4d", opacity: 0.3 }}
                     aria-hidden="true"
                   />
                   <p
-                    className="text-white text-[4.2vw] sm:text-[2.8vw] md:text-[clamp(1.1rem,1.85vw,1.65rem)] tracking-wide leading-snug"
-                    style={{
-                      fontFamily: "var(--font-halfre)",
-                      textShadow: "0 0 20px rgba(255,255,255,0.3)",
-                    }}
+                    className="text-white/80 text-[4.2vw] sm:text-[2.8vw] md:text-[clamp(1.1rem,1.85vw,1.65rem)] tracking-wide leading-snug"
+                    style={{ fontFamily: "var(--font-halfre)" }}
                     data-testid="text-hero-subheadline"
                   >
                     Pioneers in visibility — from search to sales.
                   </p>
                 </div>
 
-                {/* Service trio — three clean lines, no wrapping */}
+                {/* Service trio */}
                 <ul
                   className="hero-text hero-text-d3 list-none mb-5 md:mb-6 flex flex-col gap-1.5 md:gap-2"
                   data-testid="text-value-proposition"
@@ -128,17 +119,17 @@ export default function HeroSection() {
                     >
                       <span
                         className="flex-shrink-0 w-3.5 md:w-4 h-[1px]"
-                        style={{ background: "#c4ff4d", opacity: 0.7 }}
+                        style={{ background: "#c4ff4d", opacity: 0.35 }}
                         aria-hidden="true"
                       />
-                      <span style={{ color: "rgba(255,255,255,0.92)", fontWeight: 400, textShadow: "0 1px 8px rgba(0,0,0,0.7)" }}>
+                      <span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 400 }}>
                         {item}
                       </span>
                     </li>
                   ))}
                 </ul>
 
-                {/* Trust line — small, quiet */}
+                {/* Trust line */}
                 <p
                   className="hero-text hero-text-d4 text-[3vw] sm:text-[1.8vw] md:text-[clamp(0.65rem,0.95vw,0.82rem)] leading-tight"
                   style={{ color: "rgba(255,255,255,0.38)", fontWeight: 300 }}
@@ -151,8 +142,8 @@ export default function HeroSection() {
                 </p>
               </div>
 
-              {/* ── RIGHT: Video cards ────────────────────── */}
-              <div className="flex justify-center md:w-[46%] mt-6 md:mt-0 overflow-visible">
+              {/* ── Video cards — one row ─────────────────── */}
+              <div className="flex justify-center md:justify-start overflow-visible">
                 <HeroATCard />
               </div>
 

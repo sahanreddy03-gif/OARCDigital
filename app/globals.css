@@ -1491,11 +1491,13 @@
   }
 }
 /* ── Hero AT Card — responsive triangle sizes ─────────────────── */
-.at-wrap { --at-s: clamp(90px, 26vw, 130px); --at-g: 7px; }
-@media (min-width: 768px)  { .at-wrap { --at-s: clamp(100px, 12vw, 145px); --at-g: 9px; } }
-@media (min-width: 1024px) { .at-wrap { --at-s: clamp(130px, 12.5vw, 165px); --at-g: 10px; } }
-@media (min-width: 1280px) { .at-wrap { --at-s: clamp(160px, 13.5vw, 215px); --at-g: 13px; } }
-@media (min-width: 1536px) { .at-wrap { --at-s: clamp(185px, 14vw, 235px); --at-g: 14px; } }
+/* 3-in-a-row cards — mobile and desktop */
+.at-row { --at-s: clamp(90px, 27vw, 120px); --at-g: 8px; }
+@media (min-width: 640px)  { .at-row { --at-s: clamp(120px, 20vw, 160px); --at-g: 10px; } }
+@media (min-width: 768px)  { .at-row { --at-s: clamp(140px, 18vw, 190px); --at-g: 12px; } }
+@media (min-width: 1024px) { .at-row { --at-s: clamp(160px, 16vw, 220px); --at-g: 14px; } }
+@media (min-width: 1280px) { .at-row { --at-s: clamp(180px, 15vw, 240px); --at-g: 16px; } }
+@media (min-width: 1536px) { .at-row { --at-s: clamp(200px, 14vw, 260px); --at-g: 18px; } }
 
 /* ── Hero section text animations ─────────────────────────────── */
 @keyframes heroLightSweep {

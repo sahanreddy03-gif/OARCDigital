@@ -8,21 +8,18 @@ const CARDS = [
     id: "creative",
     href: "/creative",
     title: "CREATIVE",
-    pos: "top" as const,
     video: "/media/cards/creative.mp4",
   },
   {
     id: "ai-agents",
     href: "/ai-agents",
     title: "AI AGENTS",
-    pos: "left" as const,
     video: "/media/cards/ai-agents.mp4",
   },
   {
     id: "growth-systems",
     href: "/solutions",
     title: "GROWTH SYSTEMS",
-    pos: "right" as const,
     video: "/media/cards/growth-systems.mp4",
   },
 ];
@@ -33,7 +30,6 @@ function ATCard({ card }: { card: (typeof CARDS)[number] }) {
   const [tilt, setTilt] = useState({ rx: 0, ry: 0 });
   const [hovered, setHovered] = useState(false);
 
-  /* Play immediately when card enters viewport */
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -65,16 +61,6 @@ function ATCard({ card }: { card: (typeof CARDS)[number] }) {
     setHovered(false);
   }
 
-  const posStyle: React.CSSProperties =
-    card.pos === "top"
-      ? { top: 0, left: "calc(var(--at-s) + var(--at-g))" }
-      : card.pos === "left"
-      ? { top: "calc(var(--at-s) / 2 + var(--at-g) / 2)", left: 0 }
-      : {
-          top: "calc(var(--at-s) / 2 + var(--at-g) / 2)",
-          left: "calc(2 * (var(--at-s) + var(--at-g)))",
-        };
-
   return (
     <Link
       ref={linkRef}
@@ -83,8 +69,7 @@ function ATCard({ card }: { card: (typeof CARDS)[number] }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={onLeave}
       style={{
-        position: "absolute",
-        ...posStyle,
+        flexShrink: 0,
         width: "var(--at-s)",
         height: "var(--at-s)",
         borderRadius: "clamp(12px, 1.4vw, 18px)",
@@ -94,6 +79,7 @@ function ATCard({ card }: { card: (typeof CARDS)[number] }) {
           "0 12px 48px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.12)",
         display: "block",
         textDecoration: "none",
+        position: "relative",
         transform: `perspective(800px) rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg) scale(${hovered ? 1.04 : 1})`,
         transition: hovered
           ? "transform 0.06s linear"
@@ -101,7 +87,6 @@ function ATCard({ card }: { card: (typeof CARDS)[number] }) {
         willChange: "transform",
       }}
     >
-      {/* Full-bleed HD video — zero overlay */}
       <video
         ref={videoRef}
         muted
@@ -122,7 +107,6 @@ function ATCard({ card }: { card: (typeof CARDS)[number] }) {
         <source src={card.video} type="video/mp4" />
       </video>
 
-      {/* Vertical title — right side, reading top→bottom */}
       <span
         aria-label={card.title}
         style={{
@@ -154,19 +138,18 @@ function ATCard({ card }: { card: (typeof CARDS)[number] }) {
 
 export default function HeroATCard() {
   return (
-    <>
-      <div
-        className="at-wrap"
-        style={{
-          position: "relative",
-          width: "calc(3 * var(--at-s) + 2 * var(--at-g))",
-          height: "calc(var(--at-s) * 1.55)",
-        }}
-      >
-        {CARDS.map((card) => (
-          <ATCard key={card.id} card={card} />
-        ))}
-      </div>
-    </>
+    <div
+      className="at-row"
+      style={{
+        display: "flex",
+        gap: "var(--at-g)",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      {CARDS.map((card) => (
+        <ATCard key={card.id} card={card} />
+      ))}
+    </div>
   );
 }
