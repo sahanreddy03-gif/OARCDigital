@@ -77,6 +77,11 @@ const nextConfig = {
     return [
       { source: '/h360/restaurant-marketing-malta', destination: '/h360', permanent: true },
       { source: '/h360/demo', destination: '/h360#h360-audit', permanent: true },
+      // Meta App Live requires a resolvable Privacy Policy URL
+      { source: '/privacy', destination: '/legal/privacy-policy', permanent: true },
+      { source: '/privacy-policy', destination: '/legal/privacy-policy', permanent: true },
+      { source: '/data-deletion', destination: '/legal/data-deletion', permanent: true },
+      { source: '/terms-conditions', destination: '/legal/terms-conditions', permanent: true },
     ];
   },
   async headers() {
