@@ -2,9 +2,23 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import { Inter_Tight, Instrument_Serif } from "next/font/google";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 const heroBackground = "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
+
+/** Superside headline pair — Inter Tight (sans) + Instrument Serif (italic accent). */
+const heroSans = Inter_Tight({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+const heroSerif = Instrument_Serif({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+  style: ["normal", "italic"],
+});
 
 const HERO_PLACEHOLDER = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERAgMSIv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABcRAQEBAQAAAAAAAAAAAAAAAAARAQL/2gAMAwEAAhEDEQA/AOUODgIwlnPNZsz85MnNwu9uB2nnUQ7ugLToEq//2Q==';
 
@@ -237,12 +251,12 @@ function DisciplineGraphic({
       data-testid={`discipline-graphic-${kind}`}
     >
       <svg
-        width="36"
-        height="28"
+        width="32"
+        height="24"
         viewBox="0 0 36 28"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="drop-shadow-[0_0_10px_rgba(232,255,176,0.25)]"
+        className="drop-shadow-[0_0_8px_rgba(232,255,176,0.2)]"
       >
         <rect
           x="0.75"
@@ -302,26 +316,25 @@ function DisciplineGraphic({
 function MobileHeroVideoShell() {
   return (
     <div
-      className="w-full px-3 mt-3 mb-2"
+      className="w-full h-full px-3 flex items-center justify-center"
       style={{ perspective: "1100px" }}
       data-testid="hero-mobile-video-shell"
     >
       <div
-        className="relative mx-auto w-[94%] max-w-[420px]"
+        className="relative w-[92%] max-w-[400px]"
         style={{
-          transform: "rotateX(16deg) translateZ(36px) scale(1.06)",
+          transform: "rotateX(14deg) translateZ(28px) scale(1.04)",
           transformStyle: "preserve-3d",
-          transformOrigin: "center bottom",
+          transformOrigin: "center center",
         }}
       >
         <div
-          className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/20 bg-zinc-950/70"
+          className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-white/20 bg-zinc-950/55"
           style={{
             boxShadow:
-              "0 28px 50px rgba(0,0,0,0.55), 0 8px 20px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.12)",
+              "0 22px 40px rgba(0,0,0,0.5), 0 6px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.12)",
           }}
         >
-          {/* Centre “pushing out” light — convex read */}
           <div
             className="pointer-events-none absolute inset-0"
             style={{
@@ -329,8 +342,7 @@ function MobileHeroVideoShell() {
                 "radial-gradient(ellipse 70% 55% at 50% 42%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.04) 40%, transparent 70%)",
             }}
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/50" />
-          {/* Placeholder until video asset is provided */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/45" />
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-1">
             <span className="text-[10px] uppercase tracking-[0.28em] text-white/45">Video</span>
             <span className="text-[9px] text-white/30 tracking-wide">3D shell ready</span>
@@ -383,7 +395,7 @@ export default function HeroSection() {
     <>
       <style>{styles}</style>
       <section
-        className="relative min-h-[92vh] md:min-h-screen flex flex-col overflow-hidden bg-black"
+        className="relative min-h-[100svh] md:min-h-screen flex flex-col overflow-hidden bg-black"
         style={{ isolation: "isolate" }}
       >
         
@@ -394,21 +406,21 @@ export default function HeroSection() {
             className="absolute inset-0 bg-cover bg-no-repeat bg-zinc-950/90"
             style={{ 
               backgroundImage: `url(${HERO_PLACEHOLDER})`,
-              backgroundPosition: '60% center',
+              backgroundPosition: '60% 40%',
               transform: 'scale(1.1)'
             }}
           />
-          {/* Real background — exact live crop; tiny exposure lift only (elite, not grade) */}
+          {/* Real background — crop nudged for denser first-screen composition */}
           <div 
             className="absolute inset-0 bg-cover bg-no-repeat"
             style={{ 
               backgroundImage: `url(${heroBackground})`,
-              backgroundPosition: '60% center',
+              backgroundPosition: '60% 40%',
               filter: 'brightness(1.05) contrast(1.02) saturate(1.03)',
             }}
           />
-          {/* Gradient overlay - always visible for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/55 via-50% to-zinc-950/85 to-95%" />
+          {/* Soft read veil — denser mid so the one composed block stays crisp */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/25 from-0% via-zinc-950/50 via-45% to-zinc-950/88 to-100%" />
           
         </div>
 
@@ -450,78 +462,82 @@ export default function HeroSection() {
         </>
         
         {/* ========== CONTENT ========== */}
-        {/* MOBILE structure: H1 up → graphic subhead → 3D video → carousel → compact pills */}
-        <div className="md:hidden relative flex-1 flex flex-col justify-start pt-16 pb-5">
-          <div className="w-full px-3 text-center">
-            <div className="relative before:absolute before:inset-0 before:-z-10 before:bg-black/40 before:blur-2xl before:rounded-[32px] before:-m-3">
-              <h1
-                className="mb-2.5 text-white"
-                data-testid="text-hero-headline"
-                data-speakable
+        {/* MOBILE: one first-screen composition (100svh) — complex stack, reads as one neat block */}
+        <div
+          className={`md:hidden relative h-[100svh] flex flex-col ${heroSans.className}`}
+          style={{
+            paddingTop: "max(3.25rem, env(safe-area-inset-top))",
+            paddingBottom: "max(0.65rem, env(safe-area-inset-bottom))",
+          }}
+        >
+          {/* Top cluster — H1 + graphics line as one text unit */}
+          <div className="shrink-0 px-3 pt-[4.5svh] text-center">
+            <h1
+              className="text-white"
+              data-testid="text-hero-headline"
+              data-speakable
+            >
+              <span
+                className={`${heroSans.className} block font-semibold tracking-[-0.035em] leading-[1.05] text-[7.8vw]`}
               >
+                AI-Native Marketing Agency
+              </span>
+              <span
+                className={`${heroSerif.className} block italic tracking-[-0.03em] leading-[1.08] mt-[0.35svh] whitespace-nowrap text-[6.8vw]`}
+              >
+                Malta&apos;s One{" "}
                 <span
-                  className="block tracking-tight leading-[1.05] text-[8.5vw]"
-                  style={{ fontFamily: "var(--font-swarsh)" }}
+                  className={`${heroSans.className} text-[#e8ffb0] font-semibold not-italic tracking-[-0.03em]`}
                 >
-                  AI-Native Marketing Agency
-                </span>
-                <span className="block font-extralight italic font-serif tracking-[-0.04em] leading-[1.05] mt-0.5 whitespace-nowrap text-[7.6vw]">
-                  Malta&apos;s One{" "}
-                  <span className="text-[#e8ffb0] font-semibold not-italic">End-to-End</span>{" "}
-                  Team
-                </span>
-              </h1>
+                  End-to-End
+                </span>{" "}
+                Team
+              </span>
+            </h1>
 
-              {/* Where your [Sales][Marketing][Operations] graphics are delivered as one */}
-              <p
-                className="mt-1 mb-1 text-white/85 leading-relaxed text-[3.4vw] tracking-wide"
-                style={{ fontFamily: "var(--font-halfre)" }}
-                data-testid="text-hero-discipline-line"
-                data-speakable
-              >
-                <span className="align-middle">Where your</span>{" "}
-                <DisciplineGraphic kind="sales" />
-                <DisciplineGraphic kind="marketing" />
-                <DisciplineGraphic kind="operations" />{" "}
-                <span className="align-middle">are delivered as one.</span>
-              </p>
-            </div>
+            <p
+              className={`${heroSans.className} mt-[1.2svh] text-white/80 leading-none text-[3.1vw] font-medium tracking-[-0.01em]`}
+              data-testid="text-hero-discipline-line"
+              data-speakable
+            >
+              <span className="align-middle">Where your</span>{" "}
+              <DisciplineGraphic kind="sales" />
+              <DisciplineGraphic kind="marketing" />
+              <DisciplineGraphic kind="operations" />{" "}
+              <span className="align-middle">are delivered as one.</span>
+            </p>
           </div>
 
-          <MobileHeroVideoShell />
-
-          <div className="w-full mt-3 relative">
-            <FloatingChipCarousel />
-            <div className="absolute -bottom-6 left-0 right-0 pointer-events-none">
-              <svg viewBox="0 0 1440 120" className="w-full h-auto" preserveAspectRatio="none">
-                <path
-                  d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z"
-                  fill="#c4ff4d"
-                  opacity="0.08"
-                />
-              </svg>
-            </div>
+          {/* Video absorbs leftover height — kills the dead bottom gap */}
+          <div className="flex-1 min-h-0 py-[1svh]">
+            <MobileHeroVideoShell />
           </div>
 
-          <div className="w-full px-4 mt-5 flex gap-2.5 justify-center">
-            <CompactMobileGlassCard
-              icon={Palette}
-              label="Creative"
-              href="/creative"
-              testId="button-nav-creative"
-            />
-            <CompactMobileGlassCard
-              icon={Bot}
-              label="AI"
-              href="/ai-agents"
-              testId="button-nav-ai"
-            />
-            <CompactMobileGlassCard
-              icon={Rocket}
-              label="Growth"
-              href="/solutions"
-              testId="button-nav-growth"
-            />
+          {/* Bottom cluster — carousel + pills as one foot unit */}
+          <div className="shrink-0 pb-[0.5svh]">
+            <div className="w-full relative">
+              <FloatingChipCarousel />
+            </div>
+            <div className="w-full px-4 mt-[1.2svh] flex gap-2 justify-center">
+              <CompactMobileGlassCard
+                icon={Palette}
+                label="Creative"
+                href="/creative"
+                testId="button-nav-creative"
+              />
+              <CompactMobileGlassCard
+                icon={Bot}
+                label="AI"
+                href="/ai-agents"
+                testId="button-nav-ai"
+              />
+              <CompactMobileGlassCard
+                icon={Rocket}
+                label="Growth"
+                href="/solutions"
+                testId="button-nav-growth"
+              />
+            </div>
           </div>
         </div>
 
