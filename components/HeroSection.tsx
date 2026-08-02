@@ -236,11 +236,14 @@ const CompactMobileGlassCard = ({
  */
 function DisciplineGraphic({
   kind,
+  size = "md",
 }: {
   kind: "sales" | "marketing" | "operations";
+  size?: "md" | "lg";
 }) {
   const label =
     kind === "sales" ? "Sales" : kind === "marketing" ? "Marketing" : "Operations";
+  const wh = size === "lg" ? { w: 46, h: 34 } : { w: 32, h: 24 };
 
   return (
     <span
@@ -251,12 +254,12 @@ function DisciplineGraphic({
       data-testid={`discipline-graphic-${kind}`}
     >
       <svg
-        width="32"
-        height="24"
+        width={wh.w}
+        height={wh.h}
         viewBox="0 0 36 28"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="drop-shadow-[0_0_8px_rgba(232,255,176,0.2)]"
+        className="drop-shadow-[0_0_10px_rgba(232,255,176,0.22)]"
       >
         <rect
           x="0.75"
@@ -264,8 +267,8 @@ function DisciplineGraphic({
           width="34.5"
           height="26.5"
           rx="7"
-          fill="rgba(255,255,255,0.08)"
-          stroke="rgba(255,255,255,0.28)"
+          fill="rgba(255,255,255,0.1)"
+          stroke="rgba(255,255,255,0.32)"
           strokeWidth="1.5"
         />
         {kind === "sales" && (
@@ -316,14 +319,14 @@ function DisciplineGraphic({
 function MobileHeroVideoShell() {
   return (
     <div
-      className="w-full h-full px-3 flex items-center justify-center"
+      className="w-full px-3 flex items-center justify-center"
       style={{ perspective: "1100px" }}
       data-testid="hero-mobile-video-shell"
     >
       <div
-        className="relative w-[92%] max-w-[400px]"
+        className="relative w-[90%] max-w-[380px]"
         style={{
-          transform: "rotateX(14deg) translateZ(28px) scale(1.04)",
+          transform: "rotateX(12deg) translateZ(24px) scale(1.03)",
           transformStyle: "preserve-3d",
           transformOrigin: "center center",
         }}
@@ -462,16 +465,19 @@ export default function HeroSection() {
         </>
         
         {/* ========== CONTENT ========== */}
-        {/* MOBILE: one first-screen composition (100svh) — complex stack, reads as one neat block */}
+        {/* MOBILE: H1 fonts/colors LOCKED. Content sits lower; video keeps natural size (no empty stretch). */}
         <div
           className={`md:hidden relative h-[100svh] flex flex-col ${heroSans.className}`}
           style={{
             paddingTop: "max(3.25rem, env(safe-area-inset-top))",
-            paddingBottom: "max(0.65rem, env(safe-area-inset-bottom))",
+            paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))",
           }}
         >
-          {/* Top cluster — H1 + graphics line as one text unit */}
-          <div className="shrink-0 px-3 pt-[4.5svh] text-center">
+          {/* Intentional top negative space — art shows; whole stack sits down */}
+          <div className="flex-1 min-h-[12svh]" aria-hidden="true" />
+
+          {/* Locked headline pair — do not change fonts/colors */}
+          <div className="shrink-0 px-3 text-center">
             <h1
               className="text-white"
               data-testid="text-hero-headline"
@@ -495,30 +501,37 @@ export default function HeroSection() {
               </span>
             </h1>
 
+            {/* Bigger creative tagline — graphics replace Sales / Marketing / Operations words */}
             <p
-              className={`${heroSans.className} mt-[1.2svh] text-white/80 leading-none text-[3.1vw] font-medium tracking-[-0.01em]`}
+              className={`${heroSans.className} mt-[1.8svh] text-white leading-none text-[4.4vw] font-medium tracking-[-0.02em]`}
               data-testid="text-hero-discipline-line"
               data-speakable
             >
-              <span className="align-middle">Where your</span>{" "}
-              <DisciplineGraphic kind="sales" />
-              <DisciplineGraphic kind="marketing" />
-              <DisciplineGraphic kind="operations" />{" "}
-              <span className="align-middle">are delivered as one.</span>
+              <span className={`${heroSerif.className} italic align-middle text-white/90`}>
+                Where your
+              </span>{" "}
+              <span className="inline-flex items-center gap-1 align-middle mx-0.5">
+                <DisciplineGraphic kind="sales" size="lg" />
+                <DisciplineGraphic kind="marketing" size="lg" />
+                <DisciplineGraphic kind="operations" size="lg" />
+              </span>{" "}
+              <span className={`${heroSerif.className} italic align-middle text-white/90`}>
+                work as one.
+              </span>
             </p>
           </div>
 
-          {/* Video absorbs leftover height — kills the dead bottom gap */}
-          <div className="flex-1 min-h-0 py-[1svh]">
+          {/* Video — fixed good size, no flex-grow empty halo */}
+          <div className="shrink-0 mt-[2svh] mb-[1.5svh]">
             <MobileHeroVideoShell />
           </div>
 
-          {/* Bottom cluster — carousel + pills as one foot unit */}
-          <div className="shrink-0 pb-[0.5svh]">
+          {/* Foot cluster */}
+          <div className="shrink-0">
             <div className="w-full relative">
               <FloatingChipCarousel />
             </div>
-            <div className="w-full px-4 mt-[1.2svh] flex gap-2 justify-center">
+            <div className="w-full px-4 mt-[1svh] flex gap-2 justify-center">
               <CompactMobileGlassCard
                 icon={Palette}
                 label="Creative"
