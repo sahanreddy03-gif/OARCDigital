@@ -193,6 +193,154 @@ const MobileGlassCard = ({ icon: Icon, label, href, testId }: { icon: typeof Pal
   </Link>
 );
 
+/** Compact path pills — mobile only, under video (not the Sales/Marketing/Operations graphics). */
+const CompactMobileGlassCard = ({
+  icon: Icon,
+  label,
+  href,
+  testId,
+}: {
+  icon: typeof Palette;
+  label: string;
+  href: string;
+  testId: string;
+}) => (
+  <Link href={href} className="min-w-0 flex-1">
+    <div
+      className="flex items-center justify-center gap-1.5 px-2.5 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/25"
+      data-testid={testId}
+    >
+      <Icon className="w-3.5 h-3.5 text-white shrink-0" />
+      <span className="text-[11px] font-bold text-white tracking-wide">{label}</span>
+    </div>
+  </Link>
+);
+
+/**
+ * Sales / Marketing / Operations as graphics (not word labels, not the path icons below).
+ * aria-label carries the meaning for accessibility.
+ */
+function DisciplineGraphic({
+  kind,
+}: {
+  kind: "sales" | "marketing" | "operations";
+}) {
+  const label =
+    kind === "sales" ? "Sales" : kind === "marketing" ? "Marketing" : "Operations";
+
+  return (
+    <span
+      role="img"
+      aria-label={label}
+      title={label}
+      className="inline-flex align-middle mx-0.5"
+      data-testid={`discipline-graphic-${kind}`}
+    >
+      <svg
+        width="36"
+        height="28"
+        viewBox="0 0 36 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="drop-shadow-[0_0_10px_rgba(232,255,176,0.25)]"
+      >
+        <rect
+          x="0.75"
+          y="0.75"
+          width="34.5"
+          height="26.5"
+          rx="7"
+          fill="rgba(255,255,255,0.08)"
+          stroke="rgba(255,255,255,0.28)"
+          strokeWidth="1.5"
+        />
+        {kind === "sales" && (
+          <>
+            <path d="M8 19V14.5" stroke="#e8ffb0" strokeWidth="2.2" strokeLinecap="round" />
+            <path d="M14 19V11" stroke="#e8ffb0" strokeWidth="2.2" strokeLinecap="round" />
+            <path d="M20 19V8.5" stroke="#e8ffb0" strokeWidth="2.2" strokeLinecap="round" />
+            <path d="M26 19V12.5" stroke="rgba(255,255,255,0.85)" strokeWidth="2.2" strokeLinecap="round" />
+            <path d="M7.5 20.5h21" stroke="rgba(255,255,255,0.35)" strokeWidth="1.2" strokeLinecap="round" />
+          </>
+        )}
+        {kind === "marketing" && (
+          <>
+            <circle cx="14" cy="14" r="3.2" fill="#e8ffb0" />
+            <path
+              d="M19.5 9.5c2.2 1.4 3.5 3.5 3.5 4.5s-1.3 3.1-3.5 4.5"
+              stroke="rgba(255,255,255,0.9)"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+            />
+            <path
+              d="M23.2 7c3 2 4.8 4.6 4.8 7s-1.8 5-4.8 7"
+              stroke="rgba(232,255,176,0.75)"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+            />
+            <path d="M9.5 12.2 7 10.4v7.2l2.5-1.8" stroke="rgba(255,255,255,0.7)" strokeWidth="1.4" strokeLinejoin="round" />
+          </>
+        )}
+        {kind === "operations" && (
+          <>
+            <circle cx="10" cy="14" r="2.6" stroke="#e8ffb0" strokeWidth="1.7" />
+            <circle cx="18" cy="10.5" r="2.6" stroke="rgba(255,255,255,0.9)" strokeWidth="1.7" />
+            <circle cx="26" cy="15.5" r="2.6" stroke="#e8ffb0" strokeWidth="1.7" />
+            <path d="M12.4 13.2 15.6 11.3" stroke="rgba(255,255,255,0.55)" strokeWidth="1.4" />
+            <path d="M20.4 11.6 23.6 14.2" stroke="rgba(255,255,255,0.55)" strokeWidth="1.4" />
+          </>
+        )}
+      </svg>
+    </span>
+  );
+}
+
+/**
+ * Mobile 3D video shell — convex plane (centre toward viewer). Drop real <video> in later.
+ * Restore homepage to pre-restructure: git checkout checkpoint/homepage-before-mobile-3d-restructure
+ */
+function MobileHeroVideoShell() {
+  return (
+    <div
+      className="w-full px-3 mt-3 mb-2"
+      style={{ perspective: "1100px" }}
+      data-testid="hero-mobile-video-shell"
+    >
+      <div
+        className="relative mx-auto w-[94%] max-w-[420px]"
+        style={{
+          transform: "rotateX(16deg) translateZ(36px) scale(1.06)",
+          transformStyle: "preserve-3d",
+          transformOrigin: "center bottom",
+        }}
+      >
+        <div
+          className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/20 bg-zinc-950/70"
+          style={{
+            boxShadow:
+              "0 28px 50px rgba(0,0,0,0.55), 0 8px 20px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.12)",
+          }}
+        >
+          {/* Centre “pushing out” light — convex read */}
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(ellipse 70% 55% at 50% 42%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.04) 40%, transparent 70%)",
+            }}
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/50" />
+          {/* Placeholder until video asset is provided */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-1">
+            <span className="text-[10px] uppercase tracking-[0.28em] text-white/45">Video</span>
+            <span className="text-[9px] text-white/30 tracking-wide">3D shell ready</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function HeroSection() {
   const styles = `
     @keyframes float {
@@ -302,79 +450,148 @@ export default function HeroSection() {
         </>
         
         {/* ========== CONTENT ========== */}
-        <div className="relative flex-1 flex flex-col justify-end pt-14 md:pt-16 lg:pt-20 pb-6 -mt-8 md:mt-0">
+        {/* MOBILE structure: H1 up → graphic subhead → 3D video → carousel → compact pills */}
+        <div className="md:hidden relative flex-1 flex flex-col justify-start pt-16 pb-5">
+          <div className="w-full px-3 text-center">
+            <div className="relative before:absolute before:inset-0 before:-z-10 before:bg-black/40 before:blur-2xl before:rounded-[32px] before:-m-3">
+              <h1
+                className="mb-2.5 text-white"
+                data-testid="text-hero-headline"
+                data-speakable
+              >
+                <span
+                  className="block tracking-tight leading-[1.05] text-[8.5vw]"
+                  style={{ fontFamily: "var(--font-swarsh)" }}
+                >
+                  AI-Native Marketing Agency
+                </span>
+                <span className="block font-extralight italic font-serif tracking-[-0.04em] leading-[1.05] mt-0.5 whitespace-nowrap text-[7.6vw]">
+                  Malta&apos;s One{" "}
+                  <span className="text-[#e8ffb0] font-semibold not-italic">End-to-End</span>{" "}
+                  Team
+                </span>
+              </h1>
+
+              {/* Where your [Sales][Marketing][Operations] graphics are delivered as one */}
+              <p
+                className="mt-1 mb-1 text-white/85 leading-relaxed text-[3.4vw] tracking-wide"
+                style={{ fontFamily: "var(--font-halfre)" }}
+                data-testid="text-hero-discipline-line"
+                data-speakable
+              >
+                <span className="align-middle">Where your</span>{" "}
+                <DisciplineGraphic kind="sales" />
+                <DisciplineGraphic kind="marketing" />
+                <DisciplineGraphic kind="operations" />{" "}
+                <span className="align-middle">are delivered as one.</span>
+              </p>
+            </div>
+          </div>
+
+          <MobileHeroVideoShell />
+
+          <div className="w-full mt-3 relative">
+            <FloatingChipCarousel />
+            <div className="absolute -bottom-6 left-0 right-0 pointer-events-none">
+              <svg viewBox="0 0 1440 120" className="w-full h-auto" preserveAspectRatio="none">
+                <path
+                  d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z"
+                  fill="#c4ff4d"
+                  opacity="0.08"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <div className="w-full px-4 mt-5 flex gap-2.5 justify-center">
+            <CompactMobileGlassCard
+              icon={Palette}
+              label="Creative"
+              href="/creative"
+              testId="button-nav-creative"
+            />
+            <CompactMobileGlassCard
+              icon={Bot}
+              label="AI"
+              href="/ai-agents"
+              testId="button-nav-ai"
+            />
+            <CompactMobileGlassCard
+              icon={Rocket}
+              label="Growth"
+              href="/solutions"
+              testId="button-nav-growth"
+            />
+          </div>
+        </div>
+
+        {/* DESKTOP — unchanged from checkpoint structure */}
+        <div className="hidden md:flex relative flex-1 flex-col justify-end pt-16 lg:pt-20 pb-6">
           <div className="w-full">
-            {/* Mobile: centered with px-3, Desktop: left-aligned with minimal left padding */}
-            <div className="w-full px-3 md:pl-8 lg:pl-12 md:pr-0">
-              <div className="w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl text-center md:text-left">
-                {/* Mobile glassmorphism panel */}
-                <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
-                  
-                  {/* Headline - line 2 kept on one mobile row; End-to-End matches Revenue accent */}
-                  <h1 
-                    className="mb-3 md:mb-6 lg:mb-8 text-white" 
-                    data-testid="text-hero-headline"
+            <div className="w-full pl-8 lg:pl-12 pr-0">
+              <div className="w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl text-left">
+                <div className="relative">
+                  <h1
+                    className="mb-6 lg:mb-8 text-white"
+                    data-testid="text-hero-headline-desktop"
                     data-speakable
                   >
-                    {/* Mobile: 8.5vw scales from ~27px on iPhone SE to ~36px on iPhone 16 Pro Max */}
-                    <span 
-                      className="block tracking-tight leading-[1.05] text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)]"
-                      style={{ fontFamily: 'var(--font-swarsh)' }}
+                    <span
+                      className="block tracking-tight leading-[1.05] text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)]"
+                      style={{ fontFamily: "var(--font-swarsh)" }}
                     >
                       AI-Native Marketing Agency
                     </span>
-                    <span 
-                      className="block font-extralight italic font-serif tracking-[-0.04em] leading-[1.05] mt-0.5 md:mt-2 whitespace-nowrap text-[7.6vw] md:text-[clamp(2.2rem,4.7vw,3.85rem)] lg:text-[clamp(2.3rem,4.1vw,3.4rem)]"
-                    >
-                      Malta&apos;s One <span className="text-[#e8ffb0] font-semibold not-italic">End-to-End</span> Team
+                    <span className="block font-extralight italic font-serif tracking-[-0.04em] leading-[1.05] mt-2 whitespace-nowrap text-[clamp(2.2rem,4.7vw,3.85rem)] lg:text-[clamp(2.3rem,4.1vw,3.4rem)]">
+                      Malta&apos;s One{" "}
+                      <span className="text-[#e8ffb0] font-semibold not-italic">End-to-End</span>{" "}
+                      Team
                     </span>
                   </h1>
 
-                  {/* Subheading - emphasized with glass strip and underline */}
-                  <div className="flex justify-center md:justify-start mb-4 md:mb-6">
-                    <div 
-                      className="relative inline-block px-2 py-1 md:px-4 md:py-2 rounded-lg"
+                  <div className="flex justify-start mb-6">
+                    <div
+                      className="relative inline-block px-4 py-2 rounded-lg"
                       style={{
-                        background: 'rgba(255, 255, 255, 0.08)',
-                        backdropFilter: 'blur(8px)',
-                        border: '1px solid rgba(255, 255, 255, 0.1)'
+                        background: "rgba(255, 255, 255, 0.08)",
+                        backdropFilter: "blur(8px)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
                       }}
                     >
-                      <p 
-                        className="text-white tracking-wide whitespace-nowrap text-[2.8vw] md:text-[clamp(0.9rem,1.5vw,1.25rem)] lg:text-[clamp(1rem,1.6vw,1.35rem)]"
+                      <p
+                        className="text-white tracking-wide whitespace-nowrap text-[clamp(0.9rem,1.5vw,1.25rem)] lg:text-[clamp(1rem,1.6vw,1.35rem)]"
                         style={{
-                          fontFamily: 'var(--font-halfre)',
-                          textShadow: '0 0 30px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 255, 255, 0.2)'
+                          fontFamily: "var(--font-halfre)",
+                          textShadow:
+                            "0 0 30px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 255, 255, 0.2)",
                         }}
                         data-testid="text-hero-subheadline"
                       >
                         For Brands That Compete on Value, Not Price
                       </p>
-                      {/* Subtle white underline */}
-                      <div 
-                        className="absolute bottom-1 md:bottom-2 left-3 md:left-6 right-3 md:right-6 h-[1px] md:h-[2px]"
+                      <div
+                        className="absolute bottom-2 left-6 right-6 h-[2px]"
                         style={{
-                          background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent)'
+                          background:
+                            "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent)",
                         }}
                       />
                     </div>
                   </div>
 
-                  {/* Value proposition - readable with better contrast */}
-                  <p 
-                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-snug mb-2 md:mb-4 font-normal tracking-[0.08em] text-[2.8vw] md:text-[clamp(0.9rem,1.5vw,1.2rem)]"
-                    style={{ color: 'rgba(255, 255, 255, 0.85)' }}
+                  <p
+                    className="max-w-2xl leading-snug mb-4 font-normal tracking-[0.08em] text-[clamp(0.9rem,1.5vw,1.2rem)]"
+                    style={{ color: "rgba(255, 255, 255, 0.85)" }}
                     data-testid="text-value-proposition"
                     data-speakable
                   >
                     Creative AI Talent + Social-Led Marketing + Custom Workflows
                   </p>
-                  {/* Result line - white only with typography variation */}
-                  <p 
-                    className="max-w-none md:max-w-2xl mx-auto md:mx-0 leading-tight mb-5 md:mb-7 lg:mb-9 text-[4.2vw] md:text-[clamp(1.2rem,2.2vw,1.8rem)]"
+                  <p
+                    className="max-w-2xl leading-tight mb-7 lg:mb-9 text-[clamp(1.2rem,2.2vw,1.8rem)]"
                     data-testid="text-result-line"
                   >
-                    <span className="text-white/70 font-light">=</span>{' '}
+                    <span className="text-white/70 font-light">=</span>{" "}
                     <span className="text-white font-bold italic">Less Waste</span>
                     <span className="text-white/50 font-light"> + </span>
                     <span className="text-white font-semibold">More Reach</span>
@@ -382,34 +599,46 @@ export default function HeroSection() {
                     <span className="text-white font-bold tracking-wide">More Sales</span>
                   </p>
 
-                  {/* Premium Service Navigation Cards */}
-                  <div className="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start">
-                    <MobileGlassCard icon={Palette} label="Creative" href="/creative" testId="button-nav-creative" />
-                    <MobileGlassCard icon={Bot} label="AI" href="/ai-agents" testId="button-nav-ai" />
-                    <MobileGlassCard icon={Rocket} label="Growth" href="/solutions" testId="button-nav-growth" />
+                  <div className="flex flex-wrap gap-4 justify-start">
+                    <MobileGlassCard
+                      icon={Palette}
+                      label="Creative"
+                      href="/creative"
+                      testId="button-nav-creative-desktop"
+                    />
+                    <MobileGlassCard
+                      icon={Bot}
+                      label="AI"
+                      href="/ai-agents"
+                      testId="button-nav-ai-desktop"
+                    />
+                    <MobileGlassCard
+                      icon={Rocket}
+                      label="Growth"
+                      href="/solutions"
+                      testId="button-nav-growth-desktop"
+                    />
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Carousel with green wave */}
-          <div className="w-full mt-8 md:mt-5 relative">
+          <div className="w-full mt-5 relative">
             <FloatingChipCarousel />
-            {/* Subtle green curved wave below carousel - barely visible */}
-            <div className="absolute -bottom-8 md:-bottom-16 left-0 right-0 pointer-events-none">
-              <svg 
-                viewBox="0 0 1440 120" 
+            <div className="absolute -bottom-16 left-0 right-0 pointer-events-none">
+              <svg
+                viewBox="0 0 1440 120"
                 className="w-full h-auto lg:scale-y-75"
                 preserveAspectRatio="none"
               >
-                <path 
-                  d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z" 
+                <path
+                  d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z"
                   fill="#c4ff4d"
                   opacity="0.08"
                 />
-                <path 
-                  d="M0,80 C320,40 640,100 960,60 C1200,30 1360,70 1440,50 L1440,120 L0,120 Z" 
+                <path
+                  d="M0,80 C320,40 640,100 960,60 C1200,30 1360,70 1440,50 L1440,120 L0,120 Z"
                   fill="#c4ff4d"
                   opacity="0.05"
                 />
