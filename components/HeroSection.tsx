@@ -240,32 +240,43 @@ export default function HeroSection() {
       >
         
         {/* ========== MOBILE LAYOUT ========== */}
-        {/* Bright colourful top (empty image zone). Darken ONLY under the text — no full-screen soft net. */}
+        {/* High-end luminous top (show image quality). Soft grade — not cheap saturate. Shadow only under copy. */}
         <div className="md:hidden absolute inset-0">
           {/* Instant placeholder - blurred, loads immediately */}
           <div 
             className="absolute inset-0 bg-cover bg-no-repeat bg-zinc-950/90"
             style={{ 
               backgroundImage: `url(${HERO_PLACEHOLDER})`,
-              backgroundPosition: "60% 28%",
-              transform: "scale(1.16)",
+              backgroundPosition: "60% 26%",
+              transform: "scale(1.18)",
+              filter: "brightness(1.1) contrast(1.06) saturate(1.08)",
             }}
           />
-          {/* Real background — larger + lifted so the top empty zone shows more colour */}
+          {/* Real background — lifted exposure/clarity so the art reads premium, not muted */}
           <div 
             className="absolute inset-0 bg-cover bg-no-repeat"
             style={{ 
               backgroundImage: `url(${heroBackground})`,
-              backgroundPosition: "60% 28%",
-              transform: "scale(1.14)",
+              backgroundPosition: "60% 26%",
+              transform: "scale(1.16)",
+              filter: "brightness(1.14) contrast(1.08) saturate(1.12)",
             }}
           />
-          {/* Top stays open/bright; shadow begins only where H1 starts (~mid) */}
+          {/* Soft top luminous wash — warm light, very low opacity (editorial, not neon) */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 38%, rgba(0,0,0,0.18) 52%, rgba(0,0,0,0.48) 68%, rgba(0,0,0,0.72) 84%, rgba(0,0,0,0.82) 100%)",
+                "linear-gradient(to bottom, rgba(255,236,210,0.14) 0%, rgba(255,220,190,0.07) 22%, rgba(255,255,255,0.03) 40%, transparent 52%)",
+              mixBlendMode: "soft-light",
+            }}
+          />
+          {/* Shadow begins only under the H1 — keeps top open and bright */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 44%, rgba(0,0,0,0.14) 56%, rgba(0,0,0,0.42) 70%, rgba(0,0,0,0.68) 86%, rgba(0,0,0,0.8) 100%)",
             }}
           />
         </div>
