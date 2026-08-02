@@ -240,58 +240,27 @@ export default function HeroSection() {
       >
         
         {/* ========== MOBILE LAYOUT ========== */}
-        {/* Luminous high-end top: lift the photo, add light (not neon). Dark only under copy. */}
-        <div className="md:hidden absolute inset-0 overflow-hidden">
-          {/* Instant placeholder */}
-          <img
-            src={HERO_PLACEHOLDER}
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover"
-            style={{
-              objectPosition: "60% 22%",
-              transform: "scale(1.18)",
-              filter: "brightness(1.32) contrast(1.1) saturate(1.18)",
+        {/* Near-original: only a slight top open-up so the art reads a bit clearer — not a grade/filter look. */}
+        <div className="md:hidden absolute inset-0">
+          {/* Instant placeholder - blurred, loads immediately */}
+          <div 
+            className="absolute inset-0 bg-cover bg-no-repeat bg-zinc-950/90"
+            style={{ 
+              backgroundImage: `url(${HERO_PLACEHOLDER})`,
+              backgroundPosition: '60% center',
+              transform: 'scale(1.1)'
             }}
           />
-          {/* Real art — exposure lift so colour quality reads in the empty top zone */}
-          <img
-            src={heroBackground}
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover"
-            style={{
-              objectPosition: "60% 22%",
-              transform: "scale(1.16)",
-              filter: "brightness(1.38) contrast(1.12) saturate(1.22)",
+          {/* Real background - always visible */}
+          <div 
+            className="absolute inset-0 bg-cover bg-no-repeat"
+            style={{ 
+              backgroundImage: `url(${heroBackground})`,
+              backgroundPosition: '60% center',
             }}
           />
-          {/* Add light (screen) — premium glow, not a colour filter */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(to bottom, rgba(255,252,245,0.34) 0%, rgba(255,240,220,0.18) 28%, rgba(255,255,255,0.06) 48%, transparent 58%)",
-              mixBlendMode: "screen",
-            }}
-          />
-          {/* Soft warm grade — editorial richness */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(to bottom, rgba(255,220,180,0.22) 0%, rgba(255,200,160,0.1) 30%, transparent 55%)",
-              mixBlendMode: "soft-light",
-            }}
-          />
-          {/* Text readability only from mid-down */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 48%, rgba(0,0,0,0.16) 58%, rgba(0,0,0,0.45) 72%, rgba(0,0,0,0.72) 88%, rgba(0,0,0,0.82) 100%)",
-            }}
-          />
+          {/* Same structure as live — top a touch more open, mid darken starts a bit later */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/45 via-[55%] to-zinc-950/85 to-95%" />
         </div>
 
         {/* ========== DESKTOP LAYOUT ========== */}
@@ -338,7 +307,7 @@ export default function HeroSection() {
             <div className="w-full px-3 md:pl-8 lg:pl-12 md:pr-0">
               <div className="w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl text-center md:text-left">
                 {/* Mobile glassmorphism panel */}
-                <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/25 before:blur-2xl before:rounded-[40px] before:-m-3">
+                <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
                   
                   {/* Headline - Viewport-based on mobile for all screen sizes, bigger on desktop */}
                   {/* lg: breakpoint uses slightly smaller max to keep "Revenue" on same line as "Drives" */}
