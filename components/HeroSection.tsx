@@ -313,7 +313,7 @@ function DisciplineGraphic({
 }
 
 /**
- * Mobile 3D video shell — convex plane (centre toward viewer). Drop real <video> in later.
+ * Mobile 3D video shell — convex plane (centre toward viewer).
  * Restore homepage to pre-restructure: git checkout checkpoint/homepage-before-mobile-3d-restructure
  */
 function MobileHeroVideoShell() {
@@ -338,18 +338,27 @@ function MobileHeroVideoShell() {
               "0 22px 40px rgba(0,0,0,0.5), 0 6px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.12)",
           }}
         >
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster=""
+            aria-label="OARC hero film"
+            data-testid="hero-mobile-video"
+          >
+            <source src="/media/oarc-hero-sonly-web.mp4" type="video/mp4" />
+          </video>
           <div
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                "radial-gradient(ellipse 70% 55% at 50% 42%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.04) 40%, transparent 70%)",
+                "radial-gradient(ellipse 70% 55% at 50% 42%, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.02) 40%, transparent 70%)",
             }}
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/45" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-1">
-            <span className="text-[10px] uppercase tracking-[0.28em] text-white/45">Video</span>
-            <span className="text-[9px] text-white/30 tracking-wide">3D shell ready</span>
-          </div>
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/35" />
         </div>
       </div>
     </div>
