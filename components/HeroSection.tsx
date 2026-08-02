@@ -240,27 +240,42 @@ export default function HeroSection() {
       >
         
         {/* ========== MOBILE LAYOUT ========== */}
+        {/* Top stays colourful (empty image zone); soft fade into a lower text well — no hard band. */}
         <div className="md:hidden absolute inset-0">
           {/* Instant placeholder - blurred, loads immediately */}
           <div 
             className="absolute inset-0 bg-cover bg-no-repeat bg-zinc-950/90"
             style={{ 
               backgroundImage: `url(${HERO_PLACEHOLDER})`,
-              backgroundPosition: '60% center',
-              transform: 'scale(1.1)'
+              backgroundPosition: "60% 32%",
+              transform: "scale(1.14)",
             }}
           />
-          {/* Real background - always visible */}
+          {/* Real background — slight scale-up so the top empty zone shows more colour */}
           <div 
             className="absolute inset-0 bg-cover bg-no-repeat"
             style={{ 
               backgroundImage: `url(${heroBackground})`,
-              backgroundPosition: '60% center',
+              backgroundPosition: "60% 32%",
+              transform: "scale(1.12)",
             }}
           />
-          {/* Gradient overlay - always visible for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%" />
-          
+          {/* Vertical fade: bright/colourful top → gentle mid → deeper under copy */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(9,9,11,0.02) 0%, rgba(9,9,11,0.06) 26%, rgba(9,9,11,0.22) 46%, rgba(9,9,11,0.55) 66%, rgba(9,9,11,0.78) 86%, rgba(9,9,11,0.88) 100%)",
+            }}
+          />
+          {/* Soft lower shadow well for H1+copy — radial so it doesn't look like a hard shelf */}
+          <div
+            className="absolute inset-x-0 bottom-0 h-[60%] pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(130% 85% at 50% 100%, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.26) 42%, transparent 74%)",
+            }}
+          />
         </div>
 
         {/* ========== DESKTOP LAYOUT ========== */}
@@ -307,7 +322,7 @@ export default function HeroSection() {
             <div className="w-full px-3 md:pl-8 lg:pl-12 md:pr-0">
               <div className="w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl text-center md:text-left">
                 {/* Mobile glassmorphism panel */}
-                <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
+                <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/30 before:blur-2xl before:rounded-[40px] before:-m-3">
                   
                   {/* Headline - Viewport-based on mobile for all screen sizes, bigger on desktop */}
                   {/* lg: breakpoint uses slightly smaller max to keep "Revenue" on same line as "Drives" */}
