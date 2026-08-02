@@ -310,8 +310,7 @@ export default function HeroSection() {
                 {/* Mobile glassmorphism panel */}
                 <div className="relative md:before:content-none before:absolute before:inset-0 before:-z-10 before:bg-black/50 before:blur-xl before:rounded-[32px] before:-m-4">
                   
-                  {/* Headline - Viewport-based on mobile for all screen sizes, bigger on desktop */}
-                  {/* lg: breakpoint uses slightly smaller max to keep "Revenue" on same line as "Drives" */}
+                  {/* Headline - line 2 kept on one mobile row; End-to-End matches Revenue accent */}
                   <h1 
                     className="mb-3 md:mb-6 lg:mb-8 text-white" 
                     data-testid="text-hero-headline"
@@ -325,9 +324,9 @@ export default function HeroSection() {
                       AI-Native Marketing Agency
                     </span>
                     <span 
-                      className="block font-extralight italic font-serif tracking-tight leading-[1.05] mt-0.5 md:mt-2 text-[8.5vw] md:text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)] lg:ml-[12rem]"
+                      className="block font-extralight italic font-serif tracking-tight leading-[1.1] mt-0.5 md:mt-2 whitespace-nowrap text-[4.9vw] md:text-[clamp(1.65rem,3.6vw,3rem)] lg:text-[clamp(1.75rem,3.2vw,2.65rem)]"
                     >
-                      That Drives <span className="text-[#e8ffb0] font-semibold not-italic">Revenue</span>
+                      Malta&apos;s One <span className="text-[#e8ffb0] font-semibold not-italic">End-to-End</span> Team
                     </span>
                   </h1>
 
