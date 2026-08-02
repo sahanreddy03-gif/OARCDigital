@@ -240,7 +240,6 @@ export default function HeroSection() {
       >
         
         {/* ========== MOBILE LAYOUT ========== */}
-        {/* Near-original: only a slight top open-up so the art reads a bit clearer — not a grade/filter look. */}
         <div className="md:hidden absolute inset-0">
           {/* Instant placeholder - blurred, loads immediately */}
           <div 
@@ -251,16 +250,18 @@ export default function HeroSection() {
               transform: 'scale(1.1)'
             }}
           />
-          {/* Real background - always visible */}
+          {/* Real background — exact live crop; tiny exposure lift only (elite, not grade) */}
           <div 
             className="absolute inset-0 bg-cover bg-no-repeat"
             style={{ 
               backgroundImage: `url(${heroBackground})`,
               backgroundPosition: '60% center',
+              filter: 'brightness(1.05) contrast(1.02) saturate(1.03)',
             }}
           />
-          {/* Same structure as live — top a touch more open, mid darken starts a bit later */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/45 via-[55%] to-zinc-950/85 to-95%" />
+          {/* Gradient overlay - always visible for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/55 via-50% to-zinc-950/85 to-95%" />
+          
         </div>
 
         {/* ========== DESKTOP LAYOUT ========== */}
