@@ -345,7 +345,6 @@ function MobileHeroVideoShell() {
             loop
             playsInline
             preload="metadata"
-            poster=""
             aria-label="OARC hero film"
             data-testid="hero-mobile-video"
           >
