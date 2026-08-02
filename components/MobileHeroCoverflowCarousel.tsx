@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-/** Same retina chips as FloatingChipCarousel — 3D coverflow, chip-sized like before. */
+/** Chip assets — coverflow keeps OLD chip footprint, stronger 3D depth. */
 const CHIP = (name: string) => `/attached_assets/carousel-chips/${name}-chip.webp`;
 
 const services = [
@@ -24,21 +24,18 @@ const services = [
   { text: "MVP Development", image: CHIP("custom-ai-solutions-robots-optimized") },
 ];
 
-/** Match FloatingChipCarousel mobile chip footprint (~56px thumb + label). */
-const CARD_W = 196;
-const CARD_H = 72;
-const THUMB = 56;
-const RADIUS = 240;
-const THETA = 360 / services.length;
+const CARD_W = 168;
+const CARD_H = 62;
+const THUMB = 48;
+/** Wide step so chips read as separate coverflow cards, not one white bar */
+const STEP = 150;
+const MAX_TILT = 62;
+const VISIBLE = 1;
 
-/**
- * 3D cylindrical coverflow — same chip size as the old flat marquee.
- * Centre faces you; sides rotate/recede; drag with momentum.
- */
 export default function MobileHeroCoverflowCarousel() {
   const hitRef = useRef<HTMLDivElement>(null);
-  const stageRef = useRef<HTMLDivElement>(null);
-  const rotationRef = useRef(0);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const indexRef = useRef(0);
   const velocityRef = useRef(0);
   const draggingRef = useRef(false);
   const lastXRef = useRef(0);
@@ -48,32 +45,50 @@ export default function MobileHeroCoverflowCarousel() {
 
   useEffect(() => {
     const hit = hitRef.current;
-    const stage = stageRef.current;
-    if (!hit || !stage) return;
+    const track = trackRef.current;
+    if (!hit || !stageReady(track)) return;
 
     reducedRef.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const n = services.length;
 
-    const apply = () => {
-      stage.style.transform = `rotateY(${rotationRef.current}deg)`;
+    const render = () => {
+      const cards = track!.children;
+      const base = ((indexRef.current % n) + n) % n;
+
+      for (let i = 0; i < cards.length; i++) {
+        const el = cards[i] as HTMLElement;
+        let d = i - base;
+        if (d > n / 2) d -= n;
+        if (d < -n / 2) d += n;
+
+        const abs = Math.abs(d);
+        const hide = abs > VISIBLE + 0.4;
+        const x = d * STEP;
+        const rot = Math.max(-MAX_TILT, Math.min(MAX_TILT, d * 34));
+        // Keep z <= 0 so cards never project upward over the video wing
+        const z = -Math.abs(d) * 48;
+        const scale = hide ? 0.72 : 1 - abs * 0.08;
+        const opacity = hide ? 0 : Math.max(0.3, 1 - abs * 0.28);
+
+        el.style.opacity = String(opacity);
+        el.style.visibility = hide ? "hidden" : "visible";
+        el.style.transform = `translate(-50%, -50%) translateX(${x}px) translateZ(${z}px) rotateY(${-rot}deg) scale(${scale})`;
+        el.style.zIndex = String(200 - Math.round(abs * 20));
+      }
     };
 
     const tick = () => {
       if (!draggingRef.current && !reducedRef.current) {
-        velocityRef.current *= 0.94;
-        if (Math.abs(velocityRef.current) < 0.02) {
-          velocityRef.current = -0.08;
-        }
-        rotationRef.current += velocityRef.current;
-        apply();
+        velocityRef.current *= 0.9;
+        if (Math.abs(velocityRef.current) < 0.0015) velocityRef.current = -0.014;
+        indexRef.current += velocityRef.current;
+        render();
       }
       rafRef.current = requestAnimationFrame(tick);
     };
 
-    if (!reducedRef.current) {
-      rafRef.current = requestAnimationFrame(tick);
-    } else {
-      apply();
-    }
+    render();
+    if (!reducedRef.current) rafRef.current = requestAnimationFrame(tick);
 
     const onPointerDown = (e: PointerEvent) => {
       draggingRef.current = true;
@@ -82,23 +97,21 @@ export default function MobileHeroCoverflowCarousel() {
       lastTRef.current = performance.now();
       hit.setPointerCapture?.(e.pointerId);
     };
-
     const onPointerMove = (e: PointerEvent) => {
       if (!draggingRef.current) return;
       const now = performance.now();
       const dx = e.clientX - lastXRef.current;
       const dt = Math.max(16, now - lastTRef.current);
-      const delta = dx * 0.28;
-      rotationRef.current += delta;
+      const delta = -dx / STEP;
+      indexRef.current += delta;
       velocityRef.current = (delta / dt) * 16;
       lastXRef.current = e.clientX;
       lastTRef.current = now;
-      apply();
+      render();
     };
-
     const onPointerUp = () => {
       draggingRef.current = false;
-      velocityRef.current = Math.max(-2.8, Math.min(2.8, velocityRef.current));
+      velocityRef.current = Math.max(-0.2, Math.min(0.2, velocityRef.current));
     };
 
     hit.addEventListener("pointerdown", onPointerDown);
@@ -118,81 +131,70 @@ export default function MobileHeroCoverflowCarousel() {
   return (
     <div
       ref={hitRef}
-      className="relative w-full select-none cursor-grab active:cursor-grabbing"
+      className="relative mx-auto w-full select-none cursor-grab active:cursor-grabbing"
       style={{
-        perspective: "900px",
-        height: 88,
+        perspective: "740px",
+        perspectiveOrigin: "50% 50%",
+        height: 78,
         touchAction: "pan-y",
       }}
       data-testid="hero-mobile-coverflow"
     >
       <div
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8"
-        style={{
-          background: "linear-gradient(90deg, rgba(0,0,0,0.45), transparent)",
-        }}
+        className="pointer-events-none absolute inset-y-0 left-0 z-30 w-14"
+        style={{ background: "linear-gradient(90deg, rgba(0,0,0,0.55), transparent)" }}
       />
       <div
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8"
-        style={{
-          background: "linear-gradient(270deg, rgba(0,0,0,0.45), transparent)",
-        }}
+        className="pointer-events-none absolute inset-y-0 right-0 z-30 w-14"
+        style={{ background: "linear-gradient(270deg, rgba(0,0,0,0.55), transparent)" }}
       />
 
-      <div
-        className="pointer-events-none absolute inset-0 flex items-center justify-center"
-        style={{ transformStyle: "preserve-3d" }}
-      >
+      <div className="absolute inset-0" style={{ transformStyle: "preserve-3d" }}>
         <div
-          ref={stageRef}
-          className="relative"
-          style={{
-            width: 1,
-            height: 1,
-            transformStyle: "preserve-3d",
-            willChange: "transform",
-          }}
+          ref={trackRef}
+          className="absolute left-1/2 top-1/2"
+          style={{ width: 0, height: 0, transformStyle: "preserve-3d" }}
         >
-          {services.map((service, i) => {
-            const rotateY = i * THETA;
-            return (
+          {services.map((service, i) => (
+            <div
+              key={`${service.text}-${i}`}
+              className="absolute flex items-center gap-2 overflow-hidden rounded-xl border border-black/10 bg-white px-2 py-1.5"
+              style={{
+                width: CARD_W,
+                height: CARD_H,
+                left: 0,
+                top: 0,
+                transformStyle: "preserve-3d",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
+                boxShadow: "0 10px 20px rgba(0,0,0,0.32)",
+              }}
+              data-testid={`coverflow-card-${i}`}
+            >
               <div
-                key={`${service.text}-${i}`}
-                className="absolute flex items-center gap-2.5 overflow-hidden rounded-xl border border-white/20 bg-white px-2.5 py-2 shadow-lg"
-                style={{
-                  width: CARD_W,
-                  height: CARD_H,
-                  left: -CARD_W / 2,
-                  top: -CARD_H / 2,
-                  transform: `rotateY(${rotateY}deg) translateZ(${RADIUS}px)`,
-                  transformStyle: "preserve-3d",
-                  backfaceVisibility: "hidden",
-                  boxShadow:
-                    "0 10px 22px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.5)",
-                }}
-                data-testid={`coverflow-card-${i}`}
+                className="shrink-0 overflow-hidden rounded-lg bg-zinc-100"
+                style={{ width: THUMB, height: THUMB }}
               >
-                <div
-                  className="shrink-0 overflow-hidden rounded-lg bg-zinc-100 ring-1 ring-black/5"
-                  style={{ width: THUMB, height: THUMB }}
-                >
-                  <img
-                    src={service.image}
-                    alt=""
-                    aria-hidden="true"
-                    decoding="async"
-                    draggable={false}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <span className="pr-1 text-xs font-bold leading-tight text-gray-900 whitespace-normal">
-                  {service.text}
-                </span>
+                <img
+                  src={service.image}
+                  alt=""
+                  aria-hidden="true"
+                  decoding="async"
+                  draggable={false}
+                  className="h-full w-full object-cover"
+                />
               </div>
-            );
-          })}
+              <span className="pr-0.5 text-[11px] font-bold leading-tight text-gray-900">
+                {service.text}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
+}
+
+function stageReady(track: HTMLDivElement | null): track is HTMLDivElement {
+  return !!track;
 }
