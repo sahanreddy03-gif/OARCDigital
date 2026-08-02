@@ -240,43 +240,56 @@ export default function HeroSection() {
       >
         
         {/* ========== MOBILE LAYOUT ========== */}
-        {/* High-end luminous top (show image quality). Soft grade — not cheap saturate. Shadow only under copy. */}
-        <div className="md:hidden absolute inset-0">
-          {/* Instant placeholder - blurred, loads immediately */}
-          <div 
-            className="absolute inset-0 bg-cover bg-no-repeat bg-zinc-950/90"
-            style={{ 
-              backgroundImage: `url(${HERO_PLACEHOLDER})`,
-              backgroundPosition: "60% 26%",
+        {/* Luminous high-end top: lift the photo, add light (not neon). Dark only under copy. */}
+        <div className="md:hidden absolute inset-0 overflow-hidden">
+          {/* Instant placeholder */}
+          <img
+            src={HERO_PLACEHOLDER}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{
+              objectPosition: "60% 22%",
               transform: "scale(1.18)",
-              filter: "brightness(1.1) contrast(1.06) saturate(1.08)",
+              filter: "brightness(1.32) contrast(1.1) saturate(1.18)",
             }}
           />
-          {/* Real background — lifted exposure/clarity so the art reads premium, not muted */}
-          <div 
-            className="absolute inset-0 bg-cover bg-no-repeat"
-            style={{ 
-              backgroundImage: `url(${heroBackground})`,
-              backgroundPosition: "60% 26%",
+          {/* Real art — exposure lift so colour quality reads in the empty top zone */}
+          <img
+            src={heroBackground}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{
+              objectPosition: "60% 22%",
               transform: "scale(1.16)",
-              filter: "brightness(1.14) contrast(1.08) saturate(1.12)",
+              filter: "brightness(1.38) contrast(1.12) saturate(1.22)",
             }}
           />
-          {/* Soft top luminous wash — warm light, very low opacity (editorial, not neon) */}
+          {/* Add light (screen) — premium glow, not a colour filter */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to bottom, rgba(255,236,210,0.14) 0%, rgba(255,220,190,0.07) 22%, rgba(255,255,255,0.03) 40%, transparent 52%)",
+                "linear-gradient(to bottom, rgba(255,252,245,0.34) 0%, rgba(255,240,220,0.18) 28%, rgba(255,255,255,0.06) 48%, transparent 58%)",
+              mixBlendMode: "screen",
+            }}
+          />
+          {/* Soft warm grade — editorial richness */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(255,220,180,0.22) 0%, rgba(255,200,160,0.1) 30%, transparent 55%)",
               mixBlendMode: "soft-light",
             }}
           />
-          {/* Shadow begins only under the H1 — keeps top open and bright */}
+          {/* Text readability only from mid-down */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 44%, rgba(0,0,0,0.14) 56%, rgba(0,0,0,0.42) 70%, rgba(0,0,0,0.68) 86%, rgba(0,0,0,0.8) 100%)",
+                "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 48%, rgba(0,0,0,0.16) 58%, rgba(0,0,0,0.45) 72%, rgba(0,0,0,0.72) 88%, rgba(0,0,0,0.82) 100%)",
             }}
           />
         </div>
