@@ -479,13 +479,13 @@ export default function HeroSection() {
             </p>
           </div>
 
-          {/* Three little wing frames — reserved slot with clear air below */}
-          <div className="shrink-0 mt-[1.8svh]">
+          {/* One continuous full-bleed wing film — no cuts, edge-to-edge */}
+          <div className="shrink-0 mt-[1.6svh]">
             <MobileHeroCylindricalVideo />
           </div>
 
-          {/* Clear air between wing and coverflow — must stay empty */}
-          <div className="shrink-0 h-[4svh]" aria-hidden="true" />
+          {/* Air under the curved shell so carousel never kisses the film */}
+          <div className="shrink-0 h-[5svh]" aria-hidden="true" />
 
           {/* Chip-sized coverflow + path pills */}
           <div className="shrink-0 isolate">
