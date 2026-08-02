@@ -479,17 +479,17 @@ export default function HeroSection() {
             </p>
           </div>
 
-          {/* Cylindrical video wall — immersive arc, not a flat box */}
-          <div className="shrink-0 mt-[1.5svh] mb-[0.75svh]">
+          {/* One film, three frames on a wing/arc */}
+          <div className="shrink-0 mt-[2svh] mb-[1.2svh]">
             <MobileHeroCylindricalVideo />
           </div>
 
-          {/* Foot cluster — 3D coverflow + compact path pills */}
+          {/* Foot cluster — chip-sized 3D coverflow + compact path pills */}
           <div className="shrink-0">
             <div className="w-full relative">
               <MobileHeroCoverflowCarousel />
             </div>
-            <div className="w-full px-4 mt-[0.75svh] flex gap-2 justify-center">
+            <div className="w-full px-4 mt-[1svh] flex gap-2 justify-center">
               <CompactMobileGlassCard
                 icon={Palette}
                 label="Creative"
