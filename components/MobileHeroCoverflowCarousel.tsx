@@ -2,36 +2,38 @@
 
 import { useEffect, useRef } from "react";
 
-/** Same retina chips as FloatingChipCarousel — 3D coverflow on mobile only. */
+/** Same retina chips as FloatingChipCarousel — 3D coverflow, chip-sized like before. */
 const CHIP = (name: string) => `/attached_assets/carousel-chips/${name}-chip.webp`;
 
 const services = [
   { text: "Digital Marketing", image: CHIP("digital-marketing-optimized") },
-  { text: "Social Media", image: CHIP("social-media-management-optimized") },
-  { text: "AI Video", image: CHIP("ai-video-production-optimized") },
-  { text: "Branding", image: CHIP("branding-services-optimized") },
-  { text: "Paid Ads", image: CHIP("paid-advertising-optimized") },
+  { text: "Social Media Management", image: CHIP("social-media-management-optimized") },
+  { text: "AI Video Production", image: CHIP("ai-video-production-optimized") },
+  { text: "Branding Services", image: CHIP("branding-services-optimized") },
+  { text: "Paid Advertising", image: CHIP("paid-advertising-optimized") },
   { text: "Website Design", image: CHIP("website-design-optimized") },
-  { text: "Lead Gen", image: CHIP("lead-generation-optimized") },
-  { text: "Creative Ads", image: CHIP("creative-ad-campaigns-optimized") },
-  { text: "Funnels", image: CHIP("funnel-automation-optimized") },
-  { text: "Sales AI", image: CHIP("sales-ai-employee-optimized") },
-  { text: "Support AI", image: CHIP("support-ai-employee-optimized") },
-  { text: "Mobile Apps", image: CHIP("mobile-apps-robot-optimized") },
-  { text: "Web Apps", image: CHIP("web-applications-optimized") },
-  { text: "Custom AI", image: CHIP("custom-ai-solutions-robots-optimized") },
+  { text: "Lead Generation", image: CHIP("lead-generation-optimized") },
+  { text: "Creative Ad Campaigns", image: CHIP("creative-ad-campaigns-optimized") },
+  { text: "Funnel Automation", image: CHIP("funnel-automation-optimized") },
+  { text: "Sales AI Employees", image: CHIP("sales-ai-employee-optimized") },
+  { text: "Support AI Employees", image: CHIP("support-ai-employee-optimized") },
+  { text: "Mobile Applications", image: CHIP("mobile-apps-robot-optimized") },
+  { text: "Web Applications", image: CHIP("web-applications-optimized") },
+  { text: "Custom AI Solutions", image: CHIP("custom-ai-solutions-robots-optimized") },
   { text: "AI Consulting", image: CHIP("ai-consulting-presentation-optimized") },
-  { text: "MVP Build", image: CHIP("custom-ai-solutions-robots-optimized") },
+  { text: "MVP Development", image: CHIP("custom-ai-solutions-robots-optimized") },
 ];
 
-const CARD_W = 118;
-const CARD_H = 148;
-const RADIUS = 190;
+/** Match FloatingChipCarousel mobile chip footprint (~56px thumb + label). */
+const CARD_W = 196;
+const CARD_H = 72;
+const THUMB = 56;
+const RADIUS = 240;
 const THETA = 360 / services.length;
 
 /**
- * 3D cylindrical coverflow — centre faces you, sides rotate/recede.
- * Drag / swipe with momentum; slow auto-spin when idle.
+ * 3D cylindrical coverflow — same chip size as the old flat marquee.
+ * Centre faces you; sides rotate/recede; drag with momentum.
  */
 export default function MobileHeroCoverflowCarousel() {
   const hitRef = useRef<HTMLDivElement>(null);
@@ -57,10 +59,9 @@ export default function MobileHeroCoverflowCarousel() {
 
     const tick = () => {
       if (!draggingRef.current && !reducedRef.current) {
-        // Friction + gentle auto drift
         velocityRef.current *= 0.94;
         if (Math.abs(velocityRef.current) < 0.02) {
-          velocityRef.current = -0.08; // slow continuous flow
+          velocityRef.current = -0.08;
         }
         rotationRef.current += velocityRef.current;
         apply();
@@ -87,7 +88,6 @@ export default function MobileHeroCoverflowCarousel() {
       const now = performance.now();
       const dx = e.clientX - lastXRef.current;
       const dt = Math.max(16, now - lastTRef.current);
-      // Horizontal drag → yaw the cylinder
       const delta = dx * 0.28;
       rotationRef.current += delta;
       velocityRef.current = (delta / dt) * 16;
@@ -98,7 +98,6 @@ export default function MobileHeroCoverflowCarousel() {
 
     const onPointerUp = () => {
       draggingRef.current = false;
-      // Clamp leftover velocity for a clean fling
       velocityRef.current = Math.max(-2.8, Math.min(2.8, velocityRef.current));
     };
 
@@ -121,24 +120,22 @@ export default function MobileHeroCoverflowCarousel() {
       ref={hitRef}
       className="relative w-full select-none cursor-grab active:cursor-grabbing"
       style={{
-        perspective: "1000px",
-        height: "22svh",
-        minHeight: 150,
-        maxHeight: 180,
+        perspective: "900px",
+        height: 88,
         touchAction: "pan-y",
       }}
       data-testid="hero-mobile-coverflow"
     >
       <div
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12"
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8"
         style={{
-          background: "linear-gradient(90deg, rgba(0,0,0,0.55), transparent)",
+          background: "linear-gradient(90deg, rgba(0,0,0,0.45), transparent)",
         }}
       />
       <div
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12"
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8"
         style={{
-          background: "linear-gradient(270deg, rgba(0,0,0,0.55), transparent)",
+          background: "linear-gradient(270deg, rgba(0,0,0,0.45), transparent)",
         }}
       />
 
@@ -161,7 +158,7 @@ export default function MobileHeroCoverflowCarousel() {
             return (
               <div
                 key={`${service.text}-${i}`}
-                className="absolute overflow-hidden rounded-2xl border border-white/25 bg-zinc-950/80"
+                className="absolute flex items-center gap-2.5 overflow-hidden rounded-xl border border-white/20 bg-white px-2.5 py-2 shadow-lg"
                 style={{
                   width: CARD_W,
                   height: CARD_H,
@@ -171,24 +168,26 @@ export default function MobileHeroCoverflowCarousel() {
                   transformStyle: "preserve-3d",
                   backfaceVisibility: "hidden",
                   boxShadow:
-                    "0 16px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.12)",
+                    "0 10px 22px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.5)",
                 }}
                 data-testid={`coverflow-card-${i}`}
               >
-                <img
-                  src={service.image}
-                  alt=""
-                  aria-hidden="true"
-                  decoding="async"
-                  draggable={false}
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-2.5">
-                  <p className="text-[11px] font-semibold leading-tight text-white tracking-tight">
-                    {service.text}
-                  </p>
+                <div
+                  className="shrink-0 overflow-hidden rounded-lg bg-zinc-100 ring-1 ring-black/5"
+                  style={{ width: THUMB, height: THUMB }}
+                >
+                  <img
+                    src={service.image}
+                    alt=""
+                    aria-hidden="true"
+                    decoding="async"
+                    draggable={false}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
+                <span className="pr-1 text-xs font-bold leading-tight text-gray-900 whitespace-normal">
+                  {service.text}
+                </span>
               </div>
             );
           })}
