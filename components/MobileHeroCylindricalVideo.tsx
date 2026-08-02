@@ -3,19 +3,18 @@
 import { useEffect, useRef } from "react";
 
 /**
- * One hero film, cut into three frames on a Superman-wing / concave arc.
- * Left / centre / right show thirds of the same slide — not a wall of stills.
+ * One film cut into three little frames on a Superman-wing arc.
+ * Tight seams so it reads as ONE slide; gentle cylinder so sides recede.
  */
 const FRAMES = [
-  { offset: -1, objectPosition: "16.5% center" },
-  { offset: 0, objectPosition: "50% center" },
-  { offset: 1, objectPosition: "83.5% center" },
+  { key: "L", objectPosition: "16.5% center", rotateY: -34 },
+  { key: "C", objectPosition: "50% center", rotateY: 0 },
+  { key: "R", objectPosition: "83.5% center", rotateY: 34 },
 ] as const;
 
-const THETA_DEG = 26;
-const RADIUS_PX = 168;
-const PANEL_W = 118;
-const PANEL_H = 168; // tall frames so the three strips read as one cut slide
+const PANEL_W = 66;
+const PANEL_H = 96;
+const RADIUS = 120;
 
 export default function MobileHeroCylindricalVideo() {
   const stageRef = useRef<HTMLDivElement>(null);
@@ -25,63 +24,42 @@ export default function MobileHeroCylindricalVideo() {
   useEffect(() => {
     const stage = stageRef.current;
     if (!stage) return;
-
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) {
-      stage.style.transform = "rotateY(0deg)";
-      return;
-    }
-
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let start = performance.now();
     const tick = (now: number) => {
       const t = (now - start) / 1000;
-      // Soft wing sway — keeps the three frames reading as one piece
-      stage.style.transform = `rotateY(${Math.sin(t * 0.32) * 6}deg)`;
+      stage.style.transform = `rotateY(${Math.sin(t * 0.28) * 4}deg)`;
       rafRef.current = requestAnimationFrame(tick);
     };
     rafRef.current = requestAnimationFrame(tick);
-
     return () => cancelAnimationFrame(rafRef.current);
   }, []);
 
-  // Keep the three strip videos locked to the centre clock
   useEffect(() => {
     const centre = videoRefs.current[1];
     if (!centre) return;
-
     const sync = () => {
       const t = centre.currentTime;
       for (let i = 0; i < videoRefs.current.length; i++) {
         if (i === 1) continue;
         const v = videoRefs.current[i];
-        if (!v) continue;
-        if (Math.abs(v.currentTime - t) > 0.12) v.currentTime = t;
+        if (v && Math.abs(v.currentTime - t) > 0.12) v.currentTime = t;
       }
     };
-
     centre.addEventListener("timeupdate", sync);
     return () => centre.removeEventListener("timeupdate", sync);
   }, []);
 
   return (
     <div
-      className="relative w-full overflow-hidden"
-      style={{ perspective: "920px", height: "24svh", minHeight: 176, maxHeight: 200 }}
+      className="relative mx-auto w-full"
+      style={{
+        perspective: "760px",
+        perspectiveOrigin: "50% 48%",
+        height: 122,
+      }}
       data-testid="hero-mobile-video-shell"
     >
-      <div
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10"
-        style={{
-          background: "linear-gradient(90deg, rgba(0,0,0,0.4), transparent)",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10"
-        style={{
-          background: "linear-gradient(270deg, rgba(0,0,0,0.4), transparent)",
-        }}
-      />
-
       <div
         className="absolute inset-0 flex items-center justify-center"
         style={{ transformStyle: "preserve-3d" }}
@@ -97,24 +75,27 @@ export default function MobileHeroCylindricalVideo() {
           }}
         >
           {FRAMES.map((frame, i) => {
-            const rotateY = frame.offset * THETA_DEG;
-            const isCentre = frame.offset === 0;
-
+            const rad = (frame.rotateY * Math.PI) / 180;
+            const x = Math.sin(rad) * RADIUS;
+            const z = Math.cos(rad) * RADIUS;
+            const isCentre = frame.key === "C";
             return (
               <div
-                key={frame.offset}
-                className="absolute overflow-hidden rounded-xl border border-white/25"
+                key={frame.key}
+                className="absolute overflow-hidden rounded-[10px] border border-white/30"
                 style={{
                   width: PANEL_W,
                   height: PANEL_H,
-                  left: -PANEL_W / 2,
-                  top: -PANEL_H / 2,
-                  transform: `rotateY(${rotateY}deg) translateZ(${RADIUS_PX}px)`,
+                  marginLeft: -PANEL_W / 2,
+                  marginTop: -PANEL_H / 2,
+                  transform: `translate3d(${x}px, 0, ${z}px) rotateY(${frame.rotateY}deg)`,
                   transformStyle: "preserve-3d",
                   backfaceVisibility: "hidden",
+                  WebkitBackfaceVisibility: "hidden",
                   boxShadow:
-                    "0 16px 30px rgba(0,0,0,0.48), inset 0 1px 0 rgba(255,255,255,0.14)",
-                  background: "rgba(9,9,11,0.85)",
+                    "0 14px 26px rgba(0,0,0,0.48), inset 0 1px 0 rgba(255,255,255,0.16)",
+                  background: "#09090b",
+                  zIndex: isCentre ? 3 : 1,
                 }}
                 aria-hidden={!isCentre}
               >
@@ -138,7 +119,7 @@ export default function MobileHeroCylindricalVideo() {
                   className="pointer-events-none absolute inset-0"
                   style={{
                     background:
-                      "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 35%, rgba(0,0,0,0.28) 100%)",
+                      "linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 40%, rgba(0,0,0,0.3) 100%)",
                   }}
                 />
               </div>

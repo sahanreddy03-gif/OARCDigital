@@ -431,8 +431,8 @@ export default function HeroSection() {
             paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))",
           }}
         >
-          {/* Intentional top negative space — art shows; whole stack sits down */}
-          <div className="flex-1 min-h-[12svh]" aria-hidden="true" />
+          {/* Top art breathing room — kept modest so video + carousel don't crush */}
+          <div className="shrink-0 h-[10svh]" aria-hidden="true" />
 
           {/* Locked headline pair — do not change fonts/colors */}
           <div className="shrink-0 px-3 text-center">
@@ -461,7 +461,7 @@ export default function HeroSection() {
 
             {/* Bigger creative tagline — graphics replace Sales / Marketing / Operations words */}
             <p
-              className={`${heroSans.className} mt-[1.8svh] text-white leading-none text-[4.4vw] font-medium tracking-[-0.02em]`}
+              className={`${heroSans.className} mt-[1.4svh] text-white leading-none text-[4.4vw] font-medium tracking-[-0.02em]`}
               data-testid="text-hero-discipline-line"
               data-speakable
             >
@@ -479,17 +479,20 @@ export default function HeroSection() {
             </p>
           </div>
 
-          {/* One film, three frames on a wing/arc */}
-          <div className="shrink-0 mt-[2svh] mb-[1.2svh]">
+          {/* Three little wing frames — reserved slot with clear air below */}
+          <div className="shrink-0 mt-[1.8svh]">
             <MobileHeroCylindricalVideo />
           </div>
 
-          {/* Foot cluster — chip-sized 3D coverflow + compact path pills */}
-          <div className="shrink-0">
-            <div className="w-full relative">
+          {/* Clear air between wing and coverflow — must stay empty */}
+          <div className="shrink-0 h-[4svh]" aria-hidden="true" />
+
+          {/* Chip-sized coverflow + path pills */}
+          <div className="shrink-0 isolate">
+            <div className="overflow-hidden">
               <MobileHeroCoverflowCarousel />
             </div>
-            <div className="w-full px-4 mt-[1svh] flex gap-2 justify-center">
+            <div className="w-full px-4 mt-[1.6svh] flex gap-2 justify-center">
               <CompactMobileGlassCard
                 icon={Palette}
                 label="Creative"
@@ -510,6 +513,9 @@ export default function HeroSection() {
               />
             </div>
           </div>
+
+          {/* Bottom breathing room so pills clear the sticky chrome */}
+          <div className="shrink-0 h-[1.2svh]" aria-hidden="true" />
         </div>
 
         {/* DESKTOP — unchanged from checkpoint structure */}
