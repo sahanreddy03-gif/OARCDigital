@@ -3,27 +3,23 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Immersive concave cylindrical video wall for mobile hero.
- * Panels sit on a cylinder arc around the viewer — not a flat tilted rectangle.
+ * One hero film, cut into three frames on a Superman-wing / concave arc.
+ * Left / centre / right show thirds of the same slide — not a wall of stills.
  */
-const PANEL_COUNT = 9;
-const THETA_DEG = 22; // angle between panels
-const RADIUS_PX = 220;
+const FRAMES = [
+  { offset: -1, objectPosition: "16.5% center" },
+  { offset: 0, objectPosition: "50% center" },
+  { offset: 1, objectPosition: "83.5% center" },
+] as const;
 
-const SIDE_FRAMES = [
-  "/attached_assets/carousel-chips/ai-video-production-optimized-chip.webp",
-  "/attached_assets/carousel-chips/creative-ad-campaigns-optimized-chip.webp",
-  "/attached_assets/carousel-chips/branding-services-optimized-chip.webp",
-  "/attached_assets/carousel-chips/social-media-management-optimized-chip.webp",
-  "/attached_assets/carousel-chips/digital-marketing-optimized-chip.webp",
-  "/attached_assets/carousel-chips/paid-advertising-optimized-chip.webp",
-  "/attached_assets/carousel-chips/website-design-optimized-chip.webp",
-  "/attached_assets/carousel-chips/custom-ai-solutions-robots-optimized-chip.webp",
-];
+const THETA_DEG = 26;
+const RADIUS_PX = 168;
+const PANEL_W = 118;
+const PANEL_H = 168; // tall frames so the three strips read as one cut slide
 
 export default function MobileHeroCylindricalVideo() {
   const stageRef = useRef<HTMLDivElement>(null);
-  const angleRef = useRef(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const rafRef = useRef(0);
 
   useEffect(() => {
@@ -39,9 +35,8 @@ export default function MobileHeroCylindricalVideo() {
     let start = performance.now();
     const tick = (now: number) => {
       const t = (now - start) / 1000;
-      // Slow idle sway — wall breathes, never a full spin that loses the film
-      angleRef.current = Math.sin(t * 0.35) * 10;
-      stage.style.transform = `rotateY(${angleRef.current}deg)`;
+      // Soft wing sway — keeps the three frames reading as one piece
+      stage.style.transform = `rotateY(${Math.sin(t * 0.32) * 6}deg)`;
       rafRef.current = requestAnimationFrame(tick);
     };
     rafRef.current = requestAnimationFrame(tick);
@@ -49,26 +44,41 @@ export default function MobileHeroCylindricalVideo() {
     return () => cancelAnimationFrame(rafRef.current);
   }, []);
 
-  const center = Math.floor(PANEL_COUNT / 2);
+  // Keep the three strip videos locked to the centre clock
+  useEffect(() => {
+    const centre = videoRefs.current[1];
+    if (!centre) return;
+
+    const sync = () => {
+      const t = centre.currentTime;
+      for (let i = 0; i < videoRefs.current.length; i++) {
+        if (i === 1) continue;
+        const v = videoRefs.current[i];
+        if (!v) continue;
+        if (Math.abs(v.currentTime - t) > 0.12) v.currentTime = t;
+      }
+    };
+
+    centre.addEventListener("timeupdate", sync);
+    return () => centre.removeEventListener("timeupdate", sync);
+  }, []);
 
   return (
     <div
       className="relative w-full overflow-hidden"
-      style={{ perspective: "900px", height: "28svh", minHeight: 168, maxHeight: 220 }}
+      style={{ perspective: "920px", height: "24svh", minHeight: 176, maxHeight: 200 }}
       data-testid="hero-mobile-video-shell"
     >
-      {/* Soft vignette so the cylinder edges fall into the hero art */}
       <div
-        className="pointer-events-none absolute inset-0 z-10"
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10"
         style={{
-          background:
-            "linear-gradient(90deg, rgba(0,0,0,0.55) 0%, transparent 18%, transparent 82%, rgba(0,0,0,0.55) 100%)",
+          background: "linear-gradient(90deg, rgba(0,0,0,0.4), transparent)",
         }}
       />
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-10"
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10"
         style={{
-          background: "linear-gradient(to top, rgba(0,0,0,0.45), transparent)",
+          background: "linear-gradient(270deg, rgba(0,0,0,0.4), transparent)",
         }}
       />
 
@@ -86,79 +96,51 @@ export default function MobileHeroCylindricalVideo() {
             willChange: "transform",
           }}
         >
-          {Array.from({ length: PANEL_COUNT }).map((_, i) => {
-            const offset = i - center;
-            const rotateY = offset * THETA_DEG;
-            const isVideo = offset === 0;
-            const isNear = Math.abs(offset) === 1;
-            const frame = SIDE_FRAMES[(i + SIDE_FRAMES.length) % SIDE_FRAMES.length];
-            const width = isVideo ? 148 : isNear ? 118 : 102;
-            const height = isVideo ? 84 : isNear ? 68 : 58;
+          {FRAMES.map((frame, i) => {
+            const rotateY = frame.offset * THETA_DEG;
+            const isCentre = frame.offset === 0;
 
             return (
               <div
-                key={i}
-                className="absolute overflow-hidden rounded-xl border border-white/20"
+                key={frame.offset}
+                className="absolute overflow-hidden rounded-xl border border-white/25"
                 style={{
-                  width,
-                  height,
-                  left: -width / 2,
-                  top: -height / 2,
+                  width: PANEL_W,
+                  height: PANEL_H,
+                  left: -PANEL_W / 2,
+                  top: -PANEL_H / 2,
                   transform: `rotateY(${rotateY}deg) translateZ(${RADIUS_PX}px)`,
                   transformStyle: "preserve-3d",
                   backfaceVisibility: "hidden",
                   boxShadow:
-                    "0 14px 28px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.14)",
-                  background: "rgba(9,9,11,0.75)",
+                    "0 16px 30px rgba(0,0,0,0.48), inset 0 1px 0 rgba(255,255,255,0.14)",
+                  background: "rgba(9,9,11,0.85)",
                 }}
-                aria-hidden={!isVideo}
+                aria-hidden={!isCentre}
               >
-                {isVideo ? (
-                  <>
-                    <video
-                      className="absolute inset-0 h-full w-full object-cover"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      aria-label="OARC hero film"
-                      data-testid="hero-mobile-video"
-                    >
-                      <source src="/media/oarc-hero-sonly-web.mp4" type="video/mp4" />
-                    </video>
-                    <div
-                      className="pointer-events-none absolute inset-0"
-                      style={{
-                        background:
-                          "radial-gradient(ellipse 70% 55% at 50% 42%, rgba(255,255,255,0.10) 0%, transparent 70%)",
-                      }}
-                    />
-                  </>
-                ) : (
-                  <>
-                    <img
-                      src={frame}
-                      alt=""
-                      aria-hidden="true"
-                      decoding="async"
-                      className="absolute inset-0 h-full w-full object-cover opacity-80"
-                      style={{
-                        filter: isNear
-                          ? "brightness(0.78) saturate(0.95)"
-                          : "brightness(0.62) saturate(0.85)",
-                      }}
-                    />
-                    <div className={`absolute inset-0 ${isNear ? "bg-black/25" : "bg-black/40"}`} />
-                    <div
-                      className="pointer-events-none absolute inset-0"
-                      style={{
-                        background:
-                          "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 40%, rgba(0,0,0,0.35) 100%)",
-                      }}
-                    />
-                  </>
-                )}
+                <video
+                  ref={(el) => {
+                    videoRefs.current[i] = el;
+                  }}
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload={isCentre ? "metadata" : "auto"}
+                  aria-label={isCentre ? "OARC hero film" : undefined}
+                  data-testid={isCentre ? "hero-mobile-video" : undefined}
+                  style={{ objectPosition: frame.objectPosition }}
+                >
+                  <source src="/media/oarc-hero-sonly-web.mp4" type="video/mp4" />
+                </video>
+                <div
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 35%, rgba(0,0,0,0.28) 100%)",
+                  }}
+                />
               </div>
             );
           })}
