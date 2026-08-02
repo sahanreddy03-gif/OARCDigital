@@ -250,16 +250,17 @@ export default function HeroSection() {
               transform: 'scale(1.1)'
             }}
           />
-          {/* Real background - always visible */}
+          {/* Real background — exact live crop; tiny exposure lift only (elite, not grade) */}
           <div 
             className="absolute inset-0 bg-cover bg-no-repeat"
             style={{ 
               backgroundImage: `url(${heroBackground})`,
               backgroundPosition: '60% center',
+              filter: 'brightness(1.05) contrast(1.02) saturate(1.03)',
             }}
           />
           {/* Gradient overlay - always visible for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/60 via-50% to-zinc-950/85 to-95%" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-0% via-zinc-950/55 via-50% to-zinc-950/85 to-95%" />
           
         </div>
 
