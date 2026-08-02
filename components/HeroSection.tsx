@@ -5,6 +5,8 @@ import Link from "next/link";
 import { Inter_Tight, Instrument_Serif } from "next/font/google";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
+import MobileHeroCylindricalVideo from "./MobileHeroCylindricalVideo";
+import MobileHeroCoverflowCarousel from "./MobileHeroCoverflowCarousel";
 const heroBackground = "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
 
 /** Superside headline pair — Inter Tight (sans) + Instrument Serif (italic accent). */
@@ -312,58 +314,6 @@ function DisciplineGraphic({
   );
 }
 
-/**
- * Mobile 3D video shell — convex plane (centre toward viewer).
- * Restore homepage to pre-restructure: git checkout checkpoint/homepage-before-mobile-3d-restructure
- */
-function MobileHeroVideoShell() {
-  return (
-    <div
-      className="w-full px-3 flex items-center justify-center"
-      style={{ perspective: "1100px" }}
-      data-testid="hero-mobile-video-shell"
-    >
-      <div
-        className="relative w-[90%] max-w-[380px]"
-        style={{
-          transform: "rotateX(12deg) translateZ(24px) scale(1.03)",
-          transformStyle: "preserve-3d",
-          transformOrigin: "center center",
-        }}
-      >
-        <div
-          className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-white/20 bg-zinc-950/55"
-          style={{
-            boxShadow:
-              "0 22px 40px rgba(0,0,0,0.5), 0 6px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.12)",
-          }}
-        >
-          <video
-            className="absolute inset-0 h-full w-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-label="OARC hero film"
-            data-testid="hero-mobile-video"
-          >
-            <source src="/media/oarc-hero-sonly-web.mp4" type="video/mp4" />
-          </video>
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(ellipse 70% 55% at 50% 42%, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.02) 40%, transparent 70%)",
-            }}
-          />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/35" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function HeroSection() {
   const styles = `
     @keyframes float {
@@ -529,17 +479,17 @@ export default function HeroSection() {
             </p>
           </div>
 
-          {/* Video — fixed good size, no flex-grow empty halo */}
-          <div className="shrink-0 mt-[2svh] mb-[1.5svh]">
-            <MobileHeroVideoShell />
+          {/* Cylindrical video wall — immersive arc, not a flat box */}
+          <div className="shrink-0 mt-[1.5svh] mb-[0.75svh]">
+            <MobileHeroCylindricalVideo />
           </div>
 
-          {/* Foot cluster */}
+          {/* Foot cluster — 3D coverflow + compact path pills */}
           <div className="shrink-0">
             <div className="w-full relative">
-              <FloatingChipCarousel />
+              <MobileHeroCoverflowCarousel />
             </div>
-            <div className="w-full px-4 mt-[1svh] flex gap-2 justify-center">
+            <div className="w-full px-4 mt-[0.75svh] flex gap-2 justify-center">
               <CompactMobileGlassCard
                 icon={Palette}
                 label="Creative"
