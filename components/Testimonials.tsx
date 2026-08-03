@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
+import { registerGSAP, gsap, EASE, DUR, STAG } from "@/lib/motion/gsap-system";
+
 const sarahChenImg = "/attached_assets/sara chen_1763248379257.jpg";
 const michaelRodriguezImg = "/attached_assets/michael_1763248379256.jpg";
 const emmaThompsonImg = "/attached_assets/emma_1763248379256.jpg";
@@ -87,7 +89,13 @@ export default function Testimonials() {
   const [isVisible, setIsVisible] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const eyebrowRef = useRef<HTMLParagraphElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const avatarStackRef = useRef<HTMLDivElement>(null);
+  const quoteRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
 
+  // Existing IntersectionObserver for CSS-based visibility (preserved)
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -105,10 +113,76 @@ export default function Testimonials() {
     return () => observer.disconnect();
   }, []);
 
+  // GSAP ScrollTrigger entrance animations
+  useEffect(() => {
+    registerGSAP();
+    const ctx = gsap.context(() => {
+      const trigger = sectionRef.current!;
+
+      // Eyebrow + h2 fadeUp
+      gsap.fromTo(
+        [eyebrowRef.current, headingRef.current],
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: DUR.normal,
+          stagger: STAG.normal,
+          ease: EASE.out,
+          scrollTrigger: { trigger, start: "top 85%" },
+        }
+      );
+
+      // Avatar stack slides in from left
+      if (avatarStackRef.current) {
+        const avatars = Array.from(avatarStackRef.current.children);
+        gsap.fromTo(
+          avatars,
+          { opacity: 0, x: -40 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: DUR.normal,
+            stagger: STAG.tight,
+            ease: EASE.out,
+            scrollTrigger: { trigger, start: "top 85%" },
+          }
+        );
+      }
+
+      // Central quote fades in
+      gsap.fromTo(
+        quoteRef.current,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: DUR.slow,
+          ease: EASE.soft,
+          scrollTrigger: { trigger, start: "top 85%" },
+        }
+      );
+
+      // Stat number slides in from right
+      gsap.fromTo(
+        statsRef.current,
+        { opacity: 0, x: 40 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: DUR.normal,
+          ease: EASE.out,
+          scrollTrigger: { trigger, start: "top 85%" },
+        }
+      );
+    }, sectionRef.current!);
+
+    return () => ctx.revert();
+  }, []);
+
   // Autoplay with pause on hover
   useEffect(() => {
     if (isPaused) return;
-    
+
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % testimonials.length);
     }, 7000);
@@ -131,44 +205,59 @@ export default function Testimonials() {
   const activeTestimonial = testimonials[activeIndex];
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-[#0A2818]" 
+      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-[#0A2818]"
       data-testid="section-testimonials"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className={`relative container mx-auto px-6 md:px-8 lg:px-10 max-w-7xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        
+
         {/* Section Heading */}
         <div className="text-center mb-10 md:mb-14 lg:mb-16">
-          <p className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/50 mb-4 md:mb-5 font-medium" data-testid="text-testimonials-eyebrow">
+          <p
+            ref={eyebrowRef}
+            className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/50 mb-4 md:mb-5 font-medium"
+            style={{ opacity: 0 }}
+            data-testid="text-testimonials-eyebrow"
+          >
             TESTIMONIALS
           </p>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal text-white leading-tight" data-testid="heading-testimonials">
+          <h2
+            ref={headingRef}
+            className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal text-white leading-tight"
+            style={{ opacity: 0 }}
+            data-testid="heading-testimonials"
+          >
             What Our <span className="italic font-serif">Clients Say</span>
           </h2>
         </div>
 
         {/* Three Column Layout: Avatars | Quote | Stats */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
-          
+
           {/* Left Column: Avatar Stack (Hidden on mobile) */}
-          <div className="hidden lg:flex lg:col-span-2 flex-col gap-4" data-testid="avatar-stack">
+          <div
+            ref={avatarStackRef}
+            className="hidden lg:flex lg:col-span-2 flex-col gap-4"
+            data-testid="avatar-stack"
+          >
             {testimonials.map((testimonial, index) => (
               <button
                 key={index}
                 onClick={() => selectTestimonial(index)}
                 className={`relative w-20 h-20 rounded-full overflow-hidden border-2 transition-all duration-500 ${
-                  index === activeIndex 
-                    ? 'border-white opacity-100 scale-105' 
+                  index === activeIndex
+                    ? 'border-white opacity-100 scale-105'
                     : 'border-transparent opacity-40 hover:opacity-60 scale-95'
                 }`}
+                style={{ opacity: 0 }}
                 data-testid={`avatar-${index}`}
                 aria-label={`View testimonial from ${testimonial.author}`}
               >
-                <img 
-                  src={testimonial.avatar} 
+                <img
+                  src={testimonial.avatar}
                   alt={testimonial.author}
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -179,12 +268,10 @@ export default function Testimonials() {
 
           {/* Center Column: Quote Content */}
           <div className="lg:col-span-6 relative">
-            <div 
+            <div
+              ref={quoteRef}
               className="transition-all duration-700 ease-in-out"
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)'
-              }}
+              style={{ opacity: 0 }}
             >
               {/* Company Logo/Name */}
               <div className="mb-4">
@@ -192,7 +279,7 @@ export default function Testimonials() {
                   {activeTestimonial.companyLogo}
                 </h3>
               </div>
-              
+
               {/* Quote */}
               <blockquote className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-normal text-white leading-relaxed mb-6 lg:mb-8" style={{ letterSpacing: '-0.01em' }} data-testid="testimonial-quote">
                 "{activeTestimonial.quote.split('OARC').map((part, i, arr) => (
@@ -212,7 +299,12 @@ export default function Testimonials() {
 
           {/* Right Column: Single Key Metric - Professional */}
           <div className="lg:col-span-4 flex items-center justify-center lg:justify-start">
-            <div className="transition-all duration-700 delay-100 text-center lg:text-left" data-testid="testimonial-stats">
+            <div
+              ref={statsRef}
+              className="transition-all duration-700 delay-100 text-center lg:text-left"
+              style={{ opacity: 0 }}
+              data-testid="testimonial-stats"
+            >
               <div className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
                 {activeTestimonial.metric1}
               </div>

@@ -1,89 +1,91 @@
 "use client";
+/**
+ * ScrollReveal — universal GSAP entrance wrapper.
+ * Wrap any element or group; it fades/slides in when it enters the viewport.
+ *
+ * Usage:
+ *   <ScrollReveal>  ← default fadeUp
+ *   <ScrollReveal type="fadeIn" delay={0.2}>
+ *   <ScrollReveal type="stagger" stagger={0.1}>  ← animates direct children
+ */
+import { useEffect, useRef } from "react";
+import { registerGSAP, gsap, ScrollTrigger, EASE, DUR, STAG } from "@/lib/motion/gsap-system";
 
-import { useEffect, useRef, useState } from 'react';
+type RevealType = "fadeUp" | "fadeIn" | "slideLeft" | "slideRight" | "scaleUp" | "stagger";
 
 interface ScrollRevealProps {
   children: React.ReactNode;
-  className?: string;
+  type?: RevealType;
   delay?: number;
-  direction?: 'up' | 'down' | 'left' | 'right' | 'fade';
+  duration?: number;
+  stagger?: number;
+  y?: number;
+  ease?: string;
+  start?: string;
+  className?: string;
+  as?: keyof JSX.IntrinsicElements;
 }
 
-export default function ScrollReveal({ 
-  children, 
-  className = '', 
+export default function ScrollReveal({
+  children,
+  type = "fadeUp",
   delay = 0,
-  direction = 'up'
+  duration = DUR.normal,
+  stagger = STAG.normal,
+  y = 36,
+  ease = EASE.out,
+  start = "top 88%",
+  className,
+  as: Tag = "div",
 }: ScrollRevealProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Check for reduced motion preference
-  const prefersReducedMotion = typeof window !== 'undefined' 
-    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
-    : false;
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    // Skip animation if user prefers reduced motion
-    if (prefersReducedMotion) {
-      setIsVisible(true);
-      return;
-    }
+    registerGSAP();
+    const el = ref.current;
+    if (!el) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          timeoutRef.current = setTimeout(() => {
-            setIsVisible(true);
-          }, delay);
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      }
-    );
+    let tween: gsap.core.Tween | gsap.core.Timeline;
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
+    if (type === "stagger") {
+      // Animate direct children with stagger
+      const kids = Array.from(el.children);
+      gsap.set(kids, { opacity: 0, y });
+      tween = gsap.to(kids, {
+        opacity: 1,
+        y: 0,
+        duration,
+        stagger,
+        delay,
+        ease,
+        scrollTrigger: { trigger: el, start },
+      });
+    } else {
+      const from: gsap.TweenVars = { opacity: 0 };
+      const to: gsap.TweenVars   = { opacity: 1, duration, delay, ease };
+
+      if (type === "fadeUp")    { from.y = y;  to.y = 0; }
+      if (type === "slideLeft") { from.x = -60; to.x = 0; }
+      if (type === "slideRight"){ from.x =  60; to.x = 0; }
+      if (type === "scaleUp")   { from.scale = 0.92; to.scale = 1; }
+
+      to.scrollTrigger = { trigger: el, start };
+      gsap.set(el, from);
+      tween = gsap.to(el, to);
     }
 
     return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
-      }
-      // Clear timeout to prevent setState after unmount
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+      tween.kill();
+      ScrollTrigger.getAll()
+        .filter((st) => st.trigger === el)
+        .forEach((st) => st.kill());
     };
-  }, [delay, prefersReducedMotion]);
-
-  const getInitialTransform = () => {
-    switch (direction) {
-      case 'up': return 'translateY(30px)';
-      case 'down': return 'translateY(-30px)';
-      case 'left': return 'translateX(30px)';
-      case 'right': return 'translateX(-30px)';
-      case 'fade': return 'translateY(0)';
-      default: return 'translateY(30px)';
-    }
-  };
+  }, [type, delay, duration, stagger, y, ease, start]);
 
   return (
-    <div
-      ref={elementRef}
-      className={className}
-      style={{
-        opacity: isVisible || prefersReducedMotion ? 1 : 0,
-        transform: isVisible || prefersReducedMotion ? 'translateY(0) translateX(0)' : getInitialTransform(),
-        transition: prefersReducedMotion 
-          ? 'none' 
-          : 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
-      }}
-    >
+    // @ts-expect-error — dynamic tag
+    <Tag ref={ref} className={className}>
       {children}
-    </div>
+    </Tag>
   );
 }

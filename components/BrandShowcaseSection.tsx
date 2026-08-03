@@ -1,17 +1,92 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { featuredCaseStudies } from "@/data/caseStudies";
+import { registerGSAP, gsap, EASE, DUR, STAG } from "@/lib/motion/gsap-system";
 
 export default function BrandShowcaseSection() {
   const heroStudy = featuredCaseStudies[0]; // NexGen Retail AI - Hero
   const mediumStudies = featuredCaseStudies.slice(1, 3); // AI Data Engine, CricketPulse
   const smallStudies = featuredCaseStudies.slice(3, 6); // Apex Fitness, NaturalCare, Maison Lumière
-  
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const heroCardRef = useRef<HTMLDivElement>(null);
+  const mosaicCardsRef = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    registerGSAP();
+
+    const ctx = gsap.context(() => {
+      const trigger = sectionRef.current;
+
+      // Animate "Our Impact" header fadeUp
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DUR.normal,
+            ease: EASE.out,
+            scrollTrigger: { trigger, start: "top 85%" },
+          }
+        );
+      }
+
+      // Hero card comes in first (delay: 0)
+      if (heroCardRef.current) {
+        gsap.fromTo(
+          heroCardRef.current,
+          { opacity: 0, y: 40, scale: 0.96 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: DUR.slow,
+            delay: 0,
+            ease: EASE.out,
+            scrollTrigger: { trigger, start: "top 85%" },
+          }
+        );
+      }
+
+      // Remaining mosaic cards stagger after hero
+      const restCards = mosaicCardsRef.current.filter(Boolean);
+      if (restCards.length > 0) {
+        gsap.fromTo(
+          restCards,
+          { opacity: 0, y: 40, scale: 0.96 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: DUR.slow,
+            ease: EASE.out,
+            stagger: STAG.loose,
+            delay: 0.15,
+            scrollTrigger: { trigger, start: "top 85%" },
+          }
+        );
+      }
+    }, sectionRef.current ?? undefined);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="py-12 md:py-16 lg:py-20 relative overflow-hidden" style={{ backgroundColor: '#f0fff4' }} data-testid="section-brand-showcase">
+    <section
+      ref={sectionRef}
+      className="py-12 md:py-16 lg:py-20 relative overflow-hidden"
+      style={{ backgroundColor: '#f0fff4' }}
+      data-testid="section-brand-showcase"
+    >
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl">
         {/* Section Header */}
-        <div className="mb-6 md:mb-10">
+        <div ref={headerRef} className="mb-6 md:mb-10" style={{ opacity: 0 }}>
           <p className="text-sm uppercase tracking-wider font-bold text-orange-600 mb-2" data-testid="text-showcase-eyebrow">
             Our Impact
           </p>
@@ -25,9 +100,13 @@ export default function BrandShowcaseSection() {
 
         {/* Asymmetric Mosaic Grid */}
         <div className="grid grid-cols-12 gap-3 md:gap-4 mb-6 md:mb-8">
-          
+
           {/* HERO - Large Left Card (spans 7 cols, 2 rows) */}
-          <div className="col-span-12 md:col-span-7 md:row-span-2">
+          <div
+            ref={heroCardRef}
+            className="col-span-12 md:col-span-7 md:row-span-2"
+            style={{ opacity: 0 }}
+          >
             <Link href={`/case-studies/${heroStudy.slug}`}>
               <div
                 className="group relative overflow-hidden rounded-xl bg-zinc-900 hover-elevate hover:-translate-y-1 transition-all duration-500 cursor-pointer h-[280px] md:h-full"
@@ -66,7 +145,12 @@ export default function BrandShowcaseSection() {
 
           {/* MEDIUM Cards - Right Column (stacked) */}
           {mediumStudies.map((study, index) => (
-            <div key={index} className="col-span-6 md:col-span-5">
+            <div
+              key={index}
+              ref={(el) => { if (el) mosaicCardsRef.current[index] = el; }}
+              className="col-span-6 md:col-span-5"
+              style={{ opacity: 0 }}
+            >
               <Link href={`/case-studies/${study.slug}`}>
                 <div
                   className="group relative overflow-hidden rounded-xl bg-zinc-900 hover-elevate hover:-translate-y-0.5 transition-all duration-400 cursor-pointer h-[180px] md:h-[160px]"
@@ -103,7 +187,12 @@ export default function BrandShowcaseSection() {
 
           {/* SMALL Cards - Bottom Row (3 compact cards) */}
           {smallStudies.map((study, index) => (
-            <div key={index} className="col-span-4">
+            <div
+              key={index}
+              ref={(el) => { if (el) mosaicCardsRef.current[mediumStudies.length + index] = el; }}
+              className="col-span-4"
+              style={{ opacity: 0 }}
+            >
               <Link href={`/case-studies/${study.slug}`}>
                 <div
                   className="group relative overflow-hidden rounded-lg bg-zinc-900 hover-elevate hover:-translate-y-0.5 transition-all duration-400 cursor-pointer h-[140px] md:h-[130px]"
