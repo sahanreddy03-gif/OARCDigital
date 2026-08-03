@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Clock, ArrowRight, BookOpen } from "lucide-react";
 import Link from "next/link";
+import { registerGSAP, gsap, EASE, DUR, STAG } from "@/lib/motion/gsap-system";
 
 const blogPosts = [
   {
@@ -38,35 +39,90 @@ const blogPosts = [
 ];
 
 export default function BlogPreviewSection() {
-  const [isVisible, setIsVisible] = useState(true);
   const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.15 }
-    );
+    registerGSAP();
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    const ctx = gsap.context(() => {
+      // Animate header group: eyebrow pill + h2 + view-all button
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DUR.normal,
+            ease: EASE.out,
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 85%",
+            },
+          }
+        );
+      }
 
-    return () => observer.disconnect();
+      // Animate cards with stagger
+      if (gridRef.current) {
+        const cards = Array.from(gridRef.current.children);
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 50, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: DUR.slow,
+            ease: EASE.back,
+            stagger: STAG.loose,
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 85%",
+            },
+          }
+        );
+
+        // Card image subtle scale reveal per card
+        cards.forEach((card) => {
+          const img = card.querySelector("img");
+          if (img) {
+            gsap.fromTo(
+              img,
+              { scale: 1.08 },
+              {
+                scale: 1,
+                duration: DUR.slow,
+                ease: EASE.soft,
+                scrollTrigger: {
+                  trigger: sectionRef.current,
+                  start: "top 85%",
+                },
+              }
+            );
+          }
+        });
+      }
+    }, sectionRef.current ?? undefined);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="py-16 md:py-24 lg:py-32 bg-background"
       data-testid="section-blog-preview"
     >
-      <div className={`container mx-auto px-6 md:px-8 lg:px-10 max-w-7xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-14">
+      <div className="container mx-auto px-6 md:px-8 lg:px-10 max-w-7xl">
+
+        <div
+          ref={headerRef}
+          className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-14"
+          style={{ opacity: 0 }}
+        >
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
               <BookOpen className="w-4 h-4 text-primary" />
@@ -84,23 +140,23 @@ export default function BlogPreviewSection() {
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {blogPosts.map((post, index) => (
-            <Link key={post.id} href={`/blog/${post.id}`}>
-              <Card 
-                className={`group overflow-hidden hover-elevate transition-all duration-700 cursor-pointer h-full delay-${index * 100} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {blogPosts.map((post) => (
+            <Link key={post.id} href={`/blog/${post.id}`} style={{ opacity: 0 }}>
+              <Card
+                className="group overflow-hidden hover-elevate transition-all duration-700 cursor-pointer h-full"
                 data-testid={`blog-card-${post.id}`}
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <img 
-                    src={post.image} 
+                  <img
+                    src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                   <div className="absolute top-4 left-4">
-                    <Badge 
-                      variant="secondary" 
+                    <Badge
+                      variant="secondary"
                       className="bg-white/90 dark:bg-black/80 text-foreground backdrop-blur-sm text-xs"
                       data-testid={`blog-category-${post.id}`}
                     >
@@ -108,7 +164,7 @@ export default function BlogPreviewSection() {
                     </Badge>
                   </div>
                 </div>
-                
+
                 <div className="p-5 md:p-6">
                   <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
                     <span>{post.date}</span>
@@ -118,21 +174,21 @@ export default function BlogPreviewSection() {
                       {post.readTime}
                     </span>
                   </div>
-                  
-                  <h3 
+
+                  <h3
                     className="font-semibold text-lg mb-2 text-foreground line-clamp-2 group-hover:text-primary transition-colors"
                     data-testid={`blog-title-${post.id}`}
                   >
                     {post.title}
                   </h3>
-                  
-                  <p 
+
+                  <p
                     className="text-sm text-muted-foreground line-clamp-2 mb-4"
                     data-testid={`blog-excerpt-${post.id}`}
                   >
                     {post.excerpt}
                   </p>
-                  
+
                   <span className="inline-flex items-center font-medium text-primary text-sm">
                     Read Article
                     <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />

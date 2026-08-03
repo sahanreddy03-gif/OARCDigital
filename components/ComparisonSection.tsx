@@ -2,11 +2,11 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { 
-  TrendingUp, 
-  ArrowRight, 
-  Check, 
-  X, 
+import {
+  TrendingUp,
+  ArrowRight,
+  Check,
+  X,
   Zap,
   Users,
   Building2,
@@ -16,6 +16,7 @@ import {
   Bot
 } from "lucide-react";
 import Link from "next/link";
+import { registerGSAP, gsap, EASE, DUR, STAG } from "@/lib/motion/gsap-system";
 
 interface ComparisonRow {
   name: string;
@@ -78,35 +79,78 @@ const columns = [
 ];
 
 export default function ComparisonSection() {
-  const [isVisible, setIsVisible] = useState(false);
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const headingGroupRef = useRef<HTMLDivElement>(null);
+  const rowsContainerRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
+    registerGSAP();
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    const ctx = gsap.context(() => {
+      const trigger = sectionRef.current;
 
-    return () => observer.disconnect();
+      // Eyebrow + h2 + paragraph as a group fadeUp
+      if (headingGroupRef.current) {
+        gsap.fromTo(
+          headingGroupRef.current,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DUR.normal,
+            ease: EASE.out,
+            scrollTrigger: { trigger, start: "top 85%" },
+          }
+        );
+      }
+
+      // Comparison rows reveal one by one
+      if (rowsContainerRef.current) {
+        const rows = Array.from(rowsContainerRef.current.children);
+        gsap.fromTo(
+          rows,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DUR.normal,
+            ease: EASE.out,
+            stagger: STAG.normal,
+            scrollTrigger: { trigger, start: "top 85%" },
+          }
+        );
+      }
+
+      // CTA fades last
+      if (ctaRef.current) {
+        gsap.fromTo(
+          ctaRef.current,
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DUR.normal,
+            ease: EASE.soft,
+            delay: comparisonData.length * STAG.normal + 0.1,
+            scrollTrigger: { trigger, start: "top 85%" },
+          }
+        );
+      }
+    }, sectionRef.current ?? undefined);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
       style={{ backgroundColor: "#f0fff4" }}
       data-testid="section-comparison"
     >
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background: `
@@ -115,19 +159,20 @@ export default function ComparisonSection() {
           `
         }}
       />
-      
-      <div className={`container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-        
-        <div className="mb-12 md:mb-16">
+
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl">
+
+        {/* Eyebrow + h2 + paragraph group */}
+        <div ref={headingGroupRef} className="mb-12 md:mb-16" style={{ opacity: 0 }}>
           <p
             className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase mb-4"
             style={{ color: "rgba(0, 0, 0, 0.35)", fontFamily: 'var(--font-heatrobox)' }}
           >
             Why OARC Digital
           </p>
-          <h2 
+          <h2
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
-            style={{ 
+            style={{
               color: "#0a0a0a",
               letterSpacing: "-0.03em",
               lineHeight: 1.15
@@ -137,7 +182,7 @@ export default function ComparisonSection() {
             <span className="italic font-medium" style={{ color: "#c4ff4d", textShadow: "0 0 40px rgba(196, 255, 77, 0.3)" }}>Neither.</span>
           </h2>
           <p className="text-base md:text-lg max-w-2xl" style={{ color: "rgba(0, 0, 0, 0.5)" }}>
-            See why innovative brands choose OARC for AI software, solutions & workflow automation.
+            See why innovative brands choose OARC for AI software, solutions &amp; workflow automation.
           </p>
         </div>
 
@@ -153,42 +198,41 @@ export default function ComparisonSection() {
             ))}
           </div>
 
-          <div className="space-y-3">
+          <div ref={rowsContainerRef} className="space-y-3">
             {comparisonData.map((row, index) => (
-              <div 
+              <div
                 key={row.name}
                 onMouseEnter={() => setHoveredRow(index)}
                 onMouseLeave={() => setHoveredRow(null)}
                 className="relative rounded-2xl transition-all duration-500"
                 style={{
+                  opacity: 0,
                   backgroundColor: row.isHighlighted ? "#c4ff4d" : hoveredRow === index ? "#ffffff" : "#ffffff",
                   border: row.isHighlighted ? "2px solid #c4ff4d" : "1px solid rgba(0, 0, 0, 0.06)",
-                  boxShadow: row.isHighlighted 
-                    ? "0 20px 40px -15px rgba(196, 255, 77, 0.3)" 
-                    : hoveredRow === index 
-                      ? "0 10px 30px -10px rgba(0, 0, 0, 0.1)" 
+                  boxShadow: row.isHighlighted
+                    ? "0 20px 40px -15px rgba(196, 255, 77, 0.3)"
+                    : hoveredRow === index
+                      ? "0 10px 30px -10px rgba(0, 0, 0, 0.1)"
                       : "0 2px 10px -5px rgba(0, 0, 0, 0.05)",
                   transform: hoveredRow === index && !row.isHighlighted ? "translateY(-2px)" : "translateY(0)",
-                  transitionDelay: `${index * 80}ms`,
-                  opacity: isVisible ? 1 : 0,
                 }}
                 data-testid={`comparison-row-${index}`}
               >
                 <div className="md:hidden p-5">
                   <div className="flex items-center gap-3 mb-4">
-                    <div 
+                    <div
                       className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ 
+                      style={{
                         backgroundColor: row.isHighlighted ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0.04)"
                       }}
                     >
-                      <row.icon 
-                        className="w-5 h-5" 
+                      <row.icon
+                        className="w-5 h-5"
                         style={{ color: row.isHighlighted ? "#0a0a0a" : "rgba(0, 0, 0, 0.6)" }}
-                        strokeWidth={1.5} 
+                        strokeWidth={1.5}
                       />
                     </div>
-                    <h4 
+                    <h4
                       className="font-bold text-base"
                       style={{ color: row.isHighlighted ? "#0a0a0a" : "#0a0a0a" }}
                     >
@@ -200,23 +244,23 @@ export default function ComparisonSection() {
                       const value = row[col.key as keyof ComparisonRow] as boolean;
                       return (
                         <div key={col.key} className="text-center">
-                          <span 
+                          <span
                             className="text-[10px] font-bold uppercase tracking-wider block mb-1"
                             style={{ color: row.isHighlighted ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0.35)" }}
                           >
                             {col.label}
                           </span>
                           {value ? (
-                            <Check 
-                              className="w-5 h-5 mx-auto" 
+                            <Check
+                              className="w-5 h-5 mx-auto"
                               style={{ color: row.isHighlighted ? "#0a0a0a" : "#c4ff4d" }}
-                              strokeWidth={3} 
+                              strokeWidth={3}
                             />
                           ) : (
-                            <X 
-                              className="w-5 h-5 mx-auto" 
+                            <X
+                              className="w-5 h-5 mx-auto"
                               style={{ color: row.isHighlighted ? "rgba(0, 0, 0, 0.3)" : "rgba(0, 0, 0, 0.2)" }}
-                              strokeWidth={2} 
+                              strokeWidth={2}
                             />
                           )}
                         </div>
@@ -227,27 +271,27 @@ export default function ComparisonSection() {
 
                 <div className="hidden md:grid grid-cols-12 gap-4 items-center p-5 md:p-6">
                   <div className="col-span-6 flex items-center gap-4">
-                    <div 
+                    <div
                       className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-300"
-                      style={{ 
+                      style={{
                         backgroundColor: row.isHighlighted ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0.04)",
                         transform: hoveredRow === index ? "scale(1.1) rotate(-6deg)" : "scale(1) rotate(0)"
                       }}
                     >
-                      <row.icon 
-                        className="w-6 h-6" 
+                      <row.icon
+                        className="w-6 h-6"
                         style={{ color: row.isHighlighted ? "#0a0a0a" : "rgba(0, 0, 0, 0.6)" }}
-                        strokeWidth={1.5} 
+                        strokeWidth={1.5}
                       />
                     </div>
                     <div>
-                      <h4 
+                      <h4
                         className="font-bold text-base mb-0.5"
                         style={{ color: row.isHighlighted ? "#0a0a0a" : "#0a0a0a" }}
                       >
                         {row.name}
                       </h4>
-                      <p 
+                      <p
                         className="text-sm"
                         style={{ color: row.isHighlighted ? "rgba(0, 0, 0, 0.7)" : "rgba(0, 0, 0, 0.45)" }}
                       >
@@ -260,24 +304,24 @@ export default function ComparisonSection() {
                     return (
                       <div key={col.key} className="col-span-2 flex justify-center">
                         {value ? (
-                          <div 
+                          <div
                             className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300"
                             style={{
                               backgroundColor: row.isHighlighted ? "rgba(0, 0, 0, 0.15)" : "rgba(196, 255, 77, 0.15)",
                               transform: hoveredRow === index ? "scale(1.2)" : "scale(1)"
                             }}
                           >
-                            <Check 
-                              className="w-4 h-4" 
+                            <Check
+                              className="w-4 h-4"
                               style={{ color: row.isHighlighted ? "#0a0a0a" : "#7cb518" }}
-                              strokeWidth={3} 
+                              strokeWidth={3}
                             />
                           </div>
                         ) : (
-                          <X 
-                            className="w-5 h-5" 
+                          <X
+                            className="w-5 h-5"
                             style={{ color: row.isHighlighted ? "rgba(0, 0, 0, 0.25)" : "rgba(0, 0, 0, 0.15)" }}
-                            strokeWidth={2} 
+                            strokeWidth={2}
                           />
                         )}
                       </div>
@@ -289,7 +333,8 @@ export default function ComparisonSection() {
           </div>
         </div>
 
-        <div className="pt-8 border-t" style={{ borderColor: "rgba(0, 0, 0, 0.06)" }}>
+        {/* CTA */}
+        <div ref={ctaRef} className="pt-8 border-t" style={{ borderColor: "rgba(0, 0, 0, 0.06)", opacity: 0 }}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex items-center gap-8 md:gap-10">
               {[
@@ -298,7 +343,7 @@ export default function ComparisonSection() {
                 { icon: TrendingUp, label: "30% ROI Guarantee", color: "#f97316" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3 group cursor-default">
-                  <div 
+                  <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-[-6deg]"
                     style={{ backgroundColor: `${item.color}15` }}
                   >
@@ -308,10 +353,10 @@ export default function ComparisonSection() {
                 </div>
               ))}
             </div>
-            
+
             <Link href="/contact">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-[#0a0a0a] hover:bg-[#1a1a1a] text-white font-bold rounded-full px-8 py-6 text-sm shadow-xl shadow-black/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                 data-testid="button-get-analysis"
               >

@@ -4,27 +4,118 @@ import { useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Shield, CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { registerGSAP, gsap, ScrollTrigger, EASE, DUR, STAG } from "@/lib/motion/gsap-system";
 
 export default function MoneyBackGuaranteeSection() {
-  const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+
   const sectionRef = useRef<HTMLElement>(null);
+  const shieldTileRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const svgPathRef = useRef<SVGPathElement>(null);
+  const paraRef = useRef<HTMLParagraphElement>(null);
+  const cardsGridRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const termsRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
+    registerGSAP();
+
+    const ctx = gsap.context(() => {
+      const trigger = sectionRef.current!;
+
+      // Shield icon tile bounces in (scale 0 → 1)
+      gsap.fromTo(
+        shieldTileRef.current,
+        { opacity: 0, scale: 0 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: DUR.normal,
+          ease: EASE.back,
+          delay: 0.1,
+          scrollTrigger: { trigger, start: "top 85%" },
         }
-      },
-      { threshold: 0.2 }
-    );
+      );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+      // h2 slides up
+      gsap.fromTo(
+        headingRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: DUR.normal,
+          ease: EASE.hard,
+          delay: 0.25,
+          scrollTrigger: { trigger, start: "top 85%" },
+        }
+      );
 
-    return () => observer.disconnect();
+      // SVG underline draws (strokeDashoffset 250 → 0)
+      if (svgPathRef.current) {
+        gsap.fromTo(
+          svgPathRef.current,
+          { strokeDashoffset: 250 },
+          {
+            strokeDashoffset: 0,
+            duration: DUR.slow,
+            ease: EASE.out,
+            delay: 0.6,
+            scrollTrigger: { trigger, start: "top 85%" },
+          }
+        );
+      }
+
+      // Paragraph fadeUp
+      gsap.fromTo(
+        paraRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: DUR.normal,
+          ease: EASE.soft,
+          delay: 0.35,
+          scrollTrigger: { trigger, start: "top 85%" },
+        }
+      );
+
+      // Guarantee point cards stagger
+      if (cardsGridRef.current) {
+        const cards = Array.from(cardsGridRef.current.children);
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DUR.normal,
+            ease: EASE.out,
+            stagger: STAG.loose,
+            delay: 0.45,
+            scrollTrigger: { trigger, start: "top 85%" },
+          }
+        );
+      }
+
+      // CTA fades last
+      gsap.fromTo(
+        [ctaRef.current, termsRef.current],
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: DUR.normal,
+          ease: EASE.soft,
+          stagger: STAG.normal,
+          delay: 0.8,
+          scrollTrigger: { trigger, start: "top 85%" },
+        }
+      );
+    }, sectionRef.current!);
+
+    return () => ctx.revert();
   }, []);
 
   const guaranteePoints = [
@@ -52,13 +143,14 @@ export default function MoneyBackGuaranteeSection() {
         }}
       />
       
-      <div className={`container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
         
         <div className="flex flex-col items-center text-center">
           {/* Shield Icon with glow */}
           <div 
-            className={`relative mb-8 transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}
-            style={{ transitionDelay: "200ms" }}
+            ref={shieldTileRef}
+            className="relative mb-8"
+            style={{ opacity: 0 }}
           >
             <div 
               className="absolute inset-0 blur-3xl transition-all duration-500"
@@ -86,13 +178,14 @@ export default function MoneyBackGuaranteeSection() {
 
           {/* Heading with animated underline */}
           <h2 
-            className={`font-bold mb-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            ref={headingRef}
+            className="font-bold mb-6"
             style={{ 
               fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
               letterSpacing: '-0.03em', 
               lineHeight: 1.1,
               color: "#0a0a0a",
-              transitionDelay: "300ms"
+              opacity: 0,
             }}
             data-testid="heading-guarantee"
           >
@@ -114,6 +207,7 @@ export default function MoneyBackGuaranteeSection() {
                 preserveAspectRatio="none"
               >
                 <path 
+                  ref={svgPathRef}
                   d="M0 8 Q50 0, 100 6 T200 4" 
                   fill="none" 
                   stroke="#c4ff4d" 
@@ -121,8 +215,7 @@ export default function MoneyBackGuaranteeSection() {
                   strokeLinecap="round"
                   style={{ 
                     strokeDasharray: 250,
-                    strokeDashoffset: isVisible ? 0 : 250,
-                    transition: 'stroke-dashoffset 1s ease-out 0.8s'
+                    strokeDashoffset: 250,
                   }}
                 />
               </svg>
@@ -133,10 +226,11 @@ export default function MoneyBackGuaranteeSection() {
           </h2>
 
           <p 
-            className={`max-w-xl mb-10 text-base md:text-lg leading-relaxed transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            ref={paraRef}
+            className="max-w-xl mb-10 text-base md:text-lg leading-relaxed"
             style={{ 
               color: "rgba(0, 0, 0, 0.55)",
-              transitionDelay: "400ms"
+              opacity: 0,
             }}
             data-testid="text-guarantee-description"
           >
@@ -145,14 +239,15 @@ export default function MoneyBackGuaranteeSection() {
 
           {/* Guarantee Points Grid */}
           <div 
-            className={`grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 w-full max-w-2xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            style={{ transitionDelay: "500ms" }}
+            ref={cardsGridRef}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 w-full max-w-2xl"
           >
             {guaranteePoints.map((point, index) => (
               <div 
                 key={index}
                 className="group flex items-center gap-3 px-5 py-4 rounded-2xl transition-all duration-500 cursor-default"
                 style={{ 
+                  opacity: 0,
                   backgroundColor: "#fafafa",
                   border: "1px solid rgba(0, 0, 0, 0.06)",
                   boxShadow: "0 2px 10px -5px rgba(0, 0, 0, 0.05)"
@@ -177,8 +272,8 @@ export default function MoneyBackGuaranteeSection() {
 
           {/* CTA Button */}
           <div 
-            className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            style={{ transitionDelay: "600ms" }}
+            ref={ctaRef}
+            style={{ opacity: 0 }}
           >
             <Link href="/contact">
               <Button 
@@ -194,10 +289,11 @@ export default function MoneyBackGuaranteeSection() {
           </div>
 
           <p 
-            className={`mt-6 text-xs transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+            ref={termsRef}
+            className="mt-6 text-xs"
             style={{ 
               color: "rgba(0, 0, 0, 0.35)",
-              transitionDelay: "700ms"
+              opacity: 0,
             }}
           >
             Terms apply. Guarantee valid for new clients with minimum 3-month engagement.
