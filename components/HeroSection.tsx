@@ -6,10 +6,9 @@ import { Inter_Tight, Instrument_Serif } from "next/font/google";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import MobileHeroCoverflowCarousel from "./MobileHeroCoverflowCarousel";
+import MobileHeroCustomersVideo from "./MobileHeroCustomersVideo";
+import { HERO_CUSTOMERS_VIDEO } from "@/lib/media/heroCustomersVideo";
 const heroBackground = "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
-/** Live Capture mobile — CUSTOMERS? portrait band */
-const mobileCustomersPortrait =
-  "/attached_assets/mobile-hero-customers-portrait.png";
 
 /** Superside headline pair — Inter Tight (sans) + Instrument Serif (italic accent). */
 const heroSans = Inter_Tight({
@@ -378,7 +377,7 @@ export default function HeroSection() {
           <div
             className="absolute inset-0 bg-cover bg-no-repeat"
             style={{
-              backgroundImage: `url(${mobileCustomersPortrait})`,
+              backgroundImage: `url(${HERO_CUSTOMERS_VIDEO.posterJpg})`,
               backgroundPosition: "center 40%",
               filter: "brightness(0.45) contrast(1.08) saturate(1.05) blur(22px)",
               transform: "scale(1.18)",
@@ -457,19 +456,13 @@ export default function HeroSection() {
             </h1>
           </div>
 
-          {/* Film band — slightly shorter so the block sits tighter above the carousel */}
+          {/* Film band — same frame as locked CUSTOMERS still; whole video visible */}
           <div
             className="relative shrink-0 w-full overflow-hidden mt-1.5"
             style={{ height: "min(28svh, calc(100svh - 23rem))" }}
             data-testid="hero-mobile-customers-band"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`${mobileCustomersPortrait}?v=locked`}
-              alt="Customers?"
-              className="absolute inset-0 h-full w-full object-cover object-center"
-              draggable={false}
-            />
+            <MobileHeroCustomersVideo />
           </div>
 
           <div className="shrink-0 w-full px-3 mt-2 flex gap-2 justify-center">
