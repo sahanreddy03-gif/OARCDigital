@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Menu, ChevronDown, ArrowRight, X } from "lucide-react";
 import { getPreviewServices, servicesCatalog } from '@/config/servicesConfig';
-const greenLogo = "/attached_assets/image_1767660951950.png";
+const greenLogo = "/attached_assets/oarc-logo-nav.png";
 
 export default function Navigation() {
   const [showServicesMenu, setShowServicesMenu] = useState(false);
@@ -33,9 +33,11 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 md:h-18 lg:h-20">
           <Link href="/" className="flex items-center gap-3" data-testid="link-logo-home">
-            <img 
-              src={greenLogo} 
-              alt="OARC Digital logo" 
+            <img
+              src={greenLogo}
+              alt="OARC Digital logo"
+              width={44}
+              height={44}
               className="h-10 w-10 lg:h-11 lg:w-11 object-contain"
               data-testid="img-logo"
             />

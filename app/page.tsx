@@ -1,26 +1,62 @@
 import type { Metadata } from "next";
 import { PILLAR_SCHEMAS } from "@/lib/seo/pillarSchemaConfig";
 import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { buildVideoObject } from "@/lib/schema";
+import { HERO_CUSTOMERS_VIDEO } from "@/lib/media/heroCustomersVideo";
 
 const pillarMeta = PILLAR_SCHEMAS["/"];
+
+const HERO_VIDEO_OG = {
+  title: HERO_CUSTOMERS_VIDEO.name,
+  description: HERO_CUSTOMERS_VIDEO.description,
+  poster: HERO_CUSTOMERS_VIDEO.absolutePosterJpg,
+  video: HERO_CUSTOMERS_VIDEO.absoluteMp4,
+  width: HERO_CUSTOMERS_VIDEO.width,
+  height: HERO_CUSTOMERS_VIDEO.height,
+} as const;
 
 export const metadata: Metadata = {
   title: pillarMeta.title,
   description: pillarMeta.description,
   alternates: getHreflangAlternates("/"),
   openGraph: {
-    images: ogImageEntry({ title: pillarMeta.title, subtitle: pillarMeta.description }),
-    title: pillarMeta.title,
-    description: pillarMeta.description,
+    title: HERO_VIDEO_OG.title,
+    description: HERO_VIDEO_OG.description,
     url: "https://oarcdigital.com/",
+    type: "website",
+    images: [
+      {
+        url: HERO_VIDEO_OG.poster,
+        width: HERO_VIDEO_OG.width,
+        height: HERO_VIDEO_OG.height,
+        alt: HERO_VIDEO_OG.title,
+      },
+    ],
+    videos: [
+      {
+        url: HERO_VIDEO_OG.video,
+        width: HERO_VIDEO_OG.width,
+        height: HERO_VIDEO_OG.height,
+        type: "video/mp4",
+      },
+    ],
   },
   twitter: {
-    images: [ogImageUrl({ title: pillarMeta.title, subtitle: pillarMeta.description })],
     card: "summary_large_image",
-    title: pillarMeta.title,
-    description: pillarMeta.description,
+    title: HERO_VIDEO_OG.title,
+    description: HERO_VIDEO_OG.description,
+    images: [HERO_VIDEO_OG.poster],
   },
 };
+
+const HERO_VIDEO_SCHEMA = buildVideoObject({
+  name: HERO_CUSTOMERS_VIDEO.name,
+  description: HERO_CUSTOMERS_VIDEO.description,
+  thumbnailUrl: HERO_CUSTOMERS_VIDEO.absolutePosterJpg,
+  uploadDate: HERO_CUSTOMERS_VIDEO.uploadDate,
+  contentUrl: HERO_CUSTOMERS_VIDEO.absoluteMp4,
+  duration: HERO_CUSTOMERS_VIDEO.durationIso,
+});
 
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
@@ -47,9 +83,10 @@ import CTASections from "@/components/CTASections";
 import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import RouteSchema from "@/components/RouteSchema";
-import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 // ─── AggregateRating + Review JSON-LD ────────────────────────────────────────
+// Kept as a standalone script so it does not mutate the shared RouteSchema graph.
+// Google's Rich Results Test validates these nodes independently.
 const REVIEW_SCHEMA = {
   "@context": "https://schema.org",
   "@graph": [
@@ -119,46 +156,67 @@ export default function Page() {
         faqs={pillar.faqs}
         aggregateRating={{ ratingValue: 4.9, reviewCount: 47, bestRating: 5 }}
       />
+      {/* AggregateRating + Review nodes — separate graph for Rich Results eligibility */}
       <script
         id="homepage-reviews-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(REVIEW_SCHEMA) }}
       />
+      <script
+        id="homepage-hero-video-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(HERO_VIDEO_SCHEMA) }}
+      />
       <div className="overflow-x-hidden">
         <HeroSection />
 
+        {/* SHIFT HAPPENS — editorial identity */}
         <ShiftHappensSection />
 
+        {/* OARC Brand Section - video background */}
         <OARCBrandSection videoSrc={oarcBgVideo} />
 
+        {/* Stat ticker strip — original position, old logo strip style */}
         <TrustedBrandsSection />
 
+        {/* Every type of creative work */}
         <AICreativeSection />
 
+        {/* Services Showcase + industry chips */}
         <Section2 />
 
+        {/* Our Difference */}
         <Section5 />
 
+        {/* SUCCESS IN NUMBERS — proof after the difference is established */}
         <SuccessInNumbers />
 
+        {/* AI Services Pillars - Dark Premium Zone */}
         <HireAIEmployeesSection />
         <LetsTalkRevenueSection />
 
+        {/* Tech & Services */}
         <TechEnabledSection />
 
+        {/* Case Studies & Social Proof */}
         <BrandShowcaseSection />
 
+        {/* Testimonials */}
         <Testimonials />
 
+        {/* Why OARC - Comparison */}
         <ComparisonSection />
         <GrowthSimulator />
 
+        {/* Business Diagnostics Teaser */}
         <DiagnosticsTeaser />
 
+        {/* Final CTAs */}
         <MoneyBackGuaranteeSection />
         <BlogPreviewSection />
         <CTASections />
         <NeedHelpCTA />
+        {/* Top-30 internal-link funnel */}
         <MostPopularServices />
         <FAQ />
       </div>

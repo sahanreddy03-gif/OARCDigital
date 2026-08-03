@@ -16,15 +16,33 @@ export function ARCWidget() {
   const [popupDismissed, setPopupDismissed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [initialPrompt, setInitialPrompt] = useState<string | null>(null);
+  const [contextMode, setContextMode] = useState<'default' | 'h360'>('default');
 
   // Global open hook: any element on the page can call
   //   window.dispatchEvent(new CustomEvent('arc:open', { detail: { prompt?: string } }))
   // to launch ARC and (optionally) seed the first user message.
   useEffect(() => {
     const handler = (e: Event) => {
-      const custom = e as CustomEvent<{ prompt?: string }>;
+      const custom = e as CustomEvent<{ prompt?: string; contextMode?: 'default' | 'h360'; openChat?: boolean }>;
+      const path = window.location.pathname;
+      const wantsChat = Boolean(custom.detail?.openChat || custom.detail?.prompt);
+
+      /** Passive H360 links scroll to audit; explicit audit CTA opens ARC chat. */
+      if ((path.startsWith('/h360') || custom.detail?.contextMode === 'h360') && !wantsChat) {
+        const target =
+          document.getElementById('h360-audit') ??
+          document.getElementById('product-faq');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          window.location.href = '/h360#h360-audit';
+        }
+        return;
+      }
+
       if (custom.detail?.prompt) setInitialPrompt(custom.detail.prompt);
       else setInitialPrompt(null);
+      setContextMode(custom.detail?.contextMode === 'h360' ? 'h360' : 'default');
       setIsOpen(true);
       setShowPopup(false);
       setPopupDismissed(true);
@@ -75,6 +93,8 @@ export function ARCWidget() {
 
   const handleCloseChat = () => {
     setIsOpen(false);
+    setContextMode('default');
+    setInitialPrompt(null);
   };
 
   const handleDismissPopup = (e: React.MouseEvent) => {
@@ -89,7 +109,9 @@ export function ARCWidget() {
   // On Contact page the floating launcher is hidden (the page has its own
   // "Launch AI Strategist" CTA which dispatches `arc:open`), but the chat
   // panel still mounts when triggered.
-  const hideFloatingButton = location === '/contact';
+  // H360 is its own site — no OARC floating launcher on /h360/*
+  const isH360 = location.startsWith('/h360');
+  const hideFloatingButton = location === '/contact' || isH360;
 
   return (
     <>
@@ -99,6 +121,7 @@ export function ARCWidget() {
             onClose={handleCloseChat}
             isMobile={isMobile}
             initialPrompt={initialPrompt}
+            contextMode={contextMode}
           />
         )}
       </AnimatePresence>

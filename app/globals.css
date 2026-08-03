@@ -484,12 +484,18 @@
      ENHANCED SMOOTH SCROLL - Lenis-style
      ======================================== */
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
   }
 
   html.lenis,
   html.lenis body {
     height: auto;
+  }
+
+  /* Native scroll path (Lenis off on touch) — keep momentum scrolling clean */
+  html:not(.lenis) body {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .lenis.lenis-smooth {
@@ -1489,37 +1495,4 @@
       animation: scroll-rtl 60s linear infinite !important;
     }
   }
-}
-/* ── Hero AT Card — responsive triangle sizes ─────────────────── */
-/* 3-in-a-row cards — mobile and desktop */
-.at-row { --at-s: clamp(90px, 27vw, 120px); --at-g: 8px; }
-@media (min-width: 640px)  { .at-row { --at-s: clamp(100px, 16vw, 130px); --at-g: 8px; } }
-@media (min-width: 768px)  { .at-row { --at-s: clamp(110px, 13vw, 140px); --at-g: 10px; } }
-@media (min-width: 1024px) { .at-row { --at-s: clamp(120px, 11vw, 150px); --at-g: 11px; } }
-@media (min-width: 1280px) { .at-row { --at-s: clamp(130px, 10vw, 160px); --at-g: 12px; } }
-@media (min-width: 1536px) { .at-row { --at-s: clamp(140px, 9.5vw, 170px); --at-g: 13px; } }
-
-/* ── Hero section text animations ─────────────────────────────── */
-@keyframes heroLightSweep {
-  0%   { transform: translateX(-100%) rotate(-15deg); }
-  100% { transform: translateX(200%)  rotate(-15deg); }
-}
-@keyframes heroFadeSlideUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@media (prefers-reduced-motion: reduce) {
-  @keyframes heroFadeSlideUp {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-}
-.hero-text    { animation: heroFadeSlideUp 0.8s ease both; }
-.hero-text-d1 { animation-delay: 0.05s; }
-.hero-text-d2 { animation-delay: 0.15s; }
-.hero-text-d3 { animation-delay: 0.25s; }
-.hero-text-d4 { animation-delay: 0.35s; }
-.hero-light-sweep {
-  animation: heroLightSweep 18s ease-in-out infinite;
-  animation-delay: 3s;
 }

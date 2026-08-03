@@ -110,15 +110,25 @@ oarcdigital.com/
 
 ### 3B — H360 HOSPITALITY SPEAR (`/h360`, new build, own skin, tight cluster)
 
+**LIVE STATUS (update when routes ship):**
+
+| URL | Status | Notes |
+|-----|--------|--------|
+| `/h360` | **LIVE — H360 homepage** | Owner + Sunday design (Replit-built, approved). Pillar 1 (“restaurant marketing malta”) lives **here** — upgrade surgically (Law #1), never duplicate. |
+| `/h360/restaurant-marketing-malta` | **DO NOT BUILD** | Same intent as the hub = doorway risk. If indexed, 308 → `/h360`. |
+| All other §3B routes below | Planned | One page = one intent. Same H360 **visual language** (§6) — not a text template. |
+
+**Cluster shape (not a flat list):** pillars, pain pages, and product pages are **siblings in one interlinked web**. Pain links **up** to its pillar; pillars link **down** to pain + products; everything links to **`/h360`** and **`/h360/demo`**. Build order (§7) ≠ page hierarchy.
+
 ```
 oarcdigital.com/h360/
 │
-├── /h360                                  HUB / HOME — the dark, alive, Owner+Sunday-feel hero.
-│                                          Tagline live in motion. The "instant audit" capture.
-│                                          Links down into every cluster page below.
+├── /h360                                  HUB / HOME — LIVE. The H360 site homepage.
+│                                          Owner hero (light) + Sunday below-fold (dark). Instant audit capture.
+│                                          Absorbs Pillar 1 (“restaurant marketing malta”). Links into all cluster pages.
 │
-├── PILLAR PAGES (the category's main rooms — broad, authoritative, link to clusters)
-│   ├── /h360/restaurant-marketing-malta   Pillar: the core category page. The big keyword.
+├── PILLAR PAGES (3 to build — broad category rooms; each a different intent from /h360)
+│   ├── /h360/restaurant-marketing-malta   ~~Pillar 1~~ → **ABSORBED BY `/h360` (live). No separate page.**
 │   ├── /h360/google-maps-restaurant-malta Pillar: "get found / rank on Maps" (matches "Top 1 in Maps" demand)
 │   ├── /h360/restaurant-reviews-malta      Pillar: "reviews 10x" — incl. the tourist-review angle
 │   └── /h360/restaurant-pos-system-malta   Pillar: the H360 product/system (complementary to Celery, NOT competing)
@@ -179,8 +189,9 @@ oarcdigital.com/h360/
 │   ├── /h360/results                       Real venue logos, operator story, numbers at day 90
 │   └── /h360/[case-study]                  One per real client when data exists (Louisiana Mama, Palino...)
 │
-├── /h360/faq                               Big AEO play — every Q phrased as a real AI query (Section 4)
-└── /h360/demo  (or /h360/audit)            THE single CTA. Instant-audit capture or demo request.
+├── INFRASTRUCTURE (core cluster — same priority as pillars/products, not “phase 2”)
+│   ├── /h360/faq                           Big AEO play — every Q phrased as a real AI query (Section 4)
+│   └── /h360/demo  (or /h360/audit)        THE single CTA. Instant-audit capture or demo request.
 ```
 
 **Cluster linking rule (this is what creates the topical authority):** every pain/search page links up to its pillar; every pillar links down to its pain/product pages; everything links to the hub and the demo. No orphan pages. Google must see one tight, interlinked web that is unmistakably *about* "Malta restaurant marketing & sales."
@@ -233,11 +244,15 @@ Before adding a single new page, resolve the existing ones, because if they're t
 
 ## SECTION 6 — THE LIVING DESIGN LAYER (Owner + Sunday, kept lightweight)
 
+**Design is not “same colours.”** The approved `/h360` hub was built in Replit from **Owner.com** (light hero: pain-first, phone mockups, audit capture) + **Sunday.com** (dark below-fold: premium, motion, cards, ecosystem). Child pages inherit that **luxury, interactivity, and motion** — not a palette swap. **Show the product running on the page** (phones, dashboards, diagrams, count-ups, self-building UI). People watch; they don’t read walls of text. Copy comes from the Four Gates + product brain; **visibility** comes from what they *see* moving. Text supports SEO/AEO; **motion and UI mockups carry conversion.**
+
 Screenshots don't capture the real weapon: **everything is alive.** The product appears to be *running on the page* — not static pictures, motion as proof. People watch it like video instead of reading it like a brochure. That's the conversion mechanic. But motion must stay **lightweight** — heavy 3D/shaders/Theatre.js kill the crawl-speed AEO depends on. Reject the Awwwards-bait from the blueprint docs; it serves ego, not the goal.
+
+**Per-page elevation:** each new route gets its **own** motion story tied to that page’s promise (§6 table below) — built in the existing H360 components/tokens, elevated with Sunday-style dark bands and Owner-style phone UI where the content demands it. Do not stamp the hub hero on every URL; do not ship text-only product pages.
 
 **Tech for motion:** Framer Motion (UI animation) + Lenis (smooth scroll). Scroll-triggered staggered reveals. No GSAP/Theatre.js/GLSL.
 
-**Aesthetic shell:** dark, premium, spacious (Sunday). Bento grid for services (fixes the 16-icon cognitive-overload the OARC audit flagged). Distinctive type pairing (a characterful display font + a clean body font — NOT Inter/Roboto/Arial; avoid the purple-gradient-on-white AI-slop look). One bold accent on dark. Atmosphere/depth via subtle gradient mesh, grain, layered shadow — not flat solid blocks.
+**Aesthetic shell:** Match the **live** `/h360` implementation (Inter hero, Sunday `#0a0a0a` below-fold, green `#094413`, inline phone UI). Dark, premium, spacious. Atmosphere via gradient mesh, grain, layered shadow — not flat blocks. **More Sunday influence on product and pillar pages** where the hub is Owner-heavy on top.
 
 **The specific stolen elements, mapped to our pages — motion that SHOWS the category in action:**
 
@@ -266,14 +281,15 @@ The workflow: **OpenClaw thinks/audits/writes the precise Cursor prompts → Cur
 
 1. **STEP ZERO — Existing-pages audit (Section 5).** Resolve the 41 /aeo/ pages and the /blog 404 *before* adding anything. Close the bleed first.
 2. **Confirm repo:** verify `oarcdigital.com`'s code is the GitHub repo Vercel deploys from. Clone → open folder in Cursor.
-3. **Build the H360 skin + hub** (`/h360`) — the dark/alive shell, the hero, the instant-audit capture, the single CTA. Design from Section 6, content through the four gates.
-4. **Build the 4 pillar pages** (Section 3B) — deep, authoritative, schema'd, interlinked.
+3. **Build the H360 skin + hub** (`/h360`) — **DONE (live, approved).** Upgrade surgically only (keywords, schema, links — separate tasks). Design from Section 6.
+4. **Build the 3 remaining pillar pages** (google-maps, reviews, pos-system). Pillar 1 = `/h360` — **do not duplicate** as `/h360/restaurant-marketing-malta`.
 5. **Build the pain/search pages** — each one *diagnoses then fixes*, H1 = literal query, FAQ schema.
-6. **Build the real product/capability pages** — demoable only; rest as roadmap framing (never fake 18 shipped products).
-7. **Build the FAQ + AEO layer + `/llms.txt`** — the citation engine.
-8. **Upgrade the OARC parent content layer** — home, services (bento), about (operator authority), results. Same four gates.
-9. **Location pages** — only where truthful; expand as coverage grows. Never mass-generate.
-10. **(Parallel, if budget) Paid lead-capture** — a fast Meta/Google lead path that fires *today* into the real engine (not a dead-end form), matching the competitor's speed while the cluster compounds underneath. *(Pending your budget answer.)*
+6. **Build the real product/capability pages** — demoable only; rest as roadmap framing (never fake 18 shipped products). Content from `H360-PRODUCT-CONTENT-BRAIN.md`; design = visual/motion per §6.
+7. **Build `/h360/faq` + AEO layer + `/llms.txt`** — the citation engine (core infrastructure, not optional).
+8. **Build `/h360/demo`** when ready as dedicated CTA sink (capture may live on hub `#h360-audit` until then).
+9. **Upgrade the OARC parent content layer** — home, services (bento), about (operator authority), results. Same four gates.
+10. **Location pages** — only where truthful; expand as coverage grows. Never mass-generate.
+11. **(Parallel, if budget) Paid lead-capture** — a fast Meta/Google lead path that fires *today* into the real engine (not a dead-end form), matching the competitor's speed while the cluster compounds underneath. *(Pending your budget answer.)*
 
 **OpenClaw's standing order:** for every element Cursor produces, run the six-step check (4 gates + Devil's Advocate + Polish) and return PASS, or FAIL with the named failing gate and a rewrite. Nothing ships that fails a gate.
 
@@ -289,7 +305,7 @@ The workflow: **OpenClaw thinks/audits/writes the precise Cursor prompts → Cur
 - **Body = the diagnosis (Gate 3 + the moat):** the real reasons a Malta restaurant sits empty — not on Maps / no reviews / invisible to tourists / leaking to aggregators / no repeat system — each with the *fix*. Operator authority threaded through ("when we hit this at our own venue, here's what we did").
 - **AEO block (Gate 2):** Q&A — "Why is my restaurant not getting customers in Malta?" with a clean, self-contained, liftable answer. Added to FAQPage schema.
 - **Motion (Section 6):** a quiet animated "diagnosis" — empty-room illustration → checklist items flagging red one by one (not on Maps ✗, no reviews ✗, losing to Wolt ✗) → then turning green as the fixes apply. Shows the method.
-- **Internal links (Gate 1):** up to `/h360/restaurant-marketing-malta` (pillar); across to `/h360/why-am-i-not-on-google-maps`, `/h360/how-to-get-more-google-reviews-restaurant`, `/h360/losing-money-to-wolt-bolt-malta`; CTA to `/h360/demo`.
+- **Internal links (Gate 1):** up to **`/h360`** (hub / category home); across to `/h360/why-am-i-not-on-google-maps`, `/h360/how-to-get-more-google-reviews-restaurant`, `/h360/losing-money-to-wolt-bolt-malta`; CTA to `/h360/demo` (or `#h360-audit` on hub until demo ships).
 - **CTA (Convert layer):** not "buy now" — "Get your free diagnosis. We'll tell you exactly why you're empty."
 - **Devil's Advocate pass:** strip any line a Warsaw agency could've written. The operator-authority and the diagnose-first method are what must survive.
 - **Polish pass:** punchy, short, confident, read aloud.

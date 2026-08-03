@@ -26,6 +26,7 @@ export default function CreativeNavigation() {
     { href: "/why-us", label: "Why Us" },
     { href: "/creative", label: "Creative" },
     { href: "/ai-agents", label: "AI Agents" },
+    { href: "/h360", label: "H360" },
     { href: "/solutions", label: "Automation" },
     { href: "/our-work", label: "Our Work" },
   ];

@@ -26,8 +26,9 @@ export type PillarSchemaEntry = {
 export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automation", PillarSchemaEntry> = {
   "/": {
     title: "OARC Digital | Malta's First AI-Native Creative + Automation Agency",
+    // Google-first: ~140–155 chars, key message in first ~120 (mobile SERP). Bing max 160.
     description:
-      `OARC Digital is Malta's first AI-native agency: brand strategy, social, video, AI agents, and revenue automation under one ${NAP.addressLocality} roof. Built for businesses that want growth measured in revenue, not slides.`,
+      "Malta's first AI-native agency: brand strategy, social, video, AI agents & revenue automation. Built in Birkirkara for growth in revenue, not slides.",
     faqs: [
       {
         question: "What does OARC Digital do?",

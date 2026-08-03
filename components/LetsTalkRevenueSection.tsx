@@ -417,6 +417,7 @@ export default function LetsTalkRevenueSection() {
         <div 
           ref={scrollRef}
           className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 -mx-6 px-6 scrollbar-hide"
+          data-lenis-prevent
           style={{ 
             scrollbarWidth: 'none', 
             msOverflowStyle: 'none',

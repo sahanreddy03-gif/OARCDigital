@@ -11,6 +11,8 @@ type EntriesBuilder = () => Promise<UrlEntry[]> | UrlEntry[];
 const ENTRIES_BUILDERS: Record<string, () => Promise<EntriesBuilder>> = {
   "sitemap-core.xml": async () =>
     (await import("@/app/sitemap-core.xml/route")).buildEntries,
+  "sitemap-h360.xml": async () =>
+    (await import("@/app/sitemap-h360.xml/route")).buildEntries,
   "sitemap-services.xml": async () =>
     (await import("@/app/sitemap-services.xml/route")).buildEntries,
   "sitemap-malta.xml": async () =>

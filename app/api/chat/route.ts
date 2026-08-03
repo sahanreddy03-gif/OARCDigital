@@ -37,7 +37,7 @@ const SSE_HEADERS = {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { message, history, buttonId } = body ?? {};
+    const { message, history, buttonId, contextMode } = body ?? {};
 
     if (!message || typeof message !== "string") {
       return new Response(JSON.stringify({ error: "Invalid message" }), {
@@ -55,9 +55,10 @@ export async function POST(request: NextRequest) {
     }
 
     const safeHistory: ChatMessage[] = Array.isArray(history) ? history.slice(-24) : [];
+    const mode: "default" | "h360" = contextMode === "h360" ? "h360" : "default";
     const phase       = getConversationPhase(safeHistory.length);
-    const phaseHint   = getPhaseGuidance(phase);
-    const linkContext = buildLinkContext(message, safeHistory);
+    const phaseHint   = getPhaseGuidance(phase, mode);
+    const linkContext = buildLinkContext(message, safeHistory, mode);
 
     // Extract durable facts about this user from the full conversation so far
     // (include the current message so first-message introductions are captured)
@@ -73,7 +74,7 @@ export async function POST(request: NextRequest) {
     const objection = detectObjection(message);
     if (objection) extras += (extras ? "\n" : "") + `Detected objection signal: ${objection}`;
 
-    const systemPrompt = buildSystemPrompt(phaseHint, linkContext, extras, userContextBlock);
+    const systemPrompt = buildSystemPrompt(phaseHint, linkContext, extras, userContextBlock, mode);
 
     const messages: ChatMessage[] = [
       { role: "system", content: systemPrompt },

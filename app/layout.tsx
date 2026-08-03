@@ -1,12 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Suspense } from "react";
 import { Nunito_Sans, Montserrat, Inter, Space_Grotesk, EB_Garamond, Orbitron, Anton } from "next/font/google";
 import { partytownSnippet } from "@qwik.dev/partytown/integration";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Providers } from "./providers";
-import ScrollToTop from "@/components/ScrollToTop";
 import SpeculationRules from "@/components/SpeculationRules";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Analytics from "@/components/Analytics";
@@ -50,6 +48,7 @@ const anton = Anton({
   variable: "--font-anton",
   weight: "400",
 });
+
 const fontVariables = [
   nunitoSans.variable,
   montserrat.variable,
@@ -166,6 +165,7 @@ export const metadata: Metadata = {
 // SpeculationRules: 8 high-conversion URLs prerendered on moderate eagerness
 // Hero preload : fetchPriority="high" <link> in <head> for the LCP AVIF
 // LazyMotion   : framer-motion features lazy-loaded via <LazyMotion> in Providers
+// Motion stack: MotionConfig + LazyMotion strict + Lenis after idle — see app/providers.tsx, lib/motion/
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function RootLayout({
@@ -183,17 +183,16 @@ export default function RootLayout({
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        {/* LCP hero image — fetchPriority="high" tells the browser to fetch
-            this AVIF before the CSS paint fires, cutting LCP on mobile */}
+        {/* LCP hero — preload must match HeroSection path (/attached_assets). */}
         <link
           rel="preload"
           as="image"
-          href="/assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif"
+          href="/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif"
           type="image/avif"
-          fetchPriority="high"
+          {...{ fetchPriority: "high" }}
         />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
       <body suppressHydrationWarning>
         {/* Swallow the cross-origin SecurityError emitted by the Replit
@@ -228,9 +227,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSONLD) }}
         />
-        <Suspense fallback={null}>
-          <ScrollToTop />
-        </Suspense>
         <SpeculationRules />
         <Providers>{children}</Providers>
         <MobileStickyCTA />

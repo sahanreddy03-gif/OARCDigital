@@ -6,6 +6,7 @@ export const revalidate = false;
 
 const CHILD_SITEMAPS = [
   "sitemap-core.xml",
+  "sitemap-h360.xml",
   "sitemap-services.xml",
   "sitemap-malta.xml",
   "sitemap-industries.xml",

@@ -1161,7 +1161,7 @@ export default function SocialMediaCreativeManagement() {
             
             {/* Subtle Subtitle */}
             <p className="mt-6 text-white/50 text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}>
-              Strategic services designed to elevate your brand and drive measurable results
+              Strategic services built to grow your brand and drive measurable results
             </p>
           </m.div>
 
