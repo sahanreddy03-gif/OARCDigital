@@ -6,7 +6,7 @@ import { HERO_CUSTOMERS_VIDEO } from "@/lib/media/heroCustomersVideo";
 /**
  * Exact CUSTOMERS frame replacement: poster paints first (AVIF → JPEG),
  * then muted looping video with preload="none" so the MP4 never blocks LCP.
- * Whole frame visible via object-fit: contain (no crop).
+ * Edge-to-edge in the band (object-cover) — same fill as the locked still.
  */
 export default function MobileHeroCustomersVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -15,6 +15,12 @@ export default function MobileHeroCustomersVideo() {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
+    // iOS/Safari: property must be set for muted autoplay to stick
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) {
@@ -28,34 +34,27 @@ export default function MobileHeroCustomersVideo() {
     const revealAndPlay = () => {
       if (cancelled) return;
       setShowVideo(true);
+      video.muted = true;
       const play = video.play();
       if (play) play.catch(() => {});
     };
 
-    // Prefer a buffered start so the loop doesn't hitch on first frames.
-    const onCanPlayThrough = () => revealAndPlay();
-    const onLoadedData = () => {
-      // Fallback if canplaythrough is slow/skipped on some mobiles
-      if (video.readyState >= 2) revealAndPlay();
-    };
+    const onPlaying = () => revealAndPlay();
+    const onCanPlay = () => revealAndPlay();
 
-    video.addEventListener("canplaythrough", onCanPlayThrough, { once: true });
-    video.addEventListener("loadeddata", onLoadedData, { once: true });
+    video.addEventListener("playing", onPlaying, { once: true });
+    video.addEventListener("canplay", onCanPlay, { once: true });
 
-    // preload="none" + autoplay: explicitly kick load after paint
     const kick = window.setTimeout(() => {
-      try {
-        video.load();
-      } catch {
-        /* ignore */
-      }
+      const play = video.play();
+      if (play) play.then(revealAndPlay).catch(() => {});
     }, 0);
 
     return () => {
       cancelled = true;
       window.clearTimeout(kick);
-      video.removeEventListener("canplaythrough", onCanPlayThrough);
-      video.removeEventListener("loadeddata", onLoadedData);
+      video.removeEventListener("playing", onPlaying);
+      video.removeEventListener("canplay", onCanPlay);
     };
   }, []);
 
@@ -72,7 +71,7 @@ export default function MobileHeroCustomersVideo() {
           alt="Customers?"
           width={width}
           height={height}
-          className="absolute inset-0 h-full w-full object-contain object-center"
+          className="absolute inset-0 h-full w-full object-cover object-center"
           draggable={false}
           decoding="async"
           fetchPriority="high"
@@ -81,7 +80,7 @@ export default function MobileHeroCustomersVideo() {
 
       <video
         ref={videoRef}
-        className="absolute inset-0 h-full w-full object-contain object-center transition-opacity duration-300"
+        className="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-300"
         style={{ opacity: showVideo ? 1 : 0 }}
         width={width}
         height={height}
