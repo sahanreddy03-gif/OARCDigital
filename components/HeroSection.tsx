@@ -456,10 +456,10 @@ export default function HeroSection() {
             </h1>
           </div>
 
-          {/* Film band — same frame as locked CUSTOMERS still; whole video visible */}
+          {/* Film band — exact 16:9 of the video so cover fills edge-to-edge with no crop */}
           <div
             className="relative shrink-0 w-full overflow-hidden mt-1.5"
-            style={{ height: "min(28svh, calc(100svh - 23rem))" }}
+            style={{ aspectRatio: "16 / 9", width: "100%" }}
             data-testid="hero-mobile-customers-band"
           >
             <MobileHeroCustomersVideo />
