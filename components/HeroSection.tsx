@@ -5,9 +5,11 @@ import Link from "next/link";
 import { Inter_Tight, Instrument_Serif } from "next/font/google";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
-import MobileHeroCylindricalVideo from "./MobileHeroCylindricalVideo";
 import MobileHeroCoverflowCarousel from "./MobileHeroCoverflowCarousel";
 const heroBackground = "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
+/** Live Capture mobile — CUSTOMERS? portrait band */
+const mobileCustomersPortrait =
+  "/attached_assets/mobile-hero-customers-portrait.png";
 
 /** Superside headline pair — Inter Tight (sans) + Instrument Serif (italic accent). */
 const heroSans = Inter_Tight({
@@ -209,25 +211,35 @@ const MobileGlassCard = ({ icon: Icon, label, href, testId }: { icon: typeof Pal
   </Link>
 );
 
-/** Compact path pills — mobile only, under video (not the Sales/Marketing/Operations graphics). */
+/**
+ * Figma node 1:2 glass pills — 118×72, fill white@10%, stroke white@25%, r=12.
+ * Text only (Inter Semi Bold 11).
+ */
 const CompactMobileGlassCard = ({
-  icon: Icon,
   label,
   href,
   testId,
 }: {
-  icon: typeof Palette;
   label: string;
   href: string;
   testId: string;
 }) => (
-  <Link href={href} className="min-w-0 flex-1">
+  <Link href={href} className="block" style={{ width: "calc(118 / 390 * 100%)" }}>
     <div
-      className="flex items-center justify-center gap-1.5 px-2.5 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/25"
+      className="flex items-center justify-center rounded-xl border backdrop-blur-md"
+      style={{
+        height: "calc(72 / 844 * 100svh)",
+        background: "rgba(255,255,255,0.10)",
+        borderColor: "rgba(255,255,255,0.25)",
+      }}
       data-testid={testId}
     >
-      <Icon className="w-3.5 h-3.5 text-white shrink-0" />
-      <span className="text-[11px] font-bold text-white tracking-wide">{label}</span>
+      <span
+        className="font-semibold text-white text-center leading-tight whitespace-pre-line"
+        style={{ fontSize: "calc(11 / 390 * 100vw)", letterSpacing: 0 }}
+      >
+        {label}
+      </span>
     </div>
   </Link>
 );
@@ -361,28 +373,18 @@ export default function HeroSection() {
       >
         
         {/* ========== MOBILE LAYOUT ========== */}
-        <div className="md:hidden absolute inset-0">
-          {/* Instant placeholder - blurred, loads immediately */}
-          <div 
-            className="absolute inset-0 bg-cover bg-no-repeat bg-zinc-950/90"
-            style={{ 
-              backgroundImage: `url(${HERO_PLACEHOLDER})`,
-              backgroundPosition: '60% 40%',
-              transform: 'scale(1.1)'
-            }}
-          />
-          {/* Real background — crop nudged for denser first-screen composition */}
-          <div 
+        {/* Figma 1:2 — dark film grade behind H1 / pills / footer (sharp film is the mid band) */}
+        <div className="md:hidden absolute inset-0 bg-black">
+          <div
             className="absolute inset-0 bg-cover bg-no-repeat"
-            style={{ 
-              backgroundImage: `url(${heroBackground})`,
-              backgroundPosition: '60% 40%',
-              filter: 'brightness(1.05) contrast(1.02) saturate(1.03)',
+            style={{
+              backgroundImage: `url(${mobileCustomersPortrait})`,
+              backgroundPosition: "center 40%",
+              filter: "brightness(0.45) contrast(1.08) saturate(1.05) blur(22px)",
+              transform: "scale(1.18)",
             }}
           />
-          {/* Soft read veil — denser mid so the one composed block stays crisp */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/25 from-0% via-zinc-950/50 via-45% to-zinc-950/88 to-100%" />
-          
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 from-0% via-black/35 via-45% to-black/85 to-100%" />
         </div>
 
         {/* ========== DESKTOP LAYOUT ========== */}
@@ -423,99 +425,85 @@ export default function HeroSection() {
         </>
         
         {/* ========== CONTENT ========== */}
-        {/* MOBILE: H1 fonts/colors LOCKED. Content sits lower; video keeps natural size (no empty stretch). */}
+        {/* MOBILE — locked PNG. Carousel stays pinned at bottom; upper block drops to meet it. */}
         <div
-          className={`md:hidden relative h-[100svh] flex flex-col ${heroSans.className}`}
+          className={`md:hidden relative h-[100svh] flex flex-col overflow-hidden ${heroSans.className}`}
           style={{
-            paddingTop: "max(3.25rem, env(safe-area-inset-top))",
-            paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))",
+            paddingTop: "max(4.25rem, calc(env(safe-area-inset-top) + 3.25rem))",
+            paddingBottom: "max(0.2rem, env(safe-area-inset-bottom))",
           }}
         >
-          {/* Top art breathing room — kept modest so video + carousel don't crush */}
-          <div className="shrink-0 h-[10svh]" aria-hidden="true" />
+          {/* Absorbs the black gap above — pushes headline/film/pills/in-house down */}
+          <div className="flex-1 min-h-[2svh]" aria-hidden="true" />
 
-          {/* Locked headline pair — do not change fonts/colors */}
           <div className="shrink-0 px-3 text-center">
-            <h1
-              className="text-white"
-              data-testid="text-hero-headline"
-              data-speakable
-            >
+            <h1 className="text-white" data-testid="text-hero-headline" data-speakable>
               <span
-                className={`${heroSans.className} block font-semibold tracking-[-0.035em] leading-[1.05] text-[7.8vw]`}
+                className={`${heroSans.className} block font-semibold tracking-[-0.035em] leading-[1.05]`}
+                style={{ fontSize: "clamp(1.55rem, 7.6vw, 1.95rem)" }}
               >
                 AI-Native Marketing Agency
               </span>
               <span
-                className={`${heroSerif.className} block italic tracking-[-0.03em] leading-[1.08] mt-[0.35svh] whitespace-nowrap text-[6.8vw]`}
+                className={`${heroSerif.className} block italic tracking-[-0.03em] leading-[1.08] mt-1 whitespace-nowrap`}
+                style={{ fontSize: "clamp(1.35rem, 6.6vw, 1.7rem)" }}
               >
                 Malta&apos;s One{" "}
-                <span
-                  className={`${heroSans.className} text-[#e8ffb0] font-semibold not-italic tracking-[-0.03em]`}
-                >
+                <span className={`${heroSans.className} text-[#e8ffb0] font-semibold not-italic`}>
                   End-to-End
                 </span>{" "}
                 Team
               </span>
             </h1>
-
-            {/* Bigger creative tagline — graphics replace Sales / Marketing / Operations words */}
-            <p
-              className={`${heroSans.className} mt-[1.4svh] text-white leading-none text-[4.4vw] font-medium tracking-[-0.02em]`}
-              data-testid="text-hero-discipline-line"
-              data-speakable
-            >
-              <span className={`${heroSerif.className} italic align-middle text-white/90`}>
-                Where your
-              </span>{" "}
-              <span className="inline-flex items-center gap-1 align-middle mx-0.5">
-                <DisciplineGraphic kind="sales" size="lg" />
-                <DisciplineGraphic kind="marketing" size="lg" />
-                <DisciplineGraphic kind="operations" size="lg" />
-              </span>{" "}
-              <span className={`${heroSerif.className} italic align-middle text-white/90`}>
-                work as one.
-              </span>
-            </p>
           </div>
 
-          {/* One continuous full-bleed wing film — no cuts, edge-to-edge */}
-          <div className="shrink-0 mt-[1.6svh]">
-            <MobileHeroCylindricalVideo />
+          {/* Film band — slightly shorter so the block sits tighter above the carousel */}
+          <div
+            className="relative shrink-0 w-full overflow-hidden mt-1.5"
+            style={{ height: "min(28svh, calc(100svh - 23rem))" }}
+            data-testid="hero-mobile-customers-band"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`${mobileCustomersPortrait}?v=locked`}
+              alt="Customers?"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+              draggable={false}
+            />
           </div>
 
-          {/* Air under the curved shell so carousel never kisses the film */}
-          <div className="shrink-0 h-[5svh]" aria-hidden="true" />
-
-          {/* Chip-sized coverflow + path pills */}
-          <div className="shrink-0 isolate">
-            <div className="overflow-hidden">
-              <MobileHeroCoverflowCarousel />
-            </div>
-            <div className="w-full px-4 mt-[1.6svh] flex gap-2 justify-center">
-              <CompactMobileGlassCard
-                icon={Palette}
-                label="Creative"
-                href="/creative"
-                testId="button-nav-creative"
-              />
-              <CompactMobileGlassCard
-                icon={Bot}
-                label="AI"
-                href="/ai-agents"
-                testId="button-nav-ai"
-              />
-              <CompactMobileGlassCard
-                icon={Rocket}
-                label="Growth"
-                href="/solutions"
-                testId="button-nav-growth"
-              />
-            </div>
+          <div className="shrink-0 w-full px-3 mt-2 flex gap-2 justify-center">
+            <CompactMobileGlassCard label="Creative" href="/creative" testId="button-nav-creative" />
+            <CompactMobileGlassCard label="Agentic AI" href="/ai-agents" testId="button-nav-ai" />
+            <CompactMobileGlassCard
+              label={"Business\ntransformation"}
+              href="/solutions"
+              testId="button-nav-growth"
+            />
           </div>
 
-          {/* Bottom breathing room so pills clear the sticky chrome */}
-          <div className="shrink-0 h-[1.2svh]" aria-hidden="true" />
+          <p
+            className="shrink-0 mt-2 px-4 text-center leading-[1.3]"
+            style={{ fontSize: "clamp(0.95rem, 4.2vw, 1.15rem)" }}
+            data-testid="text-hero-inhouse-line"
+            data-speakable
+          >
+            <span className={`${heroSans.className} text-[#e8ffb0] font-semibold not-italic`}>
+              In-house
+            </span>{" "}
+            <span className={`${heroSerif.className} italic text-white`}>
+              Studio, Sales &amp; Tech
+            </span>
+            <br />
+            <span className={`${heroSans.className} text-white font-semibold`}>
+              at your disposal
+            </span>
+          </p>
+
+          {/* Carousel — fixed at bottom of the first viewport; do not move */}
+          <div className="shrink-0 isolate mt-1.5" data-testid="hero-mobile-carousel-wrap">
+            <MobileHeroCoverflowCarousel />
+          </div>
         </div>
 
         {/* DESKTOP — unchanged from checkpoint structure */}
