@@ -9,6 +9,7 @@
  *   <ScrollReveal type="stagger" stagger={0.1}>  ← animates direct children
  */
 import { useEffect, useRef } from "react";
+import type { JSX } from "react";
 import { registerGSAP, gsap, ScrollTrigger, EASE, DUR, STAG } from "@/lib/motion/gsap-system";
 
 type RevealType = "fadeUp" | "fadeIn" | "slideLeft" | "slideRight" | "scaleUp" | "stagger";
