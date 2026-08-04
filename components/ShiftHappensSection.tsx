@@ -82,27 +82,6 @@ export default function ShiftHappensSection() {
           />
         </m.div>
 
-        {/* Tagline — EB Garamond, pure white, no colours */}
-        <m.div
-          {...fadeUp(0.34)}
-          className="w-full mt-5 sm:mt-6 md:mt-8 overflow-hidden"
-          data-testid="shift-tagline"
-        >
-          <p
-            className="w-full text-center whitespace-nowrap"
-            style={{
-              fontFamily: "'EB Garamond', Georgia, serif",
-              fontSize: "clamp(1.1rem, 5vw, 5.5rem)",
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              lineHeight: 1.1,
-              color: "#ffffff",
-            }}
-          >
-            <span style={{ fontWeight: 400 }}>Optimised AI Revenue&nbsp;</span>
-            <span style={{ fontWeight: 700, fontStyle: "italic" }}>Creative</span>
-          </p>
-        </m.div>
 
       </div>
     </section>

@@ -173,8 +173,6 @@ export default function Page() {
         {/* SHIFT HAPPENS — editorial identity */}
         <ShiftHappensSection />
 
-        {/* OARC Brand Section - video background */}
-        <OARCBrandSection videoSrc={oarcBgVideo} />
 
         {/* Stat ticker strip — original position, old logo strip style */}
         <TrustedBrandsSection />
