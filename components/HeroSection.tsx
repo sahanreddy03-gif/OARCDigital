@@ -499,8 +499,8 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* DESKTOP — stacked: text top, cards centred below */}
-        <div className="hidden md:flex relative flex-1 flex-col justify-start pt-16 lg:pt-20 pb-6">
+        {/* DESKTOP — unchanged from checkpoint structure */}
+        <div className="hidden md:flex relative flex-1 flex-col justify-end pt-16 lg:pt-20 pb-6">
           <div className="w-full">
             <div className="w-full pl-8 lg:pl-12 pr-0">
               <div className="w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl text-left">
@@ -573,31 +573,29 @@ export default function HeroSection() {
                     <span className="text-white font-bold tracking-wide">More Sales</span>
                   </p>
 
+                  <div className="flex flex-wrap gap-4 justify-start">
+                    <MobileGlassCard
+                      icon={Palette}
+                      label="Creative"
+                      href="/creative"
+                      testId="button-nav-creative-desktop"
+                    />
+                    <MobileGlassCard
+                      icon={Bot}
+                      label="AI"
+                      href="/ai-agents"
+                      testId="button-nav-ai-desktop"
+                    />
+                    <MobileGlassCard
+                      icon={Rocket}
+                      label="Growth"
+                      href="/solutions"
+                      testId="button-nav-growth-desktop"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Three service cards centred below the text block */}
-          <div className="flex justify-center gap-6 mt-8 md:mt-10 px-8 lg:px-12">
-            <MobileGlassCard
-              icon={Palette}
-              label="Creative"
-              href="/creative"
-              testId="button-nav-creative-desktop"
-            />
-            <MobileGlassCard
-              icon={Bot}
-              label="AI"
-              href="/ai-agents"
-              testId="button-nav-ai-desktop"
-            />
-            <MobileGlassCard
-              icon={Rocket}
-              label="Growth"
-              href="/solutions"
-              testId="button-nav-growth-desktop"
-            />
           </div>
 
           <div className="w-full mt-5 relative">
