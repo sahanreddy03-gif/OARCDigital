@@ -3,215 +3,252 @@
 import { useEffect, useRef } from "react";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Active Theory-grade particle field — mobile hero background only
+// Active Theory-grade 3D particle field
 //
-// • Atmospheric dark nebula — subtle colour, restraint is the point
-// • Touch/cursor parallax with inertia — near particles dance, far ones drift
-// • Additive 'lighter' blending — glows accumulate like real light
-// • 5 depth layers — exponential distribution (many far, few near)
-// • Replaces ONLY the blurred poster background on mobile
-//   All hero content (headline, video, pills, carousel) sits above untouched
+// Camera sits at origin (0,0,0). ~3 000 particles surround it in a sphere.
+// Touch/mouse rotates the camera in 3D with inertia — you feel inside the cloud.
+// Custom GLSL shader: per-particle variable size + soft bokeh disc + bright core.
+// AdditiveBlending — glows accumulate like real light.
+// Auto slow-rotation when idle.
 // ─────────────────────────────────────────────────────────────────────────────
 
-interface P {
-  bx: number; by: number;
-  vx: number; vy: number;
-  radius: number;
-  depth: number;        // 0 = far, 1 = near
-  r: number; g: number; b: number;
-  alpha: number;
-  bf: number; bp: number; ba: number; // breath freq / phase / amp
-}
+const VERT = `
+attribute float aSize;
+attribute vec3  aColor;
+attribute float aAlpha;
 
-// Weighted palette — mostly ice-white, rare colour hints
+varying vec3  vColor;
+varying float vAlpha;
+
+void main() {
+  vColor = aColor;
+  vec4 mv = modelViewMatrix * vec4(position, 1.0);
+  // Perspective size — particles get larger as they approach
+  gl_PointSize = aSize * (300.0 / -mv.z);
+  // Clamp so very-near particles don't blow up to 200px
+  gl_PointSize = clamp(gl_PointSize, 0.5, 120.0);
+  // Fade near particles gently so they don't clip hard
+  float dist = length(mv.xyz);
+  vAlpha = aAlpha * clamp(dist / 4.0, 0.0, 1.0);
+  gl_Position = projectionMatrix * mv;
+}
+`;
+
+const FRAG = `
+varying vec3  vColor;
+varying float vAlpha;
+
+void main() {
+  // gl_PointCoord goes 0→1; map to -1→+1
+  vec2 uv = gl_PointCoord * 2.0 - 1.0;
+  float r2 = dot(uv, uv);
+  if (r2 > 1.0) discard;
+
+  // Bright core + wide soft glow — Active Theory bokeh shape
+  float core = exp(-r2 * 9.0);
+  float glow = exp(-r2 * 2.2);
+  float bloom= exp(-r2 * 0.7);
+
+  vec3  col   = vColor * (core * 2.0 + glow * 0.6 + bloom * 0.15);
+  float alpha = vAlpha * (core * 0.95 + glow * 0.38 + bloom * 0.08);
+
+  gl_FragColor = vec4(col, alpha);
+}
+`;
+
+// ── Atmospheric palette ───────────────────────────────────────────────────────
+// Each: [R,G,B, weight] — values 0-1. White dominates; colour is a whisper.
 const PAL: [number, number, number, number][] = [
-  [255, 255, 255, 7],
-  [255, 255, 255, 5],
-  [210, 240, 255, 3],  // cool ice-white
-  [185, 255, 225, 2],  // ghost mint
-  [150, 205, 255, 2],  // pale blue
-  [205, 165, 255, 1],  // dim violet
-  [255, 225, 165, 1],  // barely warm
-  [165, 255, 185, 1],  // ghost green
-  [255, 195, 185, 1],  // ghost coral — rare
+  [1.00, 1.00, 1.00, 8],  // white
+  [1.00, 1.00, 1.00, 6],
+  [0.82, 0.94, 1.00, 3],  // ice-white
+  [0.70, 1.00, 0.87, 2],  // ghost mint
+  [0.58, 0.80, 1.00, 2],  // dim cobalt
+  [0.80, 0.64, 1.00, 1],  // dim violet
+  [1.00, 0.87, 0.64, 1],  // barely warm amber
+  [0.64, 1.00, 0.73, 1],  // ghost green
+  [1.00, 0.76, 0.72, 1],  // ghost coral — rare
 ];
 
 function pickColor(): [number, number, number] {
   const total = PAL.reduce((s, p) => s + p[3], 0);
   let n = Math.random() * total;
   for (const [r, g, b, w] of PAL) { n -= w; if (n <= 0) return [r, g, b]; }
-  return [255, 255, 255];
-}
-
-function makeParticle(W: number, H: number): P {
-  const depth = Math.pow(Math.random(), 2.2); // exponential — lots of far
-  const radius = 0.4 + depth * 18;
-  const alpha  = 0.03 + depth * 0.65;
-  const speed  = 0.015 + depth * 0.20;
-  const angle  = Math.random() * Math.PI * 2;
-  const [r, g, b] = pickColor();
-  return {
-    bx: Math.random() * W, by: Math.random() * H,
-    vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
-    radius, depth, r, g, b, alpha,
-    bf: 0.0008 + Math.random() * 0.002,
-    bp: Math.random() * Math.PI * 2,
-    ba: 0.04 + Math.random() * 0.10,
-  };
-}
-
-function drawP(ctx: CanvasRenderingContext2D, p: P, sx: number, sy: number, t: number) {
-  const breath = Math.sin(t * p.bf + p.bp);
-  const r      = p.radius * (1 + breath * p.ba);
-  const alpha  = Math.min(1, p.alpha * (1 + breath * p.ba * 0.35));
-  const blur   = (1 - p.depth) * 7 + (p.depth < 0.3 ? 3 : 0);
-
-  ctx.save();
-  if (blur > 0.4) ctx.filter = `blur(${blur.toFixed(1)}px)`;
-  ctx.globalAlpha = alpha;
-  ctx.globalCompositeOperation = "lighter";
-
-  // Core
-  const cR = r * 0.28;
-  const g1 = ctx.createRadialGradient(sx, sy, 0, sx, sy, cR);
-  g1.addColorStop(0, `rgba(${p.r},${p.g},${p.b},1)`);
-  g1.addColorStop(1, `rgba(${p.r},${p.g},${p.b},0.55)`);
-  ctx.beginPath(); ctx.arc(sx, sy, cR, 0, Math.PI * 2);
-  ctx.fillStyle = g1; ctx.fill();
-
-  // Mid halo
-  const g2 = ctx.createRadialGradient(sx, sy, cR * 0.5, sx, sy, r);
-  g2.addColorStop(0, `rgba(${p.r},${p.g},${p.b},0.32)`);
-  g2.addColorStop(1, `rgba(${p.r},${p.g},${p.b},0)`);
-  ctx.beginPath(); ctx.arc(sx, sy, r, 0, Math.PI * 2);
-  ctx.fillStyle = g2; ctx.fill();
-
-  // Extended bloom — near particles only
-  if (p.depth > 0.45) {
-    const bR = r * (1.8 + p.depth * 1.5);
-    const g3 = ctx.createRadialGradient(sx, sy, r * 0.4, sx, sy, bR);
-    g3.addColorStop(0, `rgba(${p.r},${p.g},${p.b},0.10)`);
-    g3.addColorStop(1, `rgba(${p.r},${p.g},${p.b},0)`);
-    ctx.beginPath(); ctx.arc(sx, sy, bR, 0, Math.PI * 2);
-    ctx.fillStyle = g3; ctx.fill();
-  }
-
-  ctx.restore();
+  return [1, 1, 1];
 }
 
 export default function MobileParticleCanvas() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d", { alpha: false });
-    if (!ctx) return;
+    const el = mountRef.current;
+    if (!el) return;
 
-    // Respect reduced-motion preference
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced) {
-      ctx.fillStyle = "#020207";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      return;
-    }
+    // Reduced-motion: skip canvas entirely
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const W = canvas.offsetWidth  || 390;
-    const H = canvas.offsetHeight || 844;
-    canvas.width  = W * dpr;
-    canvas.height = H * dpr;
-    ctx.scale(dpr, dpr);
+    const W = el.offsetWidth  || 390;
+    const H = el.offsetHeight || window.innerHeight;
 
-    // 520 particles, sorted far→near (painter's algorithm)
-    const particles: P[] = Array.from({ length: 520 }, () => makeParticle(W, H))
-      .sort((a, b) => a.depth - b.depth);
+    let raf = 0;
+    let renderer: import("three").WebGLRenderer;
 
-    // Parallax inertia state
-    let targetOX = 0, targetOY = 0;
-    let currentOX = 0, currentOY = 0;
-    let t = 0, raf = 0;
+    import("three").then((THREE) => {
+      // ── Renderer ──────────────────────────────────────────────────────────
+      renderer = new THREE.WebGLRenderer({ antialias: false, alpha: false, powerPreference: "low-power" });
+      renderer.setSize(W, H);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setClearColor(0x020207, 1);
+      el.appendChild(renderer.domElement);
 
-    const LERP = 0.038; // inertia — low = heavy, physical feel
+      // ── Scene / Camera ────────────────────────────────────────────────────
+      const scene  = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(72, W / H, 0.1, 200);
+      // Camera at origin — particles surround it
+      camera.position.set(0, 0, 0);
 
-    const onMove = (x: number, y: number) => {
-      targetOX = -((x / W) - 0.5) * 32;
-      targetOY = -((y / H) - 0.5) * 22;
-    };
-    const onLeave = () => { targetOX = 0; targetOY = 0; };
+      // ── Particles ─────────────────────────────────────────────────────────
+      const COUNT = 3200;
+      const pos    = new Float32Array(COUNT * 3);
+      const col    = new Float32Array(COUNT * 3);
+      const sizes  = new Float32Array(COUNT);
+      const alphas = new Float32Array(COUNT);
 
-    const onMouseMove  = (e: MouseEvent)  => {
-      const rect = canvas.getBoundingClientRect();
-      onMove(e.clientX - rect.left, e.clientY - rect.top);
-    };
-    const onTouchMove  = (e: TouchEvent)  => {
-      e.preventDefault();
-      const rect = canvas.getBoundingClientRect();
-      onMove(e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top);
-    };
-    const onTouchEnd   = () => onLeave();
-    const onMouseLeave = () => onLeave();
+      for (let i = 0; i < COUNT; i++) {
+        // Distribute in sphere around camera, radius 3–45
+        // Exponential bias: more particles at larger radii (like real nebula)
+        const r     = 3 + Math.pow(Math.random(), 0.6) * 42;
+        const theta = Math.random() * Math.PI * 2;
+        const phi   = Math.acos(2 * Math.random() - 1);
 
-    canvas.addEventListener("mousemove",  onMouseMove);
-    canvas.addEventListener("mouseleave", onMouseLeave);
-    canvas.addEventListener("touchmove",  onTouchMove, { passive: false });
-    canvas.addEventListener("touchend",   onTouchEnd);
+        pos[i * 3]     = r * Math.sin(phi) * Math.cos(theta);
+        pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+        pos[i * 3 + 2] = r * Math.cos(phi);
 
-    function tick() {
-      currentOX += (targetOX - currentOX) * LERP;
-      currentOY += (targetOY - currentOY) * LERP;
+        // Closer = larger in world-space (shader multiplies by perspective)
+        const nearness = 1 - r / 45;
+        sizes[i]  = 0.04 + nearness * nearness * 0.38;
+        alphas[i] = 0.08 + nearness * 0.75;
 
-      // Deep dark blue-black — Active Theory's base
-      ctx.fillStyle = "#020207";
-      ctx.fillRect(0, 0, W, H);
-
-      for (const p of particles) {
-        p.bx += p.vx;
-        p.by += p.vy;
-        const pad = p.radius * 3 + 10;
-        if (p.bx < -pad) p.bx = W + pad;
-        else if (p.bx > W + pad) p.bx = -pad;
-        if (p.by < -pad) p.by = H + pad;
-        else if (p.by > H + pad) p.by = -pad;
-
-        // Parallax: near (depth≈1) shifts most, far (depth≈0) barely moves
-        const sx = p.bx + currentOX * p.depth * p.depth;
-        const sy = p.by + currentOY * p.depth * p.depth;
-        drawP(ctx, p, sx, sy, t);
+        // Near particles get colour; far ones stay white
+        const useColor = Math.random() < (nearness * 0.65);
+        const [cr, cg, cb] = useColor ? pickColor() : [1, 1, 1];
+        col[i * 3]     = cr;
+        col[i * 3 + 1] = cg;
+        col[i * 3 + 2] = cb;
       }
 
-      // Vignette
-      ctx.save();
-      ctx.globalCompositeOperation = "source-over";
-      ctx.globalAlpha = 1;
-      const vig = ctx.createRadialGradient(W * 0.5, H * 0.44, H * 0.06, W * 0.5, H * 0.5, H * 0.72);
-      vig.addColorStop(0,    "rgba(0,0,0,0)");
-      vig.addColorStop(0.48, "rgba(0,0,0,0.20)");
-      vig.addColorStop(1,    "rgba(0,0,0,0.94)");
-      ctx.fillStyle = vig;
-      ctx.fillRect(0, 0, W, H);
-      ctx.restore();
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute("position", new THREE.BufferAttribute(pos,    3));
+      geo.setAttribute("aColor",   new THREE.BufferAttribute(col,    3));
+      geo.setAttribute("aSize",    new THREE.BufferAttribute(sizes,  1));
+      geo.setAttribute("aAlpha",   new THREE.BufferAttribute(alphas, 1));
 
-      t++;
+      const mat = new THREE.ShaderMaterial({
+        vertexShader:   VERT,
+        fragmentShader: FRAG,
+        transparent:    true,
+        depthWrite:     false,
+        blending:       THREE.AdditiveBlending,
+      });
+
+      const points = new THREE.Points(geo, mat);
+      scene.add(points);
+
+      // ── Rotation inertia state ─────────────────────────────────────────────
+      let targetX  = 0,  targetY  = 0;
+      let currentX = 0,  currentY = 0;
+      let autoY    = 0;
+      let lastTX   = 0,  lastTY   = 0;
+      let dragging = false;
+
+      const LERP = 0.042; // inertia — lower = heavier, more physical
+      const AUTO = 0.00018; // slow idle auto-rotation speed
+
+      // Touch
+      const onTouchStart = (e: TouchEvent) => {
+        dragging = true;
+        lastTX = e.touches[0].clientX;
+        lastTY = e.touches[0].clientY;
+      };
+      const onTouchMove = (e: TouchEvent) => {
+        e.preventDefault();
+        const dx = e.touches[0].clientX - lastTX;
+        const dy = e.touches[0].clientY - lastTY;
+        targetY += dx * 0.004;
+        targetX += dy * 0.004;
+        // Clamp vertical tilt so it doesn't flip
+        targetX = Math.max(-0.7, Math.min(0.7, targetX));
+        lastTX = e.touches[0].clientX;
+        lastTY = e.touches[0].clientY;
+      };
+      const onTouchEnd = () => { dragging = false; };
+
+      // Mouse — position-based, not delta-based (like AT)
+      const onMouseMove = (e: MouseEvent) => {
+        const rect = el.getBoundingClientRect();
+        const nx = ((e.clientX - rect.left) / W - 0.5);
+        const ny = ((e.clientY - rect.top)  / H - 0.5);
+        targetY = nx * 0.55;
+        targetX = ny * 0.30;
+      };
+      const onMouseLeave = () => {
+        // Drift back to centre slowly — handled by LERP targeting 0
+        targetX = 0;
+        targetY = 0;
+      };
+
+      el.addEventListener("touchstart",  onTouchStart, { passive: true });
+      el.addEventListener("touchmove",   onTouchMove,  { passive: false });
+      el.addEventListener("touchend",    onTouchEnd);
+      el.addEventListener("mousemove",   onMouseMove);
+      el.addEventListener("mouseleave",  onMouseLeave);
+
+      // ── Render loop ────────────────────────────────────────────────────────
+      function tick() {
+        raf = requestAnimationFrame(tick);
+
+        currentX += (targetX - currentX) * LERP;
+        currentY += (targetY - currentY) * LERP;
+        autoY    += AUTO;
+
+        // Rotate the point cloud (keeps camera clean for future additions)
+        points.rotation.x =  currentX;
+        points.rotation.y =  currentY + autoY;
+
+        renderer.render(scene, camera);
+      }
+
       raf = requestAnimationFrame(tick);
-    }
 
-    raf = requestAnimationFrame(tick);
+      // Store cleanup refs
+      (el as any).__threeCleanup = () => {
+        cancelAnimationFrame(raf);
+        el.removeEventListener("touchstart",  onTouchStart);
+        el.removeEventListener("touchmove",   onTouchMove);
+        el.removeEventListener("touchend",    onTouchEnd);
+        el.removeEventListener("mousemove",   onMouseMove);
+        el.removeEventListener("mouseleave",  onMouseLeave);
+        geo.dispose();
+        mat.dispose();
+        renderer.dispose();
+        if (renderer.domElement.parentNode === el) {
+          el.removeChild(renderer.domElement);
+        }
+      };
+    });
 
     return () => {
-      cancelAnimationFrame(raf);
-      canvas.removeEventListener("mousemove",  onMouseMove);
-      canvas.removeEventListener("mouseleave", onMouseLeave);
-      canvas.removeEventListener("touchmove",  onTouchMove);
-      canvas.removeEventListener("touchend",   onTouchEnd);
+      (el as any).__threeCleanup?.();
     };
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
+    <div
+      ref={mountRef}
       className="absolute inset-0 w-full h-full"
       aria-hidden="true"
+      style={{ touchAction: "none" }}
     />
   );
 }
