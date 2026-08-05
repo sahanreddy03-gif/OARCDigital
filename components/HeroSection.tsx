@@ -7,7 +7,6 @@ import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import MobileHeroCoverflowCarousel from "./MobileHeroCoverflowCarousel";
 import MobileHeroCustomersVideo from "./MobileHeroCustomersVideo";
-import MobileParticleCanvas from "./MobileParticleCanvas";
 import { HERO_CUSTOMERS_VIDEO } from "@/lib/media/heroCustomersVideo";
 const heroBackground = "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
 
@@ -373,10 +372,18 @@ export default function HeroSection() {
       >
         
         {/* ========== MOBILE LAYOUT ========== */}
-        {/* Active Theory particle field — fills the black void behind all hero content */}
-        <div className="md:hidden absolute inset-0" style={{ background: "#020207" }}>
-          <MobileParticleCanvas />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/65 from-0% via-black/28 via-42% to-black/80 to-100%" />
+        {/* Figma 1:2 — dark film grade behind H1 / pills / footer (sharp film is the mid band) */}
+        <div className="md:hidden absolute inset-0 bg-black">
+          <div
+            className="absolute inset-0 bg-cover bg-no-repeat"
+            style={{
+              backgroundImage: `url(${HERO_CUSTOMERS_VIDEO.posterJpg})`,
+              backgroundPosition: "center 40%",
+              filter: "brightness(0.45) contrast(1.08) saturate(1.05) blur(22px)",
+              transform: "scale(1.18)",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 from-0% via-black/35 via-45% to-black/85 to-100%" />
         </div>
 
         {/* ========== DESKTOP LAYOUT ========== */}
