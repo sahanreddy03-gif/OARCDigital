@@ -284,16 +284,30 @@ export default function AICreativeSection() {
   }, []);
 
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" style={{ backgroundColor: '#f0fff4' }} data-testid="section-ai-creative">
+    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" style={{ backgroundColor: 'var(--paper)' }} data-testid="section-ai-creative">
 
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-8">
         <div className="text-center">
-          <h2 className="font-heading font-bold text-zinc-900 mb-3" data-testid="text-ai-creative-heading" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
+          {/* Kicker — paper surface */}
+          <p className="kicker kicker-paper justify-center mb-5">Full Service Creative</p>
+
+          <h2
+            className="font-ds-display font-extrabold mb-0"
+            data-testid="text-ai-creative-heading"
+            style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.04em', lineHeight: '1.0', color: 'var(--ink)' }}
+          >
             Every type of creative work
           </h2>
-          <p className="font-heading font-bold text-zinc-900" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
+          <p
+            className="font-ds-display font-extrabold"
+            style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.04em', lineHeight: '1.0', color: 'var(--ink)' }}
+          >
             you'll ever need
-            <span className="italic text-[#16a34a]"> and more</span>
+            {/* Accent word: Instrument Serif italic, sigdeep on paper surface */}
+            <span
+              className="font-ds-flair italic"
+              style={{ color: 'var(--sigdeep)' }}
+            > and more</span>
           </p>
         </div>
       </div>
@@ -325,7 +339,7 @@ export default function AICreativeSection() {
                   </div>
                 )}
                 <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-                  <h3 className="font-heading text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+                  <h3 className="font-ds-display text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white leading-tight" style={{ letterSpacing: '-0.03em' }}>
                     {service.title}
                   </h3>
                 </div>
@@ -354,7 +368,7 @@ export default function AICreativeSection() {
                     <div className="absolute top-3 right-3 bg-[#c4ff4d] text-zinc-900 text-xs font-bold px-2.5 py-1 rounded-full z-10">{service.badge}</div>
                   )}
                   <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="font-heading text-lg font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>{service.title}</h3>
+                    <h3 className="font-ds-display text-lg font-bold text-white leading-tight" style={{ letterSpacing: '-0.03em' }}>{service.title}</h3>
                   </div>
                 </div>
               </Link>
@@ -379,7 +393,7 @@ export default function AICreativeSection() {
                     <div className="absolute top-3 right-3 bg-[#c4ff4d] text-zinc-900 text-xs font-bold px-2.5 py-1 rounded-full z-10">{service.badge}</div>
                   )}
                   <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="font-heading text-lg font-bold text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>{service.title}</h3>
+                    <h3 className="font-ds-display text-lg font-bold text-white leading-tight" style={{ letterSpacing: '-0.03em' }}>{service.title}</h3>
                   </div>
                 </div>
               </Link>

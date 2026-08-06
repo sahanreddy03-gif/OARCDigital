@@ -92,6 +92,10 @@ export default {
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
         display: ["'Space Grotesk'", "'Inter'", "sans-serif"],
+        // OARC Design System v1
+        "ds-display": ["var(--font-bricolage)", "'Bricolage Grotesque'", "sans-serif"],
+        "ds-mono":    ["var(--font-space-mono)", "'Space Mono'", "monospace"],
+        "ds-flair":   ["var(--font-instrument-serif)", "'Instrument Serif'", "serif"],
       },
       keyframes: {
         "accordion-down": {
