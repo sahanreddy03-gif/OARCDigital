@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Nunito_Sans, Montserrat, Inter, Space_Grotesk, EB_Garamond, Orbitron, Anton } from "next/font/google";
+import { Nunito_Sans, Montserrat, Inter, Space_Grotesk, EB_Garamond, Anton } from "next/font/google";
 import { partytownSnippet } from "@qwik.dev/partytown/integration";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -37,11 +37,6 @@ const ebGaramond = EB_Garamond({
   display: "swap",
   variable: "--font-eb-garamond",
 });
-const orbitron = Orbitron({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-orbitron",
-});
 const anton = Anton({
   subsets: ["latin"],
   display: "swap",
@@ -55,7 +50,6 @@ const fontVariables = [
   inter.variable,
   spaceGrotesk.variable,
   ebGaramond.variable,
-  orbitron.variable,
   anton.variable,
 ].join(" ");
 

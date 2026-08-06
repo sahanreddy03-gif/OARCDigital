@@ -1,36 +1,113 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { m, useReducedMotion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+
+// SHIFT HAPPENS — per-letter GSAP roll-up animation
+// Each letter clips from below its baseline and rolls up into place.
+// GPU-only transforms (y, opacity) — zero layout cost.
+// Fires once on first scroll-into-view; respects prefers-reduced-motion.
+
+const SHIFT   = ["S","H","I","F","T"];
+const HAPPENS = ["H","A","P","P","E","N","S"];
+
+function LetterGroup({
+  letters,
+  style,
+  groupRef,
+}: {
+  letters: string[];
+  style: React.CSSProperties;
+  groupRef: React.RefObject<HTMLSpanElement[]>;
+}) {
+  return (
+    <>
+      {letters.map((l, i) => (
+        <span
+          key={i}
+          style={{ display: "inline-block", overflow: "hidden", lineHeight: 1 }}
+        >
+          <span
+            ref={(el) => {
+              if (el && groupRef.current) groupRef.current[i] = el;
+            }}
+            style={{ display: "inline-block", ...style }}
+          >
+            {l}
+          </span>
+        </span>
+      ))}
+    </>
+  );
+}
 
 export default function ShiftHappensSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const prefersReducedMotion = useReducedMotion();
+  const sectionRef  = useRef<HTMLElement>(null);
+  const shiftRefs   = useRef<HTMLSpanElement[]>([]);
+  const happensRefs = useRef<HTMLSpanElement[]>([]);
+  const ruleRef     = useRef<HTMLDivElement>(null);
+  const animated    = useRef(false);
 
   useEffect(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
+        if (!entry.isIntersecting || animated.current) return;
+        animated.current = true;
+        observer.disconnect();
+
+        if (reduced) {
+          // Instant reveal — no animation
+          [...shiftRefs.current, ...happensRefs.current].forEach((el) => {
+            if (el) { el.style.transform = "translateY(0)"; el.style.opacity = "1"; }
+          });
+          if (ruleRef.current) { ruleRef.current.style.opacity = "1"; ruleRef.current.style.transform = "scaleX(1)"; }
+          return;
         }
+
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+        // SHIFT — letters roll up from below, stagger 0.055s
+        tl.from(shiftRefs.current, {
+          y: "110%",
+          opacity: 0,
+          duration: 0.72,
+          stagger: 0.055,
+        });
+
+        // HAPPENS — starts 0.1s after SHIFT begins, same motion
+        tl.from(
+          happensRefs.current,
+          {
+            y: "110%",
+            opacity: 0,
+            duration: 0.72,
+            stagger: 0.055,
+          },
+          0.10  // offset from start of timeline
+        );
+
+        // Rule wipes left-to-right after letters land
+        tl.from(
+          ruleRef.current,
+          { scaleX: 0, transformOrigin: "left center", duration: 0.9, ease: "power2.inOut" },
+          "-=0.2"
+        );
       },
       { threshold: 0.15 }
     );
+
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
-  const fadeUp = (delay: number) => ({
-    initial: prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 },
-    animate: isVisible ? { opacity: 1, y: 0 } : {},
-    transition: {
-      delay,
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-    },
-  });
+  const textBase: React.CSSProperties = {
+    fontFamily: "'Anton', Impact, 'Arial Narrow', sans-serif",
+    fontSize: "clamp(2.8rem, 12.5vw, 14rem)",
+    lineHeight: 1,
+    letterSpacing: "0.02em",
+  };
 
   return (
     <section
@@ -43,46 +120,40 @@ export default function ShiftHappensSection() {
         className="w-full py-12 sm:py-16 md:py-20 lg:py-24 flex flex-col items-center"
         style={{ paddingLeft: "1vw", paddingRight: "1vw" }}
       >
-
-        {/* SHIFT HAPPENS — Anton ultra-bold condensed, solid + stroke duo */}
-        <m.div {...fadeUp(0)} className="w-full overflow-hidden" data-testid="shift-happens-headline">
-          <div
-            className="w-full text-center leading-none whitespace-nowrap select-none"
-            style={{
-              fontFamily: "'Anton', Impact, 'Arial Narrow', sans-serif",
-              fontSize: "clamp(2.8rem, 12.5vw, 14rem)",
-              lineHeight: 1,
-              letterSpacing: "0.02em",
-            }}
-          >
-            {/* SHIFT — solid white */}
-            <span style={{ color: "#ffffff" }}>SHIFT</span>
-            {/* gap between words */}
-            <span style={{ color: "#ffffff", fontSize: "0.5em" }}>&nbsp;&nbsp;</span>
-            {/* HAPPENS — outline stroke only, no fill */}
-            <span
-              style={{
-                color: "transparent",
-                WebkitTextStroke: "3px #ffffff",
-              } as Record<string, string>}
-            >
-              HAPPENS
-            </span>
-          </div>
-        </m.div>
-
-        {/* Full-width horizontal rule */}
-        <m.div {...fadeUp(0.18)} className="w-full mt-5 sm:mt-6 md:mt-8">
-          <div
-            style={{
-              height: "2px",
-              width: "100%",
-              background: "rgba(255,255,255,0.45)",
-            }}
+        {/* Headline */}
+        <div
+          className="w-full text-center select-none whitespace-nowrap"
+          style={textBase}
+          data-testid="shift-happens-headline"
+        >
+          {/* SHIFT — solid white */}
+          <LetterGroup
+            letters={SHIFT}
+            style={{ color: "#ffffff" }}
+            groupRef={shiftRefs}
           />
-        </m.div>
 
+          {/* Gap */}
+          <span style={{ display: "inline-block", width: "0.45em" }} aria-hidden="true" />
 
+          {/* HAPPENS — outline only */}
+          <LetterGroup
+            letters={HAPPENS}
+            style={{
+              color: "transparent",
+              WebkitTextStroke: "3px #ffffff",
+            } as React.CSSProperties}
+            groupRef={happensRefs}
+          />
+        </div>
+
+        {/* Full-width rule */}
+        <div className="w-full mt-5 sm:mt-6 md:mt-8">
+          <div
+            ref={ruleRef}
+            style={{ height: "2px", width: "100%", background: "rgba(255,255,255,0.45)" }}
+          />
+        </div>
       </div>
     </section>
   );
