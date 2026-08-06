@@ -7,6 +7,7 @@ import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import MobileHeroCoverflowCarousel from "./MobileHeroCoverflowCarousel";
 import MobileHeroCustomersVideo from "./MobileHeroCustomersVideo";
+import MobileTownScene from "./MobileTownScene";
 import { HERO_CUSTOMERS_VIDEO } from "@/lib/media/heroCustomersVideo";
 const heroBackground = "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
 
@@ -432,8 +433,10 @@ export default function HeroSection() {
             paddingBottom: "max(0.2rem, env(safe-area-inset-bottom))",
           }}
         >
-          {/* Absorbs the black gap above — pushes headline/film/pills/in-house down */}
-          <div className="flex-1 min-h-[2svh]" aria-hidden="true" />
+          {/* 3D town scene fills the black gap above the headline */}
+          <div className="flex-1 min-h-0 relative">
+            <MobileTownScene />
+          </div>
 
           <div className="shrink-0 px-3 text-center">
             <h1 className="text-white" data-testid="text-hero-headline" data-speakable>
