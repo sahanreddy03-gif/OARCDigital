@@ -51,102 +51,10 @@
   contain-intrinsic-size: 1px 800px;
 }
 
-/* Custom Fonts */
-@font-face {
-  font-family: 'Blackpast';
-  src: url('/fonts/Blackpast.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Punoer';
-  src: url('/fonts/Punoer.otf?v=4') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Technul Soft';
-  src: url('/fonts/Technul-Soft.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ciscela';
-  src: url('/fonts/Ciscela-Regular.woff2') format('woff2'),
-       url('/fonts/Ciscela-Regular.woff') format('woff'),
-       url('/fonts/Ciscela-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Baligon';
-  src: url('/fonts/baligon.woff') format('woff'),
-       url('/fonts/baligon.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Boldisy';
-  src: url('/fonts/boldisy.woff2') format('woff2'),
-       url('/fonts/boldisy.woff') format('woff'),
-       url('/fonts/boldisy.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Soreille';
-  src: url('/fonts/soreille.woff2') format('woff2'),
-       url('/fonts/soreille.woff') format('woff'),
-       url('/fonts/soreille.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Quicky Class';
-  src: url('/fonts/quicky-class.woff2') format('woff2'),
-       url('/fonts/quicky-class.woff') format('woff'),
-       url('/fonts/quicky-class.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Roctaria';
-  src: url('/fonts/roctaria.woff2') format('woff2'),
-       url('/fonts/roctaria.woff') format('woff'),
-       url('/fonts/roctaria.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
+/* Custom Fonts — only fonts actively referenced in the codebase */
 @font-face {
   font-family: 'Pixelag';
   src: url('/fonts/Pixelag.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Black Future';
-  src: url('/fonts/Black Future.woff2') format('woff2'),
-       url('/fonts/Black Future.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -180,45 +88,11 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Space Future';
-  src: url('/fonts/SpacedFuture.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Squiver';
-  src: url('/fonts/squiver.woff2') format('woff2'),
-       url('/fonts/squiver.woff') format('woff'),
-       url('/fonts/squiver.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Nextf Games';
-  src: url('/fonts/NextFGames-Bold.woff2') format('woff2'),
-       url('/fonts/NextFGames-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
-  --font-blackpast: 'Blackpast', cursive;
-  --font-punoer: 'Punoer', sans-serif;
-  --font-technul: 'Technul Soft', sans-serif;
-  --font-ciscela: 'Ciscela', serif;
-  --font-pixelag: 'Pixelag', monospace;
-  --font-blackfuture: 'Black Future', sans-serif;
-  --font-swarsh: 'Swarsh Daisy', serif;
-  --font-halfre: 'Halfre', sans-serif;
-  --font-heatrobox: 'Heat Robox', sans-serif;
-  --font-spacefuture: 'Space Future', sans-serif;
-  --font-nextfgames: 'Nextf Games', sans-serif;
+  --font-pixelag:  'Pixelag', monospace;
+  --font-swarsh:   'Swarsh Daisy', serif;
+  --font-halfre:   'Halfre', sans-serif;
+  --font-heatrobox:'Heat Robox', sans-serif;
 }
 
 /* LIGHT MODE */
