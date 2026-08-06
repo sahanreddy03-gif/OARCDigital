@@ -95,6 +95,57 @@
   --font-heatrobox:'Heat Robox', sans-serif;
 }
 
+/* ── OARC Design System v1 ────────────────────────────────────── */
+:root {
+  /* Color tokens */
+  --ink:     #0C1F13;   /* Forest Ink — dark surfaces & text on paper */
+  --paper:   #F2EFE9;   /* Bone — light surfaces & text on ink */
+  --sig:     #6FE59C;   /* Signal Mint — ONLY on ink surfaces */
+  --sigdeep: #117B4E;   /* Signal Deep — same signal, on paper surfaces */
+
+  /* Alpha tokens */
+  --p70: rgba(242,239,233,.70); /* secondary text on ink */
+  --p45: rgba(242,239,233,.45); /* labels on ink */
+  --line-d: rgba(242,239,233,.14); /* borders on ink */
+  --i70: rgba(12,31,19,.70);    /* secondary text on paper */
+  --i45: rgba(12,31,19,.45);    /* labels on paper */
+  --line-l: rgba(12,31,19,.14); /* borders on paper */
+
+  /* Font stacks (variables injected by next/font) */
+  --font-ds-display: var(--font-bricolage, 'Bricolage Grotesque'), sans-serif;
+  --font-ds-mono:    var(--font-space-mono, 'Space Mono'), monospace;
+  --font-ds-flair:   var(--font-instrument-serif, 'Instrument Serif'), serif;
+
+  /* ONE card radius */
+  --ds-radius: 10px;
+}
+
+/* Kicker — opens every section (ink surface default) */
+.kicker {
+  font-family: var(--font-ds-mono);
+  font-size: 10px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--p45);
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+}
+.kicker::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--sig);
+  flex-shrink: 0;
+}
+/* Paper-surface variant */
+.kicker.kicker-paper {
+  color: var(--i45);
+}
+.kicker.kicker-paper::before {
+  background: var(--sigdeep);
+}
+
 /* LIGHT MODE */
 :root {
   --button-outline: rgba(0,0,0, .10);
