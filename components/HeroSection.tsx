@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Inter_Tight, Instrument_Serif } from "next/font/google";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
-import MobileHeroCoverflowCarousel from "./MobileHeroCoverflowCarousel";
+import MobileHeroMasonryGrid from "./MobileHeroMasonryGrid";
 import MobileHeroCustomersVideo from "./MobileHeroCustomersVideo";
 import MobileTownScene from "./MobileTownScene";
 import { HERO_CUSTOMERS_VIDEO } from "@/lib/media/heroCustomersVideo";
@@ -498,7 +498,7 @@ export default function HeroSection() {
 
           {/* Carousel — fixed at bottom of the first viewport; do not move */}
           <div className="shrink-0 isolate mt-1.5" data-testid="hero-mobile-carousel-wrap">
-            <MobileHeroCoverflowCarousel />
+            <MobileHeroMasonryGrid />
           </div>
         </div>
 
