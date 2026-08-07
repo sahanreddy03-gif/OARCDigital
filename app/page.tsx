@@ -64,6 +64,7 @@ import MostPopularServices from "@/components/MostPopularServices";
 import DiagnosticsTeaser from "@/components/DiagnosticsTeaser";
 import OARCBrandSection from "@/components/OARCBrandSection";
 import ShiftHappensSection from "@/components/ShiftHappensSection";
+import OARCDepartmentIndex from "@/components/OARCDepartmentIndex";
 const oarcBgVideo = "/media/glif-chat-1766630282078_1766685897761.mov";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
@@ -173,6 +174,8 @@ export default function Page() {
         {/* SHIFT HAPPENS — editorial identity */}
         <ShiftHappensSection />
 
+        {/* OARC Department Index — centrepiece menu, bone bg */}
+        <OARCDepartmentIndex />
 
         {/* Stat ticker strip — original position, old logo strip style */}
         <TrustedBrandsSection />
