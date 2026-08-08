@@ -191,7 +191,12 @@ export const allServiceSlugs = [
   'automation',
   'operations',
   'clarity',
-  'transformation'
+  'transformation',
+  // Remaining department index pages (Task #296)
+  'growth',
+  'sales',
+  'media',
+  'social'
 ] as const;
 
 // All valid case study slugs (from App.tsx routes - canonical names only)
