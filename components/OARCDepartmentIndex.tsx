@@ -28,40 +28,40 @@ interface Dept {
   nm:[string,string,string,string]; // [before, accentCls, accentText, after]
 }
 const DATA:Dept[] = [
-  {r:"E",k:"Growth",        h:"Bring me more customers.", hot:"customers.", m:"inflow",  u:"/solutions",
+  {r:"E",k:"Growth",        h:"Bring me more customers.", hot:"customers.", m:"inflow",  u:"/services/growth",
    nm:["BRING ME MORE ","eC","CUSTOMERS","."],
    c:["They find you","You find them","They like you","They pick you","You stay close","They come back"]},
-  {r:"E",k:"Sales",         h:"Close more sales.",        hot:"sales.",     m:"bolt",    u:"/solutions",
+  {r:"E",k:"Sales",         h:"Close more sales.",        hot:"sales.",     m:"bolt",    u:"/services/sales",
    nm:["CLOSE MORE ","eU","SALES","."],
    c:["Speed-to-lead","Pipeline & offer strategy","Founder story & sales reels","Trust & proof","Instant qualify & book","Team training"]},
-  {r:"E",k:"Media",         h:"Ad spend that pays.",      hot:"pays.",      m:"resolve", u:"/services/paid-advertising",
+  {r:"E",k:"Media",         h:"Ad spend that pays.",      hot:"pays.",      m:"resolve", u:"/services/media",
    nm:["AD SPEND THAT ","eC","PAYS","."],
    c:["Meta & Google","TikTok & YouTube","Out-of-home","100% spend → platforms","Flighted testing","Return in euros"]},
-  {r:"S",k:"Creative",      h:"Make us worth more.",      hot:"more.",      m:"ascend",  u:"/creative",
+  {r:"S",k:"Creative",      h:"Make us worth more.",      hot:"more.",      m:"ascend",  u:"/services/creative",
    nm:["MAKE US WORTH ","sI","more","."],
    c:["Big idea & campaigns","Social & content studio","Brand & identity","Film & motion","Ad & performance creative","AI creative engine"]},
-  {r:"S",k:"Social",        h:"Social, our powerhouse.",  hot:"powerhouse.",m:"pulse",   u:"/services",
+  {r:"S",k:"Social",        h:"Social, our powerhouse.",  hot:"powerhouse.",m:"pulse",   u:"/services/social",
    nm:["SOCIAL, OUR ","sC","POWERHOUSE","."],
    c:["Strategy — where they scroll","Storytelling","Video & editing","Native to every platform","The craft","Community that converts"]},
-  {r:"S",k:"Reputation",    h:"Make me famous.",          hot:"famous.",    m:"reach",   u:"/services",
+  {r:"S",k:"Reputation",    h:"Make me famous.",          hot:"famous.",    m:"reach",   u:"/services/reputation",
    nm:["MAKE ME ","sI","famous","."],
    c:["Reels & founder videos","Press & news features","Creator collabs","Podcast features","Shared everywhere"]},
-  {r:"M",k:"AI Staff",      h:"Pick your employee.",      hot:"employee.",  m:"orbit",   u:"/ai-agents",
+  {r:"M",k:"AI Staff",      h:"Pick your employee.",      hot:"employee.",  m:"orbit",   u:"/services/ai-staff",
    nm:["PICK YOUR ","mB","EMPLOYEE","."],
    c:["Sales agent","Bookings host","Missed-call return","Review capture","Support agent","Quotes & invoices","Win-back","Nightly watch"]},
-  {r:"S",k:"Brand",         h:"Creative and brand.",      hot:"brand.",     m:"markO",   u:"/creative",
+  {r:"S",k:"Brand",         h:"Creative and brand.",      hot:"brand.",     m:"markO",   u:"/services/brand",
    nm:["CREATIVE AND ","sC","BRAND","."],
    c:["Brand strategy & positioning","Identity system & guidelines","Photo, film & 3D","Web & product design","Campaigns & copy","Packaging, signage, merch"]},
-  {r:"M",k:"Operations",    h:"Take work off my plate.",  hot:"plate.",     m:"lift",    u:"/automation",
+  {r:"M",k:"Operations",    h:"Take work off my plate.",  hot:"plate.",     m:"lift",    u:"/services/operations",
    nm:["WORK OFF MY ","mU","PLATE","."],
    c:["≈13 hrs back weekly","DMs answered","Bookings confirmed","Invoices chased","Reminders sent","Reports written"]},
-  {r:"M",k:"Clarity",       h:"Tell me what's working.",  hot:"working.",   m:"flip",    u:"/solutions",
+  {r:"M",k:"Clarity",       h:"Tell me what's working.",  hot:"working.",   m:"flip",    u:"/services/clarity",
    nm:["WHAT'S ","mB","WORKING","?"],
    c:["Money metrics, not vanity","Every euro traced","Winners vs losers","Spend→Click→Lead→Sale","The one move"]},
-  {r:"M",k:"Automation",    h:"The business runs itself.",hot:"itself.",    m:"loop",    u:"/automation",
+  {r:"M",k:"Automation",    h:"The business runs itself.",hot:"itself.",    m:"loop",    u:"/services/automation",
    nm:["IT RUNS ","mU","ITSELF","."],
    c:["Marketing automations","Sales & CRM flows","Bookings & reminders","Invoicing & payments","Stock & ops triggers","Dashboards & reports"]},
-  {r:"M",k:"Transformation",h:"Change how it runs.",      hot:"runs.",      m:"flip2",   u:"/solutions",
+  {r:"M",k:"Transformation",h:"Change how it runs.",      hot:"runs.",      m:"flip2",   u:"/services/transformation",
    nm:["CHANGE HOW IT ","mB","RUNS","."],
    c:["Full guest lifecycle","QR ordering — MENU","Kitchen display","Self-order KIOSK","Owner dashboard — DESK","Reviews & loyalty — TABLE","POS bridge"]},
 ];
@@ -727,6 +727,13 @@ export default function OARCDepartmentIndex() {
     <section ref={sectionRef} className="oarc-di" aria-label="OARC departments" data-testid="oarc-department-index">
       {/* scoped styles */}
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
+
+      {/* ── Crawlable department nav — static <a> tags in initial HTML for Google ── */}
+      <nav aria-label="Department pages" style={{position:"absolute",width:1,height:1,overflow:"hidden",clip:"rect(0,0,0,0)",whiteSpace:"nowrap",border:0}}>
+        {DATA.map((d) => (
+          <a key={d.k} href={d.u}>{d.k} — {d.h}</a>
+        ))}
+      </nav>
 
       {/* custom cursor — position:fixed, always atop viewport */}
       <div ref={curRef} className="di-cur" aria-hidden="true" />
