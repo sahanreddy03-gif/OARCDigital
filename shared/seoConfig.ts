@@ -185,7 +185,13 @@ export const allServiceSlugs = [
   'wordpress-development',
   'shopify-development',
   'devops-services',
-  'database-design'
+  'database-design',
+  // Machine realm dept pages (Task #295)
+  'ai-staff',
+  'automation',
+  'operations',
+  'clarity',
+  'transformation'
 ] as const;
 
 // All valid case study slugs (from App.tsx routes - canonical names only)
