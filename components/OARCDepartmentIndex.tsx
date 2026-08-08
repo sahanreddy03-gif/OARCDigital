@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import DepartmentDetailModal from "./DepartmentDetailModal";
 
 // ─── constants & helpers ──────────────────────────────────────────────────────
 const TAU = Math.PI * 2;
@@ -261,6 +262,8 @@ export default function OARCDepartmentIndex() {
   const headRef    = useRef<HTMLElement>(null);
   const kidsRef    = useRef<HTMLDivElement>(null);
   const curRef     = useRef<HTMLDivElement>(null);
+
+  const [openDept, setOpenDept] = useState<string|null>(null);
 
   useEffect(() => {
     // Check all refs before capturing — TypeScript narrows .current to non-null after each check
@@ -733,7 +736,7 @@ export default function OARCDepartmentIndex() {
 
         {/* ── ROW 1 — MAKE MONEY (Engine) + Studio openers ── */}
         {DATA.slice(0,5).map((d,i)=>(
-          <div key={i} className={`di-cell di-r${d.r}`} data-i={String(i)} tabIndex={0}>
+          <div key={i} className={`di-cell di-r${d.r}`} data-i={String(i)} tabIndex={0} onClick={()=>setOpenDept(d.k)}>
             <span className="di-k">{d.k}</span>
             <span className="di-wash" aria-hidden="true" />
             <span className="di-nm">
@@ -743,7 +746,7 @@ export default function OARCDepartmentIndex() {
         ))}
 
         {/* ── ROW 2, COL 1 — Reputation ── */}
-        <div className="di-cell di-rS di-r2c1" data-i="5" tabIndex={0}>
+        <div className="di-cell di-rS di-r2c1" data-i="5" tabIndex={0} onClick={()=>setOpenDept(DATA[5].k)}>
           <span className="di-k">{DATA[5].k}</span>
           <span className="di-wash" aria-hidden="true" />
           <span className="di-nm">
@@ -770,7 +773,7 @@ export default function OARCDepartmentIndex() {
         </section>
 
         {/* ── ROW 2, COL 5 — AI Staff ── */}
-        <div className="di-cell di-rM di-r2c5" data-i="6" tabIndex={0}>
+        <div className="di-cell di-rM di-r2c5" data-i="6" tabIndex={0} onClick={()=>setOpenDept(DATA[6].k)}>
           <span className="di-k">{DATA[6].k}</span>
           <span className="di-wash" aria-hidden="true" />
           <span className="di-nm">
@@ -779,7 +782,7 @@ export default function OARCDepartmentIndex() {
         </div>
 
         {/* ── ROW 3, COL 1 — Brand ── */}
-        <div className="di-cell di-rS di-r3c1" data-i="7" tabIndex={0}>
+        <div className="di-cell di-rS di-r3c1" data-i="7" tabIndex={0} onClick={()=>setOpenDept(DATA[7].k)}>
           <span className="di-k">{DATA[7].k}</span>
           <span className="di-wash" aria-hidden="true" />
           <span className="di-nm">
@@ -797,7 +800,7 @@ export default function OARCDepartmentIndex() {
         {DATA.slice(8,12).map((d,i)=>{
           const colCls = ["di-r4c1","di-r4c2","di-r4c3","di-r4c4"][i];
           return (
-            <div key={i+8} className={`di-cell di-r${d.r} ${colCls}`} data-i={String(i+8)} tabIndex={0}>
+            <div key={i+8} className={`di-cell di-r${d.r} ${colCls}`} data-i={String(i+8)} tabIndex={0} onClick={()=>setOpenDept(d.k)}>
               <span className="di-k">{d.k}</span>
               <span className="di-wash" aria-hidden="true" />
               <span className="di-nm">
@@ -814,6 +817,12 @@ export default function OARCDepartmentIndex() {
         </div>
 
       </div>
+
+      {/* ── Department detail modal — portal into document.body ── */}
+      <DepartmentDetailModal
+        dept={openDept}
+        onClose={() => setOpenDept(null)}
+      />
     </section>
   );
 }
