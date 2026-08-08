@@ -111,9 +111,13 @@ export const locationServices = [
 // These are guaranteed to render without 404s
 export const allServiceSlugs = [
   // Creative & Marketing Services
-  // Task #116: removed creative, media-buying, ai-copywriting, digital-marketing,
+  // Task #116: removed media-buying, ai-copywriting, digital-marketing,
   // rapid-idea-testing — folders deleted, 308'd via SERVICE_ALIASES /
   // CROSS_SECTION_ALIASES in lib/seo/seoSets.ts.
+  // Task #294: creative, brand, reputation restored as Studio realm pages.
+  'creative',
+  'brand',
+  'reputation',
   'social-media-creative-management',
   'social',
   'paid',

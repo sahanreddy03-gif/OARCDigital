@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Nunito_Sans, Montserrat, Inter, Space_Grotesk, EB_Garamond, Anton, Bricolage_Grotesque, Space_Mono, Instrument_Serif } from "next/font/google";
+import { Nunito_Sans, Montserrat, Inter, Space_Grotesk, EB_Garamond, Anton, Bricolage_Grotesque, Space_Mono, Instrument_Serif, Fraunces } from "next/font/google";
 import { partytownSnippet } from "@qwik.dev/partytown/integration";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -62,6 +62,13 @@ const instrumentSerif = Instrument_Serif({
   style: ["italic"],
   weight: "400",
 });
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-fraunces",
+  weight: ["400", "600", "900"],
+  style: ["normal", "italic"],
+});
 
 const fontVariables = [
   nunitoSans.variable,
@@ -73,6 +80,7 @@ const fontVariables = [
   bricolage.variable,
   spaceMono.variable,
   instrumentSerif.variable,
+  fraunces.variable,
 ].join(" ");
 
 const ORGANIZATION_JSONLD = [

@@ -78,13 +78,13 @@ export const LOCATION_SERVICE_ALIASES: Record<string, string> = {
  *
  * Task #116:
  *   /services/digital-marketing → /services        (umbrella too generic, fan out via hub)
- *   /services/creative          → /creative       (was duplicate of pillar)
+ *   /services/creative          → /creative       (was duplicate of pillar — REMOVED Task #294:
+ *                                                  /services/creative is now its own Studio realm page)
  *   /diagnostic                 → /diagnostics    (singular legacy variant)
  *   /roadmap                    → /roadmap-2026   (year-anchored canonical)
  */
 export const CROSS_SECTION_ALIASES: Record<string, string> = {
   "/services/digital-marketing": "/services",
-  "/services/creative": "/creative",
   "/diagnostic": "/diagnostics",
   "/roadmap": "/roadmap-2026",
 };
