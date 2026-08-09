@@ -168,11 +168,17 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(HERO_VIDEO_SCHEMA) }}
       />
-      <div className="overflow-x-hidden">
+      {/* overflow-x intentionally NOT set here — any overflow:hidden ancestor
+          silently breaks position:sticky descendants in iOS Safari, causing a
+          blank white page. Each section manages its own overflow internally. */}
+      <div>
         <HeroSection />
 
         {/* SHIFT HAPPENS — editorial identity */}
         <ShiftHappensSection />
+
+        {/* Blog preview — surfaces editorial content high up the page */}
+        <BlogPreviewSection />
 
         {/* OARC Department Index — centrepiece menu, bone bg */}
         <OARCDepartmentIndex />
@@ -214,7 +220,6 @@ export default function Page() {
 
         {/* Final CTAs */}
         <MoneyBackGuaranteeSection />
-        <BlogPreviewSection />
         <CTASections />
         <NeedHelpCTA />
         {/* Top-30 internal-link funnel */}

@@ -236,7 +236,10 @@ const CSS = `
   .di-r2c1,.di-r2c5,.di-r3c1,.di-r3c5,
   .di-r4c1,.di-r4c2,.di-r4c3,.di-r4c4,.di-r4c5{grid-column:auto;grid-row:auto}
   .di-frame{grid-template-columns:repeat(2,1fr);grid-template-rows:auto;gap:8px;padding:8px}
-  .di-stage{grid-column:1/-1;grid-row:1;min-height:62vh;position:sticky;top:0;z-index:10}
+  /* Mobile: natural flow — position:sticky + any overflow:hidden ancestor
+     silently breaks iOS Safari paint (blank page + scroll trap).
+     Use position:relative so the stage flows with the grid normally. */
+  .di-stage{grid-column:1/-1;grid-row:1;min-height:min(340px,72vw);position:relative;top:auto;z-index:2}
   .di-cell{min-height:112px}
   .di-mat{grid-column:1/-1;min-height:76px;flex-direction:row;align-items:flex-end;justify-content:space-between}
   .di-head{font-size:clamp(2.7rem,12.5vw,4rem)}
