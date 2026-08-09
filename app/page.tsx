@@ -177,9 +177,6 @@ export default function Page() {
         {/* SHIFT HAPPENS — editorial identity */}
         <ShiftHappensSection />
 
-        {/* Blog preview — surfaces editorial content high up the page */}
-        <BlogPreviewSection />
-
         {/* OARC Department Index — centrepiece menu, bone bg */}
         <OARCDepartmentIndex />
 
@@ -214,6 +211,9 @@ export default function Page() {
         {/* Why OARC - Comparison */}
         <ComparisonSection />
         <GrowthSimulator />
+
+        {/* Blog preview */}
+        <BlogPreviewSection />
 
         {/* Business Diagnostics Teaser */}
         <DiagnosticsTeaser />
