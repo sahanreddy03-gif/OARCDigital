@@ -135,8 +135,8 @@ const CSS = `
 
 /* ── tile name ── */
 .di-nm{font-family:var(--font-bricolage,'Bricolage Grotesque',sans-serif);font-weight:800;
-  font-size:clamp(.95rem,1.38vw,1.32rem);line-height:1.04;letter-spacing:-.025em;margin-top:auto;
-  text-transform:uppercase;font-variation-settings:'opsz' 96;
+  font-size:clamp(1.15rem,2.1vw,1.72rem);line-height:1.04;letter-spacing:-.038em;margin-top:auto;
+  font-variation-settings:'opsz' 96;
   transition:transform 580ms var(--e)}
 .di-cell.di-on .di-nm{transform:translateY(-2px)}
 .di-nm em{font-style:normal;display:inline-block;position:relative;
@@ -150,7 +150,7 @@ em.di-wC{color:var(--ac)}
 .di-cell.di-on em.di-wC{color:var(--acT)}
 /* I: serif italic — worth, fame, production */
 em.di-wI{font-family:var(--font-instrument-serif,'Instrument Serif',serif);font-style:italic;
-  font-weight:400;letter-spacing:0;text-transform:lowercase;font-size:1.09em;color:var(--ac)}
+  font-weight:400;letter-spacing:0;font-size:1.09em;color:var(--ac)}
 .di-cell.di-on em.di-wI{color:var(--acT)}
 /* B: box — the powerhouse, the self-contained machine */
 em.di-wB{box-shadow:inset 0 0 0 2.5px var(--ac);padding:0 .12em;border-radius:4px}
@@ -201,8 +201,8 @@ em.di-wO path{fill:none;stroke:var(--ac);stroke-width:.065em;stroke-linecap:roun
 
 /* stage headline */
 .di-head{font-family:var(--font-bricolage,'Bricolage Grotesque',sans-serif);font-weight:800;
-  font-size:clamp(2.5rem,6.6vw,6.2rem);line-height:.88;letter-spacing:-.05em;
-  max-width:14ch;font-variation-settings:'opsz' 96;text-transform:uppercase}
+  font-size:clamp(2.4rem,5.8vw,5.4rem);line-height:.88;letter-spacing:-.045em;
+  max-width:14ch;font-variation-settings:'opsz' 96}
 .di-ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.07em}
 .di-wd{display:inline-block;transform:translateY(112%);
   transition:transform 840ms var(--e),letter-spacing 580ms var(--e)}
@@ -210,7 +210,7 @@ em.di-wO path{fill:none;stroke:var(--ac);stroke-width:.065em;stroke-linecap:roun
 /* stage hot-word costumes */
 .di-hot{color:var(--sAc)}
 .di-hotI{font-family:var(--font-instrument-serif,'Instrument Serif',serif);font-style:italic;
-  font-weight:400;text-transform:lowercase;letter-spacing:0;font-size:1.05em;color:var(--sAc)}
+  font-weight:400;letter-spacing:0;font-size:1.05em;color:var(--sAc)}
 
 /* chips */
 .di-kids{display:flex;flex-wrap:wrap;gap:.42rem .95rem;margin-top:1.1rem;max-width:56ch}
@@ -673,16 +673,16 @@ export default function OARCDepartmentIndex() {
     const parts = d.h.split("|");
     return (
       <>
-        {parts[0].toUpperCase()}
+        {parts[0]}
         <em className={`di-w${d.w}`} style={{"--ac":d.ac,"--acT":d.acT} as React.CSSProperties}>
-          {parts[1].toUpperCase()}
+          {parts[1]}
           {d.w==="O" && (
             <svg viewBox="0 0 100 60" aria-hidden="true">
               <path d="M8,32 C10,12 88,6 93,26 C97,46 22,58 10,44 C4,37 6,34 12,30"/>
             </svg>
           )}
         </em>
-        {(parts[2]||"").toUpperCase()}
+        {parts[2]||""}
       </>
     );
   }
