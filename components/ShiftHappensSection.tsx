@@ -95,7 +95,7 @@ export default function ShiftHappensSection() {
           "-=0.2"
         );
       },
-      { threshold: 0.15 }
+      { threshold: 0 }
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -113,7 +113,7 @@ export default function ShiftHappensSection() {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden"
-      style={{ background: "#000000" }}
+      style={{ background: "#F2EFE9" }}
       data-testid="shift-happens-section"
     >
       <div
@@ -126,10 +126,10 @@ export default function ShiftHappensSection() {
           style={textBase}
           data-testid="shift-happens-headline"
         >
-          {/* SHIFT — solid white */}
+          {/* SHIFT — solid ink */}
           <LetterGroup
             letters={SHIFT}
-            style={{ color: "#ffffff" }}
+            style={{ color: "#0E0D0C" }}
             groupRef={shiftRefs}
           />
 
@@ -141,7 +141,7 @@ export default function ShiftHappensSection() {
             letters={HAPPENS}
             style={{
               color: "transparent",
-              WebkitTextStroke: "3px #ffffff",
+              WebkitTextStroke: "2.5px #0E0D0C",
             } as React.CSSProperties}
             groupRef={happensRefs}
           />
@@ -151,7 +151,7 @@ export default function ShiftHappensSection() {
         <div className="w-full mt-5 sm:mt-6 md:mt-8">
           <div
             ref={ruleRef}
-            style={{ height: "2px", width: "100%", background: "rgba(255,255,255,0.45)" }}
+            style={{ height: "1px", width: "100%", background: "rgba(14,13,12,0.16)" }}
           />
         </div>
       </div>

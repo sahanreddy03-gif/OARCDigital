@@ -174,11 +174,11 @@ export default function Page() {
       <div>
         <HeroSection />
 
-        {/* SHIFT HAPPENS — editorial identity */}
-        <ShiftHappensSection />
-
-        {/* OARC Department Index — centrepiece menu, bone bg */}
-        <OARCDepartmentIndex />
+        {/* SHIFT HAPPENS + department index — one unified bone surface, no gap */}
+        <div style={{ background: "#F2EFE9" }}>
+          <ShiftHappensSection />
+          <OARCDepartmentIndex />
+        </div>
 
         {/* Stat ticker strip — original position, old logo strip style */}
         <TrustedBrandsSection />
