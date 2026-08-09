@@ -131,12 +131,11 @@ const CSS = `
 .di-cell.di-on .di-wash{transform:scaleY(1)}
 .di-cell.di-on{color:#F2EFE9;border-color:#0E0D0C}
 .di-cell:focus-visible{outline:2px solid var(--crim);outline-offset:2px}
-.di-cell>span{position:relative;z-index:2}
+.di-cell>.di-nm{position:relative;z-index:2}
 
 /* ── tile name ── */
 .di-nm{font-family:var(--font-bricolage,'Bricolage Grotesque',sans-serif);font-weight:800;
-  font-size:clamp(1.28rem,2.4vw,1.95rem);line-height:1.04;letter-spacing:-.038em;margin-top:auto;
-  font-variation-settings:'opsz' 96;
+  font-size:clamp(1.35rem,2.6vw,2.1rem);line-height:1.04;letter-spacing:-.03em;margin-top:auto;
   transition:transform 580ms var(--e)}
 .di-cell.di-on .di-nm{transform:translateY(-2px)}
 .di-nm em{font-style:normal;display:inline-block;position:relative;
@@ -258,7 +257,7 @@ em.di-wO path{fill:none;stroke:var(--ac);stroke-width:.065em;stroke-linecap:roun
   .di-cell{min-height:100px}
   .di-mat{grid-column:1/-1;min-height:70px;flex-direction:row;align-items:flex-end;justify-content:space-between}
   .di-head{font-size:clamp(2.5rem,11.5vw,3.8rem)}
-  .di-nm{font-size:clamp(1.12rem,5.2vw,1.46rem)}
+  .di-nm{font-size:clamp(1.18rem,5.6vw,1.56rem)}
 }
 @media(prefers-reduced-motion:reduce){
   .oarc-di *{transition-duration:.01ms!important;animation:none!important}
