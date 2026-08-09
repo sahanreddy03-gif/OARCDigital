@@ -89,7 +89,7 @@ const CSS = `
 .oarc-di{
   background:#F2EFE9;color:#0E0D0C;
   font-family:var(--font-bricolage,'Bricolage Grotesque',sans-serif);
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;-webkit-tap-highlight-color:transparent;
   touch-action:pan-y;
   --e:cubic-bezier(.16,1,.3,1);
   --line:rgba(14,13,12,.10);--crim:#C8102E;--race:#117B4E;
@@ -121,7 +121,7 @@ const CSS = `
 .di-frame.di-up .di-mat{transition-delay:300ms}
 
 /* ── tiles ── */
-.di-cell{background:#F2EFE9;padding:1rem 1.05rem;cursor:pointer;display:flex;flex-direction:column;
+.di-cell{background:#F2EFE9;padding:1rem 1.05rem;cursor:pointer;display:flex;flex-direction:column;-webkit-tap-highlight-color:transparent;user-select:none;
   justify-content:space-between;position:relative;overflow:hidden;border:1px solid var(--line);
   transition:background 460ms var(--e),color 460ms var(--e),border-color 460ms var(--e),
              opacity 800ms var(--e),transform 900ms var(--e)}
@@ -135,7 +135,7 @@ const CSS = `
 
 /* ── tile name ── */
 .di-nm{font-family:var(--font-bricolage,'Bricolage Grotesque',sans-serif);font-weight:800;
-  font-size:clamp(1.15rem,2.1vw,1.72rem);line-height:1.04;letter-spacing:-.038em;margin-top:auto;
+  font-size:clamp(1.28rem,2.4vw,1.95rem);line-height:1.04;letter-spacing:-.038em;margin-top:auto;
   font-variation-settings:'opsz' 96;
   transition:transform 580ms var(--e)}
 .di-cell.di-on .di-nm{transform:translateY(-2px)}
@@ -258,7 +258,7 @@ em.di-wO path{fill:none;stroke:var(--ac);stroke-width:.065em;stroke-linecap:roun
   .di-cell{min-height:100px}
   .di-mat{grid-column:1/-1;min-height:70px;flex-direction:row;align-items:flex-end;justify-content:space-between}
   .di-head{font-size:clamp(2.5rem,11.5vw,3.8rem)}
-  .di-nm{font-size:clamp(1rem,4.4vw,1.28rem)}
+  .di-nm{font-size:clamp(1.12rem,5.2vw,1.46rem)}
 }
 @media(prefers-reduced-motion:reduce){
   .oarc-di *{transition-duration:.01ms!important;animation:none!important}
