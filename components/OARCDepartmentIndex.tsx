@@ -135,7 +135,7 @@ const CSS = `
 
 /* ── tile name ── */
 .di-nm{font-family:var(--font-bricolage,'Bricolage Grotesque',sans-serif);font-weight:800;
-  font-size:clamp(1.35rem,2.6vw,2.1rem);line-height:1.04;letter-spacing:-.03em;margin-top:auto;
+  font-size:clamp(1.44rem,2.9vw,2.3rem);line-height:1.0;letter-spacing:-.02em;margin-top:auto;
   transition:transform 580ms var(--e)}
 .di-cell.di-on .di-nm{transform:translateY(-2px)}
 .di-nm em{font-style:normal;display:inline-block;position:relative;
@@ -149,7 +149,7 @@ em.di-wC{color:var(--ac)}
 .di-cell.di-on em.di-wC{color:var(--acT)}
 /* I: serif italic — worth, fame, production */
 em.di-wI{font-family:var(--font-instrument-serif,'Instrument Serif',serif);font-style:italic;
-  font-weight:400;letter-spacing:0;font-size:1.09em;color:var(--ac)}
+  font-weight:400;letter-spacing:0;font-size:1.13em;color:var(--ac)}
 .di-cell.di-on em.di-wI{color:var(--acT)}
 /* B: box — the powerhouse, the self-contained machine */
 em.di-wB{box-shadow:inset 0 0 0 2.5px var(--ac);padding:0 .12em;border-radius:4px}
@@ -200,8 +200,7 @@ em.di-wO path{fill:none;stroke:var(--ac);stroke-width:.065em;stroke-linecap:roun
 
 /* stage headline */
 .di-head{font-family:var(--font-bricolage,'Bricolage Grotesque',sans-serif);font-weight:800;
-  font-size:clamp(2.4rem,5.8vw,5.4rem);line-height:.88;letter-spacing:-.045em;
-  max-width:14ch;font-variation-settings:'opsz' 96}
+  font-size:clamp(2.5rem,6vw,5.6rem);line-height:.86;letter-spacing:-.04em;max-width:14ch}
 .di-ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.07em}
 .di-wd{display:inline-block;transform:translateY(112%);
   transition:transform 840ms var(--e),letter-spacing 580ms var(--e)}
@@ -243,7 +242,7 @@ em.di-wO path{fill:none;stroke:var(--ac);stroke-width:.065em;stroke-linecap:roun
 .di-r4c5{grid-column:5;grid-row:4}
 .di-r5c1{grid-column:1;grid-row:5}
 .di-r5c2{grid-column:2;grid-row:5}
-.di-r5c3{grid-column:3;grid-row:5}
+.di-r5c3{grid-column:3/6;grid-row:5}
 .di-r5c4{grid-column:4;grid-row:5}
 .di-r5c5{grid-column:5;grid-row:5}
 
@@ -257,7 +256,7 @@ em.di-wO path{fill:none;stroke:var(--ac);stroke-width:.065em;stroke-linecap:roun
   .di-cell{min-height:100px}
   .di-mat{grid-column:1/-1;min-height:70px;flex-direction:row;align-items:flex-end;justify-content:space-between}
   .di-head{font-size:clamp(2.5rem,11.5vw,3.8rem)}
-  .di-nm{font-size:clamp(1.18rem,5.6vw,1.56rem)}
+  .di-nm{font-size:clamp(1.24rem,5.9vw,1.64rem)}
 }
 @media(prefers-reduced-motion:reduce){
   .oarc-di *{transition-duration:.01ms!important;animation:none!important}
@@ -805,17 +804,6 @@ export default function OARCDepartmentIndex() {
           );
         })}
 
-        {/* ── ROW 5, COL 4 — mat ── */}
-        <div className="di-mat di-r5c4">
-          <span className="di-mat-big">Malta</span>
-          <span className="di-mat-lbl">Birkirkara</span>
-        </div>
-
-        {/* ── ROW 5, COL 5 — brand mat ── */}
-        <div className="di-mat di-r5c5">
-          <span className="di-mat-big">OARC</span>
-          <span className="di-mat-lbl">Since 2019</span>
-        </div>
 
       </div>
 
