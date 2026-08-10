@@ -269,14 +269,14 @@ em.di-wO path{fill:none;stroke:var(--ac);stroke-width:.065em;stroke-linecap:roun
 
 /* ── variant: dark — "Pick your employee" rests on black, flips to ivory on active ── */
 /* doubled specificity (.di-cell.di-cell-dark) guarantees override of base .di-cell rules */
-.di-cell.di-cell-dark{background:#0B0C0D;color:#F5F5F3;border-color:rgba(245,245,243,.1)}
+.di-cell.di-cell-dark{background:#0B0C0D!important;color:#F5F5F3!important;border-color:rgba(245,245,243,.1)}
 .di-cell.di-cell-dark .di-wash{background:#F2EFE9}
 .di-cell.di-cell-dark.di-on{color:#0E0D0C;border-color:#F2EFE9}
 .di-cell.di-cell-dark em.di-wO path{stroke:#F5F5F3}
 .di-cell.di-cell-dark.di-on em.di-wO path{stroke:#0B0C0D}
 
 /* ── variant: green — "Social, our powerhouse" rests on Racing Green #0E5A3A, flips to ivory on active ── */
-.di-cell.di-cell-green{background:#0E5A3A;color:#F2EFE9;border-color:rgba(242,239,233,.1)}
+.di-cell.di-cell-green{background:#0E5A3A!important;color:#F2EFE9!important;border-color:rgba(242,239,233,.1)}
 .di-cell.di-cell-green .di-wash{background:#F2EFE9}
 .di-cell.di-cell-green.di-on{color:#0C1F13;border-color:#0C1F13}
 .di-cell.di-cell-green em.di-wB{box-shadow:inset 0 0 0 2.5px rgba(242,239,233,.75)}
