@@ -649,7 +649,7 @@ function MediaContent({ onClose }: { onClose: () => void }) {
 // ── SOCIAL content — exact prototype port, green world ───────────────────────
 const SC_CSS = `
 .sc{
-  --bg:#0A0F0C;--deep:#060B08;--em:#3D9B65;
+  --bg:#0A0F0C;--deep:#060B08;--em:#0E5A3A;
   --c:#F2EFE9;
   --c70:rgba(242,239,233,.72);--c45:rgba(242,239,233,.46);
   --c26:rgba(242,239,233,.26);--c16:rgba(242,239,233,.16);
@@ -772,7 +772,7 @@ const SC_CSS = `
 .sc .up,.sc .pop{opacity:1;transform:none}.sc .draw{stroke-dashoffset:0}.sc .grow{transform:none}}
 `;
 
-const SC_EM = '#3D9B65';
+const SC_EM = '#0E5A3A';
 const SC_INK = '#060B08';
 
 const SC_VIZ: Record<string, () => string> = {
