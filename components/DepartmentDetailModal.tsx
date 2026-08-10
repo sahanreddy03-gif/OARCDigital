@@ -498,79 +498,100 @@ function SalesContent({ onClose }: { onClose: () => void }) {
     return () => io.disconnect();
   }, []);
 
-  const scar  = T.scar;
-  const navy  = '#0D1A2E';
-  const navyT = 'rgba(244,239,230,.85)';
+  // ── Sales light palette (prototype: white paper / red / ink) ──
+  const paper  = '#FFFFFF';
+  const ink    = '#16120E';
+  const red    = '#D2302A';
+  const muted  = '#6B6560';
+  const border = '#E5E0D8';
+  const navy   = '#152949';
+  const navyT  = 'rgba(244,239,230,.85)';
 
-  // shared inline style helpers
   const serif   = `var(--font-instrument-serif,'Instrument Serif',serif)`;
   const brico   = `var(--font-bricolage,'Bricolage Grotesque',sans-serif)`;
   const mono    = `var(--font-space-mono,'Space Mono',monospace)`;
-  const emStyle = (col=scar) => `font-family:${serif};font-style:italic;font-weight:400;color:${col}`;
+  const emStyle = (col=red) => `font-family:${serif};font-style:italic;font-weight:400;color:${col}`;
 
   function UnitRow({ u }: { u: typeof SL_UNITS[0] }) {
     return (
-      <div style={{ padding:'1.8rem 20px 2rem', borderTop:`1px solid ${T.line}` }}>
+      <div style={{ padding:'1.8rem 20px 2rem', borderTop:`1px solid ${border}`, background:paper }}>
         <div style={{ display:'flex', alignItems:'flex-start', gap:'.8rem', marginBottom:'.5rem' }}>
           <span style={{ fontFamily:serif, fontStyle:'italic', fontSize:'2rem',
-            color:scar, width:44, flexShrink:0, lineHeight:.8 }}>{u.no}</span>
+            color:red, width:44, flexShrink:0, lineHeight:.8 }}>{u.no}</span>
           <span style={{ fontFamily:mono, fontSize:9.5, letterSpacing:'.14em',
-            textTransform:'uppercase' as const, color:T.dim,
-            border:`1px solid ${T.line}`, borderRadius:20, padding:'.28rem .65rem',
+            textTransform:'uppercase' as const, color:muted,
+            border:`1px solid ${border}`, borderRadius:20, padding:'.28rem .65rem',
             display:'inline-block', alignSelf:'flex-start' as const }}>{u.tag}</span>
         </div>
         <h3 style={{ fontFamily:brico, fontWeight:700, fontSize:'clamp(1.6rem,5.4vw,2.2rem)',
-          lineHeight:1.02, letterSpacing:'-.04em', color:T.ivory, marginBottom:'.7rem' }}
+          lineHeight:1.02, letterSpacing:'-.04em', color:ink, marginBottom:'.7rem' }}
           dangerouslySetInnerHTML={{ __html: u.h.replace('<em>',`<em style="${emStyle()}">`) }} />
-        <p style={{ fontSize:'.94rem', color:T.dim, lineHeight:1.6, marginBottom:'1rem' }}>{u.body}</p>
+        <p style={{ fontSize:'.94rem', color:muted, lineHeight:1.6, marginBottom:'1rem' }}>{u.body}</p>
         <div style={{ display:'flex', flexWrap:'wrap' as const, gap:'.45rem', marginBottom:'.9rem' }}>
           {u.deliv.map((d,j)=>(
-            <span key={j} style={{ fontSize:11, fontWeight:600, color:T.ivory,
-              background:'rgba(242,239,233,.07)', borderRadius:4, padding:'.35rem .65rem' }}>{d}</span>
+            <span key={j} style={{ fontSize:11, fontWeight:600, color:ink,
+              background:'#EDEBE6', borderRadius:4, padding:'.35rem .65rem' }}>{d}</span>
           ))}
         </div>
         <div style={{ display:'flex', alignItems:'baseline', gap:'.65rem',
-          paddingTop:'.85rem', borderTop:`1px solid ${T.line}` }}>
+          paddingTop:'.85rem', borderTop:`1px solid ${border}` }}>
           <span style={{ fontFamily:serif, fontStyle:'italic',
-            fontSize:'clamp(1.8rem,7vw,2.6rem)', fontWeight:400, lineHeight:.85, color:T.ivory }}>
-            {u.stat}<em style={{ fontSize:'.42em', color:T.dim, fontStyle:'normal' }}>{u.statS}</em>
+            fontSize:'clamp(1.8rem,7vw,2.6rem)', fontWeight:400, lineHeight:.85, color:ink }}>
+            {u.stat}<em style={{ fontSize:'.42em', color:muted, fontStyle:'normal' }}>{u.statS}</em>
           </span>
-          <span style={{ fontSize:11.5, color:T.dim, lineHeight:1.35, maxWidth:'28ch' }}>{u.statP}</span>
+          <span style={{ fontSize:11.5, color:muted, lineHeight:1.35, maxWidth:'28ch' }}>{u.statP}</span>
         </div>
       </div>
     );
   }
 
   return (
-    <div style={{ background:T.noir, color:T.ivory }}>
+    <div style={{ background:paper, color:ink }}>
       {/* eslint-disable-next-line react/no-danger */}
       <style dangerouslySetInnerHTML={{ __html: SL_CSS }} />
 
       {/* ── hero ── */}
-      <div style={{ padding:'1.8rem 20px 2.2rem', borderBottom:`1px solid ${T.line}` }}>
-        <Kicker label="The sales engagement" />
+      <div style={{ padding:'1.8rem 20px 2.2rem', borderBottom:`1px solid ${border}` }}>
+        <Kicker label="The sales engagement" color={red} />
         <h1 style={{ fontFamily:brico, fontWeight:800, fontSize:'clamp(2.2rem,9.5vw,3.6rem)',
-          lineHeight:.88, letterSpacing:'-.055em', marginTop:'1rem' }}>
+          lineHeight:.88, letterSpacing:'-.055em', marginTop:'1rem', color:ink }}>
           We don&apos;t sell you software.{' '}
           <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400,
-            color:scar, letterSpacing:'-.02em', display:'block' }}>We run your sales.</em>
+            color:red, letterSpacing:'-.02em', display:'block' }}>We run your sales.</em>
         </h1>
-        <p style={{ fontSize:'.96rem', color:T.dim, lineHeight:1.6, marginTop:'1.2rem', maxWidth:'46ch' }}>
+        <p style={{ fontSize:'.96rem', color:muted, lineHeight:1.6, marginTop:'1.2rem', maxWidth:'46ch' }}>
           One team that owns the whole sale — the strategy, the content that closes, how you show up, and one system you keep.{' '}
-          <strong style={{ color:T.ivory }}>Everything your sales needs, pointed at one number: revenue.</strong>
+          <strong style={{ color:ink }}>Everything your sales needs, pointed at one number: revenue.</strong>
         </p>
       </div>
 
-      <StatStrip items={[
-        { n:'78', s:'%', label:'of buyers choose whoever answers first' },
-        { n:'21', s:'×', label:'more likely to qualify at 5 min vs 30' },
-        { n:'30', s:'%', label:'of leads today are never contacted at all' },
-      ]} />
+      {/* ── stat strip — light palette ── */}
+      <div style={{ display:'flex', flexWrap:'wrap' as const, gap:'1.4rem 2rem',
+        padding:'1.6rem 20px 1.4rem', borderBottom:`1px solid ${border}`, background:paper }}>
+        {[
+          { n:'78', s:'%', label:'of buyers choose whoever answers first' },
+          { n:'21', s:'×', label:'more likely to qualify at 5 min vs 30' },
+          { n:'30', s:'%', label:'of leads today are never contacted at all' },
+        ].map((st, i) => (
+          <div key={i} style={{ position:'relative' as const, paddingLeft:'1rem' }}>
+            <span style={{ position:'absolute' as const, left:0, top:'.1rem', bottom:'.4rem',
+              width:3, background:red, borderRadius:2 }} />
+            <strong style={{ display:'block', fontFamily:mono, fontWeight:700,
+              fontSize:'clamp(1.8rem,7vw,2.4rem)', lineHeight:.85, color:ink, letterSpacing:'-.04em' }}>
+              {st.n}
+              {st.s && <span style={{ fontFamily:serif, fontStyle:'italic',
+                fontWeight:400, fontSize:'.44em', color:muted }}>{st.s}</span>}
+            </strong>
+            <span style={{ display:'block', fontSize:11.5, color:muted,
+              lineHeight:1.35, marginTop:'.4rem', maxWidth:'18ch' }}>{st.label}</span>
+          </div>
+        ))}
+      </div>
 
-      {/* ── thesis ── */}
+      {/* ── thesis — red block, deliberate contrast ── */}
       <Reveal>
         <div style={{ margin:'1.6rem 20px', padding:'2rem 1.5rem',
-          background:scar, borderRadius:14, color:'#fff' }}>
+          background:red, borderRadius:14, color:'#fff' }}>
           <Kicker label="How the engagement works" color="rgba(255,255,255,.65)" />
           <h2 style={{ fontFamily:brico, fontWeight:700,
             fontSize:'clamp(1.5rem,5vw,2.2rem)', lineHeight:1.05, letterSpacing:'-.035em',
@@ -579,7 +600,7 @@ function SalesContent({ onClose }: { onClose: () => void }) {
             <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400 }}>strategy and craft</em>
             {' '}— not a tool.
           </h2>
-          <p style={{ fontSize:'.94rem', color:'rgba(255,255,255,.85)', lineHeight:1.6,
+          <p style={{ fontSize:'.94rem', color:'rgba(255,255,255,.88)', lineHeight:1.6,
             marginTop:'1rem', maxWidth:'50ch' }}>
             A tool routes a lead; it doesn&apos;t decide what you say, how you&apos;re priced, why they trust you,
             or what happens when they go quiet. You get one team that owns the whole sale — and one system we build and hand you.
@@ -600,19 +621,19 @@ function SalesContent({ onClose }: { onClose: () => void }) {
 
       {/* ── speed chart ── */}
       <Reveal>
-        <div style={{ padding:'2rem 20px 2rem', borderTop:`1.5px solid ${T.line}` }}>
+        <div style={{ padding:'2rem 20px', borderTop:`1.5px solid ${border}`, background:paper }}>
           <p style={{ fontSize:11, fontWeight:700, letterSpacing:'.2em',
-            textTransform:'uppercase' as const, color:T.dim, marginBottom:'.4rem' }}>
+            textTransform:'uppercase' as const, color:muted, marginBottom:'.4rem' }}>
             Why speed is the whole game
           </p>
           <p style={{ fontSize:'clamp(1.15rem,4vw,1.65rem)', fontWeight:700, letterSpacing:'-.03em',
-            lineHeight:1.1, maxWidth:'24ch', marginBottom:'1.2rem', color:T.ivory }}>
+            lineHeight:1.1, maxWidth:'24ch', marginBottom:'1.2rem', color:ink }}>
             How likely a lead is to qualify,{' '}
-            <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400, color:scar }}>
+            <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400, color:red }}>
               by how fast you reply.
             </em>
           </p>
-          <div style={{ background:'rgba(242,239,233,.04)', border:`1px solid ${T.line}`,
+          <div style={{ background:'#F7F4F0', border:`1px solid ${border}`,
             borderRadius:12, padding:'1.3rem 1rem 1rem' }}>
             <div ref={chartRef} className="slc-chart"
               style={{ display:'flex', alignItems:'flex-end', gap:'.5rem', height:156 }}>
@@ -620,17 +641,17 @@ function SalesContent({ onClose }: { onClose: () => void }) {
                 <div key={k} style={{ flex:1, display:'flex', flexDirection:'column' as const,
                   justifyContent:'flex-end', height:'100%', textAlign:'center' as const, minWidth:0 }}>
                   <span className="slc-v" style={{ fontSize:11, fontWeight:800,
-                    marginBottom:'.35rem', color:T.ivory }}>{b.v}</span>
+                    marginBottom:'.35rem', color:ink }}>{b.v}</span>
                   <div className="slc-bar"
-                    style={{ '--h':b.h, width:'100%', background:scar,
+                    style={{ '--h':b.h, width:'100%', background:red,
                       borderRadius:'4px 4px 0 0', opacity:SL_OPA[k] } as React.CSSProperties} />
-                  <span style={{ fontSize:9.5, color:T.dim, marginTop:'.45rem',
+                  <span style={{ fontSize:9.5, color:muted, marginTop:'.45rem',
                     fontWeight:700, letterSpacing:'.01em' }}>{b.x}</span>
                 </div>
               ))}
             </div>
-            <p style={{ fontSize:11, color:T.dim, lineHeight:1.4, marginTop:'1rem', maxWidth:'52ch' }}>
-              <strong style={{ color:scar }}>Reply in 5 minutes and you&apos;re 21× more likely to qualify the lead than at 30.</strong>{' '}
+            <p style={{ fontSize:11, color:muted, lineHeight:1.4, marginTop:'1rem', maxWidth:'52ch' }}>
+              <strong style={{ color:red }}>Reply in 5 minutes and you&apos;re 21× more likely to qualify the lead than at 30.</strong>{' '}
               Our job is to make sure you&apos;re always the 5-minute reply.
             </p>
           </div>
@@ -638,15 +659,16 @@ function SalesContent({ onClose }: { onClose: () => void }) {
       </Reveal>
 
       {/* ── units header ── */}
-      <div style={{ padding:'0 20px 1.2rem', borderTop:`1.5px solid ${T.line}`, paddingTop:'2rem' }}>
+      <div style={{ padding:'0 20px 1.2rem', borderTop:`1.5px solid ${border}`,
+        paddingTop:'2rem', background:paper }}>
         <p style={{ fontSize:11, fontWeight:700, letterSpacing:'.2em',
-          textTransform:'uppercase' as const, color:T.dim, marginBottom:'.4rem' }}>
+          textTransform:'uppercase' as const, color:muted, marginBottom:'.4rem' }}>
           What that one team covers
         </p>
         <p style={{ fontSize:'clamp(1.15rem,4vw,1.65rem)', fontWeight:700,
-          letterSpacing:'-.03em', lineHeight:1.1, color:T.ivory }}>
+          letterSpacing:'-.03em', lineHeight:1.1, color:ink }}>
           Five ways we lift the number —{' '}
-          <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400, color:scar }}>run as one.</em>
+          <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400, color:red }}>run as one.</em>
         </p>
       </div>
 
@@ -655,7 +677,7 @@ function SalesContent({ onClose }: { onClose: () => void }) {
         <Reveal key={i} delay={i*50}><UnitRow u={u} /></Reveal>
       ))}
 
-      {/* ── unit iv — navy system block ── */}
+      {/* ── unit iv — navy block, deliberate dark contrast ── */}
       <Reveal>
         <div style={{ margin:'.4rem 20px .4rem', padding:'2rem 1.5rem',
           background:navy, borderRadius:14, color:navyT }}>
@@ -719,8 +741,8 @@ function SalesContent({ onClose }: { onClose: () => void }) {
               </span>
             </div>
             <div style={{ display:'flex', alignItems:'flex-start', gap:'.3rem' }}>
-              {SL_FLOW.map((label,k)=>(
-                <>
+              {SL_FLOW.flatMap((label,k) => {
+                const node = (
                   <div key={label} style={{ flex:1, textAlign:'center' as const }}>
                     <div style={{ width:13, height:13, borderRadius:'50%', margin:'0 auto .5rem',
                       background: pipeStep > k ? '#9FC0EC' : 'rgba(244,239,230,.22)',
@@ -736,13 +758,17 @@ function SalesContent({ onClose }: { onClose: () => void }) {
                       {SL_FLOWT[k]}
                     </div>
                   </div>
-                  {k < SL_FLOW.length - 1 && (
-                    <div style={{ flexShrink:0, alignSelf:'flex-start' as const, width:14, height:2,
+                );
+                if (k < SL_FLOW.length - 1) {
+                  return [node, (
+                    <div key={`seg-${k}`} style={{ flexShrink:0, alignSelf:'flex-start' as const,
+                      width:14, height:2,
                       background: pipeStep > k + 1 ? '#9FC0EC' : 'rgba(244,239,230,.2)',
                       marginTop:5.5, borderRadius:2, transition:'background .4s' }} />
-                  )}
-                </>
-              ))}
+                  )];
+                }
+                return [node];
+              })}
             </div>
           </div>
         </div>
@@ -755,91 +781,92 @@ function SalesContent({ onClose }: { onClose: () => void }) {
 
       {/* ── proof / transformation ── */}
       <Reveal>
-        <div style={{ padding:'2rem 20px', borderTop:`1.5px solid ${T.line}` }}>
+        <div style={{ padding:'2rem 20px', borderTop:`1.5px solid ${border}`, background:paper }}>
           <p style={{ fontSize:11, fontWeight:700, letterSpacing:'.2em',
-            textTransform:'uppercase' as const, color:T.dim, marginBottom:'.4rem' }}>
+            textTransform:'uppercase' as const, color:muted, marginBottom:'.4rem' }}>
             What changes when we run it
           </p>
           <p style={{ fontSize:'clamp(1.15rem,4vw,1.65rem)', fontWeight:700,
-            letterSpacing:'-.03em', lineHeight:1.1, marginBottom:'1.2rem', color:T.ivory }}>
+            letterSpacing:'-.03em', lineHeight:1.1, marginBottom:'1.2rem', color:ink }}>
             The{' '}
-            <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400, color:scar }}>before</em>
+            <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400, color:red }}>before</em>
             {' '}and after.
           </p>
           {SL_PROOF.map((row,k)=>(
-            <div key={k} style={{ borderTop:`1px solid ${T.line}`, padding:'1.1rem 0' }}>
+            <div key={k} style={{ borderTop:`1px solid ${border}`, padding:'1.1rem 0' }}>
               <span style={{ fontSize:10, fontWeight:700, letterSpacing:'.14em',
-                textTransform:'uppercase' as const, color:'#9FC0EC',
+                textTransform:'uppercase' as const, color:'#4A7CB5',
                 display:'block', marginBottom:'.45rem' }}>{row.lab}</span>
               <div style={{ display:'flex', alignItems:'center', gap:'.65rem', flexWrap:'wrap' as const }}>
-                <span style={{ fontSize:'.96rem', color:T.dim,
-                  textDecoration:'line-through', textDecorationColor:T.dim }}>{row.before}</span>
-                <span style={{ color:scar, fontWeight:800, fontSize:'1.05rem' }}>→</span>
-                <span style={{ fontSize:'1rem', fontWeight:700, color:T.ivory }}>{row.after}</span>
+                <span style={{ fontSize:'.96rem', color:muted,
+                  textDecoration:'line-through', textDecorationColor:muted }}>{row.before}</span>
+                <span style={{ color:red, fontWeight:800, fontSize:'1.05rem' }}>→</span>
+                <span style={{ fontSize:'1rem', fontWeight:700, color:ink }}>{row.after}</span>
               </div>
             </div>
           ))}
-          <p style={{ fontSize:11.5, color:T.dim, lineHeight:1.45, marginTop:'1rem', maxWidth:'50ch' }}>
-            <strong style={{ color:scar }}>A typical first 90 days:</strong>{' '}
+          <p style={{ fontSize:11.5, color:muted, lineHeight:1.45, marginTop:'1rem', maxWidth:'50ch' }}>
+            <strong style={{ color:red }}>A typical first 90 days:</strong>{' '}
             booked calls up, no extra ad spend — the story, the brand and the system pulling in the same direction.
           </p>
         </div>
       </Reveal>
 
-      {/* ── guarantee ── */}
+      {/* ── guarantee — cream card ── */}
       <Reveal>
         <div style={{ margin:'0 20px 1.6rem', padding:'2rem 1.5rem',
-          background:'#1A1614', borderRadius:14, border:`1px solid ${T.line}` }}>
-          <Kicker label="Our guarantee" color="#F0857E" />
+          background:'#F4EFE6', borderRadius:14, border:`1px solid ${border}` }}>
+          <Kicker label="Our guarantee" color={red} />
           <h2 style={{ fontFamily:brico, fontWeight:700,
             fontSize:'clamp(1.5rem,5vw,2.2rem)', lineHeight:1.1, letterSpacing:'-.04em',
-            color:T.ivory, maxWidth:'22ch', marginTop:'.6rem' }}>
+            color:ink, maxWidth:'22ch', marginTop:'.6rem' }}>
             If your booked calls don&apos;t climb in 90 days,{' '}
             <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400 }}>
               we work free until they do.
             </em>
           </h2>
-          <p style={{ fontSize:'.94rem', color:T.dim, lineHeight:1.6,
+          <p style={{ fontSize:'.94rem', color:muted, lineHeight:1.6,
             marginTop:'.9rem', maxWidth:'52ch' }}>
             We&apos;re a sales company — refusing to stand behind sales would be a tell. So we tie our retainer
             to your pipeline, not to hours. You carry none of the risk of trying us.
           </p>
           <p style={{ fontFamily:serif, fontStyle:'italic', fontSize:'1.05rem',
-            color:'#9FC0EC', marginTop:'1rem' }}>— OARC, your one team</p>
+            color:muted, marginTop:'1rem' }}>— OARC, your one team</p>
         </div>
       </Reveal>
 
-      <FAQ items={SL_FAQS} />
+      {/* ── FAQ — light palette ── */}
+      <FAQ items={SL_FAQS} border={border} head={ink} body={muted} light={true} />
 
       {/* ── how we start ── */}
-      <div style={{ padding:'2rem 20px 0', borderTop:`1.5px solid ${T.line}` }}>
+      <div style={{ padding:'2rem 20px 0', borderTop:`1.5px solid ${border}`, background:paper }}>
         <p style={{ fontSize:11, fontWeight:700, letterSpacing:'.2em',
-          textTransform:'uppercase' as const, color:T.dim, marginBottom:'1rem' }}>
+          textTransform:'uppercase' as const, color:muted, marginBottom:'1rem' }}>
           How we start
         </p>
         {SL_STEPS.map((s,k)=>(
           <div key={k} style={{ display:'flex', gap:'.9rem',
-            borderTop: k === 0 ? 'none' : `1px solid ${T.line}`,
+            borderTop: k === 0 ? 'none' : `1px solid ${border}`,
             padding:'1.1rem 0' }}>
             <span style={{ fontFamily:serif, fontStyle:'italic', fontSize:'1.6rem',
-              color:scar, width:40, flexShrink:0, lineHeight:1 }}>{s.n}</span>
+              color:red, width:40, flexShrink:0, lineHeight:1 }}>{s.n}</span>
             <div>
               <h4 style={{ fontSize:'1.05rem', fontWeight:700,
-                letterSpacing:'-.02em', color:T.ivory }}>{s.h}</h4>
-              <p style={{ fontSize:'.94rem', color:T.dim, lineHeight:1.55, marginTop:'.25rem' }}>{s.p}</p>
+                letterSpacing:'-.02em', color:ink }}>{s.h}</h4>
+              <p style={{ fontSize:'.94rem', color:muted, lineHeight:1.55, marginTop:'.25rem' }}>{s.p}</p>
             </div>
           </div>
         ))}
-        <p style={{ fontSize:'.94rem', color:T.dim, lineHeight:1.6, margin:'1.4rem 0 0', maxWidth:'50ch' }}>
+        <p style={{ fontSize:'.94rem', color:muted, lineHeight:1.6, margin:'1.4rem 0 0', maxWidth:'50ch' }}>
           At the end of the day we&apos;re a{' '}
-          <strong style={{ color:T.ivory }}>creative and AI software agency</strong>{' '}
+          <strong style={{ color:ink }}>creative and AI software agency</strong>{' '}
           — so your sales get brand, storytelling, social and a system you keep. Not spreadsheets.
         </p>
       </div>
 
       <CTA big={<>One team.<br /><CtaItalic>The whole sale.</CtaItalic></>}
         sub="You keep the system, the playbook, and the pipeline. We keep you closing."
-        btn="Book the sales audit" onClose={onClose} />
+        btn="Book the sales audit" onClose={onClose} light={true} />
     </div>
   );
 }
