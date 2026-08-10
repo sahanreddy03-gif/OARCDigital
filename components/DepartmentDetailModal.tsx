@@ -2015,6 +2015,703 @@ function BrandContent({ onClose }: { onClose: () => void }) {
   );
 }
 
+// ────────────────────────────────────────────────────────────────────────────
+// ENQUIRIES CONTENT  (noir / crimson — omnichannel AI that converts leads)
+// ────────────────────────────────────────────────────────────────────────────
+const SVG_EQ_SPEED = `<svg viewBox="0 0 400 220" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
+  <text font-family="monospace" font-size="9" fill="rgba(242,239,233,.38)" letter-spacing=".1em" class="up" x="24" y="28" style="animation-delay:.05s">ENQUIRY IN</text>
+  ${["WhatsApp","Phone","DMs","Email"].map((ch, i) => {
+    const y = 44 + i * 36;
+    return `<rect fill="rgba(224,43,32,.08)" stroke="rgba(224,43,32,.28)" stroke-width="1.25" rx="5" class="up" x="24" y="${y}" width="148" height="26" style="animation-delay:${0.15 + i * 0.1}s"/>
+    <text font-family="monospace" font-size="10" fill="rgba(242,239,233,.72)" class="up" x="38" y="${y + 17}" style="animation-delay:${0.28 + i * 0.1}s">${ch}</text>`;
+  }).join("")}
+  <line stroke="rgba(242,239,233,.14)" stroke-width="1.25" class="draw" style="--L:66;animation-delay:.65s" x1="172" y1="110" x2="238" y2="110"/>
+  <circle fill="#E02B20" class="pop" cx="272" cy="110" r="34" style="animation-delay:.82s"/>
+  <text font-family="monospace" font-size="14" font-weight="700" fill="#fff" text-anchor="middle" class="up" x="272" y="104" style="animation-delay:.96s">00:04</text>
+  <text font-family="monospace" font-size="8.5" fill="rgba(255,255,255,.75)" text-anchor="middle" class="up" x="272" y="120" style="animation-delay:1.01s">seconds</text>
+  <line stroke="rgba(224,43,32,.35)" stroke-width="1.25" class="draw" style="--L:54;animation-delay:1.1s" x1="305" y1="96" x2="346" y2="74"/>
+  <line stroke="rgba(224,43,32,.35)" stroke-width="1.25" class="draw" style="--L:54;animation-delay:1.2s" x1="305" y1="124" x2="346" y2="146"/>
+  <rect fill="rgba(242,239,233,.06)" stroke="rgba(242,239,233,.12)" stroke-width="1.25" rx="6" class="up" x="340" y="58" width="52" height="28" style="animation-delay:1.15s"/>
+  <text font-family="monospace" font-size="10" fill="rgba(242,239,233,.72)" text-anchor="middle" class="up" x="366" y="76" style="animation-delay:1.3s">Book</text>
+  <rect fill="#E02B20" rx="6" class="pop" x="340" y="130" width="52" height="28" style="animation-delay:1.25s"/>
+  <text font-family="monospace" font-size="10" fill="#fff" text-anchor="middle" class="pop" x="366" y="148" style="animation-delay:1.4s">Close</text>
+</svg>`;
+
+const SVG_EQ_QUALIFY = `<svg viewBox="0 0 400 210" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
+  <circle fill="rgba(224,43,32,.1)" stroke="#E02B20" stroke-width="1.5" class="pop" cx="52" cy="105" r="28" style="animation-delay:.1s"/>
+  <text font-family="monospace" font-size="9" fill="#E02B20" text-anchor="middle" class="up" x="52" y="101" style="animation-delay:.22s">Enquiry</text>
+  <text font-family="monospace" font-size="8.5" fill="rgba(242,239,233,.5)" text-anchor="middle" class="up" x="52" y="115" style="animation-delay:.27s">in</text>
+  <line stroke="rgba(242,239,233,.14)" stroke-width="1.25" class="draw" style="--L:56;animation-delay:.32s" x1="80" y1="105" x2="136" y2="105"/>
+  <rect fill="rgba(242,239,233,.05)" stroke="rgba(242,239,233,.12)" stroke-width="1.25" rx="8" class="pop" x="136" y="72" width="104" height="66" style="animation-delay:.44s"/>
+  <text font-family="monospace" font-size="9" fill="rgba(242,239,233,.55)" text-anchor="middle" class="up" x="188" y="95" style="animation-delay:.56s">Budget?</text>
+  <text font-family="monospace" font-size="9" fill="rgba(242,239,233,.55)" text-anchor="middle" class="up" x="188" y="110" style="animation-delay:.62s">Timeline?</text>
+  <text font-family="monospace" font-size="9" fill="rgba(242,239,233,.55)" text-anchor="middle" class="up" x="188" y="125" style="animation-delay:.68s">Decision?</text>
+  <line stroke="rgba(242,239,233,.14)" stroke-width="1.25" class="draw" style="--L:56;animation-delay:.78s" x1="240" y1="105" x2="296" y2="105"/>
+  <circle fill="#E02B20" class="pop" cx="324" cy="105" r="28" style="animation-delay:.92s"/>
+  <text font-family="monospace" font-size="9" font-weight="700" fill="#fff" text-anchor="middle" class="up" x="324" y="101" style="animation-delay:1.06s">Booked</text>
+  <text font-family="monospace" font-size="8.5" fill="rgba(255,255,255,.7)" text-anchor="middle" class="up" x="324" y="115" style="animation-delay:1.11s">auto</text>
+</svg>`;
+
+const SVG_EQ_CHASE = `<svg viewBox="0 0 400 228" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
+  <text font-family="monospace" font-size="9" fill="rgba(242,239,233,.38)" letter-spacing=".08em" class="up" x="24" y="24" style="animation-delay:.05s">AUTO FOLLOW-UP CHAIN</text>
+  <rect fill="#E02B20" rx="7" class="up" x="72" y="40" width="256" height="30" style="animation-delay:.15s"/>
+  <text font-family="monospace" font-size="10" fill="#fff" text-anchor="middle" class="up" x="200" y="59" style="animation-delay:.3s">Answered in 00:04</text>
+  <line stroke="rgba(242,239,233,.18)" stroke-width="1.25" class="draw" style="--L:22;animation-delay:.42s" x1="200" y1="70" x2="200" y2="92"/>
+  <rect fill="rgba(242,239,233,.05)" stroke="rgba(242,239,233,.12)" stroke-width="1.25" rx="7" class="up" x="72" y="92" width="256" height="30" style="animation-delay:.48s"/>
+  <text font-family="monospace" font-size="10" fill="rgba(242,239,233,.7)" text-anchor="middle" class="up" x="200" y="111" style="animation-delay:.62s">No reply → Day 1 follow-up</text>
+  <line stroke="rgba(242,239,233,.18)" stroke-width="1.25" class="draw" style="--L:22;animation-delay:.74s" x1="200" y1="122" x2="200" y2="144"/>
+  <rect fill="rgba(242,239,233,.05)" stroke="rgba(242,239,233,.12)" stroke-width="1.25" rx="7" class="up" x="72" y="144" width="256" height="30" style="animation-delay:.8s"/>
+  <text font-family="monospace" font-size="10" fill="rgba(242,239,233,.7)" text-anchor="middle" class="up" x="200" y="163" style="animation-delay:.94s">Still quiet → Day 3 nudge</text>
+  <line stroke="rgba(242,239,233,.18)" stroke-width="1.25" class="draw" style="--L:22;animation-delay:1.06s" x1="200" y1="174" x2="200" y2="196"/>
+  <rect fill="#E02B20" rx="7" class="up" x="72" y="196" width="256" height="30" style="animation-delay:1.12s"/>
+  <text font-family="monospace" font-size="10" fill="#fff" text-anchor="middle" class="up" x="200" y="215" style="animation-delay:1.26s">Final win-back — Day 7</text>
+</svg>`;
+
+const SVG_EQ_PIPE = `<svg viewBox="0 0 400 226" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
+  <text font-family="monospace" font-size="9" fill="rgba(242,239,233,.38)" letter-spacing=".08em" class="up" x="16" y="26" style="animation-delay:.05s">PIPELINE</text>
+  ${["New","Qualified","Booked","Closed"].map((label, i) => {
+    const x = 16 + i * 94;
+    const h = [88, 60, 40, 76][i];
+    const col = i === 3 ? "#E02B20" : `rgba(224,43,32,${[".28",".48",".66"][i]})`;
+    return `<rect fill="rgba(242,239,233,.04)" stroke="rgba(242,239,233,.1)" stroke-width="1.25" rx="6" class="up" x="${x}" y="40" width="82" height="160" style="animation-delay:${0.1 + i * 0.08}s"/>
+    <text font-family="monospace" font-size="8.5" fill="rgba(242,239,233,.42)" text-anchor="middle" class="up" x="${x + 41}" y="57" style="animation-delay:${0.2 + i * 0.08}s">${label}</text>
+    <rect fill="${col}" rx="3" class="grow" x="${x + 8}" y="${200 - h}" width="66" height="${h}" style="animation-delay:${0.35 + i * 0.1}s"/>`;
+  }).join("")}
+</svg>`;
+
+function EnquiriesContent({ onClose }: { onClose: () => void }) {
+  const channels = [
+    { id:"WA", label:"WhatsApp",  desc:"Bookings, questions, follow-ups — where people actually message." },
+    { id:"PH", label:"Phone",     desc:"Missed calls returned in seconds. Your voice, your greeting." },
+    { id:"DM", label:"DMs",       desc:"Instagram & Facebook messages answered while you're on service." },
+    { id:"EM", label:"Email",     desc:"Quotes, confirmations and invoices — written, sent, chased." },
+  ];
+  const phases = [
+    { n:"01", sp:"Instant answer",  h:"Answered in <em>00:04.</em>",         stat:"00:04",
+      statD:"average first reply — before a person could pick up the phone",
+      cap:"The moment an enquiry comes in — WhatsApp, phone, DM, email — it gets a real answer in four seconds. Day or night. A person answering this fast would need to be at the desk every second of every day. The AI is.",
+      svg: SVG_EQ_SPEED, svgCap:"Every channel, one AI, four seconds to reply." },
+    { n:"02", sp:"Qualify & book", h:"Qualified, then <em>booked.</em>",      stat:"21×",
+      statD:"more likely to qualify a lead answered in 5 min vs 30 — so we never wait",
+      cap:"The AI doesn't just reply — it asks the right questions and books the ones who are ready. Budget, timeline, decision-maker — confirmed in the same conversation. The calendar fills without a person in the loop.",
+      svg: SVG_EQ_QUALIFY, svgCap:"Enquiry in, qualification confirmed, booked automatically." },
+    { n:"03", sp:"Chased to paid", h:"Chased until <em>paid.</em>",           stat:"2.3×",
+      statD:"more revenue when stalled leads are properly followed up",
+      cap:"Most leads go cold because nobody followed up. The AI chases on a set cadence — day one, day three, day seven. Each follow-up is fresh. It doesn't get embarrassed; it doesn't give up.",
+      svg: SVG_EQ_CHASE, svgCap:"Auto follow-up chain: day 1, day 3, day 7." },
+    { n:"04", sp:"Pipeline",        h:"Every lead <em>tracked.</em>",          stat:"One",
+      statD:"pipeline — every enquiry, every stage, every action visible at a glance",
+      cap:"Every lead is logged the moment it arrives, moved through the pipeline as it progresses, and flagged when it needs a human. Nothing falls through. You see the whole picture at a glance.",
+      svg: SVG_EQ_PIPE, svgCap:"New → Qualified → Booked → Closed. Nothing missed." },
+  ];
+  const faqs = [
+    { q:"What does 'turn enquiries into money' mean in practice?",
+      a:"Every enquiry answered in seconds, qualified and booked automatically, chased until paid, and tracked in one pipeline. The AI handles the first three steps without anyone lifting a finger — your team closes the deals that need a person." },
+    { q:"Which channels does it cover?",
+      a:"WhatsApp, phone (voice), Instagram and Facebook DMs, and email. One AI, one memory, every channel — so a lead that starts on WhatsApp and calls back the next day gets a consistent experience." },
+    { q:"What if it gets something wrong?",
+      a:"Every AI has a built-in human fallback. If it hits something outside its scope, it flags a person immediately. We monitor every conversation and tune the AI weekly." },
+    { q:"Are you an AI company?",
+      a:"We're a team that builds, trains and runs AI for real businesses. The AI handles the speed; the pipeline and follow-up cadence are designed by people. Together, enquiries become a reliable revenue engine instead of a leaky bucket." },
+  ];
+  return (
+    <div style={{ background:T.noir, color:T.ivory }}>
+      <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${T.line}` }}>
+        <Kicker label="Enquiries" />
+        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+          fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
+          textTransform:"uppercase", color:T.ivory, marginBottom:"1rem" }}>
+          Turn enquiries<br />
+          <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
+            fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0,
+            color:T.scar, fontSize:"1.04em" }}>into money.</em>
+        </h1>
+        <p style={{ fontSize:".98rem", color:T.dim, lineHeight:1.6, maxWidth:"44ch" }}>
+          Every enquiry answered in four seconds, qualified, booked, and chased until paid.{" "}
+          <strong style={{ color:T.ivory }}>One AI across WhatsApp, phone, DMs and email — every lead tracked in one pipeline.</strong>
+        </p>
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginTop:"1.6rem" }}>
+          {channels.map(ch => (
+            <div key={ch.id} style={{ background:T.card, border:`1px solid ${T.line}`, borderRadius:8, padding:"10px 12px" }}>
+              <p style={{ fontFamily:"monospace", fontSize:9, color:T.scar, letterSpacing:".1em",
+                textTransform:"uppercase" as const, marginBottom:4 }}>{ch.label}</p>
+              <p style={{ fontFamily:"monospace", fontSize:10, color:T.dim, lineHeight:1.55 }}>{ch.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <StatStrip items={[
+        { n:"00:04", label:"avg first reply — any hour, any day" },
+        { n:"21",  s:"×", label:"more likely to qualify at 5 min vs 30" },
+        { n:"30",  s:"%", label:"of leads today are never contacted at all" },
+      ]} />
+      <div style={{ padding:"1.6rem 20px 0" }}><Kicker label="How every enquiry becomes revenue" /></div>
+      {phases.map((p, i) => (
+        <Reveal key={i}>
+          <div style={{ padding:"1.8rem 20px 2rem", borderTop:`1px solid ${T.line}` }}>
+            <div style={{ display:"flex", alignItems:"baseline", gap:".6rem", marginBottom:".8rem" }}>
+              <span style={{ fontFamily:"monospace", fontSize:11, color:T.scar }}>{p.n}</span>
+              <span style={{ fontFamily:"monospace", fontSize:9, letterSpacing:".16em",
+                textTransform:"uppercase" as const, color:T.dimLow }}>{p.sp}</span>
+            </div>
+            <h2 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:700,
+              fontSize:"clamp(1.8rem,7vw,2.4rem)", lineHeight:1.02, letterSpacing:"-.03em",
+              color:T.ivory, marginBottom:".8rem" }}
+              dangerouslySetInnerHTML={{ __html: p.h.replace(/<em>/g,
+                `<em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:${T.scar}">`) }} />
+            <p style={{ fontSize:".92rem", color:T.dim, lineHeight:1.62, maxWidth:"52ch", marginBottom:"1rem" }}>{p.cap}</p>
+            <VizBox svg={p.svg} />
+            <p style={{ fontFamily:"monospace", fontSize:10, color:T.dimLow, marginTop:".6rem" }}>{p.svgCap}</p>
+            <div style={{ display:"flex", alignItems:"baseline", gap:".7rem",
+              borderTop:`1px solid ${T.line}`, marginTop:"1rem", paddingTop:"1rem" }}>
+              <span style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+                fontSize:"clamp(2rem,7vw,2.6rem)", color:T.ivory, letterSpacing:"-.04em", lineHeight:.85 }}>{p.stat}</span>
+              <span style={{ fontSize:11, color:T.dimLow, lineHeight:1.4, maxWidth:"28ch" }}>{p.statD}</span>
+            </div>
+          </div>
+        </Reveal>
+      ))}
+      <Reveal>
+        <div style={{ margin:"0 20px 1.8rem", padding:"1.3rem 1.4rem",
+          border:`1px dashed ${T.line}`, borderRadius:10, background:T.card }}>
+          <Kicker label="Bonus, included" color={T.dim} />
+          <h4 style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
+            fontStyle:"italic", fontSize:"1.3rem", fontWeight:400, color:T.ivory, marginBottom:".5rem" }}>
+            Oh — and a little tool, on us.
+          </h4>
+          <p style={{ fontSize:".88rem", color:T.dim, lineHeight:1.55 }}>
+            A small tool that flags the moment a lead goes cold in the pipeline — so the team steps in before the window closes.{" "}
+            <strong style={{ color:T.ivory }}>Nice to have, not the main event.</strong>
+          </p>
+        </div>
+      </Reveal>
+      <FAQ items={faqs} />
+      <CTA big={<>Every lead caught.<br /><CtaItalic>Every one paid.</CtaItalic></>}
+        sub="Four seconds to answer, automatic qualification and booking, chased until paid — and every lead tracked in one pipeline."
+        btn="Turn your enquiries into revenue" onClose={onClose} />
+    </div>
+  );
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// SHIP CONTENT  (light / cyan — custom software engineering)
+// ────────────────────────────────────────────────────────────────────────────
+const SH = {
+  bg:"#EEF1F4", card:"#F8FAFB", cy:"#0A7285", cy2:"#0E8FA8",
+  ink:"#0D1220", dim:"rgba(13,18,32,.7)", c45:"rgba(13,18,32,.45)",
+  c28:"rgba(13,18,32,.28)", line:"rgba(13,18,32,.12)",
+};
+
+const SVG_SH_MAP = `<svg viewBox="0 0 400 230" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
+  <text font-family="monospace" font-size="9" fill="${SH.c45}" letter-spacing=".1em" class="up" x="16" y="26" style="animation-delay:.05s">HOW IT REALLY RUNS</text>
+  ${[
+    { l:"WhatsApp thread",  x:14,  y:48  },
+    { l:"Spreadsheet",      x:178, y:48  },
+    { l:"Paper job cards",  x:14,  y:96  },
+    { l:"Email chain",      x:178, y:96  },
+    { l:"Phone bookings",   x:14,  y:144 },
+    { l:"Manual invoices",  x:178, y:144 },
+  ].map((n, i) => `
+    <rect fill="rgba(14,143,168,.06)" stroke="rgba(14,143,168,.25)" stroke-width="1.25" rx="5" class="up" x="${n.x}" y="${n.y}" width="150" height="26" style="animation-delay:${0.1 + i * 0.08}s"/>
+    <text font-family="monospace" font-size="9.5" fill="${SH.dim}" class="up" x="${n.x + 10}" y="${n.y + 17}" style="animation-delay:${0.22 + i * 0.08}s">${n.l}</text>
+  `).join("")}
+  <circle fill="#0E8FA8" class="pop" cx="358" cy="117" r="34" style="animation-delay:.72s"/>
+  <text font-family="monospace" font-size="10" font-weight="700" fill="#fff" text-anchor="middle" class="up" x="358" y="113" style="animation-delay:.86s">One</text>
+  <text font-family="monospace" font-size="9.5" fill="rgba(255,255,255,.85)" text-anchor="middle" class="up" x="358" y="127" style="animation-delay:.92s">system</text>
+</svg>`;
+
+const SVG_SH_FIT = `<svg viewBox="0 0 400 220" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
+  <rect fill="rgba(13,18,32,.06)" stroke="${SH.line}" stroke-width="1.25" rx="8" class="up" x="20" y="36" width="158" height="148" style="animation-delay:.1s"/>
+  <text font-family="monospace" font-size="9" fill="${SH.c45}" text-anchor="middle" class="up" x="99" y="56" style="animation-delay:.2s">Off-the-shelf</text>
+  <rect fill="rgba(13,18,32,.1)" rx="4" class="up" x="38" y="70" width="84" height="52" style="animation-delay:.28s"/>
+  <rect fill="rgba(13,18,32,.06)" rx="3" class="up" x="134" y="80" width="28" height="30" style="animation-delay:.34s"/>
+  <text font-family="monospace" font-size="8.5" fill="${SH.c45}" text-anchor="middle" class="up" x="99" y="144" style="animation-delay:.4s">You bend to fit it</text>
+  <text font-family="monospace" font-size="22" fill="${SH.line}" text-anchor="middle" class="up" x="99" y="174" style="animation-delay:.45s">⟲</text>
+  <rect fill="rgba(14,143,168,.09)" stroke="#0E8FA8" stroke-width="1.5" rx="8" class="pop" x="222" y="36" width="158" height="148" style="animation-delay:.58s"/>
+  <text font-family="monospace" font-size="9" fill="${SH.cy}" text-anchor="middle" class="up" x="301" y="56" style="animation-delay:.7s">Built for you</text>
+  <rect fill="rgba(14,143,168,.2)" stroke="#0E8FA8" stroke-width="1.5" rx="4" class="pop" x="240" y="70" width="122" height="52" style="animation-delay:.84s"/>
+  <text font-family="monospace" font-size="8.5" fill="${SH.cy}" text-anchor="middle" class="up" x="301" y="144" style="animation-delay:.9s">It fits your workflow</text>
+  <circle fill="#0E8FA8" class="pop" cx="318" cy="166" r="14" style="animation-delay:1.02s"/>
+  <text font-family="monospace" font-size="13" fill="#fff" text-anchor="middle" class="pop" x="318" y="171" style="animation-delay:1.16s">✓</text>
+</svg>`;
+
+const SVG_SH_WEEKS = `<svg viewBox="0 0 400 210" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
+  <text font-family="monospace" font-size="9" fill="${SH.c45}" letter-spacing=".08em" class="up" x="16" y="26" style="animation-delay:.05s">TIMELINE</text>
+  <text font-family="monospace" font-size="9.5" fill="${SH.c45}" class="up" x="16" y="60" style="animation-delay:.12s">Others</text>
+  <rect fill="rgba(13,18,32,.1)" rx="5" class="growx" x="72" y="46" width="312" height="24" style="animation-delay:.22s"/>
+  <text font-family="monospace" font-size="9" fill="${SH.c28}" class="up" x="78" y="62" style="animation-delay:.7s">12–18 months of slides</text>
+  <text font-family="monospace" font-size="9.5" fill="${SH.cy}" class="up" x="16" y="104" style="animation-delay:.35s">Us</text>
+  <rect fill="#0E8FA8" rx="5" class="growx" x="72" y="90" width="120" height="24" style="animation-delay:.48s"/>
+  <text font-family="monospace" font-size="9" fill="#fff" class="up" x="78" y="106" style="animation-delay:.92s">6 weeks · live</text>
+  <rect fill="rgba(14,143,168,.15)" stroke="#0E8FA8" stroke-width="1.5" rx="12" class="pop" x="200" y="90" width="52" height="24" style="animation-delay:.96s"/>
+  <text font-family="monospace" font-size="9.5" fill="${SH.cy}" text-anchor="middle" class="up" x="226" y="106" style="animation-delay:1.1s">LIVE</text>
+  <line stroke="${SH.line}" stroke-width="1" class="draw" style="--L:96;animation-delay:1.18s" x1="72" y1="140" x2="168" y2="140"/>
+  ${["Discover","Design","Build","Ship"].map((s, i) => `<text font-family="monospace" font-size="8.5" fill="${SH.c45}" text-anchor="middle" class="up" x="${96 + i * 32}" y="155" style="animation-delay:${1.24 + i * 0.08}s">${s}</text>`).join("")}
+</svg>`;
+
+const SVG_SH_PLUG = `<svg viewBox="0 0 400 230" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
+  ${[
+    { l:"POS",      cx:54,  cy:60  },
+    { l:"Stripe",   cx:346, cy:60  },
+    { l:"Sheets",   cx:54,  cy:180 },
+    { l:"Calendar", cx:346, cy:180 },
+    { l:"WhatsApp", cx:200, cy:30  },
+  ].map((n, i) => `
+    <line stroke="${SH.line}" stroke-width="1.25" class="draw" style="--L:172;animation-delay:${0.2 + i * 0.1}s" x1="${n.cx}" y1="${n.cy}" x2="200" y2="125"/>
+    <circle fill="rgba(14,143,168,.08)" stroke="rgba(14,143,168,.3)" stroke-width="1.25" class="pop" cx="${n.cx}" cy="${n.cy}" r="20" style="animation-delay:${0.36 + i * 0.1}s"/>
+    <text font-family="monospace" font-size="8.5" fill="${SH.cy}" text-anchor="middle" class="up" x="${n.cx}" y="${n.cy + 4}" style="animation-delay:${0.52 + i * 0.1}s">${n.l}</text>
+  `).join("")}
+  <circle fill="#0E8FA8" class="pop" cx="200" cy="125" r="36" style="animation-delay:.76s"/>
+  <text font-family="monospace" font-size="9.5" font-weight="700" fill="#fff" text-anchor="middle" class="up" x="200" y="121" style="animation-delay:.9s">your</text>
+  <text font-family="monospace" font-size="9.5" font-weight="700" fill="#fff" text-anchor="middle" class="up" x="200" y="135" style="animation-delay:.96s">system</text>
+</svg>`;
+
+function ShipContent({ onClose }: { onClose: () => void }) {
+  const phases = [
+    { n:"01", sp:"Discovery",        h:"We learn how it <em>really</em> runs.",   stat:"0",    statS:"",
+      statD:"surprises — we map the real workflow before writing a line of code",
+      out:"The real workflow, not the org chart.",
+      cap:"Before a line of code, we map how your business truly runs — the WhatsApp threads, the spreadsheet everyone secretly depends on, the step only one person knows. Most transformations fail because nobody did this first. We find the actual break before we build.",
+      svg:SVG_SH_MAP, svgCap:"The real tools your business runs on — discovered, then connected." },
+    { n:"02", sp:"Product & design", h:"Built for <em>you</em>, not a template.", stat:"0",    statS:"",
+      statD:"templates — the system is designed around your workflow, not you bent to it",
+      out:"Fitted to your workflow, not you to it.",
+      cap:"Off-the-shelf tools make you bend your business to their shape. We do the opposite: design the system around how you actually work, so your team adopts it in a day because it matches what they already do.",
+      svg:SVG_SH_FIT, svgCap:"Off-the-shelf makes you bend. We build to your shape." },
+    { n:"03", sp:"Engineering",      h:"Live in <em>weeks</em>, not years.",       stat:"6",    statS:"wk",
+      statD:"to a working first version in your hands — not a year of promises",
+      out:"A working version, fast.",
+      cap:"We ship the smallest thing that works — the one screen, the one flow that moves the needle — live in weeks, then improve it with you in the open. You're using it while competitors are still scoping.",
+      svg:SVG_SH_WEEKS, svgCap:"Discovery to live in 6 weeks — used while others are still scoping." },
+    { n:"04", sp:"Integrations",     h:"Plugs into what you <em>have</em>.",       stat:"0",    statS:"",
+      statD:"existing tools replaced by force — we connect what you have, not swap it out",
+      out:"No rip-and-replace.",
+      cap:"Your new system sits on top of the rails you already run — your POS, Stripe, your sheets, your calendar — pulling them into one place instead of replacing them. Nothing gets thrown out; everything finally talks to everything else.",
+      svg:SVG_SH_PLUG, svgCap:"All your existing tools connected — nothing replaced by force." },
+  ];
+  const faqs = [
+    { q:"Is this off-the-shelf software?",
+      a:"No. We build custom software designed around how your business actually works, so your team adopts it fast instead of bending their work to a template." },
+    { q:"How long does it take?",
+      a:"We ship a working first version — an MVP — in 6 weeks, then improve it with you in the open. No year of slides before anything works." },
+    { q:"Do I have to replace my current tools?",
+      a:"No. The system plugs into the rails you already run — POS, Stripe, spreadsheets, calendar — pulling them into one place rather than replacing them." },
+    { q:"Do I own it?",
+      a:"Yes. The code and the data are yours — no lock-in — and we stay to evolve it as the business grows." },
+    { q:"Are you an AI company?",
+      a:"No. This is real product and software engineering. AI is built in only where it genuinely helps — not the point." },
+  ];
+  return (
+    <div style={{ background:SH.bg, color:SH.ink }}>
+      {/* hero */}
+      <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${SH.line}` }}>
+        <Kicker label="Build" color={SH.cy} />
+        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+          fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
+          textTransform:"uppercase", color:SH.ink, marginBottom:"1rem" }}>
+          Software your business<br />
+          <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
+            fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0,
+            color:SH.cy, fontSize:"1.04em" }}>should run on.</em>
+        </h1>
+        <p style={{ fontSize:".98rem", color:SH.dim, lineHeight:1.6, maxWidth:"44ch" }}>
+          Some businesses run on spreadsheets, WhatsApp and duct tape. We design and build the custom software they should run on —{" "}
+          <strong style={{ color:SH.ink }}>a real product and engineering team, live in weeks, and it's yours to keep.</strong>
+        </p>
+        <div style={{ display:"flex", flexWrap:"wrap" as const, gap:6, marginTop:"1.4rem" }}>
+          {["Discovery","Product & design","Engineering","Integrations","Support"].map(t => (
+            <span key={t} style={{ border:`1px solid ${SH.line}`, padding:"6px 10px",
+              fontSize:11, color:SH.dim, borderRadius:2, background:SH.card }}>{t}</span>
+          ))}
+        </div>
+      </div>
+      {/* metric strip */}
+      <div style={{ display:"flex", flexWrap:"wrap" as const, gap:"1.4rem 2rem",
+        padding:"1.6rem 20px 1.4rem", borderBottom:`1px solid ${SH.line}` }}>
+        {[
+          { n:"6", s:"wk",  label:"to a working first version" },
+          { n:"0", s:"",    label:"templates — built to your workflow" },
+          { n:"100", s:"%", label:"owned by you — code, data, accounts" },
+        ].map((st, i) => (
+          <div key={i} style={{ position:"relative" as const, paddingLeft:"1rem" }}>
+            <span style={{ position:"absolute" as const, left:0, top:".1rem", bottom:".4rem",
+              width:3, background:SH.cy2, borderRadius:2 }} />
+            <strong style={{ display:"block",
+              fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+              fontSize:"clamp(1.8rem,7vw,2.4rem)", lineHeight:.85, color:SH.ink, letterSpacing:"-.04em" }}>
+              {st.n}
+              {st.s && <span style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
+                fontStyle:"italic", fontWeight:400, fontSize:".44em", color:SH.dim }}>{st.s}</span>}
+            </strong>
+            <span style={{ display:"block", fontSize:11.5, color:SH.c45, lineHeight:1.35,
+              marginTop:".4rem", maxWidth:"18ch" }}>{st.label}</span>
+          </div>
+        ))}
+      </div>
+      <div style={{ padding:"1.6rem 20px 0" }}><Kicker label="How we build the change" color={SH.cy} /></div>
+      {phases.map((p, i) => (
+        <Reveal key={i}>
+          <div style={{ padding:"1.8rem 20px 2rem", borderTop:`1px solid ${SH.line}` }}>
+            <div style={{ display:"flex", alignItems:"baseline", gap:".6rem", marginBottom:".8rem" }}>
+              <span style={{ fontFamily:"monospace", fontSize:11, color:SH.cy }}>{p.n}</span>
+              <span style={{ fontFamily:"monospace", fontSize:9, letterSpacing:".16em",
+                textTransform:"uppercase" as const, color:SH.c45 }}>{p.sp}</span>
+            </div>
+            <h2 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:700,
+              fontSize:"clamp(1.8rem,7vw,2.4rem)", lineHeight:1.02, letterSpacing:"-.03em",
+              color:SH.ink, marginBottom:".4rem" }}
+              dangerouslySetInnerHTML={{ __html: p.h.replace(/<em>/g,
+                `<em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:${SH.cy}">`) }} />
+            <p style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
+              fontStyle:"italic", fontSize:"clamp(1.05rem,3.8vw,1.25rem)", color:SH.ink,
+              marginBottom:".7rem", lineHeight:1.2 }}>{p.out}</p>
+            <VizBox svg={p.svg} bg={SH.card} brd={SH.line} dot="rgba(13,18,32,.04)" />
+            <p style={{ fontFamily:"monospace", fontSize:10, color:SH.c45, marginTop:".6rem",
+              marginBottom:".6rem" }}>— {p.svgCap}</p>
+            <p style={{ fontSize:".92rem", color:SH.dim, lineHeight:1.62, maxWidth:"52ch" }}>{p.cap}</p>
+            <div style={{ display:"flex", alignItems:"baseline", gap:".7rem",
+              borderTop:`1px solid ${SH.line}`, marginTop:"1rem", paddingTop:"1rem" }}>
+              <span style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+                fontSize:"clamp(2rem,7vw,2.6rem)", color:SH.cy, letterSpacing:"-.04em", lineHeight:.85 }}>
+                {p.stat}
+                {p.statS && <span style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
+                  fontStyle:"italic", fontWeight:400, fontSize:".44em", color:SH.dim }}>{p.statS}</span>}
+              </span>
+              <span style={{ fontSize:11, color:SH.c45, lineHeight:1.4, maxWidth:"28ch" }}>{p.statD}</span>
+            </div>
+          </div>
+        </Reveal>
+      ))}
+      <Reveal>
+        <div style={{ margin:"0 20px 1.8rem", padding:"1.3rem 1.4rem",
+          border:`1px dashed ${SH.line}`, borderRadius:10, background:SH.card }}>
+          <p style={{ fontFamily:"monospace", fontSize:10, fontWeight:700, letterSpacing:".16em",
+            textTransform:"uppercase" as const, color:SH.c45, marginBottom:".6rem" }}>Bonus, included</p>
+          <h4 style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
+            fontStyle:"italic", fontWeight:400, fontSize:"1.25rem", color:SH.ink, marginBottom:".5rem" }}>
+            Oh — and AI, where it earns its place.
+          </h4>
+          <p style={{ fontSize:".88rem", color:SH.dim, lineHeight:1.55 }}>
+            Where AI genuinely helps inside the system — a smart search, a first-draft, a prediction — it's built in.{" "}
+            <strong style={{ color:SH.ink }}>But this is real engineering, not an AI badge. Nice to have, not the point.</strong>
+          </p>
+        </div>
+      </Reveal>
+      <FAQ items={faqs} bg={SH.bg} border={SH.line} head={SH.ink} body={SH.dim} light />
+      {/* CTA — light page, custom colours */}
+      <div style={{ padding:"2.4rem 20px calc(3.2rem + env(safe-area-inset-bottom))",
+        borderTop:`1px solid ${SH.line}`, marginTop:"1rem" }}>
+        <h2 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+          fontSize:"clamp(2rem,9vw,3rem)", lineHeight:.95, letterSpacing:"-.04em",
+          color:SH.ink, marginBottom:"1rem" }}>
+          Not their software.<br />
+          <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
+            fontStyle:"italic", fontWeight:400 }}>Yours.</em>
+        </h2>
+        <p style={{ fontSize:".96rem", color:SH.dim, lineHeight:1.62, maxWidth:"44ch", marginBottom:"1.6rem" }}>
+          We map how it really works, build it around you, ship in weeks and hand you the keys — then keep making it better.
+        </p>
+        <a href="/contact" onClick={onClose} style={{ display:"block", textAlign:"center" as const,
+          fontFamily:"var(--font-space-mono,'Space Mono',monospace)", fontSize:12, fontWeight:700,
+          letterSpacing:".13em", textTransform:"uppercase" as const,
+          color:"#fff", background:SH.cy2,
+          textDecoration:"none", padding:"1.15rem", borderRadius:6 }}>Show me what we'd build →</a>
+        <p style={{ fontFamily:"var(--font-space-mono,'Space Mono',monospace)", fontSize:10.5,
+          color:SH.c28, letterSpacing:".04em", marginTop:"1.4rem", textAlign:"center" as const }}>
+          OARC — one team for the whole business. Malta.</p>
+      </div>
+    </div>
+  );
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// PRODUCTS CONTENT  (dark blue — OARC's own platforms, in production)
+// ────────────────────────────────────────────────────────────────────────────
+const PRD = {
+  bg:"#050A10", card:"#0A1018", sig:"#3EC6FF",
+  c:"#EAF2F6", dim:"rgba(234,242,246,.62)", c45:"rgba(234,242,246,.45)",
+  line:"rgba(234,242,246,.1)", b22:"rgba(62,198,255,.22)",
+};
+
+function ProductsContent({ onClose }: { onClose: () => void }) {
+  const lifecycle = [
+    { n:"01", stage:"Discover", desc:"Found on Google, Maps and AI answers — before competitors." },
+    { n:"02", stage:"Book",     desc:"Reservations taken, confirmed and reminded — no-shows refilled." },
+    { n:"03", stage:"Order",    desc:"QR menus in the guest's language. Straight to the kitchen — zero mishears." },
+    { n:"04", stage:"Serve",    desc:"Kitchen display runs the line. Kiosk takes the queue. Staff serve, not type." },
+    { n:"05", stage:"Pay",      desc:"Fast checkout, tips included, tills that reconcile themselves." },
+    { n:"06", stage:"Review",   desc:"5★ captured at the table, replies drafted — reputation compounds." },
+    { n:"07", stage:"Return",   desc:"Loyalty passes and win-back nudges bring them back through the door." },
+  ];
+  const modules = [
+    { id:"MENU",    name:"Digital menu",     desc:"Multilingual QR ordering — guests order in their own language." },
+    { id:"KITCHEN", name:"Kitchen display",  desc:"Live display that sequences the line and kills lost tickets." },
+    { id:"KIOSK",   name:"Self-order kiosk", desc:"Touchscreen that eats the queue at peak." },
+    { id:"DESK",    name:"Owner dashboard",  desc:"Sales, staff, stock — one screen, nightly." },
+    { id:"TABLE",   name:"Review & loyalty", desc:"5★ capture + loyalty passes, scanned at the till." },
+    { id:"BRIDGE",  name:"The bridge",       desc:"Connects your POS, payments and printers — nothing replaced by force." },
+  ];
+  const guarantees = [
+    { n:"01", t:"Working software in week one.",
+      b:"You see it running in your venue, not in a slide. The pilot is the product." },
+    { n:"02", t:"You own everything.",
+      b:"Code, data, accounts — yours. No licence hostage, no vendor tickets, no exit fee." },
+    { n:"03", t:"ROI counted in weeks.",
+      b:"Every stage has a number attached — orders, covers, reviews, hours saved. If it doesn't move a number, it doesn't ship." },
+  ];
+  const faqs = [
+    { q:"Are these off-the-shelf products?",
+      a:"No. We engineered the full stack — so when you need it to bend, we bend it. No licence fee, no vendor support tickets, no waiting for a feature someone else asked for." },
+    { q:"Do we have to replace our POS?",
+      a:"No. We bridge into what you run. Replacement only happens when the numbers prove it's worth it — your call." },
+    { q:"Who owns the system afterwards?",
+      a:"You do. Code, data and accounts are handed over. We stay because the work is good, not because you're locked in." },
+    { q:"How disruptive is the rollout?",
+      a:"One stage at a time, quiet hours, staff trained in minutes per tool. Service never stops for the rebuild." },
+  ];
+  return (
+    <div style={{ background:PRD.bg, color:PRD.c }}>
+      {/* hero */}
+      <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${PRD.line}` }}>
+        <Kicker label="Products" color={PRD.sig} />
+        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+          fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
+          textTransform:"uppercase", color:PRD.c, marginBottom:"1rem" }}>
+          We don't advise.<br />
+          <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
+            fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0,
+            color:PRD.sig, fontSize:"1.04em" }}>We build.</em>
+        </h1>
+        <p style={{ fontSize:".98rem", color:PRD.dim, lineHeight:1.6, maxWidth:"44ch" }}>
+          Production-ready platforms, not decks.{" "}
+          <strong style={{ color:PRD.c }}>We rebuilt how businesses operate on systems we've already built — already running in Malta venues tonight.</strong>
+        </p>
+        <div style={{ display:"flex", flexWrap:"wrap" as const, gap:"1.2rem 2rem", marginTop:"1.8rem" }}>
+          {[["7d","first ship to live venue"],["100%","owned by you"],
+            ["4+","languages served"],["24/7","system uptime"]].map(([v, d]) => (
+            <div key={v}>
+              <p style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+                fontSize:"clamp(1.8rem,6vw,2.4rem)", color:PRD.sig,
+                letterSpacing:"-.04em", lineHeight:.85, marginBottom:".4rem" }}>{v}</p>
+              <p style={{ fontFamily:"monospace", fontSize:10, color:PRD.c45, maxWidth:"18ch" }}>{d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* lifecycle */}
+      <Reveal>
+        <div style={{ padding:"1.6rem 20px 2rem", borderBottom:`1px solid ${PRD.line}` }}>
+          <Kicker label="The full guest lifecycle" color={PRD.sig} />
+          <p style={{ fontSize:".92rem", color:PRD.dim, lineHeight:1.6, maxWidth:"48ch", marginBottom:"1.2rem" }}>
+            Others automate a step. We run the <strong style={{ color:PRD.c }}>entire journey</strong> — and every stage feeds the next.
+          </p>
+          <div>
+            {lifecycle.map((l, i) => (
+              <div key={i} style={{ display:"flex", gap:"1rem", padding:".85rem 0",
+                borderTop:i > 0 ? `1px solid ${PRD.line}` : "none" }}>
+                <span style={{ fontFamily:"monospace", fontSize:10, color:PRD.sig,
+                  width:28, flexShrink:0, paddingTop:2 }}>{l.n}</span>
+                <div>
+                  <span style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)",
+                    fontWeight:700, fontSize:"1rem", letterSpacing:"-.02em", color:PRD.c }}>{l.stage}</span>
+                  <span style={{ fontSize:".88rem", color:PRD.dim, marginLeft:".8rem" }}>{l.desc}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+      {/* platform modules */}
+      <Reveal>
+        <div style={{ padding:"1.6rem 20px 2rem", borderBottom:`1px solid ${PRD.line}` }}>
+          <Kicker label="The platform — ours, in production" color={PRD.sig} />
+          <p style={{ fontSize:".92rem", color:PRD.dim, lineHeight:1.6, maxWidth:"48ch", marginBottom:"1.2rem" }}>
+            These aren't licensed tools with our sticker on them.{" "}
+            <strong style={{ color:PRD.c }}>We engineered the stack — so when you need it to bend, we bend it.</strong>
+          </p>
+          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8 }}>
+            {modules.map(m => (
+              <div key={m.id} style={{ background:PRD.card, border:`1px solid ${PRD.b22}`,
+                borderRadius:8, padding:"12px 14px", position:"relative" as const }}>
+                <span style={{ position:"absolute" as const, top:9, right:10, width:5, height:5,
+                  borderRadius:"50%", background:PRD.sig,
+                  boxShadow:`0 0 0 0 rgba(62,198,255,.5)`,
+                  animation:"blip 1.6s ease-out infinite", display:"block" }} />
+                <p style={{ fontFamily:"monospace", fontSize:9, color:PRD.sig,
+                  letterSpacing:".12em", marginBottom:".4rem" }}>{m.id}</p>
+                <p style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)",
+                  fontWeight:700, fontSize:"1rem", color:PRD.c, marginBottom:".25rem" }}>{m.name}</p>
+                <p style={{ fontSize:11, color:PRD.c45, lineHeight:1.5 }}>{m.desc}</p>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontFamily:"monospace", fontSize:9, letterSpacing:".14em",
+            textTransform:"uppercase" as const, color:PRD.sig, marginTop:"1rem",
+            display:"flex", alignItems:"center", gap:".5rem" }}>
+            <span style={{ width:6, height:6, borderRadius:"50%", background:PRD.sig,
+              display:"inline-block", boxShadow:`0 0 8px ${PRD.sig}` }} />
+            In production across Malta venues right now
+          </p>
+        </div>
+      </Reveal>
+      {/* anti-consultancy */}
+      <Reveal>
+        <div style={{ padding:"1.6rem 20px 2rem", borderBottom:`1px solid ${PRD.line}` }}>
+          <Kicker label="Not a consultancy" color={PRD.sig} />
+          <h3 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:700,
+            fontSize:"clamp(1.7rem,6vw,2.2rem)", lineHeight:1, letterSpacing:"-.03em",
+            color:PRD.c, marginBottom:"1.2rem" }}>
+            Shipped, not{" "}
+            <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
+              fontStyle:"italic", fontWeight:400, color:PRD.sig }}>advised.</em>
+          </h3>
+          {guarantees.map((g, i) => (
+            <div key={i} style={{ display:"flex", gap:"1rem", padding:".85rem 0",
+              borderTop:i > 0 ? `1px solid ${PRD.line}` : "none" }}>
+              <span style={{ fontFamily:"monospace", fontSize:10, color:PRD.sig,
+                width:28, flexShrink:0, paddingTop:2 }}>{g.n}</span>
+              <div>
+                <p style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)",
+                  fontWeight:700, fontSize:"1rem", color:PRD.c, marginBottom:".25rem" }}>{g.t}</p>
+                <p style={{ fontSize:".88rem", color:PRD.dim, lineHeight:1.55 }}>{g.b}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Reveal>
+      <FAQ items={faqs} bg={PRD.bg} border={PRD.line} head={PRD.c} body={PRD.dim} />
+      {/* CTA */}
+      <div style={{ padding:"2.4rem 20px calc(3.2rem + env(safe-area-inset-bottom))",
+        borderTop:`1px solid ${PRD.line}`, marginTop:"1rem" }}>
+        <h2 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+          fontSize:"clamp(2rem,9vw,3rem)", lineHeight:.95, letterSpacing:"-.04em",
+          color:PRD.c, marginBottom:"1rem" }}>
+          Shipped.<br />
+          <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
+            fontStyle:"italic", fontWeight:400 }}>Not advised.</em>
+        </h2>
+        <p style={{ fontSize:".96rem", color:PRD.dim, lineHeight:1.62, maxWidth:"44ch", marginBottom:"1.6rem" }}>
+          Production-ready platforms built on systems we already run — live in your venue in 7 days, owned by you completely.
+        </p>
+        <a href="/contact" onClick={onClose} style={{ display:"block", textAlign:"center" as const,
+          fontFamily:"var(--font-space-mono,'Space Mono',monospace)", fontSize:12, fontWeight:700,
+          letterSpacing:".13em", textTransform:"uppercase" as const,
+          color:PRD.bg, background:PRD.sig,
+          textDecoration:"none", padding:"1.15rem", borderRadius:6 }}>Rebuild yours — book a call →</a>
+        <p style={{ fontFamily:"var(--font-space-mono,'Space Mono',monospace)", fontSize:10.5,
+          color:"rgba(234,242,246,.3)", letterSpacing:".04em", marginTop:"1.4rem", textAlign:"center" as const }}>
+          OARC — one team for the whole business. Malta.</p>
+      </div>
+    </div>
+  );
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// COMPARE CONTENT  (noir — paper vs production, why OARC)
+// ────────────────────────────────────────────────────────────────────────────
+function CompareContent({ onClose }: { onClose: () => void }) {
+  const rows = [
+    { label:"What you pay for",    them:"Reports & recommendations",    us:"Working systems in production" },
+    { label:"Timeline",            them:"6–18 months of consulting",     us:"Live in 7 days" },
+    { label:"Who owns the result", them:"You implement; they invoice",   us:"Code, data, accounts — yours" },
+    { label:"AI involvement",      them:"AI badge on the deck",          us:"AI deployed, working now" },
+    { label:"Evidence",            them:"Case studies from elsewhere",   us:"Metric-proven, Malta venues" },
+    { label:"After it's done",     them:"They leave; you're on your own",us:"We stay; you grow" },
+  ];
+  const proofs = [
+    { t:"Own platform in production",
+      b:"The H360 OS is live in Malta venues tonight. We didn't license it — we built it. That's the difference between consultants who buy software and engineers who ship it." },
+    { t:"Metric-proven cases",
+      b:"Every engagement is tied to a number that moves: orders, covers, reviews, hours saved. If the metric doesn't move, the engagement isn't finished." },
+    { t:"AI staff deployed",
+      b:"Our AI staff are answering calls and booking at 3 am across Malta businesses right now. Not a demo — a deployed, working team member." },
+    { t:"Founder-led",
+      b:"The people who started this are still on the calls, still in the venues, still writing the code. The work gets done by the people who care about the outcome." },
+    { t:"You own the code",
+      b:"When we build you something, you get the code, the data and the accounts. No vendor lock-in, no licence fee, no ransom for the keys to your own system." },
+  ];
+  const faqs = [
+    { q:"Why not just hire a consultancy?",
+      a:"A consultancy writes you a report; you pay someone else to build it. We build it, ship it, train your team on it and hand you the keys. You get a running system, not a recommendation." },
+    { q:"How is OARC different from an agency?",
+      a:"Agencies manage campaigns. We build the underlying systems — the AI staff, the platforms, the automations — and the campaigns on top. One team owns the full stack instead of five vendors managing one layer each." },
+    { q:"What proof do you have that it works?",
+      a:"Our own platforms are live in Malta venues right now — the menu system, the kitchen display, the AI workforce. The metric-proven cases are all local, all recent, all with real numbers attached." },
+    { q:"What if we're already working with another agency?",
+      a:"Most of our clients come in alongside an existing agency. We typically own the technology, AI and automation layer while any existing relationship handles brand or media." },
+  ];
+  return (
+    <div style={{ background:T.noir, color:T.ivory }}>
+      {/* hero */}
+      <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${T.line}` }}>
+        <Kicker label="Why OARC" />
+        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+          fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
+          textTransform:"uppercase", color:T.ivory, marginBottom:"1rem" }}>
+          Paper vs<br />
+          <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
+            fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0,
+            color:T.scar, fontSize:"1.04em" }}>production.</em>
+        </h1>
+        <p style={{ fontSize:".98rem", color:T.dim, lineHeight:1.6, maxWidth:"44ch" }}>
+          Consultants give you a report. Agencies manage the spend. We build and run the systems.{" "}
+          <strong style={{ color:T.ivory }}>Own platform in production. AI staff deployed. Metric-proven. Founder-led.</strong>
+        </p>
+      </div>
+      {/* comparison table */}
+      <Reveal>
+        <div style={{ padding:"1.6rem 20px 2rem", borderBottom:`1px solid ${T.line}` }}>
+          <Kicker label="The difference" />
+          <div style={{ marginTop:"1.2rem" }}>
+            <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:0,
+              paddingBottom:".6rem", borderBottom:`1px solid ${T.line}`, marginBottom:".2rem" }}>
+              <span />
+              <span style={{ fontFamily:"monospace", fontSize:9, letterSpacing:".1em",
+                textTransform:"uppercase" as const, color:T.dimLow, textAlign:"center" as const }}>Others</span>
+              <span style={{ fontFamily:"monospace", fontSize:9, letterSpacing:".1em",
+                textTransform:"uppercase" as const, color:T.scar, textAlign:"center" as const }}>OARC</span>
+            </div>
+            {rows.map((r, i) => (
+              <div key={i} style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:0,
+                padding:".7rem 0", borderBottom:`1px solid ${T.line}`, alignItems:"start" }}>
+                <span style={{ fontFamily:"monospace", fontSize:9.5, color:T.dimLow, lineHeight:1.45,
+                  paddingRight:".5rem" }}>{r.label}</span>
+                <span style={{ fontSize:11, color:"rgba(242,239,233,.3)", lineHeight:1.45,
+                  paddingRight:".5rem", textAlign:"center" as const }}>{r.them}</span>
+                <span style={{ fontSize:11, color:T.ivory, lineHeight:1.45, fontWeight:600,
+                  textAlign:"center" as const }}>{r.us}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+      {/* proof points */}
+      <div style={{ padding:"1.6rem 20px 0" }}><Kicker label="What makes it real" /></div>
+      {proofs.map((p, i) => (
+        <Reveal key={i}>
+          <div style={{ padding:"1.3rem 20px 1.5rem", borderTop:`1px solid ${T.line}` }}>
+            <div style={{ display:"flex", gap:".8rem", alignItems:"flex-start" }}>
+              <span style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
+                fontStyle:"italic", color:T.scar, fontSize:"1.05rem", flexShrink:0,
+                width:"1.6rem", lineHeight:1.5 }}>0{i + 1}</span>
+              <div>
+                <h4 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)",
+                  fontWeight:700, fontSize:"clamp(1.1rem,4.5vw,1.3rem)", letterSpacing:"-.02em",
+                  color:T.ivory, marginBottom:".35rem" }}>{p.t}</h4>
+                <p style={{ fontSize:".9rem", color:T.dim, lineHeight:1.6, maxWidth:"52ch" }}>{p.b}</p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      ))}
+      <FAQ items={faqs} />
+      <CTA big={<>Not their systems.<br /><CtaItalic>Yours.</CtaItalic></>}
+        sub="We build and run the AI, platforms and automations — deployed now, owned by you, proven on real Malta businesses."
+        btn="See what we'd build for you" onClose={onClose} />
+    </div>
+  );
+}
+
 // ── Placeholder for non-Engine departments ────────────────────────────────────
 function PlaceholderContent({ dept, onClose }: { dept: string; onClose: () => void }) {
   const realmColors: Record<string,{bg:string;fg:string;sig:string}> = {
@@ -2069,6 +2766,10 @@ const CONTENT_MAP: Record<string, (props:{onClose:()=>void}) => React.ReactEleme
   Transformation: TransformationContent,
   Reputation:     ReputationContent,
   Brand:          BrandContent,
+  Enquiries:      EnquiriesContent,
+  Ship:           ShipContent,
+  Products:       ProductsContent,
+  Compare:        CompareContent,
 };
 
 // ── per-department header colours ─────────────────────────────────────────────
@@ -2077,8 +2778,9 @@ const DEPT_HDR_BG: Record<string,string> = {
   Clarity: "#0B0D12",  "AI Staff": "#060607",  Creative: "#100E0A",
   Operations: "#F4F1EA",  Automation: "#0A0C0F",  Transformation: "#050A10",
   Reputation: "#F5F1E8",  Brand: "#ECE7DE",
+  Enquiries: T.noir,  Ship: "#EEF1F4",  Products: "#050A10",  Compare: T.noir,
 };
-const LIGHT_DEPTS = new Set(["Operations","Reputation","Brand"]);
+const LIGHT_DEPTS = new Set(["Operations","Reputation","Brand","Ship"]);
 
 // ── Main modal ────────────────────────────────────────────────────────────────
 interface DepartmentDetailModalProps {

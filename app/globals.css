@@ -1325,6 +1325,11 @@
     }
   }
 
+  @keyframes blip {
+    0%   { box-shadow: 0 0 0 0 currentColor; }
+    100% { box-shadow: 0 0 0 8px transparent; }
+  }
+
   .stat-glow {
     animation: pulse-glow 2s ease-in-out infinite;
   }
