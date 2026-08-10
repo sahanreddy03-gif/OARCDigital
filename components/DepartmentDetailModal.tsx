@@ -421,139 +421,422 @@ function GrowthContent({ onClose }: { onClose: () => void }) {
 }
 
 // ── SALES content ────────────────────────────────────────────────────────────
+const SL_CSS = `
+.slc-chart .slc-bar{height:0;transition:height 1.05s cubic-bezier(.16,1,.3,1)}
+.slc-chart.slc-in .slc-bar{height:var(--h)}
+.slc-chart .slc-v{opacity:0;transform:translateY(6px);
+  transition:opacity .5s cubic-bezier(.16,1,.3,1) .6s,transform .5s cubic-bezier(.16,1,.3,1) .6s}
+.slc-chart.slc-in .slc-v{opacity:1;transform:none}
+@keyframes slc-blink{0%,100%{opacity:1}50%{opacity:.25}}
+.slc-live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#7FE0A8;
+  margin-right:.4rem;animation:slc-blink 1.4s ease infinite}
+`;
+const SL_BARS = [
+  { v:'100%', h:'100%', x:'5 min' },
+  { v:'40%',  h:'40%',  x:'10 min' },
+  { v:'5%',   h:'12%',  x:'30 min' },
+  { v:'2%',   h:'6%',   x:'1 hr' },
+  { v:'<1%',  h:'3%',   x:'24 hr' },
+];
+const SL_OPA = [1,.82,.6,.42,.28];
+const SL_FLOW  = ['Enquiry in','Answered','Qualified','Booked'];
+const SL_FLOWT = ['','0:04','','✓'];
+const SL_UNITS = [
+  { no:'i',   tag:'Strategy',
+    h:'We set the <em>play.</em>',
+    body:'We map how your leads actually move and find where deals stall and die. Then we set the play: your offer, your pricing, your follow-up cadence, your qualifying criteria, and the one number everything is accountable to. Nothing else gets built until the strategy is right.',
+    deliv:['Pipeline audit','Offer & pricing','Qualifying criteria','Follow-up cadence'],
+    stat:'30', statS:'%', statP:'of leads are never contacted — the first leak we close' },
+  { no:'ii',  tag:'Creative · Content · Social',
+    h:'We make what <em>sells.</em>',
+    body:'Two kinds of content, both aimed at revenue. The assets that close a live deal — pitch, proof, case studies, objection-handling. And, when your buyers live on social, we run it as a sales channel: founder storytelling, sales skits and reels, proof content and DM-to-close flows. Not content chasing followers — content measured in booked calls.',
+    deliv:['Founder storytelling','Sales skits & reels','Social that sells','Proof & case studies','DM-to-close flows'],
+    stat:'49', statS:'%', statP:'of sales lift comes from creative, not targeting (Nielsen)' },
+  { no:'iii', tag:'Brand',
+    h:'We make you the <em>safe choice.</em>',
+    body:'People buy the business they trust, not the cheapest quote. We sharpen how you show up across every point a buyer checks you — so you read as the premium, obvious choice and stop competing on price. A strong brand lets you charge more and close faster.',
+    deliv:['Positioning','Trust signals','Reviews & proof','Premium presentation'],
+    stat:'20', statS:'%', statP:'higher performance for strongly-branded firms (McKinsey)' },
+  { no:'v',   tag:'Enablement',
+    h:'We keep it <em>running.</em>',
+    body:'We train your team on the play, run the cadence, and work every stalled lead again on a trigger — win-backs and sequences that do not quit after one try. The follow-through is where most sales are quietly lost, so this is where we find quiet money.',
+    deliv:['Team training','Cadence management','Stalled-lead recovery','Monthly reporting'],
+    stat:'2.3', statS:'×', statP:'more closed when stalled leads are properly revived' },
+];
+const SL_FAQS = [
+  { q:"How do you increase a company's sales?", a:"We run the whole sale as one team: fix where leads leak, make the content that closes, build the trust that wins the deal, and install one system that answers and books every enquiry instantly. Most of the gain comes from replying faster, following up longer, and closing with better proof — not from buying another tool." },
+  { q:"Why aren't my leads converting?",        a:"Usually speed and follow-up. Around 30% of leads are never contacted at all, and the odds of qualifying a lead drop sharply after the first five minutes. Answer instantly, follow up on a set cadence, and close with proof, and conversion climbs without spending more on traffic." },
+  { q:"Do I own the system you build?",         a:"Yes, completely. We build your lead-capture, qualifying, booking and voice-or-chat system for your business and hand it over in your full IP control. If we ever part ways, you keep it." },
+  { q:"Is this software or an agency?",         a:"An agency. Four teams of people — strategy, creative, brand and enablement — plus one system you own. A tool can route a lead, but it can't set your pricing, write what closes, or build trust. That takes people." },
+];
+const SL_PROOF = [
+  { lab:'Every enquiry',       before:'1 in 3 answered, hours late',  after:'all of them, in seconds' },
+  { lab:'Your content & social', before:'posts chasing likes',          after:'stories that book calls' },
+  { lab:'Your brand',          before:'just another quote',            after:'the obvious, premium choice' },
+];
+const SL_STEPS = [
+  { n:'01', h:'Audit', p:'We map your pipeline and find where the leads leak — usually inside the first week.' },
+  { n:'02', h:'Build', p:"We set the play, make the brand, story and content, and build the system you'll own." },
+  { n:'03', h:'Run',   p:'We run it as one team, report on the one number, and revive every deal that stalls.' },
+];
+
 function SalesContent({ onClose }: { onClose: () => void }) {
-  const units = [
-    { no:"i", tag:"Strategy", headline:"We set the <em style=\"font-family:var(--font-instrument-serif,'Instrument Serif',serif);font-style:italic;font-weight:400;color:#E02B20\">play.</em>",
-      body:"We map how your leads actually move and find where deals stall and die. Then we set the play: your offer, your pricing, your follow-up cadence, and the one number everything is accountable to.",
-      deliv:["Pipeline audit","Offer & pricing","Qualifying criteria","Follow-up cadence"], stat:"30", statS:"%", statP:"of leads are never contacted — the first leak we close" },
-    { no:"ii", tag:"Creative · Content · Social", headline:"We make what <em style=\"font-family:var(--font-instrument-serif,'Instrument Serif',serif);font-style:italic;font-weight:400;color:#E02B20\">sells.</em>",
-      body:"Two kinds of content, both aimed at revenue: the assets that close a live deal — pitch, proof, case studies — and social run as a sales channel with founder storytelling and DM-to-close flows. Not content chasing followers — content measured in booked calls.",
-      deliv:["Founder storytelling","Sales skits & reels","Social that sells","Proof & case studies"], stat:"49", statS:"%", statP:"of sales lift comes from creative, not targeting (Nielsen)" },
-    { no:"iii", tag:"Brand", headline:"We make you the <em style=\"font-family:var(--font-instrument-serif,'Instrument Serif',serif);font-style:italic;font-weight:400;color:#E02B20\">safe choice.</em>",
-      body:"People buy the business they trust, not the cheapest quote. We sharpen how you show up across every point a buyer checks — so you read as the premium, obvious choice and stop competing on price.",
-      deliv:["Positioning","Trust signals","Reviews & proof","Premium presentation"], stat:"20", statS:"%", statP:"higher performance for strongly-branded firms (McKinsey)" },
-    { no:"iv", tag:"AI & Tech — The system you own", headline:"We build you <em style=\"font-family:var(--font-instrument-serif,'Instrument Serif',serif);font-style:italic;font-weight:400;color:#E02B20\">one system.</em>",
-      body:"The single piece of technology in the engagement — built for your sales, then handed to you. It catches every enquiry, answers in seconds any hour, qualifies against your criteria, and books straight into the calendar. Voice and chat agents included. You own it outright, full IP control.",
-      deliv:["Lead capture & routing","Instant qualify & book","Voice + chat agents","Yours to keep — full IP"], stat:"67", statS:"%", statP:"of deals booked with instant reply vs 30% (Chili Piper)" },
-    { no:"v", tag:"Enablement", headline:"We keep it <em style=\"font-family:var(--font-instrument-serif,'Instrument Serif',serif);font-style:italic;font-weight:400;color:#E02B20\">running.</em>",
-      body:"We train your team on the play, run the cadence, and work every stalled lead again on a trigger — win-backs and sequences that do not quit after one try. The follow-through is where most sales are quietly lost.",
-      deliv:["Team training","Cadence management","Stalled-lead recovery","Monthly reporting"], stat:"2.3", statS:"×", statP:"more closed when stalled leads are properly revived" },
-  ];
-  const faqs = [
-    { q:"How do you increase a company's sales?", a:"We run the whole sale as one team: fix where leads leak, make the content that closes, build the trust that wins the deal, and install one system that answers and books every enquiry instantly. Most of the gain comes from replying faster, following up longer, and closing with better proof — not from buying another tool." },
-    { q:"Why aren't my leads converting?", a:"Usually speed and follow-up. Around 30% of leads are never contacted at all, and the odds of qualifying a lead drop sharply after the first five minutes. Answer instantly, follow up on a set cadence, and close with proof, and conversion climbs without spending more on traffic." },
-    { q:"Do I own the system you build?", a:"Yes, completely. We build your lead-capture, qualifying, booking and voice-or-chat system for your business and hand it over in your full IP control. If we ever part ways, you keep it." },
-    { q:"Is this software or an agency?", a:"An agency. Four teams of people — strategy, creative, brand and enablement — plus one system you own. A tool can route a lead, but it can't set your pricing, write what closes, or build trust. That takes people." },
-  ];
+  const [pipeStep, setPipeStep] = useState(0);
+  const chartRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const id = setInterval(() => setPipeStep(s => (s + 1) % (SL_FLOW.length + 1)), 820);
+    return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    const el = chartRef.current; if (!el) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.classList.add('slc-in'); io.disconnect(); }
+    }, { threshold: 0.3 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const scar  = T.scar;
+  const navy  = '#0D1A2E';
+  const navyT = 'rgba(244,239,230,.85)';
+
+  // shared inline style helpers
+  const serif   = `var(--font-instrument-serif,'Instrument Serif',serif)`;
+  const brico   = `var(--font-bricolage,'Bricolage Grotesque',sans-serif)`;
+  const mono    = `var(--font-space-mono,'Space Mono',monospace)`;
+  const emStyle = (col=scar) => `font-family:${serif};font-style:italic;font-weight:400;color:${col}`;
+
+  function UnitRow({ u }: { u: typeof SL_UNITS[0] }) {
+    return (
+      <div style={{ padding:'1.8rem 20px 2rem', borderTop:`1px solid ${T.line}` }}>
+        <div style={{ display:'flex', alignItems:'flex-start', gap:'.8rem', marginBottom:'.5rem' }}>
+          <span style={{ fontFamily:serif, fontStyle:'italic', fontSize:'2rem',
+            color:scar, width:44, flexShrink:0, lineHeight:.8 }}>{u.no}</span>
+          <span style={{ fontFamily:mono, fontSize:9.5, letterSpacing:'.14em',
+            textTransform:'uppercase' as const, color:T.dim,
+            border:`1px solid ${T.line}`, borderRadius:20, padding:'.28rem .65rem',
+            display:'inline-block', alignSelf:'flex-start' as const }}>{u.tag}</span>
+        </div>
+        <h3 style={{ fontFamily:brico, fontWeight:700, fontSize:'clamp(1.6rem,5.4vw,2.2rem)',
+          lineHeight:1.02, letterSpacing:'-.04em', color:T.ivory, marginBottom:'.7rem' }}
+          dangerouslySetInnerHTML={{ __html: u.h.replace('<em>',`<em style="${emStyle()}">`) }} />
+        <p style={{ fontSize:'.94rem', color:T.dim, lineHeight:1.6, marginBottom:'1rem' }}>{u.body}</p>
+        <div style={{ display:'flex', flexWrap:'wrap' as const, gap:'.45rem', marginBottom:'.9rem' }}>
+          {u.deliv.map((d,j)=>(
+            <span key={j} style={{ fontSize:11, fontWeight:600, color:T.ivory,
+              background:'rgba(242,239,233,.07)', borderRadius:4, padding:'.35rem .65rem' }}>{d}</span>
+          ))}
+        </div>
+        <div style={{ display:'flex', alignItems:'baseline', gap:'.65rem',
+          paddingTop:'.85rem', borderTop:`1px solid ${T.line}` }}>
+          <span style={{ fontFamily:serif, fontStyle:'italic',
+            fontSize:'clamp(1.8rem,7vw,2.6rem)', fontWeight:400, lineHeight:.85, color:T.ivory }}>
+            {u.stat}<em style={{ fontSize:'.42em', color:T.dim, fontStyle:'normal' }}>{u.statS}</em>
+          </span>
+          <span style={{ fontSize:11.5, color:T.dim, lineHeight:1.35, maxWidth:'28ch' }}>{u.statP}</span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div style={{ background:T.noir, color:T.ivory }}>
-      {/* hero */}
-      <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${T.line}` }}>
-        <Kicker label="Sales" />
-        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
-          fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
-          textTransform:"uppercase", color:T.ivory, marginBottom:"1rem" }}>
-          Close more{" "}
-          <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0,
-            color:T.scar, display:"block", fontSize:"1.04em" }}>sales.</em>
+      {/* eslint-disable-next-line react/no-danger */}
+      <style dangerouslySetInnerHTML={{ __html: SL_CSS }} />
+
+      {/* ── hero ── */}
+      <div style={{ padding:'1.8rem 20px 2.2rem', borderBottom:`1px solid ${T.line}` }}>
+        <Kicker label="The sales engagement" />
+        <h1 style={{ fontFamily:brico, fontWeight:800, fontSize:'clamp(2.2rem,9.5vw,3.6rem)',
+          lineHeight:.88, letterSpacing:'-.055em', marginTop:'1rem' }}>
+          We don&apos;t sell you software.{' '}
+          <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400,
+            color:scar, letterSpacing:'-.02em', display:'block' }}>We run your sales.</em>
         </h1>
-        <p style={{ fontSize:".98rem", color:T.dim, lineHeight:1.6, maxWidth:"44ch" }}>
-          One team that owns the whole sale — the strategy, the content that closes, how you show up, and one system you keep.{" "}
+        <p style={{ fontSize:'.96rem', color:T.dim, lineHeight:1.6, marginTop:'1.2rem', maxWidth:'46ch' }}>
+          One team that owns the whole sale — the strategy, the content that closes, how you show up, and one system you keep.{' '}
           <strong style={{ color:T.ivory }}>Everything your sales needs, pointed at one number: revenue.</strong>
         </p>
       </div>
+
       <StatStrip items={[
-        { n:"78", s:"%", label:"of buyers choose whoever answers first" },
-        { n:"21", s:"×", label:"more likely to qualify at 5 min vs 30" },
-        { n:"30", s:"%", label:"of leads today are never contacted at all" },
+        { n:'78', s:'%', label:'of buyers choose whoever answers first' },
+        { n:'21', s:'×', label:'more likely to qualify at 5 min vs 30' },
+        { n:'30', s:'%', label:'of leads today are never contacted at all' },
       ]} />
-      {/* thesis */}
+
+      {/* ── thesis ── */}
       <Reveal>
-        <div style={{ margin:"1.6rem 20px", padding:"2rem 1.6rem",
-          background:T.scar, borderRadius:14, color:"#fff" }}>
+        <div style={{ margin:'1.6rem 20px', padding:'2rem 1.5rem',
+          background:scar, borderRadius:14, color:'#fff' }}>
           <Kicker label="How the engagement works" color="rgba(255,255,255,.65)" />
-          <h2 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
-            fontSize:"clamp(1.6rem,5vw,2.4rem)", lineHeight:1.04, letterSpacing:"-.04em",
-            maxWidth:"22ch", marginBottom:"1rem" }}>
-            Most of closing more is{" "}
-            <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
-              fontStyle:"italic", fontWeight:400 }}>strategy and craft</em> — not a tool.
+          <h2 style={{ fontFamily:brico, fontWeight:700,
+            fontSize:'clamp(1.5rem,5vw,2.2rem)', lineHeight:1.05, letterSpacing:'-.035em',
+            maxWidth:'22ch', marginTop:'.6rem' }}>
+            Most of closing more is{' '}
+            <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400 }}>strategy and craft</em>
+            {' '}— not a tool.
           </h2>
-          <p style={{ fontSize:".96rem", color:"rgba(255,255,255,.85)", lineHeight:1.6, maxWidth:"50ch" }}>
-            A tool routes a lead; it doesn't decide what you say, how you're priced, why they trust you, or what happens when they go quiet. You don't stitch together five vendors for that. You get one team that owns the whole sale — and one system we build and hand you.
+          <p style={{ fontSize:'.94rem', color:'rgba(255,255,255,.85)', lineHeight:1.6,
+            marginTop:'1rem', maxWidth:'50ch' }}>
+            A tool routes a lead; it doesn&apos;t decide what you say, how you&apos;re priced, why they trust you,
+            or what happens when they go quiet. You get one team that owns the whole sale — and one system we build and hand you.
           </p>
-          <div style={{ display:"flex", gap:"1.8rem", marginTop:"1.6rem", paddingTop:"1.4rem",
-            borderTop:"1px solid rgba(255,255,255,.22)" }}>
-            {[["1","team, end to end"],["0","vendors to juggle"]].map(([n,l])=>(
+          <div style={{ display:'flex', gap:'1.6rem', marginTop:'1.6rem', paddingTop:'1.4rem',
+            borderTop:'1px solid rgba(255,255,255,.22)' }}>
+            {[['1','team, end to end'],['0','vendors to juggle']].map(([n,l])=>(
               <div key={n}>
-                <strong style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
-                  fontStyle:"italic", fontSize:"2.6rem", fontWeight:400, display:"block",
-                  lineHeight:1, color:"#fff" }}>{n}</strong>
-                <p style={{ fontSize:11, fontWeight:600, letterSpacing:".06em",
-                  textTransform:"uppercase" as const, color:"rgba(255,255,255,.8)", marginTop:".4rem" }}>{l}</p>
+                <strong style={{ fontFamily:serif, fontStyle:'italic', fontSize:'2.6rem',
+                  fontWeight:400, display:'block', lineHeight:1 }}>{n}</strong>
+                <p style={{ fontSize:11, fontWeight:600, letterSpacing:'.06em',
+                  textTransform:'uppercase' as const, color:'rgba(255,255,255,.8)', marginTop:'.35rem' }}>{l}</p>
               </div>
             ))}
           </div>
         </div>
       </Reveal>
-      {/* units */}
-      <div style={{ padding:".4rem 20px 0" }}>
-        <Kicker label="What that one team covers" />
-      </div>
-      {units.map((u, i) => (
-        <Reveal key={i} delay={i * 50}>
-          <div style={{ padding:"1.8rem 20px 2rem", borderTop:`1px solid ${T.line}` }}>
-            <div style={{ display:"flex", alignItems:"flex-start", gap:".8rem", marginBottom:".6rem" }}>
-              <span style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
-                fontStyle:"italic", fontSize:"2rem", color:T.scar, width:44, flexShrink:0, lineHeight:.8 }}>{u.no}</span>
-              <span style={{ fontFamily:"var(--font-space-mono,'Space Mono',monospace)", fontSize:9.5,
-                letterSpacing:".14em", textTransform:"uppercase" as const, color:T.dim,
-                border:`1px solid ${T.line}`, borderRadius:20, padding:".28rem .65rem",
-                display:"inline-block", alignSelf:"flex-start" }}>{u.tag}</span>
-            </div>
-            <h3 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
-              fontSize:"clamp(1.7rem,6.5vw,2.4rem)", lineHeight:1, letterSpacing:"-.04em",
-              color:T.ivory, marginBottom:".8rem" }} dangerouslySetInnerHTML={{ __html: u.headline }} />
-            <p style={{ fontSize:".94rem", color:T.dim, lineHeight:1.6, marginBottom:"1rem",
-              maxWidth:"56ch" }}>{u.body}</p>
-            <div style={{ display:"flex", flexWrap:"wrap" as const, gap:".5rem", marginBottom:"1.1rem" }}>
-              {u.deliv.map((d,j)=>(
-                <span key={j} style={{ fontSize:11.5, fontWeight:600, color:T.ivory,
-                  background:"rgba(242,239,233,.06)", borderRadius:4, padding:".38rem .68rem" }}>{d}</span>
+
+      {/* ── speed chart ── */}
+      <Reveal>
+        <div style={{ padding:'2rem 20px 2rem', borderTop:`1.5px solid ${T.line}` }}>
+          <p style={{ fontSize:11, fontWeight:700, letterSpacing:'.2em',
+            textTransform:'uppercase' as const, color:T.dim, marginBottom:'.4rem' }}>
+            Why speed is the whole game
+          </p>
+          <p style={{ fontSize:'clamp(1.15rem,4vw,1.65rem)', fontWeight:700, letterSpacing:'-.03em',
+            lineHeight:1.1, maxWidth:'24ch', marginBottom:'1.2rem', color:T.ivory }}>
+            How likely a lead is to qualify,{' '}
+            <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400, color:scar }}>
+              by how fast you reply.
+            </em>
+          </p>
+          <div style={{ background:'rgba(242,239,233,.04)', border:`1px solid ${T.line}`,
+            borderRadius:12, padding:'1.3rem 1rem 1rem' }}>
+            <div ref={chartRef} className="slc-chart"
+              style={{ display:'flex', alignItems:'flex-end', gap:'.5rem', height:156 }}>
+              {SL_BARS.map((b,k)=>(
+                <div key={k} style={{ flex:1, display:'flex', flexDirection:'column' as const,
+                  justifyContent:'flex-end', height:'100%', textAlign:'center' as const, minWidth:0 }}>
+                  <span className="slc-v" style={{ fontSize:11, fontWeight:800,
+                    marginBottom:'.35rem', color:T.ivory }}>{b.v}</span>
+                  <div className="slc-bar"
+                    style={{ '--h':b.h, width:'100%', background:scar,
+                      borderRadius:'4px 4px 0 0', opacity:SL_OPA[k] } as React.CSSProperties} />
+                  <span style={{ fontSize:9.5, color:T.dim, marginTop:'.45rem',
+                    fontWeight:700, letterSpacing:'.01em' }}>{b.x}</span>
+                </div>
               ))}
             </div>
-            <div style={{ display:"flex", alignItems:"baseline", gap:".7rem",
-              paddingTop:".9rem", borderTop:`1px solid ${T.line}` }}>
-              <span style={{ fontFamily:"var(--font-space-mono,'Space Mono',monospace)", fontWeight:700,
-                fontSize:"clamp(1.8rem,7vw,2.6rem)", lineHeight:.85, color:T.ivory }}>
-                {u.stat}
-                <span style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
-                  fontStyle:"italic", fontWeight:400, fontSize:".42em", color:T.dim }}>{u.statS}</span>
+            <p style={{ fontSize:11, color:T.dim, lineHeight:1.4, marginTop:'1rem', maxWidth:'52ch' }}>
+              <strong style={{ color:scar }}>Reply in 5 minutes and you&apos;re 21× more likely to qualify the lead than at 30.</strong>{' '}
+              Our job is to make sure you&apos;re always the 5-minute reply.
+            </p>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* ── units header ── */}
+      <div style={{ padding:'0 20px 1.2rem', borderTop:`1.5px solid ${T.line}`, paddingTop:'2rem' }}>
+        <p style={{ fontSize:11, fontWeight:700, letterSpacing:'.2em',
+          textTransform:'uppercase' as const, color:T.dim, marginBottom:'.4rem' }}>
+          What that one team covers
+        </p>
+        <p style={{ fontSize:'clamp(1.15rem,4vw,1.65rem)', fontWeight:700,
+          letterSpacing:'-.03em', lineHeight:1.1, color:T.ivory }}>
+          Five ways we lift the number —{' '}
+          <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400, color:scar }}>run as one.</em>
+        </p>
+      </div>
+
+      {/* units i–iii */}
+      {SL_UNITS.slice(0,3).map((u,i)=>(
+        <Reveal key={i} delay={i*50}><UnitRow u={u} /></Reveal>
+      ))}
+
+      {/* ── unit iv — navy system block ── */}
+      <Reveal>
+        <div style={{ margin:'.4rem 20px .4rem', padding:'2rem 1.5rem',
+          background:navy, borderRadius:14, color:navyT }}>
+          <div style={{ display:'flex', alignItems:'flex-start', gap:'.8rem', marginBottom:'.5rem' }}>
+            <span style={{ fontFamily:serif, fontStyle:'italic', fontSize:'2rem',
+              color:'#fff', width:44, flexShrink:0, lineHeight:.8 }}>iv</span>
+            <span style={{ fontFamily:mono, fontSize:9.5, letterSpacing:'.14em',
+              textTransform:'uppercase' as const, color:'#fff',
+              border:'1px solid rgba(244,239,230,.32)', borderRadius:20, padding:'.28rem .65rem',
+              display:'inline-block', alignSelf:'flex-start' as const }}>AI & Tech</span>
+          </div>
+          <h3 style={{ fontFamily:brico, fontWeight:700,
+            fontSize:'clamp(1.6rem,5.4vw,2.2rem)', lineHeight:1.02, letterSpacing:'-.04em',
+            color:'#fff', marginBottom:'.6rem' }}>
+            We build you{' '}
+            <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400 }}>one system.</em>
+          </h3>
+          <p style={{ fontSize:10, fontWeight:700, letterSpacing:'.15em',
+            textTransform:'uppercase' as const, color:'#9FC0EC', marginBottom:'.65rem' }}>
+            The one built thing · engineering
+          </p>
+          <p style={{ fontSize:'.94rem', color:'rgba(244,239,230,.78)', lineHeight:1.6, marginBottom:'.9rem' }}>
+            The single piece of technology in the engagement — built for your sales, then handed to you.
+            It catches every enquiry, answers in seconds any hour, qualifies against your criteria, and books
+            straight into the calendar. Voice and chat agents included. You own it outright, in your full IP
+            control — we build it, you keep it.
+          </p>
+          <div style={{ display:'flex', flexWrap:'wrap' as const, gap:'.45rem', marginBottom:'.85rem' }}>
+            {['Lead capture & routing','Instant qualify & book','Voice + chat agents','Yours to keep — full IP'].map((d,j)=>(
+              <span key={j} style={{ fontSize:11, fontWeight:600, color:'rgba(244,239,230,.9)',
+                background:'rgba(244,239,230,.1)', borderRadius:4, padding:'.35rem .65rem' }}>{d}</span>
+            ))}
+          </div>
+          <div style={{ display:'inline-flex', alignItems:'center', gap:'.45rem', marginBottom:'1rem',
+            fontSize:10.5, fontWeight:700, letterSpacing:'.11em',
+            textTransform:'uppercase' as const, color:'#9FC0EC' }}>
+            <span style={{ width:7, height:7, borderRadius:'50%',
+              background:'#9FC0EC', display:'inline-block' }} />
+            Built for you · handed to you · your IP
+          </div>
+          <div style={{ display:'flex', alignItems:'baseline', gap:'.65rem',
+            paddingTop:'.85rem', borderTop:'1px solid rgba(244,239,230,.18)' }}>
+            <span style={{ fontFamily:serif, fontStyle:'italic',
+              fontSize:'clamp(1.8rem,7vw,2.6rem)', fontWeight:400, lineHeight:.85, color:'#fff' }}>
+              67<em style={{ fontSize:'.42em', color:'rgba(244,239,230,.4)', fontStyle:'normal' }}>%</em>
+            </span>
+            <span style={{ fontSize:11.5, color:'rgba(244,239,230,.6)',
+              lineHeight:1.35, maxWidth:'28ch' }}>
+              booked with instant reply, versus 30% (Chili Piper, 4M)
+            </span>
+          </div>
+          {/* live pipeline */}
+          <div style={{ marginTop:'1.4rem', paddingTop:'1.3rem',
+            borderTop:'1px solid rgba(244,239,230,.18)' }}>
+            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.14em',
+              textTransform:'uppercase' as const, color:'rgba(244,239,230,.5)',
+              marginBottom:'1rem', display:'flex', justifyContent:'space-between' as const }}>
+              <span>How your system runs, 24/7</span>
+              <span style={{ color:'#7FE0A8', display:'inline-flex', alignItems:'center' }}>
+                <span className="slc-live-dot" />Live
               </span>
-              <span style={{ fontSize:11.5, color:T.dim, lineHeight:1.35, maxWidth:"28ch" }}>{u.statP}</span>
+            </div>
+            <div style={{ display:'flex', alignItems:'flex-start', gap:'.3rem' }}>
+              {SL_FLOW.map((label,k)=>(
+                <>
+                  <div key={label} style={{ flex:1, textAlign:'center' as const }}>
+                    <div style={{ width:13, height:13, borderRadius:'50%', margin:'0 auto .5rem',
+                      background: pipeStep > k ? '#9FC0EC' : 'rgba(244,239,230,.22)',
+                      boxShadow: pipeStep > k ? '0 0 0 5px rgba(159,192,236,.18)' : 'none',
+                      transition:'background .4s ease,box-shadow .4s ease' }} />
+                    <div style={{ fontSize:9.5, fontWeight:700, letterSpacing:'.05em',
+                      textTransform:'uppercase' as const, lineHeight:1.25,
+                      color: pipeStep > k ? 'rgba(244,239,230,.9)' : 'rgba(244,239,230,.55)',
+                      transition:'color .4s' }}>{label}</div>
+                    <div style={{ fontFamily:serif, fontStyle:'italic', fontSize:'.85rem',
+                      color:'#9FC0EC', marginTop:'.2rem', height:'1rem',
+                      opacity: pipeStep > k ? 1 : 0, transition:'opacity .4s' }}>
+                      {SL_FLOWT[k]}
+                    </div>
+                  </div>
+                  {k < SL_FLOW.length - 1 && (
+                    <div style={{ flexShrink:0, alignSelf:'flex-start' as const, width:14, height:2,
+                      background: pipeStep > k + 1 ? '#9FC0EC' : 'rgba(244,239,230,.2)',
+                      marginTop:5.5, borderRadius:2, transition:'background .4s' }} />
+                  )}
+                </>
+              ))}
             </div>
           </div>
-        </Reveal>
+        </div>
+      </Reveal>
+
+      {/* unit v */}
+      {SL_UNITS.slice(3).map((u,i)=>(
+        <Reveal key={i}><UnitRow u={u} /></Reveal>
       ))}
-      {/* guarantee */}
+
+      {/* ── proof / transformation ── */}
       <Reveal>
-        <div style={{ margin:"1.6rem 20px", padding:"2rem 1.6rem",
-          background:"#1A1614", borderRadius:14, border:`1px solid ${T.line}` }}>
-          <Kicker label="Our guarantee" color="#F0857E" />
-          <h2 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
-            fontSize:"clamp(1.6rem,5vw,2.4rem)", lineHeight:1.1, letterSpacing:"-.04em",
-            color:T.ivory, maxWidth:"22ch", marginBottom:"1rem" }}>
-            If your booked calls don't climb in 90 days,{" "}
-            <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
-              fontStyle:"italic", fontWeight:400 }}>we work free until they do.</em>
-          </h2>
-          <p style={{ fontSize:".96rem", color:T.dim, lineHeight:1.6, maxWidth:"52ch" }}>
-            We're a sales company — refusing to stand behind sales would be a tell. So we tie our retainer to your pipeline, not to hours. You carry none of the risk of trying us.
+        <div style={{ padding:'2rem 20px', borderTop:`1.5px solid ${T.line}` }}>
+          <p style={{ fontSize:11, fontWeight:700, letterSpacing:'.2em',
+            textTransform:'uppercase' as const, color:T.dim, marginBottom:'.4rem' }}>
+            What changes when we run it
+          </p>
+          <p style={{ fontSize:'clamp(1.15rem,4vw,1.65rem)', fontWeight:700,
+            letterSpacing:'-.03em', lineHeight:1.1, marginBottom:'1.2rem', color:T.ivory }}>
+            The{' '}
+            <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400, color:scar }}>before</em>
+            {' '}and after.
+          </p>
+          {SL_PROOF.map((row,k)=>(
+            <div key={k} style={{ borderTop:`1px solid ${T.line}`, padding:'1.1rem 0' }}>
+              <span style={{ fontSize:10, fontWeight:700, letterSpacing:'.14em',
+                textTransform:'uppercase' as const, color:'#9FC0EC',
+                display:'block', marginBottom:'.45rem' }}>{row.lab}</span>
+              <div style={{ display:'flex', alignItems:'center', gap:'.65rem', flexWrap:'wrap' as const }}>
+                <span style={{ fontSize:'.96rem', color:T.dim,
+                  textDecoration:'line-through', textDecorationColor:T.dim }}>{row.before}</span>
+                <span style={{ color:scar, fontWeight:800, fontSize:'1.05rem' }}>→</span>
+                <span style={{ fontSize:'1rem', fontWeight:700, color:T.ivory }}>{row.after}</span>
+              </div>
+            </div>
+          ))}
+          <p style={{ fontSize:11.5, color:T.dim, lineHeight:1.45, marginTop:'1rem', maxWidth:'50ch' }}>
+            <strong style={{ color:scar }}>A typical first 90 days:</strong>{' '}
+            booked calls up, no extra ad spend — the story, the brand and the system pulling in the same direction.
           </p>
         </div>
       </Reveal>
-      <FAQ items={faqs} />
+
+      {/* ── guarantee ── */}
+      <Reveal>
+        <div style={{ margin:'0 20px 1.6rem', padding:'2rem 1.5rem',
+          background:'#1A1614', borderRadius:14, border:`1px solid ${T.line}` }}>
+          <Kicker label="Our guarantee" color="#F0857E" />
+          <h2 style={{ fontFamily:brico, fontWeight:700,
+            fontSize:'clamp(1.5rem,5vw,2.2rem)', lineHeight:1.1, letterSpacing:'-.04em',
+            color:T.ivory, maxWidth:'22ch', marginTop:'.6rem' }}>
+            If your booked calls don&apos;t climb in 90 days,{' '}
+            <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400 }}>
+              we work free until they do.
+            </em>
+          </h2>
+          <p style={{ fontSize:'.94rem', color:T.dim, lineHeight:1.6,
+            marginTop:'.9rem', maxWidth:'52ch' }}>
+            We&apos;re a sales company — refusing to stand behind sales would be a tell. So we tie our retainer
+            to your pipeline, not to hours. You carry none of the risk of trying us.
+          </p>
+          <p style={{ fontFamily:serif, fontStyle:'italic', fontSize:'1.05rem',
+            color:'#9FC0EC', marginTop:'1rem' }}>— OARC, your one team</p>
+        </div>
+      </Reveal>
+
+      <FAQ items={SL_FAQS} />
+
+      {/* ── how we start ── */}
+      <div style={{ padding:'2rem 20px 0', borderTop:`1.5px solid ${T.line}` }}>
+        <p style={{ fontSize:11, fontWeight:700, letterSpacing:'.2em',
+          textTransform:'uppercase' as const, color:T.dim, marginBottom:'1rem' }}>
+          How we start
+        </p>
+        {SL_STEPS.map((s,k)=>(
+          <div key={k} style={{ display:'flex', gap:'.9rem',
+            borderTop: k === 0 ? 'none' : `1px solid ${T.line}`,
+            padding:'1.1rem 0' }}>
+            <span style={{ fontFamily:serif, fontStyle:'italic', fontSize:'1.6rem',
+              color:scar, width:40, flexShrink:0, lineHeight:1 }}>{s.n}</span>
+            <div>
+              <h4 style={{ fontSize:'1.05rem', fontWeight:700,
+                letterSpacing:'-.02em', color:T.ivory }}>{s.h}</h4>
+              <p style={{ fontSize:'.94rem', color:T.dim, lineHeight:1.55, marginTop:'.25rem' }}>{s.p}</p>
+            </div>
+          </div>
+        ))}
+        <p style={{ fontSize:'.94rem', color:T.dim, lineHeight:1.6, margin:'1.4rem 0 0', maxWidth:'50ch' }}>
+          At the end of the day we&apos;re a{' '}
+          <strong style={{ color:T.ivory }}>creative and AI software agency</strong>{' '}
+          — so your sales get brand, storytelling, social and a system you keep. Not spreadsheets.
+        </p>
+      </div>
+
       <CTA big={<>One team.<br /><CtaItalic>The whole sale.</CtaItalic></>}
         sub="You keep the system, the playbook, and the pipeline. We keep you closing."
         btn="Book the sales audit" onClose={onClose} />
