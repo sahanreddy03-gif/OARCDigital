@@ -185,124 +185,237 @@ const CtaItalic = ({ children }: { children: React.ReactNode }) => (
 );
 
 // ── GROWTH content ───────────────────────────────────────────────────────────
+// ── GROWTH modal — exact prototype port ───────────────────────────────────
+const GM_CSS = `
+.gm{--ink:#08131A;--deep:#050D12;--clay:#EFE3D2;--c:#EFE3D2;
+--c70:rgba(239,227,210,.72);--c45:rgba(239,227,210,.46);
+--c26:rgba(239,227,210,.26);--c16:rgba(239,227,210,.16);
+--c10:rgba(239,227,210,.10);--c06:rgba(239,227,210,.06);
+--line:rgba(239,227,210,.14);--e:cubic-bezier(.16,1,.3,1);
+background:var(--deep);color:var(--c);
+font-family:'Inter Tight',var(--font-bricolage,'Bricolage Grotesque',sans-serif);
+-webkit-font-smoothing:antialiased}
+.gm .hero{padding:1.4rem 20px 2.2rem;border-bottom:1px solid var(--line)}
+.gm .hero .lbl{font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--c45)}
+.gm .hero h1{font-size:clamp(2rem,8.5vw,3rem);font-weight:600;line-height:.98;letter-spacing:-.045em;margin-top:.7rem}
+.gm .hero h1 em{font-family:'Instrument Serif',var(--font-instrument-serif,serif);font-style:italic;font-weight:400;font-size:1.12em}
+.gm .hero>p{font-size:.95rem;color:var(--c70);line-height:1.5;margin-top:.9rem;max-width:40ch}
+.gm .stage3d{margin:2rem 0 .5rem;height:340px;display:flex;align-items:center;justify-content:center;perspective:1400px;perspective-origin:50% 30%}
+.gm .stack{position:relative;width:230px;height:230px;transform-style:preserve-3d;transform:rotateX(56deg) rotateZ(-42deg);animation:gm-float 9s var(--e) infinite alternate}
+@keyframes gm-float{from{transform:rotateX(56deg) rotateZ(-42deg) translateZ(0)}to{transform:rotateX(52deg) rotateZ(-38deg) translateZ(6px)}}
+.gm .layer{position:absolute;inset:0;border:1.5px solid var(--c26);background:rgba(239,227,210,.03);border-radius:6px;display:grid;place-items:center;opacity:0;box-shadow:0 1px 0 rgba(239,227,210,.08) inset}
+.gm .layer .dot{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--clay);box-shadow:0 0 12px rgba(239,227,210,.5)}
+.gm .layer .tag{position:absolute;left:calc(100% + 16px);top:50%;white-space:nowrap;transform:translateY(-50%) rotateZ(42deg) rotateX(-56deg);transform-origin:left center;font-size:11px;font-weight:600;letter-spacing:-.01em;color:var(--c70);display:flex;align-items:center;gap:8px}
+.gm .layer .tag::before{content:'';width:22px;height:1px;background:var(--line)}
+.gm .layer .tag b{font-size:9px;font-weight:700;letter-spacing:.1em;color:var(--c26)}
+.gm .stack.go .layer{animation:gm-rise .9s var(--e) forwards}
+@keyframes gm-rise{from{opacity:0;transform:translateZ(-40px)}to{opacity:1}}
+.gm .spineline{position:absolute;left:50%;top:50%;width:2px;background:linear-gradient(var(--c26),transparent);transform:translate(-50%,-50%);transform-style:preserve-3d}
+.gm .legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:1.5rem}
+.gm .legend span{border:1px solid var(--line);padding:6px 10px;font-size:11px;color:var(--c45);border-radius:2px}
+.gm .shead{padding:1.6rem 20px .4rem;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--c45);display:flex;align-items:center;gap:.8rem}
+.gm .shead::after{content:'';flex:1;height:1px;background:var(--line)}
+.gm .phase{padding:1.7rem 20px 2rem;border-top:1px solid var(--line)}
+.gm .phase .idx{display:flex;align-items:baseline;gap:.6rem}
+.gm .phase .idx b{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--clay)}
+.gm .phase .idx s{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--c45);text-decoration:none}
+.gm .phase h2{font-size:clamp(1.9rem,7.5vw,2.5rem);font-weight:600;line-height:1;letter-spacing:-.04em;margin-top:1rem}
+.gm .phase h2 em{font-family:'Instrument Serif',var(--font-instrument-serif,serif);font-style:italic;font-weight:400;font-size:1.15em}
+.gm .phase .out{font-family:'Instrument Serif',var(--font-instrument-serif,serif);font-style:italic;font-size:clamp(1.35rem,5.5vw,1.7rem);color:var(--c);margin-top:.9rem;line-height:1.1}
+.gm .viz{margin-top:1.4rem;border:1px solid var(--line);border-radius:8px;background:var(--deep);position:relative;overflow:hidden;aspect-ratio:1/.82}
+.gm .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(239,227,210,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.gm .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.gm .cap{margin-top:1rem;font-size:.9rem;color:var(--c70);line-height:1.5}
+.gm .stat{margin-top:1.1rem;display:flex;align-items:baseline;gap:.7rem;padding-top:1rem;border-top:1px solid var(--line)}
+.gm .stat b{font-size:clamp(2.4rem,11vw,3.2rem);font-weight:600;letter-spacing:-.05em;line-height:.85;font-variant-numeric:tabular-nums}
+.gm .stat b em{font-family:'Instrument Serif',var(--font-instrument-serif,serif);font-style:italic;font-size:.42em;color:var(--c45)}
+.gm .stat p{font-size:11.5px;color:var(--c45);line-height:1.35;max-width:22ch}
+.gm .end{padding:2rem 20px calc(2rem + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
+.gm .end p{font-size:.95rem;color:var(--c70);line-height:1.55;max-width:44ch}
+.gm .end p em{font-family:'Instrument Serif',var(--font-instrument-serif,serif);font-style:italic;font-size:1.15em;color:var(--c)}
+.gm .end button{display:block;width:100%;margin-top:1.3rem;text-align:center;font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink);background:var(--clay);border:none;padding:1.1rem;border-radius:4px;cursor:pointer;font-family:inherit}
+.gm .wire{stroke:var(--c16);stroke-width:1.25;fill:none}
+.gm .node{fill:var(--c16)}
+.gm .nodeOn{fill:var(--clay)}
+.gm .ring{fill:none;stroke:var(--clay);stroke-width:1.5}
+.gm .lab{font-weight:600;fill:var(--c70)}
+.gm .labk{font-weight:700;fill:var(--ink)}
+.gm .glow{filter:drop-shadow(0 0 10px rgba(239,227,210,.55))}
+.gm .draw{stroke-dasharray:var(--L,240);stroke-dashoffset:var(--L,240)}
+.gm .live .draw{animation:gm-draw 1.1s var(--e) forwards}
+@keyframes gm-draw{to{stroke-dashoffset:0}}
+.gm .pop{opacity:0;transform:scale(.4);transform-origin:center}
+.gm .live .pop{animation:gm-pop .5s var(--e) forwards}
+@keyframes gm-pop{to{opacity:1;transform:scale(1)}}
+.gm .up{opacity:0}
+.gm .live .up{animation:gm-up .6s var(--e) forwards}
+@keyframes gm-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.gm .grow{transform:scaleY(0);transform-origin:50% 100%}
+.gm .live .grow{animation:gm-grw .75s var(--e) forwards}
+@keyframes gm-grw{to{transform:scaleY(1)}}
+.gm .spin{transform-origin:center;animation:gm-sp 6s linear infinite}
+@keyframes gm-sp{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){
+.gm .stack{animation:none}
+.gm .layer{opacity:1}
+.gm .stack.go .layer{animation:none;opacity:1}
+.gm .up,.gm .pop{opacity:1;transform:none}
+.gm .draw{stroke-dashoffset:0}
+.gm .grow{transform:none}}
+`;
+
+const CV = '#EFE3D2';
+const GM_VIZ: Record<string, () => string> = {
+  radiate: () => {
+    let s = '';
+    for (let i = 0; i < 8; i++) {
+      const a = (i/8)*Math.PI*2 - Math.PI/2;
+      const x = (200+Math.cos(a)*128).toFixed(1), y = (170+Math.sin(a)*128).toFixed(1);
+      s += `<path class="wire draw" style="--L:150;animation-delay:${(.4+i*.07).toFixed(2)}s" d="M200,170 L${x},${y}"/>`;
+      s += `<circle class="node pop" cx="${x}" cy="${y}" r="11" style="animation-delay:${(.8+i*.07).toFixed(2)}s"/>`;
+    }
+    return `<svg viewBox="0 0 400 340">${s}<circle class="ring pop glow" cx="200" cy="170" r="30" style="animation-delay:.2s"/><circle class="nodeOn glow pop" cx="200" cy="170" r="6" style="animation-delay:.35s"/><text class="labk" x="200" y="174" font-size="12" font-weight="700" text-anchor="middle">YOU</text></svg>`;
+  },
+  target: () => {
+    let s = '';
+    [128,92,56].forEach((r,i) => { s += `<circle class="wire draw" style="--L:${(2*Math.PI*r).toFixed(0)};animation-delay:${(i*.18).toFixed(2)}s" cx="200" cy="170" r="${r}"/>`; });
+    [[70,70],[330,90],[300,270],[96,266],[150,110],[262,120],[110,200],[300,190],[200,60],[210,286]].forEach((p,i) => {
+      const on = [4,5,6,7].includes(i);
+      s += `<circle class="${on?'nodeOn glow':'node'} pop" cx="${p[0]}" cy="${p[1]}" r="${on?7:5}" style="animation-delay:${(.9+i*.05).toFixed(2)}s"/>`;
+    });
+    s += `<line class="wire" x1="200" y1="120" x2="200" y2="220" opacity=".5"/><line class="wire" x1="150" y1="170" x2="250" y2="170" opacity=".5"/><circle class="ring glow pop" cx="200" cy="170" r="16" style="animation-delay:1.5s"/>`;
+    return `<svg viewBox="0 0 400 340">${s}</svg>`;
+  },
+  told: () => {
+    const beats: [number,number][] = [[40,250],[120,180],[200,110],[290,84],[360,70]];
+    let s = `<path class="wire draw glow" style="--L:520" d="M40,250 C120,250 130,120 200,110 C270,100 300,60 360,70"/>`;
+    beats.forEach((p,i) => { const on = i===beats.length-1; s += `<circle class="${on?'nodeOn glow':'node'} pop" cx="${p[0]}" cy="${p[1]}" r="${on?8:6}" style="animation-delay:${(.6+i*.18).toFixed(2)}s"/>`; });
+    ['Who','Why','What for','You'].forEach((l,i) => { s += `<text class="lab up" x="${beats[i][0]}" y="${beats[i][1]+26}" font-size="10.5" text-anchor="middle" opacity=".5" style="animation-delay:${(1+i*.15).toFixed(2)}s">${l}</text>`; });
+    return `<svg viewBox="0 0 400 300">${s}</svg>`;
+  },
+  check: () => {
+    let s = '';
+    ['Price','Recent work','Real reviews','An answer'].forEach((l,i) => {
+      const y = 40+i*66;
+      s += `<rect class="wire up" x="34" y="${y}" width="210" height="46" rx="4" style="animation-delay:${(i*.1).toFixed(2)}s"/>`;
+      s += `<text class="lab up" x="52" y="${y+28}" font-size="13" style="animation-delay:${(i*.1).toFixed(2)}s">${l}</text>`;
+      s += `<rect x="286" y="${y}" width="80" height="46" rx="4" fill="none" stroke="${CV}" stroke-opacity=".2" stroke-width="1.25"/>`;
+      s += `<path class="draw" style="--L:30;animation-delay:${(.9+i*.35).toFixed(2)}s" d="M300,${y+24} l9,10 l18,-20" stroke="${CV}" stroke-width="2.5" fill="none"/>`;
+    });
+    return `<svg viewBox="0 0 400 320">${s}</svg>`;
+  },
+  timeline: () => {
+    let s = '';
+    [64,108,152,214,260,306,352].forEach((x,i) => { s += `<rect class="nodeOn grow" x="${x-3}" y="126" width="6" height="34" style="animation-delay:${(i*.11).toFixed(2)}s"/>`; });
+    return `<svg viewBox="0 0 400 300"><line class="wire" x1="28" y1="170" x2="372" y2="170"/><circle class="node pop" cx="28" cy="170" r="8"/><circle class="ring glow pop" cx="372" cy="170" r="12" style="animation-delay:1.3s"/>${s}<text class="lab" x="28" y="205" font-size="10.5" text-anchor="middle" opacity=".55">Prefers you</text><text class="lab" x="372" y="205" font-size="10.5" text-anchor="middle" opacity=".55">Buys</text></svg>`;
+  },
+  stack: () => {
+    let s = '';
+    [0,1,2,3].forEach(i => { const h=44+i*38, x=150+i*64; s += `<rect class="nodeOn grow" x="${x}" y="${210-h}" width="48" height="${h}" rx="2" style="animation-delay:${(.3+i*.16).toFixed(2)}s"/>`; });
+    return `<svg viewBox="0 0 400 260"><line class="wire" x1="28" y1="210" x2="372" y2="210"/><rect class="node grow" x="40" y="150" width="48" height="60" rx="2"/><text class="lab" x="64" y="232" font-size="10.5" text-anchor="middle" opacity=".5">Cost</text><text class="lab" x="278" y="232" font-size="10.5" text-anchor="middle" opacity=".5">Every time after</text>${s}</svg>`;
+  },
+};
+
+const GM_PHASES = [
+  { n:'01', sp:'They find you',  h:'They <em>find</em> you.',     out:'The ones already looking.',
+    cap:"The Search desk owns the moment someone is already searching for what you sell. It runs your buyers\u2019 real questions through search, maps and AI, sees who gets named instead of you, and works the pages those answers are built from \u2014 where top rank and AI citation now overlap under 20%.",
+    stat:'38', statEm:'%', statP:'of AI answers named the business, up from 11%', viz:'radiate' },
+  { n:'02', sp:'You find them',  h:'You <em>find</em> them.',    out:'The ones not looking yet.',
+    cap:"The Reach desk owns everyone who isn\u2019t searching yet \u2014 most of your future customers. It builds audiences from people who already paid you, then runs your social and paid ads at those exact buyers, on the platform and at the hour they are actually there. Search waits to be found; this goes and finds them.",
+    stat:'6', statEm:'', statP:'audiences built from your own buyers, not guesswork', viz:'target' },
+  { n:'03', sp:'They like you',  h:'They <em>like</em> you.',    out:'They care before they compare.',
+    cap:"The Studio owns what you actually say. It builds the story \u2014 who you are, why you do it, what you stand for \u2014 into content, video and the creative inside every ad. Reach picks who sees you; the Studio gives them a reason to stop and care before they ever compare a price.",
+    stat:'40', statEm:'', statP:'pieces of story-led content a month, made in your voice', viz:'told' },
+  { n:'04', sp:'They pick you',  h:'They <em>pick</em> you.',    out:'You beat the other three.',
+    cap:"Once they care, they compare. The Conversion desk builds the four things every buyer checks with their head \u2014 a visible price, recent work, real reviews, a straight answer \u2014 and fills whatever is blank, starting with the price most competitors hide.",
+    stat:'4', statEm:'', statP:'things every buyer checks, before they pick', viz:'check' },
+  { n:'05', sp:'You stay close', h:'You <em>stay close</em>.',   out:'You never go quiet.',
+    cap:"The Lifecycle desk owns every moment between deciding and buying \u2014 both ways. It keeps you in front across the gap, triggered by what the buyer does, and the instant they reach back, an agent trained on your prices and rules replies in seconds, qualifies, and books. Reply in five minutes and you\u2019re 21\u00d7 likelier to qualify the lead than at thirty; 78% go with whoever answers first.",
+    stat:'11', statEm:'sec', statP:'to reply, any hour \u2014 and 0 days you disappear', viz:'timeline' },
+  { n:'06', sp:'They come back', h:'They <em>come back</em>.',   out:'Again, and again.',
+    cap:"The Retention desk captures the review at the sale, times the return to the buyer\u2019s own cycle, and engineers the referral \u2014 because a 5% retention lift raises profit 25 to 95%.",
+    stat:'2.4', statEm:'\u00d7', statP:'the value of a year, not a single sale', viz:'stack' },
+];
+
 function GrowthContent({ onClose }: { onClose: () => void }) {
   const stackRef = useRef<HTMLDivElement>(null);
+  const wrapRef  = useRef<HTMLDivElement>(null);
+
+  // inject exact prototype CSS once, clean up on unmount
   useEffect(() => {
-    const t = setTimeout(() => stackRef.current?.classList.add("go"), 350);
+    const id = "gm-styles";
+    if (!document.getElementById(id)) {
+      const el = document.createElement("style");
+      el.id = id; el.textContent = GM_CSS;
+      document.head.appendChild(el);
+    }
+    return () => { document.getElementById("gm-styles")?.remove(); };
+  }, []);
+
+  // trigger 3-D stack entrance
+  useEffect(() => {
+    const t = setTimeout(() => stackRef.current?.classList.add("go"), 380);
     return () => clearTimeout(t);
   }, []);
 
+  // scroll-triggered viz reveal (exact prototype behaviour)
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach(en => { if (en.isIntersecting) en.target.classList.add("live"); }),
+      { threshold: 0.35 }
+    );
+    wrapRef.current?.querySelectorAll(".viz").forEach(v => io.observe(v));
+    return () => io.disconnect();
+  }, []);
+
   const desks = ["Search desk","Reach desk","The Studio","Conversion desk","Lifecycle desk","Retention desk"];
-  const n = desks.length, gap = 34, base = -(n - 1) * gap / 2;
+  const n = desks.length, gap = 34, base = -(n-1)*gap/2;
 
-  const phases: PhaseData[] = [
-    { num:"01", label:"They find you",
-      headline:'They <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">find</em> you.',
-      hook:"The ones already looking.", who:"Search desk",
-      body:"The Search desk owns the moment someone is already searching for what you sell. It runs your buyers' real questions through search, maps and AI, sees who gets named instead of you, and works the pages those answers are built from — where top rank and AI citation now overlap under 20%.",
-      stat:"38", statS:"%", statD:"of AI answers named the business, up from 11%" },
-    { num:"02", label:"You find them",
-      headline:'You <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">find</em> them.',
-      hook:"The ones not looking yet.", who:"Reach desk",
-      body:"The Reach desk owns everyone who isn't searching yet — most of your future customers. It builds audiences from people who already paid you, then runs your social and paid ads at those exact buyers, on the platform and at the hour they are actually there. Search waits to be found; this goes and finds them.",
-      stat:"6", statD:"audiences built from your own buyers, not guesswork" },
-    { num:"03", label:"They like you",
-      headline:'They <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">like</em> you.',
-      hook:"They care before they compare.", who:"The Studio",
-      body:"The Studio owns what you actually say. It builds the story — who you are, why you do it, what you stand for — into content, video and the creative inside every ad. Reach picks who sees you; the Studio gives them a reason to stop and care before they ever compare a price.",
-      stat:"40", statD:"pieces of story-led content a month, made in your voice" },
-    { num:"04", label:"They pick you",
-      headline:'They <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">pick</em> you.',
-      hook:"You beat the other three.", who:"Conversion desk",
-      body:"Once they care, they compare. The Conversion desk builds the four things every buyer checks with their head — a visible price, recent work, real reviews, a straight answer — and fills whatever is blank, starting with the price most competitors hide.",
-      stat:"4", statD:"things every buyer checks, before they pick" },
-    { num:"05", label:"You stay close",
-      headline:'You <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">stay close</em>.',
-      hook:"You never go quiet.", who:"Lifecycle desk",
-      body:"The Lifecycle desk owns every moment between deciding and buying — both ways. It keeps you in front across the gap, triggered by what the buyer does, and the instant they reach back, an agent trained on your prices and rules replies in seconds, qualifies, and books. Reply in five minutes and you're 21× likelier to qualify the lead than at thirty; 78% go with whoever answers first.",
-      stat:"11", statS:"sec", statD:"to reply, any hour — and 0 days you disappear" },
-    { num:"06", label:"They come back",
-      headline:'They <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">come back</em>.',
-      hook:"Again, and again.", who:"Retention desk",
-      body:"The Retention desk captures the review at the sale, times the return to the buyer's own cycle, and engineers the referral — because a 5% retention lift raises profit 25 to 95%.",
-      stat:"2.4", statS:"×", statD:"the value of a year, not a single sale" },
-  ];
-  const faqs = [
-    { q:"What does 'bring me more customers' actually involve?", a:"The whole journey: being found when people search, reaching the ones not searching yet, giving them a reason to like you, being the one they pick, replying instantly, and making them come back. Six steps, each run by its own desk. Miss one and the rest never happen." },
-    { q:"Is this just ads?", a:"No. Ads are one step — the Reach desk. We also own search and local visibility (Search desk), the creative that makes people care (The Studio), the four things buyers check before choosing (Conversion desk), instant response (Lifecycle desk), and retention (Retention desk). A leak in any one step wastes all the others." },
-    { q:"How do you measure it?", a:"On customers and revenue, at month end — not clicks. You can see every step of the journey and where it's working, in a live report you can check any time." },
-    { q:"Are you an AI company?", a:"No. Real strategists, creatives and analysts run the journey. AI is one tool at the Lifecycle desk — it answers enquiries in seconds. The thinking is done by people." },
-  ];
   return (
-    <div style={{ background:T.noir, color:T.ivory }}>
-      {/* hero */}
-      <div style={{ padding:"1.8rem 20px 2.4rem", borderBottom:`1px solid ${T.line}` }}>
-        <Kicker label="Growth" />
-        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
-          fontSize:"clamp(2.2rem,9vw,3.4rem)", lineHeight:.94, letterSpacing:"-.045em",
-          color:T.ivory, marginBottom:"1rem" }}>
-          A stranger becomes<br />a customer.{" "}
-          <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle:"italic", fontWeight:400, letterSpacing:0, color:T.scar }}>
-            Six steps to the sale.
-          </em>
-        </h1>
-        <p style={{ fontSize:".96rem", color:T.dim, lineHeight:1.58, maxWidth:"44ch" }}>
-          They find you. You find them. They like you. They pick you. You stay close. They come back.{" "}
-          <strong style={{ color:T.ivory }}>Six steps, each run by its own desk.</strong>{" "}
-          Miss one and the rest never happen — so we run all six.
-        </p>
-
-        {/* 3-D desk stack */}
-        <div className="gdept-stage">
-          <div className="gdept-stack" ref={stackRef}>
-            <div className="gdept-spine" style={{ height:(n-1)*gap }} />
+    <div className="gm" ref={wrapRef}>
+      <div className="hero">
+        <p className="lbl">One engagement</p>
+        <h1>A stranger becomes<br />a customer. <em>Six steps to the sale.</em></h1>
+        <p>They find you. You find them. They like you. They pick you. You stay close. They come back. Six steps, each run by its own desk. Miss one and the rest never happen — so we run all six.</p>
+        <div className="stage3d">
+          <div className="stack" ref={stackRef}>
+            <div className="spineline" style={{ height:`${(n-1)*gap}px`, transform:"translate(-50%,-50%) rotateX(90deg)" }} />
             {desks.map((d, i) => (
-              <div key={i} className="gdept-layer"
-                style={{ transform:`translateZ(${base + i*gap}px)`, animationDelay:`${i*.13}s` }}>
-                <span className="gdept-dot" />
-                <span className="gdept-tag"><b>0{i+1}</b>{d}</span>
+              <div key={i} className="layer"
+                style={{ transform:`translateZ(${base+i*gap}px)`, animationDelay:`${(i*.13).toFixed(2)}s` }}>
+                <span className="dot" /><span className="tag"><b>0{i+1}</b>{d}</span>
               </div>
             ))}
           </div>
         </div>
-
-        {/* legend */}
-        <div style={{ display:"flex", flexWrap:"wrap" as const, gap:6, marginTop:"1.5rem" }}>
-          {desks.map((d, i) => (
-            <span key={i} style={{ border:`1px solid ${T.line}`, padding:"6px 10px",
-              fontSize:11, color:T.dim, borderRadius:2 }}>
-              0{i+1}&nbsp;&nbsp;{d}
-            </span>
-          ))}
+        <div className="legend">
+          {desks.map((d, i) => <span key={i}>0{i+1}&nbsp;&nbsp;{d}</span>)}
         </div>
       </div>
 
-      <div style={{ padding:".4rem 20px 0" }}>
-        <Kicker label="The phases, in detail" />
-      </div>
-      {phases.map((p, i) => <Phase key={i} p={p} realm="E" />)}
+      <div className="shead">The phases, in detail</div>
 
-      {/* bonus */}
-      <Reveal>
-        <div style={{ margin:"0 20px 1.8rem", padding:"1.3rem 1.4rem",
-          border:`1px dashed ${T.line}`, borderRadius:10, background:T.card }}>
-          <Kicker label="Bonus, included" color={T.dim} />
-          <h4 style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle:"italic", fontSize:"1.3rem", fontWeight:400, color:T.ivory, marginBottom:".5rem" }}>
-            Oh — and a little tool, on us.
-          </h4>
-          <p style={{ fontSize:".88rem", color:T.dim, lineHeight:1.55 }}>
-            A small tool that watches the journey and flags the step where customers are leaking — so the team fixes the right thing first.{" "}
-            <strong style={{ color:T.ivory }}>Nice to have, not the main event.</strong>
-          </p>
+      {GM_PHASES.map((p, i) => (
+        <div key={i} className="phase">
+          <div className="idx"><b>{p.n}</b><s>{p.sp}</s></div>
+          {/* eslint-disable-next-line react/no-danger */}
+          <h2 dangerouslySetInnerHTML={{ __html: p.h }} />
+          <p className="out">{p.out}</p>
+          <div className="viz" dangerouslySetInnerHTML={{ __html: GM_VIZ[p.viz]?.() ?? '' }} />
+          <p className="cap">{p.cap}</p>
+          <div className="stat">
+            {/* eslint-disable-next-line react/no-danger */}
+            <b dangerouslySetInnerHTML={{ __html: p.statEm ? `${p.stat}<em>${p.statEm}</em>` : p.stat }} />
+            <p>{p.statP}</p>
+          </div>
         </div>
-      </Reveal>
+      ))}
 
-      <FAQ items={faqs} />
-      <CTA big={<>Five desks. One engagement.<br /><CtaItalic>One number.</CtaItalic></>}
-        sub="Five desks, one engagement, one number at month end. Everyone else hands you a dashboard — we show you the machine, and you can check it."
-        btn="Run the machine on your business" onClose={onClose} />
+      <div className="end">
+        {/* eslint-disable-next-line react/no-danger */}
+        <p dangerouslySetInnerHTML={{ __html: "Five desks, one engagement, one number at month end. Everyone else hands you a dashboard \u2014 <em>we show you the machine, and you can check it.</em>" }} />
+        <button onClick={onClose}>Run the machine on your business</button>
+      </div>
     </div>
   );
 }
