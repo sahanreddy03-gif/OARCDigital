@@ -73,14 +73,6 @@ const keyBenefits = [
     stat: '10x',
     statLabel: 'Volume capacity'
   },
-  {
-    icon: BarChart,
-    title: 'Measurable ROI',
-    headline: 'Dashboard shows conversion lift, response time, and cost saved.',
-    description: 'Every interaction tracked. Every metric visible.',
-    stat: '<2s',
-    statLabel: 'Avg response time'
-  }
 ];
 
 const comparisonData = [
@@ -117,14 +109,12 @@ const processSteps = [
 ];
 
 const aiAgentsFAQs: FAQItem[] = [
-  { question: "Will this replace our staff?", answer: "It removes repetitive work and lets your team focus on higher-value tasks; you retain full control. AI handles the routine so humans can do strategic work." },
-  { question: "How long to see ROI?", answer: "Typical pilots deliver measurable improvements in 4-8 weeks. Most clients see positive ROI within the first month of full deployment." },
-  { question: "Is my data safe?", answer: "Data remains yours. We use secure integrations, SOC 2 compliant infrastructure, and provide an enterprise data control agreement. No data is used to train external models." },
-  { question: "What if the agent fails?", answer: "Agents escalate with full context to humans and we fix issues within SLA windows. Human oversight is always available, and we continuously improve based on edge cases." },
-  { question: "What's the pricing model?", answer: "We offer flexible pricing based on your specific needs. Request a custom quote to get transparent pricing tailored to your business - no hidden fees, no surprises." },
-  { question: "Which tools do you integrate?", answer: "CRMs (Salesforce, HubSpot), booking systems (Calendly, Cal.com), payment gateways (Stripe), email, Slack/Teams, WhatsApp, and more. We handle all connectors." },
-  { question: "How quickly can you deploy?", answer: "Basic agents deploy in 7-14 days. Complex enterprise deployments with custom integrations typically take 4-6 weeks." },
-  { question: "Can we try before committing?", answer: "Yes. Our 2-week pilot program lets you test with real workflows and measurable KPIs before committing to a long-term engagement." }
+  { question: "Will it sound like a robot?", answer: "No. It's trained on your tone, your phrases, your menu or script. Most customers never ask — and when they do, it answers honestly. You approve everything before it goes live." },
+  { question: "What if the agent doesn't know the answer?", answer: "It says so, takes a message, and hands the conversation to a human with full context attached — it never invents answers. That rule is not optional, and you set where and how it escalates." },
+  { question: "Will this replace our staff?", answer: "It removes repetitive work and lets your team focus on higher-value tasks. The AI handles tier-1 volume — bookings, queries, follow-ups — so humans handle the cases that need real judgement." },
+  { question: "Is my data safe?", answer: "Data remains yours, processed on EU-resident infrastructure under GDPR. We provide a data processing agreement and no data is used to train external models. For MGA/MFSA operators, additional documentation is available on request." },
+  { question: "How quickly can you deploy?", answer: "Most AI employees are live in 7–14 days. We handle the integration, training and handover — you don't need to learn anything new." },
+  { question: "Which tools do you integrate?", answer: "CRMs (Salesforce, HubSpot), booking systems (Calendly, Cal.com), payment gateways (Stripe), email, Slack/Teams, WhatsApp Business, and most hospitality and booking platforms used by Malta operators." },
 ];
 
 function AnimatedCounter({ value, suffix = '', prefix = '' }: { value: string; suffix?: string; prefix?: string }) {
@@ -366,7 +356,46 @@ export default function PageContent() {
           </div>
         </section>
         
-        {/* Replacement Section - Unified AI Workforce */}
+        {/* In action right now — chat bubble proof */}
+        <section className="relative z-10 py-16 sm:py-20 px-4 sm:px-6 bg-zinc-950 border-t border-white/5">
+          <div className="max-w-2xl mx-auto">
+            <m.div className="text-center mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <div className="inline-flex items-center gap-2 mb-4">
+                <span className="w-2 h-2 rounded-full bg-[#c4ff4d] animate-pulse" />
+                <span className="text-[#c4ff4d] text-[10px] font-bold tracking-widest uppercase">AI Staff · On shift right now</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                While you read this,<br />
+                <span className="text-[#c4ff4d]">here's what just happened.</span>
+              </h2>
+            </m.div>
+            <div className="space-y-3">
+              {[
+                { text: 'Table for 4 booked — Friday 20:00. Confirmation sent on WhatsApp.', right: false, delay: 0 },
+                { text: 'Missed call at 14:32 — returned in 19s. Reservation saved.', right: true, delay: 0.15 },
+                { text: 'New 5★ review — reply drafted in your voice. Approve?', right: false, delay: 0.3 },
+                { text: 'Quote followed up. Client said yes — invoice sent.', right: true, delay: 0.45 },
+              ].map((bub, i) => (
+                <m.div key={i} className={`flex ${bub.right ? 'justify-end' : 'justify-start'}`}
+                  initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} transition={{ delay: bub.delay, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
+                  <div className={`max-w-[82%] px-4 py-3 rounded-2xl text-sm leading-relaxed
+                    ${bub.right
+                      ? 'bg-[#c4ff4d]/10 border border-[#c4ff4d]/20 text-[#c4ff4d] rounded-tr-sm'
+                      : 'bg-white/[0.06] border border-white/10 text-white/80 rounded-tl-sm'}`}>
+                    {bub.text}
+                  </div>
+                </m.div>
+              ))}
+            </div>
+            <m.p className="text-center text-white/25 text-[10px] font-mono mt-7 tracking-widest uppercase"
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.7 }}>
+              On shift in Malta venues · responding in seconds · never off
+            </m.p>
+          </div>
+        </section>
+
+        {/* Stop hiring. Start deploying. */}
         <section className="relative z-10 py-20 sm:py-32 px-4 sm:px-6 bg-black border-t border-white/5">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -418,129 +447,86 @@ export default function PageContent() {
                 </div>
               </m.div>
               
-              <m.div 
+              <m.div
                 className="relative"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                {/* Visual Representation of Agent Workforce */}
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-4">
-                    <m.div 
-                      className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5"
+                  {[
+                    { value: '00:04', label: 'Reply time' },
+                    { value: '24/7', label: 'On shift' },
+                    { value: '+41', label: 'Reviews / mo' },
+                    { value: '0', label: 'Sick days' },
+                  ].map((metric, i) => (
+                    <m.div key={metric.label}
+                      className={`p-6 sm:p-8 rounded-2xl border relative overflow-hidden ${i % 2 === 1 ? 'mt-6' : ''} bg-white/[0.02] border-white/5`}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                    >
-                      <div className="text-3xl sm:text-4xl font-bold text-white mb-2">99.9%</div>
-                      <div className="text-sm text-white/40">Task accuracy</div>
+                      transition={{ delay: i * 0.08 }}>
+                      <span className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-pulse" />
+                      <div className="text-2xl sm:text-3xl font-bold text-[#c4ff4d] mb-1 font-mono">{metric.value}</div>
+                      <div className="text-xs text-white/40 uppercase tracking-widest">{metric.label}</div>
                     </m.div>
-                    
-                    <m.div 
-                      className="p-6 sm:p-8 rounded-2xl bg-[#c4ff4d]/5 border border-[#c4ff4d]/10"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.1 }}
-                    >
-                      <div className="text-3xl sm:text-4xl font-bold text-[#c4ff4d] mb-2">&lt;2s</div>
-                      <div className="text-sm text-[#c4ff4d]/40">Avg response time</div>
-                    </m.div>
-                  </div>
-                  
-                  <div className="space-y-4 mt-8">
-                    <m.div 
-                      className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      <div className="text-3xl sm:text-4xl font-bold text-white mb-2">15+</div>
-                      <div className="text-sm text-white/40">AI employees</div>
-                    </m.div>
-                    
-                    <m.div 
-                      className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.3 }}
-                    >
-                      <div className="text-3xl sm:text-4xl font-bold text-white mb-2">1</div>
-                      <div className="text-sm text-white/40">Unified team</div>
-                    </m.div>
-                  </div>
+                  ))}
                 </div>
               </m.div>
             </div>
           </div>
         </section>
         
-        {/* Workspace Management Section - Sintra.ai Style */}
-        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-black">
-          <div className="max-w-6xl mx-auto">
-            {/* Workspace Dashboard Image */}
-            <div className="mb-12 flex justify-center">
-              <img 
-                src={workspaceImage} 
-                alt="OARC Digital Malta AI workspace management dashboard - unified AI team for multiple business profiles"
-                loading="lazy"
-                decoding="async"
-                className="w-full max-w-md object-contain"
-              />
-            </div>
-            
-            {/* Content */}
-            <div className="max-w-3xl mx-auto">
-              <m.h2 
-                className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                Multiple Workspaces.
-                <br />
-                One Unified AI Team.
-              </m.h2>
-              
-              <p className="text-white/60 text-lg mb-12">
-                Manage multiple workspaces supported by a single AI team composed of specialized AI employees.
+        {/* Hire once. Answer everywhere. */}
+        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-black border-t border-white/5">
+          <div className="max-w-5xl mx-auto">
+            <m.div className="mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c4ff4d]/10 border border-[#c4ff4d]/20 text-[#c4ff4d] text-[10px] uppercase tracking-widest mb-5">
+                <span>Omnichannel</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 leading-tight">
+                Hire once.<br /><span className="text-[#c4ff4d]">Answer everywhere.</span>
+              </h2>
+              <p className="text-white/60 text-lg max-w-2xl">
+                One employee, every door your customers knock on. Same memory, same manners, every channel.
               </p>
-              
-              {/* Feature 1 */}
-              <m.div 
-                className="mb-8"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-              >
-                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3">
-                  Up to Five Business Profiles
-                </h3>
-                <p className="text-white/50 text-base">
-                  Create up to five distinct business profiles, each tailored to specific objectives, workflows, and operational requirements, powered by AI employees designed to deliver measurable results.
-                </p>
-              </m.div>
-              
-              {/* Feature 2 */}
-              <m.div 
-                className="mb-8"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-              >
-                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3">
-                  Shared Team Workspace
-                </h3>
-                <p className="text-white/50 text-base">
-                  Collaborate seamlessly with your team in real time by sharing a centralized workspace, ensuring business insights, data, and decisions are accessible to all stakeholders.
-                </p>
-              </m.div>
+            </m.div>
+
+            <div className="grid sm:grid-cols-2 gap-3 mb-16">
+              {[
+                { ch: 'WhatsApp', desc: 'Bookings, questions, follow-ups — where Malta actually talks.' },
+                { ch: 'Phone', desc: 'Missed calls returned in seconds. Natural voice, your greeting.' },
+                { ch: 'DMs', desc: 'Instagram & Facebook messages answered while you\'re on service.' },
+                { ch: 'Email', desc: 'Quotes, confirmations and invoices — written, sent, chased.' },
+              ].map((c, i) => (
+                <m.div key={c.ch} className="flex items-start gap-4 p-4 rounded-xl border border-[#c4ff4d]/15 bg-[#c4ff4d]/[0.04]"
+                  initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
+                  <span className="font-bold text-[#c4ff4d] text-sm tracking-wide flex-shrink-0 w-20 pt-0.5">{c.ch}</span>
+                  <span className="text-white/60 text-sm leading-relaxed">{c.desc}</span>
+                </m.div>
+              ))}
             </div>
+
+            {/* Training terminal */}
+            <m.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Train it like a new hire.</h3>
+              <p className="text-white/50 mb-5 text-sm leading-relaxed max-w-xl">
+                No flowcharts, no code. State the rule in plain words — it becomes how your employee behaves, across every channel, from that moment.
+              </p>
+              <div className="rounded-xl border border-[#c4ff4d]/20 bg-black/60 overflow-hidden max-w-2xl">
+                <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
+                  <span className="text-[#c4ff4d] text-[10px] font-mono font-bold tracking-widest uppercase">Training — plain language</span>
+                  <span className="text-white/25 text-[10px] font-mono">live</span>
+                </div>
+                <div className="p-5 font-mono text-sm leading-loose space-y-1">
+                  <p><span className="text-white/90">You:</span> <span className="text-white/55">&ldquo;If someone asks for a refund under €50 and it&rsquo;s their first, approve it. Anything else — call me.&rdquo;</span></p>
+                  <p><span className="text-[#c4ff4d]">›</span> <span className="text-white/35 text-xs">rule learned · applied across whatsapp / phone / dms / email</span></p>
+                  <p className="pt-2"><span className="text-white/90">You:</span> <span className="text-white/55">&ldquo;We&rsquo;re closed on the 15th for a private event.&rdquo;</span></p>
+                  <p><span className="text-[#c4ff4d]">›</span> <span className="text-white/35 text-xs">calendar updated · 3 bookings moved · guests notified</span> <span className="text-[#c4ff4d] text-xs">✓</span></p>
+                </div>
+              </div>
+            </m.div>
           </div>
         </section>
         
@@ -558,70 +544,33 @@ export default function PageContent() {
 
               <div className="space-y-6 text-white/65 leading-relaxed text-base sm:text-lg">
                 <p>
-                  The argument for AI employees is, at its core, a staffing argument. A Malta business
-                  paying around €2,400 per month for a full-time team member gets someone who works
-                  eight hours a day, five days a week, takes sick days and holidays, and has a ceiling
-                  on how much they can handle at once. The same budget directed at an AI workforce gets
-                  24/7 coverage across every channel, zero sick days, consistent output quality regardless
-                  of message volume, and the ability to handle hundreds of conversations simultaneously.
-                  That is not a technology argument. It is a commercial one.
+                  The argument is a staffing one. A Malta business paying around €2,400 per month
+                  for a full-time team member gets someone who works eight hours a day, five days a
+                  week, takes sick days, and has a ceiling on how much they can handle at once. The
+                  same budget directed at an AI workforce gets 24/7 coverage across every channel,
+                  zero sick days, consistent output regardless of volume, and the ability to handle
+                  hundreds of conversations simultaneously. That is not a technology argument. It is
+                  a commercial one.
                 </p>
 
                 <p>
-                  The challenge specific to Malta is that the labour market is tight. Qualified sales
-                  people, support staff and operations managers are expensive to hire and expensive to
-                  keep. The iGaming, fintech and financial services sectors — which dominate the Maltese
-                  economy — absorb a significant share of the available talent pool, which means
-                  hospitality, retail, professional services and fast-growing SMBs end up competing
-                  for what is left. AI employees address a specific subset of that shortage: the
-                  shortage of high-quality, consistently performing team members for functions that
-                  do not require physical presence. Sales outreach, first-contact qualification,
-                  customer query resolution, appointment scheduling, invoice follow-up, data reporting
-                  — all of these can be handled by AI agents running on EU-resident infrastructure,
-                  processing data under GDPR-compliant conditions, and integrated with the tools
-                  your team already runs day-to-day.
+                  Malta's labour market is tight. iGaming, fintech and financial services absorb most
+                  of the available talent, which means hospitality, retail and fast-growing SMBs
+                  compete for what's left. AI employees address the shortage directly — sales outreach,
+                  first-contact qualification, query resolution, appointment scheduling, invoice
+                  follow-up — all running on EU-resident infrastructure under GDPR-compliant
+                  conditions, integrated with the tools your team already uses, live in 7–14 days.
                 </p>
+              </div>
+            </m.div>
 
-                <p>
-                  The questions we hear most often from Malta business owners before they commit to
-                  a pilot are three: Will this replace my team? Will it actually work with our existing
-                  systems? And will it do the job well enough that I can trust it in front of customers?
-                </p>
-
-                <p>
-                  On the first question: AI agents are additive, not replacements. The SDR agent books
-                  qualified meetings — a human closes them. The support agent resolves tier-1 queries
-                  — a human handles the cases that need real judgement. The admin agent triages the
-                  inbox — a human makes the decisions. What changes is that your team's time is spent
-                  on the work that genuinely requires human intelligence, rather than on the repetitive
-                  tasks that drain it.
-                </p>
-
-                <p>
-                  On the second: every OARC AI agent integrates with the tools your business already
-                  operates on — HubSpot, Salesforce, Calendly, Stripe, WhatsApp Business, Gmail, Slack,
-                  and most major hospitality and booking platforms used by Malta operators. We handle
-                  the integration work as part of onboarding, and agents go live within 7–14 days
-                  of engagement start.
-                </p>
-
-                <p>
-                  On the third: AI agents trained on your specific business context — your products,
-                  your pricing, your tone of voice, your escalation rules — perform significantly
-                  better on your queries than an off-the-shelf chatbot. We spend the first week
-                  grounding each agent on real data from your business: your FAQ library, your
-                  product catalogue, your past conversations, your CRM. The result is an agent
-                  that responds the way your best team member would respond, not the way a
-                  generic assistant would.
-                </p>
-
-                <p>
-                  From an EU compliance perspective, all OARC AI agents process and store data on
-                  EU-resident infrastructure by default — Frankfurt or Dublin depending on your
-                  preference. No data leaves the EU without explicit instruction, and every deployment
-                  comes with a data processing agreement aligned with GDPR obligations. For iGaming
-                  and financial services operators regulated by the MGA or MFSA, we can supply
-                  additional documentation on data handling and AI decision-making on request.
+            {/* Human handoff trust callout */}
+            <m.div className="mt-10"
+              initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}>
+              <div className="p-5 rounded-xl border border-dashed border-[#c4ff4d]/30 bg-[#c4ff4d]/[0.03]">
+                <p className="text-white font-semibold mb-1">Knows when to call a human.</p>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  Anything sensitive, unusual or high-value hands off to you or your team instantly — with the full conversation attached. Guardrails set by you, in writing. No AI agent at OARC operates without a human escalation path.
                 </p>
               </div>
             </m.div>
@@ -1007,34 +956,6 @@ export default function PageContent() {
               </picture>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" data-testid="grid-ai-agents-spokes">
-              {[
-                { slug: "ai-sdr-agent", title: "AI SDR Agent", desc: "Outbound and inbound qualification — booked calls land in your calendar overnight." },
-                { slug: "ai-support-specialist", title: "AI Support Specialist", desc: "Tier-1 customer support on WhatsApp, email and chat with full handover to humans." },
-                { slug: "ai-appointment-booker", title: "AI Appointment Booker", desc: "Conversational booker for clinics, salons and restaurants — calendar-aware and SMS-confirmed." },
-                { slug: "ai-data-analyst", title: "AI Data Analyst", desc: "Daily plain-English answers from your CRM, ads and finance data — no dashboards required." },
-                { slug: "ai-admin-agent", title: "AI Admin Agent", desc: "Inboxes triaged, invoices chased, and calendars defended on autopilot." },
-                { slug: "ai-compliance-auditor", title: "AI Compliance Auditor", desc: "Continuous policy and regulatory checks built for MFSA, MGA and IDPC contexts." },
-                { slug: "ai-real-estate-agent", title: "AI Real Estate Agent", desc: "Lead capture, listing answers and viewing scheduling for Malta property agencies." },
-                { slug: "hire-ai-employees", title: "Hire AI Employees", desc: "Bring on a complete AI workforce, billed per role rather than per hour." },
-                { slug: "ai-consulting", title: "AI Consulting", desc: "Roadmap your AI rollout — opportunity audit and 90-day deployment plan." },
-              ].map((spoke) => (
-                <Link
-                  key={spoke.slug}
-                  href={`/services/${spoke.slug}`}
-                  data-testid={`link-ai-agents-spoke-${spoke.slug}`}
-                  className="block"
-                >
-                  <GlassCard className="p-6 h-full hover-elevate active-elevate-2">
-                    <h3 className="text-white font-semibold mb-2 flex items-center justify-between gap-2">
-                      <span>{spoke.title}</span>
-                      <ArrowRight className="w-4 h-4 text-[#c4ff4d] flex-shrink-0" />
-                    </h3>
-                    <p className="text-white/60 text-sm leading-relaxed">{spoke.desc}</p>
-                  </GlassCard>
-                </Link>
-              ))}
-            </div>
           </div>
 
           {/* ItemList JSON-LD — the 7 OARC AI Agent service pages */}
