@@ -19,32 +19,47 @@ import { serviceImages } from "@/lib/assets/serviceImages";
 
 type Item = { src: string; label: string };
 
-// ── Three columns: 6 items each, covering different service areas ──
+// ── Three columns: Creative / Agentic AI / Invention ──
 const COL_0: Item[] = [
-  { src: serviceImages.adCreative,    label: "Ad Creative" },
-  { src: serviceImages.video,         label: "Video Production" },
-  { src: serviceImages.illustration,  label: "Illustration" },
-  { src: serviceImages.branding,      label: "Branding" },
-  { src: serviceImages.email,         label: "Email Creation" },
-  { src: serviceImages.webDesign,     label: "Web Design" },
+  { src: serviceImages.socialMedia,  label: "Social Media Creative" },
+  { src: serviceImages.adCreative,   label: "Ad Creative" },
+  { src: serviceImages.concept,      label: "Concept Creation" },
+  { src: serviceImages.branding,     label: "Brand & Identity" },
+  { src: serviceImages.video,        label: "Video Production" },
+  { src: serviceImages.motion,       label: "Motion Design" },
+  { src: serviceImages.webDesign,    label: "Web Design" },
+  { src: "/attached_assets/influencer_1763087034115.jpg", label: "Influencer Marketing" },
+  { src: serviceImages.immersive,    label: "Content & Storytelling" },
+  { src: serviceImages.aiEnhanced,   label: "AI-Powered Creative" },
+  { src: serviceImages.adCreative,   label: "Performance Marketing" },
 ];
 
 const COL_1: Item[] = [
-  { src: serviceImages.socialMedia,   label: "Social Media" },
-  { src: serviceImages.motion,        label: "Motion Design" },
-  { src: serviceImages.packaging,     label: "Packaging" },
-  { src: serviceImages.concept,       label: "Concept Creation" },
-  { src: serviceImages.immersive,     label: "Immersive Design" },
-  { src: serviceImages.aiEnhanced,    label: "AI Creative" },
+  { src: "/hero-cards/ai/digital-workers.jpg",      label: "Digital Workers" },
+  { src: "/hero-cards/ai/ai-sdr.jpg",               label: "AI SDR" },
+  { src: "/hero-cards/ai/ai-bdr.jpg",               label: "AI BDR" },
+  { src: "/hero-cards/ai/ai-phone-agent.jpg",       label: "AI Phone Agent" },
+  { src: "/hero-cards/ai/ai-concierge.jpg",         label: "AI Concierge" },
+  { src: "/hero-cards/ai/ai-receptionist.jpg",      label: "AI Receptionist" },
+  { src: "/hero-cards/ai/omnichannel-ai.jpg",       label: "Omnichannel AI Agent" },
+  { src: "/hero-cards/ai/whatsapp-automation.jpg",  label: "WhatsApp Automation" },
+  { src: "/hero-cards/ai/custom-ai-solutions.jpg",  label: "Custom AI Solutions" },
+  { src: "/hero-cards/ai/ai-transformation.jpg",    label: "AI Transformation" },
+  { src: "/hero-cards/ai/ai-training.jpg",          label: "AI Training" },
 ];
 
 const COL_2: Item[] = [
-  { src: serviceImages.presentation,  label: "Presentation" },
-  { src: serviceImages.ebook,         label: "eBook Design" },
-  { src: serviceImages.printDesign,   label: "Print Design" },
-  { src: serviceImages.designSystems, label: "Design Systems" },
-  { src: serviceImages.productDesign, label: "Product Design" },
-  { src: serviceImages.aiConsulting,  label: "AI Consulting" },
+  { src: "/hero-cards/invention/business-integration.jpg",    label: "Business Integration" },
+  { src: "/hero-cards/invention/strategy.jpg",                label: "Strategy" },
+  { src: "/hero-cards/invention/white-label.jpg",             label: "White Label Custom Solutions" },
+  { src: "/hero-cards/invention/operations-new-markets.jpg",  label: "Operations & New Markets" },
+  { src: "/hero-cards/invention/customer-experience.jpg",     label: "Customer Experience" },
+  { src: "/hero-cards/invention/tech-data.jpg",               label: "Tech & Data" },
+  { src: "/hero-cards/invention/commerce.jpg",                label: "Commerce" },
+  { src: "/hero-cards/invention/custom-mobile-apps.jpg",      label: "Custom Mobile Apps" },
+  { src: "/hero-cards/invention/seo-google-automation.jpg",   label: "SEO & Google Automation" },
+  { src: "/hero-cards/invention/borrow-our-brains.jpg",       label: "Borrow Our Brains" },
+  { src: "/hero-cards/invention/hospitality-360.jpg",         label: "Hospitality 360" },
 ];
 
 // Scroll speeds in px per RAF frame (60 fps → px/s = speed × 60)
