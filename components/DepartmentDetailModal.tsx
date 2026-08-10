@@ -646,81 +646,343 @@ function MediaContent({ onClose }: { onClose: () => void }) {
   );
 }
 
-// ── SOCIAL content ───────────────────────────────────────────────────────────
+// ── SOCIAL content — exact prototype port, green world ───────────────────────
+const SC_CSS = `
+.sc{
+  --bg:#0A0F0C;--deep:#060B08;--em:#3D9B65;
+  --c:#F2EFE9;
+  --c70:rgba(242,239,233,.72);--c45:rgba(242,239,233,.46);
+  --c26:rgba(242,239,233,.26);--c16:rgba(242,239,233,.16);
+  --emg:rgba(61,155,101,.55);--emd:rgba(61,155,101,.16);
+  --line:rgba(242,239,233,.13);
+  --e:cubic-bezier(.16,1,.3,1);
+  background:var(--bg);color:var(--c);
+  font-family:var(--font-bricolage,'Bricolage Grotesque',sans-serif);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden
+}
+.sc .top{display:flex;justify-content:space-between;align-items:center;
+  padding:16px 20px;padding-top:max(16px,env(safe-area-inset-top));
+  border-bottom:1px solid var(--line);position:sticky;top:0;
+  background:rgba(10,15,12,.86);backdrop-filter:blur(10px);z-index:20}
+.sc .top .brand{display:flex;align-items:baseline;gap:.7rem}
+.sc .top .brand b{font-weight:700;font-size:13px;letter-spacing:-.02em}
+.sc .top .brand s{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--c26);text-decoration:none}
+.sc .top .live-ind{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c45)}
+.sc .top .live-ind i{width:6px;height:6px;border-radius:50%;background:var(--em);animation:sc-blink 1.7s ease-out infinite;font-style:normal}
+@keyframes sc-blink{0%{box-shadow:0 0 0 0 var(--emg)}100%{box-shadow:0 0 0 8px rgba(61,155,101,0)}}
+.sc .hero{padding:1.7rem 20px 2.4rem;border-bottom:1px solid var(--line)}
+.sc .hero .lbl{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--em)}
+.sc .hero h1{font-size:clamp(2.2rem,9.4vw,3.3rem);font-weight:700;line-height:.98;letter-spacing:-.045em;margin-top:.7rem}
+.sc .hero h1 em{font-family:var(--font-instrument-serif,'Instrument Serif',serif);font-style:italic;font-weight:400;font-size:1.14em;color:var(--em)}
+.sc .hero > .desc{font-size:.96rem;color:var(--c70);line-height:1.55;margin-top:1rem;max-width:42ch}
+.sc .hero > .desc b{color:var(--c)}
+.sc .stage3d{margin:2.3rem 0 .5rem;height:344px;display:flex;align-items:center;justify-content:center;perspective:1400px;perspective-origin:50% 30%;position:relative}
+.sc .stage3d::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,var(--emd),transparent 62%);filter:blur(8px);z-index:0;animation:sc-breathe 6s var(--e) infinite alternate}
+@keyframes sc-breathe{from{opacity:.5;transform:scale(.9)}to{opacity:1;transform:scale(1.08)}}
+.sc .stack{position:relative;width:230px;height:230px;transform-style:preserve-3d;
+  transform:rotateX(58deg) rotateZ(-38deg);animation:sc-float 9s var(--e) infinite alternate;z-index:2}
+@keyframes sc-float{from{transform:rotateX(58deg) rotateZ(-38deg) translateZ(0)}to{transform:rotateX(54deg) rotateZ(-34deg) translateZ(7px)}}
+.sc .layer{position:absolute;inset:0;border:1.5px solid var(--c26);background:rgba(242,239,233,.03);
+  border-radius:6px;opacity:0;box-shadow:0 1px 0 rgba(242,239,233,.08) inset}
+.sc .layer.hot{border-color:var(--em);background:rgba(61,155,101,.12);box-shadow:0 0 26px var(--emg)}
+.sc .layer .dot{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:7px;height:7px;border-radius:50%;background:var(--em);box-shadow:0 0 12px var(--emg)}
+.sc .layer .tag{position:absolute;left:calc(100% + 16px);top:50%;white-space:nowrap;
+  transform:translateY(-50%) rotateZ(38deg) rotateX(-58deg);transform-origin:left center;
+  font-size:11px;font-weight:600;letter-spacing:-.01em;color:var(--c70);
+  display:flex;align-items:center;gap:8px}
+.sc .layer .tag::before{content:'';width:22px;height:1px;background:var(--line)}
+.sc .layer .tag b{font-size:9px;font-weight:700;letter-spacing:.1em;color:var(--c26)}
+.sc .layer .tag.hot{color:var(--c)}
+.sc .layer .tag.hot b{color:var(--em)}
+.sc .stack.go .layer{animation:sc-rise .9s var(--e) forwards}
+@keyframes sc-rise{from{opacity:0;transform:translateZ(-40px)}to{opacity:1}}
+.sc .spineline{position:absolute;left:50%;top:50%;width:2px;
+  background:linear-gradient(var(--em),transparent);
+  transform:translate(-50%,-50%);transform-style:preserve-3d}
+.sc .team-row{margin-top:1.6rem}
+.sc .team-row s{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--c45);font-style:normal}
+.sc .team-row .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:.7rem}
+.sc .team-row .chips span{border:1px solid var(--line);padding:6px 10px;font-size:11px;color:var(--c70);border-radius:2px}
+.sc .shead{padding:1.7rem 20px .4rem;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--c45);display:flex;align-items:center;gap:.8rem}
+.sc .shead::after{content:'';flex:1;height:1px;background:var(--line)}
+.sc .phase{padding:1.8rem 20px 2rem;border-top:1px solid var(--line)}
+.sc .phase.hot{background:linear-gradient(180deg,rgba(61,155,101,.07),transparent 58%)}
+.sc .core-tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--bg);background:var(--em);padding:5px 10px;border-radius:2px;margin-bottom:1rem}
+.sc .phase .idx{display:flex;align-items:baseline;gap:.6rem;font-variant-numeric:tabular-nums}
+.sc .phase .idx b{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--em)}
+.sc .phase .idx s{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--c45);text-decoration:none}
+.sc .phase h2{font-size:clamp(2rem,8.4vw,2.7rem);font-weight:700;line-height:1;letter-spacing:-.04em;margin-top:1rem}
+.sc .phase h2 em{font-family:var(--font-instrument-serif,'Instrument Serif',serif);font-style:italic;font-weight:400;font-size:1.16em;color:var(--em)}
+.sc .phase .out{font-family:var(--font-instrument-serif,'Instrument Serif',serif);font-style:italic;
+  font-size:clamp(1.35rem,5.5vw,1.7rem);color:var(--c);margin-top:.9rem;line-height:1.12}
+.sc .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:8px;
+  background:var(--deep);position:relative;overflow:hidden;aspect-ratio:1/.82}
+.sc .viz::before{content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle at 1px 1px,rgba(242,239,233,.05) 1px,transparent 0);
+  background-size:22px 22px;
+  mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.sc .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.sc .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.02em;color:var(--em)}
+.sc .who::before{content:'';width:16px;height:1px;background:var(--em);opacity:.5}
+.sc .cap{margin-top:.7rem;font-size:.9rem;color:var(--c70);line-height:1.55}
+.sc .cap b{color:var(--c)}
+.sc .stat{margin-top:1.1rem;display:flex;align-items:baseline;gap:.7rem;padding-top:1rem;border-top:1px solid var(--line)}
+.sc .stat b{font-size:clamp(2.4rem,11vw,3.2rem);font-weight:700;letter-spacing:-.05em;line-height:.85;font-variant-numeric:tabular-nums}
+.sc .stat b em{font-family:var(--font-instrument-serif,'Instrument Serif',serif);font-style:italic;font-size:.42em;color:var(--em)}
+.sc .stat p{font-size:11.5px;color:var(--c45);line-height:1.35;max-width:24ch}
+.sc .bonus{margin:0 20px 0;padding:1.3rem 1.4rem;border:1px dashed var(--line);border-radius:8px;background:rgba(242,239,233,.02)}
+.sc .bonus s{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--c45);font-style:normal}
+.sc .bonus h4{font-family:var(--font-instrument-serif,'Instrument Serif',serif);font-style:italic;font-size:1.3rem;font-weight:400;margin:.4rem 0 .5rem}
+.sc .bonus > p{font-size:.88rem;color:var(--c70);line-height:1.55}
+.sc .bonus > p b{color:var(--c)}
+.sc .end{padding:2.2rem 20px calc(2.4rem + env(safe-area-inset-bottom));border-top:1px solid var(--line);margin-top:1.7rem}
+.sc .end .big{font-family:var(--font-instrument-serif,'Instrument Serif',serif);font-style:italic;
+  font-size:clamp(2.4rem,10vw,3.4rem);font-weight:400;line-height:1.02;letter-spacing:-.01em}
+.sc .end .big span{color:var(--em)}
+.sc .end > p{font-size:.95rem;color:var(--c70);line-height:1.6;max-width:44ch;margin-top:1rem}
+.sc .end > p b{color:var(--c)}
+.sc .end a{display:block;margin-top:1.4rem;text-align:center;font-size:12px;font-weight:700;
+  letter-spacing:.13em;text-transform:uppercase;color:#F2EFE9;background:var(--em);
+  text-decoration:none;padding:1.15rem;border-radius:4px}
+.sc .end .foot{font-size:11px;color:var(--c26);letter-spacing:.04em;margin-top:1.4rem}
+.sc .wire{stroke:var(--c16);stroke-width:1.25;fill:none}
+.sc .node{fill:var(--c16)}
+.sc .nodeOn{fill:var(--em)}
+.sc .ring{fill:none;stroke:var(--em);stroke-width:1.5}
+.sc .lab{font-weight:600;fill:rgba(242,239,233,.7)}
+.sc .labk{font-weight:700;fill:#060B08}
+.sc .glow{filter:drop-shadow(0 0 9px var(--emg))}
+.sc .draw{stroke-dasharray:var(--L,240);stroke-dashoffset:var(--L,240)}
+.sc .viz.live .draw{animation:sc-draw 1.1s var(--e) forwards}
+@keyframes sc-draw{to{stroke-dashoffset:0}}
+.sc .pop{opacity:0;transform:scale(.4);transform-origin:center}
+.sc .viz.live .pop{animation:sc-pop .5s var(--e) forwards}
+@keyframes sc-pop{to{opacity:1;transform:scale(1)}}
+.sc .up{opacity:0}
+.sc .viz.live .up{animation:sc-up .6s var(--e) forwards}
+@keyframes sc-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.sc .grow{transform:scaleY(0);transform-origin:50% 100%}
+.sc .viz.live .grow{animation:sc-grw .75s var(--e) forwards}
+@keyframes sc-grw{to{transform:scaleY(1)}}
+@media(prefers-reduced-motion:reduce){
+.sc .stack{animation:none}.sc .layer{opacity:1}.sc .stack.go .layer{animation:none;opacity:1}
+.sc .up,.sc .pop{opacity:1;transform:none}.sc .draw{stroke-dashoffset:0}.sc .grow{transform:none}}
+`;
+
+const SC_EM = '#3D9B65';
+const SC_INK = '#060B08';
+
+const SC_VIZ: Record<string, () => string> = {
+  where: () => {
+    const lit = [1, 2, 4]; let s = '';
+    for (let i = 0; i < 6; i++) {
+      const x = 40 + (i % 3) * 116, y = 40 + Math.floor(i / 3) * 118, on = lit.includes(i);
+      s += `<rect class="${on ? 'ring glow' : 'wire'} up" x="${x}" y="${y}" width="96" height="96" rx="18" ${on ? '' : 'fill="rgba(242,239,233,.03)"'} style="animation-delay:${i * .1}s"/>`;
+      if (on) {
+        s += `<circle class="nodeOn glow pop" cx="${x+48}" cy="${y+38}" r="12" style="animation-delay:${i*.1+.2}s"/>` +
+             `<path class="pop" style="animation-delay:${i*.1+.3}s" d="M${x+28},${y+76} q20,-24 40,0 z" fill="${SC_EM}"/>`;
+      } else {
+        s += `<circle class="node pop" cx="${x+48}" cy="${y+48}" r="8" style="animation-delay:${i*.1+.2}s"/>`;
+      }
+    }
+    s += `<text class="lab up" x="200" y="288" font-size="11" text-anchor="middle" style="animation-delay:.8s">where your people already are</text>`;
+    return `<svg viewBox="0 0 400 300">${s}</svg>`;
+  },
+  story: () => {
+    let s = `<path class="wire draw glow" style="--L:540" d="M30,208 C110,208 122,120 190,104 C252,90 292,60 362,66"/>`;
+    const pts: [number,number][] = [[30,208],[112,164],[190,104],[282,80],[362,66]];
+    pts.forEach((p, i) => {
+      const on = i === 0;
+      s += `<circle class="${on ? 'nodeOn glow' : 'node'} pop" cx="${p[0]}" cy="${p[1]}" r="${on ? 9 : 6}" style="animation-delay:${.6+i*.16}s"/>`;
+    });
+    s += `<text class="lab up" x="34" y="234" font-size="11" style="animation-delay:.3s">the hook</text>` +
+         `<text class="lab up" x="360" y="52" font-size="11" text-anchor="end" style="animation-delay:1.2s">the payoff</text>`;
+    return `<svg viewBox="0 0 400 258">${s}</svg>`;
+  },
+  videos: () => {
+    const cards: [number,number][] = [[40,28],[150,28],[260,28],[40,152],[150,152],[260,152]];
+    let s = '';
+    cards.forEach((c, i) => {
+      const on = i === 1;
+      s += `<rect class="${on ? 'ring glow' : 'wire'} up" x="${c[0]}" y="${c[1]}" width="100" height="106" rx="11" ${on ? '' : 'fill="rgba(242,239,233,.03)"'} style="animation-delay:${i*.08}s"/>` +
+           `<circle class="${on ? 'nodeOn glow' : 'node'} pop" cx="${c[0]+50}" cy="${c[1]+53}" r="17" style="animation-delay:${i*.08+.15}s"/>` +
+           `<path class="pop" style="animation-delay:${i*.08+.25}s" d="M${c[0]+45},${c[1]+44} l13,9 l-13,9 z" fill="${on ? SC_INK : 'rgba(242,239,233,.5)'}"/>`;
+    });
+    return `<svg viewBox="0 0 400 288">${s}</svg>`;
+  },
+  native: () => {
+    const frames = [{x:34,y:66,w:60,h:112,l:'9:16'},{x:120,y:88,w:82,h:82,l:'1:1'},{x:226,y:98,w:128,h:72,l:'16:9'}];
+    let s = `<text class="lab up" x="200" y="38" font-size="11.5" text-anchor="middle" style="animation-delay:.1s">one story · every feed</text>`;
+    frames.forEach((o, i) => {
+      s += `<rect class="${i === 0 ? 'ring glow' : 'wire'} up" x="${o.x}" y="${o.y}" width="${o.w}" height="${o.h}" rx="8" style="animation-delay:${i*.2}s"/>` +
+           `<circle class="${i === 0 ? 'nodeOn glow' : 'node'} pop" cx="${o.x+o.w/2}" cy="${o.y+o.h/2}" r="12" style="animation-delay:${i*.2+.15}s"/>` +
+           `<path class="pop" style="animation-delay:${i*.2+.25}s" d="M${o.x+o.w/2-4},${o.y+o.h/2-6} l11,6 l-11,6 z" fill="${SC_INK}"/>` +
+           `<text class="lab up" x="${o.x+o.w/2}" y="${o.y+o.h+18}" font-size="10.5" text-anchor="middle" style="animation-delay:${i*.2+.3}s">${o.l}</text>`;
+    });
+    return `<svg viewBox="0 0 400 252">${s}</svg>`;
+  },
+  craft: () => {
+    let s = `<line class="wire" x1="44" y1="204" x2="366" y2="204"/>`;
+    s += `<path class="wire draw glow" style="--L:440" d="M44,64 C120,64 132,150 224,170 C286,182 326,188 366,190"/>`;
+    s += `<rect class="nodeOn glow grow" x="44" y="60" width="7" height="144" rx="3"/>` +
+         `<text class="lab up" x="60" y="48" font-size="10.5" style="animation-delay:.5s">first 3 seconds</text>`;
+    s += `<circle class="ring glow pop" cx="300" cy="120" r="12" style="animation-delay:1s"/>` +
+         `<text class="lab up" x="300" y="148" font-size="10.5" text-anchor="middle" style="animation-delay:1.2s">catch the trend</text>` +
+         `<text class="lab up" x="205" y="234" font-size="10.5" text-anchor="middle" opacity=".5" style="animation-delay:.3s">why it flies — not luck</text>`;
+    return `<svg viewBox="0 0 400 250">${s}</svg>`;
+  },
+  tribe: () => {
+    let s = `<circle class="ring glow pop" cx="200" cy="152" r="34" style="animation-delay:.2s"/>` +
+             `<circle class="nodeOn glow pop" cx="200" cy="152" r="9" style="animation-delay:.35s"/>` +
+             `<text class="labk pop" x="200" y="156" font-size="10" font-weight="700" text-anchor="middle" style="animation-delay:.5s">YOU</text>`;
+    const radials: [number,number][] = [[110,72],[290,72],[332,152],[290,232],[110,232],[68,152],[200,44],[200,260]];
+    radials.forEach((p, i) => {
+      const fan = i % 2 === 0;
+      s += `<path class="wire draw" style="--L:210;animation-delay:${.5+i*.07}s" d="M200,152 L${p[0]},${p[1]}"/>` +
+           `<circle class="${fan ? 'nodeOn glow' : 'node'} pop" cx="${p[0]}" cy="${p[1]}" r="${fan ? 8 : 6}" style="animation-delay:${.8+i*.07}s"/>`;
+    });
+    return `<svg viewBox="0 0 400 304">${s}</svg>`;
+  },
+};
+
+const SC_PARTS = [
+  { n:'01', sp:'Where your people are', h:'We find <em>your people.</em>', out:'We start where they already scroll.', core:false,
+    who:'Strategists',
+    cap:'Before a single post, we study who actually buys from you and where they spend their time — TikTok, Instagram, YouTube, LinkedIn. We don\'t chase every platform. We go where <b>your</b> customers already are, so nothing we make is wasted.',
+    stat:'5.2', statEm:'B', statP:'people on social — we find the slice that\'s yours', viz:'where' },
+  { n:'02', sp:'The story', h:'We find the <em>story.</em>', out:'The reason they stop scrolling.', core:true,
+    who:'Storytellers',
+    cap:'This is the heart of it. We turn your business into something worth watching — a hook, a reason to stay, a payoff. Everything else is just how that story travels. <b>No story, and the best camera in the world still gets scrolled past.</b>',
+    stat:'3', statEm:'sec', statP:'to hook them — the story earns the rest of the video', viz:'story' },
+  { n:'03', sp:'The video', h:'We make the <em>video.</em>', out:'The way people watch now.', core:false,
+    who:'Videographers · Editors',
+    cap:'Reels, TikToks, Shorts, YouTube, live — we shoot and cut all of it. Video is how people watch, learn and decide today; if you\'re not on camera, you\'re silent. <b>One shoot becomes a month of content.</b>',
+    stat:'30', statEm:'+', statP:'pieces of video from one shoot — always something to post', viz:'videos' },
+  { n:'04', sp:'Every platform', h:'We speak <em>every platform.</em>', out:'Native everywhere your people are.', core:false,
+    who:'Platform leads',
+    cap:'A TikTok isn\'t a Reel isn\'t a LinkedIn post. We reshape the same story into each feed\'s own language, so it belongs there — <b>instead of being posted everywhere and ignored everywhere.</b>',
+    stat:'4', statEm:undefined as string|undefined, statP:'platforms, four native languages, one story', viz:'native' },
+  { n:'05', sp:'How it works', h:'We know <em>how it works.</em>', out:'The craft under every post.', core:false,
+    who:'The whole team',
+    cap:'The first-second hook, watch-time, the trend that\'s alive for 48 hours, the rhythm the algorithm rewards — the craft most people guess at. <b>We don\'t guess. We\'ve done this enough to know why a post flies or dies.</b>',
+    stat:'48', statEm:'hr', statP:'a trend\'s whole life — we move while it\'s climbing', viz:'craft' },
+  { n:'06', sp:'The community', h:'We build the <em>community.</em>', out:'Followers who bring you customers.', core:false,
+    who:'Community managers',
+    cap:'Social is a conversation, not a billboard. We reply, we DM, we turn your audience into people who trust you, defend you, and bring their friends. <b>This is where attention quietly becomes sales.</b>',
+    stat:'88', statEm:'%', statP:'trust a real person over any ad you could run', viz:'tribe' },
+];
+
 function SocialContent({ onClose }: { onClose: () => void }) {
-  const phases: PhaseData[] = [
-    { num:"01", label:"Where your people are", headline:'We find <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">your people.</em>', hook:"We start where they already scroll.", who:"Strategists",
-      body:"Before a single post, we study who actually buys from you and where they spend their time — TikTok, Instagram, YouTube, LinkedIn. We don't chase every platform. <strong style='color:#F2EFE9'>We go where your customers already are, so nothing we make is wasted.</strong>",
-      stat:"5.2", statS:"B", statD:"people on social — we find the slice that's yours" },
-    { num:"02", label:"The story", headline:'We find the <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">story.</em>', hook:"The reason they stop scrolling.", who:"Storytellers",
-      body:"This is the heart of it. We turn your business into something worth watching — a hook, a reason to stay, a payoff. Everything else is just how that story travels. <strong style='color:#F2EFE9'>No story, and the best camera in the world still gets scrolled past.</strong>",
-      stat:"3", statS:"sec", statD:"to hook them — the story earns the rest of the video" },
-    { num:"03", label:"The video", headline:'We make the <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">video.</em>', hook:"The way people watch now.", who:"Videographers · Editors",
-      body:"Reels, TikToks, Shorts, YouTube, live — we shoot and cut all of it. Video is how people watch, learn and decide today; if you're not on camera, you're silent. <strong style='color:#F2EFE9'>One shoot becomes a month of content.</strong>",
-      stat:"30", statS:"+", statD:"pieces of video from one shoot — always something to post" },
-    { num:"04", label:"Every platform", headline:'We speak <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">every platform.</em>', hook:"Native everywhere your people are.", who:"Platform leads",
-      body:"A TikTok isn't a Reel isn't a LinkedIn post. We reshape the same story into each feed's own language, so it belongs there — <strong style='color:#F2EFE9'>instead of being posted everywhere and ignored everywhere.</strong>",
-      stat:"4", statD:"platforms, four native languages, one story" },
-    { num:"05", label:"How it works", headline:'We know <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">how it works.</em>', hook:"The craft under every post.", who:"The whole team",
-      body:"The first-second hook, watch-time, the trend that's alive for 48 hours, the rhythm the algorithm rewards — the craft most people guess at. <strong style='color:#F2EFE9'>We don't guess. We've done this enough to know why a post flies or dies.</strong>",
-      stat:"48", statS:"hr", statD:"a trend's whole life — we move while it's climbing" },
-    { num:"06", label:"The community", headline:'We build the <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">community.</em>', hook:"Followers who bring you customers.", who:"Community managers",
-      body:"Social is a conversation, not a billboard. We reply, we DM, we turn your audience into people who trust you, defend you, and bring their friends. <strong style='color:#F2EFE9'>This is where attention quietly becomes sales.</strong>",
-      stat:"88", statS:"%", statD:"trust a real person over any ad you could run" },
-  ];
-  const faqs = [
-    { q:"What does making social a powerhouse actually involve?", a:"The whole of social: finding where your customers are, the story worth telling, the video, making it native to each platform, understanding how social actually works, and building a community. OARC delivers all of it with one team." },
-    { q:"Do I have to manage any of it?", a:"No. Strategists, storytellers, videographers, editors, platform leads and community managers handle every part. You touch none of it." },
-    { q:"Which platforms do you cover?", a:"The ones your customers actually use — TikTok, Instagram, YouTube, LinkedIn, Facebook and more. We go where your people are rather than posting everywhere and being ignored everywhere." },
-    { q:"Are you an AI company?", a:"No. We are a creative and content team — real people doing the strategy, the storytelling, the video and the community. A small trend-and-mention tool is included as a bonus, not the main thing." },
-  ];
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  // inject scoped CSS once
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    const id = 'sc-modal-css';
+    if (!document.getElementById(id)) {
+      const s = document.createElement('style');
+      s.id = id; s.textContent = SC_CSS;
+      document.head.appendChild(s);
+    }
+  }, []);
+
+  // build 3D stack
+  useEffect(() => {
+    const stack = wrapRef.current?.querySelector<HTMLElement>('.stack');
+    if (!stack || stack.children.length > 0) return;
+    const SCOPE: [string, number][] = [['Strategy',0],['Story',1],['Video',0],['Platforms',0],['Craft',0],['Community',0]];
+    const n = SCOPE.length, gap = 34, base = -(n-1)*gap/2;
+    const spine = document.createElement('div');
+    spine.className = 'spineline';
+    spine.style.height = ((n-1)*gap)+'px';
+    spine.style.transform = 'translate(-50%,-50%) rotateX(90deg)';
+    stack.appendChild(spine);
+    SCOPE.forEach(([name, hot], i) => {
+      const layer = document.createElement('div');
+      layer.className = `layer${hot ? ' hot' : ''}`;
+      layer.style.transform = `translateZ(${base + i * gap}px)`;
+      layer.style.animationDelay = `${i * .13}s`;
+      layer.innerHTML = `<span class="dot"></span><span class="tag${hot ? ' hot' : ''}"><b>0${i+1}</b>${name}</span>`;
+      stack.appendChild(layer);
+    });
+    requestAnimationFrame(() => stack.classList.add('go'));
+  }, []);
+
+  // scroll-triggered viz animations
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('live'); io.unobserve(e.target); } }),
+      { threshold: 0.3 }
+    );
+    wrapRef.current?.querySelectorAll('.viz').forEach(v => io.observe(v));
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div style={{ background:T.noir, color:T.ivory }}>
-      <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${T.line}` }}>
-        <Kicker label="Social" />
-        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
-          fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
-          textTransform:"uppercase", color:T.ivory, marginBottom:"1rem" }}>
-          Social is a whole world.<br />
-          <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0,
-            color:T.scar, fontSize:"1.04em" }}>We deliver all of it.</em>
-        </h1>
-        <p style={{ fontSize:".98rem", color:T.dim, lineHeight:1.6, maxWidth:"44ch" }}>
-          The story, the video, every platform, being where your people already are, and knowing how it all actually works —{" "}
-          <strong style={{ color:T.ivory }}>delivered by one team who does this all day.</strong>{" "}
-          You touch none of it. It becomes the strongest thing you've got.
-        </p>
+    <div className="sc" ref={wrapRef}>
+      {/* sticky top bar */}
+      <div className="top">
+        <span className="brand"><b>OARC</b><s>Social</s></span>
+        <span className="live-ind"><i />One team</span>
+      </div>
+
+      {/* hero */}
+      <div className="hero">
+        <p className="lbl">Everything social takes</p>
+        <h1>Social is a whole world.<br /><em>We deliver all of it.</em></h1>
+        <p className="desc">The story, the video, every platform, being where your people already are, and knowing how it all actually works — <b>delivered by one team who does this all day.</b> You touch none of it. It becomes the strongest thing you&apos;ve got.</p>
+
+        {/* 3D stack */}
+        <div className="stage3d"><div className="stack" /></div>
+
         {/* team chips */}
-        <div style={{ display:"flex", flexWrap:"wrap" as const, gap:6, marginTop:"1.4rem" }}>
-          {["Strategists","Storytellers","Videographers","Editors","Platform leads","Community"].map(t => (
-            <span key={t} style={{ border:`1px solid ${T.line}`, padding:"6px 10px",
-              fontSize:11, color:T.dim, borderRadius:2 }}>{t}</span>
-          ))}
+        <div className="team-row">
+          <s>The people on it</s>
+          <div className="chips">
+            {['Strategists','Storytellers','Videographers','Editors','Platform leads','Community'].map(t => (
+              <span key={t}>{t}</span>
+            ))}
+          </div>
         </div>
       </div>
-      <div style={{ padding:"1.6rem 20px 0" }}>
-        <Kicker label="Everything you get" />
-      </div>
-      {phases.map((p, i) => <Phase key={i} p={p} realm="E" />)}
-      <Reveal>
-        <div style={{ margin:"0 20px 1.8rem", padding:"1.3rem 1.4rem",
-          border:`1px dashed ${T.line}`, borderRadius:10, background:T.card }}>
-          <Kicker label="Bonus, included" color={T.dim} />
-          <h4 style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle:"italic", fontSize:"1.3rem", fontWeight:400, color:T.ivory, marginBottom:".5rem" }}>
-            Oh — and a little tool, on us.
-          </h4>
-          <p style={{ fontSize:".88rem", color:T.dim, lineHeight:1.55 }}>
-            A simple tool that flags a rising trend and pings the team the second someone mentions you, so we're first to the moment.{" "}
-            <strong style={{ color:T.ivory }}>Nice to have — not the main event.</strong>
-          </p>
+
+      {/* section heading */}
+      <div className="shead">Everything you get</div>
+
+      {/* 6 phases */}
+      {SC_PARTS.map((p, i) => (
+        <div key={i} className={`phase${p.core ? ' hot' : ''}`}>
+          {p.core && <span className="core-tag">The heart of it</span>}
+          <div className="idx"><b>{p.n}</b><s>{p.sp}</s></div>
+          <h2 dangerouslySetInnerHTML={{ __html: p.h }} />
+          <p className="out">{p.out}</p>
+          <div className="viz" dangerouslySetInnerHTML={{ __html: SC_VIZ[p.viz]() }} />
+          <p className="who">{p.who}</p>
+          <p className="cap" dangerouslySetInnerHTML={{ __html: p.cap }} />
+          <div className="stat">
+            <b dangerouslySetInnerHTML={{ __html: p.stat + (p.statEm ? `<em>${p.statEm}</em>` : '') }} />
+            <p>{p.statP}</p>
+          </div>
         </div>
-      </Reveal>
-      <FAQ items={faqs} />
-      <CTA big={<>Then social becomes<br /><CtaItalic>your powerhouse.</CtaItalic></>}
-        sub="Everything it takes — the story, the video, every platform, the craft, the community — delivered by one team who does this all day."
-        btn="Put the whole team on your social" onClose={onClose} />
+      ))}
+
+      {/* bonus */}
+      <div className="bonus">
+        <s>Bonus, included</s>
+        <h4>Oh — and a little tool, on us.</h4>
+        <p>A simple tool that flags a rising trend and pings the team the second someone mentions you, so we&apos;re first to the moment. <b>Nice to have — not the main event.</b> The work is done by the people above.</p>
+      </div>
+
+      {/* end / CTA */}
+      <div className="end">
+        <div className="big">Then social becomes<br /><span>your powerhouse.</span></div>
+        <p>Everything it takes — the story, the video, every platform, the craft, the community — <b>delivered by one team who does this all day.</b> You do none of it. What comes back is the most powerful thing in your business: attention that turns into customers, month after month.</p>
+        <a href="/contact" onClick={onClose}>Put the whole team on your social →</a>
+        <p className="foot">OARC — a creative and content team. Malta.</p>
+      </div>
     </div>
   );
 }
