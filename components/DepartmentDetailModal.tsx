@@ -194,7 +194,7 @@ const GM_CSS = `
 --line:rgba(239,227,210,.14);--e:cubic-bezier(.16,1,.3,1);
 background:var(--deep);color:var(--c);
 font-family:'Inter Tight',var(--font-bricolage,'Bricolage Grotesque',sans-serif);
--webkit-font-smoothing:antialiased}
+-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .gm .hero{padding:1.4rem 20px 2.2rem;border-bottom:1px solid var(--line)}
 .gm .hero .lbl{font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--c45)}
 .gm .hero h1{font-size:clamp(2rem,8.5vw,3rem);font-weight:600;line-height:.98;letter-spacing:-.045em;margin-top:.7rem}
