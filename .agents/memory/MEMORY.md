@@ -1,3 +1,4 @@
+- [iOS Safari wash bleed](ios-safari-wash-bleed.md) — scaleY(0) leaks bg colour on iOS Safari; fix with opacity:0; !important base color needs !important in di-on override too
 - [H360 page design](h360-design.md) — Sunday-clone dark theme; BelowHero uses #0a0a0a bg, horizontal scroll cards, full-bleed value cards, marquee + quote carousel
 - [Mobile 3D particle field](mobile-particle-three.md) — Three.js WebGL required (not Canvas 2D); camera inside sphere; custom GLSL shader; touch rotates point cloud
 - [Department modal rebuild pattern](modal-rebuild-pattern.md) — exact port workflow: scope CSS under .xyz class, inject via useEffect→document.head, convert JS VIZ generators to TS, use dangerouslySetInnerHTML for SVG panels
