@@ -472,7 +472,7 @@ export default function HeroSection() {
             <CompactMobileGlassCard label="Creative" href="/creative" testId="button-nav-creative" />
             <CompactMobileGlassCard label="Agentic AI" href="/ai-agents" testId="button-nav-ai" />
             <CompactMobileGlassCard
-              label={"Business\ntransformation"}
+              label={"Invention"}
               href="/solutions"
               testId="button-nav-growth"
             />
