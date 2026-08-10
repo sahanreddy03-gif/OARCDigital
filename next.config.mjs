@@ -39,6 +39,7 @@ const nextConfig = {
     '*.janeway.repl.co',
     '*.replit.dev',
     '*.repl.co',
+    '127.0.0.1',
   ],
   reactStrictMode: true,
   turbopack: {
