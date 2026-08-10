@@ -1,2 +1,4 @@
 - [H360 page design](h360-design.md) — Sunday-clone dark theme; BelowHero uses #0a0a0a bg, horizontal scroll cards, full-bleed value cards, marquee + quote carousel
 - [Mobile 3D particle field](mobile-particle-three.md) — Three.js WebGL required (not Canvas 2D); camera inside sphere; custom GLSL shader; touch rotates point cloud
+- [Department modal rebuild pattern](modal-rebuild-pattern.md) — exact port workflow: scope CSS under .xyz class, inject via useEffect→document.head, convert JS VIZ generators to TS, use dangerouslySetInnerHTML for SVG panels
+- [OARC design system colors](oarc-design-system.md) — authoritative design sheet v2; AI/machine modals use Graphite world (bg #0B0C0D, accent white #F5F5F3, monochrome only — no color)
