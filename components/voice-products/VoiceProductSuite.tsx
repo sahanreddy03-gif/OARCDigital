@@ -59,7 +59,8 @@ export default function VoiceProductSuite() {
             <m.div key={p.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}>
               <Link href={p.path} className="group block h-full rounded-2xl overflow-hidden border border-white/10 bg-white/5 hover:border-emerald-400/40 transition-all duration-300 hover:shadow-[0_0_40px_rgba(74,222,128,0.15)]">
                 <div className="relative h-44 overflow-hidden bg-black">
-                  <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0" style={{ background: `linear-gradient(145deg, ${p.accent} 0%, #000 100%)` }} />
+                  <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0" style={{ background: p.gradient }} />
+                  <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" style={{ background: p.glow }} />
                   <div className="absolute bottom-3 left-4 z-10 transition-opacity group-hover:opacity-0">
                     <span className="text-2xl font-black text-white tracking-tight">{p.companyName}</span>
                     <p className="text-xs text-white/70 font-medium">{p.companyTag}</p>
