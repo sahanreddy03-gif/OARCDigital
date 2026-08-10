@@ -972,200 +972,374 @@ function ClarityContent({ onClose }: { onClose: () => void }) {
 // ────────────────────────────────────────────────────────────────────────────
 // AI STAFF CONTENT
 // ────────────────────────────────────────────────────────────────────────────
-const AI = { bg:"#060607", card:"#121016", vi:"#7B61FF", vi2:"#9B87FF", vi3:"rgba(123,97,255,.12)",
-  c:"#F0EEF8", dim:"rgba(240,238,248,.7)", c45:"rgba(240,238,248,.45)", line:"rgba(240,238,248,.1)" };
+// ─── AI STAFF — Graphite monochrome world (design sheet World D) ─────────────
+const AIS_VI  = '#F5F5F3';
+const AIS_INK = '#0B0C0D';
 
-const SVG_AI_TRAINED = `<svg viewBox="0 0 400 260" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <rect fill="none" stroke="${AI.line}" stroke-width="1.25" stroke-dasharray="6 4" rx="14" class="up" x="26" y="22" width="348" height="218" style="animation-delay:.1s"/>
-  <text font-family="monospace" font-size="9" fill="rgba(240,238,248,.35)" letter-spacing=".1em" text-anchor="middle" class="up" x="200" y="44" style="animation-delay:.2s">YOUR SYSTEM</text>
-  <line stroke="${AI.line}" stroke-width="1.25" class="draw" style="--L:120;animation-delay:.3s" x1="200" y1="136" x2="92" y2="92"/>
-  <line stroke="${AI.line}" stroke-width="1.25" class="draw" style="--L:120;animation-delay:.4s" x1="200" y1="136" x2="308" y2="94"/>
-  <line stroke="${AI.line}" stroke-width="1.25" class="draw" style="--L:100;animation-delay:.5s" x1="200" y1="136" x2="90" y2="180"/>
-  <line stroke="${AI.line}" stroke-width="1.25" class="draw" style="--L:120;animation-delay:.6s" x1="200" y1="136" x2="310" y2="180"/>
-  <circle fill="${AI.vi3}" stroke="${AI.vi}" stroke-width="1.5" class="pop" cx="92" cy="92" r="22" style="animation-delay:.5s"/>
-  <text font-family="monospace" font-size="10" fill="${AI.vi2}" text-anchor="middle" class="up" x="92" y="96" style="animation-delay:.65s">CRM</text>
-  <circle fill="${AI.vi3}" stroke="${AI.vi}" stroke-width="1.5" class="pop" cx="308" cy="94" r="22" style="animation-delay:.55s"/>
-  <text font-family="monospace" font-size="9" fill="${AI.vi2}" text-anchor="middle" class="up" x="308" y="98" style="animation-delay:.7s">Calendar</text>
-  <circle fill="${AI.vi3}" stroke="${AI.vi}" stroke-width="1.5" class="pop" cx="90" cy="180" r="22" style="animation-delay:.65s"/>
-  <text font-family="monospace" font-size="10" fill="${AI.vi2}" text-anchor="middle" class="up" x="90" y="184" style="animation-delay:.8s">POS</text>
-  <circle fill="${AI.vi3}" stroke="${AI.vi}" stroke-width="1.5" class="pop" cx="310" cy="180" r="22" style="animation-delay:.7s"/>
-  <text font-family="monospace" font-size="9.5" fill="${AI.vi2}" text-anchor="middle" class="up" x="310" y="184" style="animation-delay:.85s">Inbox</text>
-  <circle fill="${AI.vi}" class="pop" cx="200" cy="136" r="34" style="animation-delay:.8s"/>
-  <text font-family="monospace" font-size="10" font-weight="700" fill="${AI.bg}" text-anchor="middle" class="up" x="200" y="133" style="animation-delay:.95s">TRAINED</text>
-  <text font-family="monospace" font-size="9" fill="${AI.bg}" text-anchor="middle" class="up" x="200" y="148" style="animation-delay:1s">on your business</text>
-</svg>`;
+const AIS_CSS = `
+.ais{
+  --vi:#F5F5F3;--vi2:rgba(245,245,243,.9);
+  --vig:rgba(245,245,243,.3);--vif:rgba(245,245,243,.08);
+  --ink:#0B0C0D;--deep:#0B0C0D;--card:#131415;
+  --c:#F5F5F3;--c70:rgba(245,245,243,.72);--c45:rgba(245,245,243,.46);
+  --c26:rgba(245,245,243,.26);--c16:rgba(245,245,243,.16);
+  --c10:rgba(245,245,243,.1);--line:rgba(245,245,243,.11);
+  --e:cubic-bezier(.16,1,.3,1);
+  background:#0B0C0D;color:#F5F5F3;
+  font-family:'Schibsted Grotesk',var(--font-bricolage,'Bricolage Grotesque',sans-serif);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+.ais .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;
+  border-bottom:1px solid var(--line);position:sticky;top:0;
+  background:rgba(11,12,13,.88);backdrop-filter:blur(10px);z-index:20}
+.ais .top .brand{display:flex;align-items:baseline;gap:.7rem}
+.ais .top .brand b{font-weight:800;font-size:13px;letter-spacing:-.02em}
+.ais .top .brand s{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--c26);text-decoration:none}
+.ais .top .live{display:flex;align-items:center;gap:7px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--c45)}
+.ais .top .live i{width:6px;height:6px;border-radius:50%;background:var(--vi);animation:ais-blink 1.8s ease-out infinite;display:inline-block;flex-shrink:0}
+@keyframes ais-blink{0%{box-shadow:0 0 0 0 var(--vig)}100%{box-shadow:0 0 0 8px rgba(245,245,243,0)}}
+.ais .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.ais .hero::before{content:'';position:absolute;top:-40px;right:-60px;width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,245,243,.09),rgba(245,245,243,.03) 45%,transparent 70%);filter:blur(10px)}
+.ais .hero>*{position:relative}
+.ais .hero .lbl{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--vi2)}
+.ais .hero h1{font-size:clamp(2.3rem,9.4vw,3.4rem);font-weight:800;line-height:.98;letter-spacing:-.04em;margin-top:.7rem}
+.ais .hero h1 em{font-style:normal;color:var(--vi2)}
+.ais .hero>p{font-size:.96rem;color:var(--c70);line-height:1.55;margin-top:1rem;max-width:44ch}
+.ais .hero>p b{color:var(--c);font-weight:600}
+.ais .roster{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.ais .rtop{display:flex;align-items:center;gap:8px;padding:.75rem 1rem;border-bottom:1px solid var(--line);font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--c45)}
+.ais .rtop i{width:6px;height:6px;border-radius:50%;background:var(--vi);box-shadow:0 0 8px var(--vig);display:inline-block;flex-shrink:0}
+.ais .rgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.ais .rcard{background:var(--card);padding:1rem;opacity:0;transform:translateY(8px);transition:.5s var(--e)}
+.ais .roster.go .rcard{opacity:1;transform:none}
+.ais .rcard.hot{background:rgba(245,245,243,.06)}
+.ais .rcard .rn{font-weight:700;font-size:.95rem;letter-spacing:-.01em}
+.ais .rcard .rd{font-size:11.5px;color:var(--c45);margin-top:.2rem;line-height:1.3}
+.ais .rcard .rs{margin-top:.6rem;display:inline-flex;align-items:center;gap:5px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--vi2)}
+.ais .rcard .rs i{width:5px;height:5px;border-radius:50%;background:var(--vi);box-shadow:0 0 6px var(--vig);display:inline-block;flex-shrink:0}
+.ais .rfoot{padding:.75rem 1rem;border-top:1px solid var(--line);font-size:11px;color:var(--c45);text-align:center}
+.ais .team{margin-top:1.6rem}
+.ais .team s{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--c45);font-style:normal;text-decoration:none}
+.ais .team .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:.7rem}
+.ais .team .row span{border:1px solid var(--line);padding:6px 10px;font-size:11px;color:var(--c70);border-radius:2px}
+.ais .shead{padding:1.7rem 20px .4rem;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--c45);display:flex;align-items:center;gap:.8rem}
+.ais .shead::after{content:'';flex:1;height:1px;background:var(--line)}
+.ais .phase{padding:1.8rem 20px 2rem;border-top:1px solid var(--line)}
+.ais .phase:first-of-type{border-top:0}
+.ais .phase .idx{display:flex;align-items:baseline;gap:.6rem}
+.ais .phase .idx b{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--vi2)}
+.ais .phase .idx s{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--c45);text-decoration:none}
+.ais .phase h2{font-size:clamp(1.9rem,7.8vw,2.5rem);font-weight:800;line-height:1.02;letter-spacing:-.035em;margin-top:1rem}
+.ais .phase h2 em{font-style:normal;color:var(--vi2)}
+.ais .out{font-size:clamp(1.25rem,5vw,1.55rem);color:var(--c);margin-top:.9rem;line-height:1.22;font-weight:500}
+.ais .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--deep);position:relative;overflow:hidden;aspect-ratio:1/.78}
+.ais .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(245,245,243,.05) 1px,transparent 0);background-size:22px 22px;-webkit-mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%);mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.ais .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ais .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.02em;color:var(--vi2)}
+.ais .who::before{content:'';width:16px;height:1px;background:var(--vi);opacity:.5}
+.ais .cap{margin-top:.7rem;font-size:.9rem;color:var(--c70);line-height:1.55}
+.ais .cap b{color:var(--c);font-weight:600}
+.ais .stat{margin-top:1.1rem;display:flex;align-items:baseline;gap:.7rem;padding-top:1rem;border-top:1px solid var(--line)}
+.ais .stat b{font-size:clamp(2.4rem,11vw,3.2rem);font-weight:800;letter-spacing:-.05em;line-height:.85}
+.ais .stat b em{font-family:'Space Mono',monospace;font-style:normal;font-size:.36em;font-weight:700;color:var(--vi2)}
+.ais .stat p{font-size:11.5px;color:var(--c45);line-height:1.35;max-width:25ch}
+.ais .diff{margin:1.7rem 20px 0;padding:0 0 0 16px;border-left:2px solid var(--vi);font-size:1.08rem;line-height:1.4;color:var(--c70)}
+.ais .diff b{color:var(--c);font-weight:700}
+.ais .value{margin:1.8rem 20px 0;border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.ais .vhead{padding:.85rem 1.1rem;border-bottom:1px solid var(--line);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--c45)}
+.ais .vcompare{display:grid;grid-template-columns:1fr 1fr}
+.ais .vcol{padding:1.1rem 1.05rem 1.3rem}
+.ais .vcol+.vcol{border-left:1px solid var(--line)}
+.ais .vcol.on{background:rgba(245,245,243,.06)}
+.ais .vcol s{font-size:11px;font-weight:700;color:var(--c45);font-style:normal;text-decoration:none}
+.ais .vcol.on s{color:var(--vi2)}
+.ais .vcol ul{list-style:none;margin-top:.75rem;display:flex;flex-direction:column;gap:.55rem}
+.ais .vcol li{font-size:12.5px;color:var(--c70);line-height:1.3;padding-left:16px;position:relative}
+.ais .vcol.on li{color:var(--c)}
+.ais .vcol li::before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:50%;background:var(--c26)}
+.ais .vcol.on li::before{background:var(--vi);box-shadow:0 0 6px var(--vig)}
+.ais .vguarantee{padding:1rem 1.1rem;border-top:1px solid var(--line);font-size:.9rem;line-height:1.45;color:var(--c);background:rgba(245,245,243,.04)}
+.ais .vguarantee b{color:var(--vi2)}
+.ais .end{padding:2.4rem 20px calc(2.4rem + env(safe-area-inset-bottom));border-top:1px solid var(--line);margin-top:1.7rem;position:relative;overflow:hidden}
+.ais .end::before{content:'';position:absolute;bottom:-80px;left:-40px;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,245,243,.09),transparent 68%);filter:blur(12px)}
+.ais .end>*{position:relative}
+.ais .end .big{font-size:clamp(2.5rem,10.5vw,3.6rem);font-weight:900;line-height:1;letter-spacing:-.04em}
+.ais .end .big span{color:var(--vi2)}
+.ais .end>p{font-size:.95rem;color:var(--c70);line-height:1.62;max-width:46ch;margin-top:1.1rem}
+.ais .end>p b{color:var(--c);font-weight:600}
+.ais .end a{display:block;margin-top:1.5rem;text-align:center;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--vi);text-decoration:none;padding:1.15rem;border-radius:6px;box-shadow:0 10px 30px rgba(245,245,243,.14)}
+.ais .end .foot{font-family:'Space Mono',monospace;font-size:10px;color:var(--c26);letter-spacing:.03em;margin-top:1.4rem}
+.ais .wire{stroke:var(--c16);stroke-width:1.25;fill:none}
+.ais .node{fill:var(--c16)}.ais .nodeOn{fill:var(--vi)}
+.ais .ring{fill:none;stroke:var(--vi);stroke-width:1.5}
+.ais .lab{font-family:'Space Mono',monospace;font-weight:400;fill:var(--c70)}
+.ais .labA{font-family:'Space Mono',monospace;font-weight:400;fill:var(--vi2)}
+.ais .labk{font-family:'Space Mono',monospace;font-weight:700;fill:var(--ink)}
+.ais .glow{filter:drop-shadow(0 0 8px var(--vig))}
+.ais .draw{stroke-dasharray:var(--L,240);stroke-dashoffset:var(--L,240)}
+.ais .viz.live .draw{animation:ais-draw 1.1s var(--e) forwards}
+@keyframes ais-draw{to{stroke-dashoffset:0}}
+.ais .pop{opacity:0;transform:scale(.4);transform-origin:center}
+.ais .viz.live .pop{animation:ais-pop .5s var(--e) forwards}
+@keyframes ais-pop{to{opacity:1;transform:scale(1)}}
+.ais .up{opacity:0}
+.ais .viz.live .up{animation:ais-up .6s var(--e) forwards}
+@keyframes ais-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.ais .grow{transform:scaleY(0);transform-origin:50% 50%}
+.ais .viz.live .grow{animation:ais-grw .7s var(--e) forwards}
+@keyframes ais-grw{to{transform:scaleY(1)}}
+@media(prefers-reduced-motion:reduce){
+  .ais .up,.ais .pop,.ais .rcard{opacity:1;transform:none}
+  .ais .draw{stroke-dashoffset:0}.ais .grow{transform:none}}
+`;
 
-const SVG_AI_VOICE = `<svg viewBox="0 0 400 250" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <text font-family="monospace" font-size="9" fill="rgba(240,238,248,.38)" letter-spacing=".14em" text-anchor="middle" class="up" x="200" y="28" style="animation-delay:.1s">LIVE CALL</text>
-  ${[24,38,56,70,82,88,80,66,50,36,62,78,90,86,68,44,30,52,72,84,80,58].map((h, i) => {
-    const x = 40 + i * 15; const y = 130 - h;
-    return `<rect fill="${AI.vi}" opacity="${.55 + (h/90)*0.45}" rx="2" class="grow" x="${x}" y="${y}" width="10" height="${h}" style="animation-delay:${i * 0.04}s"/>`;
-  }).join("")}
-  <rect fill="${AI.vi3}" stroke="${AI.vi}" stroke-width="1.25" rx="20" class="pop" x="90" y="170" width="220" height="34" style="animation-delay:1s"/>
-  <text font-family="monospace" font-size="10" fill="${AI.vi2}" text-anchor="middle" class="up" x="200" y="191" style="animation-delay:1.15s">Answered · booked · sold</text>
-</svg>`;
+// ─── AI STAFF — VIZ generators (monochrome: AIS_VI=white, AIS_INK=graphite) ──
+const AIS_VIZ: Record<string, () => string> = {
+  trained: () => {
+    let s = `<rect class="wire up" x="30" y="30" width="340" height="200" rx="16" stroke-dasharray="6 6" style="animation-delay:.1s"/>` +
+      `<text class="lab up" x="48" y="52" font-size="10.5" opacity=".6" style="animation-delay:.2s">your system · your data</text>` +
+      `<circle class="nodeOn glow pop" cx="200" cy="132" r="30" style="animation-delay:.5s"/>` +
+      `<text class="labk pop" x="200" y="136" font-size="9.5" font-weight="700" text-anchor="middle" style="animation-delay:.6s">TRAINED</text>`;
+    const tools: [number,number,string][] = [[92,92,'CRM'],[308,94,'Calendar'],[90,180,'POS'],[310,180,'Inbox']];
+    tools.forEach((t,i) => {
+      s += `<path class="wire draw glow" style="--L:150;animation-delay:${(.7+i*.12).toFixed(2)}s" d="M200,132 L${t[0]},${t[1]}"/>` +
+           `<circle class="ring glow pop" cx="${t[0]}" cy="${t[1]}" r="17" style="animation-delay:${(.9+i*.12).toFixed(2)}s"/>` +
+           `<text class="lab pop" x="${t[0]}" y="${t[1]+4}" font-size="8.5" text-anchor="middle" style="animation-delay:${(1+i*.12).toFixed(2)}s">${t[2]}</text>`;
+    });
+    return `<svg viewBox="0 0 400 260">${s}</svg>`;
+  },
+  voice: () => {
+    let s = `<text class="labA up" x="40" y="42" font-size="10.5" style="animation-delay:.2s">◉ live call</text>`;
+    for (let i=0;i<22;i++){const h=12+((i*i*5)%56),on=i>2&&i<18;
+      s+=`<rect class="${on?'nodeOn glow':'node'} grow" x="${36+i*15}" y="${122-h/2}" width="7" height="${h}" rx="3" style="animation-delay:${(i*.035).toFixed(3)}s"/>`;}
+    s+=`<line class="wire" x1="36" y1="122" x2="366" y2="122" opacity=".22"/>` +
+       `<rect class="up" x="108" y="178" width="184" height="42" rx="11" fill="rgba(245,245,243,.1)" stroke="${AIS_VI}" stroke-width="1.4" style="animation-delay:1s"/>` +
+       `<text class="labA up" x="200" y="204" font-size="12.5" font-weight="700" text-anchor="middle" style="animation-delay:1.1s">Answered · booked · sold</text>`;
+    return `<svg viewBox="0 0 400 250">${s}</svg>`;
+  },
+  workflow: () => {
+    const y=68;
+    let s=`<text class="labA up" x="40" y="32" font-size="10.5" style="animation-delay:.15s">1 message in → whole job done</text>`;
+    const steps=[{x:58,l:'Take',t:'booking'},{x:170,l:'Update',t:'calendar'},{x:282,l:'Tell',t:'the team'}];
+    for(let i=0;i<steps.length-1;i++)s+=`<path class="wire draw glow" style="--L:72;animation-delay:${(.3+i*.3).toFixed(2)}s" d="M${steps[i].x+22},${y} L${steps[i+1].x-22},${y}"/>`;
+    steps.forEach((n,i)=>{s+=`<circle class="ring glow pop" cx="${n.x}" cy="${y}" r="21" style="animation-delay:${(i*.28).toFixed(2)}s"/>` +
+      `<text class="lab pop" x="${n.x}" y="${y+3}" font-size="9" font-weight="700" text-anchor="middle" style="animation-delay:${(i*.28+.1).toFixed(2)}s">${n.l}</text>` +
+      `<text class="lab up" x="${n.x}" y="${y+37}" font-size="8.5" text-anchor="middle" opacity=".5" style="animation-delay:${(i*.28+.2).toFixed(2)}s">${n.t}</text>`;});
+    s+=`<path class="wire draw glow" style="--L:60;animation-delay:1.1s" d="M304,${y} L344,${y}"/>` +
+       `<circle class="nodeOn glow pop" cx="366" cy="${y}" r="16" style="animation-delay:1.3s"/>` +
+       `<path class="draw" style="--L:20;animation-delay:1.6s" d="M360,${y} l4,5 l8,-9" stroke="${AIS_INK}" stroke-width="2.2" fill="none" stroke-linecap="round"/>` +
+       `<path class="wire draw" style="--L:80;animation-delay:1.4s" d="M170,90 L170,150"/>` +
+       `<circle class="ring glow pop" cx="170" cy="172" r="20" style="animation-delay:1.6s"/>` +
+       `<circle class="nodeOn pop" cx="170" cy="166" r="7" style="animation-delay:1.7s"/>` +
+       `<path class="pop" style="animation-delay:1.8s" d="M158,185 q12,-15 24,0 z" fill="${AIS_VI}"/>` +
+       `<text class="lab up" x="170" y="210" font-size="9" text-anchor="middle" opacity=".6" style="animation-delay:1.9s">odd case → a human</text>`;
+    return `<svg viewBox="0 0 400 224">${s}</svg>`;
+  },
+  build: () => {
+    let s=`<rect class="ring glow up" x="38" y="40" width="182" height="132" rx="10" style="animation-delay:.2s"/>` +
+      `<line class="wire up" x1="38" y1="66" x2="220" y2="66" style="animation-delay:.3s"/>` +
+      `<circle class="nodeOn pop" cx="54" cy="53" r="3" style="animation-delay:.4s"/>` +
+      `<circle class="node pop" cx="66" cy="53" r="3" style="animation-delay:.45s"/>` +
+      `<circle class="node pop" cx="78" cy="53" r="3" style="animation-delay:.5s"/>`;
+    [0,1,2].forEach(i=>{s+=`<rect class="node up" x="58" y="${86+i*24}" width="${140-i*32}" height="10" rx="3" style="animation-delay:${(.6+i*.12).toFixed(2)}s"/>`;});
+    s+=`<text class="lab up" x="129" y="192" font-size="9.5" text-anchor="middle" opacity=".6" style="animation-delay:1s">software, built to you</text>` +
+       `<rect class="ring glow up" x="256" y="56" width="106" height="74" rx="8" style="animation-delay:.7s"/>` +
+       `<circle class="nodeOn glow pop" cx="309" cy="93" r="15" style="animation-delay:.9s"/>` +
+       `<rect class="wire up" x="299" y="134" width="20" height="24" rx="3" style="animation-delay:1s"/>` +
+       `<text class="lab up" x="309" y="192" font-size="9.5" text-anchor="middle" opacity=".6" style="animation-delay:1.1s">screens · hardware</text>`;
+    return `<svg viewBox="0 0 400 212">${s}</svg>`;
+  },
+  come: () => {
+    const st=[{x:60,l:'Visit'},{x:180,l:'Research'},{x:300,l:'Build'}],y=88;
+    let s='';
+    for(let i=0;i<st.length-1;i++)s+=`<path class="wire draw glow" style="--L:96;animation-delay:${(i*.3).toFixed(2)}s" d="M${st[i].x+26},${y} L${st[i+1].x-26},${y}"/>`;
+    st.forEach((n,i)=>{s+=`<circle class="ring glow pop" cx="${n.x}" cy="${y}" r="24" style="animation-delay:${(i*.25).toFixed(2)}s"/>` +
+      `<text class="lab pop" x="${n.x}" y="${y+4}" font-size="9.5" font-weight="700" text-anchor="middle" style="animation-delay:${(i*.25+.1).toFixed(2)}s">${n.l}</text>`;});
+    s+=`<text class="lab up" x="200" y="40" font-size="10.5" text-anchor="middle" opacity=".6" style="animation-delay:.2s">our people, at your table</text>` +
+       `<rect class="up" x="118" y="148" width="164" height="44" rx="12" fill="rgba(245,245,243,.1)" stroke="${AIS_VI}" stroke-width="1.4" style="animation-delay:1.1s"/>` +
+       `<text class="labA up" x="200" y="175" font-size="13" font-weight="700" text-anchor="middle" style="animation-delay:1.2s">Delivered in a week</text>`;
+    return `<svg viewBox="0 0 400 210">${s}</svg>`;
+  },
+  audit: () => {
+    let s=`<rect class="ring glow up" x="66" y="34" width="196" height="182" rx="12" style="animation-delay:.2s"/>` +
+      `<text class="lab up" x="86" y="64" font-size="10.5" letter-spacing="1.5" style="animation-delay:.3s">YOUR AUDIT</text>`;
+    [0,1,2,3].forEach(i=>{const y=94+i*30;
+      s+=`<circle class="nodeOn glow pop" cx="96" cy="${y}" r="8" style="animation-delay:${(.5+i*.15).toFixed(2)}s"/>` +
+         `<path class="draw" style="--L:16;animation-delay:${(.8+i*.15).toFixed(2)}s" d="M92,${y} l3,4 l7,-8" stroke="${AIS_INK}" stroke-width="2" fill="none" stroke-linecap="round"/>` +
+         `<rect class="node up" x="116" y="${y-6}" width="${120-i*16}" height="10" rx="3" style="animation-delay:${(.6+i*.15).toFixed(2)}s"/>`;});
+    s+=`<g class="pop" style="animation-delay:1.4s">` +
+       `<circle cx="300" cy="92" r="34" fill="none" stroke="${AIS_VI}" stroke-width="2"/>` +
+       `<text class="labA" x="300" y="88" font-size="15" font-weight="700" text-anchor="middle">FREE</text>` +
+       `<text class="lab" x="300" y="104" font-size="7.5" text-anchor="middle">even if you say no</text></g>`;
+    return `<svg viewBox="0 0 400 240">${s}</svg>`;
+  },
+};
 
-const SVG_AI_WORKFLOW = `<svg viewBox="0 0 400 224" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <text font-family="monospace" font-size="9" fill="rgba(240,238,248,.38)" letter-spacing=".1em" class="up" x="24" y="30" style="animation-delay:.05s">1 message in → whole job done</text>
-  <line stroke="${AI.line}" stroke-width="1.25" class="draw" style="--L:80;animation-delay:.2s" x1="78" y1="72" x2="138" y2="72"/>
-  <line stroke="${AI.line}" stroke-width="1.25" class="draw" style="--L:80;animation-delay:.35s" x1="202" y1="72" x2="248" y2="72"/>
-  <line stroke="${AI.line}" stroke-width="1.25" class="draw" style="--L:80;animation-delay:.5s" x1="312" y1="72" x2="358" y2="72"/>
-  <rect fill="${AI.vi3}" stroke="${AI.vi}" stroke-width="1.25" rx="8" class="up" x="24" y="54" width="54" height="36" style="animation-delay:.1s"/>
-  <text font-family="monospace" font-size="9" fill="${AI.vi2}" text-anchor="middle" class="up" x="51" y="72" style="animation-delay:.2s">message</text>
-  <rect fill="${AI.card}" stroke="${AI.line}" stroke-width="1.25" rx="8" class="up" x="138" y="54" width="64" height="36" style="animation-delay:.25s"/>
-  <text font-family="monospace" font-size="9" fill="${AI.dim}" text-anchor="middle" class="up" x="170" y="68" style="animation-delay:.35s">Take</text>
-  <text font-family="monospace" font-size="9" fill="${AI.dim}" text-anchor="middle" class="up" x="170" y="81" style="animation-delay:.4s">booking</text>
-  <rect fill="${AI.card}" stroke="${AI.line}" stroke-width="1.25" rx="8" class="up" x="248" y="54" width="64" height="36" style="animation-delay:.4s"/>
-  <text font-family="monospace" font-size="9" fill="${AI.dim}" text-anchor="middle" class="up" x="280" y="68" style="animation-delay:.5s">Update</text>
-  <text font-family="monospace" font-size="9" fill="${AI.dim}" text-anchor="middle" class="up" x="280" y="81" style="animation-delay:.55s">calendar</text>
-  <circle fill="${AI.vi}" class="pop" cx="370" cy="72" r="16" style="animation-delay:.65s"/>
-  <text font-family="monospace" font-size="13" fill="${AI.bg}" text-anchor="middle" class="pop" x="370" y="77" style="animation-delay:.75s">✓</text>
-  <line stroke="rgba(123,97,255,.3)" stroke-width="1" stroke-dasharray="4 3" class="draw" style="--L:60;animation-delay:.7s" x1="280" y1="90" x2="280" y2="148"/>
-  <rect fill="${AI.card}" stroke="rgba(240,238,248,.07)" stroke-width="1" rx="8" class="up" x="230" y="148" width="100" height="28" style="animation-delay:.85s"/>
-  <text font-family="monospace" font-size="8.5" fill="rgba(240,238,248,.38)" text-anchor="middle" class="up" x="280" y="166" style="animation-delay:.95s">→ human if needed</text>
-</svg>`;
-
-const SVG_AI_BUILD = `<svg viewBox="0 0 400 212" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <rect fill="${AI.card}" stroke="${AI.line}" stroke-width="1.25" rx="10" class="up" x="40" y="30" width="200" height="148" style="animation-delay:.1s"/>
-  <rect fill="${AI.vi}" rx="8" class="up" x="40" y="30" width="200" height="28" style="animation-delay:.2s; border-radius:8px 8px 0 0"/>
-  <circle fill="rgba(240,238,248,.4)" class="pop" cx="62" cy="44" r="5" style="animation-delay:.35s"/>
-  <circle fill="rgba(240,238,248,.4)" class="pop" cx="78" cy="44" r="5" style="animation-delay:.4s"/>
-  <circle fill="rgba(240,238,248,.4)" class="pop" cx="94" cy="44" r="5" style="animation-delay:.45s"/>
-  <rect fill="${AI.vi3}" rx="3" class="growx" x="60" y="76" width="120" height="8" style="animation-delay:.5s"/>
-  <rect fill="rgba(240,238,248,.06)" rx="3" class="growx" x="60" y="92" width="88" height="6" style="animation-delay:.6s"/>
-  <rect fill="rgba(240,238,248,.06)" rx="3" class="growx" x="60" y="104" width="104" height="6" style="animation-delay:.7s"/>
-  <rect fill="rgba(240,238,248,.06)" rx="3" class="growx" x="60" y="116" width="72" height="6" style="animation-delay:.8s"/>
-  <rect fill="${AI.card}" stroke="${AI.line}" stroke-width="1.25" rx="8" class="up" x="272" y="56" width="90" height="112" style="animation-delay:.5s"/>
-  <rect fill="${AI.vi3}" stroke="${AI.vi}" stroke-width="1" rx="6" class="pop" cx="317" cy="82" x="284" y="68" width="66" height="46" style="animation-delay:.7s"/>
-  <text font-family="monospace" font-size="9" fill="${AI.vi2}" text-anchor="middle" class="up" x="317" y="134" style="animation-delay:.85s">hardware</text>
-</svg>`;
-
-const SVG_AI_COME = `<svg viewBox="0 0 400 210" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <line stroke="${AI.line}" stroke-width="1.25" class="draw" style="--L:126;animation-delay:.3s" x1="82" y1="88" x2="158" y2="88"/>
-  <line stroke="${AI.line}" stroke-width="1.25" class="draw" style="--L:126;animation-delay:.5s" x1="222" y1="88" x2="278" y2="88"/>
-  <circle fill="${AI.vi3}" stroke="${AI.vi}" stroke-width="1.5" class="pop" cx="60" cy="88" r="22" style="animation-delay:.1s"/>
-  <text font-family="monospace" font-size="9.5" fill="${AI.vi2}" text-anchor="middle" class="up" x="60" y="92" style="animation-delay:.2s">Visit</text>
-  <circle fill="${AI.vi3}" stroke="${AI.vi}" stroke-width="1.5" class="pop" cx="190" cy="88" r="32" style="animation-delay:.3s"/>
-  <text font-family="monospace" font-size="9.5" fill="${AI.vi2}" text-anchor="middle" class="up" x="190" y="85" style="animation-delay:.45s">Research</text>
-  <text font-family="monospace" font-size="8.5" fill="${AI.c45}" text-anchor="middle" class="up" x="190" y="98" style="animation-delay:.5s">&amp; scope</text>
-  <circle fill="${AI.vi}" class="pop" cx="320" cy="88" r="30" style="animation-delay:.55s"/>
-  <text font-family="monospace" font-size="10" font-weight="700" fill="${AI.bg}" text-anchor="middle" class="up" x="320" y="92" style="animation-delay:.7s">Build</text>
-  <rect fill="${AI.vi3}" stroke="${AI.vi}" stroke-width="1.25" rx="20" class="pop" x="112" y="148" width="176" height="32" style="animation-delay:.9s"/>
-  <text font-family="monospace" font-size="10" fill="${AI.vi2}" text-anchor="middle" class="up" x="200" y="168" style="animation-delay:1.05s">Delivered in a week</text>
-</svg>`;
-
-const SVG_AI_AUDIT = `<svg viewBox="0 0 400 240" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <rect fill="${AI.card}" stroke="${AI.line}" stroke-width="1.25" rx="10" class="up" x="60" y="26" width="190" height="186" style="animation-delay:.1s"/>
-  <text font-family="monospace" font-size="9" fill="${AI.c45}" letter-spacing=".1em" class="up" x="78" y="50" style="animation-delay:.2s">AGENT CHECKLIST</text>
-  ${["Trained on your data","Handles your calls","Books appointments","Escalates when needed"].map((t, i) => {
-    const y = 74 + i * 38;
-    return `<circle fill="rgba(123,97,255,.15)" stroke="${AI.vi}" stroke-width="1.5" class="pop" cx="84" cy="${y}" r="10" style="animation-delay:${0.4 + i * 0.12}s"/>
-            <text font-family="monospace" font-size="11" fill="${AI.vi}" text-anchor="middle" class="pop" x="84" y="${y + 4}" style="animation-delay:${0.55 + i * 0.12}s">✓</text>
-            <text font-family="monospace" font-size="10.5" fill="${AI.dim}" class="up" x="102" y="${y + 4}" style="animation-delay:${0.6 + i * 0.12}s">${t}</text>`;
-  }).join("")}
-  <circle fill="${AI.vi}" class="pop" cx="314" cy="119" r="36" style="animation-delay:.9s"/>
-  <text font-family="monospace" font-size="14" font-weight="700" fill="${AI.bg}" text-anchor="middle" class="pop" x="314" y="112" style="animation-delay:1.05s">FREE</text>
-  <text font-family="monospace" font-size="9" fill="${AI.bg}" text-anchor="middle" class="pop" x="314" y="128" style="animation-delay:1.1s">to audit</text>
-</svg>`;
+const AIS_ROLES: [string,string,string,boolean][] = [
+  ['Voice support','Answers every call & chat','24/7',true],
+  ['Sales agent','Qualifies, books, never sleeps','ALWAYS ON',false],
+  ['Concierge','Helps your customers, end to end','LIVE',false],
+  ['Market research','Watches your competitors','ON',false],
+  ['Back-office','Runs the repetitive ops','ON',false],
+  ['Bespoke','Built for your exact problem','CUSTOM',false],
+];
+const AIS_TEAM = ['AI engineers','Conversation designers','Software & hardware','Business consultants','Strategists'];
+const AIS_PARTS = [
+  { n:'01',sp:'Trained on you',h:'Not chatbots. <em>Trained employees.</em>',
+    out:'They know your business — and do the work.',who:'AI engineers',
+    cap:'Not a chatbot bolted on. Each employee is trained on your prices, your rules, your tone and your data — plugged into the tools you already run, and it builds its own workflow when the job needs one. It works inside your system, and <b>your data never leaves it.</b>',
+    stat:'100',statEm:'%',statP:'of your data stays in your system — owned by you, protected',viz:'trained'},
+  { n:'02',sp:'The roles you hire',h:'Voice, sales, <em>concierge.</em>',
+    out:'Every call, chat and customer, handled.',who:'Conversation designers',
+    cap:'A voice agent that answers the clinic\'s calls and books them, takes the restaurant\'s orders, handles the shop\'s DMs, qualifies and sells — any hour, no queue. A concierge that helps your customers end to end. Research agents that watch your competitors while you sleep.',
+    stat:'5',statEm:'sec',statP:'under five seconds to answer — any hour, no queue, never a bad day',viz:'voice'},
+  { n:'03',sp:'They work together',h:'They work as <em>one team.</em>',
+    out:'Not one bot — a workforce that runs the whole job.',who:'AI systems architects',
+    cap:'One agent takes the booking, hands it to the next that updates your calendar, texts the customer and tells your team, then logs it — a whole process end to end, across the tools you already use. When something\'s off, it passes it to a person. <b>Real workflow automation, run by a team of agents that talk to each other.</b>',
+    stat:'1',statEm:'msg',statP:'one message in — the whole workflow runs itself, end to end',viz:'workflow'},
+  { n:'04',sp:'Built to your system',h:'Software and <em>hardware, built to you.</em>',
+    out:'Not a SaaS tool. Built for you.',who:'Software & hardware engineers',
+    cap:'When the job needs software, we build it to your system — not a rented SaaS tool you bend your business around. When it needs a screen, a kiosk, or hardware and robotics on the floor, we build and install that too.',
+    stat:'7',statEm:'days',statP:'from problem to built and running — software or hardware',viz:'build'},
+  { n:'05',sp:'How we deliver',h:'We <em>come to you.</em>',
+    out:'We gather everything before we build anything.',who:'Engineer + business consultant',
+    cap:'This isn\'t a login. A tech engineer and a business consultant come to you, learn your business, your market, its size and your customers, and take every problem you\'re carrying. Then we go back, research it with our strategists and your data, and return with the fixes — <b>plus the ones you were too busy to see.</b>',
+    stat:'2',statEm:'',statP:'of our people at your table first — a tech engineer and a business consultant',viz:'come'},
+  { n:'06',sp:'No risk to look',h:'A free audit, <em>either way.</em>',
+    out:'Free audit and strategies — even if you say no.',who:'Your strategist',
+    cap:'Even if you never sign, you keep the audit and the strategies — free. New to this, or not sure? Just call. We visit, we look, and we tell you honestly where AI would help — or that you don\'t need it yet, at your size, right now. <b>Adoption done right, or not at all.</b>',
+    stat:'0',statEm:'€',statP:'the audit and strategies — free, even if you never work with us',viz:'audit'},
+];
 
 function AIStaffContent({ onClose }: { onClose: () => void }) {
-  const faqs = [
-    { q: "How quickly can an AI staff member be deployed?", a: "Most AI staff members are live within a week. We audit your setup, scope the agent, build it on your systems, and hand it over already handling real work — with a human fallback built in for anything it can't handle." },
-    { q: "What can an AI staff member actually do?", a: "Anything that's a repeatable workflow: answer calls and book appointments, handle WhatsApp and email, review and respond to Google reviews, chase unpaid invoices, greet tables, take orders — the work that costs your team time every single day." },
-    { q: "What if it gets something wrong?", a: "Every agent has a built-in human fallback. If it hits something it can't handle, it flags a real person. We also monitor every agent weekly and retrain it when the business changes." },
-    { q: "Are you an AI company?", a: "We're a team that builds, trains and runs AI staff members for real businesses. The 'AI' part is how the work gets done — you get the result: fewer missed calls, faster replies, work that runs while you sleep." },
-  ];
-  const roster = [
-    { id:"SALES-01", role:"Sales assistant", sig:"Qualifies and books" },
-    { id:"HOST", role:"Front-of-house", sig:"Greets, seats, orders" },
-    { id:"RING", role:"Receptionist", sig:"Answers every call" },
-    { id:"REVIEWS", role:"Review manager", sig:"Replies on autopilot" },
-    { id:"SUPPORT", role:"Support agent", sig:"First-line resolution" },
-    { id:"SCRIBE", role:"Note-taker", sig:"Logs every meeting" },
-  ];
+  const rosterRef = useRef<HTMLDivElement>(null);
+  const wrapRef   = useRef<HTMLDivElement>(null);
+
+  // inject CSS + Schibsted Grotesk font once
+  useEffect(() => {
+    const id = "ais-styles";
+    if (!document.getElementById(id)) {
+      if (!document.getElementById("ais-font")) {
+        const lk = document.createElement("link");
+        lk.id = "ais-font"; lk.rel = "stylesheet";
+        lk.href = "https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap";
+        document.head.appendChild(lk);
+      }
+      const el = document.createElement("style");
+      el.id = id; el.textContent = AIS_CSS;
+      document.head.appendChild(el);
+    }
+    return () => { document.getElementById(id)?.remove(); };
+  }, []);
+
+  // roster entrance animation
+  useEffect(() => {
+    const t = setTimeout(() => rosterRef.current?.classList.add("go"), 200);
+    return () => clearTimeout(t);
+  }, []);
+
+  // scroll-triggered SVG animations (adds .live class to .viz)
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("live"); }),
+      { threshold: 0.3 }
+    );
+    wrapRef.current?.querySelectorAll(".viz").forEach(v => io.observe(v));
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div style={{ background: AI.bg, color: AI.c }}>
-      <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${AI.line}` }}>
-        <Kicker label="AI Staff" color={AI.vi2} />
-        <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
-          fontSize: "clamp(2.4rem,10vw,3.8rem)", lineHeight: .9, letterSpacing: "-.05em",
-          textTransform: "uppercase", color: AI.c, marginBottom: "1rem" }}>
-          Your new team.<br />
-          <em style={{ fontFamily: "var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle: "italic", fontWeight: 400, textTransform: "none", letterSpacing: 0,
-            color: AI.vi2, fontSize: "1.04em" }}>Never off the clock.</em>
-        </h1>
-        <p style={{ fontSize: ".98rem", color: AI.dim, lineHeight: 1.6, maxWidth: "44ch", marginBottom: "1.6rem" }}>
-          AI staff members built, trained and deployed on your business — answering calls,
-          booking appointments, handling messages, and running the repetitive work that
-          costs your team hours every day.{" "}
-          <strong style={{ color: AI.c }}>Ready in a week. Free to audit.</strong>
-        </p>
-        {/* roster grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 8 }}>
-          {roster.map(r => (
-            <div key={r.id} style={{ background: AI.card, border: `1px solid ${AI.line}`,
-              borderRadius: 8, padding: "10px 12px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-                <span style={{ width: 8, height: 8, borderRadius: "50%", background: AI.vi,
-                  boxShadow: `0 0 0 3px ${AI.vi3}`, flexShrink: 0 }} />
-                <span style={{ fontFamily: "monospace", fontSize: 9.5, color: AI.vi2,
-                  letterSpacing: ".06em" }}>{r.id}</span>
+    <div className="ais" ref={wrapRef}>
+      {/* sticky top bar */}
+      <div className="top">
+        <span className="brand"><b>OARC</b><s>AI</s></span>
+        <span className="live"><i />&nbsp;Malta&apos;s AI agency</span>
+      </div>
+
+      {/* hero */}
+      <div className="hero">
+        <p className="lbl">Pick your employee</p>
+        <h1>Not chatbots.<br /><em>Employees that do the work.</em></h1>
+        <p>Trained on your business, plugged into your systems, working under your control with your data protected — <b>voice support, sales, a concierge for your customers, research on your competitors,</b> and the software and hardware around them. Built and delivered by our people. In a week. In Malta.</p>
+
+        <div className="roster" ref={rosterRef}>
+          <div className="rtop"><i />Your business · your data · your control</div>
+          <div className="rgrid">
+            {AIS_ROLES.map(([name, desc, status, hot], i) => (
+              <div key={i} className={`rcard${hot ? ' hot' : ''}`} style={{ transitionDelay: `${.12+i*.08}s` }}>
+                <div className="rn">{name}</div>
+                <div className="rd">{desc}</div>
+                <div className="rs"><i />{status}</div>
               </div>
-              <p style={{ fontFamily: "monospace", fontSize: 10, color: AI.dim }}>{r.role}</p>
-              <p style={{ fontFamily: "monospace", fontSize: 9.5, color: AI.c45, marginTop: 2 }}>{r.sig}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+          <div className="rfoot">Trained on your business · your data stays yours</div>
+        </div>
+
+        <div className="team">
+          <s>The people who build it</s>
+          <div className="row">{AIS_TEAM.map((t,i) => <span key={i}>{t}</span>)}</div>
         </div>
       </div>
-      <div style={{ padding: "1.6rem 20px 0" }}><Kicker label="What they do" color={AI.vi2} /></div>
-      {[
-        { n:"01", sp:"Trained on your business", h:"Trained on <em>your systems</em>.", stat:"1 week", statD:"from audit to a live, deployed AI staff member",
-          cap:"Every AI staff member is trained on your actual data — your systems, your products, your process, your voice. Not a generic chatbot. A member of staff who knows your business before they start their first shift.",
-          svg: SVG_AI_TRAINED, svgCap:"Your CRM, calendar, POS and inbox — all connected to one trained agent." },
-        { n:"02", sp:"Always answers", h:"Every call, every message — <em>answered</em>.", stat:"00:04", statD:"average first reply time — before a human could even pick up",
-          cap:"The phone rings at 2 am. A WhatsApp comes in on Sunday. A Google review lands. An AI staff member handles it immediately — books, resolves, replies — without ever missing a beat or needing a lunch break.",
-          svg: SVG_AI_VOICE, svgCap:"Every call answered, every booking taken, every message resolved." },
-        { n:"03", sp:"Runs whole workflows", h:"One message. <em>Whole job done.</em>", stat:"0", statD:"hours your team spends on jobs the AI staff member now owns",
-          cap:"When a customer books, the agent takes the appointment, updates the calendar, sends the confirmation and tells the team — without a human touching it. We map the workflow, build the automations, and hand you back the time.",
-          svg: SVG_AI_WORKFLOW, svgCap:"One incoming message triggers a complete chain — no human in the loop." },
-        { n:"04", sp:"Built on your tech", h:"Built on your tools — no new <em>system.</em>", stat:"No", statD:"new software to learn — it runs on the tools you already use",
-          cap:"We build on what you already use. The agent connects to your systems, lives in your inbox, answers your calls. Nothing new to log into. Nothing to learn. It simply works inside the tools your team uses every day.",
-          svg: SVG_AI_BUILD, svgCap:"Software, hardware, workflows — all connected through one trained agent." },
-        { n:"05", sp:"Delivered in a week", h:"Audited, built, <em>live in a week.</em>", stat:"Visit", statD:"we scope it first — then build it — no upfront commitment",
-          cap:"We visit, understand the problem, scope the agent, build it on your tech, and hand it over — live and handling real work — in a week. You see what it does before you commit to anything.",
-          svg: SVG_AI_COME, svgCap:"Visit to scope, research to build, delivery in a week." },
-        { n:"06", sp:"Free audit", h:"Start with a <em>free audit.</em>", stat:"Free", statD:"full audit of where an AI staff member would save you the most time",
-          cap:"Before we build anything, we audit your business — where the time goes, which workflows repeat, where the biggest opportunity is. That audit is free, and it tells you exactly what you'd get. No obligation to build.",
-          svg: SVG_AI_AUDIT, svgCap:"The checklist we verify before we build. Audit is free." },
-      ].map((p, i) => (
-        <Reveal key={i}>
-          <div style={{ padding: "1.8rem 20px 2rem", borderTop: `1px solid ${AI.line}` }}>
-            <div style={{ display: "flex", alignItems: "baseline", gap: ".6rem", marginBottom: ".9rem" }}>
-              <span style={{ fontFamily: "monospace", fontSize: 11, color: AI.vi2 }}>{p.n}</span>
-              <span style={{ fontFamily: "monospace", fontSize: 9, letterSpacing: ".16em",
-                textTransform: "uppercase" as const, color: AI.c45 }}>{p.sp}</span>
-            </div>
-            <h2 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 700,
-              fontSize: "clamp(1.8rem,7vw,2.4rem)", lineHeight: 1.02, letterSpacing: "-.03em", color: AI.c, marginBottom: ".9rem" }}
-              dangerouslySetInnerHTML={{ __html: p.h.replace(/<em>/g,
-                `<em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:${AI.vi2}">`) }} />
-            <p style={{ fontSize: ".92rem", color: AI.dim, lineHeight: 1.62, maxWidth: "52ch" }}>{p.cap}</p>
-            <VizBox svg={p.svg} bg={AI.card} brd={AI.line} />
-            <p style={{ fontFamily: "monospace", fontSize: 10, color: AI.c45, marginTop: ".7rem" }}>{p.svgCap}</p>
-            <div style={{ display: "flex", alignItems: "baseline", gap: ".7rem",
-              borderTop: `1px solid ${AI.line}`, marginTop: "1rem", paddingTop: "1rem" }}>
-              <span style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
-                fontSize: "clamp(2rem,7vw,2.6rem)", color: AI.vi2, letterSpacing: "-.04em", lineHeight: .85 }}>{p.stat}</span>
-              <span style={{ fontSize: 11, color: AI.c45, lineHeight: 1.4, maxWidth: "28ch" }}>{p.statD}</span>
+
+      {/* section divider */}
+      <div className="shead">What you actually get</div>
+
+      {/* 6 phases */}
+      <div>
+        {AIS_PARTS.map((p, i) => (
+          <div key={i} className="phase">
+            <div className="idx"><b>{p.n}</b><s>{p.sp}</s></div>
+            <h2 dangerouslySetInnerHTML={{ __html: p.h }} />
+            <p className="out">{p.out}</p>
+            <div className="viz" dangerouslySetInnerHTML={{ __html: AIS_VIZ[p.viz]() }} />
+            <p className="who">{p.who}</p>
+            <p className="cap" dangerouslySetInnerHTML={{ __html: p.cap }} />
+            <div className="stat">
+              <b dangerouslySetInnerHTML={{ __html: p.stat + (p.statEm ? `<em>${p.statEm}</em>` : '') }} />
+              <p>{p.statP}</p>
             </div>
           </div>
-        </Reveal>
-      ))}
-      <FAQ items={faqs} bg={AI.bg} border={AI.line} head={AI.c} body={AI.dim} />
-      <CTA big={<>A team that never<br /><CtaItalic>clocks off.</CtaItalic></>}
-        sub="AI staff members built, trained and deployed on your business — answering every call, running every workflow, free to audit first."
-        btn="Get a free audit" onClose={onClose} />
+        ))}
+      </div>
+
+      {/* differentiator */}
+      <p className="diff">Everyone sells you a chatbot login. <b>We build you a workforce that works.</b></p>
+
+      {/* value comparison */}
+      <div className="value">
+        <div className="vhead">The value, plainly</div>
+        <div className="vcompare">
+          <div className="vcol">
+            <s>Doing it by hand</s>
+            <ul>
+              <li>8 hours, 5 days</li>
+              <li>Replies when someone&apos;s free</li>
+              <li>A salary for every seat</li>
+              <li>Off sick, on holiday, one at a time</li>
+            </ul>
+          </div>
+          <div className="vcol on">
+            <s>Your AI workforce</s>
+            <ul>
+              <li>24/7, every single day</li>
+              <li>Answers in seconds</li>
+              <li>A fraction of the cost</li>
+              <li>Never off — and smarter every week</li>
+            </ul>
+          </div>
+        </div>
+        <div className="vguarantee"><b>Our promise:</b> if it hasn&apos;t taken real work off your plate in 30 days, we keep building until it does.</div>
+      </div>
+
+      {/* end manifesto */}
+      <div className="end">
+        <div className="big">The future isn&apos;t a chatbot.<br /><span>It&apos;s built today. Built right.</span></div>
+        <p>Forget toy bots and busywork integrations. We build trained AI employees — moving toward intelligence that does the work for you, always under your control. Some call it ASI; we call it doing it properly. Done wrong, AI breaks businesses and the market with them. <b>So we build it today, and we build it right — here, in Malta.</b></p>
+        <a href="#" onClick={(e) => { e.preventDefault(); onClose(); }}>Book your free audit →</a>
+        <p className="foot">OARC — AI employees, built and delivered in Malta.</p>
+      </div>
     </div>
   );
 }
