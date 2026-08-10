@@ -45,7 +45,7 @@ interface Dept {
 
 const CRIM = "#C8102E", RACE = "#117B4E", INK = "#0E0D0C";
 const DATA: Dept[] = [
-  { h:"Bring me more |customers.|",    w:"C", ac:CRIM, acT:"#F2A9B4", wd:W_NOIR,  m:"inflow",  k:"Growth",
+  { h:"Bring me more |customers.|",    w:"V", ac:INK,  acT:"#F2EFE9", wd:W_NOIR,  m:"inflow",  k:"Growth",
     u:"/services/growth",    c:["They find you","You find them","They like you","They pick you","You stay close","They come back"] },
   { h:"Pick your |employee.|",          w:"O", ac:CRIM, acT:"#F2A9B4", wd:W_GRAPH, m:"orbit",   k:"AI Staff",
     u:"/services/ai-staff",  c:["Sales agent","Bookings host","Missed-call return","Review capture","Support agent","Quotes & invoices","Win-back","Nightly watch"] },
