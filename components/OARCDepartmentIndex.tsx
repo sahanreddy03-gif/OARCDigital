@@ -126,9 +126,9 @@ const CSS = `
   transition:background 460ms var(--e),color 460ms var(--e),border-color 460ms var(--e),
              opacity 800ms var(--e),transform 900ms var(--e)}
 .di-wash{position:absolute;inset:0;background:#0E0D0C;transform:scaleY(0);transform-origin:bottom;
-  transition:transform 540ms var(--e)}
+  opacity:0;transition:transform 540ms var(--e),opacity 540ms var(--e)}
 .di-cell.di-from-top .di-wash{transform-origin:top}
-.di-cell.di-on .di-wash{transform:scaleY(1)}
+.di-cell.di-on .di-wash{transform:scaleY(1);opacity:1}
 .di-cell.di-on{color:#F2EFE9;border-color:#0E0D0C}
 .di-cell:focus-visible{outline:2px solid var(--crim);outline-offset:2px}
 .di-cell>.di-nm{position:relative;z-index:2}
