@@ -266,6 +266,20 @@ em.di-wO path{fill:none;stroke:var(--ac);stroke-width:.065em;stroke-linecap:roun
   em.di-wS::after{transform:rotate(-3deg) scaleX(1)}
   em.di-wO path{stroke-dashoffset:0}
 }
+
+/* ── variant: dark — "Pick your employee" rests on black, flips to ivory on active ── */
+.di-cell-dark{background:#0B0C0D;color:#F5F5F3;border-color:rgba(245,245,243,.1)}
+.di-cell-dark .di-wash{background:#F2EFE9}
+.di-cell-dark.di-on{color:#0E0D0C;border-color:#F2EFE9}
+.di-cell-dark em.di-wO path{stroke:#F5F5F3}
+.di-cell-dark.di-on em.di-wO path{stroke:var(--ac)}
+
+/* ── variant: green — "Social, our powerhouse" rests on forest green, wash to racing green ── */
+.di-cell-green{background:#0B3320;color:#F2EFE9;border-color:rgba(242,239,233,.08)}
+.di-cell-green .di-wash{background:#117B4E}
+.di-cell-green.di-on{color:#F2EFE9;border-color:#117B4E}
+.di-cell-green em.di-wB{box-shadow:inset 0 0 0 2.5px rgba(242,239,233,.7)}
+.di-cell-green.di-on em.di-wB{box-shadow:inset 0 0 0 2.5px rgba(242,239,233,.95)}
 `;
 
 // ─── component ────────────────────────────────────────────────────────────────
@@ -704,7 +718,7 @@ export default function OARCDepartmentIndex() {
         {/* ── ROW 1 — 5 cards (auto-flow) ── */}
         {DATA.slice(0,5).map((d,i)=>(
           <div key={i}
-               className="di-cell"
+               className={`di-cell${i===1?' di-cell-dark':''}`}
                data-i={String(i)}
                style={{"--ac":d.ac,"--acT":d.acT} as React.CSSProperties}
                tabIndex={0}
@@ -737,7 +751,7 @@ export default function OARCDepartmentIndex() {
         </section>
 
         {/* ── ROW 2, COL 5 — Social ── */}
-        <div className="di-cell di-r2c5"
+        <div className="di-cell di-r2c5 di-cell-green"
              data-i="6"
              style={{"--ac":DATA[6].ac,"--acT":DATA[6].acT} as React.CSSProperties}
              tabIndex={0}
