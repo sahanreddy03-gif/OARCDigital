@@ -341,17 +341,6 @@ function GrowthContent({ onClose }: { onClose: () => void }) {
   const stackRef = useRef<HTMLDivElement>(null);
   const wrapRef  = useRef<HTMLDivElement>(null);
 
-  // inject exact prototype CSS once, clean up on unmount
-  useEffect(() => {
-    const id = "gm-styles";
-    if (!document.getElementById(id)) {
-      const el = document.createElement("style");
-      el.id = id; el.textContent = GM_CSS;
-      document.head.appendChild(el);
-    }
-    return () => { document.getElementById("gm-styles")?.remove(); };
-  }, []);
-
   // trigger 3-D stack entrance
   useEffect(() => {
     const t = setTimeout(() => stackRef.current?.classList.add("go"), 380);
@@ -373,6 +362,9 @@ function GrowthContent({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="gm" ref={wrapRef}>
+      {/* CSS injected synchronously so 3-D keyframes are available on first paint */}
+      {/* eslint-disable-next-line react/no-danger */}
+      <style dangerouslySetInnerHTML={{ __html: GM_CSS }} />
       <div className="hero">
         <p className="lbl">One engagement</p>
         <h1>A stranger becomes<br />a customer. <em>Six steps to the sale.</em></h1>
@@ -3738,7 +3730,7 @@ export default function DepartmentDetailModal({ dept, onClose }: DepartmentDetai
         height:"94dvh", zIndex:8999,
         display:"flex", flexDirection:"column" as const,
         borderRadius:"18px 18px 0 0",
-        overflow:"hidden",
+        overflow:"clip",
         transform: visible ? "translateY(0)" : "translateY(100%)",
         transition:`transform 480ms ${T.e}`,
         boxShadow:"0 -20px 80px rgba(0,0,0,.6)",
