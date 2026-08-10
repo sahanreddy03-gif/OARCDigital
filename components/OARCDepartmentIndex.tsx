@@ -89,7 +89,7 @@ const CSS = `
 .oarc-di{
   background:#F2EFE9;color:#0E0D0C;
   font-family:var(--font-bricolage,'Bricolage Grotesque',sans-serif);
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;-webkit-tap-highlight-color:transparent;
+  -webkit-font-smoothing:antialiased;overflow-x:clip;position:relative;-webkit-tap-highlight-color:transparent;
   touch-action:pan-y;
   --e:cubic-bezier(.16,1,.3,1);
   --line:rgba(14,13,12,.10);--crim:#C8102E;--race:#117B4E;

@@ -64,7 +64,7 @@ const COL_2: Item[] = [
 
 // Scroll speeds in px per RAF frame (60 fps → px/s = speed × 60)
 // Different speeds create a natural parallax between columns.
-const SPEEDS = [0.85, 1.25, 0.65] as const;
+const SPEEDS = [1.0, 0.85, 0.92] as const;
 const GAP_PX = 4; // gap between cards within a column
 const COL_GAP = 3; // gap between columns
 
@@ -95,7 +95,7 @@ function Card({ src, label }: Item) {
       />
       <span
         className="absolute bottom-2 left-2 text-white font-bold leading-tight tracking-widest uppercase"
-        style={{ fontSize: 7.5, letterSpacing: "0.14em" }}
+        style={{ fontSize: 9.5, letterSpacing: "0.12em", textShadow: "0 1px 4px rgba(0,0,0,0.9)" }}
       >
         {label}
       </span>
