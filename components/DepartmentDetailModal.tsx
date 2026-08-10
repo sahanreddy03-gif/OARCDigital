@@ -186,60 +186,103 @@ const CtaItalic = ({ children }: { children: React.ReactNode }) => (
 
 // ── GROWTH content ───────────────────────────────────────────────────────────
 function GrowthContent({ onClose }: { onClose: () => void }) {
+  const stackRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const t = setTimeout(() => stackRef.current?.classList.add("go"), 350);
+    return () => clearTimeout(t);
+  }, []);
+
+  const desks = ["Search desk","Reach desk","The Studio","Conversion desk","Lifecycle desk","Retention desk"];
+  const n = desks.length, gap = 34, base = -(n - 1) * gap / 2;
+
   const phases: PhaseData[] = [
-    { num:"01", label:"They find you", headline:'They <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">find</em> you.', hook:"The ones already looking.", who:"Search team",
-      body:"We own the moment someone is already searching for what you sell — on Google, on Maps, in the AI answer. When a buyer looks, <strong style='color:#F2EFE9'>you're the one they find.</strong>",
-      stat:"76", statS:"%", statD:"of people who search nearby visit a business within a day — if you show up" },
-    { num:"02", label:"You find them", headline:'You <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">find</em> them.', hook:"The ones not looking yet.", who:"Reach team",
-      body:"Most future customers aren't searching today. We build audiences from people who already paid you, then run ads at people who look just like them. <strong style='color:#F2EFE9'>Search waits to be found; this goes and finds them.</strong>",
-      stat:"6", statD:"audiences built from your own buyers — the people most likely to be next" },
-    { num:"03", label:"They like you", headline:'They <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">like</em> you.', hook:"They care before they compare.", who:"The Studio",
-      body:"Reach picks who sees you; the Studio gives them a reason to stop. We turn your business into story-led video and content — who you are, why you do it — so people care before they ever compare a price. <strong style='color:#F2EFE9'>Half of what an ad returns is the creative.</strong>",
-      stat:"49", statS:"%", statD:"of an ad's sales lift comes from the creative — the story is the reason they pick you" },
-    { num:"04", label:"They pick you", headline:'They <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">pick</em> you.', hook:"You beat the other three.", who:"Conversion team",
-      body:"Once they care, they compare. Every buyer checks the same four things — a visible price, recent work, real reviews, a straight answer — and picks whoever has them all. <strong style='color:#F2EFE9'>We fill whatever's blank.</strong>",
-      stat:"4", statD:"things every buyer checks before they choose — we make sure yours are all there" },
-    { num:"05", label:"You stay close", headline:'You <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">stay close</em>.', hook:"You never go quiet.", who:"Lifecycle team",
-      body:"The Lifecycle team owns every moment between deciding and buying — both ways. The instant a buyer reaches out they get an answer in seconds, any hour. <strong style='color:#F2EFE9'>Answer in five minutes and you're 21× more likely to win them.</strong>",
-      stat:"21", statS:"×", statD:"more likely to qualify a lead answered in 5 min vs 30 — so we never go quiet" },
-    { num:"06", label:"They come back", headline:'They <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">come back</em>.', hook:"Again, and again.", who:"Retention team",
-      body:"The first sale is the expensive one. The Retention team captures the review, times the next offer to the buyer's own cycle, and engineers the referral. <strong style='color:#F2EFE9'>This is the cheapest growth there is.</strong>",
-      stat:"25–95", statS:"%", statD:"more profit from just a 5% lift in how many customers come back" },
+    { num:"01", label:"They find you",
+      headline:'They <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">find</em> you.',
+      hook:"The ones already looking.", who:"Search desk",
+      body:"The Search desk owns the moment someone is already searching for what you sell. It runs your buyers' real questions through search, maps and AI, sees who gets named instead of you, and works the pages those answers are built from — where top rank and AI citation now overlap under 20%.",
+      stat:"38", statS:"%", statD:"of AI answers named the business, up from 11%" },
+    { num:"02", label:"You find them",
+      headline:'You <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">find</em> them.',
+      hook:"The ones not looking yet.", who:"Reach desk",
+      body:"The Reach desk owns everyone who isn't searching yet — most of your future customers. It builds audiences from people who already paid you, then runs your social and paid ads at those exact buyers, on the platform and at the hour they are actually there. Search waits to be found; this goes and finds them.",
+      stat:"6", statD:"audiences built from your own buyers, not guesswork" },
+    { num:"03", label:"They like you",
+      headline:'They <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">like</em> you.',
+      hook:"They care before they compare.", who:"The Studio",
+      body:"The Studio owns what you actually say. It builds the story — who you are, why you do it, what you stand for — into content, video and the creative inside every ad. Reach picks who sees you; the Studio gives them a reason to stop and care before they ever compare a price.",
+      stat:"40", statD:"pieces of story-led content a month, made in your voice" },
+    { num:"04", label:"They pick you",
+      headline:'They <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">pick</em> you.',
+      hook:"You beat the other three.", who:"Conversion desk",
+      body:"Once they care, they compare. The Conversion desk builds the four things every buyer checks with their head — a visible price, recent work, real reviews, a straight answer — and fills whatever is blank, starting with the price most competitors hide.",
+      stat:"4", statD:"things every buyer checks, before they pick" },
+    { num:"05", label:"You stay close",
+      headline:'You <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">stay close</em>.',
+      hook:"You never go quiet.", who:"Lifecycle desk",
+      body:"The Lifecycle desk owns every moment between deciding and buying — both ways. It keeps you in front across the gap, triggered by what the buyer does, and the instant they reach back, an agent trained on your prices and rules replies in seconds, qualifies, and books. Reply in five minutes and you're 21× likelier to qualify the lead than at thirty; 78% go with whoever answers first.",
+      stat:"11", statS:"sec", statD:"to reply, any hour — and 0 days you disappear" },
+    { num:"06", label:"They come back",
+      headline:'They <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">come back</em>.',
+      hook:"Again, and again.", who:"Retention desk",
+      body:"The Retention desk captures the review at the sale, times the return to the buyer's own cycle, and engineers the referral — because a 5% retention lift raises profit 25 to 95%.",
+      stat:"2.4", statS:"×", statD:"the value of a year, not a single sale" },
   ];
   const faqs = [
-    { q:"What does 'bring me more customers' actually involve?", a:"The whole journey: being found when people search, reaching the ones not searching yet, giving them a reason to like you, being the one they pick, replying instantly, and making them come back. Six steps, run by one team." },
-    { q:"Is this just ads?", a:"No. Ads are one step. We also own search and local visibility, the creative that makes people care, the four things buyers check before choosing, instant response, and retention — because a leak in any one step wastes all the others." },
-    { q:"How do you measure it?", a:"On customers and revenue, at month end — not clicks. You can see every step of the journey and where it's working." },
-    { q:"Are you an AI company?", a:"No. Real strategists, creatives and analysts run the journey. A small tool that flags where customers are leaking is included as a bonus, not the main thing." },
+    { q:"What does 'bring me more customers' actually involve?", a:"The whole journey: being found when people search, reaching the ones not searching yet, giving them a reason to like you, being the one they pick, replying instantly, and making them come back. Six steps, each run by its own desk. Miss one and the rest never happen." },
+    { q:"Is this just ads?", a:"No. Ads are one step — the Reach desk. We also own search and local visibility (Search desk), the creative that makes people care (The Studio), the four things buyers check before choosing (Conversion desk), instant response (Lifecycle desk), and retention (Retention desk). A leak in any one step wastes all the others." },
+    { q:"How do you measure it?", a:"On customers and revenue, at month end — not clicks. You can see every step of the journey and where it's working, in a live report you can check any time." },
+    { q:"Are you an AI company?", a:"No. Real strategists, creatives and analysts run the journey. AI is one tool at the Lifecycle desk — it answers enquiries in seconds. The thinking is done by people." },
   ];
   return (
     <div style={{ background:T.noir, color:T.ivory }}>
       {/* hero */}
-      <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${T.line}` }}>
+      <div style={{ padding:"1.8rem 20px 2.4rem", borderBottom:`1px solid ${T.line}` }}>
         <Kicker label="Growth" />
         <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
-          fontSize:"clamp(2.6rem,10.5vw,4rem)", lineHeight:.9, letterSpacing:"-.05em",
-          textTransform:"uppercase", color:T.ivory, marginBottom:"1rem" }}>
-          Bring me more<br />
+          fontSize:"clamp(2.2rem,9vw,3.4rem)", lineHeight:.94, letterSpacing:"-.045em",
+          color:T.ivory, marginBottom:"1rem" }}>
+          A stranger becomes<br />a customer.{" "}
           <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0, color:T.scar,
-            fontSize:"1.04em" }}>customers.</em>
+            fontStyle:"italic", fontWeight:400, letterSpacing:0, color:T.scar }}>
+            Six steps to the sale.
+          </em>
         </h1>
-        <p style={{ fontSize:".98rem", color:T.dim, lineHeight:1.6, maxWidth:"44ch" }}>
-          A stranger finds you, likes you, picks you over the others, and comes back for more.{" "}
-          <strong style={{ color:T.ivory }}>Six steps, one team, one number at month end.</strong>{" "}
-          Miss a step and the rest never happen, so we run all six.
+        <p style={{ fontSize:".96rem", color:T.dim, lineHeight:1.58, maxWidth:"44ch" }}>
+          They find you. You find them. They like you. They pick you. You stay close. They come back.{" "}
+          <strong style={{ color:T.ivory }}>Six steps, each run by its own desk.</strong>{" "}
+          Miss one and the rest never happen — so we run all six.
         </p>
+
+        {/* 3-D desk stack */}
+        <div className="gdept-stage">
+          <div className="gdept-stack" ref={stackRef}>
+            <div className="gdept-spine" style={{ height:(n-1)*gap }} />
+            {desks.map((d, i) => (
+              <div key={i} className="gdept-layer"
+                style={{ transform:`translateZ(${base + i*gap}px)`, animationDelay:`${i*.13}s` }}>
+                <span className="gdept-dot" />
+                <span className="gdept-tag"><b>0{i+1}</b>{d}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* legend */}
+        <div style={{ display:"flex", flexWrap:"wrap" as const, gap:6, marginTop:"1.5rem" }}>
+          {desks.map((d, i) => (
+            <span key={i} style={{ border:`1px solid ${T.line}`, padding:"6px 10px",
+              fontSize:11, color:T.dim, borderRadius:2 }}>
+              0{i+1}&nbsp;&nbsp;{d}
+            </span>
+          ))}
+        </div>
       </div>
-      <StatStrip items={[
-        { n:"76", s:"%", label:"of nearby searches visit within a day" },
-        { n:"21", s:"×", label:"more likely to qualify at 5 min vs 30" },
-        { n:"25–95", s:"%", label:"more profit from 5% better retention" },
-      ]} />
+
       <div style={{ padding:".4rem 20px 0" }}>
-        <Kicker label="The six steps, in detail" />
+        <Kicker label="The phases, in detail" />
       </div>
       {phases.map((p, i) => <Phase key={i} p={p} realm="E" />)}
+
       {/* bonus */}
       <Reveal>
         <div style={{ margin:"0 20px 1.8rem", padding:"1.3rem 1.4rem",
@@ -255,9 +298,10 @@ function GrowthContent({ onClose }: { onClose: () => void }) {
           </p>
         </div>
       </Reveal>
+
       <FAQ items={faqs} />
-      <CTA big={<>Six steps. One team.<br /><CtaItalic>One number.</CtaItalic></>}
-        sub="Six teams, one engagement, one number at month end: more customers — and the whole journey they took to become them."
+      <CTA big={<>Five desks. One engagement.<br /><CtaItalic>One number.</CtaItalic></>}
+        sub="Five desks, one engagement, one number at month end. Everyone else hands you a dashboard — we show you the machine, and you can check it."
         btn="Run the machine on your business" onClose={onClose} />
     </div>
   );
