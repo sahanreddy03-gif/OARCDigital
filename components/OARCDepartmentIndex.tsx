@@ -28,7 +28,7 @@ function mkWorld(bg: string, fg: string, ac: string): World {
 const W_NOIR  = mkWorld("#0E0D0C", "#F2EFE9", "#F2A9B4"); // money — rose tint on noir
 const W_PAPER = mkWorld("#F2EFE9", "#0E0D0C", "#C8102E"); // studio — crimson ink on ivory
 const W_GRAPH = mkWorld("#0B0C0D", "#F5F5F3", "#F5F5F3"); // machine — surgical white
-const W_BONE  = mkWorld("#F2EFE9", "#0C1F13", "#117B4E"); // media/brand — racing on bone
+const W_BONE  = mkWorld("#F2EFE9", "#0C1F13", "#0E5A3A"); // media/brand — racing on bone
 
 // ─── department data — 16 cards ───────────────────────────────────────────────
 interface Dept {
@@ -43,7 +43,7 @@ interface Dept {
   c: string[];// chips
 }
 
-const CRIM = "#C8102E", RACE = "#117B4E", INK = "#0E0D0C";
+const CRIM = "#C8102E", RACE = "#0E5A3A", INK = "#0E0D0C";
 const DATA: Dept[] = [
   { h:"Bring me more |customers.|",    w:"V", ac:INK,  acT:"#F2EFE9", wd:W_NOIR,  m:"inflow",  k:"Growth",
     u:"/services/growth",    c:["They find you","You find them","They like you","They pick you","You stay close","They come back"] },
@@ -92,7 +92,7 @@ const CSS = `
   -webkit-font-smoothing:antialiased;overflow-x:clip;position:relative;-webkit-tap-highlight-color:transparent;
   touch-action:pan-y;
   --e:cubic-bezier(.16,1,.3,1);
-  --line:rgba(14,13,12,.10);--crim:#C8102E;--race:#117B4E;
+  --line:rgba(14,13,12,.10);--crim:#C8102E;--race:#0E5A3A;
 }
 /* grain */
 .oarc-di::before{content:'';position:absolute;inset:-120%;z-index:0;pointer-events:none;
@@ -268,18 +268,19 @@ em.di-wO path{fill:none;stroke:var(--ac);stroke-width:.065em;stroke-linecap:roun
 }
 
 /* ── variant: dark — "Pick your employee" rests on black, flips to ivory on active ── */
-.di-cell-dark{background:#0B0C0D;color:#F5F5F3;border-color:rgba(245,245,243,.1)}
-.di-cell-dark .di-wash{background:#F2EFE9}
-.di-cell-dark.di-on{color:#0E0D0C;border-color:#F2EFE9}
-.di-cell-dark em.di-wO path{stroke:#F5F5F3}
-.di-cell-dark.di-on em.di-wO path{stroke:var(--ac)}
+/* doubled specificity (.di-cell.di-cell-dark) guarantees override of base .di-cell rules */
+.di-cell.di-cell-dark{background:#0B0C0D;color:#F5F5F3;border-color:rgba(245,245,243,.1)}
+.di-cell.di-cell-dark .di-wash{background:#F2EFE9}
+.di-cell.di-cell-dark.di-on{color:#0E0D0C;border-color:#F2EFE9}
+.di-cell.di-cell-dark em.di-wO path{stroke:#F5F5F3}
+.di-cell.di-cell-dark.di-on em.di-wO path{stroke:#0B0C0D}
 
-/* ── variant: green — "Social, our powerhouse" rests on forest green, wash to racing green ── */
-.di-cell-green{background:#0B3320;color:#F2EFE9;border-color:rgba(242,239,233,.08)}
-.di-cell-green .di-wash{background:#117B4E}
-.di-cell-green.di-on{color:#F2EFE9;border-color:#117B4E}
-.di-cell-green em.di-wB{box-shadow:inset 0 0 0 2.5px rgba(242,239,233,.7)}
-.di-cell-green.di-on em.di-wB{box-shadow:inset 0 0 0 2.5px rgba(242,239,233,.95)}
+/* ── variant: green — "Social, our powerhouse" rests on Racing Green #0E5A3A, flips to ivory on active ── */
+.di-cell.di-cell-green{background:#0E5A3A;color:#F2EFE9;border-color:rgba(242,239,233,.1)}
+.di-cell.di-cell-green .di-wash{background:#F2EFE9}
+.di-cell.di-cell-green.di-on{color:#0C1F13;border-color:#0C1F13}
+.di-cell.di-cell-green em.di-wB{box-shadow:inset 0 0 0 2.5px rgba(242,239,233,.75)}
+.di-cell.di-cell-green.di-on em.di-wB{box-shadow:inset 0 0 0 2.5px var(--ac)}
 `;
 
 // ─── component ────────────────────────────────────────────────────────────────
