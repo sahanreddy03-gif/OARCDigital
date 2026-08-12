@@ -2088,7 +2088,7 @@ const CR_CSS = `
   .cr .meter .fill{transition:none}
   .cr .plate-craft::before,.cr .art.ai::after,.cr .eq b{animation:none}}
 
-/* ── HIGH-CONTRAST FIXES: white accents on dark-green bands ── */
+/* ── GREEN BANDS: white accents on dark #0E5A3A background ── */
 .cr .kick{color:#FFFFFF;border-color:rgba(255,255,255,.28)}
 .cr .hero h1 em,.cr .stats .st b em{color:#FFFFFF}
 .cr .mech .rt em,.cr .mech .mcap b{color:#FFFFFF}
@@ -2096,6 +2096,26 @@ const CR_CSS = `
 .cr .end .big em,.cr .step .sn{color:#FFFFFF}
 .cr .end a{background:#FFFFFF}
 .cr .end a:hover{background:#F2EFE9}
+
+/* ── IVORY SECTIONS: dark-green accents (replaces invisible light mint on bone) ── */
+.cr .thesis .lead,.cr .thesis h2 em{color:#0E5A3A}
+.cr .rooftitle em{color:#0E5A3A}
+.cr .work .tag{color:#0E5A3A;border-color:rgba(14,90,58,.22)}
+.cr .work h3 em{color:#0E5A3A}
+.cr .work .pf{border-left-color:#0E5A3A}
+.cr .work .pf b em{color:#0E5A3A}
+.cr .work.system .ip{color:#0E5A3A}
+.cr .work.system .ip::before{background:#0E5A3A}
+.cr .trow .tlab,.cr .trow .arrow,.cr .tcap b{color:#0E5A3A}
+
+/* ── ART PANELS: white decorations on dark-green artwork tiles ── */
+.cr .reel{border-color:rgba(255,255,255,.7)}
+.cr .reel .rp{border-left-color:#FFFFFF}
+.cr .play{border-left-color:#FFFFFF}
+.cr .eq b{background:#FFFFFF}
+.cr .abx.win{border-color:rgba(255,255,255,.6);color:#FFFFFF}
+.cr .abx.win::after{background:#FFFFFF;color:#0E5A3A}
+.cr .dgrid i.on{background:#FFFFFF}
 `;
 
 const CR_WORKS = [
