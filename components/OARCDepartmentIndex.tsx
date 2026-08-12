@@ -719,7 +719,7 @@ export default function OARCDepartmentIndex() {
         {/* ── ROW 1 — 5 cards (auto-flow) ── */}
         {DATA.slice(0,5).map((d,i)=>(
           <div key={i}
-               className={`di-cell${i===1?' di-cell-dark':''}`}
+               className={`di-cell${i===1?' di-cell-dark':i===2?' di-cell-green':''}`}
                data-i={String(i)}
                style={{"--ac":d.ac,"--acT":d.acT} as React.CSSProperties}
                tabIndex={0}
