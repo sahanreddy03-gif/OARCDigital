@@ -1917,44 +1917,46 @@ const CR_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 .cr{
-  --bg:#0E5A3A;--bg2:#0A3D28;--bone:#F2EFE9;--mint:#8FD6AE;--mintd:#1A6B42;
-  --b72:rgba(242,239,233,.72);--b50:rgba(242,239,233,.5);--b32:rgba(242,239,233,.32);
-  --b18:rgba(242,239,233,.18);--b10:rgba(242,239,233,.1);
+  --bg:#0E5A3A;--bone:#F2EFE9;--mint:#8FD6AE;--mintd:#1A6B42;
+  --b72:rgba(14,90,58,.72);--b50:rgba(14,90,58,.5);--b32:rgba(14,90,58,.32);
+  --b18:rgba(14,90,58,.14);--b10:rgba(14,90,58,.08);
+  --g72:rgba(242,239,233,.72);--g50:rgba(242,239,233,.5);
+  --g18:rgba(242,239,233,.18);--g10:rgba(242,239,233,.1);
   --ui:'Space Grotesk',sans-serif;--serif:'Fraunces',serif;
   --e:cubic-bezier(.16,1,.3,1);
-  background:var(--bg);color:var(--bone);font-family:var(--ui);
+  background:var(--bone);color:#0E5A3A;font-family:var(--ui);
   -webkit-font-smoothing:antialiased;overflow-x:hidden}
 
 .cr .wrap{max-width:960px;margin:0 auto;padding:0 20px}
 
-/* ── HERO ── */
-.cr .hero{padding:2.4rem 0 2.8rem}
+/* ── HERO (green band) ── */
+.cr .hero{background:#0E5A3A;color:var(--bone);padding:2.4rem 0 2.8rem}
 .cr .kick{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--mint);border:1px solid var(--b18);padding:.42rem .8rem;border-radius:30px}
+  color:var(--mint);border:1px solid var(--g18);padding:.42rem .8rem;border-radius:30px}
 .cr .hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.9rem,12vw,6.2rem);line-height:.92;
   letter-spacing:-.03em;margin-top:1.3rem}
 .cr .hero h1 em{font-style:italic;font-weight:400;color:var(--mint)}
-.cr .hero .sub{font-size:clamp(1.06rem,1.9vw,1.3rem);color:var(--b72);line-height:1.55;margin-top:1.4rem;max-width:46ch}
+.cr .hero .sub{font-size:clamp(1.06rem,1.9vw,1.3rem);color:var(--g72);line-height:1.55;margin-top:1.4rem;max-width:46ch}
 .cr .stats{display:flex;flex-wrap:wrap;gap:1.6rem 2.4rem;margin-top:2.2rem}
 .cr .stats .st b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(2.3rem,7.5vw,3.2rem);
   letter-spacing:-.02em;line-height:.85}
 .cr .stats .st b em{font-style:italic;color:var(--mint)}
-.cr .stats .st p{font-size:11.5px;color:var(--b50);line-height:1.4;margin-top:.55rem;max-width:18ch}
+.cr .stats .st p{font-size:11.5px;color:var(--g50);line-height:1.4;margin-top:.55rem;max-width:18ch}
 
-/* ── THESIS ── */
+/* ── THESIS (ivory band) ── */
 .cr .thesis{border-top:1px solid var(--b18);border-bottom:1px solid var(--b18);padding:2.4rem 0;margin:.6rem 0 0}
 .cr .thesis .lead{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mint);margin-bottom:1rem}
-.cr .thesis h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,5.6vw,2.9rem);line-height:1.08;letter-spacing:-.02em;max-width:18ch}
+.cr .thesis h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,5.6vw,2.9rem);line-height:1.08;letter-spacing:-.02em;max-width:18ch;color:#0E5A3A}
 .cr .thesis h2 em{font-style:italic;color:var(--mint)}
 .cr .thesis p{font-size:1rem;color:var(--b72);line-height:1.62;margin-top:1.2rem;max-width:54ch}
 
-/* ── MECHANISM ── */
-.cr .mech{padding:2.6rem 0}
-.cr .eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--b50);margin-bottom:.5rem}
+/* ── MECHANISM (green band) ── */
+.cr .mech{background:#0E5A3A;color:var(--bone);padding:2.6rem 0}
+.cr .eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--g50);margin-bottom:.5rem}
 .cr .rt{font-family:var(--serif);font-weight:300;font-size:clamp(1.7rem,5.2vw,2.5rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:1.6rem}
 .cr .rt em{font-style:italic;color:var(--mint)}
 .cr .stage{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
-.cr .spec{background:#fff;border:1px solid rgba(14,90,58,.15);border-radius:14px;padding:1rem .9rem 1.1rem;color:#0E5A3A}
+.cr .spec{background:#fff;border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:1rem .9rem 1.1rem;color:#0E5A3A}
 .cr .spec .plate{height:96px;border-radius:9px;margin-bottom:.9rem;position:relative;overflow:hidden}
 .cr .plate-plain{background:rgba(143,214,174,.22);display:flex;align-items:center;justify-content:center}
 .cr .plate-plain::after{content:'YOUR BRAND';font-family:var(--ui);font-size:10px;letter-spacing:.15em;color:rgba(14,90,58,.4);font-weight:600}
@@ -1971,27 +1973,27 @@ const CR_CSS = `
 .cr .meter .fill{height:100%;width:0;border-radius:6px;transition:width 1.2s var(--e)}
 .cr .spec.before .fill{background:rgba(14,90,58,.3)}
 .cr .spec.after .fill{background:var(--mint)}
-.cr .mcap{font-size:12px;color:var(--b50);line-height:1.5;margin-top:1.2rem;max-width:52ch}
+.cr .mcap{font-size:12px;color:var(--g50);line-height:1.5;margin-top:1.2rem;max-width:52ch}
 .cr .mcap b{color:var(--mint);font-weight:600}
 
-/* ── THE WORK ── */
+/* ── THE WORK (ivory band) ── */
 .cr .work-sec{padding:1.4rem 0}
 .cr .roof{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--b50);margin-bottom:.5rem}
-.cr .rooftitle{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,5vw,2.3rem);letter-spacing:-.02em;line-height:1.1;max-width:22ch;margin-bottom:1.8rem}
+.cr .rooftitle{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,5vw,2.3rem);letter-spacing:-.02em;line-height:1.1;max-width:22ch;margin-bottom:1.8rem;color:#0E5A3A}
 .cr .rooftitle em{font-style:italic;color:var(--mint)}
 .cr .work{border-top:1px solid var(--b18);padding:2rem 0}
 .cr .art{height:168px;border-radius:13px;position:relative;overflow:hidden;margin-bottom:1.2rem;
-  background:linear-gradient(160deg,#164a30,#0a2d1c);border:1px solid var(--b10);
+  background:linear-gradient(160deg,#164a30,#0a2d1c);border:1px solid rgba(14,90,58,.1);
   display:flex;align-items:center;justify-content:center}
 .cr .art .ast{font-family:var(--serif);font-style:italic;font-size:5rem;color:var(--mint);line-height:1}
 .cr .art .aa{font-family:var(--serif);font-size:4.4rem;color:var(--bone);letter-spacing:-.02em}
-.cr .art.identity{background-image:radial-gradient(var(--b18) 1.2px,transparent 1.2px);background-size:17px 17px;background-color:#0a2d1c}
+.cr .art.identity{background-image:radial-gradient(rgba(242,239,233,.18) 1.2px,transparent 1.2px);background-size:17px 17px;background-color:#0a2d1c}
 /* reel */
 .cr .reel{width:66px;height:106px;border-radius:13px;border:1.5px solid var(--mint);position:relative;
   background:rgba(143,214,174,.06);display:flex;align-items:center;justify-content:center}
 .cr .reel .rp{width:0;height:0;border-left:20px solid var(--mint);border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:4px}
-.cr .reel::before{content:'';position:absolute;top:11px;left:11px;right:11px;height:4px;border-radius:3px;background:var(--b18)}
-.cr .reel::after{content:'';position:absolute;bottom:13px;left:11px;width:32px;height:4px;border-radius:3px;background:var(--b18)}
+.cr .reel::before{content:'';position:absolute;top:11px;left:11px;right:11px;height:4px;border-radius:3px;background:rgba(242,239,233,.18)}
+.cr .reel::after{content:'';position:absolute;bottom:13px;left:11px;width:32px;height:4px;border-radius:3px;background:rgba(242,239,233,.18)}
 /* film */
 .cr .play{width:0;height:0;border-left:36px solid var(--mint);border-top:23px solid transparent;border-bottom:23px solid transparent}
 .cr .eq{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;gap:6px;align-items:flex-end;height:34px}
@@ -2003,36 +2005,36 @@ const CR_CSS = `
 @keyframes cr-eq{0%,100%{height:9px}50%{height:31px}}
 /* A/B ads */
 .cr .ab{display:flex;gap:14px;align-items:center}
-.cr .abx{width:60px;height:70px;border-radius:11px;border:1.5px solid var(--b18);display:flex;align-items:center;justify-content:center;
-  font-family:var(--serif);font-size:1.7rem;color:var(--b50);position:relative}
+.cr .abx{width:60px;height:70px;border-radius:11px;border:1.5px solid rgba(242,239,233,.18);display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:1.7rem;color:rgba(242,239,233,.5);position:relative}
 .cr .abx.win{border-color:var(--mint);color:var(--mint);background:rgba(143,214,174,.1)}
 .cr .abx.win::after{content:'✓';position:absolute;top:-9px;right:-9px;width:22px;height:22px;border-radius:50%;
   background:var(--mint);color:#0E5A3A;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:var(--ui);font-weight:700}
 /* ai grid */
 .cr .dgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;width:138px}
-.cr .dgrid i{width:13px;height:13px;border-radius:3px;background:var(--b18)}
+.cr .dgrid i{width:13px;height:13px;border-radius:3px;background:rgba(242,239,233,.18)}
 .cr .dgrid i.on{background:var(--mint)}
 .cr .art.ai::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(143,214,174,.28),transparent);transform:translateX(-100%);animation:cr-sweep 2.8s var(--e) infinite}
 
 .cr .work .tag{font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--mint);
   border:1px solid var(--b18);border-radius:20px;padding:.32rem .7rem;display:inline-block}
-.cr .work h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,5.6vw,2.5rem);letter-spacing:-.02em;line-height:1.02;margin-top:.9rem}
+.cr .work h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,5.6vw,2.5rem);letter-spacing:-.02em;line-height:1.02;margin-top:.9rem;color:#0E5A3A}
 .cr .work h3 em{font-style:italic;color:var(--mint)}
 .cr .work .role{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--b50);margin-top:.8rem}
 .cr .work .body{font-size:1rem;color:var(--b72);line-height:1.62;margin-top:.7rem;max-width:56ch}
 .cr .work .deliv{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem}
-.cr .work .deliv span{font-size:11.5px;font-weight:500;color:var(--bone);background:var(--b10);border-radius:5px;padding:.44rem .74rem}
+.cr .work .deliv span{font-size:11.5px;font-weight:500;color:#0E5A3A;background:rgba(14,90,58,.08);border-radius:5px;padding:.44rem .74rem}
 .cr .work .pf{margin-top:1.35rem;display:flex;align-items:baseline;gap:.75rem;border-left:2px solid var(--mint);padding-left:.95rem}
-.cr .work .pf b{font-family:var(--serif);font-size:clamp(2rem,7vw,2.7rem);font-weight:400;line-height:.8}
+.cr .work .pf b{font-family:var(--serif);font-size:clamp(2rem,7vw,2.7rem);font-weight:400;line-height:.8;color:#0E5A3A}
 .cr .work .pf b em{font-style:italic;color:var(--mint);font-size:.5em}
 .cr .work .pf p{font-size:12px;color:var(--b50);line-height:1.35;max-width:26ch}
-.cr .work.system{background:linear-gradient(160deg,rgba(143,214,174,.08),transparent);
+.cr .work.system{background:linear-gradient(160deg,rgba(143,214,174,.1),rgba(143,214,174,.04));
   border:1px solid rgba(143,214,174,.34);border-radius:16px;padding:1.8rem 1.4rem;margin:.6rem 0}
 .cr .work.system .ip{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;
   font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--mint)}
 .cr .work.system .ip::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--mint)}
 
-/* ── PROOF ── */
+/* ── PROOF (ivory band) ── */
 .cr .proof-sec{padding:2.2rem 0;border-top:1px solid var(--b18)}
 .cr .trow{border-top:1px solid var(--b10);padding:1.2rem 0}
 .cr .trow:first-of-type{border-top:0}
@@ -2040,37 +2042,39 @@ const CR_CSS = `
 .cr .trow .tba{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
 .cr .trow .tbefore{font-size:1rem;color:var(--b50);text-decoration:line-through;text-decoration-color:var(--b32)}
 .cr .trow .arrow{color:var(--mint);font-weight:700;font-size:1.1rem}
-.cr .trow .tafter{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--bone)}
+.cr .trow .tafter{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:#0E5A3A}
 .cr .tcap{font-size:12px;color:var(--b50);line-height:1.45;margin-top:1.2rem;max-width:52ch}
 .cr .tcap b{color:var(--mint);font-weight:600}
 
-/* ── GUARANTEE — cream card ── */
-.cr .guar{background:var(--bone);color:#0E5A3A;border-radius:16px;padding:2.4rem 1.6rem;margin:2.2rem 0}
+/* ── GUARANTEE — cream card (ivory on ivory: add border) ── */
+.cr .guar{background:var(--bone);color:#0E5A3A;border-radius:16px;border:1px solid var(--b18);
+  padding:2.4rem 1.6rem;margin:2.2rem 0}
 .cr .guar .g-eye{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mintd)}
 .cr .guar .g-big{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,5.8vw,2.8rem);line-height:1.08;letter-spacing:-.02em;margin-top:1rem;max-width:19ch}
 .cr .guar .g-big em{font-style:italic;color:var(--mintd)}
 .cr .guar .g-sub{font-size:1rem;color:rgba(14,90,58,.72);line-height:1.6;margin-top:1.2rem;max-width:52ch}
 .cr .guar .g-sig{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--mintd);margin-top:1.4rem}
 
-/* ── FAQ ── */
+/* ── FAQ (ivory band) ── */
 .cr .faq{padding:2.2rem 0;border-top:1px solid var(--b18)}
 .cr .qa{border-top:1px solid var(--b10);padding:1.4rem 0}
 .cr .qa:first-of-type{border-top:0}
-.cr .qa h4{font-family:var(--serif);font-weight:400;font-size:clamp(1.2rem,3.6vw,1.45rem);letter-spacing:-.01em;line-height:1.25}
+.cr .qa h4{font-family:var(--serif);font-weight:400;font-size:clamp(1.2rem,3.6vw,1.45rem);letter-spacing:-.01em;line-height:1.25;color:#0E5A3A}
 .cr .qa p{font-size:.98rem;color:var(--b72);line-height:1.62;margin-top:.6rem;max-width:58ch}
 
-/* ── CLOSE ── */
-.cr .end{padding:2.4rem 0 calc(3rem + env(safe-area-inset-bottom));border-top:1px solid var(--b18)}
-.cr .step{display:flex;gap:1rem;border-top:1px solid var(--b10);padding:1.2rem 0}
+/* ── CLOSE (green band) ── */
+.cr .end{background:#0E5A3A;color:var(--bone);padding:2.4rem 0 calc(3rem + env(safe-area-inset-bottom))}
+.cr .end .roof{color:var(--g50)}
+.cr .step{display:flex;gap:1rem;border-top:1px solid var(--g10);padding:1.2rem 0}
 .cr .step:first-of-type{border-top:0}
 .cr .step .sn{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--mint);width:40px;flex-shrink:0;line-height:1}
-.cr .step .sc h4{font-size:1.1rem;font-weight:600;letter-spacing:-.01em}
-.cr .step .sc p{font-size:.96rem;color:var(--b72);line-height:1.55;margin-top:.3rem;max-width:52ch}
-.cr .ident{font-size:1rem;color:var(--b72);line-height:1.62;margin:1.6rem 0 0;max-width:50ch}
+.cr .step .sc h4{font-size:1.1rem;font-weight:600;letter-spacing:-.01em;color:var(--bone)}
+.cr .step .sc p{font-size:.96rem;color:var(--g72);line-height:1.55;margin-top:.3rem;max-width:52ch}
+.cr .ident{font-size:1rem;color:var(--g72);line-height:1.62;margin:1.6rem 0 0;max-width:50ch}
 .cr .ident b{color:var(--bone);font-weight:600}
-.cr .end .big{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:-.02em;line-height:.98;margin-top:2rem}
+.cr .end .big{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:-.02em;line-height:.98;margin-top:2rem;color:var(--bone)}
 .cr .end .big em{font-style:italic;color:var(--mint)}
-.cr .end .k{font-size:clamp(1.05rem,1.9vw,1.3rem);color:var(--b72);line-height:1.45;margin-top:1.1rem;max-width:34ch}
+.cr .end .k{font-size:clamp(1.05rem,1.9vw,1.3rem);color:var(--g72);line-height:1.45;margin-top:1.1rem;max-width:34ch}
 .cr .end a{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.6rem;font-size:12px;font-weight:600;
   letter-spacing:.13em;text-transform:uppercase;color:#0E5A3A;background:var(--mint);text-decoration:none;
   padding:1.1rem 1.8rem;border-radius:4px;transition:gap .3s var(--e),background .3s}
@@ -2177,10 +2181,10 @@ function CreativeContent({ onClose }: { onClose: () => void }) {
     <div className="cr" ref={wrapRef}>
       {/* eslint-disable-next-line react/no-danger */}
       <style dangerouslySetInnerHTML={{ __html: CR_CSS }} />
-      <div className="wrap">
 
-        {/* ── HERO ── */}
-        <section className="hero">
+      {/* ── GREEN BAND: HERO ── */}
+      <section className="hero">
+        <div className="wrap">
           <span className="kick">Creative firepower</span>
           <h1>Make us worth<br /><em>more.</em></h1>
           <p className="sub">Whatever your size, we make you look like the category leader — the brand people remember, screenshot, and pay a premium for. Big ideas, an always-on social engine, films, ad creative that converts, and a system that makes it all. One team, full firepower.</p>
@@ -2189,17 +2193,21 @@ function CreativeContent({ onClose }: { onClose: () => void }) {
             <div className="st"><b>50<em>ms</em></b><p>is all a buyer needs to judge your brand</p></div>
             <div className="st"><b>20<em>%</em></b><p>premium that leader-looking brands command</p></div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ── THESIS ── */}
+      {/* ── IVORY BAND: THESIS ── */}
+      <div className="wrap">
         <section className="thesis reveal">
           <p className="lead">Why this matters now</p>
           <h2>Looking small is a <em>choice.</em></h2>
           <p>Buyers judge you in milliseconds, against brands with a hundred times your budget — and everyone now has the same average AI content. What closes that gap isn't a bigger spend. It's a sharper idea, a look that's unmistakably yours, and enough on-brand work to be everywhere at once. Firepower, not decoration. That's what a real creative team is for.</p>
         </section>
+      </div>
 
-        {/* ── MECHANISM — count-up before/after ── */}
-        <section className="mech reveal" ref={mechRef}>
+      {/* ── GREEN BAND: MECHANISM — count-up before/after ── */}
+      <section className="mech reveal" ref={mechRef}>
+        <div className="wrap">
           <p className="eyebrow">Watch what creative does</p>
           <h2 className="rt">Look like a contender. Or the <em>leader.</em></h2>
           <div className="stage">
@@ -2219,9 +2227,13 @@ function CreativeContent({ onClose }: { onClose: () => void }) {
             </div>
           </div>
           <p className="mcap"><b>Same company, same size — only the creative changed.</b> People don't buy the biggest business. They buy the one that looks like it. Raise how big you look and you raise your price, your pull and your permission to charge more.</p>
-        </section>
+        </div>
+      </section>
 
-        {/* ── SIX WORKS ── */}
+      {/* ── IVORY BAND: WORK, PROOF, GUARANTEE, FAQ ── */}
+      <div className="wrap">
+
+        {/* SIX WORKS */}
         <section className="work-sec">
           <p className="roof reveal">The firepower, as one team</p>
           <div className="rooftitle reveal">Six crafts — <em>one point of view.</em></div>
@@ -2245,7 +2257,7 @@ function CreativeContent({ onClose }: { onClose: () => void }) {
           ))}
         </section>
 
-        {/* ── PROOF ── */}
+        {/* PROOF */}
         <section className="proof-sec reveal">
           <p className="roof">What changes when we make it</p>
           <div className="rooftitle">The <em>before</em> and after.</div>
@@ -2264,7 +2276,7 @@ function CreativeContent({ onClose }: { onClose: () => void }) {
           <p className="tcap"><b>A typical engagement:</b> a brand that looks twice its size, content people keep, ads that pull their weight, and the confidence to raise prices. Illustrative of a full engagement.</p>
         </section>
 
-        {/* ── GUARANTEE — cream card ── */}
+        {/* GUARANTEE */}
         <section className="guar reveal">
           <p className="g-eye">Our guarantee</p>
           <div className="g-big">If the work doesn't make you look <em>bigger and worth more</em>, we keep going until it does.</div>
@@ -2272,7 +2284,7 @@ function CreativeContent({ onClose }: { onClose: () => void }) {
           <div className="g-sig">— OARC, your one team</div>
         </section>
 
-        {/* ── FAQ ── */}
+        {/* FAQ */}
         <section className="faq reveal">
           <p className="roof">Straight answers</p>
           <div className="rooftitle">The questions every owner <em>actually asks.</em></div>
@@ -2283,8 +2295,11 @@ function CreativeContent({ onClose }: { onClose: () => void }) {
           <div className="qa"><h4>Is this design, or strategy?</h4><p>Both, plus social, film, ad creative and AI. We are a creative and AI software agency — one team covering the idea and campaigns, the identity, the social and content, the film, the ad creative, and a system you own that makes on-brand work at scale.</p></div>
         </section>
 
-        {/* ── HOW WE START ── */}
-        <section className="end reveal">
+      </div>
+
+      {/* ── GREEN BAND: HOW WE START + CTA ── */}
+      <section className="end reveal">
+        <div className="wrap">
           <p className="roof">How we start</p>
           <div className="step"><span className="sn">01</span><div className="sc"><h4>Read</h4><p>We learn your business, your buyers and your market — and find the idea only you can own.</p></div></div>
           <div className="step"><span className="sn">02</span><div className="sc"><h4>Make</h4><p>We build the brand, the social engine, the films and the ad creative — and the AI system that makes it at scale.</p></div></div>
@@ -2293,9 +2308,9 @@ function CreativeContent({ onClose }: { onClose: () => void }) {
           <div className="big">Make us worth more.<br /><em>Today.</em></div>
           <p className="k">You keep every asset, the brand system, and the engine that makes more. We keep you looking like the leader.</p>
           <a href="#" onClick={e => { e.preventDefault(); onClose(); }}>Book the creative audit →</a>
-        </section>
+        </div>
+      </section>
 
-      </div>
     </div>
   );
 }
