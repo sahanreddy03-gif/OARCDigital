@@ -1909,120 +1909,393 @@ function AIStaffContent({ onClose }: { onClose: () => void }) {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
-// CREATIVE CONTENT
+// CREATIVE CONTENT  — "Make us worth more" — racing-ground green palette
+// Faithful port of make_su_look_like_a_billion_-_creat prototype
+// Colour swap: gold (#D9B26A) → mint (#8FD6AE), bg (#100E0A) → #0E5A3A
 // ────────────────────────────────────────────────────────────────────────────
-const CR = { bg:"#100E0A", card:"#171410", gold:"#D9B26A", bone:"#F2ECDD",
-  dim:"rgba(242,236,221,.7)", c45:"rgba(242,236,221,.45)", line:"rgba(242,236,221,.11)" };
+const CR_CSS = `
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+.cr{
+  --bg:#0E5A3A;--bg2:#0A3D28;--bone:#F2EFE9;--mint:#8FD6AE;--mintd:#1A6B42;
+  --b72:rgba(242,239,233,.72);--b50:rgba(242,239,233,.5);--b32:rgba(242,239,233,.32);
+  --b18:rgba(242,239,233,.18);--b10:rgba(242,239,233,.1);
+  --ui:'Space Grotesk',sans-serif;--serif:'Fraunces',serif;
+  --e:cubic-bezier(.16,1,.3,1);
+  background:var(--bg);color:var(--bone);font-family:var(--ui);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+.cr .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+/* ── HERO ── */
+.cr .hero{padding:2.4rem 0 2.8rem}
+.cr .kick{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--mint);border:1px solid var(--b18);padding:.42rem .8rem;border-radius:30px}
+.cr .hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.9rem,12vw,6.2rem);line-height:.92;
+  letter-spacing:-.03em;margin-top:1.3rem}
+.cr .hero h1 em{font-style:italic;font-weight:400;color:var(--mint)}
+.cr .hero .sub{font-size:clamp(1.06rem,1.9vw,1.3rem);color:var(--b72);line-height:1.55;margin-top:1.4rem;max-width:46ch}
+.cr .stats{display:flex;flex-wrap:wrap;gap:1.6rem 2.4rem;margin-top:2.2rem}
+.cr .stats .st b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(2.3rem,7.5vw,3.2rem);
+  letter-spacing:-.02em;line-height:.85}
+.cr .stats .st b em{font-style:italic;color:var(--mint)}
+.cr .stats .st p{font-size:11.5px;color:var(--b50);line-height:1.4;margin-top:.55rem;max-width:18ch}
+
+/* ── THESIS ── */
+.cr .thesis{border-top:1px solid var(--b18);border-bottom:1px solid var(--b18);padding:2.4rem 0;margin:.6rem 0 0}
+.cr .thesis .lead{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mint);margin-bottom:1rem}
+.cr .thesis h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,5.6vw,2.9rem);line-height:1.08;letter-spacing:-.02em;max-width:18ch}
+.cr .thesis h2 em{font-style:italic;color:var(--mint)}
+.cr .thesis p{font-size:1rem;color:var(--b72);line-height:1.62;margin-top:1.2rem;max-width:54ch}
+
+/* ── MECHANISM ── */
+.cr .mech{padding:2.6rem 0}
+.cr .eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--b50);margin-bottom:.5rem}
+.cr .rt{font-family:var(--serif);font-weight:300;font-size:clamp(1.7rem,5.2vw,2.5rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:1.6rem}
+.cr .rt em{font-style:italic;color:var(--mint)}
+.cr .stage{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.cr .spec{background:var(--bg2);border:1px solid var(--b10);border-radius:14px;padding:1rem .9rem 1.1rem}
+.cr .spec .plate{height:96px;border-radius:9px;margin-bottom:.9rem;position:relative;overflow:hidden}
+.cr .plate-plain{background:#12402A;display:flex;align-items:center;justify-content:center}
+.cr .plate-plain::after{content:'YOUR BRAND';font-family:var(--ui);font-size:10px;letter-spacing:.15em;color:var(--b32);font-weight:600}
+.cr .plate-craft{background:linear-gradient(150deg,#164a30,#0a2d1c);display:flex;align-items:center;justify-content:center;border:1px solid rgba(143,214,174,.3)}
+.cr .plate-craft .mono{font-family:var(--serif);font-style:italic;font-size:2rem;color:var(--mint)}
+.cr .plate-craft::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(143,214,174,.22),transparent);transform:translateX(-100%);animation:cr-sweep 3s var(--e) infinite}
+@keyframes cr-sweep{to{transform:translateX(100%)}}
+.cr .spec .lbl{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--b50)}
+.cr .spec.after .lbl{color:var(--mint)}
+.cr .spec .val{font-family:var(--serif);font-size:2.1rem;font-weight:400;line-height:1;margin:.5rem 0 .15rem;font-variant-numeric:tabular-nums}
+.cr .spec.after .val{color:var(--mint)}
+.cr .spec .vl{font-size:10px;color:var(--b50);margin-bottom:.6rem;height:1.1rem}
+.cr .meter{height:6px;border-radius:6px;background:var(--b10);overflow:hidden}
+.cr .meter .fill{height:100%;width:0;border-radius:6px;transition:width 1.2s var(--e)}
+.cr .spec.before .fill{background:var(--b32)}
+.cr .spec.after .fill{background:var(--mint)}
+.cr .mcap{font-size:12px;color:var(--b50);line-height:1.5;margin-top:1.2rem;max-width:52ch}
+.cr .mcap b{color:var(--mint);font-weight:600}
+
+/* ── THE WORK ── */
+.cr .work-sec{padding:1.4rem 0}
+.cr .roof{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--b50);margin-bottom:.5rem}
+.cr .rooftitle{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,5vw,2.3rem);letter-spacing:-.02em;line-height:1.1;max-width:22ch;margin-bottom:1.8rem}
+.cr .rooftitle em{font-style:italic;color:var(--mint)}
+.cr .work{border-top:1px solid var(--b18);padding:2rem 0}
+.cr .art{height:168px;border-radius:13px;position:relative;overflow:hidden;margin-bottom:1.2rem;
+  background:linear-gradient(160deg,#164a30,#0a2d1c);border:1px solid var(--b10);
+  display:flex;align-items:center;justify-content:center}
+.cr .art .ast{font-family:var(--serif);font-style:italic;font-size:5rem;color:var(--mint);line-height:1}
+.cr .art .aa{font-family:var(--serif);font-size:4.4rem;color:var(--bone);letter-spacing:-.02em}
+.cr .art.identity{background-image:radial-gradient(var(--b18) 1.2px,transparent 1.2px);background-size:17px 17px;background-color:#0a2d1c}
+/* reel */
+.cr .reel{width:66px;height:106px;border-radius:13px;border:1.5px solid var(--mint);position:relative;
+  background:rgba(143,214,174,.06);display:flex;align-items:center;justify-content:center}
+.cr .reel .rp{width:0;height:0;border-left:20px solid var(--mint);border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:4px}
+.cr .reel::before{content:'';position:absolute;top:11px;left:11px;right:11px;height:4px;border-radius:3px;background:var(--b18)}
+.cr .reel::after{content:'';position:absolute;bottom:13px;left:11px;width:32px;height:4px;border-radius:3px;background:var(--b18)}
+/* film */
+.cr .play{width:0;height:0;border-left:36px solid var(--mint);border-top:23px solid transparent;border-bottom:23px solid transparent}
+.cr .eq{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;gap:6px;align-items:flex-end;height:34px}
+.cr .eq b{width:5px;background:var(--mint);border-radius:2px;height:10px;animation:cr-eq 1.1s var(--e) infinite}
+.cr .eq b:nth-child(2){animation-delay:.15s}
+.cr .eq b:nth-child(3){animation-delay:.3s}
+.cr .eq b:nth-child(4){animation-delay:.45s}
+.cr .eq b:nth-child(5){animation-delay:.6s}
+@keyframes cr-eq{0%,100%{height:9px}50%{height:31px}}
+/* A/B ads */
+.cr .ab{display:flex;gap:14px;align-items:center}
+.cr .abx{width:60px;height:70px;border-radius:11px;border:1.5px solid var(--b18);display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:1.7rem;color:var(--b50);position:relative}
+.cr .abx.win{border-color:var(--mint);color:var(--mint);background:rgba(143,214,174,.1)}
+.cr .abx.win::after{content:'✓';position:absolute;top:-9px;right:-9px;width:22px;height:22px;border-radius:50%;
+  background:var(--mint);color:#0E5A3A;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:var(--ui);font-weight:700}
+/* ai grid */
+.cr .dgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;width:138px}
+.cr .dgrid i{width:13px;height:13px;border-radius:3px;background:var(--b18)}
+.cr .dgrid i.on{background:var(--mint)}
+.cr .art.ai::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(143,214,174,.28),transparent);transform:translateX(-100%);animation:cr-sweep 2.8s var(--e) infinite}
+
+.cr .work .tag{font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--mint);
+  border:1px solid var(--b18);border-radius:20px;padding:.32rem .7rem;display:inline-block}
+.cr .work h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,5.6vw,2.5rem);letter-spacing:-.02em;line-height:1.02;margin-top:.9rem}
+.cr .work h3 em{font-style:italic;color:var(--mint)}
+.cr .work .role{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--b50);margin-top:.8rem}
+.cr .work .body{font-size:1rem;color:var(--b72);line-height:1.62;margin-top:.7rem;max-width:56ch}
+.cr .work .deliv{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem}
+.cr .work .deliv span{font-size:11.5px;font-weight:500;color:var(--bone);background:var(--b10);border-radius:5px;padding:.44rem .74rem}
+.cr .work .pf{margin-top:1.35rem;display:flex;align-items:baseline;gap:.75rem;border-left:2px solid var(--mint);padding-left:.95rem}
+.cr .work .pf b{font-family:var(--serif);font-size:clamp(2rem,7vw,2.7rem);font-weight:400;line-height:.8}
+.cr .work .pf b em{font-style:italic;color:var(--mint);font-size:.5em}
+.cr .work .pf p{font-size:12px;color:var(--b50);line-height:1.35;max-width:26ch}
+.cr .work.system{background:linear-gradient(160deg,rgba(143,214,174,.08),transparent);
+  border:1px solid rgba(143,214,174,.34);border-radius:16px;padding:1.8rem 1.4rem;margin:.6rem 0}
+.cr .work.system .ip{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;
+  font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--mint)}
+.cr .work.system .ip::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--mint)}
+
+/* ── PROOF ── */
+.cr .proof-sec{padding:2.2rem 0;border-top:1px solid var(--b18)}
+.cr .trow{border-top:1px solid var(--b10);padding:1.2rem 0}
+.cr .trow:first-of-type{border-top:0}
+.cr .trow .tlab{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);display:block;margin-bottom:.5rem}
+.cr .trow .tba{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.cr .trow .tbefore{font-size:1rem;color:var(--b50);text-decoration:line-through;text-decoration-color:var(--b32)}
+.cr .trow .arrow{color:var(--mint);font-weight:700;font-size:1.1rem}
+.cr .trow .tafter{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--bone)}
+.cr .tcap{font-size:12px;color:var(--b50);line-height:1.45;margin-top:1.2rem;max-width:52ch}
+.cr .tcap b{color:var(--mint);font-weight:600}
+
+/* ── GUARANTEE — cream card ── */
+.cr .guar{background:var(--bone);color:#0E5A3A;border-radius:16px;padding:2.4rem 1.6rem;margin:2.2rem 0}
+.cr .guar .g-eye{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mintd)}
+.cr .guar .g-big{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,5.8vw,2.8rem);line-height:1.08;letter-spacing:-.02em;margin-top:1rem;max-width:19ch}
+.cr .guar .g-big em{font-style:italic;color:var(--mintd)}
+.cr .guar .g-sub{font-size:1rem;color:rgba(14,90,58,.72);line-height:1.6;margin-top:1.2rem;max-width:52ch}
+.cr .guar .g-sig{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--mintd);margin-top:1.4rem}
+
+/* ── FAQ ── */
+.cr .faq{padding:2.2rem 0;border-top:1px solid var(--b18)}
+.cr .qa{border-top:1px solid var(--b10);padding:1.4rem 0}
+.cr .qa:first-of-type{border-top:0}
+.cr .qa h4{font-family:var(--serif);font-weight:400;font-size:clamp(1.2rem,3.6vw,1.45rem);letter-spacing:-.01em;line-height:1.25}
+.cr .qa p{font-size:.98rem;color:var(--b72);line-height:1.62;margin-top:.6rem;max-width:58ch}
+
+/* ── CLOSE ── */
+.cr .end{padding:2.4rem 0 calc(3rem + env(safe-area-inset-bottom));border-top:1px solid var(--b18)}
+.cr .step{display:flex;gap:1rem;border-top:1px solid var(--b10);padding:1.2rem 0}
+.cr .step:first-of-type{border-top:0}
+.cr .step .sn{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--mint);width:40px;flex-shrink:0;line-height:1}
+.cr .step .sc h4{font-size:1.1rem;font-weight:600;letter-spacing:-.01em}
+.cr .step .sc p{font-size:.96rem;color:var(--b72);line-height:1.55;margin-top:.3rem;max-width:52ch}
+.cr .ident{font-size:1rem;color:var(--b72);line-height:1.62;margin:1.6rem 0 0;max-width:50ch}
+.cr .ident b{color:var(--bone);font-weight:600}
+.cr .end .big{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:-.02em;line-height:.98;margin-top:2rem}
+.cr .end .big em{font-style:italic;color:var(--mint)}
+.cr .end .k{font-size:clamp(1.05rem,1.9vw,1.3rem);color:var(--b72);line-height:1.45;margin-top:1.1rem;max-width:34ch}
+.cr .end a{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.6rem;font-size:12px;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:#0E5A3A;background:var(--mint);text-decoration:none;
+  padding:1.1rem 1.8rem;border-radius:4px;transition:gap .3s var(--e),background .3s}
+.cr .end a:hover{gap:1rem;background:var(--bone)}
+
+/* ── REVEAL ── */
+.cr .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--e),transform .7s var(--e)}
+.cr .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .cr .reveal{opacity:1;transform:none}
+  .cr .meter .fill{transition:none}
+  .cr .plate-craft::before,.cr .art.ai::after,.cr .eq b{animation:none}}
+`;
+
+const CR_WORKS = [
+  { tag:"Big Idea & Campaigns", system:false,
+    art:`<div class="art"><span class="ast">✳</span></div>`,
+    h:`We find the idea <em>everyone repeats</em>.`,
+    role:"Creative directors · strategists",
+    body:"The concept a whole market ends up talking about — the campaign, the brand platform, the launch, the cultural moment. This is the firepower that separates brands people love from businesses people forget. Not a logo. The idea the logo serves.",
+    deliv:["Brand platform","Campaigns","Launches","Cultural moments"],
+    pf:"49", pfEm:"%", pfP:"of marketing return traces to the idea and creative", ip:"" },
+  { tag:"Social & Content Studio", system:false,
+    art:`<div class="art"><div class="reel"><span class="rp"></span></div></div>`,
+    h:`We make you <em>impossible to scroll past</em>.`,
+    role:"Social leads · writers · editors",
+    body:"An always-on studio making the content that lives where your buyers already are — short-form, reels, skits, founder POV, trends and UGC — enough of it, on-brand, to be everywhere at once. This is the modern way brands get known, loved and chosen, day after day.",
+    deliv:["Always-on social","Reels & skits","Founder POV","Trends & UGC"],
+    pf:"50", pfEm:"ms", pfP:"is all you get to make an impression in the feed", ip:"" },
+  { tag:"Brand & Identity", system:false,
+    art:`<div class="art identity"><span class="aa">Aa</span></div>`,
+    h:`We make you look like the <em>leader</em>.`,
+    role:"Art direction · designers",
+    body:"The identity system — logo, type, colour, art direction — engineered so you read as the biggest, most trusted name in the room, everywhere a buyer meets you. Consistency is what turns a business into a category leader instead of just another contender.",
+    deliv:["Brand identity","Art direction","Design system","Guidelines"],
+    pf:"20", pfEm:"%", pfP:"premium that strongly-branded businesses command (McKinsey)", ip:"" },
+  { tag:"Film & Motion", system:false,
+    art:`<div class="art"><span class="play"></span><div class="eq"><b></b><b></b><b></b><b></b><b></b></div></div>`,
+    h:`We make you look <em>worth millions</em>.`,
+    role:"Directors · editors · motion",
+    body:"Film, motion and photography — the highest-attention formats there are — produced so a business looks like it is worth far more than it spends. The hero films and motion that make people stop, feel something, and believe you are the real thing.",
+    deliv:["Hero films","Motion & VFX","Photography","Edit & post"],
+    pf:"2.5", pfEm:"×", pfP:"the attention film earns over static, second for second", ip:"" },
+  { tag:"Ad & Performance Creative", system:false,
+    art:`<div class="art"><div class="ab"><div class="abx">A</div><div class="abx win">B</div></div></div>`,
+    h:`We make ads that <em>actually convert</em>.`,
+    role:"Performance creatives · editors",
+    body:"The scroll-stopping creative that goes into your paid — hooks, static and video ads, endless variations built and tested to win. We make the work and find the winners; the media buying lives on its own card. Here we make the creative that makes the spend pay.",
+    deliv:["Ad concepts & hooks","Static + video ads","Variation testing","Winning edits"],
+    pf:"56", pfEm:"%", pfP:"of paid ROI is the ad creative, not the audience (Nielsen)", ip:"" },
+  { tag:"AI Creative Engine", system:true,
+    art:`<div class="art ai"><div class="dgrid"><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i></div></div>`,
+    h:`We build your brand <em>a brain</em>.`,
+    role:"The one built thing · engineering",
+    body:"The single piece of software in the engagement — an AI creative engine trained on your finished brand. It generates on-brand social posts, ad variations and content on demand, at a scale no team could match by hand. Our taste, running when we are not in the room. You own it outright, in your full IP control.",
+    deliv:["On-brand asset engine","Social & ad variations","Trained on your brand","Yours to keep — full IP"],
+    pf:"24", pfEm:"/7", pfP:"on-brand social and ad creative, without a queue",
+    ip:"Trained on your brand · handed to you · your IP" },
+];
 
 function CreativeContent({ onClose }: { onClose: () => void }) {
-  const meterRef = useRef<HTMLDivElement>(null);
+  const mechRef = useRef<HTMLDivElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  // Mechanism: count-up + meter fill when .mech section enters view
   useEffect(() => {
-    const el = meterRef.current; if (!el) return;
+    const el = mechRef.current; if (!el) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
     const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) {
-        el.querySelectorAll<HTMLElement>("[data-fill]").forEach(bar => {
-          bar.style.width = bar.dataset.fill + "%";
-        });
-        el.querySelectorAll<HTMLElement>("[data-count]").forEach(num => {
-          const target = parseInt(num.dataset.count!); let cur = 0;
-          const step = target > 50 ? 3 : 1;
-          const id = setInterval(() => {
-            cur = Math.min(cur + step, target);
-            num.textContent = cur + "%";
-            if (cur >= target) clearInterval(id);
-          }, 18);
-        });
-        io.disconnect();
+      if (!e.isIntersecting) return;
+      el.querySelectorAll<HTMLElement>(".fill[data-v]").forEach(f => { f.style.width = f.dataset.v + "%"; });
+      const vb = el.querySelector<HTMLElement>("#cr-v-before");
+      const va = el.querySelector<HTMLElement>("#cr-v-after");
+      if (reduce) { if (vb) vb.textContent = "34"; if (va) va.textContent = "92"; }
+      else {
+        function crCount(node: HTMLElement, target: number, ms: number) {
+          let start: number | null = null;
+          function step(ts: number) { if (!start) start = ts; const p = Math.min((ts - start) / ms, 1);
+            node.textContent = String(Math.round(p * target)); if (p < 1) requestAnimationFrame(step); }
+          requestAnimationFrame(step);
+        }
+        if (vb) crCount(vb, 34, 1100);
+        if (va) crCount(va, 92, 1300);
       }
+      io.unobserve(e.target);
     }, { threshold: .4 });
     io.observe(el);
     return () => io.disconnect();
   }, []);
 
-  const works = [
-    { n:"01", title:"Big Idea", desc:"The concept that makes everything else make sense. One idea a team can execute across every channel without losing the thread.", tag:"strategy · concept" },
-    { n:"02", title:"Social Studio", desc:"Reels, carousels, short videos, posts — made to be watched, shared and remembered. The content that feeds the algorithm and builds the name.", tag:"video · content" },
-    { n:"03", title:"Brand & Identity", desc:"Logo, colours, type, voice, feel. The system a customer recognises before they read the name — and charges more for.", tag:"identity · systems" },
-    { n:"04", title:"Film & Motion", desc:"Full production — from concept to cut. Campaigns, brand films, product shots, social ads. Moving work for any screen.", tag:"film · motion" },
-    { n:"05", title:"Ad Creative", desc:"Performance creative built to convert. Hook, visual, copy — made to stop the scroll and earn the click.", tag:"ads · conversion" },
-    { n:"06", title:"AI Creative Engine", desc:"AI-assisted concepting, production and iteration — so the team moves faster, tests more ideas, and produces more without hiring more.", tag:"AI-assisted · velocity" },
-  ];
-  const faqs = [
-    { q: "What does 'making a business look like a billion' actually mean?", a: "It means the design, video and creative work so good that a customer assumes you're the best — before they've spoken to you, before you've said a word. That first impression is built by what they see, and it sets the price they're willing to pay." },
-    { q: "Do you do the actual production work?", a: "Yes — that's the heart of the Studio. We produce the videos, shoot the photos, design the identity, build the brand system, make the ads. Real production, not briefings to other agencies." },
-    { q: "How is Creative different from Brand?", a: "Brand decides what the business stands for — the strategy and foundation. Creative makes it real — the films, ads, identity and everything a customer sees. Both live at OARC; they're stronger together." },
-    { q: "Are you an AI company?", a: "No. Real creatives, designers, directors and strategists make everything. AI is one tool in the Studio that helps the team move faster — not a replacement for the people who make the decisions." },
-  ];
+  // Scroll-triggered reveal animations (exact prototype behaviour)
+  useEffect(() => {
+    const root = wrapRef.current; if (!root) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+    if (reduce) { root.querySelectorAll(".reveal").forEach(n => n.classList.add("in")); return; }
+    const io = new IntersectionObserver(es => {
+      es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, { threshold: .14 });
+    root.querySelectorAll(".reveal").forEach(n => io.observe(n));
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div style={{ background: CR.bg, color: CR.bone }}>
-      <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${CR.line}` }}>
-        <Kicker label="Creative" color={CR.gold} />
-        <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
-          fontSize: "clamp(2.4rem,10vw,3.8rem)", lineHeight: .9, letterSpacing: "-.05em",
-          textTransform: "uppercase", color: CR.bone, marginBottom: "1rem" }}>
-          We make you look<br />
-          <em style={{ fontFamily: "var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle: "italic", fontWeight: 400, textTransform: "none", letterSpacing: 0,
-            color: CR.gold, fontSize: "1.04em" }}>like a billion.</em>
-        </h1>
-        <p style={{ fontSize: ".98rem", color: CR.dim, lineHeight: 1.6, maxWidth: "44ch" }}>
-          The videos, the identity, the ads and the creative system that make customers assume
-          you're the best — before you've said a word.{" "}
-          <strong style={{ color: CR.bone }}>One Studio. Everything it takes to look the part.</strong>
-        </p>
-      </div>
-      {/* before/after mechanism */}
-      <Reveal>
-        <div ref={meterRef} style={{ margin: "1.8rem 20px 0", background: CR.card,
-          border: `1px solid ${CR.line}`, borderRadius: 12, padding: "1.4rem 1.2rem" }}>
-          <p style={{ fontFamily: "monospace", fontSize: 9, letterSpacing: ".14em",
-            color: CR.c45, textTransform: "uppercase", marginBottom: "1rem" }}>The difference it makes</p>
-          {[{ label:"First impression score", before:34, after:92 },
-            { label:"Perceived value (customer survey)", before:41, after:88 }].map((m, i) => (
-            <div key={i} style={{ marginBottom: i === 0 ? "1.2rem" : 0 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: ".4rem" }}>
-                <span style={{ fontSize: 11, color: CR.dim }}>{m.label}</span>
-                <span data-count={m.after} style={{ fontFamily: "monospace", fontSize: 12,
-                  color: CR.gold, fontWeight: 700 }}>0%</span>
-              </div>
-              <div style={{ height: 6, background: CR.line, borderRadius: 4, overflow: "hidden" }}>
-                <div data-fill={m.after} style={{ height: "100%", background: CR.gold,
-                  borderRadius: 4, width: "0%", transition: "width 1.4s cubic-bezier(.16,1,.3,1)" }} />
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginTop: ".3rem" }}>
-                <span style={{ fontFamily: "monospace", fontSize: 9.5, color: "rgba(242,236,221,.3)" }}>
-                  Before: {m.before}%
-                </span>
+    <div className="cr" ref={wrapRef}>
+      {/* eslint-disable-next-line react/no-danger */}
+      <style dangerouslySetInnerHTML={{ __html: CR_CSS }} />
+      <div className="wrap">
+
+        {/* ── HERO ── */}
+        <section className="hero">
+          <span className="kick">Creative firepower</span>
+          <h1>Make us worth<br /><em>more.</em></h1>
+          <p className="sub">Whatever your size, we make you look like the category leader — the brand people remember, screenshot, and pay a premium for. Big ideas, an always-on social engine, films, ad creative that converts, and a system that makes it all. One team, full firepower.</p>
+          <div className="stats">
+            <div className="st"><b>49<em>%</em></b><p>of marketing return is the creative itself</p></div>
+            <div className="st"><b>50<em>ms</em></b><p>is all a buyer needs to judge your brand</p></div>
+            <div className="st"><b>20<em>%</em></b><p>premium that leader-looking brands command</p></div>
+          </div>
+        </section>
+
+        {/* ── THESIS ── */}
+        <section className="thesis reveal">
+          <p className="lead">Why this matters now</p>
+          <h2>Looking small is a <em>choice.</em></h2>
+          <p>Buyers judge you in milliseconds, against brands with a hundred times your budget — and everyone now has the same average AI content. What closes that gap isn't a bigger spend. It's a sharper idea, a look that's unmistakably yours, and enough on-brand work to be everywhere at once. Firepower, not decoration. That's what a real creative team is for.</p>
+        </section>
+
+        {/* ── MECHANISM — count-up before/after ── */}
+        <section className="mech reveal" ref={mechRef}>
+          <p className="eyebrow">Watch what creative does</p>
+          <h2 className="rt">Look like a contender. Or the <em>leader.</em></h2>
+          <div className="stage">
+            <div className="spec before">
+              <div className="plate plate-plain" />
+              <span className="lbl">Before</span>
+              <div className="val" id="cr-v-before">0</div>
+              <div className="vl">looks like a startup</div>
+              <div className="meter"><div className="fill" data-v="34" /></div>
+            </div>
+            <div className="spec after">
+              <div className="plate plate-craft"><span className="mono">✳</span></div>
+              <span className="lbl">After</span>
+              <div className="val" id="cr-v-after">0</div>
+              <div className="vl">looks like the leader</div>
+              <div className="meter"><div className="fill" data-v="92" /></div>
+            </div>
+          </div>
+          <p className="mcap"><b>Same company, same size — only the creative changed.</b> People don't buy the biggest business. They buy the one that looks like it. Raise how big you look and you raise your price, your pull and your permission to charge more.</p>
+        </section>
+
+        {/* ── SIX WORKS ── */}
+        <section className="work-sec">
+          <p className="roof reveal">The firepower, as one team</p>
+          <div className="rooftitle reveal">Six crafts — <em>one point of view.</em></div>
+          {CR_WORKS.map((w, i) => (
+            <div key={i} className={`work reveal${w.system ? " system" : ""}`}>
+              {/* eslint-disable-next-line react/no-danger */}
+              <div dangerouslySetInnerHTML={{ __html: w.art }} />
+              <span className="tag">{w.tag}</span>
+              {/* eslint-disable-next-line react/no-danger */}
+              <h3 dangerouslySetInnerHTML={{ __html: w.h }} />
+              <p className="role">{w.role}</p>
+              <p className="body">{w.body}</p>
+              <div className="deliv">{w.deliv.map((d, j) => <span key={j}>{d}</span>)}</div>
+              {w.ip && <span className="ip">{w.ip}</span>}
+              <div className="pf">
+                {/* eslint-disable-next-line react/no-danger */}
+                <b dangerouslySetInnerHTML={{ __html: w.pf + (w.pfEm ? `<em>${w.pfEm}</em>` : "") }} />
+                <p>{w.pfP}</p>
               </div>
             </div>
           ))}
-        </div>
-      </Reveal>
-      <div style={{ padding: "1.6rem 20px 0" }}><Kicker label="Six things the Studio does" color={CR.gold} /></div>
-      {works.map((w, i) => (
-        <Reveal key={i}>
-          <div style={{ padding: "1.4rem 20px 1.6rem", borderTop: `1px solid ${CR.line}` }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-              <div style={{ flex: 1 }}>
-                <div style={{ display: "flex", alignItems: "baseline", gap: ".6rem", marginBottom: ".5rem" }}>
-                  <span style={{ fontFamily: "monospace", fontSize: 10, color: CR.gold }}>{w.n}</span>
-                  <span style={{ fontFamily: "monospace", fontSize: 9, letterSpacing: ".12em",
-                    textTransform: "uppercase" as const, color: CR.c45 }}>{w.tag}</span>
-                </div>
-                <h3 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 700,
-                  fontSize: "clamp(1.5rem,6vw,2rem)", letterSpacing: "-.03em", color: CR.bone, marginBottom: ".5rem" }}>
-                  {w.title}
-                </h3>
-                <p style={{ fontSize: ".9rem", color: CR.dim, lineHeight: 1.6, maxWidth: "48ch" }}>{w.desc}</p>
-              </div>
-            </div>
+        </section>
+
+        {/* ── PROOF ── */}
+        <section className="proof-sec reveal">
+          <p className="roof">What changes when we make it</p>
+          <div className="rooftitle">The <em>before</em> and after.</div>
+          <div className="trow">
+            <span className="tlab">How big you look</span>
+            <div className="tba"><span className="tbefore">one of many</span><span className="arrow">→</span><span className="tafter">the category leader</span></div>
           </div>
-        </Reveal>
-      ))}
-      <FAQ items={faqs} bg={CR.bg} border={CR.line} head={CR.bone} body={CR.dim} />
-      <CTA big={<>Work that makes them<br /><CtaItalic>choose you first.</CtaItalic></>}
-        sub="The videos, identity and creative system that make customers assume you're the best — before you've said a word."
-        btn="See what the Studio builds" onClose={onClose} />
+          <div className="trow">
+            <span className="tlab">What you can charge</span>
+            <div className="tba"><span className="tbefore">the cheapest quote</span><span className="arrow">→</span><span className="tafter">a premium, paid gladly</span></div>
+          </div>
+          <div className="trow">
+            <span className="tlab">In the feed</span>
+            <div className="tba"><span className="tbefore">scrolled past</span><span className="arrow">→</span><span className="tafter">screenshotted and shared</span></div>
+          </div>
+          <p className="tcap"><b>A typical engagement:</b> a brand that looks twice its size, content people keep, ads that pull their weight, and the confidence to raise prices. Illustrative of a full engagement.</p>
+        </section>
+
+        {/* ── GUARANTEE — cream card ── */}
+        <section className="guar reveal">
+          <p className="g-eye">Our guarantee</p>
+          <div className="g-big">If the work doesn't make you look <em>bigger and worth more</em>, we keep going until it does.</div>
+          <p className="g-sub">Creative is judged, not billed by the hour — so we don't charge for effort, we deliver work you'd put your name on and a brand that reads like the leader. We refine until it's undeniable. You carry none of the risk of trying us.</p>
+          <div className="g-sig">— OARC, your one team</div>
+        </section>
+
+        {/* ── FAQ ── */}
+        <section className="faq reveal">
+          <p className="roof">Straight answers</p>
+          <div className="rooftitle">The questions every owner <em>actually asks.</em></div>
+          <div className="qa"><h4>How does creative make a business worth more?</h4><p>Creative is the biggest single lever in marketing ROI — around half of the return comes from the work itself, not the targeting. A stronger idea, a distinctive brand and content people remember make a business look bigger, feel more trusted, and able to charge more for the same product.</p></div>
+          <div className="qa"><h4>How can a small business look like a big brand?</h4><p>With creative firepower, not a bigger budget. Buyers judge you in milliseconds, so a sharp idea, a distinctive identity, and enough on-brand content to be everywhere at once make a small company read as the category leader. People buy the business that looks like the leader.</p></div>
+          <div className="qa"><h4>Do you make ads, or buy media?</h4><p>We make the ad creative — the hooks, static and video ads, and the variations tested to win — so your spend actually pays. The media buying, targeting and budgets live on our Media card; here we make the creative that makes the spend work.</p></div>
+          <div className="qa"><h4>Do I own the designs and assets you create?</h4><p>Yes, in full. Every asset, the brand system, and the on-brand AI creative engine we build are handed to you in your complete IP control. You keep them and reuse them freely.</p></div>
+          <div className="qa"><h4>Is this design, or strategy?</h4><p>Both, plus social, film, ad creative and AI. We are a creative and AI software agency — one team covering the idea and campaigns, the identity, the social and content, the film, the ad creative, and a system you own that makes on-brand work at scale.</p></div>
+        </section>
+
+        {/* ── HOW WE START ── */}
+        <section className="end reveal">
+          <p className="roof">How we start</p>
+          <div className="step"><span className="sn">01</span><div className="sc"><h4>Read</h4><p>We learn your business, your buyers and your market — and find the idea only you can own.</p></div></div>
+          <div className="step"><span className="sn">02</span><div className="sc"><h4>Make</h4><p>We build the brand, the social engine, the films and the ad creative — and the AI system that makes it at scale.</p></div></div>
+          <div className="step"><span className="sn">03</span><div className="sc"><h4>Scale</h4><p>We hand you the system, keep you consistent everywhere, and push the bar higher over time.</p></div></div>
+          <p className="ident">At the end of the day we're a <b>creative and AI software agency</b> — so you get the ideas, the firepower and a system you keep. Taste, made repeatable.</p>
+          <div className="big">Make us worth more.<br /><em>Today.</em></div>
+          <p className="k">You keep every asset, the brand system, and the engine that makes more. We keep you looking like the leader.</p>
+          <a href="#" onClick={e => { e.preventDefault(); onClose(); }}>Book the creative audit →</a>
+        </section>
+
+      </div>
     </div>
   );
 }
@@ -3670,7 +3943,7 @@ const CONTENT_MAP: Record<string, (props:{onClose:()=>void}) => React.ReactEleme
 // ── per-department header colours ─────────────────────────────────────────────
 const DEPT_HDR_BG: Record<string,string> = {
   Growth: T.noir,  Sales: T.noir,  Media: T.noir,  Social: T.noir,
-  Clarity: "#0B0D12",  "AI Staff": "#060607",  Creative: "#100E0A",
+  Clarity: "#0B0D12",  "AI Staff": "#060607",  Creative: "#0E5A3A",
   Operations: "#F4F1EA",  Automation: "#0A0C0F",  Transformation: "#050A10",
   Reputation: "#F5F1E8",  Brand: "#ECE7DE",
   Enquiries: T.noir,  Ship: "#EEF1F4",  Products: "#050A10",  Compare: T.noir,
