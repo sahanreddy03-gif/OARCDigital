@@ -1954,22 +1954,22 @@ const CR_CSS = `
 .cr .rt{font-family:var(--serif);font-weight:300;font-size:clamp(1.7rem,5.2vw,2.5rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:1.6rem}
 .cr .rt em{font-style:italic;color:var(--mint)}
 .cr .stage{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
-.cr .spec{background:var(--bg2);border:1px solid var(--b10);border-radius:14px;padding:1rem .9rem 1.1rem}
+.cr .spec{background:#fff;border:1px solid rgba(14,90,58,.15);border-radius:14px;padding:1rem .9rem 1.1rem;color:#0E5A3A}
 .cr .spec .plate{height:96px;border-radius:9px;margin-bottom:.9rem;position:relative;overflow:hidden}
-.cr .plate-plain{background:#12402A;display:flex;align-items:center;justify-content:center}
-.cr .plate-plain::after{content:'YOUR BRAND';font-family:var(--ui);font-size:10px;letter-spacing:.15em;color:var(--b32);font-weight:600}
+.cr .plate-plain{background:rgba(143,214,174,.22);display:flex;align-items:center;justify-content:center}
+.cr .plate-plain::after{content:'YOUR BRAND';font-family:var(--ui);font-size:10px;letter-spacing:.15em;color:rgba(14,90,58,.4);font-weight:600}
 .cr .plate-craft{background:linear-gradient(150deg,#164a30,#0a2d1c);display:flex;align-items:center;justify-content:center;border:1px solid rgba(143,214,174,.3)}
 .cr .plate-craft .mono{font-family:var(--serif);font-style:italic;font-size:2rem;color:var(--mint)}
 .cr .plate-craft::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(143,214,174,.22),transparent);transform:translateX(-100%);animation:cr-sweep 3s var(--e) infinite}
 @keyframes cr-sweep{to{transform:translateX(100%)}}
-.cr .spec .lbl{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--b50)}
+.cr .spec .lbl{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(14,90,58,.55)}
 .cr .spec.after .lbl{color:var(--mint)}
-.cr .spec .val{font-family:var(--serif);font-size:2.1rem;font-weight:400;line-height:1;margin:.5rem 0 .15rem;font-variant-numeric:tabular-nums}
+.cr .spec .val{font-family:var(--serif);font-size:2.1rem;font-weight:400;line-height:1;margin:.5rem 0 .15rem;font-variant-numeric:tabular-nums;color:#0E5A3A}
 .cr .spec.after .val{color:var(--mint)}
-.cr .spec .vl{font-size:10px;color:var(--b50);margin-bottom:.6rem;height:1.1rem}
-.cr .meter{height:6px;border-radius:6px;background:var(--b10);overflow:hidden}
+.cr .spec .vl{font-size:10px;color:rgba(14,90,58,.45);margin-bottom:.6rem;height:1.1rem}
+.cr .meter{height:6px;border-radius:6px;background:rgba(14,90,58,.12);overflow:hidden}
 .cr .meter .fill{height:100%;width:0;border-radius:6px;transition:width 1.2s var(--e)}
-.cr .spec.before .fill{background:var(--b32)}
+.cr .spec.before .fill{background:rgba(14,90,58,.3)}
 .cr .spec.after .fill{background:var(--mint)}
 .cr .mcap{font-size:12px;color:var(--b50);line-height:1.5;margin-top:1.2rem;max-width:52ch}
 .cr .mcap b{color:var(--mint);font-weight:600}
@@ -4004,6 +4004,7 @@ export default function DepartmentDetailModal({ dept, onClose }: DepartmentDetai
         display:"flex", flexDirection:"column" as const,
         borderRadius:"18px 18px 0 0",
         overflow:"clip",
+        background: DEPT_HDR_BG[dept] ?? T.noir,
         transform: visible ? "translateY(0)" : "translateY(100%)",
         transition:`transform 480ms ${T.e}`,
         boxShadow:"0 -20px 80px rgba(0,0,0,.6)",
