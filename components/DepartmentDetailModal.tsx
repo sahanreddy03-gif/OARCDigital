@@ -2087,6 +2087,15 @@ const CR_CSS = `
   .cr .reveal{opacity:1;transform:none}
   .cr .meter .fill{transition:none}
   .cr .plate-craft::before,.cr .art.ai::after,.cr .eq b{animation:none}}
+
+/* ── HIGH-CONTRAST FIXES: white accents on dark-green bands ── */
+.cr .kick{color:#FFFFFF;border-color:rgba(255,255,255,.28)}
+.cr .hero h1 em,.cr .stats .st b em{color:#FFFFFF}
+.cr .mech .rt em,.cr .mech .mcap b{color:#FFFFFF}
+.cr .mech .plate-craft .mono{color:#FFFFFF}
+.cr .end .big em,.cr .step .sn{color:#FFFFFF}
+.cr .end a{background:#FFFFFF}
+.cr .end a:hover{background:#F2EFE9}
 `;
 
 const CR_WORKS = [
