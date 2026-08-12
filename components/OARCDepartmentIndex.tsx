@@ -281,6 +281,8 @@ em.di-wO path{fill:none;stroke:var(--ac);stroke-width:.065em;stroke-linecap:roun
 .di-cell.di-cell-green.di-on{color:#0C1F13!important;border-color:#0C1F13}
 .di-cell.di-cell-green em.di-wB{box-shadow:inset 0 0 0 2.5px rgba(242,239,233,.75)}
 .di-cell.di-cell-green.di-on em.di-wB{box-shadow:inset 0 0 0 2.5px var(--ac)}
+.di-cell.di-cell-green em.di-wI{box-shadow:inset 0 0 0 2.5px rgba(242,239,233,.75)}
+.di-cell.di-cell-green.di-on em.di-wI{box-shadow:inset 0 0 0 2.5px #0E5A3A;color:#0E5A3A}
 `;
 
 // ─── component ────────────────────────────────────────────────────────────────
