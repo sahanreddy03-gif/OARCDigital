@@ -109,12 +109,14 @@ const processSteps = [
 ];
 
 const aiAgentsFAQs: FAQItem[] = [
+  { question: "How is this different from a chatbot?", answer: "A chatbot follows a script and breaks the moment a customer goes off it. An AI employee is trained on your business — your prices, rules, tone and data — plugged directly into your CRM, calendar and phone line, and it gets smarter every week from real conversations. Chatbots answer questions. Employees do the work." },
   { question: "Will it sound like a robot?", answer: "No. It's trained on your tone, your phrases, your menu or script. Most customers never ask — and when they do, it answers honestly. You approve everything before it goes live." },
   { question: "What if the agent doesn't know the answer?", answer: "It says so, takes a message, and hands the conversation to a human with full context attached — it never invents answers. That rule is not optional, and you set where and how it escalates." },
   { question: "Will this replace our staff?", answer: "It removes repetitive work and lets your team focus on higher-value tasks. The AI handles tier-1 volume — bookings, queries, follow-ups — so humans handle the cases that need real judgement." },
   { question: "Is my data safe?", answer: "Data remains yours, processed on EU-resident infrastructure under GDPR. We provide a data processing agreement and no data is used to train external models. For MGA/MFSA operators, additional documentation is available on request." },
   { question: "How quickly can you deploy?", answer: "Most AI employees are live in 7–14 days. We handle the integration, training and handover — you don't need to learn anything new." },
   { question: "Which tools do you integrate?", answer: "CRMs (Salesforce, HubSpot), booking systems (Calendly, Cal.com), payment gateways (Stripe), email, Slack/Teams, WhatsApp Business, and most hospitality and booking platforms used by Malta operators." },
+  { question: "What if it makes a mistake?", answer: "Anything sensitive, unusual or high-value hands off to you or your team instantly — with the full conversation attached. Guardrails are set by you, in writing, and no AI agent at OARC operates without a human escalation path. It never invents answers: if it doesn't know, it says so and escalates." },
 ];
 
 function AnimatedCounter({ value, suffix = '', prefix = '' }: { value: string; suffix?: string; prefix?: string }) {
@@ -333,6 +335,29 @@ export default function PageContent() {
           </div>
         </section>
 
+        {/* ========== NOT CHATBOTS — PULL-QUOTE BRIDGE ========== */}
+        <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 bg-zinc-950 border-t border-white/5" data-testid="section-not-chatbots">
+          <div className="max-w-4xl mx-auto text-center">
+            <m.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-[#c4ff4d] text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase mb-6">
+                Not chatbots. Employees.
+              </p>
+              <blockquote className="text-2xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.15] tracking-tight" data-speakable>
+                Everyone sells you a chatbot login.
+                <br />
+                <span className="text-[#c4ff4d]">We build you a workforce that works.</span>
+              </blockquote>
+              <p className="mt-8 text-white/50 text-base sm:text-lg font-light tracking-wide">
+                Trained on your business. Plugged into your systems. Smarter every week.
+              </p>
+            </m.div>
+          </div>
+        </section>
+
         <VoiceProductSuite />
         
         {/* AI Agents Carousel Section - 2nd Section */}
@@ -345,13 +370,44 @@ export default function PageContent() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#c4ff4d] mb-2">
-                AI Employees
+                Your team. Already on shift.
               </h2>
               <p className="text-base sm:text-lg text-white/70">
-                Customised to your workflows
+                Each employee is trained on your business — not a template, not a chatbot.
               </p>
             </m.div>
-            
+
+            {/* Six-role outcome grid — pick your employee */}
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-12 max-w-4xl mx-auto" data-testid="grid-employee-roles">
+              {[
+                { role: 'Voice support', outcome: 'Answers every call & chat', status: '24/7' },
+                { role: 'Sales agent', outcome: 'Qualifies, books, never sleeps', status: 'ALWAYS ON' },
+                { role: 'Concierge', outcome: 'Helps your customers, end to end', status: 'LIVE' },
+                { role: 'Market research', outcome: 'Watches your competitors', status: 'ON' },
+                { role: 'Back-office', outcome: 'Runs the repetitive ops', status: 'ON' },
+                { role: 'Bespoke', outcome: 'Built for your exact problem', status: 'CUSTOM' },
+              ].map((r, i) => (
+                <m.div
+                  key={r.role}
+                  className="p-4 sm:p-5 rounded-xl bg-white/[0.03] border border-white/[0.08] flex flex-col gap-1.5"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06 }}
+                  data-testid={`role-card-${i}`}
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <h3 className="text-white font-semibold text-sm sm:text-base">{r.role}</h3>
+                    <span className="inline-flex items-center gap-1 flex-shrink-0">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#c4ff4d] animate-pulse" />
+                      <span className="text-[#c4ff4d] text-[9px] sm:text-[10px] font-bold tracking-widest">{r.status}</span>
+                    </span>
+                  </div>
+                  <p className="text-white/45 text-xs sm:text-sm leading-relaxed">{r.outcome}</p>
+                </m.div>
+              ))}
+            </div>
+
             <TeamCarousel />
           </div>
         </section>
@@ -360,10 +416,6 @@ export default function PageContent() {
         <section className="relative z-10 py-16 sm:py-20 px-4 sm:px-6 bg-zinc-950 border-t border-white/5">
           <div className="max-w-2xl mx-auto">
             <m.div className="text-center mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <div className="inline-flex items-center gap-2 mb-4">
-                <span className="w-2 h-2 rounded-full bg-[#c4ff4d] animate-pulse" />
-                <span className="text-[#c4ff4d] text-[10px] font-bold tracking-widest uppercase">AI Staff · On shift right now</span>
-              </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
                 While you read this,<br />
                 <span className="text-[#c4ff4d]">here's what just happened.</span>
@@ -371,8 +423,8 @@ export default function PageContent() {
             </m.div>
             <div className="space-y-3">
               {[
-                { text: 'Table for 4 booked — Friday 20:00. Confirmation sent on WhatsApp.', right: false, delay: 0 },
-                { text: 'Missed call at 14:32 — returned in 19s. Reservation saved.', right: true, delay: 0.15 },
+                { text: 'Missed call at 14:32 — returned in 19s. Reservation saved.', right: false, delay: 0 },
+                { text: 'Table for 4 booked — Friday 20:00. Confirmation sent on WhatsApp.', right: true, delay: 0.15 },
                 { text: 'New 5★ review — reply drafted in your voice. Approve?', right: false, delay: 0.3 },
                 { text: 'Quote followed up. Client said yes — invoice sent.', right: true, delay: 0.45 },
               ].map((bub, i) => (
@@ -395,8 +447,8 @@ export default function PageContent() {
           </div>
         </section>
 
-        {/* Stop hiring. Start deploying. */}
-        <section className="relative z-10 py-20 sm:py-32 px-4 sm:px-6 bg-black border-t border-white/5">
+        {/* How they're trained — 3-phase training story */}
+        <section className="relative z-10 py-20 sm:py-32 px-4 sm:px-6 bg-black border-t border-white/5" data-testid="section-how-trained">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
               <m.div
@@ -406,24 +458,24 @@ export default function PageContent() {
               >
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c4ff4d]/10 border border-[#c4ff4d]/20 text-[#c4ff4d] text-[10px] uppercase tracking-widest mb-6">
                   <Bot className="w-3 h-3" />
-                  <span>The AI Advantage</span>
+                  <span>How they're trained</span>
                 </div>
                 
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
-                  Stop hiring. 
+                  Not installed.
                   <br />
-                  <span className="text-[#c4ff4d]">Start deploying.</span>
+                  <span className="text-[#c4ff4d]">Trained.</span>
                 </h2>
                 
                 <p className="text-white/60 text-lg mb-10 font-light leading-relaxed">
-                  The future of business isn't about more headcount. It's about higher throughput. OARC AI agents aren't just chatbots — they are autonomous employees that integrate with your tools and execute your business logic.
+                  A chatbot gets configured once and stays dumb forever. An AI employee gets trained on your business — and keeps learning after it starts.
                 </p>
                 
                 <div className="space-y-6">
                   {[
-                    { title: 'Self-Improving', desc: 'Every interaction makes the agent smarter through continuous learning loops.' },
-                    { title: 'Tool Integration', desc: 'Connects directly to your CRM, Calendar, DB, and custom APIs.' },
-                    { title: 'Zero Onboarding', desc: 'Deploy a world-class agent in 7-14 days with zero management overhead.' }
+                    { phase: '01', title: 'We come to you', desc: 'An engineer and a consultant learn your prices, your rules, your tone, your data. In person — not a form.' },
+                    { phase: '02', title: 'We build it in your system', desc: 'Plugged into your CRM, calendar, WhatsApp and phone line. Your data stays yours — it never leaves.' },
+                    { phase: '03', title: 'It gets smarter', desc: 'Every call, chat and booking makes it better. Weekly updates, reviewed and approved by you.' }
                   ].map((item, idx) => (
                     <m.div 
                       key={item.title}
@@ -433,10 +485,8 @@ export default function PageContent() {
                       viewport={{ once: true }}
                       transition={{ delay: 0.1 * idx }}
                     >
-                      <div className="mt-1">
-                        <div className="w-5 h-5 rounded-full bg-[#c4ff4d]/20 flex items-center justify-center">
-                          <Check className="w-3 h-3 text-[#c4ff4d]" />
-                        </div>
+                      <div className="mt-0.5 flex-shrink-0">
+                        <span className="text-[#c4ff4d] font-mono font-bold text-sm">{item.phase}</span>
                       </div>
                       <div>
                         <h4 className="text-white font-medium mb-1">{item.title}</h4>
@@ -490,6 +540,9 @@ export default function PageContent() {
               <p className="text-white/60 text-lg max-w-2xl">
                 One employee, every door your customers knock on. Same memory, same manners, every channel.
               </p>
+              <p className="text-white/45 text-base max-w-2xl mt-3">
+                A missed WhatsApp is a missed booking. A missed call is a missed client. Your AI employee never misses either.
+              </p>
             </m.div>
 
             <div className="grid sm:grid-cols-2 gap-3 mb-16">
@@ -532,40 +585,73 @@ export default function PageContent() {
         
         {/* ========== BUSINESS CASE PROSE — AI Employees in Malta ========== */}
         <section className="relative z-10 py-20 sm:py-24 px-4 sm:px-6 bg-black border-t border-white/5" data-testid="section-ai-agents-business-case">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-8" data-speakable>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-8 max-w-3xl" data-speakable>
                 Why Malta Businesses Are Switching to AI Employees
               </h2>
-
-              <div className="space-y-6 text-white/65 leading-relaxed text-base sm:text-lg">
-                <p>
-                  The argument is a staffing one. A Malta business paying around €2,400 per month
-                  for a full-time team member gets someone who works eight hours a day, five days a
-                  week, takes sick days, and has a ceiling on how much they can handle at once. The
-                  same budget directed at an AI workforce gets 24/7 coverage across every channel,
-                  zero sick days, consistent output regardless of volume, and the ability to handle
-                  hundreds of conversations simultaneously. That is not a technology argument. It is
-                  a commercial one.
-                </p>
-
-                <p>
-                  Malta's labour market is tight. iGaming, fintech and financial services absorb most
-                  of the available talent, which means hospitality, retail and fast-growing SMBs
-                  compete for what's left. AI employees address the shortage directly — sales outreach,
-                  first-contact qualification, query resolution, appointment scheduling, invoice
-                  follow-up — all running on EU-resident infrastructure under GDPR-compliant
-                  conditions, integrated with the tools your team already uses, live in 7–14 days.
-                </p>
-              </div>
             </m.div>
 
+            <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
+              <m.div
+                className="lg:col-span-3"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <div className="space-y-6 text-white/65 leading-relaxed text-base sm:text-lg">
+                  <p>
+                    The argument is a staffing one. A Malta business paying around €2,400 per month
+                    for a full-time team member gets someone who works eight hours a day, five days a
+                    week, takes sick days, and has a ceiling on how much they can handle at once. The
+                    same budget directed at an AI workforce gets 24/7 coverage across every channel,
+                    zero sick days, consistent output regardless of volume, and the ability to handle
+                    hundreds of conversations simultaneously. That is not a technology argument. It is
+                    a commercial one.
+                  </p>
+
+                  <p>
+                    Malta's labour market is tight. iGaming, fintech and financial services absorb most
+                    of the available talent, which means hospitality, retail and fast-growing SMBs
+                    compete for what's left. AI employees address the shortage directly — sales outreach,
+                    first-contact qualification, query resolution, appointment scheduling, invoice
+                    follow-up — all running on EU-resident infrastructure under GDPR-compliant
+                    conditions, integrated with the tools your team already uses, live in 7–14 days.
+                  </p>
+                </div>
+              </m.div>
+
+              {/* What it earns you */}
+              <m.div
+                className="lg:col-span-2"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                data-testid="column-what-it-earns"
+              >
+                <p className="text-[#c4ff4d] text-[10px] font-bold tracking-widest uppercase mb-5">What it earns you</p>
+                <div className="space-y-4">
+                  {[
+                    { who: 'Clinic', what: '23% more bookings in the first 30 days — every enquiry answered, every no-show rebooked.' },
+                    { who: 'Restaurant', what: 'Zero missed calls in Q1. Every table request handled, even mid-service on a Saturday.' },
+                    { who: 'Agency', what: '4 proposals sent while the team slept — follow-ups chased, meetings on the calendar by morning.' },
+                  ].map((o, i) => (
+                    <div key={o.who} className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08]">
+                      <p className="text-white font-semibold text-sm mb-1">{o.who}</p>
+                      <p className="text-white/50 text-sm leading-relaxed">{o.what}</p>
+                    </div>
+                  ))}
+                </div>
+              </m.div>
+            </div>
+
             {/* Human handoff trust callout */}
-            <m.div className="mt-10"
+            <m.div className="mt-10 max-w-3xl"
               initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}>
               <div className="p-5 rounded-xl border border-dashed border-[#c4ff4d]/30 bg-[#c4ff4d]/[0.03]">
                 <p className="text-white font-semibold mb-1">Knows when to call a human.</p>
@@ -614,7 +700,7 @@ export default function PageContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">Why Businesses Choose AI Teams</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">What you get from day one</h2>
               <p className="text-white/60 max-w-xl mx-auto">Measurable impact. Predictable costs. Zero management overhead.</p>
             </m.div>
             
@@ -659,7 +745,7 @@ export default function PageContent() {
                 Limited Pilot Slots Available
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-                Get Your Custom AI Workforce Quote
+                Start with one employee. Scale from there.
               </h2>
               <p className="text-white/60 text-lg max-w-2xl mx-auto">
                 Every business is unique. Tell us about your needs and we'll create a tailored proposal with transparent pricing - no hidden fees, no surprises.
@@ -729,9 +815,9 @@ export default function PageContent() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-8 leading-tight">
-                Ready to deploy your 
+                Your first AI employee
                 <br />
-                <span className="opacity-70">autonomous AI team?</span>
+                <span className="opacity-70">can be live in 7 days.</span>
               </h2>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
