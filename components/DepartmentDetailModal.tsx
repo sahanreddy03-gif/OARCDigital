@@ -863,87 +863,293 @@ function SalesContent({ onClose }: { onClose: () => void }) {
   );
 }
 
-// ── MEDIA content ────────────────────────────────────────────────────────────
+// ── MEDIA content — exact prototype port, amber world ────────────────────────
+const MM_CSS = `
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;500;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+.mm{
+  --ink:#0C0F16;--deep:#080A0F;--card:#12151E;--c:#F0EBE2;--am:#F6A61C;--dim:#7C8598;
+  --c70:rgba(240,235,226,.72);--c45:rgba(240,235,226,.46);--c26:rgba(240,235,226,.26);
+  --c16:rgba(240,235,226,.16);--c10:rgba(240,235,226,.1);
+  --amg:rgba(246,166,28,.5);--amf:rgba(246,166,28,.12);
+  --line:rgba(240,235,226,.12);
+  --ui:'Chivo',sans-serif;--mono:'DM Mono',monospace;
+  --e:cubic-bezier(.16,1,.3,1);
+  background:var(--ink);color:var(--c);font-family:var(--ui);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden
+}
+.mm .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--am)}
+.mm h1{font-size:clamp(2.3rem,9.2vw,3.4rem);font-weight:900;line-height:.98;letter-spacing:-.04em;margin-top:.7rem}
+.mm h1 em{font-style:normal;color:var(--am)}
+.mm .desc{font-size:.97rem;color:var(--c70);line-height:1.55;margin-top:1rem;max-width:43ch}
+.mm .desc b{color:var(--c);font-weight:700}
+.mm .board{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.mm .bhead{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1.1rem;border-bottom:1px solid var(--line);background:rgba(240,235,226,.02)}
+.mm .bhead b{font-size:12px;font-weight:700}
+.mm .bhead s{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--c45);font-style:normal}
+.mm .brow{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1.1rem;border-bottom:1px solid var(--line);opacity:0;transform:translateY(8px);transition:.55s var(--e)}
+.mm .brow:last-child{border-bottom:0}
+.mm .board.go .brow{opacity:1;transform:none}
+.mm .bch{font-family:var(--mono);font-size:12.5px;color:var(--c)}
+.mm .bv{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.02em;padding:5px 10px;border-radius:5px;white-space:nowrap}
+.mm .bv.on{color:var(--am);background:var(--amf);border:1px solid rgba(246,166,28,.4)}
+.mm .bv.off{color:var(--dim);background:rgba(124,133,152,.08);border:1px solid var(--line)}
+.mm .team{margin-top:1.7rem}
+.mm .team s{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--c45);font-style:normal}
+.mm .team .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:.7rem}
+.mm .team .chips span{border:1px solid var(--line);padding:6px 10px;font-size:11px;color:var(--c70);border-radius:2px}
+.mm .pass{margin:1.5rem 20px 0;border:1px solid rgba(246,166,28,.4);border-radius:12px;background:linear-gradient(180deg,rgba(246,166,28,.08),transparent);padding:1.4rem}
+.mm .pass s{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--am);font-style:normal}
+.mm .pass h3{font-size:1.5rem;font-weight:900;letter-spacing:-.03em;margin:.4rem 0 .5rem}
+.mm .pass p{font-size:.9rem;color:var(--c70);line-height:1.55}
+.mm .pass p b{color:var(--c);font-weight:700}
+.mm .pass .big{font-family:var(--mono);font-size:2.4rem;font-weight:500;color:var(--am);letter-spacing:-.03em;margin-top:.6rem;display:block}
+.mm .shead{padding:1.7rem 20px .4rem;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--c45);display:flex;align-items:center;gap:.8rem}
+.mm .shead::after{content:'';flex:1;height:1px;background:var(--line)}
+.mm .phase{padding:1.8rem 20px 2rem;border-top:1px solid var(--line)}
+.mm .phase .idx{display:flex;align-items:baseline;gap:.6rem}
+.mm .phase .idx b{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--am)}
+.mm .phase .idx s{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--c45);font-style:normal}
+.mm .phase h2{font-size:clamp(2rem,8.2vw,2.6rem);font-weight:900;line-height:1;letter-spacing:-.035em;margin-top:1rem}
+.mm .phase h2 em{font-style:normal;color:var(--am)}
+.mm .phase .out{font-size:clamp(1.3rem,5.2vw,1.6rem);color:var(--c);margin-top:.9rem;line-height:1.2;font-weight:500}
+.mm .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--deep);position:relative;overflow:hidden;aspect-ratio:1/.78}
+.mm .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(240,235,226,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.mm .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.mm .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--am)}
+.mm .who::before{content:'';width:16px;height:1px;background:var(--am);opacity:.5}
+.mm .cap{margin-top:.7rem;font-size:.9rem;color:var(--c70);line-height:1.55}
+.mm .cap b{color:var(--c);font-weight:700}
+.mm .stat{margin-top:1.1rem;display:flex;align-items:baseline;gap:.7rem;padding-top:1rem;border-top:1px solid var(--line)}
+.mm .stat b{font-family:var(--mono);font-size:clamp(2.1rem,9.5vw,2.8rem);font-weight:500;letter-spacing:-.03em;line-height:.9}
+.mm .stat b em{font-style:normal;font-size:.5em;color:var(--am)}
+.mm .stat p{font-size:11.5px;color:var(--c45);line-height:1.35;max-width:26ch}
+.mm .bonus{margin:0 20px;padding:1.3rem 1.4rem;border:1px dashed var(--line);border-radius:10px;background:rgba(240,235,226,.02)}
+.mm .bonus s{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--c45);font-style:normal}
+.mm .bonus h4{font-size:1.15rem;font-weight:700;margin:.5rem 0 .5rem;letter-spacing:-.02em}
+.mm .bonus p{font-size:.88rem;color:var(--c70);line-height:1.55}
+.mm .bonus p b{color:var(--c);font-weight:700}
+.mm .end{padding:2.2rem 20px calc(2.4rem + env(safe-area-inset-bottom));border-top:1px solid var(--line);margin-top:1.7rem}
+.mm .end .big{font-size:clamp(2.6rem,11vw,3.7rem);font-weight:900;line-height:1;letter-spacing:-.04em}
+.mm .end .big span{color:var(--am)}
+.mm .end > p{font-size:.95rem;color:var(--c70);line-height:1.6;max-width:44ch;margin-top:1rem}
+.mm .end > p b{color:var(--c);font-weight:700}
+.mm .end a{display:block;margin-top:1.4rem;text-align:center;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--am);text-decoration:none;padding:1.15rem;border-radius:6px}
+.mm .end .foot{font-family:var(--mono);font-size:10.5px;color:var(--c26);letter-spacing:.04em;margin-top:1.4rem}
+.mm .wire{stroke:rgba(240,235,226,.16);stroke-width:1.25;fill:none}
+.mm .node{fill:rgba(240,235,226,.16)}
+.mm .nodeOn{fill:#F6A61C}
+.mm .bad{fill:#7C8598}
+.mm .ring{fill:none;stroke:#F6A61C;stroke-width:1.5}
+.mm .lab{font-family:'DM Mono';font-weight:400;fill:rgba(240,235,226,.7)}
+.mm .labA{font-family:'DM Mono';font-weight:500;fill:#F6A61C}
+.mm .labk{font-family:'DM Mono';font-weight:500;fill:#0C0F16}
+.mm .glow{filter:drop-shadow(0 0 8px rgba(246,166,28,.5))}
+.mm .draw{stroke-dasharray:var(--L,240);stroke-dashoffset:var(--L,240)}
+.mm .viz.live .draw{animation:mm-draw 1.1s var(--e) forwards}
+@keyframes mm-draw{to{stroke-dashoffset:0}}
+.mm .pop{opacity:0;transform:scale(.4);transform-origin:center}
+.mm .viz.live .pop{animation:mm-pop .5s var(--e) forwards}
+@keyframes mm-pop{to{opacity:1;transform:scale(1)}}
+.mm .up{opacity:0}
+.mm .viz.live .up{animation:mm-up .6s var(--e) forwards}
+@keyframes mm-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.mm .grow{transform:scaleY(0);transform-origin:50% 100%}
+.mm .viz.live .grow{animation:mm-grw .75s var(--e) forwards}
+@keyframes mm-grw{to{transform:scaleY(1)}}
+.mm .growd{transform:scaleY(0);transform-origin:50% 0}
+.mm .viz.live .growd{animation:mm-grw .75s var(--e) forwards}
+.mm .growx{transform:scaleX(0);transform-origin:left center}
+.mm .viz.live .growx{animation:mm-grwx .9s var(--e) forwards}
+@keyframes mm-grwx{to{transform:scaleX(1)}}
+@media(prefers-reduced-motion:reduce){.mm .up,.mm .pop,.mm .brow{opacity:1;transform:none}.mm .draw{stroke-dashoffset:0}.mm .grow,.mm .growd,.mm .growx{transform:none}}
+`;
+
+const MM_AM = '#F6A61C';
+const MM_INK = '#0C0F16';
+
+const MM_VIZ: Record<string, () => string> = {
+  allocate: () => {
+    const ch = [{l:'Meta',v:.9},{l:'Google',v:.72},{l:'TikTok',v:.5},{l:'YouTube',v:.34},{l:'OOH',v:.2}];
+    let s = '';
+    ch.forEach((c, i) => {
+      const y = 28 + i * 40;
+      s += `<text class="lab up" x="88" y="${y+16}" font-size="12" text-anchor="end" style="animation-delay:${i*.1}s">${c.l}</text>`;
+      s += `<rect class="nodeOn glow growx" x="100" y="${y}" width="${250*c.v}" height="22" rx="4" style="animation-delay:${i*.1+.1}s"/>`;
+    });
+    s += `<text class="labA up" x="100" y="238" font-size="10.5" style="animation-delay:.7s">budget follows the return</text>`;
+    return `<svg viewBox="0 0 400 250">${s}</svg>`;
+  },
+  lever: () => {
+    let s = `<text class="lab up" x="110" y="30" font-size="10.5" text-anchor="middle" opacity=".6" style="animation-delay:.2s">same spend</text>`;
+    s += `<text class="lab up" x="290" y="30" font-size="10.5" text-anchor="middle" opacity=".6" style="animation-delay:.2s">same spend</text>`;
+    s += `<rect class="wire up" x="50" y="46" width="120" height="80" rx="8" style="animation-delay:.2s"/>`;
+    s += `<text class="lab up" x="110" y="92" font-size="11" text-anchor="middle" style="animation-delay:.3s">weak ad</text>`;
+    s += `<rect class="ring glow up" x="230" y="46" width="120" height="80" rx="8" style="animation-delay:.4s"/>`;
+    s += `<text class="labA up" x="290" y="92" font-size="11" text-anchor="middle" style="animation-delay:.5s">better ad</text>`;
+    s += `<line class="wire" x1="40" y1="230" x2="366" y2="230"/>`;
+    s += `<rect class="node grow" x="86" y="196" width="48" height="34" rx="3" style="animation-delay:.6s"/>`;
+    s += `<text class="lab up" x="110" y="250" font-size="10" text-anchor="middle" opacity=".55" style="animation-delay:.7s">return</text>`;
+    s += `<rect class="nodeOn glow grow" x="266" y="150" width="48" height="80" rx="3" style="animation-delay:.9s"/>`;
+    s += `<text class="labA up" x="290" y="250" font-size="10" text-anchor="middle" style="animation-delay:1s">return</text>`;
+    return `<svg viewBox="0 0 400 260">${s}</svg>`;
+  },
+  flights: () => {
+    const win = [2, 4, 7]; let s = '';
+    for (let i = 0; i < 9; i++) {
+      const x = 44 + (i % 3) * 116, y = 30 + Math.floor(i / 3) * 74, on = win.includes(i);
+      s += `<rect class="${on ? 'nodeOn glow' : 'node'} pop" x="${x}" y="${y}" width="96" height="56" rx="6" style="animation-delay:${i*.07}s"/>`;
+      if (on) s += `<path class="draw" style="--L:22;animation-delay:${.7+i*.07}s" d="M${x+40},${y+28} l6,7 l12,-14" stroke="${MM_INK}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`;
+    }
+    s += `<text class="labA up" x="200" y="270" font-size="10.5" text-anchor="middle" style="animation-delay:.9s">the winners, found fast</text>`;
+    return `<svg viewBox="0 0 400 284">${s}</svg>`;
+  },
+  loop: () => {
+    const bars = [84, 66, 44, -30, -46], on = [1, 1, 1, 0, 0], mid = 138, x0 = 58, bw = 44, gap = 24;
+    let s = `<line class="wire" x1="30" y1="${mid}" x2="370" y2="${mid}" stroke-dasharray="4 4"/>`;
+    s += `<text class="lab" x="34" y="${mid-7}" font-size="9.5" opacity=".5">break-even</text>`;
+    bars.forEach((hh, i) => {
+      const x = x0 + i * (bw + gap), h = Math.abs(hh), up = hh > 0, y = up ? mid - h : mid;
+      s += `<rect class="${on[i] ? 'nodeOn glow' : 'bad'} ${up ? 'grow' : 'growd'}" x="${x}" y="${y}" width="${bw}" height="${h}" rx="4" style="animation-delay:${i*.12}s"/>`;
+    });
+    s += `<text class="labA up" x="102" y="${mid-102}" font-size="10.5" text-anchor="middle" style="animation-delay:.6s">scale</text>`;
+    s += `<text class="lab up" x="320" y="${mid+64}" font-size="10.5" text-anchor="middle" opacity=".6" style="animation-delay:.8s">kill</text>`;
+    return `<svg viewBox="0 0 400 256">${s}</svg>`;
+  },
+  revenue: () => {
+    const cy = 112; let s = '';
+    s += `<circle class="ring glow pop" cx="80" cy="${cy}" r="30" style="animation-delay:.2s"/>`;
+    s += `<text class="labA pop" x="80" y="${cy+6}" font-size="16" text-anchor="middle" style="animation-delay:.35s">€</text>`;
+    s += `<text class="lab up" x="80" y="${cy+52}" font-size="10.5" text-anchor="middle" opacity=".6" style="animation-delay:.4s">spend</text>`;
+    s += `<path class="wire draw glow" style="--L:150;animation-delay:.5s" d="M116,${cy} L284,${cy}"/>`;
+    s += `<path class="pop" style="animation-delay:1.3s" d="M284,${cy-6} l10,6 l-10,6 z" fill="${MM_AM}"/>`;
+    s += `<circle class="nodeOn glow pop" cx="320" cy="${cy}" r="34" style="animation-delay:1s"/>`;
+    s += `<text class="labk pop" x="320" y="${cy+6}" font-size="18" text-anchor="middle" style="animation-delay:1.15s">€+</text>`;
+    s += `<text class="labA up" x="320" y="${cy+56}" font-size="10.5" text-anchor="middle" style="animation-delay:1.1s">revenue</text>`;
+    s += `<text class="lab up" x="200" y="40" font-size="10.5" text-anchor="middle" opacity=".55" style="animation-delay:.3s">measured on sales, not clicks</text>`;
+    return `<svg viewBox="0 0 400 220">${s}</svg>`;
+  },
+};
+
+const MM_PARTS = [
+  { n:'01', sp:'Where it pays', h:'We put money where it <em>pays.</em>', out:'Every euro where the return is.',
+    who:'Media strategists',
+    cap:'We put your budget where it actually returns — not where it\'s habit. Meta, Google, TikTok, YouTube, out-of-home: the mix follows the money. The restaurant fills tables with local video, the shop drives orders with shopping ads, the clinic books with search — and <b>every euro of that budget goes to the platform, never to us.</b>',
+    stat:'5', statEm:'×', statP:'the gap between your best and worst channel — we find it and shift the money', viz:'allocate' },
+  { n:'02', sp:'Creative is the lever', h:'The ad is the <em>lever.</em>', out:'The ad decides — so we build it.',
+    who:'Ad creatives',
+    cap:'Targeting barely moves the needle anymore — the ad itself decides whether the money works. Our creatives build the video and the hook, because that\'s the real lever now. <b>Same spend, a better ad, a completely different return.</b>',
+    stat:'50', statEm:'%', statP:'of what an ad returns comes down to the creative — so we make it, not just buy space', viz:'lever' },
+  { n:'03', sp:'Flighted testing', h:'We fly tests, not <em>bets.</em>', out:'Many small tests, fast winners.',
+    who:'Media buyers',
+    cap:'We don\'t bet the budget on one idea. We launch in flights — many small, cheap tests — and let the market pick the winner. <b>Only about one in ten ads ever scales, so we find that one fast, before the money\'s gone.</b>',
+    stat:'10', statEm:undefined as string|undefined, statP:'ads tested for every winner — we fly many, cheap, and find it early', viz:'flights' },
+  { n:'04', sp:'The loop', h:'Scale winners. <em>Kill losers.</em>', out:'More of what works, none of what doesn\'t.',
+    who:'Media buyers · Analysts',
+    cap:'The moment an ad tires or its cost climbs, we cut it — kill-rules, not opinions — and pour budget into what\'s working. <b>That loop, run every week, is what lifts the return month after month.</b>',
+    stat:'25–40', statEm:'%', statP:'more return over six months, from scaling only what wins', viz:'loop' },
+  { n:'05', sp:'Measured on money', h:'We prove it in <em>revenue.</em>', out:'Return in euros, not clicks.',
+    who:'Analysts',
+    cap:'We tie spend to real sales — not clicks or likes. You see revenue back per euro, the only number that decides whether media is working. <b>Vanity metrics stay off your report.</b>',
+    stat:'1', statEm:undefined as string|undefined, statP:'number that matters: revenue back per euro spent — and you can check it', viz:'revenue' },
+];
+
 function MediaContent({ onClose }: { onClose: () => void }) {
-  const phases: PhaseData[] = [
-    { num:"01", label:"Where it pays", headline:'We put money where it <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">pays.</em>', hook:"Every euro where the return is.", who:"Media strategists",
-      body:"We put your budget where it actually returns — not where it's habit. Meta, Google, TikTok, YouTube, out-of-home: the mix follows the money. <strong style='color:#F2EFE9'>Every euro of that budget goes to the platform, never to us.</strong>",
-      stat:"5", statS:"×", statD:"the gap between your best and worst channel — we find it and shift the money" },
-    { num:"02", label:"Creative is the lever", headline:'The ad is the <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">lever.</em>', hook:"The ad decides — so we build it.", who:"Ad creatives",
-      body:"Targeting barely moves the needle anymore — the ad itself decides whether the money works. Our creatives build the video and the hook, because <strong style='color:#F2EFE9'>that's the real lever now. Same spend, a better ad, a completely different return.</strong>",
-      stat:"50", statS:"%", statD:"of what an ad returns comes down to the creative — so we make it, not just buy space" },
-    { num:"03", label:"Flighted testing", headline:'We fly tests, not <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">bets.</em>', hook:"Many small tests, fast winners.", who:"Media buyers",
-      body:"We don't bet the budget on one idea. We launch in flights — many small, cheap tests — and let the market pick the winner. <strong style='color:#F2EFE9'>Only about one in ten ads ever scales, so we find that one fast, before the money's gone.</strong>",
-      stat:"10", statD:"ads tested for every winner — we fly many, cheap, and find it early" },
-    { num:"04", label:"The loop", headline:'Scale winners. <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">Kill losers.</em>', hook:"More of what works, none of what doesn't.", who:"Media buyers · Analysts",
-      body:"The moment an ad tires or its cost climbs, we cut it — kill-rules, not opinions — and pour budget into what's working. <strong style='color:#F2EFE9'>That loop, run every week, is what lifts the return month after month.</strong>",
-      stat:"25–40", statS:"%", statD:"more return over six months, from scaling only what wins" },
-    { num:"05", label:"Measured on money", headline:'We prove it in <em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:#E02B20">revenue.</em>', hook:"Return in euros, not clicks.", who:"Analysts",
-      body:"We tie spend to real sales — not clicks or likes. You see revenue back per euro, the only number that decides whether media is working. <strong style='color:#F2EFE9'>Vanity metrics stay off your report.</strong>",
-      stat:"1", statD:"number that matters: revenue back per euro spent — and you can check it" },
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const boardRef = useRef<HTMLDivElement>(null);
+  const MM_BOARD: [string, string, boolean][] = [
+    ['Meta video', '↑ 3.4×', true],
+    ['Google Search', '↑ 2.8×', true],
+    ['TikTok', '↑ 2.1×', false],
+    ['Boosted posts', '↓ 0.6×', false],
   ];
-  const faqs = [
-    { q:"Do you take a cut of my ad budget?", a:"No. 100% of your ad spend goes to the platforms. We're paid for the work — strategy, creative and buying — never a percentage of your media budget." },
-    { q:"How do you make ads actually work?", a:"We put budget where it returns, build the creative (which now decides performance), test in small flights, scale winners and kill losers weekly, and measure everything on real revenue, not clicks." },
-    { q:"Which channels do you run?", a:"The ones that pay for your business — Meta, Google, TikTok, YouTube and out-of-home — with the budget split following the return, not habit." },
-    { q:"Are you an AI company?", a:"No. Real strategists, creatives, buyers and analysts run your media. A small tool that flags a cost spike is included as a bonus, not the main thing." },
-  ];
+
+  useEffect(() => {
+    const id = 'mm-modal-css';
+    if (!document.getElementById(id)) {
+      const s = document.createElement('style');
+      s.id = id; s.textContent = MM_CSS;
+      document.head.appendChild(s);
+    }
+  }, []);
+
+  useEffect(() => {
+    const b = boardRef.current; if (!b) return;
+    const t = setTimeout(() => b.classList.add('go'), 150);
+    return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('live'); io.unobserve(e.target); } }),
+      { threshold: 0.3 }
+    );
+    wrapRef.current?.querySelectorAll('.mm .viz').forEach(v => io.observe(v));
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div style={{ background:T.noir, color:T.ivory }}>
-      <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${T.line}` }}>
-        <Kicker label="Media" />
-        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
-          fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
-          textTransform:"uppercase", color:T.ivory, marginBottom:"1rem" }}>
-          We make your money<br />
-          <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0,
-            color:T.scar, fontSize:"1.04em" }}>come back with more.</em>
-        </h1>
-        <p style={{ fontSize:".98rem", color:T.dim, lineHeight:1.6, maxWidth:"44ch" }}>
-          The right channels, the right creative, tested in flights and scaled only when they win.{" "}
-          <strong style={{ color:T.ivory }}>Every euro of ad spend goes to the platforms, never to us.</strong>{" "}
-          Media that pays for itself, run by one team.
-        </p>
-      </div>
-      {/* pass-through strip */}
-      <Reveal>
-        <div style={{ margin:"1.6rem 20px 0", padding:"1.4rem 1.4rem",
-          border:`1px solid rgba(224,43,32,.4)`, borderRadius:12,
-          background:"linear-gradient(180deg,rgba(224,43,32,.08),transparent)" }}>
-          <Kicker label="The part other agencies hide" />
-          <h3 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
-            fontSize:"1.5rem", letterSpacing:"-.03em", color:T.ivory, marginBottom:".5rem" }}>Your budget is yours.</h3>
-          <p style={{ fontSize:".9rem", color:T.dim, lineHeight:1.55, marginBottom:".6rem" }}>
-            <strong style={{ color:T.ivory }}>100% of your ad spend goes to the platforms — we never take a cut of it.</strong>{" "}
-            We're paid for the work: the strategy, the creative, the buying. Not your media money.
-          </p>
-          <span style={{ fontFamily:"var(--font-space-mono,'Space Mono',monospace)", fontSize:"2.2rem",
-            fontWeight:700, color:T.scar, letterSpacing:"-.03em", display:"block" }}>100% → platforms</span>
+    <div className="mm" ref={wrapRef}>
+      <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:"1px solid var(--line)" }}>
+        <p className="lbl">Marketing and media</p>
+        <h1>We make your money<br /><em>come back with more.</em></h1>
+        <p className="desc">The right channels, the right creative, tested in flights and scaled only when they win — and <b>every euro of ad spend goes to the platforms, never to us.</b> Media that pays for itself, run by one team.</p>
+
+        <div className="board" ref={boardRef}>
+          <div className="bhead"><b>Where your money works</b><s>return</s></div>
+          {MM_BOARD.map(([ch, v, on], i) => (
+            <div key={i} className="brow" style={{ transitionDelay:`${.15+i*.13}s` }}>
+              <span className="bch">{ch}</span>
+              <span className={`bv ${on ? 'on' : 'off'}`}>{v}</span>
+            </div>
+          ))}
         </div>
-      </Reveal>
-      <div style={{ padding:"1.6rem 20px 0" }}>
-        <Kicker label="How the money is run" />
-      </div>
-      {phases.map((p, i) => <Phase key={i} p={p} realm="E" />)}
-      <Reveal>
-        <div style={{ margin:"0 20px 1.8rem", padding:"1.3rem 1.4rem",
-          border:`1px dashed ${T.line}`, borderRadius:10, background:T.card }}>
-          <Kicker label="Bonus, included" color={T.dim} />
-          <h4 style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle:"italic", fontSize:"1.3rem", fontWeight:400, color:T.ivory, marginBottom:".5rem" }}>
-            Oh — and a little tool, on us.
-          </h4>
-          <p style={{ fontSize:".88rem", color:T.dim, lineHeight:1.55 }}>
-            A small tool that pings the team the moment a channel's cost spikes or a winning ad starts to tire — so budget never quietly bleeds.{" "}
-            <strong style={{ color:T.ivory }}>Nice to have, not the main event.</strong>
-          </p>
+
+        <div className="team">
+          <s>The people on it</s>
+          <div className="chips">
+            {['Media strategists','Ad creatives','Media buyers','Analysts'].map(t => <span key={t}>{t}</span>)}
+          </div>
         </div>
-      </Reveal>
-      <FAQ items={faqs} />
-      <CTA big={<>Media that pays<br /><CtaItalic>for itself.</CtaItalic></>}
-        sub="The right channels, the right creative, tested in flights and scaled only when they win — with every euro going to the platforms, not to us."
-        btn="See what your spend could do" onClose={onClose} />
+      </div>
+
+      <div className="pass">
+        <s>The part other agencies hide</s>
+        <h3>Your budget is yours.</h3>
+        <p><b>100% of your ad spend goes to the platforms — we never take a cut of it.</b> We're paid for the work: the strategy, the creative, the buying. Not your media money.</p>
+        <span className="big">100% → platforms</span>
+      </div>
+
+      <div className="shead">How the money is run</div>
+
+      <div>
+        {MM_PARTS.map((p, i) => (
+          <div key={i} className="phase">
+            <div className="idx"><b>{p.n}</b><s>{p.sp}</s></div>
+            <h2 dangerouslySetInnerHTML={{ __html: p.h }} />
+            <p className="out">{p.out}</p>
+            <div className="viz" dangerouslySetInnerHTML={{ __html: MM_VIZ[p.viz]() }} />
+            <p className="who">{p.who}</p>
+            <p className="cap" dangerouslySetInnerHTML={{ __html: p.cap }} />
+            <div className="stat">
+              <b dangerouslySetInnerHTML={{ __html: p.stat + (p.statEm ? `<em>${p.statEm}</em>` : '') }} />
+              <p>{p.statP}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="bonus">
+        <s>Bonus, included</s>
+        <h4>Oh — and a little tool, on us.</h4>
+        <p>A small tool that pings the team the moment a channel's cost spikes or a winning ad starts to tire — so budget never quietly bleeds. <b>Nice to have, not the main event.</b> The buying and the calls are made by the people above.</p>
+      </div>
+
+      <div className="end">
+        <div className="big">Media that pays<br /><span>for itself.</span></div>
+        <p>The right channels, the right creative, tested in flights and scaled only when they win — with every euro of budget going to the platforms, not to us. <b>Return in revenue, proof you can check.</b></p>
+        <a href="/contact" onClick={onClose}>See what your spend could do →</a>
+        <p className="foot">OARC — one team for the whole business. Malta.</p>
+      </div>
     </div>
   );
 }
@@ -951,27 +1157,27 @@ function MediaContent({ onClose }: { onClose: () => void }) {
 // ── SOCIAL content — exact prototype port, green world ───────────────────────
 const SC_CSS = `
 .sc{
-  --bg:#0A0F0C;--deep:#060B08;--em:#0E5A3A;
-  --c:#F2EFE9;
-  --c70:rgba(242,239,233,.72);--c45:rgba(242,239,233,.46);
-  --c26:rgba(242,239,233,.26);--c16:rgba(242,239,233,.16);
-  --emg:rgba(61,155,101,.55);--emd:rgba(61,155,101,.16);
-  --line:rgba(242,239,233,.13);
+  --bg:#0E0C14;--deep:#08070C;--em:#FF6A2B;
+  --c:#F3EEE6;
+  --c70:rgba(243,238,230,.72);--c45:rgba(243,238,230,.46);
+  --c26:rgba(243,238,230,.26);--c16:rgba(243,238,230,.16);
+  --emg:rgba(255,106,43,.55);--emd:rgba(255,106,43,.16);
+  --line:rgba(243,238,230,.13);
   --e:cubic-bezier(.16,1,.3,1);
   background:var(--bg);color:var(--c);
-  font-family:var(--font-bricolage,'Bricolage Grotesque',sans-serif);
+  font-family:'Familjen Grotesk',sans-serif;
   -webkit-font-smoothing:antialiased;overflow-x:hidden
 }
 .sc .top{display:flex;justify-content:space-between;align-items:center;
   padding:16px 20px;padding-top:max(16px,env(safe-area-inset-top));
   border-bottom:1px solid var(--line);position:sticky;top:0;
-  background:rgba(10,15,12,.86);backdrop-filter:blur(10px);z-index:20}
+  background:rgba(14,12,20,.86);backdrop-filter:blur(10px);z-index:20}
 .sc .top .brand{display:flex;align-items:baseline;gap:.7rem}
 .sc .top .brand b{font-weight:700;font-size:13px;letter-spacing:-.02em}
 .sc .top .brand s{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--c26);text-decoration:none}
 .sc .top .live-ind{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c45)}
 .sc .top .live-ind i{width:6px;height:6px;border-radius:50%;background:var(--em);animation:sc-blink 1.7s ease-out infinite;font-style:normal}
-@keyframes sc-blink{0%{box-shadow:0 0 0 0 var(--emg)}100%{box-shadow:0 0 0 8px rgba(61,155,101,0)}}
+@keyframes sc-blink{0%{box-shadow:0 0 0 0 var(--emg)}100%{box-shadow:0 0 0 8px rgba(255,106,43,0)}}
 .sc .hero{padding:1.7rem 20px 2.4rem;border-bottom:1px solid var(--line)}
 .sc .hero .lbl{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--em)}
 .sc .hero h1{font-size:clamp(2.2rem,9.4vw,3.3rem);font-weight:700;line-height:.98;letter-spacing:-.045em;margin-top:.7rem}
@@ -987,7 +1193,7 @@ const SC_CSS = `
 @keyframes sc-float{from{transform:rotateX(58deg) rotateZ(-38deg) translateZ(0)}to{transform:rotateX(54deg) rotateZ(-34deg) translateZ(7px)}}
 .sc .layer{position:absolute;inset:0;border:1.5px solid var(--c26);background:rgba(242,239,233,.03);
   border-radius:6px;opacity:0;box-shadow:0 1px 0 rgba(242,239,233,.08) inset}
-.sc .layer.hot{border-color:var(--em);background:rgba(61,155,101,.12);box-shadow:0 0 26px var(--emg)}
+.sc .layer.hot{border-color:var(--em);background:rgba(255,106,43,.12);box-shadow:0 0 26px var(--emg)}
 .sc .layer .dot{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   width:7px;height:7px;border-radius:50%;background:var(--em);box-shadow:0 0 12px var(--emg)}
 .sc .layer .tag{position:absolute;left:calc(100% + 16px);top:50%;white-space:nowrap;
@@ -1010,7 +1216,7 @@ const SC_CSS = `
 .sc .shead{padding:1.7rem 20px .4rem;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--c45);display:flex;align-items:center;gap:.8rem}
 .sc .shead::after{content:'';flex:1;height:1px;background:var(--line)}
 .sc .phase{padding:1.8rem 20px 2rem;border-top:1px solid var(--line)}
-.sc .phase.hot{background:linear-gradient(180deg,rgba(61,155,101,.07),transparent 58%)}
+.sc .phase.hot{background:linear-gradient(180deg,rgba(255,106,43,.07),transparent 58%)}
 .sc .core-tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.16em;
   text-transform:uppercase;color:var(--bg);background:var(--em);padding:5px 10px;border-radius:2px;margin-bottom:1rem}
 .sc .phase .idx{display:flex;align-items:baseline;gap:.6rem;font-variant-numeric:tabular-nums}
@@ -1047,15 +1253,15 @@ const SC_CSS = `
 .sc .end > p{font-size:.95rem;color:var(--c70);line-height:1.6;max-width:44ch;margin-top:1rem}
 .sc .end > p b{color:var(--c)}
 .sc .end a{display:block;margin-top:1.4rem;text-align:center;font-size:12px;font-weight:700;
-  letter-spacing:.13em;text-transform:uppercase;color:#F2EFE9;background:var(--em);
+  letter-spacing:.13em;text-transform:uppercase;color:#F3EEE6;background:var(--em);
   text-decoration:none;padding:1.15rem;border-radius:4px}
 .sc .end .foot{font-size:11px;color:var(--c26);letter-spacing:.04em;margin-top:1.4rem}
 .sc .wire{stroke:var(--c16);stroke-width:1.25;fill:none}
 .sc .node{fill:var(--c16)}
 .sc .nodeOn{fill:var(--em)}
 .sc .ring{fill:none;stroke:var(--em);stroke-width:1.5}
-.sc .lab{font-weight:600;fill:rgba(242,239,233,.7)}
-.sc .labk{font-weight:700;fill:#060B08}
+.sc .lab{font-weight:600;fill:rgba(243,238,230,.7)}
+.sc .labk{font-weight:700;fill:#08070C}
 .sc .glow{filter:drop-shadow(0 0 9px var(--emg))}
 .sc .draw{stroke-dasharray:var(--L,240);stroke-dashoffset:var(--L,240)}
 .sc .viz.live .draw{animation:sc-draw 1.1s var(--e) forwards}
@@ -1074,8 +1280,8 @@ const SC_CSS = `
 .sc .up,.sc .pop{opacity:1;transform:none}.sc .draw{stroke-dashoffset:0}.sc .grow{transform:none}}
 `;
 
-const SC_EM = '#0E5A3A';
-const SC_INK = '#060B08';
+const SC_EM = '#FF6A2B';
+const SC_INK = '#08070C';
 
 const SC_VIZ: Record<string, () => string> = {
   where: () => {
@@ -1180,9 +1386,16 @@ const SC_PARTS = [
 function SocialContent({ onClose }: { onClose: () => void }) {
   const wrapRef = useRef<HTMLDivElement>(null);
 
-  // inject scoped CSS once
+  // inject fonts + scoped CSS once
   useEffect(() => {
     if (typeof document === 'undefined') return;
+    const lid = 'sc-modal-fonts';
+    if (!document.getElementById(lid)) {
+      const l = document.createElement('link');
+      l.id = lid; l.rel = 'stylesheet';
+      l.href = 'https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap';
+      document.head.appendChild(l);
+    }
     const id = 'sc-modal-css';
     if (!document.getElementById(id)) {
       const s = document.createElement('style');
@@ -1433,6 +1646,25 @@ const SVG_CL_DECISION = `<svg viewBox="0 0 400 228" style="position:absolute;ins
 </svg>`;
 
 function ClarityContent({ onClose }: { onClose: () => void }) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const lid = 'cl-modal-fonts';
+    if (!document.getElementById(lid)) {
+      const l = document.createElement('link');
+      l.id = lid; l.rel = 'stylesheet';
+      l.href = 'https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap';
+      document.head.appendChild(l);
+    }
+    const sid = 'cl-modal-css';
+    if (!document.getElementById(sid)) {
+      const s = document.createElement('style');
+      s.id = sid;
+      s.textContent = `.cl-wrap h1,.cl-wrap h2,.cl-wrap h3,.cl-wrap h4,.cl-wrap p{font-family:'Sora',sans-serif!important}`;
+      document.head.appendChild(s);
+    }
+  }, []);
+
   const faqs = [
     { q: "What does Clarity actually deliver?", a: "We track the numbers that connect your spend to sales, run regular A/B split tests, and give you a monthly verdict card: which channels to do more of, and which to cut — in plain English, not a dashboard you have to decode." },
     { q: "How is this different from Google Analytics?", a: "Analytics tells you what happened. Clarity tells you what to do about it — and, critically, what to stop spending money on. We connect the spend to the sale, which most analytics tools don't do out of the box." },
@@ -1440,7 +1672,7 @@ function ClarityContent({ onClose }: { onClose: () => void }) {
     { q: "Are you an AI company?", a: "No. Real analysts read your numbers, connect spend to sales, and make the calls. A small tool that surfaces anomalies early is included as a bonus — not the main thing." },
   ];
   return (
-    <div style={{ background: CL.bg, color: CL.c }}>
+    <div className="cl-wrap" ref={wrapRef} style={{ background: CL.bg, color: CL.c }}>
       {/* hero */}
       <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${CL.line}` }}>
         <Kicker label="Clarity" color={CL.az} />
@@ -2405,6 +2637,25 @@ const SVG_OP_CONTROL = `<svg viewBox="0 0 400 200" style="position:absolute;inse
 </svg>`;
 
 function OperationsContent({ onClose }: { onClose: () => void }) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const lid = 'op-modal-fonts';
+    if (!document.getElementById(lid)) {
+      const l = document.createElement('link');
+      l.id = lid; l.rel = 'stylesheet';
+      l.href = 'https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;1,400;1,600&display=swap';
+      document.head.appendChild(l);
+    }
+    const sid = 'op-modal-css';
+    if (!document.getElementById(sid)) {
+      const s = document.createElement('style');
+      s.id = sid;
+      s.textContent = `.op-wrap h1,.op-wrap h2,.op-wrap h3,.op-wrap h4,.op-wrap p{font-family:'Hanken Grotesk',sans-serif!important}`;
+      document.head.appendChild(s);
+    }
+  }, []);
+
   const faqs = [
     { q: "What does taking the boring work off my plate actually mean?", a: "We map the repetitive jobs that eat your team's time — answering the same questions, booking and rescheduling, chasing payments, data entry, reports — and build the automations and AI workflows that handle them, so your people do the work that matters." },
     { q: "How much of my team's time can this actually return?", a: "Most businesses recover 8–14 hours per person per week. The exact number depends on the audit. The audit is the first step — and it's free." },
@@ -2420,7 +2671,7 @@ function OperationsContent({ onClose }: { onClose: () => void }) {
     "Follow-ups that never got sent",
   ];
   return (
-    <div style={{ background: OP.bg, color: OP.ink }}>
+    <div className="op-wrap" ref={wrapRef} style={{ background: OP.bg, color: OP.ink }}>
       <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${OP.line}` }}>
         <Kicker label="Operations" color={OP.em} />
         <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
@@ -2561,6 +2812,25 @@ const SVG_AU_WATCH = `<svg viewBox="0 0 400 224" style="position:absolute;inset:
 </svg>`;
 
 function AutomationContent({ onClose }: { onClose: () => void }) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const lid = 'au-modal-fonts';
+    if (!document.getElementById(lid)) {
+      const l = document.createElement('link');
+      l.id = lid; l.rel = 'stylesheet';
+      l.href = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Martian+Mono:wght@400;500&display=swap';
+      document.head.appendChild(l);
+    }
+    const sid = 'au-modal-css';
+    if (!document.getElementById(sid)) {
+      const s = document.createElement('style');
+      s.id = sid;
+      s.textContent = `.au-wrap h1,.au-wrap h2,.au-wrap h3,.au-wrap h4,.au-wrap p{font-family:'Plus Jakarta Sans',sans-serif!important}`;
+      document.head.appendChild(s);
+    }
+  }, []);
+
   const faqs = [
     { q: "What does 'a business that runs itself' mean in practice?", a: "It means your core workflows — booking, invoicing, follow-up, lead routing, reporting — happen automatically when the trigger fires, without a human kicking them off. Your team focuses on work that actually needs a person." },
     { q: "What tools do you connect?", a: "Whatever you already use: Stripe, Google Sheets, WhatsApp, your CRM, your POS, your email platform, your calendar. We connect what you have — we don't sell you new software." },
@@ -2576,7 +2846,7 @@ function AutomationContent({ onClose }: { onClose: () => void }) {
     { title:"Data", items:["Cross-system sync", "CRM updates", "Dashboard refresh", "Anomaly flags"] },
   ];
   return (
-    <div style={{ background: AU.bg, color: AU.c }}>
+    <div className="au-wrap" ref={wrapRef} style={{ background: AU.bg, color: AU.c }}>
       <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${AU.line}` }}>
         <Kicker label="Automation" color={AU.mint} />
         <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
@@ -2634,6 +2904,31 @@ function AutomationContent({ onClose }: { onClose: () => void }) {
           </div>
         </Reveal>
       ))}
+      {/* what it's worth — VALUE rows */}
+      <Reveal>
+        <div style={{ padding: "1.6rem 20px 2rem", borderTop: `1px solid ${AU.line}` }}>
+          <Kicker label="What it's worth to you" color={AU.mint} />
+          <div style={{ marginTop: "1.2rem" }}>
+            {[
+              { h:"Hours back every week", s:"8–14 hrs", d:"per person per week" },
+              { h:"Nothing falls through", s:"0", d:"missed triggers — every job caught" },
+              { h:"Served around the clock", s:"24/7", d:"no sick days, no gaps, no holidays" },
+              { h:"Fewer mistakes", s:"100%", d:"human error eliminated from automated flows" },
+              { h:"Grow without hiring", s:"+ capacity", d:"add volume without adding headcount" },
+            ].map((v, i) => (
+              <div key={i} style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline",
+                padding:".9rem 0", borderTop: i > 0 ? `1px solid ${AU.line}` : "none" }}>
+                <span style={{ fontSize:".88rem", color:AU.dim, lineHeight:1.4 }}>{v.h}</span>
+                <div style={{ textAlign:"right", flexShrink:0, marginLeft:"1rem" }}>
+                  <span style={{ fontFamily:"monospace", fontSize:"1.3rem", fontWeight:700, color:AU.mint,
+                    display:"block", lineHeight:.9, letterSpacing:"-.02em" }}>{v.s}</span>
+                  <span style={{ fontFamily:"monospace", fontSize:9.5, color:AU.c45, letterSpacing:".04em" }}>{v.d}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
       {/* cluster grid */}
       <Reveal>
         <div style={{ padding: "1.6rem 20px 2rem", borderTop: `1px solid ${AU.line}` }}>
@@ -2666,6 +2961,25 @@ const TR = { bg:"#050A10", card:"#0A1018", sig:"#3EC6FF", sig2:"rgba(62,198,255,
   c:"#E8F4FF", dim:"rgba(232,244,255,.7)", c45:"rgba(232,244,255,.45)", line:"rgba(232,244,255,.1)" };
 
 function TransformationContent({ onClose }: { onClose: () => void }) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const lid = 'tr-modal-fonts';
+    if (!document.getElementById(lid)) {
+      const l = document.createElement('link');
+      l.id = lid; l.rel = 'stylesheet';
+      l.href = 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap';
+      document.head.appendChild(l);
+    }
+    const sid = 'tr-modal-css';
+    if (!document.getElementById(sid)) {
+      const s = document.createElement('style');
+      s.id = sid;
+      s.textContent = `.tr-wrap h1,.tr-wrap h2,.tr-wrap h3,.tr-wrap h4,.tr-wrap p{font-family:'Space Grotesk',sans-serif!important}`;
+      document.head.appendChild(s);
+    }
+  }, []);
+
   const lifecycle = [
     { n:"01", stage:"Discover", desc:"Guests find you — website, maps, social" },
     { n:"02", stage:"Book", desc:"They reserve — online, phone, in person" },
@@ -2702,7 +3016,7 @@ function TransformationContent({ onClose }: { onClose: () => void }) {
     { q: "Are you an AI company?", a: "AI is one layer of the transformation — smart routing, demand forecasting, review management. But the transformation is physical: the systems in your space, the screens your team uses, the flow your guests experience." },
   ];
   return (
-    <div style={{ background: TR.bg, color: TR.c }}>
+    <div className="tr-wrap" ref={wrapRef} style={{ background: TR.bg, color: TR.c }}>
       <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${TR.line}` }}>
         <Kicker label="Transformation" color={TR.sig} />
         <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
@@ -2809,6 +3123,63 @@ function TransformationContent({ onClose }: { onClose: () => void }) {
           </div>
         </Reveal>
       ))}
+      {/* ── CUSTOM SOFTWARE — change how the business runs ── */}
+      <Reveal>
+        <div style={{ padding:"1.8rem 20px 2.2rem", borderTop:`2px solid ${TR.line}` }}>
+          <p style={{ fontFamily:"monospace", fontSize:10, letterSpacing:".18em", textTransform:"uppercase" as const,
+            color:TR.sig, marginBottom:".5rem" }}>Also — custom software</p>
+          <h2 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+            fontSize:"clamp(2rem,8vw,3rem)", lineHeight:.95, letterSpacing:"-.04em", color:TR.c, marginBottom:"1rem" }}>
+            Software your business<br />
+            <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
+              fontStyle:"italic", fontWeight:400, color:TR.sig }}>should run on.</em>
+          </h2>
+          <p style={{ fontSize:".95rem", color:TR.dim, lineHeight:1.6, maxWidth:"46ch" }}>
+            When off-the-shelf tools don't fit the way your business actually runs, we build the software that does.{" "}
+            <strong style={{ color:TR.c }}>Owned by you. Built for exactly your operation.</strong>
+          </p>
+          {[
+            { n:"01", sp:"Discovery", h:"We map what <em>needs building</em>.", stat:"Week 1",
+              statD:"deep-dive into your process before a line of code is written",
+              cap:"We spend time inside your operation before we touch a keyboard — interviews, workflow maps, system audits. By the end of week one we know exactly what to build and why." },
+            { n:"02", sp:"Product & design", h:"We design it — <em>around your team</em>.", stat:"Custom",
+              statD:"designed for your exact workflow, not a generic use case",
+              cap:"No templates. We design the product around the people who will use it — the screens they'll see, the actions they'll take, the data they'll read. Every flow validated before engineering starts." },
+            { n:"03", sp:"Engineering", h:"We build it — <em>properly</em>.", stat:"Solid",
+              statD:"production-grade code, tested, documented, handed over",
+              cap:"Real engineers, proper code, full test coverage. We build for the long run — not a prototype that breaks at scale, but software your team can rely on for years." },
+            { n:"04", sp:"Integrations", h:"It connects to <em>everything</em>.", stat:"100%",
+              statD:"of your existing tools connected — no double-entry, no silos",
+              cap:"Your new software talks to your POS, your CRM, your payments, your reporting. Data flows where it needs to go automatically — no one copies it by hand." },
+            { n:"05", sp:"Support", h:"You own it — <em>we stay on call</em>.", stat:"Always",
+              statD:"support, updates and iterations after go-live — you're never alone",
+              cap:"We hand over the code, train your team, and stay on call. When your business changes, the software changes too. You own it." },
+          ].map((p, i) => (
+            <Reveal key={i}>
+              <div style={{ padding:"1.6rem 0 1.8rem", borderTop:`1px solid ${TR.line}` }}>
+                <div style={{ display:"flex", alignItems:"baseline", gap:".6rem", marginBottom:".9rem" }}>
+                  <span style={{ fontFamily:"monospace", fontSize:11, color:TR.sig }}>{p.n}</span>
+                  <span style={{ fontFamily:"monospace", fontSize:9, letterSpacing:".16em",
+                    textTransform:"uppercase" as const, color:TR.c45 }}>{p.sp}</span>
+                </div>
+                <h3 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:700,
+                  fontSize:"clamp(1.7rem,6.5vw,2.2rem)", lineHeight:1.02, letterSpacing:"-.03em",
+                  color:TR.c, marginBottom:".9rem" }}
+                  dangerouslySetInnerHTML={{ __html: p.h.replace(/<em>/g,
+                    `<em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:${TR.sig}">`) }} />
+                <p style={{ fontSize:".92rem", color:TR.dim, lineHeight:1.62, maxWidth:"52ch" }}>{p.cap}</p>
+                <div style={{ display:"flex", alignItems:"baseline", gap:".7rem",
+                  borderTop:`1px solid ${TR.line}`, marginTop:"1.2rem", paddingTop:"1rem" }}>
+                  <span style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+                    fontSize:"clamp(1.8rem,6.5vw,2.4rem)", color:TR.sig,
+                    letterSpacing:"-.04em", lineHeight:.85 }}>{p.stat}</span>
+                  <span style={{ fontSize:11, color:TR.c45, lineHeight:1.4, maxWidth:"28ch" }}>{p.statD}</span>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Reveal>
       <FAQ items={faqs} bg={TR.bg} border={TR.line} head={TR.c} body={TR.dim} />
       <CTA big={<>Live in a week.<br /><CtaItalic>No consultants.</CtaItalic></>}
         sub="We redesign the full guest journey, implement the tech, train your team and go live — in 7 days. No day-rates, no recommendations you have to implement yourself."
@@ -3039,6 +3410,25 @@ const SVG_BR_SYSTEM = `<svg viewBox="0 0 400 220" style="position:absolute;inset
 </svg>`;
 
 function BrandContent({ onClose }: { onClose: () => void }) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const lid = 'br-modal-fonts';
+    if (!document.getElementById(lid)) {
+      const l = document.createElement('link');
+      l.id = lid; l.rel = 'stylesheet';
+      l.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,400;1,700&family=Manrope:wght@400;500;600;700&display=swap';
+      document.head.appendChild(l);
+    }
+    const sid = 'br-modal-css';
+    if (!document.getElementById(sid)) {
+      const s = document.createElement('style');
+      s.id = sid;
+      s.textContent = `.br-wrap h1,.br-wrap h2,.br-wrap h3,.br-wrap h4{font-family:'Playfair Display',serif!important}.br-wrap p,.br-wrap span[class],.br-wrap li{font-family:'Manrope',sans-serif!important}`;
+      document.head.appendChild(s);
+    }
+  }, []);
+
   const phases = [
     { n:"01", sp:"Purpose", h:"What you actually <em>stand for</em>.", out:"A belief, not a slogan.",
       who:"Brand strategists",
@@ -3088,7 +3478,7 @@ function BrandContent({ onClose }: { onClose: () => void }) {
     { q:"Are you an AI company?", a:"No. Real brand strategists and designers build your foundation. A small tool that checks brand consistency is included as a bonus — not the main thing." },
   ];
   return (
-    <div style={{ background: BR.bg, color: BR.ink }}>
+    <div className="br-wrap" ref={wrapRef} style={{ background: BR.bg, color: BR.ink }}>
       <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${BR.line}` }}>
         <Kicker label="Brand" color={BR.ox} />
         <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
