@@ -1675,7 +1675,6 @@ function ClarityContent({ onClose }: { onClose: () => void }) {
     <div className="cl-wrap" ref={wrapRef} style={{ background: CL.bg, color: CL.c }}>
       {/* hero */}
       <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${CL.line}` }}>
-        <Kicker label="Clarity" color={CL.az} />
         <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
           fontSize: "clamp(2.4rem,10vw,3.8rem)", lineHeight: .9, letterSpacing: "-.05em",
           textTransform: "uppercase", color: CL.c, marginBottom: "1rem" }}>
@@ -2673,7 +2672,6 @@ function OperationsContent({ onClose }: { onClose: () => void }) {
   return (
     <div className="op-wrap" ref={wrapRef} style={{ background: OP.bg, color: OP.ink }}>
       <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${OP.line}` }}>
-        <Kicker label="Operations" color={OP.em} />
         <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
           fontSize: "clamp(2.4rem,10vw,3.8rem)", lineHeight: .9, letterSpacing: "-.05em",
           textTransform: "uppercase", color: OP.ink, marginBottom: "1rem" }}>
@@ -2848,7 +2846,6 @@ function AutomationContent({ onClose }: { onClose: () => void }) {
   return (
     <div className="au-wrap" ref={wrapRef} style={{ background: AU.bg, color: AU.c }}>
       <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${AU.line}` }}>
-        <Kicker label="Automation" color={AU.mint} />
         <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
           fontSize: "clamp(2.4rem,10vw,3.8rem)", lineHeight: .9, letterSpacing: "-.05em",
           textTransform: "uppercase", color: AU.c, marginBottom: "1rem" }}>
@@ -3018,7 +3015,6 @@ function TransformationContent({ onClose }: { onClose: () => void }) {
   return (
     <div className="tr-wrap" ref={wrapRef} style={{ background: TR.bg, color: TR.c }}>
       <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${TR.line}` }}>
-        <Kicker label="Transformation" color={TR.sig} />
         <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
           fontSize: "clamp(2.4rem,10vw,3.8rem)", lineHeight: .9, letterSpacing: "-.05em",
           textTransform: "uppercase", color: TR.c, marginBottom: "1rem" }}>
@@ -3235,7 +3231,6 @@ function ReputationContent({ onClose }: { onClose: () => void }) {
   return (
     <div style={{ background: RE.bg, color: RE.ink }}>
       <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${RE.line}` }}>
-        <Kicker label="Reputation" color={RE.hot} />
         <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
           fontSize: "clamp(2.4rem,10vw,3.8rem)", lineHeight: .9, letterSpacing: "-.05em",
           textTransform: "uppercase", color: RE.ink, marginBottom: "1rem" }}>
@@ -3480,7 +3475,6 @@ function BrandContent({ onClose }: { onClose: () => void }) {
   return (
     <div className="br-wrap" ref={wrapRef} style={{ background: BR.bg, color: BR.ink }}>
       <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${BR.line}` }}>
-        <Kicker label="Brand" color={BR.ox} />
         <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
           fontSize: "clamp(2.4rem,10vw,3.8rem)", lineHeight: .9, letterSpacing: "-.05em",
           textTransform: "uppercase", color: BR.ink, marginBottom: "1rem" }}>
@@ -3719,7 +3713,6 @@ function EnquiriesContent({ onClose }: { onClose: () => void }) {
   return (
     <div style={{ background:T.noir, color:T.ivory }}>
       <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${T.line}` }}>
-        <Kicker label="Enquiries" />
         <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
           fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
           textTransform:"uppercase", color:T.ivory, marginBottom:"1rem" }}>
@@ -4075,7 +4068,6 @@ function ProductsContent({ onClose }: { onClose: () => void }) {
     <div style={{ background:PRD.bg, color:PRD.c }}>
       {/* hero */}
       <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${PRD.line}` }}>
-        <Kicker label="Products" color={PRD.sig} />
         <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
           fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
           textTransform:"uppercase", color:PRD.c, marginBottom:"1rem" }}>
@@ -4330,7 +4322,6 @@ function PlaceholderContent({ dept, onClose }: { dept: string; onClose: () => vo
   return (
     <div style={{ background:c.bg, color:c.fg, minHeight:"60vh",
       display:"flex", flexDirection:"column" as const, justifyContent:"center", padding:"3rem 20px" }}>
-      <Kicker label={dept} color={c.sig} />
       <h2 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
         fontSize:"clamp(2rem,9vw,3rem)", lineHeight:.96, letterSpacing:"-.04em",
         textTransform:"uppercase", color:c.fg, marginBottom:"1.2rem" }}>
@@ -4448,22 +4439,15 @@ export default function DepartmentDetailModal({ dept, onClose }: DepartmentDetai
           const hdrBg   = DEPT_HDR_BG[dept] ?? T.noir;
           const isLight = LIGHT_DEPTS.has(dept);
           const fgCol   = isLight ? "#16120F" : T.ivory;
-          const dotCol  = isLight ? "#8A2233" : T.scar;
           const bdrCol  = isLight ? "rgba(22,18,15,.13)" : T.line;
           return (
             <div style={{
-              display:"flex", justifyContent:"space-between", alignItems:"center",
+              display:"flex", justifyContent:"flex-end", alignItems:"center",
               padding:"14px 20px", paddingTop:"max(14px, env(safe-area-inset-top))",
               background: hdrBg,
               backdropFilter:"blur(14px)", flexShrink:0,
               borderBottom:`1px solid ${bdrCol}`,
             }}>
-              <span style={{
-                fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)",
-                fontWeight:800, fontSize:13, letterSpacing:"-.02em", color: fgCol,
-              }}>
-                OARC <span style={{ color:dotCol }}>·</span> {dept}
-              </span>
               <button onClick={handleClose} aria-label="Close" style={{
                 background:"transparent",
                 border:`1px solid ${bdrCol}`,
