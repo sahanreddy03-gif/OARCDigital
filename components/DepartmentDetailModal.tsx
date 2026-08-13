@@ -184,245 +184,453 @@ const CtaItalic = ({ children }: { children: React.ReactNode }) => (
   <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)", fontStyle:"italic", fontWeight:400 }}>{children}</em>
 );
 
-// ── GROWTH content ───────────────────────────────────────────────────────────
-// ── GROWTH modal — exact prototype port ───────────────────────────────────
+// ── GROWTH content — exact prototype port, bone/terra light world ────────────
+// src: growth_bring_me_more_customer_same_1786575410244.txt
 const GM_CSS = `
-.gm{--ink:#08131A;--deep:#050D12;--clay:#EFE3D2;--c:#EFE3D2;
---c70:rgba(239,227,210,.72);--c45:rgba(239,227,210,.46);
---c26:rgba(239,227,210,.26);--c16:rgba(239,227,210,.16);
---c10:rgba(239,227,210,.10);--c06:rgba(239,227,210,.06);
---line:rgba(239,227,210,.14);--e:cubic-bezier(.16,1,.3,1);
-background:var(--deep);color:var(--c);
-font-family:'Inter Tight',var(--font-bricolage,'Bricolage Grotesque',sans-serif);
--webkit-font-smoothing:antialiased;overflow-x:hidden}
-.gm .hero{padding:1.4rem 20px 2.2rem;border-bottom:1px solid var(--line)}
-.gm .hero .lbl{font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--c45)}
-.gm .hero h1{font-size:clamp(2rem,8.5vw,3rem);font-weight:600;line-height:.98;letter-spacing:-.045em;margin-top:.7rem}
-.gm .hero h1 em{font-family:'Instrument Serif',var(--font-instrument-serif,serif);font-style:italic;font-weight:400;font-size:1.12em}
-.gm .hero>p{font-size:.95rem;color:var(--c70);line-height:1.5;margin-top:.9rem;max-width:40ch}
-.gm .stage3d{margin:2rem 0 .5rem;height:340px;display:flex;align-items:center;justify-content:center;perspective:1400px;perspective-origin:50% 30%}
-.gm .stack{position:relative;width:230px;height:230px;transform-style:preserve-3d;transform:rotateX(56deg) rotateZ(-42deg);animation:gm-float 9s var(--e) infinite alternate}
-@keyframes gm-float{from{transform:rotateX(56deg) rotateZ(-42deg) translateZ(0)}to{transform:rotateX(52deg) rotateZ(-38deg) translateZ(6px)}}
-.gm .layer{position:absolute;inset:0;border:1.5px solid var(--c26);background:rgba(239,227,210,.03);border-radius:6px;display:grid;place-items:center;opacity:0;box-shadow:0 1px 0 rgba(239,227,210,.08) inset}
-.gm .layer .dot{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--clay);box-shadow:0 0 12px rgba(239,227,210,.5)}
-.gm .layer .tag{position:absolute;left:calc(100% + 16px);top:50%;white-space:nowrap;transform:translateY(-50%) rotateZ(42deg) rotateX(-56deg);transform-origin:left center;font-size:11px;font-weight:600;letter-spacing:-.01em;color:var(--c70);display:flex;align-items:center;gap:8px}
-.gm .layer .tag::before{content:'';width:22px;height:1px;background:var(--line)}
-.gm .layer .tag b{font-size:9px;font-weight:700;letter-spacing:.1em;color:var(--c26)}
-.gm .stack.go .layer{animation:gm-rise .9s var(--e) forwards}
-@keyframes gm-rise{from{opacity:0;transform:translateZ(-40px)}to{opacity:1}}
-.gm .spineline{position:absolute;left:50%;top:50%;width:2px;background:linear-gradient(var(--c26),transparent);transform:translate(-50%,-50%);transform-style:preserve-3d}
-.gm .legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:1.5rem}
-.gm .legend span{border:1px solid var(--line);padding:6px 10px;font-size:11px;color:var(--c45);border-radius:2px}
-.gm .shead{padding:1.6rem 20px .4rem;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--c45);display:flex;align-items:center;gap:.8rem}
-.gm .shead::after{content:'';flex:1;height:1px;background:var(--line)}
-.gm .phase{padding:1.7rem 20px 2rem;border-top:1px solid var(--line)}
-.gm .phase .idx{display:flex;align-items:baseline;gap:.6rem}
-.gm .phase .idx b{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--clay)}
-.gm .phase .idx s{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--c45);text-decoration:none}
-.gm .phase h2{font-size:clamp(1.9rem,7.5vw,2.5rem);font-weight:600;line-height:1;letter-spacing:-.04em;margin-top:1rem}
-.gm .phase h2 em{font-family:'Instrument Serif',var(--font-instrument-serif,serif);font-style:italic;font-weight:400;font-size:1.15em}
-.gm .phase .out{font-family:'Instrument Serif',var(--font-instrument-serif,serif);font-style:italic;font-size:clamp(1.35rem,5.5vw,1.7rem);color:var(--c);margin-top:.9rem;line-height:1.1}
-.gm .viz{margin-top:1.4rem;border:1px solid var(--line);border-radius:8px;background:var(--deep);position:relative;overflow:hidden;aspect-ratio:1/.82}
-.gm .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(239,227,210,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
-.gm .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.gm .cap{margin-top:1rem;font-size:.9rem;color:var(--c70);line-height:1.5}
-.gm .stat{margin-top:1.1rem;display:flex;align-items:baseline;gap:.7rem;padding-top:1rem;border-top:1px solid var(--line)}
-.gm .stat b{font-size:clamp(2.4rem,11vw,3.2rem);font-weight:600;letter-spacing:-.05em;line-height:.85;font-variant-numeric:tabular-nums}
-.gm .stat b em{font-family:'Instrument Serif',var(--font-instrument-serif,serif);font-style:italic;font-size:.42em;color:var(--c45)}
-.gm .stat p{font-size:11.5px;color:var(--c45);line-height:1.35;max-width:22ch}
-.gm .end{padding:2rem 20px calc(2rem + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
-.gm .end p{font-size:.95rem;color:var(--c70);line-height:1.55;max-width:44ch}
-.gm .end p em{font-family:'Instrument Serif',var(--font-instrument-serif,serif);font-style:italic;font-size:1.15em;color:var(--c)}
-.gm .end button{display:block;width:100%;margin-top:1.3rem;text-align:center;font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink);background:var(--clay);border:none;padding:1.1rem;border-radius:4px;cursor:pointer;font-family:inherit}
-.gm .wire{stroke:var(--c16);stroke-width:1.25;fill:none}
-.gm .node{fill:var(--c16)}
-.gm .nodeOn{fill:var(--clay)}
-.gm .ring{fill:none;stroke:var(--clay);stroke-width:1.5}
-.gm .lab{font-weight:600;fill:var(--c70)}
-.gm .labk{font-weight:700;fill:var(--ink)}
-.gm .glow{filter:drop-shadow(0 0 10px rgba(239,227,210,.55))}
-.gm .draw{stroke-dasharray:var(--L,240);stroke-dashoffset:var(--L,240)}
-.gm .live .draw{animation:gm-draw 1.1s var(--e) forwards}
-@keyframes gm-draw{to{stroke-dashoffset:0}}
-.gm .pop{opacity:0;transform:scale(.4);transform-origin:center}
-.gm .live .pop{animation:gm-pop .5s var(--e) forwards}
-@keyframes gm-pop{to{opacity:1;transform:scale(1)}}
-.gm .up{opacity:0}
-.gm .live .up{animation:gm-up .6s var(--e) forwards}
-@keyframes gm-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.gm .grow{transform:scaleY(0);transform-origin:50% 100%}
-.gm .live .grow{animation:gm-grw .75s var(--e) forwards}
-@keyframes gm-grw{to{transform:scaleY(1)}}
-.gm .spin{transform-origin:center;animation:gm-sp 6s linear infinite}
-@keyframes gm-sp{to{transform:rotate(360deg)}}
-@media(prefers-reduced-motion:reduce){
-.gm .stack{animation:none}
-.gm .layer{opacity:1}
-.gm .stack.go .layer{animation:none;opacity:1}
-.gm .up,.gm .pop{opacity:1;transform:none}
-.gm .draw{stroke-dashoffset:0}
-.gm .grow{transform:none}}
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Spectral:ital,wght@0,500;1,400;1,500&display=swap');
+.gmx{
+  --bone:#F6F1E9;--card:#FBF8F2;--ink:#17120C;--terra:#C0532B;--terrad:#A5401E;
+  --i70:rgba(23,18,12,.7);--i45:rgba(23,18,12,.46);--i30:rgba(23,18,12,.3);
+  --i16:rgba(23,18,12,.16);--i10:rgba(23,18,12,.08);
+  --tg:rgba(192,83,43,.28);--tf:rgba(192,83,43,.08);
+  --line:rgba(23,18,12,.12);
+  --ui:'Instrument Sans',sans-serif;--serif:'Spectral',serif;--e:cubic-bezier(.16,1,.3,1);
+  background:var(--bone);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.gmx *{margin:0;padding:0;box-sizing:border-box}
+.gmx .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);background:rgba(246,241,233,.86);backdrop-filter:blur(10px)}
+.gmx .top .brand{display:flex;align-items:baseline;gap:.7rem}
+.gmx .top .brand b{font-weight:700;font-size:13px;letter-spacing:-.02em}
+.gmx .top .brand s{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--i30);text-decoration:none;font-style:normal}
+.gmx .top .live{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--i45)}
+.gmx .top .live i{width:6px;height:6px;border-radius:50%;background:var(--terra);animation:gmx-blink 1.9s ease-out infinite}
+@keyframes gmx-blink{0%{box-shadow:0 0 0 0 var(--tg)}100%{box-shadow:0 0 0 8px rgba(192,83,43,0)}}
+.gmx .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line)}
+.gmx .hero .lbl{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terra)}
+.gmx .hero h1{font-size:clamp(2.4rem,10vw,3.6rem);font-weight:700;line-height:.96;letter-spacing:-.035em;margin-top:.7rem}
+.gmx .hero h1 em{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.06em;color:var(--terra)}
+.gmx .hero p{font-size:.98rem;color:var(--i70);line-height:1.58;margin-top:1rem;max-width:44ch}
+.gmx .hero p b{color:var(--ink);font-weight:600}
+.gmx .journey{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.4rem 1.2rem;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 14px 34px rgba(23,18,12,.05)}
+.gmx .journey .jcap{display:flex;justify-content:space-between;font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--i30);margin-bottom:.4rem}
+.gmx .jsvg{width:100%;display:block;overflow:visible}
+.gmx .hero .team{margin-top:1.7rem}
+.gmx .hero .team s{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--i45);font-style:normal;text-decoration:none}
+.gmx .hero .team .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:.7rem}
+.gmx .hero .team .row span{border:1px solid var(--line);padding:6px 10px;font-size:11px;color:var(--i70);border-radius:2px;background:var(--card)}
+.gmx .shead{padding:1.7rem 20px .4rem;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--i45);display:flex;align-items:center;gap:.8rem}
+.gmx .shead::after{content:'';flex:1;height:1px;background:var(--line)}
+.gmx .phase{padding:1.8rem 20px 2rem;border-top:1px solid var(--line)}
+.gmx .phase:first-of-type{border-top:0}
+.gmx .phase .idx{display:flex;align-items:baseline;gap:.6rem;font-variant-numeric:tabular-nums}
+.gmx .phase .idx b{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--terra)}
+.gmx .phase .idx s{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--i45);text-decoration:none;font-style:normal}
+.gmx .phase h2{font-size:clamp(2rem,8.4vw,2.7rem);font-weight:700;line-height:1;letter-spacing:-.035em;margin-top:.9rem}
+.gmx .phase h2 em{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.08em;color:var(--terra)}
+.gmx .phase .out{font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,5.5vw,1.7rem);color:var(--ink);margin-top:.9rem;line-height:1.15}
+.gmx .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--card);position:relative;overflow:hidden;aspect-ratio:1/.8;box-shadow:0 1px 0 rgba(255,255,255,.6) inset}
+.gmx .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(23,18,12,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.gmx .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.gmx .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.02em;color:var(--terra)}
+.gmx .who::before{content:'';width:16px;height:1px;background:var(--terra);opacity:.5}
+.gmx .cap{margin-top:.7rem;font-size:.92rem;color:var(--i70);line-height:1.6}
+.gmx .cap b{color:var(--ink);font-weight:600}
+.gmx .stat{margin-top:1.1rem;display:flex;align-items:baseline;gap:.7rem;padding-top:1rem;border-top:1px solid var(--line)}
+.gmx .stat b{font-size:clamp(2.4rem,11vw,3.2rem);font-weight:700;letter-spacing:-.05em;line-height:.85;font-variant-numeric:tabular-nums}
+.gmx .stat b em{font-family:var(--serif);font-style:italic;font-size:.42em;color:var(--terra);font-weight:500}
+.gmx .stat p{font-size:11.5px;color:var(--i45);line-height:1.4;max-width:26ch}
+.gmx .bonus{margin:0 20px;padding:1.3rem 1.4rem;border:1px dashed var(--line);border-radius:10px;background:var(--card)}
+.gmx .bonus s{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--i45);font-style:normal;text-decoration:none}
+.gmx .bonus h4{font-family:var(--serif);font-style:italic;font-size:1.3rem;font-weight:500;margin:.4rem 0 .5rem}
+.gmx .bonus p{font-size:.88rem;color:var(--i70);line-height:1.55}
+.gmx .bonus p b{color:var(--ink);font-weight:600}
+.gmx .end{padding:2.2rem 20px calc(2.4rem + env(safe-area-inset-bottom));border-top:1px solid var(--line);margin-top:1.7rem}
+.gmx .end .big{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(2.4rem,10vw,3.4rem);line-height:1.05;letter-spacing:-.01em}
+.gmx .end .big span{color:var(--terra)}
+.gmx .end p{font-size:.95rem;color:var(--i70);line-height:1.62;max-width:46ch;margin-top:1rem}
+.gmx .end p b{color:var(--ink);font-weight:600}
+.gmx .end a{display:block;margin-top:1.4rem;text-align:center;font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--bone);background:var(--terra);text-decoration:none;padding:1.15rem;border-radius:6px}
+.gmx .end .foot{font-size:11px;color:var(--i30);letter-spacing:.04em;margin-top:1.4rem}
+.gmx .wire{stroke:var(--i16);stroke-width:1.25;fill:none}
+.gmx .node{fill:var(--i16)} .gmx .nodeOn{fill:var(--terra)}
+.gmx .ring{fill:none;stroke:var(--terra);stroke-width:1.5}
+.gmx .lab{font-family:'Instrument Sans';font-weight:600;fill:var(--i70)}
+.gmx .labk{font-family:'Instrument Sans';font-weight:700;fill:var(--bone)}
+.gmx .glow{filter:drop-shadow(0 0 7px var(--tg))}
+.gmx .draw{stroke-dasharray:var(--L,240);stroke-dashoffset:var(--L,240)}
+.gmx .live .draw{animation:gmx-draw 1.15s var(--e) forwards}
+@keyframes gmx-draw{to{stroke-dashoffset:0}}
+.gmx .pop{opacity:0;transform:scale(.4);transform-origin:center}
+.gmx .live .pop{animation:gmx-pop .5s var(--e) forwards}
+@keyframes gmx-pop{to{opacity:1;transform:scale(1)}}
+.gmx .up{opacity:0}
+.gmx .live .up{animation:gmx-up .6s var(--e) forwards}
+@keyframes gmx-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.gmx .grow{transform:scaleY(0);transform-origin:50% 100%}
+.gmx .live .grow{animation:gmx-grw .75s var(--e) forwards}
+@keyframes gmx-grw{to{transform:scaleY(1)}}
+.gmx .spin{animation:gmx-sp 6s linear infinite}
+@keyframes gmx-sp{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.gmx *{animation:none!important;transition-duration:.01ms!important}.gmx .up,.gmx .pop{opacity:1;transform:none}.gmx .draw{stroke-dashoffset:0}.gmx .grow{transform:none}}
 `;
 
-const CV = '#EFE3D2';
+const GM_TERRA = '#C0532B';
+const GM_BONE = '#F6F1E9';
+
+const GM_STEPS = ['They find you','You find them','They like you','They pick you','You stay close','They come back'];
+const GM_TEAM = ['Search','Reach','The Studio','Conversion','Lifecycle','Retention'];
+
+const GM_PARTS = [
+  { n:'01', sp:'They find you', h:'They <em>find</em> you.', out:'The ones already looking.',
+    who:'Search team',
+    cap:'The Search team owns the moment someone is already searching for what you sell \u2014 on Google, on Maps, in the AI answer. We work your listing, your reviews and the pages those answers are built from, so when a buyer looks, <b>you\u2019re the one they find.</b> The plumber searched at 8pm, the clinic got googled nearby, the shopper typed \u201cbest near me\u201d \u2014 the cheapest customer there is, already wanting you.',
+    stat:'76', statEm:'%', statP:'of people who search nearby on their phone visit a business within a day \u2014 if you show up', viz:'find' },
+  { n:'02', sp:'You find them', h:'You <em>find</em> them.', out:'The ones not looking yet.',
+    who:'Reach team',
+    cap:'Most of your future customers aren\u2019t searching today. The Reach team builds audiences from the people who already paid you, then runs your social and paid ads at the exact people who look just like them \u2014 on the platform, at the hour they\u2019re actually there. Search waits to be found; <b>this goes and finds them.</b>',
+    stat:'6', statP:'audiences built from your own buyers, not guesswork \u2014 the people most likely to be next', viz:'findthem' },
+  { n:'03', sp:'They like you', h:'They <em>like</em> you.', out:'They care before they compare.',
+    who:'The Studio',
+    cap:'Reach picks who sees you; the Studio gives them a reason to stop. We turn your business into story-led video and content \u2014 who you are, why you do it, what you stand for \u2014 so people care before they ever compare a price. Because half of what an ad returns is the creative itself, not the spend.',
+    stat:'49', statEm:'%', statP:'of an ad\u2019s sales lift comes from the creative \u2014 the story is the reason they pick you', viz:'like' },
+  { n:'04', sp:'They pick you', h:'They <em>pick</em> you.', out:'You beat the other three.',
+    who:'Conversion team',
+    cap:'Once they care, they compare. Every buyer checks the same four things with their head \u2014 a visible price, recent work, real reviews, a straight answer \u2014 and picks whoever has them all. The Conversion team fills whatever\u2019s blank, <b>starting with the price most competitors hide.</b>',
+    stat:'4', statP:'things every buyer checks before they choose \u2014 we make sure yours are all there', viz:'pick' },
+  { n:'05', sp:'You stay close', h:'You <em>stay close</em>.', out:'You never go quiet.',
+    who:'Lifecycle team',
+    cap:'The Lifecycle team owns every moment between deciding and buying \u2014 both ways. The instant a buyer reaches out they get an answer in seconds, any hour, and we stay in front across the gap until they\u2019re ready. Answer in five minutes and you\u2019re far likelier to win them than at thirty.',
+    stat:'21', statEm:'\u00d7', statP:'likelier to qualify a lead answered in 5 minutes than in 30 \u2014 so we never go quiet', viz:'stayclose' },
+  { n:'06', sp:'They come back', h:'They <em>come back</em>.', out:'Again, and again.',
+    who:'Retention team',
+    cap:'The first sale is the expensive one. The Retention team captures the review at the sale, times the next offer to the buyer\u2019s own cycle, and engineers the referral \u2014 turning one customer into many, at almost no cost. <b>This is the cheapest growth there is.</b>',
+    stat:'25-95', statEm:'%', statP:'more profit from just a 5% lift in how many customers come back', viz:'comeback' },
+] as const;
+
 const GM_VIZ: Record<string, () => string> = {
-  radiate: () => {
-    let s = '';
-    for (let i = 0; i < 8; i++) {
-      const a = (i/8)*Math.PI*2 - Math.PI/2;
-      const x = (200+Math.cos(a)*128).toFixed(1), y = (170+Math.sin(a)*128).toFixed(1);
-      s += `<path class="wire draw" style="--L:150;animation-delay:${(.4+i*.07).toFixed(2)}s" d="M200,170 L${x},${y}"/>`;
-      s += `<circle class="node pop" cx="${x}" cy="${y}" r="11" style="animation-delay:${(.8+i*.07).toFixed(2)}s"/>`;
-    }
-    return `<svg viewBox="0 0 400 340">${s}<circle class="ring pop glow" cx="200" cy="170" r="30" style="animation-delay:.2s"/><circle class="nodeOn glow pop" cx="200" cy="170" r="6" style="animation-delay:.35s"/><text class="labk" x="200" y="174" font-size="12" font-weight="700" text-anchor="middle">YOU</text></svg>`;
+  find() {
+    let s='<rect class="wire up" x="40" y="34" width="320" height="42" rx="10" style="animation-delay:.1s"/>'+
+      '<circle class="wire up" cx="66" cy="55" r="8" style="animation-delay:.2s"/><line class="wire up" x1="72" y1="61" x2="80" y2="69" style="animation-delay:.2s"/>'+
+      '<text class="lab up" x="90" y="60" font-size="12.5" style="animation-delay:.3s">best [your service] near me</text>';
+    const rows=[{y:98,on:1,t:'You'},{y:156,on:0,t:'A competitor'},{y:214,on:0,t:'A competitor'}];
+    rows.forEach((r,i)=>{s+=`<rect class="${r.on?'nodeOn glow':'wire'} up" x="40" y="${r.y}" width="320" height="44" rx="8" ${r.on?'':'fill="rgba(23,18,12,.03)"'} style="animation-delay:${.4+i*.12}s"/>`+
+      `<text class="${r.on?'labk':'lab'} up" x="60" y="${r.y+28}" font-size="13.5" style="animation-delay:${.5+i*.12}s">${r.t}</text>`;});
+    s+='<text class="lab up" x="40" y="282" font-size="10.5" opacity=".55" style="animation-delay:.9s">found the moment they search</text>';
+    return `<svg viewBox="0 0 400 292">${s}</svg>`;
   },
-  target: () => {
-    let s = '';
-    [128,92,56].forEach((r,i) => { s += `<circle class="wire draw" style="--L:${(2*Math.PI*r).toFixed(0)};animation-delay:${(i*.18).toFixed(2)}s" cx="200" cy="170" r="${r}"/>`; });
-    [[70,70],[330,90],[300,270],[96,266],[150,110],[262,120],[110,200],[300,190],[200,60],[210,286]].forEach((p,i) => {
-      const on = [4,5,6,7].includes(i);
-      s += `<circle class="${on?'nodeOn glow':'node'} pop" cx="${p[0]}" cy="${p[1]}" r="${on?7:5}" style="animation-delay:${(.9+i*.05).toFixed(2)}s"/>`;
-    });
-    s += `<line class="wire" x1="200" y1="120" x2="200" y2="220" opacity=".5"/><line class="wire" x1="150" y1="170" x2="250" y2="170" opacity=".5"/><circle class="ring glow pop" cx="200" cy="170" r="16" style="animation-delay:1.5s"/>`;
-    return `<svg viewBox="0 0 400 340">${s}</svg>`;
+  findthem() {
+    let s='';[128,92,56].forEach((r,i)=>{s+=`<circle class="wire draw" style="--L:${(2*Math.PI*r).toFixed(0)};animation-delay:${i*.18}s" cx="200" cy="150" r="${r}"/>`;});
+    s+='<circle class="nodeOn glow pop" cx="200" cy="150" r="20" style="animation-delay:.2s"/><text class="labk pop" x="200" y="154" font-size="10" text-anchor="middle" font-weight="700" style="animation-delay:.35s">buyers</text>';
+    const pts=[[80,66],[322,80],[300,236],[100,240],[152,104],[268,116],[112,196],[300,192]];const hit=[0,3,5,6];
+    pts.forEach((p,i)=>{const on=hit.indexOf(i)>-1;s+=`<circle class="${on?'nodeOn glow':'node'} pop" cx="${p[0]}" cy="${p[1]}" r="${on?6:5}" style="animation-delay:${.8+i*.05}s"/>`;});
+    s+='<text class="lab up" x="200" y="294" font-size="10.5" text-anchor="middle" opacity=".55" style="animation-delay:1s">more people just like them</text>';
+    return `<svg viewBox="0 0 400 302">${s}</svg>`;
   },
-  told: () => {
-    const beats: [number,number][] = [[40,250],[120,180],[200,110],[290,84],[360,70]];
-    let s = `<path class="wire draw glow" style="--L:520" d="M40,250 C120,250 130,120 200,110 C270,100 300,60 360,70"/>`;
-    beats.forEach((p,i) => { const on = i===beats.length-1; s += `<circle class="${on?'nodeOn glow':'node'} pop" cx="${p[0]}" cy="${p[1]}" r="${on?8:6}" style="animation-delay:${(.6+i*.18).toFixed(2)}s"/>`; });
-    ['Who','Why','What for','You'].forEach((l,i) => { s += `<text class="lab up" x="${beats[i][0]}" y="${beats[i][1]+26}" font-size="10.5" text-anchor="middle" opacity=".5" style="animation-delay:${(1+i*.15).toFixed(2)}s">${l}</text>`; });
-    return `<svg viewBox="0 0 400 300">${s}</svg>`;
+  like() {
+    let s='<path class="wire draw glow" style="--L:520" d="M30,214 C110,214 124,110 204,98 C264,89 292,116 300,120"/>';
+    const b=[[30,214],[124,158],[204,98]];b.forEach((p,i)=>{const on=i===2;s+=`<circle class="${on?'nodeOn glow':'node'} pop" cx="${p[0]}" cy="${p[1]}" r="${on?7:5}" style="animation-delay:${.6+i*.2}s"/>`;});
+    s+=`<path class="pop" style="animation-delay:1.3s" d="M330,112 c-7,-11 -24,-4 -24,9 c0,11 24,24 24,24 c0,0 24,-13 24,-24 c0,-13 -17,-20 -24,-9 z" fill="${GM_TERRA}"/>`+
+       '<text class="lab up" x="34" y="240" font-size="10.5" style="animation-delay:.3s">a reason to care</text>';
+    return `<svg viewBox="0 0 400 260">${s}</svg>`;
   },
-  check: () => {
-    let s = '';
-    ['Price','Recent work','Real reviews','An answer'].forEach((l,i) => {
-      const y = 40+i*66;
-      s += `<rect class="wire up" x="34" y="${y}" width="210" height="46" rx="4" style="animation-delay:${(i*.1).toFixed(2)}s"/>`;
-      s += `<text class="lab up" x="52" y="${y+28}" font-size="13" style="animation-delay:${(i*.1).toFixed(2)}s">${l}</text>`;
-      s += `<rect x="286" y="${y}" width="80" height="46" rx="4" fill="none" stroke="${CV}" stroke-opacity=".2" stroke-width="1.25"/>`;
-      s += `<path class="draw" style="--L:30;animation-delay:${(.9+i*.35).toFixed(2)}s" d="M300,${y+24} l9,10 l18,-20" stroke="${CV}" stroke-width="2.5" fill="none"/>`;
-    });
-    return `<svg viewBox="0 0 400 320">${s}</svg>`;
+  pick() {
+    const items=['A clear price','Recent work','Real reviews','A straight answer'];let s='';
+    items.forEach((l,i)=>{const y=32+i*60;s+=`<rect class="wire up" x="40" y="${y}" width="236" height="46" rx="8" style="animation-delay:${i*.1}s"/>`+
+      `<text class="lab up" x="58" y="${y+29}" font-size="13.5" style="animation-delay:${i*.1}s">${l}</text>`+
+      `<circle class="nodeOn glow pop" cx="322" cy="${y+23}" r="16" style="animation-delay:${.6+i*.14}s"/>`+
+      `<path class="draw" style="--L:26;animation-delay:${.9+i*.14}s" d="M313,${y+23} l6,7 l12,-14" stroke="${GM_BONE}" stroke-width="2.6" fill="none" stroke-linecap="round"/>`;});
+    return `<svg viewBox="0 0 400 292">${s}</svg>`;
   },
-  timeline: () => {
-    let s = '';
-    [64,108,152,214,260,306,352].forEach((x,i) => { s += `<rect class="nodeOn grow" x="${x-3}" y="126" width="6" height="34" style="animation-delay:${(i*.11).toFixed(2)}s"/>`; });
-    return `<svg viewBox="0 0 400 300"><line class="wire" x1="28" y1="170" x2="372" y2="170"/><circle class="node pop" cx="28" cy="170" r="8"/><circle class="ring glow pop" cx="372" cy="170" r="12" style="animation-delay:1.3s"/>${s}<text class="lab" x="28" y="205" font-size="10.5" text-anchor="middle" opacity=".55">Prefers you</text><text class="lab" x="372" y="205" font-size="10.5" text-anchor="middle" opacity=".55">Buys</text></svg>`;
+  stayclose() {
+    const s='<circle class="wire" cx="118" cy="128" r="72"/>'+
+      '<g class="spin" style="transform-origin:118px 128px"><circle class="nodeOn glow" cx="118" cy="60" r="6"/></g>'+
+      `<path class="draw glow" style="--L:100" d="M118,128 L118,76 M118,128 L150,142" stroke="${GM_TERRA}" stroke-width="3.2" fill="none" stroke-linecap="round"/><circle class="nodeOn" cx="118" cy="128" r="4"/>`+
+      '<rect class="nodeOn glow up" x="222" y="106" width="152" height="46" rx="12" style="animation-delay:.8s"/><text class="labk up" x="240" y="134" font-size="12.5" style="animation-delay:.9s">Replied · in seconds</text>'+
+      '<text class="lab up" x="118" y="226" font-size="10.5" text-anchor="middle" opacity=".55" style="animation-delay:.5s">any hour, never quiet</text>';
+    return `<svg viewBox="0 0 400 252">${s}</svg>`;
   },
-  stack: () => {
-    let s = '';
-    [0,1,2,3].forEach(i => { const h=44+i*38, x=150+i*64; s += `<rect class="nodeOn grow" x="${x}" y="${210-h}" width="48" height="${h}" rx="2" style="animation-delay:${(.3+i*.16).toFixed(2)}s"/>`; });
-    return `<svg viewBox="0 0 400 260"><line class="wire" x1="28" y1="210" x2="372" y2="210"/><rect class="node grow" x="40" y="150" width="48" height="60" rx="2"/><text class="lab" x="64" y="232" font-size="10.5" text-anchor="middle" opacity=".5">Cost</text><text class="lab" x="278" y="232" font-size="10.5" text-anchor="middle" opacity=".5">Every time after</text>${s}</svg>`;
+  comeback() {
+    let s='<line class="wire" x1="28" y1="204" x2="372" y2="204"/>';
+    [0,1,2,3].forEach(i=>{const h=44+i*30,x=120+i*58;s+=`<rect class="nodeOn grow" x="${x}" y="${204-h}" width="44" height="${h}" rx="3" style="animation-delay:${.3+i*.15}s"/>`;});
+    s+='<rect class="node grow" x="40" y="152" width="44" height="52" rx="3"/><text class="lab" x="62" y="226" font-size="10.5" text-anchor="middle" opacity=".55">first sale</text>'+
+       '<text class="lab" x="264" y="226" font-size="10.5" text-anchor="middle" opacity=".55">every time after</text>'+
+       `<path class="wire draw glow" style="--L:420;animation-delay:1s" d="M300,150 C360,120 360,40 200,40 C82,40 70,110 84,150"/><path class="pop" style="animation-delay:1.8s" d="M84,150 l-4,-14 l14,5 z" fill="${GM_TERRA}"/>`;
+    return `<svg viewBox="0 0 400 262">${s}</svg>`;
   },
 };
 
-const GM_PHASES = [
-  { n:'01', sp:'They find you',  h:'They <em>find</em> you.',     out:'The ones already looking.',
-    cap:"The Search desk owns the moment someone is already searching for what you sell. It runs your buyers\u2019 real questions through search, maps and AI, sees who gets named instead of you, and works the pages those answers are built from \u2014 where top rank and AI citation now overlap under 20%.",
-    stat:'38', statEm:'%', statP:'of AI answers named the business, up from 11%', viz:'radiate' },
-  { n:'02', sp:'You find them',  h:'You <em>find</em> them.',    out:'The ones not looking yet.',
-    cap:"The Reach desk owns everyone who isn\u2019t searching yet \u2014 most of your future customers. It builds audiences from people who already paid you, then runs your social and paid ads at those exact buyers, on the platform and at the hour they are actually there. Search waits to be found; this goes and finds them.",
-    stat:'6', statEm:'', statP:'audiences built from your own buyers, not guesswork', viz:'target' },
-  { n:'03', sp:'They like you',  h:'They <em>like</em> you.',    out:'They care before they compare.',
-    cap:"The Studio owns what you actually say. It builds the story \u2014 who you are, why you do it, what you stand for \u2014 into content, video and the creative inside every ad. Reach picks who sees you; the Studio gives them a reason to stop and care before they ever compare a price.",
-    stat:'40', statEm:'', statP:'pieces of story-led content a month, made in your voice', viz:'told' },
-  { n:'04', sp:'They pick you',  h:'They <em>pick</em> you.',    out:'You beat the other three.',
-    cap:"Once they care, they compare. The Conversion desk builds the four things every buyer checks with their head \u2014 a visible price, recent work, real reviews, a straight answer \u2014 and fills whatever is blank, starting with the price most competitors hide.",
-    stat:'4', statEm:'', statP:'things every buyer checks, before they pick', viz:'check' },
-  { n:'05', sp:'You stay close', h:'You <em>stay close</em>.',   out:'You never go quiet.',
-    cap:"The Lifecycle desk owns every moment between deciding and buying \u2014 both ways. It keeps you in front across the gap, triggered by what the buyer does, and the instant they reach back, an agent trained on your prices and rules replies in seconds, qualifies, and books. Reply in five minutes and you\u2019re 21\u00d7 likelier to qualify the lead than at thirty; 78% go with whoever answers first.",
-    stat:'11', statEm:'sec', statP:'to reply, any hour \u2014 and 0 days you disappear', viz:'timeline' },
-  { n:'06', sp:'They come back', h:'They <em>come back</em>.',   out:'Again, and again.',
-    cap:"The Retention desk captures the review at the sale, times the return to the buyer\u2019s own cycle, and engineers the referral \u2014 because a 5% retention lift raises profit 25 to 95%.",
-    stat:'2.4', statEm:'\u00d7', statP:'the value of a year, not a single sale', viz:'stack' },
-];
-
 function GrowthContent({ onClose }: { onClose: () => void }) {
-  const stackRef = useRef<HTMLDivElement>(null);
-  const wrapRef  = useRef<HTMLDivElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const journeyRef = useRef<HTMLDivElement>(null);
+  const jnodesRef = useRef<SVGGElement>(null);
 
-  // trigger 3-D stack entrance
   useEffect(() => {
-    const t = setTimeout(() => stackRef.current?.classList.add("go"), 380);
-    return () => clearTimeout(t);
+    const id = 'gmx-modal-css';
+    if (!document.getElementById(id)) {
+      const s = document.createElement('style');
+      s.id = id; s.textContent = GM_CSS;
+      document.head.appendChild(s);
+    }
   }, []);
 
-  // scroll-triggered viz reveal (exact prototype behaviour)
+  // hero journey nodes
+  useEffect(() => {
+    const g = jnodesRef.current; if (!g) return;
+    let ns='';
+    GM_STEPS.forEach((nm,i)=>{const y=40+i*79.2;
+      ns+=`<circle class="nodeOn glow pop" cx="52" cy="${y}" r="7" style="animation-delay:${.2+i*.16}s"/>`+
+          `<text class="lab up" x="76" y="${y-3}" font-size="10" style="animation-delay:${.3+i*.16}s" font-family="Instrument Sans" font-weight="700" fill="rgba(23,18,12,.3)">0${i+1}</text>`+
+          `<text class="up" x="76" y="${y+13}" font-size="14" style="animation-delay:${.35+i*.16}s" font-family="Instrument Sans" font-weight="600" fill="#17120C">${nm}</text>`;});
+    g.innerHTML = ns;
+    const id = requestAnimationFrame(() => journeyRef.current?.classList.add('live'));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  // scroll-triggered viz reveal
   useEffect(() => {
     const io = new IntersectionObserver(
-      (entries) => entries.forEach(en => { if (en.isIntersecting) en.target.classList.add("live"); }),
-      { threshold: 0.35 }
+      es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('live'); io.unobserve(e.target); } }),
+      { threshold: 0.3 }
     );
-    wrapRef.current?.querySelectorAll(".viz").forEach(v => io.observe(v));
+    wrapRef.current?.querySelectorAll('.gmx .viz').forEach(v => io.observe(v));
     return () => io.disconnect();
   }, []);
 
-  const desks = ["Search desk","Reach desk","The Studio","Conversion desk","Lifecycle desk","Retention desk"];
-  const n = desks.length, gap = 34, base = -(n-1)*gap/2;
-
   return (
-    <div className="gm" ref={wrapRef}>
-      {/* CSS injected synchronously so 3-D keyframes are available on first paint */}
-      {/* eslint-disable-next-line react/no-danger */}
-      <style dangerouslySetInnerHTML={{ __html: GM_CSS }} />
+    <div className="gmx" ref={wrapRef}>
+      <div className="top">
+        <span className="brand"><b>OARC</b><s>Growth</s></span>
+        <span className="live"><i />The whole journey</span>
+      </div>
+
       <div className="hero">
-        <p className="lbl">One engagement</p>
-        <h1>A stranger becomes<br />a customer. <em>Six steps to the sale.</em></h1>
-        <p>They find you. You find them. They like you. They pick you. You stay close. They come back. Six steps, each run by its own desk. Miss one and the rest never happen — so we run all six.</p>
-        <div className="stage3d">
-          <div className="stack" ref={stackRef}>
-            <div className="spineline" style={{ height:`${(n-1)*gap}px`, transform:"translate(-50%,-50%) rotateX(90deg)" }} />
-            {desks.map((d, i) => (
-              <div key={i} className="layer"
-                style={{ transform:`translateZ(${base+i*gap}px)`, animationDelay:`${(i*.13).toFixed(2)}s` }}>
-                <span className="dot" /><span className="tag"><b>0{i+1}</b>{d}</span>
-              </div>
-            ))}
-          </div>
+        <p className="lbl">Growth</p>
+        <h1>Bring me more<br /><em>customers.</em></h1>
+        <p>A stranger finds you, likes you, picks you over the others, and comes back for more. <b>That whole journey — six steps, one team, one number at month end.</b> Miss a step and the rest never happen, so we run all six.</p>
+
+        <div className="journey" ref={journeyRef}>
+          <div className="jcap"><span>A stranger</span><span>A regular</span></div>
+          <svg className="jsvg" viewBox="0 0 340 476" preserveAspectRatio="xMidYMid meet">
+            <path className="wire draw" style={{ ['--L' as string]: 400 }} d="M52,40 L52,436" />
+            <path className="wire draw glow" style={{ ['--L' as string]: 640, animationDelay: '.6s' }} d="M52,436 C300,436 300,40 52,40" />
+            <path className="pop" style={{ animationDelay: '1.6s' }} d="M52,40 l-6,-13 l14,4 z" fill="#C0532B" />
+            <g ref={jnodesRef} />
+          </svg>
         </div>
-        <div className="legend">
-          {desks.map((d, i) => <span key={i}>0{i+1}&nbsp;&nbsp;{d}</span>)}
+
+        <div className="team">
+          <s>The teams on it</s>
+          <div className="row">{GM_TEAM.map(t => <span key={t}>{t}</span>)}</div>
         </div>
       </div>
 
-      <div className="shead">The phases, in detail</div>
+      <div className="shead">The six steps, in detail</div>
+      <div>
+        {GM_PARTS.map((p, i) => (
+          <section key={i} className="phase">
+            <div className="idx"><b>{p.n}</b><s>{p.sp}</s></div>
+            <h2 dangerouslySetInnerHTML={{ __html: p.h }} />
+            <p className="out">{p.out}</p>
+            <div className="viz" dangerouslySetInnerHTML={{ __html: GM_VIZ[p.viz]() }} />
+            <p className="who">{p.who}</p>
+            <p className="cap" dangerouslySetInnerHTML={{ __html: p.cap }} />
+            <div className="stat">
+              <b dangerouslySetInnerHTML={{ __html: p.stat + ((p as {statEm?:string}).statEm ? `<em>${(p as {statEm?:string}).statEm}</em>` : '') }} />
+              <p>{p.statP}</p>
+            </div>
+          </section>
+        ))}
+      </div>
 
-      {GM_PHASES.map((p, i) => (
-        <div key={i} className="phase">
-          <div className="idx"><b>{p.n}</b><s>{p.sp}</s></div>
-          {/* eslint-disable-next-line react/no-danger */}
-          <h2 dangerouslySetInnerHTML={{ __html: p.h }} />
-          <p className="out">{p.out}</p>
-          <div className="viz" dangerouslySetInnerHTML={{ __html: GM_VIZ[p.viz]?.() ?? '' }} />
-          <p className="cap">{p.cap}</p>
-          <div className="stat">
-            {/* eslint-disable-next-line react/no-danger */}
-            <b dangerouslySetInnerHTML={{ __html: p.statEm ? `${p.stat}<em>${p.statEm}</em>` : p.stat }} />
-            <p>{p.statP}</p>
-          </div>
-        </div>
-      ))}
+      <div className="bonus">
+        <s>Bonus, included</s>
+        <h4>Oh — and a little tool, on us.</h4>
+        <p>A small tool that watches the journey and flags the step where customers are leaking — so the team fixes the right thing first. <b>Nice to have, not the main event.</b> The work at every step is done by the people above.</p>
+      </div>
 
       <div className="end">
-        {/* eslint-disable-next-line react/no-danger */}
-        <p dangerouslySetInnerHTML={{ __html: "Five desks, one engagement, one number at month end. Everyone else hands you a dashboard \u2014 <em>we show you the machine, and you can check it.</em>" }} />
-        <button onClick={onClose}>Run the machine on your business</button>
+        <div className="big">Six steps. One team.<br /><span>One number.</span></div>
+        <p>Six teams, one engagement, one number at month end: more customers — and the whole journey they took to become them. Everyone else hands you a dashboard — <b>we show you the machine, and you can check every step.</b></p>
+        <a href="/contact" onClick={onClose}>Run the machine on your business →</a>
+        <p className="foot">OARC — one team for the whole business. Malta.</p>
       </div>
     </div>
   );
 }
 
-// ── SALES content ────────────────────────────────────────────────────────────
+// ── SALES content — exact prototype port, paper/red/navy world ───────────────
+// src: CLSOE_MORE_SALES_1786575410251.txt
 const SL_CSS = `
-.slc-chart .slc-bar{height:0;transition:height 1.05s cubic-bezier(.16,1,.3,1)}
-.slc-chart.slc-in .slc-bar{height:var(--h)}
-.slc-chart .slc-v{opacity:0;transform:translateY(6px);
-  transition:opacity .5s cubic-bezier(.16,1,.3,1) .6s,transform .5s cubic-bezier(.16,1,.3,1) .6s}
-.slc-chart.slc-in .slc-v{opacity:1;transform:none}
-@keyframes slc-blink{0%,100%{opacity:1}50%{opacity:.25}}
-.slc-live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#7FE0A8;
-  margin-right:.4rem;animation:slc-blink 1.4s ease infinite}
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700;800&display=swap');
+.slx{
+  --paper:#FFFFFF;--ink:#16120E;--red:#D2302A;--navy:#152949;--cream:#F4EFE6;
+  --i62:rgba(22,18,14,.62);--i42:rgba(22,18,14,.42);--i26:rgba(22,18,14,.26);
+  --i14:rgba(22,18,14,.14);--i06:rgba(22,18,14,.05);
+  --ui:'Inter Tight',sans-serif;--serif:'Instrument Serif',serif;
+  --e:cubic-bezier(.16,1,.3,1);
+  background:var(--paper);color:var(--ink);font-family:var(--ui);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+.slx *{margin:0;padding:0;box-sizing:border-box}
+.slx .wrap{max-width:960px;margin:0 auto;padding:0 22px}
+.slx .bar{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;max-width:960px;margin:0 auto}
+.slx .bar .b{font-weight:800;font-size:14px;letter-spacing:-.03em}
+.slx .bar .s{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--i42)}
+.slx .hero{padding:2.2rem 0 2.8rem}
+.slx .kick{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:var(--red);padding:.4rem .7rem;border-radius:3px}
+.slx .hero h1{font-size:clamp(2.9rem,11.5vw,6rem);font-weight:800;line-height:.88;letter-spacing:-.055em;margin-top:1.2rem}
+.slx .hero h1 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--red);letter-spacing:-.02em}
+.slx .hero .sub{font-size:clamp(1.08rem,1.9vw,1.32rem);color:var(--i62);line-height:1.55;margin-top:1.4rem;max-width:46ch}
+.slx .stats{display:flex;flex-wrap:wrap;gap:1.4rem 2.2rem;margin-top:2.2rem}
+.slx .stats .st{position:relative;padding-left:1rem}
+.slx .stats .st::before{content:'';position:absolute;left:0;top:.1rem;bottom:.5rem;width:3px;background:var(--red)}
+.slx .stats .st b{display:block;font-size:clamp(2.1rem,7.5vw,3rem);font-weight:800;letter-spacing:-.04em;line-height:.85;font-variant-numeric:tabular-nums}
+.slx .stats .st b em{font-family:var(--serif);font-style:italic;font-weight:400;font-size:.42em;color:var(--i26)}
+.slx .stats .st p{font-size:11.5px;color:var(--i42);line-height:1.35;margin-top:.5rem;max-width:16ch}
+.slx .thesis{background:var(--red);color:#fff;border-radius:16px;padding:2.4rem 1.6rem;margin:.5rem 0 2.2rem}
+.slx .thesis .lead{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:.8rem}
+.slx .thesis h2{font-size:clamp(1.7rem,5vw,2.6rem);font-weight:700;letter-spacing:-.035em;line-height:1.04;max-width:22ch}
+.slx .thesis h2 em{font-family:var(--serif);font-style:italic;font-weight:400}
+.slx .thesis .who{font-size:1rem;color:rgba(255,255,255,.85);line-height:1.6;margin-top:1.2rem;max-width:50ch}
+.slx .thesis .count{display:flex;gap:1.6rem;margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.22)}
+.slx .thesis .count div b{font-family:var(--serif);font-style:italic;font-size:2.6rem;font-weight:400;line-height:1;display:block}
+.slx .thesis .count div p{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:.4rem}
+.slx .roof{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--i42);margin-bottom:.4rem}
+.slx .rooftitle{font-size:clamp(1.4rem,4.6vw,2rem);font-weight:700;letter-spacing:-.03em;line-height:1.1;max-width:24ch;margin-bottom:1.4rem}
+.slx .rooftitle em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--red)}
+.slx .showcase{padding:2.2rem 0;border-top:1.5px solid var(--ink)}
+.slx .chartwrap{background:#FAF8F4;border:1px solid var(--i14);border-radius:14px;padding:1.5rem 1.3rem 1.3rem}
+.slx .chart{display:flex;align-items:flex-end;gap:.55rem;height:186px}
+.slx .col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%;text-align:center;min-width:0}
+.slx .col .v{font-size:12px;font-weight:800;margin-bottom:.4rem;color:var(--ink);font-variant-numeric:tabular-nums;opacity:0;transform:translateY(6px);transition:opacity .5s var(--e) .6s,transform .5s var(--e) .6s}
+.slx .chart.in .col .v{opacity:1;transform:none}
+.slx .cbar{width:100%;background:var(--red);border-radius:5px 5px 0 0;height:0;transition:height 1.05s var(--e)}
+.slx .chart.in .col .cbar{height:var(--h)}
+.slx .col:nth-child(1) .cbar{opacity:1}
+.slx .col:nth-child(2) .cbar{opacity:.82}
+.slx .col:nth-child(3) .cbar{opacity:.6}
+.slx .col:nth-child(4) .cbar{opacity:.42}
+.slx .col:nth-child(5) .cbar{opacity:.28}
+.slx .col .x{font-size:10px;color:var(--i42);margin-top:.55rem;font-weight:700;letter-spacing:.01em}
+.slx .chartcap{font-size:11px;color:var(--i42);line-height:1.4;margin-top:1rem;max-width:52ch}
+.slx .chartcap b{color:var(--red);font-weight:700}
+.slx .units{padding:.4rem 0 1.4rem}
+.slx .unit{border-top:1.5px solid var(--ink);padding:2rem 0}
+.slx .unit .hd{display:flex;align-items:flex-start;gap:1rem}
+.slx .unit .no{font-family:var(--serif);font-style:italic;font-size:2.3rem;color:var(--red);width:52px;flex-shrink:0;line-height:.8}
+.slx .unit .nm{flex:1}
+.slx .unit .tag{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);border:1px solid var(--i14);border-radius:20px;padding:.32rem .7rem;white-space:nowrap}
+.slx .unit h3{font-size:clamp(1.7rem,5.4vw,2.4rem);font-weight:700;letter-spacing:-.04em;line-height:1;margin-top:.5rem}
+.slx .unit h3 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--red)}
+.slx .unit .role{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--navy);margin-top:.75rem}
+.slx .unit .body{font-size:1rem;color:var(--i62);line-height:1.6;margin-top:.7rem;max-width:56ch}
+.slx .unit .deliv{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem}
+.slx .unit .deliv span{font-size:11.5px;font-weight:600;color:var(--ink);background:var(--i06);border-radius:4px;padding:.42rem .72rem}
+.slx .unit .proof{margin-top:1.35rem;display:flex;align-items:baseline;gap:.75rem;border-left:3px solid var(--red);padding-left:.95rem}
+.slx .unit .proof b{font-size:clamp(2.1rem,8vw,3rem);font-weight:800;letter-spacing:-.04em;line-height:.8;font-variant-numeric:tabular-nums}
+.slx .unit .proof b em{font-family:var(--serif);font-style:italic;font-weight:400;font-size:.4em;color:var(--i26)}
+.slx .unit .proof p{font-size:12px;color:var(--i42);line-height:1.35;max-width:26ch}
+.slx .unit.system{background:var(--navy);color:var(--cream);border-radius:16px;padding:2.2rem 1.6rem;border-top:0;margin:.6rem 0}
+.slx .unit.system .no{color:#fff}
+.slx .unit.system .tag{color:#fff;border-color:rgba(244,239,230,.32)}
+.slx .unit.system h3 em{color:#fff}
+.slx .unit.system .role{color:#9FC0EC}
+.slx .unit.system .body{color:rgba(244,239,230,.78)}
+.slx .unit.system .deliv span{color:var(--cream);background:rgba(244,239,230,.12)}
+.slx .unit.system .proof{border-left-color:#fff}
+.slx .unit.system .proof b em{color:rgba(244,239,230,.4)}
+.slx .unit.system .proof p{color:rgba(244,239,230,.6)}
+.slx .unit.system .ip{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#9FC0EC}
+.slx .unit.system .ip::before{content:'';width:7px;height:7px;border-radius:50%;background:#9FC0EC}
+.slx .flow{margin-top:1.5rem;padding-top:1.4rem;border-top:1px solid rgba(244,239,230,.18)}
+.slx .flow .flab{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,239,230,.5);margin-bottom:1rem;display:flex;justify-content:space-between}
+.slx .flow .flab .live{color:#7FE0A8;display:inline-flex;align-items:center;gap:.4rem}
+.slx .flow .flab .live::before{content:'';width:6px;height:6px;border-radius:50%;background:#7FE0A8;animation:slx-blink 1.4s var(--e) infinite}
+@keyframes slx-blink{0%,100%{opacity:1}50%{opacity:.25}}
+.slx .track{display:flex;align-items:flex-start;gap:.3rem}
+.slx .node{flex:1;text-align:center;position:relative}
+.slx .node .dot{width:13px;height:13px;border-radius:50%;background:rgba(244,239,230,.22);margin:0 auto .55rem;transition:background .4s var(--e),box-shadow .4s var(--e)}
+.slx .node.on .dot{background:#9FC0EC;box-shadow:0 0 0 5px rgba(159,192,236,.18)}
+.slx .node .lb{font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(244,239,230,.55);line-height:1.25;transition:color .4s}
+.slx .node.on .lb{color:var(--cream)}
+.slx .node .t{font-family:var(--serif);font-style:italic;font-size:.85rem;color:#9FC0EC;margin-top:.2rem;height:1rem;opacity:0;transition:opacity .4s}
+.slx .node.on .t{opacity:1}
+.slx .track .seg{flex:0 0 auto;align-self:flex-start;width:14px;height:2px;background:rgba(244,239,230,.2);margin-top:5.5px;border-radius:2px}
+.slx .track .seg.on{background:#9FC0EC}
+.slx .faq{padding:2.2rem 0;border-top:1.5px solid var(--ink)}
+.slx .qa{border-top:1px solid var(--i14);padding:1.4rem 0}
+.slx .qa:first-of-type{border-top:0}
+.slx .qa h4{font-size:clamp(1.1rem,3.4vw,1.3rem);font-weight:700;letter-spacing:-.02em;line-height:1.25}
+.slx .qa p{font-size:.98rem;color:var(--i62);line-height:1.6;margin-top:.6rem;max-width:58ch}
+.slx .proof-sec{padding:2.2rem 0;border-top:1.5px solid var(--ink)}
+.slx .trow{border-top:1px solid var(--i14);padding:1.2rem 0}
+.slx .trow:first-of-type{border-top:0}
+.slx .trow .tlab{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);display:block;margin-bottom:.5rem}
+.slx .trow .tba{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.slx .trow .before{font-size:1rem;color:var(--i42);text-decoration:line-through;text-decoration-color:var(--i26)}
+.slx .trow .arrow{color:var(--red);font-weight:800;font-size:1.1rem}
+.slx .trow .after{font-size:1.08rem;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.slx .tcap{font-size:11.5px;color:var(--i42);line-height:1.45;margin-top:1.2rem;max-width:50ch}
+.slx .tcap b{color:var(--red);font-weight:700}
+.slx .guar{background:var(--ink);color:var(--cream);border-radius:16px;padding:2.4rem 1.6rem;margin:2.2rem 0}
+.slx .guar .g-eye{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#F0857E}
+.slx .guar .g-big{font-size:clamp(1.8rem,5.6vw,2.7rem);font-weight:700;letter-spacing:-.035em;line-height:1.1;margin-top:1rem;max-width:20ch}
+.slx .guar .g-big em{font-family:var(--serif);font-style:italic;font-weight:400;color:#fff}
+.slx .guar .g-sub{font-size:1rem;color:rgba(244,239,230,.8);line-height:1.6;margin-top:1.2rem;max-width:52ch}
+.slx .guar .g-sig{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:#9FC0EC;margin-top:1.4rem}
+.slx .step{display:flex;gap:1rem;border-top:1px solid var(--i14);padding:1.2rem 0}
+.slx .step:first-of-type{border-top:0}
+.slx .step .sn{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--red);width:40px;flex-shrink:0;line-height:1}
+.slx .step .sc h4{font-size:1.12rem;font-weight:700;letter-spacing:-.02em}
+.slx .step .sc p{font-size:.96rem;color:var(--i62);line-height:1.55;margin-top:.3rem;max-width:52ch}
+.slx .ident{font-size:1rem;color:var(--i62);line-height:1.6;margin:1.6rem 0 0;max-width:50ch}
+.slx .ident b{color:var(--ink);font-weight:700}
+.slx .end .big{margin-top:2rem}
+.slx .end{padding:2.4rem 0 calc(3rem + env(safe-area-inset-bottom));border-top:1.5px solid var(--ink)}
+.slx .end .big{font-size:clamp(2.2rem,9vw,3.6rem);font-weight:800;letter-spacing:-.045em;line-height:.95}
+.slx .end .big em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--red)}
+.slx .end p{font-size:clamp(1.05rem,1.9vw,1.3rem);color:var(--i62);line-height:1.45;margin-top:1.1rem;max-width:34ch}
+.slx .end a{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.6rem;font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#fff;background:var(--navy);text-decoration:none;padding:1.1rem 1.8rem;border-radius:4px;transition:gap .3s var(--e),background .3s}
+.slx .end a:hover{gap:1rem;background:var(--red)}
+.slx .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--e),transform .7s var(--e)}
+.slx .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.slx .reveal,.slx .col .v{opacity:1;transform:none}.slx .cbar{transition:none}}
 `;
+
+const SL_UNITS = [
+  { no:'i', tag:'Strategy', system:false,
+    h:'We set the <em>play</em>.',
+    role:'Strategists · revenue operators',
+    body:'We map how your leads actually move and find where deals stall and die. Then we set the play: your offer, your pricing, your follow-up cadence, your qualifying criteria, and the one number everything is accountable to. Nothing else gets built until the strategy is right.',
+    deliv:['Pipeline audit','Offer & pricing','Qualifying criteria','Follow-up cadence'],
+    proof:'30', proofEm:'%', proofP:'of leads are never contacted \u2014 the first leak we close' },
+  { no:'ii', tag:'Creative · Content · Social', system:false,
+    h:'We make what <em>sells</em>.',
+    role:'Writers · designers · social',
+    body:'Two kinds of content, both aimed at revenue. The assets that close a live deal \u2014 pitch, proof, case studies, objection-handling. And, when your buyers live on social, we run it as a sales channel: founder storytelling, sales skits and reels, proof content and DM-to-close flows. Not content chasing followers \u2014 content measured in booked calls.',
+    deliv:['Founder storytelling','Sales skits & reels','Social that sells','Proof & case studies','DM-to-close flows'],
+    proof:'49', proofEm:'%', proofP:'of sales lift comes from creative, not targeting (Nielsen)' },
+  { no:'iii', tag:'Brand', system:false,
+    h:'We make you the <em>safe choice</em>.',
+    role:'Brand · positioning',
+    body:'People buy the business they trust, not the cheapest quote. We sharpen how you show up across every point a buyer checks you \u2014 so you read as the premium, obvious choice and stop competing on price. A strong brand lets you charge more and close faster.',
+    deliv:['Positioning','Trust signals','Reviews & proof','Premium presentation'],
+    proof:'20', proofEm:'%', proofP:'higher performance for strongly-branded firms (McKinsey)' },
+  { no:'iv', tag:'AI & Tech', system:true,
+    h:'We build you <em>one system</em>.',
+    role:'The one built thing · engineering',
+    body:'The single piece of technology in the engagement \u2014 built for your sales, then handed to you. It catches every enquiry, answers in seconds any hour, qualifies against your criteria, and books straight into the calendar. Voice and chat agents included. You own it outright, in your full IP control \u2014 we build it, you keep it.',
+    deliv:['Lead capture & routing','Instant qualify & book','Voice + chat agents','Yours to keep \u2014 full IP'],
+    proof:'67', proofEm:'%', proofP:'booked with instant reply, versus 30% (Chili Piper, 4M)',
+    ip:'Built for you · handed to you · your IP', flow:true },
+  { no:'v', tag:'Enablement', system:false,
+    h:'We keep it <em>running</em>.',
+    role:'Training · recovery',
+    body:'We train your team on the play, run the cadence, and work every stalled lead again on a trigger \u2014 win-backs and sequences that do not quit after one try. The follow-through is where most sales are quietly lost, so this is where we find quiet money.',
+    deliv:['Team training','Cadence management','Stalled-lead recovery','Monthly reporting'],
+    proof:'2.3', proofEm:'\u00d7', proofP:'more closed when stalled leads are properly revived' },
+];
+
+const SL_FLOW = ['Enquiry in','Answered','Qualified','Booked'];
+const SL_FLOWT = ['','0:04','','\u2713'];
 const SL_BARS = [
   { v:'100%', h:'100%', x:'5 min' },
   { v:'40%',  h:'40%',  x:'10 min' },
@@ -430,435 +638,202 @@ const SL_BARS = [
   { v:'2%',   h:'6%',   x:'1 hr' },
   { v:'<1%',  h:'3%',   x:'24 hr' },
 ];
-const SL_OPA = [1,.82,.6,.42,.28];
-const SL_FLOW  = ['Enquiry in','Answered','Qualified','Booked'];
-const SL_FLOWT = ['','0:04','','✓'];
-const SL_UNITS = [
-  { no:'i',   tag:'Strategy',
-    h:'We set the <em>play.</em>',
-    body:'We map how your leads actually move and find where deals stall and die. Then we set the play: your offer, your pricing, your follow-up cadence, your qualifying criteria, and the one number everything is accountable to. Nothing else gets built until the strategy is right.',
-    deliv:['Pipeline audit','Offer & pricing','Qualifying criteria','Follow-up cadence'],
-    stat:'30', statS:'%', statP:'of leads are never contacted — the first leak we close' },
-  { no:'ii',  tag:'Creative · Content · Social',
-    h:'We make what <em>sells.</em>',
-    body:'Two kinds of content, both aimed at revenue. The assets that close a live deal — pitch, proof, case studies, objection-handling. And, when your buyers live on social, we run it as a sales channel: founder storytelling, sales skits and reels, proof content and DM-to-close flows. Not content chasing followers — content measured in booked calls.',
-    deliv:['Founder storytelling','Sales skits & reels','Social that sells','Proof & case studies','DM-to-close flows'],
-    stat:'49', statS:'%', statP:'of sales lift comes from creative, not targeting (Nielsen)' },
-  { no:'iii', tag:'Brand',
-    h:'We make you the <em>safe choice.</em>',
-    body:'People buy the business they trust, not the cheapest quote. We sharpen how you show up across every point a buyer checks you — so you read as the premium, obvious choice and stop competing on price. A strong brand lets you charge more and close faster.',
-    deliv:['Positioning','Trust signals','Reviews & proof','Premium presentation'],
-    stat:'20', statS:'%', statP:'higher performance for strongly-branded firms (McKinsey)' },
-  { no:'v',   tag:'Enablement',
-    h:'We keep it <em>running.</em>',
-    body:'We train your team on the play, run the cadence, and work every stalled lead again on a trigger — win-backs and sequences that do not quit after one try. The follow-through is where most sales are quietly lost, so this is where we find quiet money.',
-    deliv:['Team training','Cadence management','Stalled-lead recovery','Monthly reporting'],
-    stat:'2.3', statS:'×', statP:'more closed when stalled leads are properly revived' },
-];
 const SL_FAQS = [
   { q:"How do you increase a company's sales?", a:"We run the whole sale as one team: fix where leads leak, make the content that closes, build the trust that wins the deal, and install one system that answers and books every enquiry instantly. Most of the gain comes from replying faster, following up longer, and closing with better proof — not from buying another tool." },
-  { q:"Why aren't my leads converting?",        a:"Usually speed and follow-up. Around 30% of leads are never contacted at all, and the odds of qualifying a lead drop sharply after the first five minutes. Answer instantly, follow up on a set cadence, and close with proof, and conversion climbs without spending more on traffic." },
-  { q:"Do I own the system you build?",         a:"Yes, completely. We build your lead-capture, qualifying, booking and voice-or-chat system for your business and hand it over in your full IP control. If we ever part ways, you keep it." },
-  { q:"Is this software or an agency?",         a:"An agency. Four teams of people — strategy, creative, brand and enablement — plus one system you own. A tool can route a lead, but it can't set your pricing, write what closes, or build trust. That takes people." },
+  { q:"Why aren't my leads converting?", a:"Usually speed and follow-up. Around 30% of leads are never contacted at all, and the odds of qualifying a lead drop sharply after the first five minutes. Answer instantly, follow up on a set cadence, and close with proof, and conversion climbs without spending more on traffic." },
+  { q:"Do I own the system you build?", a:"Yes, completely. We build your lead-capture, qualifying, booking and voice-or-chat system for your business and hand it over in your full IP control. If we ever part ways, you keep it." },
+  { q:"Is this software or an agency?", a:"An agency. Four teams of people — strategy, creative, brand and enablement — plus one system you own. A tool can route a lead, but it can't set your pricing, write what closes, or build trust. That takes people." },
 ];
 const SL_PROOF = [
-  { lab:'Every enquiry',       before:'1 in 3 answered, hours late',  after:'all of them, in seconds' },
-  { lab:'Your content & social', before:'posts chasing likes',          after:'stories that book calls' },
-  { lab:'Your brand',          before:'just another quote',            after:'the obvious, premium choice' },
+  { lab:'Every enquiry', before:'1 in 3 answered, hours late', after:'all of them, in seconds' },
+  { lab:'Your content & social', before:'posts chasing likes', after:'stories that book calls' },
+  { lab:'Your brand', before:'just another quote', after:'the obvious, premium choice' },
 ];
 const SL_STEPS = [
   { n:'01', h:'Audit', p:'We map your pipeline and find where the leads leak — usually inside the first week.' },
   { n:'02', h:'Build', p:"We set the play, make the brand, story and content, and build the system you'll own." },
-  { n:'03', h:'Run',   p:'We run it as one team, report on the one number, and revive every deal that stalls.' },
+  { n:'03', h:'Run', p:'We run it as one team, report on the one number, and revive every deal that stalls.' },
 ];
 
 function SalesContent({ onClose }: { onClose: () => void }) {
-  const [pipeStep, setPipeStep] = useState(0);
+  const wrapRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<HTMLDivElement>(null);
+  const [pipeStep, setPipeStep] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setPipeStep(s => (s + 1) % (SL_FLOW.length + 1)), 820);
-    return () => clearInterval(id);
+    const id = 'slx-modal-css';
+    if (!document.getElementById(id)) {
+      const s = document.createElement('style');
+      s.id = id; s.textContent = SL_CSS;
+      document.head.appendChild(s);
+    }
   }, []);
 
+  // reveal
   useEffect(() => {
-    const el = chartRef.current; if (!el) return;
-    const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { el.classList.add('slc-in'); io.disconnect(); }
-    }, { threshold: 0.3 });
-    io.observe(el);
+    const io = new IntersectionObserver(
+      es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }),
+      { threshold: 0.14 }
+    );
+    wrapRef.current?.querySelectorAll('.reveal').forEach(n => io.observe(n));
     return () => io.disconnect();
   }, []);
 
-  // ── Sales light palette (prototype: white paper / red / ink) ──
-  const paper  = '#FFFFFF';
-  const ink    = '#16120E';
-  const red    = '#D2302A';
-  const muted  = '#6B6560';
-  const border = '#E5E0D8';
-  const navy   = '#152949';
-  const navyT  = 'rgba(244,239,230,.85)';
-
-  const serif   = `var(--font-instrument-serif,'Instrument Serif',serif)`;
-  const brico   = `var(--font-bricolage,'Bricolage Grotesque',sans-serif)`;
-  const mono    = `var(--font-space-mono,'Space Mono',monospace)`;
-  const emStyle = (col=red) => `font-family:${serif};font-style:italic;font-weight:400;color:${col}`;
-
-  function UnitRow({ u }: { u: typeof SL_UNITS[0] }) {
-    return (
-      <div style={{ padding:'1.8rem 20px 2rem', borderTop:`1px solid ${border}`, background:paper }}>
-        <div style={{ display:'flex', alignItems:'flex-start', gap:'.8rem', marginBottom:'.5rem' }}>
-          <span style={{ fontFamily:serif, fontStyle:'italic', fontSize:'2rem',
-            color:red, width:44, flexShrink:0, lineHeight:.8 }}>{u.no}</span>
-          <span style={{ fontFamily:mono, fontSize:9.5, letterSpacing:'.14em',
-            textTransform:'uppercase' as const, color:muted,
-            border:`1px solid ${border}`, borderRadius:20, padding:'.28rem .65rem',
-            display:'inline-block', alignSelf:'flex-start' as const }}>{u.tag}</span>
-        </div>
-        <h3 style={{ fontFamily:brico, fontWeight:700, fontSize:'clamp(1.6rem,5.4vw,2.2rem)',
-          lineHeight:1.02, letterSpacing:'-.04em', color:ink, marginBottom:'.7rem' }}
-          dangerouslySetInnerHTML={{ __html: u.h.replace('<em>',`<em style="${emStyle()}">`) }} />
-        <p style={{ fontSize:'.94rem', color:muted, lineHeight:1.6, marginBottom:'1rem' }}>{u.body}</p>
-        <div style={{ display:'flex', flexWrap:'wrap' as const, gap:'.45rem', marginBottom:'.9rem' }}>
-          {u.deliv.map((d,j)=>(
-            <span key={j} style={{ fontSize:11, fontWeight:600, color:ink,
-              background:'#EDEBE6', borderRadius:4, padding:'.35rem .65rem' }}>{d}</span>
-          ))}
-        </div>
-        <div style={{ display:'flex', alignItems:'baseline', gap:'.65rem',
-          paddingTop:'.85rem', borderTop:`1px solid ${border}` }}>
-          <span style={{ fontFamily:serif, fontStyle:'italic',
-            fontSize:'clamp(1.8rem,7vw,2.6rem)', fontWeight:400, lineHeight:.85, color:ink }}>
-            {u.stat}<em style={{ fontSize:'.42em', color:muted, fontStyle:'normal' }}>{u.statS}</em>
-          </span>
-          <span style={{ fontSize:11.5, color:muted, lineHeight:1.35, maxWidth:'28ch' }}>{u.statP}</span>
-        </div>
-      </div>
+  // chart animate on view
+  useEffect(() => {
+    const el = chartRef.current; if (!el) return;
+    const cio = new IntersectionObserver(
+      es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); cio.unobserve(en.target); } }),
+      { threshold: 0.3 }
     );
-  }
+    cio.observe(el);
+    return () => cio.disconnect();
+  }, []);
+
+  // live pipeline loop
+  useEffect(() => {
+    const reduce = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { setPipeStep(SL_FLOW.length); return; }
+    const id = setInterval(() => setPipeStep(i => (i + 1) % (SL_FLOW.length + 1)), 820);
+    return () => clearInterval(id);
+  }, []);
 
   return (
-    <div style={{ background:paper, color:ink }}>
-      {/* eslint-disable-next-line react/no-danger */}
-      <style dangerouslySetInnerHTML={{ __html: SL_CSS }} />
+    <div className="slx" ref={wrapRef}>
+      <div className="bar"><span className="b">OARC</span><span className="s">Close more sales</span></div>
 
-      {/* ── hero ── */}
-      <div style={{ padding:'1.8rem 20px 2.2rem', borderBottom:`1px solid ${border}` }}>
-        <Kicker label="The sales engagement" color={red} />
-        <h1 style={{ fontFamily:brico, fontWeight:800, fontSize:'clamp(2.2rem,9.5vw,3.6rem)',
-          lineHeight:.88, letterSpacing:'-.055em', marginTop:'1rem', color:ink }}>
-          We don&apos;t sell you software.{' '}
-          <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400,
-            color:red, letterSpacing:'-.02em', display:'block' }}>We run your sales.</em>
-        </h1>
-        <p style={{ fontSize:'.96rem', color:muted, lineHeight:1.6, marginTop:'1.2rem', maxWidth:'46ch' }}>
-          One team that owns the whole sale — the strategy, the content that closes, how you show up, and one system you keep.{' '}
-          <strong style={{ color:ink }}>Everything your sales needs, pointed at one number: revenue.</strong>
-        </p>
-      </div>
-
-      {/* ── stat strip — light palette ── */}
-      <div style={{ display:'flex', flexWrap:'wrap' as const, gap:'1.4rem 2rem',
-        padding:'1.6rem 20px 1.4rem', borderBottom:`1px solid ${border}`, background:paper }}>
-        {[
-          { n:'78', s:'%', label:'of buyers choose whoever answers first' },
-          { n:'21', s:'×', label:'more likely to qualify at 5 min vs 30' },
-          { n:'30', s:'%', label:'of leads today are never contacted at all' },
-        ].map((st, i) => (
-          <div key={i} style={{ position:'relative' as const, paddingLeft:'1rem' }}>
-            <span style={{ position:'absolute' as const, left:0, top:'.1rem', bottom:'.4rem',
-              width:3, background:red, borderRadius:2 }} />
-            <strong style={{ display:'block', fontFamily:mono, fontWeight:700,
-              fontSize:'clamp(1.8rem,7vw,2.4rem)', lineHeight:.85, color:ink, letterSpacing:'-.04em' }}>
-              {st.n}
-              {st.s && <span style={{ fontFamily:serif, fontStyle:'italic',
-                fontWeight:400, fontSize:'.44em', color:muted }}>{st.s}</span>}
-            </strong>
-            <span style={{ display:'block', fontSize:11.5, color:muted,
-              lineHeight:1.35, marginTop:'.4rem', maxWidth:'18ch' }}>{st.label}</span>
+      <div className="wrap">
+        <section className="hero">
+          <span className="kick">The sales engagement</span>
+          <h1>We don&apos;t sell you<br />software. <em>We run<br />your sales.</em></h1>
+          <p className="sub">One team that owns the whole sale — the strategy, the content that closes, how you show up, and one system you keep. Everything your sales needs, pointed at one number: revenue.</p>
+          <div className="stats">
+            <div className="st"><b>78<em>%</em></b><p>of buyers choose whoever answers first</p></div>
+            <div className="st"><b>21<em>×</em></b><p>more likely to qualify at 5 minutes than 30</p></div>
+            <div className="st"><b>30<em>%</em></b><p>of leads today are never contacted at all</p></div>
           </div>
-        ))}
-      </div>
+        </section>
 
-      {/* ── thesis — red block, deliberate contrast ── */}
-      <Reveal>
-        <div style={{ margin:'1.6rem 20px', padding:'2rem 1.5rem',
-          background:red, borderRadius:14, color:'#fff' }}>
-          <Kicker label="How the engagement works" color="rgba(255,255,255,.65)" />
-          <h2 style={{ fontFamily:brico, fontWeight:700,
-            fontSize:'clamp(1.5rem,5vw,2.2rem)', lineHeight:1.05, letterSpacing:'-.035em',
-            maxWidth:'22ch', marginTop:'.6rem' }}>
-            Most of closing more is{' '}
-            <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400 }}>strategy and craft</em>
-            {' '}— not a tool.
-          </h2>
-          <p style={{ fontSize:'.94rem', color:'rgba(255,255,255,.88)', lineHeight:1.6,
-            marginTop:'1rem', maxWidth:'50ch' }}>
-            A tool routes a lead; it doesn&apos;t decide what you say, how you&apos;re priced, why they trust you,
-            or what happens when they go quiet. You get one team that owns the whole sale — and one system we build and hand you.
-          </p>
-          <div style={{ display:'flex', gap:'1.6rem', marginTop:'1.6rem', paddingTop:'1.4rem',
-            borderTop:'1px solid rgba(255,255,255,.22)' }}>
-            {[['1','team, end to end'],['0','vendors to juggle']].map(([n,l])=>(
-              <div key={n}>
-                <strong style={{ fontFamily:serif, fontStyle:'italic', fontSize:'2.6rem',
-                  fontWeight:400, display:'block', lineHeight:1 }}>{n}</strong>
-                <p style={{ fontSize:11, fontWeight:600, letterSpacing:'.06em',
-                  textTransform:'uppercase' as const, color:'rgba(255,255,255,.8)', marginTop:'.35rem' }}>{l}</p>
-              </div>
-            ))}
+        <section className="thesis reveal">
+          <p className="lead">How the engagement works</p>
+          <h2>Most of closing more is <em>strategy and craft</em> — not a tool.</h2>
+          <p className="who">A tool routes a lead; it doesn&apos;t decide what you say, how you&apos;re priced, why they trust you, or what happens when they go quiet. You don&apos;t stitch together five vendors for that. You get one team that owns the whole sale — and one system we build and hand you.</p>
+          <div className="count">
+            <div><b>1</b><p>team,<br />end to end</p></div>
+            <div><b>0</b><p>vendors<br />to juggle</p></div>
           </div>
-        </div>
-      </Reveal>
+        </section>
 
-      {/* ── speed chart ── */}
-      <Reveal>
-        <div style={{ padding:'2rem 20px', borderTop:`1.5px solid ${border}`, background:paper }}>
-          <p style={{ fontSize:11, fontWeight:700, letterSpacing:'.2em',
-            textTransform:'uppercase' as const, color:muted, marginBottom:'.4rem' }}>
-            Why speed is the whole game
-          </p>
-          <p style={{ fontSize:'clamp(1.15rem,4vw,1.65rem)', fontWeight:700, letterSpacing:'-.03em',
-            lineHeight:1.1, maxWidth:'24ch', marginBottom:'1.2rem', color:ink }}>
-            How likely a lead is to qualify,{' '}
-            <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400, color:red }}>
-              by how fast you reply.
-            </em>
-          </p>
-          <div style={{ background:'#F7F4F0', border:`1px solid ${border}`,
-            borderRadius:12, padding:'1.3rem 1rem 1rem' }}>
-            <div ref={chartRef} className="slc-chart"
-              style={{ display:'flex', alignItems:'flex-end', gap:'.5rem', height:156 }}>
-              {SL_BARS.map((b,k)=>(
-                <div key={k} style={{ flex:1, display:'flex', flexDirection:'column' as const,
-                  justifyContent:'flex-end', height:'100%', textAlign:'center' as const, minWidth:0 }}>
-                  <span className="slc-v" style={{ fontSize:11, fontWeight:800,
-                    marginBottom:'.35rem', color:ink }}>{b.v}</span>
-                  <div className="slc-bar"
-                    style={{ '--h':b.h, width:'100%', background:red,
-                      borderRadius:'4px 4px 0 0', opacity:SL_OPA[k] } as React.CSSProperties} />
-                  <span style={{ fontSize:9.5, color:muted, marginTop:'.45rem',
-                    fontWeight:700, letterSpacing:'.01em' }}>{b.x}</span>
+        <section className="showcase reveal">
+          <p className="roof">Why speed is the whole game</p>
+          <div className="rooftitle">How likely a lead is to qualify, <em>by how fast you reply.</em></div>
+          <div className="chartwrap">
+            <div className="chart" ref={chartRef}>
+              {SL_BARS.map((b, k) => (
+                <div className="col" key={k}>
+                  <span className="v">{b.v}</span>
+                  <div className="cbar" style={{ ['--h' as string]: b.h }} />
+                  <span className="x">{b.x}</span>
                 </div>
               ))}
             </div>
-            <p style={{ fontSize:11, color:muted, lineHeight:1.4, marginTop:'1rem', maxWidth:'52ch' }}>
-              <strong style={{ color:red }}>Reply in 5 minutes and you&apos;re 21× more likely to qualify the lead than at 30.</strong>{' '}
-              Our job is to make sure you&apos;re always the 5-minute reply.
-            </p>
+            <p className="chartcap"><b>Reply in 5 minutes and you&apos;re 21× more likely to qualify the lead than at 30.</b> Relative odds by first-response time, based on lead-response research. Our job is to make sure you&apos;re always the 5-minute reply.</p>
           </div>
-        </div>
-      </Reveal>
+        </section>
 
-      {/* ── units header ── */}
-      <div style={{ padding:'0 20px 1.2rem', borderTop:`1.5px solid ${border}`,
-        paddingTop:'2rem', background:paper }}>
-        <p style={{ fontSize:11, fontWeight:700, letterSpacing:'.2em',
-          textTransform:'uppercase' as const, color:muted, marginBottom:'.4rem' }}>
-          What that one team covers
-        </p>
-        <p style={{ fontSize:'clamp(1.15rem,4vw,1.65rem)', fontWeight:700,
-          letterSpacing:'-.03em', lineHeight:1.1, color:ink }}>
-          Five ways we lift the number —{' '}
-          <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400, color:red }}>run as one.</em>
-        </p>
-      </div>
-
-      {/* units i–iii */}
-      {SL_UNITS.slice(0,3).map((u,i)=>(
-        <Reveal key={i} delay={i*50}><UnitRow u={u} /></Reveal>
-      ))}
-
-      {/* ── unit iv — navy block, deliberate dark contrast ── */}
-      <Reveal>
-        <div style={{ margin:'.4rem 20px .4rem', padding:'2rem 1.5rem',
-          background:navy, borderRadius:14, color:navyT }}>
-          <div style={{ display:'flex', alignItems:'flex-start', gap:'.8rem', marginBottom:'.5rem' }}>
-            <span style={{ fontFamily:serif, fontStyle:'italic', fontSize:'2rem',
-              color:'#fff', width:44, flexShrink:0, lineHeight:.8 }}>iv</span>
-            <span style={{ fontFamily:mono, fontSize:9.5, letterSpacing:'.14em',
-              textTransform:'uppercase' as const, color:'#fff',
-              border:'1px solid rgba(244,239,230,.32)', borderRadius:20, padding:'.28rem .65rem',
-              display:'inline-block', alignSelf:'flex-start' as const }}>AI & Tech</span>
-          </div>
-          <h3 style={{ fontFamily:brico, fontWeight:700,
-            fontSize:'clamp(1.6rem,5.4vw,2.2rem)', lineHeight:1.02, letterSpacing:'-.04em',
-            color:'#fff', marginBottom:'.6rem' }}>
-            We build you{' '}
-            <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400 }}>one system.</em>
-          </h3>
-          <p style={{ fontSize:10, fontWeight:700, letterSpacing:'.15em',
-            textTransform:'uppercase' as const, color:'#9FC0EC', marginBottom:'.65rem' }}>
-            The one built thing · engineering
-          </p>
-          <p style={{ fontSize:'.94rem', color:'rgba(244,239,230,.78)', lineHeight:1.6, marginBottom:'.9rem' }}>
-            The single piece of technology in the engagement — built for your sales, then handed to you.
-            It catches every enquiry, answers in seconds any hour, qualifies against your criteria, and books
-            straight into the calendar. Voice and chat agents included. You own it outright, in your full IP
-            control — we build it, you keep it.
-          </p>
-          <div style={{ display:'flex', flexWrap:'wrap' as const, gap:'.45rem', marginBottom:'.85rem' }}>
-            {['Lead capture & routing','Instant qualify & book','Voice + chat agents','Yours to keep — full IP'].map((d,j)=>(
-              <span key={j} style={{ fontSize:11, fontWeight:600, color:'rgba(244,239,230,.9)',
-                background:'rgba(244,239,230,.1)', borderRadius:4, padding:'.35rem .65rem' }}>{d}</span>
-            ))}
-          </div>
-          <div style={{ display:'inline-flex', alignItems:'center', gap:'.45rem', marginBottom:'1rem',
-            fontSize:10.5, fontWeight:700, letterSpacing:'.11em',
-            textTransform:'uppercase' as const, color:'#9FC0EC' }}>
-            <span style={{ width:7, height:7, borderRadius:'50%',
-              background:'#9FC0EC', display:'inline-block' }} />
-            Built for you · handed to you · your IP
-          </div>
-          <div style={{ display:'flex', alignItems:'baseline', gap:'.65rem',
-            paddingTop:'.85rem', borderTop:'1px solid rgba(244,239,230,.18)' }}>
-            <span style={{ fontFamily:serif, fontStyle:'italic',
-              fontSize:'clamp(1.8rem,7vw,2.6rem)', fontWeight:400, lineHeight:.85, color:'#fff' }}>
-              67<em style={{ fontSize:'.42em', color:'rgba(244,239,230,.4)', fontStyle:'normal' }}>%</em>
-            </span>
-            <span style={{ fontSize:11.5, color:'rgba(244,239,230,.6)',
-              lineHeight:1.35, maxWidth:'28ch' }}>
-              booked with instant reply, versus 30% (Chili Piper, 4M)
-            </span>
-          </div>
-          {/* live pipeline */}
-          <div style={{ marginTop:'1.4rem', paddingTop:'1.3rem',
-            borderTop:'1px solid rgba(244,239,230,.18)' }}>
-            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.14em',
-              textTransform:'uppercase' as const, color:'rgba(244,239,230,.5)',
-              marginBottom:'1rem', display:'flex', justifyContent:'space-between' as const }}>
-              <span>How your system runs, 24/7</span>
-              <span style={{ color:'#7FE0A8', display:'inline-flex', alignItems:'center' }}>
-                <span className="slc-live-dot" />Live
-              </span>
-            </div>
-            <div style={{ display:'flex', alignItems:'flex-start', gap:'.3rem' }}>
-              {SL_FLOW.flatMap((label,k) => {
-                const node = (
-                  <div key={label} style={{ flex:1, textAlign:'center' as const }}>
-                    <div style={{ width:13, height:13, borderRadius:'50%', margin:'0 auto .5rem',
-                      background: pipeStep > k ? '#9FC0EC' : 'rgba(244,239,230,.22)',
-                      boxShadow: pipeStep > k ? '0 0 0 5px rgba(159,192,236,.18)' : 'none',
-                      transition:'background .4s ease,box-shadow .4s ease' }} />
-                    <div style={{ fontSize:9.5, fontWeight:700, letterSpacing:'.05em',
-                      textTransform:'uppercase' as const, lineHeight:1.25,
-                      color: pipeStep > k ? 'rgba(244,239,230,.9)' : 'rgba(244,239,230,.55)',
-                      transition:'color .4s' }}>{label}</div>
-                    <div style={{ fontFamily:serif, fontStyle:'italic', fontSize:'.85rem',
-                      color:'#9FC0EC', marginTop:'.2rem', height:'1rem',
-                      opacity: pipeStep > k ? 1 : 0, transition:'opacity .4s' }}>
-                      {SL_FLOWT[k]}
+        <section className="units">
+          <p className="roof reveal">What that one team covers</p>
+          <div className="rooftitle reveal">Five ways we lift the number — <em>run as one.</em></div>
+          <div>
+            {SL_UNITS.map((d, i) => (
+              <div key={i} className={`unit reveal${d.system ? ' system' : ''}`}>
+                <div className="hd">
+                  <span className="no">{d.no}</span>
+                  <div className="nm">
+                    <span className="tag">{d.tag}</span>
+                    <h3 dangerouslySetInnerHTML={{ __html: d.h }} />
+                  </div>
+                </div>
+                <p className="role">{d.role}</p>
+                <p className="body">{d.body}</p>
+                <div className="deliv">{d.deliv.map((x, j) => <span key={j}>{x}</span>)}</div>
+                {d.ip && <span className="ip">{d.ip}</span>}
+                <div className="proof">
+                  <b dangerouslySetInnerHTML={{ __html: d.proof + (d.proofEm ? `<em>${d.proofEm}</em>` : '') }} />
+                  <p>{d.proofP}</p>
+                </div>
+                {d.flow && (
+                  <div className="flow">
+                    <div className="flab"><span>How your system runs, 24/7</span><span className="live">Live</span></div>
+                    <div className="track">
+                      {SL_FLOW.flatMap((label, k) => {
+                        const node = (
+                          <div key={label} className={`node${pipeStep > k ? ' on' : ''}`}>
+                            <div className="dot" />
+                            <div className="lb">{label}</div>
+                            <div className="t">{SL_FLOWT[k]}</div>
+                          </div>
+                        );
+                        if (k < SL_FLOW.length - 1) {
+                          return [node, <div key={`seg-${k}`} className={`seg${pipeStep > k + 1 ? ' on' : ''}`} />];
+                        }
+                        return [node];
+                      })}
                     </div>
                   </div>
-                );
-                if (k < SL_FLOW.length - 1) {
-                  return [node, (
-                    <div key={`seg-${k}`} style={{ flexShrink:0, alignSelf:'flex-start' as const,
-                      width:14, height:2,
-                      background: pipeStep > k + 1 ? '#9FC0EC' : 'rgba(244,239,230,.2)',
-                      marginTop:5.5, borderRadius:2, transition:'background .4s' }} />
-                  )];
-                }
-                return [node];
-              })}
-            </div>
+                )}
+              </div>
+            ))}
           </div>
-        </div>
-      </Reveal>
+        </section>
 
-      {/* unit v */}
-      {SL_UNITS.slice(3).map((u,i)=>(
-        <Reveal key={i}><UnitRow u={u} /></Reveal>
-      ))}
-
-      {/* ── proof / transformation ── */}
-      <Reveal>
-        <div style={{ padding:'2rem 20px', borderTop:`1.5px solid ${border}`, background:paper }}>
-          <p style={{ fontSize:11, fontWeight:700, letterSpacing:'.2em',
-            textTransform:'uppercase' as const, color:muted, marginBottom:'.4rem' }}>
-            What changes when we run it
-          </p>
-          <p style={{ fontSize:'clamp(1.15rem,4vw,1.65rem)', fontWeight:700,
-            letterSpacing:'-.03em', lineHeight:1.1, marginBottom:'1.2rem', color:ink }}>
-            The{' '}
-            <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400, color:red }}>before</em>
-            {' '}and after.
-          </p>
-          {SL_PROOF.map((row,k)=>(
-            <div key={k} style={{ borderTop:`1px solid ${border}`, padding:'1.1rem 0' }}>
-              <span style={{ fontSize:10, fontWeight:700, letterSpacing:'.14em',
-                textTransform:'uppercase' as const, color:'#4A7CB5',
-                display:'block', marginBottom:'.45rem' }}>{row.lab}</span>
-              <div style={{ display:'flex', alignItems:'center', gap:'.65rem', flexWrap:'wrap' as const }}>
-                <span style={{ fontSize:'.96rem', color:muted,
-                  textDecoration:'line-through', textDecorationColor:muted }}>{row.before}</span>
-                <span style={{ color:red, fontWeight:800, fontSize:'1.05rem' }}>→</span>
-                <span style={{ fontSize:'1rem', fontWeight:700, color:ink }}>{row.after}</span>
+        <section className="proof-sec reveal">
+          <p className="roof">What changes when we run it</p>
+          <div className="rooftitle">The <em>before</em> and after.</div>
+          {SL_PROOF.map((row, k) => (
+            <div className="trow" key={k}>
+              <span className="tlab">{row.lab}</span>
+              <div className="tba">
+                <span className="before">{row.before}</span>
+                <span className="arrow">→</span>
+                <span className="after">{row.after}</span>
               </div>
             </div>
           ))}
-          <p style={{ fontSize:11.5, color:muted, lineHeight:1.45, marginTop:'1rem', maxWidth:'50ch' }}>
-            <strong style={{ color:red }}>A typical first 90 days:</strong>{' '}
-            booked calls up, no extra ad spend — the story, the brand and the system pulling in the same direction.
-          </p>
-        </div>
-      </Reveal>
+          <p className="tcap"><b>A typical first 90 days:</b> booked calls up, no extra ad spend — the story, the brand and the system pulling in the same direction. Illustrative of a full engagement.</p>
+        </section>
 
-      {/* ── guarantee — cream card ── */}
-      <Reveal>
-        <div style={{ margin:'0 20px 1.6rem', padding:'2rem 1.5rem',
-          background:'#F4EFE6', borderRadius:14, border:`1px solid ${border}` }}>
-          <Kicker label="Our guarantee" color={red} />
-          <h2 style={{ fontFamily:brico, fontWeight:700,
-            fontSize:'clamp(1.5rem,5vw,2.2rem)', lineHeight:1.1, letterSpacing:'-.04em',
-            color:ink, maxWidth:'22ch', marginTop:'.6rem' }}>
-            If your booked calls don&apos;t climb in 90 days,{' '}
-            <em style={{ fontFamily:serif, fontStyle:'italic', fontWeight:400 }}>
-              we work free until they do.
-            </em>
-          </h2>
-          <p style={{ fontSize:'.94rem', color:muted, lineHeight:1.6,
-            marginTop:'.9rem', maxWidth:'52ch' }}>
-            We&apos;re a sales company — refusing to stand behind sales would be a tell. So we tie our retainer
-            to your pipeline, not to hours. You carry none of the risk of trying us.
-          </p>
-          <p style={{ fontFamily:serif, fontStyle:'italic', fontSize:'1.05rem',
-            color:muted, marginTop:'1rem' }}>— OARC, your one team</p>
-        </div>
-      </Reveal>
+        <section className="guar reveal">
+          <p className="g-eye">Our guarantee</p>
+          <div className="g-big">If your booked calls don&apos;t climb in 90 days, <em>we work free until they do.</em></div>
+          <p className="g-sub">We&apos;re a sales company — refusing to stand behind sales would be a tell. So we tie our retainer to your pipeline, not to hours. You carry none of the risk of trying us.</p>
+          <div className="g-sig">— OARC, your one team</div>
+        </section>
 
-      {/* ── FAQ — light palette ── */}
-      <FAQ items={SL_FAQS} border={border} head={ink} body={muted} light={true} />
+        <section className="faq reveal">
+          <p className="roof">Straight answers</p>
+          <div className="rooftitle">The questions every owner <em>actually asks.</em></div>
+          {SL_FAQS.map((f, k) => (
+            <div className="qa" key={k}><h4>{f.q}</h4><p>{f.a}</p></div>
+          ))}
+        </section>
 
-      {/* ── how we start ── */}
-      <div style={{ padding:'2rem 20px 0', borderTop:`1.5px solid ${border}`, background:paper }}>
-        <p style={{ fontSize:11, fontWeight:700, letterSpacing:'.2em',
-          textTransform:'uppercase' as const, color:muted, marginBottom:'1rem' }}>
-          How we start
-        </p>
-        {SL_STEPS.map((s,k)=>(
-          <div key={k} style={{ display:'flex', gap:'.9rem',
-            borderTop: k === 0 ? 'none' : `1px solid ${border}`,
-            padding:'1.1rem 0' }}>
-            <span style={{ fontFamily:serif, fontStyle:'italic', fontSize:'1.6rem',
-              color:red, width:40, flexShrink:0, lineHeight:1 }}>{s.n}</span>
-            <div>
-              <h4 style={{ fontSize:'1.05rem', fontWeight:700,
-                letterSpacing:'-.02em', color:ink }}>{s.h}</h4>
-              <p style={{ fontSize:'.94rem', color:muted, lineHeight:1.55, marginTop:'.25rem' }}>{s.p}</p>
-            </div>
+        <section className="end reveal">
+          <p className="roof">How we start</p>
+          <div className="start">
+            {SL_STEPS.map((s, k) => (
+              <div className="step" key={k}>
+                <span className="sn">{s.n}</span>
+                <div className="sc"><h4>{s.h}</h4><p>{s.p}</p></div>
+              </div>
+            ))}
           </div>
-        ))}
-        <p style={{ fontSize:'.94rem', color:muted, lineHeight:1.6, margin:'1.4rem 0 0', maxWidth:'50ch' }}>
-          At the end of the day we&apos;re a{' '}
-          <strong style={{ color:ink }}>creative and AI software agency</strong>{' '}
-          — so your sales get brand, storytelling, social and a system you keep. Not spreadsheets.
-        </p>
+          <p className="ident">At the end of the day we&apos;re a <b>creative and AI software agency</b> — so your sales get brand, storytelling, social and a system you keep. Not spreadsheets.</p>
+          <div className="big">One team.<br /><em>The whole sale.</em></div>
+          <p>You keep the system, the playbook, and the pipeline. We keep you closing.</p>
+          <a href="/contact" onClick={onClose}>Book the sales audit →</a>
+        </section>
       </div>
-
-      <CTA big={<>One team.<br /><CtaItalic>The whole sale.</CtaItalic></>}
-        sub="You keep the system, the playbook, and the pipeline. We keep you closing."
-        btn="Book the sales audit" onClose={onClose} light={true} />
     </div>
   );
 }
@@ -877,6 +852,13 @@ const MM_CSS = `
   background:var(--ink);color:var(--c);font-family:var(--ui);
   -webkit-font-smoothing:antialiased;overflow-x:hidden
 }
+.mm .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);background:rgba(12,15,22,.86);backdrop-filter:blur(10px)}
+.mm .top .brand{display:flex;align-items:baseline;gap:.7rem}
+.mm .top .brand b{font-weight:900;font-size:13px;letter-spacing:-.02em}
+.mm .top .brand s{font-size:9.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--c26);text-decoration:none;font-style:normal}
+.mm .top .live{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--c45)}
+.mm .top .live i{width:6px;height:6px;border-radius:50%;background:var(--am);animation:mm-blink 1.8s ease-out infinite}
+@keyframes mm-blink{0%{box-shadow:0 0 0 0 var(--amg)}100%{box-shadow:0 0 0 8px rgba(246,166,28,0)}}
 .mm .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--am)}
 .mm h1{font-size:clamp(2.3rem,9.2vw,3.4rem);font-weight:900;line-height:.98;letter-spacing:-.04em;margin-top:.7rem}
 .mm h1 em{font-style:normal;color:var(--am)}
@@ -961,7 +943,7 @@ const MM_CSS = `
 .mm .growx{transform:scaleX(0);transform-origin:left center}
 .mm .viz.live .growx{animation:mm-grwx .9s var(--e) forwards}
 @keyframes mm-grwx{to{transform:scaleX(1)}}
-@media(prefers-reduced-motion:reduce){.mm .up,.mm .pop,.mm .brow{opacity:1;transform:none}.mm .draw{stroke-dashoffset:0}.mm .grow,.mm .growd,.mm .growx{transform:none}}
+@media(prefers-reduced-motion:reduce){.mm *{animation:none!important;transition-duration:.01ms!important}.mm .up,.mm .pop,.mm .brow{opacity:1;transform:none}.mm .draw{stroke-dashoffset:0}.mm .grow,.mm .growd,.mm .growx{transform:none}}
 `;
 
 const MM_AM = '#F6A61C';
@@ -1046,7 +1028,7 @@ const MM_PARTS = [
   { n:'04', sp:'The loop', h:'Scale winners. <em>Kill losers.</em>', out:'More of what works, none of what doesn\'t.',
     who:'Media buyers · Analysts',
     cap:'The moment an ad tires or its cost climbs, we cut it — kill-rules, not opinions — and pour budget into what\'s working. <b>That loop, run every week, is what lifts the return month after month.</b>',
-    stat:'25–40', statEm:'%', statP:'more return over six months, from scaling only what wins', viz:'loop' },
+    stat:'25-40', statEm:'%', statP:'more return over six months, from scaling only what wins', viz:'loop' },
   { n:'05', sp:'Measured on money', h:'We prove it in <em>revenue.</em>', out:'Return in euros, not clicks.',
     who:'Analysts',
     cap:'We tie spend to real sales — not clicks or likes. You see revenue back per euro, the only number that decides whether media is working. <b>Vanity metrics stay off your report.</b>',
@@ -1089,6 +1071,10 @@ function MediaContent({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="mm" ref={wrapRef}>
+      <div className="top">
+        <span className="brand"><b>OARC</b><s>Media</s></span>
+        <span className="live"><i />Ad spend that pays</span>
+      </div>
       <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:"1px solid var(--line)" }}>
         <p className="lbl">Marketing and media</p>
         <h1>We make your money<br /><em>come back with more.</em></h1>
@@ -1276,6 +1262,7 @@ const SC_CSS = `
 .sc .viz.live .grow{animation:sc-grw .75s var(--e) forwards}
 @keyframes sc-grw{to{transform:scaleY(1)}}
 @media(prefers-reduced-motion:reduce){
+.sc *{animation:none!important;transition-duration:.01ms!important}
 .sc .stack{animation:none}.sc .layer{opacity:1}.sc .stack.go .layer{animation:none;opacity:1}
 .sc .up,.sc .pop{opacity:1;transform:none}.sc .draw{stroke-dashoffset:0}.sc .grow{transform:none}}
 `;
@@ -1430,7 +1417,7 @@ function SocialContent({ onClose }: { onClose: () => void }) {
   useEffect(() => {
     const io = new IntersectionObserver(
       es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('live'); io.unobserve(e.target); } }),
-      { threshold: 0.3 }
+      { threshold: 0.32 }
     );
     wrapRef.current?.querySelectorAll('.viz').forEach(v => io.observe(v));
     return () => io.disconnect();
@@ -1571,195 +1558,270 @@ function VizBox({ svg, bg = "#07080C", brd = "rgba(234,237,242,.11)", dot = "rgb
 }
 
 // ────────────────────────────────────────────────────────────────────────────
-// CLARITY CONTENT
+// CLARITY CONTENT  (exact prototype port — dark azure "the answer" world)
+// src: we_tell_you_wahts_working_1786575410248.txt
 // ────────────────────────────────────────────────────────────────────────────
-const CL = { bg:"#0B0D12", card:"#0E1117", az:"#3D7BFF", bad:"#E5563B",
-  c:"#EAEDF2", dim:"rgba(234,237,242,.72)", c45:"rgba(234,237,242,.46)",
-  c16:"rgba(234,237,242,.16)", line:"rgba(234,237,242,.11)" };
+const CL_CSS = `
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+.clx{
+  --ink:#0B0D12;--deep:#07080C;--card:#0E1117;--c:#EAEDF2;--az:#3D7BFF;--bad:#E5563B;
+  --c70:rgba(234,237,242,.72);--c45:rgba(234,237,242,.46);--c26:rgba(234,237,242,.26);
+  --c16:rgba(234,237,242,.16);--c10:rgba(234,237,242,.1);
+  --azg:rgba(61,123,255,.5);--azf:rgba(61,123,255,.12);
+  --line:rgba(234,237,242,.11);
+  --ui:'Sora',sans-serif;--mono:'JetBrains Mono',monospace;--e:cubic-bezier(.16,1,.3,1);
+  background:var(--ink);color:var(--c);font-family:var(--ui);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.clx *{margin:0;padding:0;box-sizing:border-box}
+.clx .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);background:rgba(11,13,18,.86);backdrop-filter:blur(10px)}
+.clx .top .brand{display:flex;align-items:baseline;gap:.7rem}
+.clx .top .brand b{font-weight:800;font-size:13px;letter-spacing:-.02em}
+.clx .top .brand s{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--c26);text-decoration:none;font-style:normal}
+.clx .top .live{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--c45)}
+.clx .top .live i{width:6px;height:6px;border-radius:50%;background:var(--az);animation:clx-blink 1.8s ease-out infinite}
+@keyframes clx-blink{0%{box-shadow:0 0 0 0 var(--azg)}100%{box-shadow:0 0 0 8px rgba(61,123,255,0)}}
+.clx .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line)}
+.clx .hero .lbl{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--az)}
+.clx .hero h1{font-size:clamp(2.3rem,9.4vw,3.4rem);font-weight:800;line-height:.98;letter-spacing:-.04em;margin-top:.7rem}
+.clx .hero h1 em{font-style:normal;color:var(--az)}
+.clx .hero p{font-size:.98rem;color:var(--c70);line-height:1.55;margin-top:1rem;max-width:42ch}
+.clx .hero p b{color:var(--c);font-weight:600}
+.clx .board{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.clx .bhead{display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.1rem;border-bottom:1px solid var(--line);background:rgba(234,237,242,.02)}
+.clx .bhead b{font-size:12px;font-weight:700;letter-spacing:.01em}
+.clx .bhead s{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--c45);font-style:normal;text-decoration:none}
+.clx .brow{display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.1rem;border-bottom:1px solid var(--line);opacity:0;transform:translateY(8px);transition:.55s var(--e)}
+.clx .brow:last-child{border-bottom:0}
+.clx .board.go .brow{opacity:1;transform:none}
+.clx .bch{font-family:var(--mono);font-size:13px;color:var(--c)}
+.clx .bv{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em;padding:5px 10px;border-radius:5px;white-space:nowrap}
+.clx .bv.on{color:var(--az);background:var(--azf);border:1px solid rgba(61,123,255,.4)}
+.clx .bv.off{color:var(--bad);background:rgba(229,86,59,.1);border:1px solid rgba(229,86,59,.32)}
+.clx .hero .team{margin-top:1.7rem}
+.clx .hero .team s{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--c45);font-style:normal;text-decoration:none}
+.clx .hero .team .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:.7rem}
+.clx .hero .team .row span{border:1px solid var(--line);padding:6px 10px;font-size:11px;color:var(--c70);border-radius:2px}
+.clx .shead{padding:1.7rem 20px .4rem;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--c45);display:flex;align-items:center;gap:.8rem}
+.clx .shead::after{content:'';flex:1;height:1px;background:var(--line)}
+.clx .phase{padding:1.8rem 20px 2rem;border-top:1px solid var(--line)}
+.clx .phase:first-of-type{border-top:0}
+.clx .phase .idx{display:flex;align-items:baseline;gap:.6rem}
+.clx .phase .idx b{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--az)}
+.clx .phase .idx s{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--c45);text-decoration:none}
+.clx .phase h2{font-size:clamp(2rem,8.2vw,2.6rem);font-weight:800;line-height:1;letter-spacing:-.035em;margin-top:1rem}
+.clx .phase h2 em{font-style:normal;color:var(--az)}
+.clx .phase .out{font-size:clamp(1.3rem,5.2vw,1.6rem);color:var(--c);margin-top:.9rem;line-height:1.2;font-weight:500}
+.clx .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--deep);position:relative;overflow:hidden;aspect-ratio:1/.78}
+.clx .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(234,237,242,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.clx .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.clx .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.02em;color:var(--az)}
+.clx .who::before{content:'';width:16px;height:1px;background:var(--az);opacity:.5}
+.clx .cap{margin-top:.7rem;font-size:.9rem;color:var(--c70);line-height:1.55}
+.clx .cap b{color:var(--c);font-weight:600}
+.clx .stat{margin-top:1.1rem;display:flex;align-items:baseline;gap:.7rem;padding-top:1rem;border-top:1px solid var(--line)}
+.clx .stat b{font-family:var(--mono);font-size:clamp(2.1rem,9.5vw,2.8rem);font-weight:700;letter-spacing:-.03em;line-height:.9}
+.clx .stat b em{font-style:normal;font-size:.5em;color:var(--az)}
+.clx .stat p{font-size:11.5px;color:var(--c45);line-height:1.35;max-width:25ch}
+.clx .bonus{margin:0 20px;padding:1.3rem 1.4rem;border:1px dashed var(--line);border-radius:10px;background:rgba(234,237,242,.02)}
+.clx .bonus s{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--c45);font-style:normal;text-decoration:none}
+.clx .bonus h4{font-size:1.15rem;font-weight:700;margin:.5rem 0 .5rem;letter-spacing:-.02em}
+.clx .bonus p{font-size:.88rem;color:var(--c70);line-height:1.55}
+.clx .bonus p b{color:var(--c);font-weight:600}
+.clx .end{padding:2.2rem 20px calc(2.4rem + env(safe-area-inset-bottom));border-top:1px solid var(--line);margin-top:1.7rem}
+.clx .end .big{font-size:clamp(2.6rem,11vw,3.7rem);font-weight:800;line-height:1;letter-spacing:-.04em}
+.clx .end .big span{color:var(--az)}
+.clx .end p{font-size:.95rem;color:var(--c70);line-height:1.6;max-width:44ch;margin-top:1rem}
+.clx .end p b{color:var(--c);font-weight:600}
+.clx .end a{display:block;margin-top:1.4rem;text-align:center;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--az);text-decoration:none;padding:1.15rem;border-radius:6px}
+.clx .end .foot{font-family:var(--mono);font-size:10.5px;color:var(--c26);letter-spacing:.04em;margin-top:1.4rem}
+.clx .wire{stroke:var(--c16);stroke-width:1.25;fill:none}
+.clx .node{fill:var(--c16)} .clx .nodeOn{fill:var(--az)} .clx .bad{fill:var(--bad)}
+.clx .ring{fill:none;stroke:var(--az);stroke-width:1.5}
+.clx .lab{font-family:'JetBrains Mono';font-weight:400;fill:var(--c70)}
+.clx .labA{font-family:'JetBrains Mono';font-weight:500;fill:var(--az)}
+.clx .labk{font-family:'JetBrains Mono';font-weight:700;fill:var(--ink)}
+.clx .glow{filter:drop-shadow(0 0 8px var(--azg))}
+.clx .draw{stroke-dasharray:var(--L,240);stroke-dashoffset:var(--L,240)}
+.clx .live .draw{animation:clx-draw 1.1s var(--e) forwards}
+@keyframes clx-draw{to{stroke-dashoffset:0}}
+.clx .pop{opacity:0;transform:scale(.4);transform-origin:center}
+.clx .live .pop{animation:clx-pop .5s var(--e) forwards}
+@keyframes clx-pop{to{opacity:1;transform:scale(1)}}
+.clx .up{opacity:0}
+.clx .live .up{animation:clx-up .6s var(--e) forwards}
+@keyframes clx-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.clx .grow{transform:scaleY(0);transform-origin:50% 100%}
+.clx .live .grow{animation:clx-grw .75s var(--e) forwards}
+@keyframes clx-grw{to{transform:scaleY(1)}}
+.clx .growd{transform:scaleY(0);transform-origin:50% 0}
+.clx .live .growd{animation:clx-grw .75s var(--e) forwards}
+@media(prefers-reduced-motion:reduce){.clx *{animation:none!important;transition-duration:.01ms!important}.clx .up,.clx .pop,.clx .brow{opacity:1;transform:none}.clx .draw{stroke-dashoffset:0}.clx .grow,.clx .growd{transform:none}}
+`;
 
-const SVG_CL_MATTERS = `<svg viewBox="0 0 400 264" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <text font-family="monospace" font-size="10.5" fill="rgba(234,237,242,.45)" text-anchor="middle" class="up" x="106" y="26" style="animation-delay:.2s">noise</text>
-  <text font-family="monospace" font-size="10.5" fill="#3D7BFF" text-anchor="middle" class="up" x="296" y="26" style="animation-delay:.6s">what matters</text>
-  <rect fill="none" stroke="${CL.c16}" stroke-width="1.25" rx="6" class="up" x="30" y="42" width="152" height="38" opacity=".38"/>
-  <text font-family="monospace" font-size="12.5" fill="rgba(234,237,242,.45)" opacity=".38" class="up" x="46" y="66">Likes</text>
-  <rect fill="none" stroke="${CL.c16}" stroke-width="1.25" rx="6" class="up" x="30" y="94" width="152" height="38" opacity=".38" style="animation-delay:.08s"/>
-  <text font-family="monospace" font-size="12.5" fill="rgba(234,237,242,.45)" opacity=".38" class="up" x="46" y="118" style="animation-delay:.08s">Impressions</text>
-  <rect fill="none" stroke="${CL.c16}" stroke-width="1.25" rx="6" class="up" x="30" y="146" width="152" height="38" opacity=".38" style="animation-delay:.16s"/>
-  <text font-family="monospace" font-size="12.5" fill="rgba(234,237,242,.45)" opacity=".38" class="up" x="46" y="170" style="animation-delay:.16s">Reach</text>
-  <rect fill="none" stroke="${CL.c16}" stroke-width="1.25" rx="6" class="up" x="30" y="198" width="152" height="38" opacity=".38" style="animation-delay:.24s"/>
-  <text font-family="monospace" font-size="12.5" fill="rgba(234,237,242,.45)" opacity=".38" class="up" x="46" y="222" style="animation-delay:.24s">Followers</text>
-  <rect fill="rgba(61,123,255,.1)" stroke="#3D7BFF" stroke-width="1.4" rx="6" class="up" x="218" y="42" width="152" height="38" style="animation-delay:.5s"/>
-  <text font-family="monospace" font-size="12.5" fill="#3D7BFF" class="up" x="234" y="66" style="animation-delay:.5s">Revenue</text>
-  <rect fill="rgba(61,123,255,.1)" stroke="#3D7BFF" stroke-width="1.4" rx="6" class="up" x="218" y="94" width="152" height="38" style="animation-delay:.6s"/>
-  <text font-family="monospace" font-size="12.5" fill="#3D7BFF" class="up" x="234" y="118" style="animation-delay:.6s">Cost / sale</text>
-  <rect fill="rgba(61,123,255,.1)" stroke="#3D7BFF" stroke-width="1.4" rx="6" class="up" x="218" y="146" width="152" height="38" style="animation-delay:.7s"/>
-  <text font-family="monospace" font-size="12.5" fill="#3D7BFF" class="up" x="234" y="170" style="animation-delay:.7s">Return</text>
-  <rect fill="rgba(61,123,255,.1)" stroke="#3D7BFF" stroke-width="1.4" rx="6" class="up" x="218" y="198" width="152" height="38" style="animation-delay:.8s"/>
-  <text font-family="monospace" font-size="12.5" fill="#3D7BFF" class="up" x="234" y="222" style="animation-delay:.8s">Repeat rate</text>
-</svg>`;
+const CL_INK = '#0B0D12';
+const CL_AZ = '#3D7BFF';
 
-const SVG_CL_CONNECT = `<svg viewBox="0 0 400 220" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <line stroke="${CL.c16}" stroke-width="1.25" class="draw" style="--L:110" x1="82" y1="112" x2="128" y2="112"/>
-  <line stroke="${CL.c16}" stroke-width="1.25" class="draw" style="--L:94;animation-delay:.2s" x1="188" y1="112" x2="220" y2="112"/>
-  <line stroke="${CL.c16}" stroke-width="1.25" class="draw" style="--L:94;animation-delay:.4s" x1="280" y1="112" x2="318" y2="112"/>
-  <circle fill="rgba(61,123,255,.1)" stroke="#3D7BFF" stroke-width="1.5" class="pop" cx="52" cy="112" r="30"/>
-  <text font-family="monospace" font-size="10" fill="#3D7BFF" text-anchor="middle" class="up" x="52" y="116" style="animation-delay:.1s">Spend</text>
-  <circle fill="none" stroke="${CL.c16}" stroke-width="1.25" class="pop" style="animation-delay:.15s" cx="158" cy="112" r="30"/>
-  <text font-family="monospace" font-size="10" fill="rgba(234,237,242,.72)" text-anchor="middle" class="up" x="158" y="116" style="animation-delay:.3s">Click</text>
-  <circle fill="none" stroke="${CL.c16}" stroke-width="1.25" class="pop" style="animation-delay:.3s" cx="250" cy="112" r="30"/>
-  <text font-family="monospace" font-size="10" fill="rgba(234,237,242,.72)" text-anchor="middle" class="up" x="250" y="116" style="animation-delay:.5s">Lead</text>
-  <circle fill="#3D7BFF" class="pop" style="animation-delay:.5s" cx="348" cy="112" r="30"/>
-  <text font-family="monospace" font-size="10" font-weight="700" fill="#0B0D12" text-anchor="middle" class="up" x="348" y="116" style="animation-delay:.7s">Sale</text>
-  <text font-family="monospace" font-size="9" fill="rgba(234,237,242,.45)" text-anchor="middle" class="up" x="52" y="78" style="animation-delay:.05s">€ in</text>
-  <text font-family="monospace" font-size="9" fill="#3D7BFF" text-anchor="middle" class="up" x="348" y="78" style="animation-delay:.6s">€ back</text>
-</svg>`;
+const CL_BOARD: [string, string, number][] = [
+  ['Instagram video', 'WORKING  \u2191', 1],
+  ['Google Search', 'WORKING  \u2191', 1],
+  ['Boosted posts', 'WASTING  \u2193', 0],
+  ['That cold campaign', 'WASTING  \u2193', 0],
+];
+const CL_TEAM = ['Analysts', 'Analytics engineers', 'Strategists', 'Your strategist'];
 
-const SVG_CL_SPLIT = `<svg viewBox="0 0 400 258" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <line stroke="${CL.c16}" stroke-width="1" x1="30" y1="140" x2="370" y2="140"/>
-  <text font-family="monospace" font-size="9" fill="rgba(234,237,242,.35)" text-anchor="middle" x="200" y="135">break-even</text>
-  <rect fill="#3D7BFF" rx="5" class="grow" x="50" y="60" width="42" height="80" style="animation-delay:0s"/>
-  <rect fill="#3D7BFF" rx="5" class="grow" x="108" y="76" width="42" height="64" style="animation-delay:.12s"/>
-  <rect fill="#3D7BFF" rx="5" class="grow" x="166" y="98" width="42" height="42" style="animation-delay:.24s"/>
-  <rect fill="rgba(229,86,59,.65)" rx="5" class="growd" x="224" y="140" width="42" height="32" style="animation-delay:.36s"/>
-  <rect fill="rgba(229,86,59,.65)" rx="5" class="growd" x="282" y="140" width="42" height="48" style="animation-delay:.48s"/>
-  <text font-family="monospace" font-size="9" fill="rgba(234,237,242,.55)" text-anchor="middle" class="up" x="71" y="56" style="animation-delay:.4s">↑</text>
-  <text font-family="monospace" font-size="9" fill="rgba(234,237,242,.55)" text-anchor="middle" class="up" x="129" y="72" style="animation-delay:.52s">↑</text>
-  <text font-family="monospace" font-size="9" fill="rgba(234,237,242,.55)" text-anchor="middle" class="up" x="187" y="94" style="animation-delay:.64s">↑</text>
-  <text font-family="monospace" font-size="9" fill="rgba(229,86,59,.8)" text-anchor="middle" class="up" x="245" y="184" style="animation-delay:.76s">↓</text>
-  <text font-family="monospace" font-size="9" fill="rgba(229,86,59,.8)" text-anchor="middle" class="up" x="303" y="200" style="animation-delay:.88s">↓</text>
-  <text font-family="monospace" font-size="9.5" fill="#3D7BFF" text-anchor="middle" class="up" x="129" y="226" style="animation-delay:.7s">winners</text>
-  <text font-family="monospace" font-size="9.5" fill="rgba(229,86,59,.8)" text-anchor="middle" class="up" x="265" y="226" style="animation-delay:.9s">cut these</text>
-</svg>`;
+const CL_PARTS = [
+  { n:'01', sp:'What matters', h:'We track what <em>matters.</em>', out:'Money metrics, not vanity.',
+    who:'Analysts',
+    cap:'Likes, impressions and reach feel good and pay nothing. We track the numbers that actually run your business \u2014 revenue, cost per customer, return, repeat rate \u2014 and quietly ignore the noise everyone else puts on the front page.',
+    stat:'3', statP:'numbers decide almost everything \u2014 we watch those, not the noise', viz:'matters' },
+  { n:'02', sp:'Spend to sales', h:'We connect spend to <em>sales.</em>', out:'Every euro, traced to what it made.',
+    who:'Analytics engineers',
+    cap:'The shop\u2019s boosted post, the clinic\u2019s Google spend, the restaurant\u2019s reel \u2014 we trace each one from the ad to the click to the lead to the sale. Not clicks; euros. You finally see which spend actually turned into money.',
+    stat:'100', statEm:'%', statP:'of your spend tied to the sales it truly drove', viz:'connect' },
+  { n:'03', sp:'Winners vs losers', h:'We split winners from <em>losers.</em>', out:'A clear verdict on every channel.',
+    who:'Strategists',
+    cap:'Once spend is tied to sales, the truth is obvious: a few things make most of the money, and some quietly bleed it. We scale the winners and cut the losers \u2014 no loyalty to a channel just because you\u2019ve always used it.',
+    stat:'80/20', statP:'of your return comes from a fraction of your spend \u2014 we find which', viz:'split' },
+  { n:'04', sp:'The one move', h:'We tell you the <em>one move.</em>', out:'The decision, not the dashboard.',
+    who:'Your strategist',
+    cap:'Every month you get a straight answer a busy owner can act on in a minute: do more of this, stop that, here\u2019s the single move that matters most. Not forty charts \u2014 one decision, with the proof behind it.',
+    stat:'1', statP:'clear move a month \u2014 what to do, backed by the numbers', viz:'decision' },
+] as const;
 
-const SVG_CL_DECISION = `<svg viewBox="0 0 400 228" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <rect fill="${CL.card}" stroke="${CL.c16}" stroke-width="1.25" rx="12" class="up" x="80" y="34" width="240" height="158" style="animation-delay:.1s"/>
-  <text font-family="monospace" font-size="9" fill="rgba(234,237,242,.45)" letter-spacing=".12em" text-anchor="middle" class="up" x="200" y="62" style="animation-delay:.3s">THIS MONTH</text>
-  <line stroke="${CL.c16}" stroke-width="1" class="draw" style="--L:240;animation-delay:.4s" x1="80" y1="72" x2="320" y2="72"/>
-  <circle fill="rgba(61,123,255,.15)" stroke="#3D7BFF" stroke-width="1.5" class="pop" cx="108" cy="104" r="14" style="animation-delay:.6s"/>
-  <text font-family="monospace" font-size="13" fill="#3D7BFF" text-anchor="middle" class="pop" x="108" y="109" style="animation-delay:.7s">✓</text>
-  <text font-family="monospace" font-size="11" fill="rgba(234,237,242,.85)" class="up" x="132" y="100" style="animation-delay:.75s">Do more</text>
-  <text font-family="monospace" font-size="10" fill="rgba(234,237,242,.55)" class="up" x="132" y="116" style="animation-delay:.8s">Instagram video</text>
-  <circle fill="rgba(229,86,59,.15)" stroke="#E5563B" stroke-width="1.5" class="pop" cx="108" cy="156" r="14" style="animation-delay:.8s"/>
-  <text font-family="monospace" font-size="13" fill="#E5563B" text-anchor="middle" class="pop" x="108" y="161" style="animation-delay:.9s">✕</text>
-  <text font-family="monospace" font-size="11" fill="rgba(234,237,242,.85)" class="up" x="132" y="152" style="animation-delay:.95s">Stop</text>
-  <text font-family="monospace" font-size="10" fill="rgba(234,237,242,.55)" class="up" x="132" y="168" style="animation-delay:1s">Boosted posts</text>
-</svg>`;
+const CL_VIZ: Record<string, () => string> = {
+  matters() {
+    const vain=['Likes','Impressions','Reach','Followers'],money=['Revenue','Cost / sale','Return','Repeat rate'];let s='';
+    s+='<text class="lab up" x="106" y="26" font-size="10.5" text-anchor="middle" opacity=".4" style="animation-delay:.2s">noise</text>'+
+       '<text class="labA up" x="296" y="26" font-size="10.5" text-anchor="middle" style="animation-delay:.6s">what matters</text>';
+    vain.forEach((t,i)=>{const y=42+i*52;
+      s+=`<rect class="wire up" x="30" y="${y}" width="152" height="38" rx="6" opacity=".38" style="animation-delay:${i*.08}s"/>`+
+         `<text class="lab up" x="46" y="${y+24}" font-size="12.5" opacity=".38" style="animation-delay:${i*.08}s">${t}</text>`;});
+    money.forEach((t,i)=>{const y=42+i*52;
+      s+=`<rect class="up" x="218" y="${y}" width="152" height="38" rx="6" fill="rgba(61,123,255,.1)" stroke="${CL_AZ}" stroke-width="1.4" style="animation-delay:${.5+i*.1}s"/>`+
+         `<text class="labA up" x="234" y="${y+24}" font-size="12.5" style="animation-delay:${.5+i*.1}s">${t}</text>`;});
+    return `<svg viewBox="0 0 400 264">${s}</svg>`;
+  },
+  connect() {
+    const st=[{x:52,l:'Spend'},{x:158,l:'Click'},{x:250,l:'Lead'},{x:348,l:'Sale'}],y=112;let s='';
+    for(let i=0;i<st.length-1;i++){s+=`<path class="wire draw glow" style="--L:70;animation-delay:${i*.3}s" d="M${st[i].x+28},${y} L${st[i+1].x-28},${y}"/>`;}
+    st.forEach((n,i)=>{const end=i===st.length-1;
+      s+=`<circle class="${end?'nodeOn glow':'ring glow'} pop" cx="${n.x}" cy="${y}" r="25" style="animation-delay:${i*.25}s"/>`+
+         `<text class="${end?'labk':'lab'} pop" x="${n.x}" y="${y+4}" font-size="10" font-weight="700" text-anchor="middle" style="animation-delay:${i*.25+.1}s">${n.l}</text>`;});
+    s+=`<text class="labA up" x="52" y="${y+50}" font-size="12.5" text-anchor="middle" style="animation-delay:.2s">\u20ac in</text>`+
+       `<text class="labA up" x="348" y="${y+50}" font-size="12.5" text-anchor="middle" style="animation-delay:1.1s">\u20ac out</text>`+
+       `<text class="lab up" x="200" y="${y-44}" font-size="10.5" text-anchor="middle" opacity=".5" style="animation-delay:.4s">every euro, traced end to end</text>`;
+    return `<svg viewBox="0 0 400 220">${s}</svg>`;
+  },
+  split() {
+    const bars=[80,64,42,-32,-48],on=[1,1,1,0,0],mid=140,x0=58,bw=44,gap=24;let s='';
+    s+=`<line class="wire" x1="30" y1="${mid}" x2="370" y2="${mid}" stroke-dasharray="4 4"/>`+
+       `<text class="lab" x="34" y="${mid-7}" font-size="9.5" opacity=".5">break-even</text>`;
+    bars.forEach((hh,i)=>{const x=x0+i*(bw+gap),h=Math.abs(hh),up=hh>0,y=up?mid-h:mid;
+      s+=`<rect class="${on[i]?'nodeOn glow':'bad'} ${up?'grow':'growd'}" x="${x}" y="${y}" width="${bw}" height="${h}" rx="4" style="animation-delay:${i*.12}s"/>`;});
+    s+=`<text class="labA up" x="102" y="${mid-98}" font-size="10.5" text-anchor="middle" style="animation-delay:.6s">scale these</text>`+
+       `<text class="lab up" x="320" y="${mid+66}" font-size="10.5" text-anchor="middle" opacity=".6" style="animation-delay:.8s">cut these</text>`;
+    return `<svg viewBox="0 0 400 258">${s}</svg>`;
+  },
+  decision() {
+    const s='<rect class="ring glow up" x="38" y="38" width="324" height="150" rx="14" style="animation-delay:.1s"/>'+
+      '<text class="lab up" x="62" y="74" font-size="10" letter-spacing="2.5" style="animation-delay:.2s">THIS MONTH</text>'+
+      '<circle class="nodeOn glow pop" cx="74" cy="108" r="11" style="animation-delay:.5s"/>'+
+      `<path class="draw" style="--L:22;animation-delay:.85s" d="M69,108 l4,5 l9,-10" stroke="${CL_INK}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`+
+      '<text class="labA up" x="96" y="113" font-size="14" font-weight="700" style="animation-delay:.6s">Do more: Instagram video</text>'+
+      '<circle class="bad pop" cx="74" cy="152" r="11" style="animation-delay:.95s"/>'+
+      `<path class="pop" style="animation-delay:1.15s" d="M69,147 l10,10 m0,-10 l-10,10" stroke="${CL_INK}" stroke-width="2.2" stroke-linecap="round"/>`+
+      '<text class="lab up" x="96" y="157" font-size="14" style="animation-delay:1.05s">Stop: boosted posts</text>';
+    return `<svg viewBox="0 0 400 228">${s}</svg>`;
+  },
+};
 
 function ClarityContent({ onClose }: { onClose: () => void }) {
   const wrapRef = useRef<HTMLDivElement>(null);
+  const boardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const lid = 'cl-modal-fonts';
-    if (!document.getElementById(lid)) {
-      const l = document.createElement('link');
-      l.id = lid; l.rel = 'stylesheet';
-      l.href = 'https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap';
-      document.head.appendChild(l);
-    }
-    const sid = 'cl-modal-css';
-    if (!document.getElementById(sid)) {
+    const id = 'clx-modal-css';
+    if (!document.getElementById(id)) {
       const s = document.createElement('style');
-      s.id = sid;
-      s.textContent = `.cl-wrap h1,.cl-wrap h2,.cl-wrap h3,.cl-wrap h4,.cl-wrap p{font-family:'Sora',sans-serif!important}`;
+      s.id = id; s.textContent = CL_CSS;
       document.head.appendChild(s);
     }
   }, []);
 
-  const faqs = [
-    { q: "What does Clarity actually deliver?", a: "We track the numbers that connect your spend to sales, run regular A/B split tests, and give you a monthly verdict card: which channels to do more of, and which to cut — in plain English, not a dashboard you have to decode." },
-    { q: "How is this different from Google Analytics?", a: "Analytics tells you what happened. Clarity tells you what to do about it — and, critically, what to stop spending money on. We connect the spend to the sale, which most analytics tools don't do out of the box." },
-    { q: "How long before we see results?", a: "The first verdict card comes in your first month. From there, each month builds a clearer picture. Most clients see measurable lift in return within two to three months of acting on the decisions." },
-    { q: "Are you an AI company?", a: "No. Real analysts read your numbers, connect spend to sales, and make the calls. A small tool that surfaces anomalies early is included as a bonus — not the main thing." },
-  ];
+  // hero board reveal
+  useEffect(() => {
+    const b = boardRef.current; if (!b) return;
+    const id = requestAnimationFrame(() => b.classList.add('go'));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  // scroll-triggered viz animations
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('live'); io.unobserve(e.target); } }),
+      { threshold: 0.3 }
+    );
+    wrapRef.current?.querySelectorAll('.clx .viz').forEach(v => io.observe(v));
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div className="cl-wrap" ref={wrapRef} style={{ background: CL.bg, color: CL.c }}>
-      {/* hero */}
-      <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${CL.line}` }}>
-        <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
-          fontSize: "clamp(2.4rem,10vw,3.8rem)", lineHeight: .9, letterSpacing: "-.05em",
-          textTransform: "uppercase", color: CL.c, marginBottom: "1rem" }}>
-          We tell you what's<br />
-          <em style={{ fontFamily: "var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle: "italic", fontWeight: 400, textTransform: "none", letterSpacing: 0,
-            color: CL.az, fontSize: "1.04em" }}>working.</em>
-        </h1>
-        <p style={{ fontSize: ".98rem", color: CL.dim, lineHeight: 1.6, maxWidth: "44ch" }}>
-          We track what your money is actually doing — connect spend to sales, run split tests,
-          and give you one simple verdict every month:{" "}
-          <strong style={{ color: CL.c }}>do more of this, stop spending on that.</strong>
-        </p>
-        {/* verdict board hero */}
-        <div style={{ marginTop: "1.8rem", background: CL.card, borderRadius: 12,
-          border: `1px solid ${CL.line}`, padding: "1.2rem 1rem", overflow: "hidden" }}>
-          <p style={{ fontFamily: "monospace", fontSize: 9, letterSpacing: ".16em",
-            color: CL.c45, textTransform: "uppercase", marginBottom: ".9rem" }}>This month's verdict</p>
-          {[
-            { ch:"Instagram video", st:"WORKING", up:true },
-            { ch:"Google Search", st:"WORKING", up:true },
-            { ch:"Boosted posts", st:"WASTING", up:false },
-            { ch:"Cold campaign", st:"WASTING", up:false },
-          ].map((row, i) => (
-            <Reveal key={i}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center",
-                borderTop: i > 0 ? `1px solid ${CL.line}` : "none", padding: ".7rem 0" }}>
-                <span style={{ fontFamily: "monospace", fontSize: 12, color: CL.dim }}>{row.ch}</span>
-                <span style={{ fontFamily: "monospace", fontSize: 10, fontWeight: 700,
-                  letterSpacing: ".1em", color: row.up ? CL.az : CL.bad,
-                  background: row.up ? "rgba(61,123,255,.1)" : "rgba(229,86,59,.1)",
-                  border: `1px solid ${row.up ? CL.az : CL.bad}`,
-                  padding: "4px 10px", borderRadius: 4 }}>
-                  {row.up ? "▲ " : "▼ "}{row.st}
-                </span>
-              </div>
-            </Reveal>
+    <div className="clx" ref={wrapRef}>
+      <div className="top">
+        <span className="brand"><b>OARC</b><s>Measurement</s></span>
+        <span className="live"><i />The answer</span>
+      </div>
+
+      <div className="hero">
+        <p className="lbl">Tell me what&apos;s working</p>
+        <h1>We tell you what&apos;s<br /><em>actually working.</em></h1>
+        <p>Not a dashboard full of numbers you&apos;ll never read — one straight answer: what&apos;s making you money, what&apos;s wasting it, and what to do next. <b>Everyone hands you data. We hand you the decision.</b></p>
+
+        <div className="board" ref={boardRef}>
+          <div className="bhead"><b>What&apos;s working</b><s>this month</s></div>
+          {CL_BOARD.map(([ch, v, on], i) => (
+            <div key={i} className="brow" style={{ transitionDelay: `${.15+i*.13}s` }}>
+              <span className="bch">{ch}</span>
+              <span className={`bv ${on ? 'on' : 'off'}`}>{v}</span>
+            </div>
           ))}
         </div>
+
+        <div className="team">
+          <s>The people on it</s>
+          <div className="row">{CL_TEAM.map(t => <span key={t}>{t}</span>)}</div>
+        </div>
       </div>
-      {/* phases */}
-      <div style={{ padding: "1.6rem 20px 0" }}><Kicker label="How clarity works" color={CL.az} /></div>
-      {[
-        { n:"01", sp:"What matters", h:"We track what <em>matters</em>.", stat:"5×", statD:"the gap between your best and worst channel — we find it",
-          cap:"Likes and reach are noise. Revenue per euro, cost per sale, return rate, repeat customer rate — these are the numbers that tell you whether your business is growing. We track those, and only those.",
-          svg: SVG_CL_MATTERS, svgCap:"Noise on the left. The numbers that make decisions on the right." },
-        { n:"02", sp:"Spend to sales", h:"We connect spend to <em>sales</em>.", stat:"1", statD:"number that matters: revenue back per euro spent — and you can check it",
-          cap:"Most reporting stops at clicks. We connect the full path — spend to click to lead to sale — so you know exactly what each euro is returning, not just where it went.",
-          svg: SVG_CL_CONNECT, svgCap:"Every step from spend to sale, tracked in one chain." },
-        { n:"03", sp:"Winners vs losers", h:"We split the winners from the <em>losers</em>.", stat:"1 in 10", statD:"ads ever scale — we find it fast, before the budget's gone",
-          cap:"We run A/B tests on channels, creatives and messages — small, cheap, fast. The winners get more money. The losers get cut. That loop, run every month, is what keeps return climbing.",
-          svg: SVG_CL_SPLIT, svgCap:"Winners get more budget. Losers get cut. The gap widens every month." },
-        { n:"04", sp:"The one move", h:"We tell you the <em>one move</em>.", stat:"Monthly", statD:"verdict card: one thing to do more, one thing to stop",
-          cap:"Every month you get a plain-English verdict card — not a 40-page report, not a login to a dashboard. One clear call: do more of this, stop spending on that. That's the whole job.",
-          svg: SVG_CL_DECISION, svgCap:"One call, every month. No dashboard to decode." },
-      ].map((p, i) => (
-        <Reveal key={i}>
-          <div style={{ padding: "1.8rem 20px 2rem", borderTop: `1px solid ${CL.line}` }}>
-            <div style={{ display: "flex", alignItems: "baseline", gap: ".6rem", marginBottom: ".9rem" }}>
-              <span style={{ fontFamily: "monospace", fontSize: 11, color: CL.az }}>{p.n}</span>
-              <span style={{ fontFamily: "monospace", fontSize: 9, letterSpacing: ".16em",
-                textTransform: "uppercase" as const, color: CL.c45 }}>{p.sp}</span>
+
+      <div className="shead">From noise to the answer</div>
+      <div>
+        {CL_PARTS.map((p, i) => (
+          <section key={i} className="phase">
+            <div className="idx"><b>{p.n}</b><s>{p.sp}</s></div>
+            <h2 dangerouslySetInnerHTML={{ __html: p.h }} />
+            <p className="out">{p.out}</p>
+            <div className="viz" dangerouslySetInnerHTML={{ __html: CL_VIZ[p.viz]() }} />
+            <p className="who">{p.who}</p>
+            <p className="cap">{p.cap}</p>
+            <div className="stat">
+              <b dangerouslySetInnerHTML={{ __html: p.stat + ((p as {statEm?:string}).statEm ? `<em>${(p as {statEm?:string}).statEm}</em>` : '') }} />
+              <p>{p.statP}</p>
             </div>
-            <h2 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 700,
-              fontSize: "clamp(1.8rem,7vw,2.4rem)", lineHeight: 1.02, letterSpacing: "-.03em",
-              color: CL.c, marginBottom: ".9rem" }}
-              dangerouslySetInnerHTML={{ __html: p.h.replace(/<em>/g,
-                `<em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:${CL.az}">`) }} />
-            <p style={{ fontSize: ".92rem", color: CL.dim, lineHeight: 1.62, maxWidth: "52ch" }}>{p.cap}</p>
-            <VizBox svg={p.svg} bg={CL.card} brd={CL.line} />
-            <p style={{ fontFamily: "monospace", fontSize: 10, color: CL.c45, marginTop: ".7rem" }}>{p.svgCap}</p>
-            <div style={{ display: "flex", alignItems: "baseline", gap: ".7rem",
-              borderTop: `1px solid ${CL.line}`, marginTop: "1rem", paddingTop: "1rem" }}>
-              <span style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)",
-                fontWeight: 800, fontSize: "clamp(2rem,7vw,2.6rem)", color: CL.az,
-                letterSpacing: "-.04em", lineHeight: .85 }}>{p.stat}</span>
-              <span style={{ fontSize: 11, color: CL.c45, lineHeight: 1.4, maxWidth: "28ch" }}>{p.statD}</span>
-            </div>
-          </div>
-        </Reveal>
-      ))}
-      <FAQ items={faqs} bg={CL.bg} border={CL.line} head={CL.c} body={CL.dim} />
-      <CTA big={<>Clarity that drives<br /><CtaItalic>real decisions.</CtaItalic></>}
-        sub="We track what matters, connect spend to sales, split winners from losers, and give you one plain-English verdict every month."
-        btn="See what your numbers say" onClose={onClose} />
+          </section>
+        ))}
+      </div>
+
+      <div className="bonus">
+        <s>Bonus, included</s>
+        <h4>Oh — and a little tool, on us.</h4>
+        <p>A small tool that watches your numbers and pings the team the moment one moves sharply — up or down — so nothing surprises you late. <b>Nice to have, not the main event.</b> The reading and the call are done by the people above.</p>
+      </div>
+
+      <div className="end">
+        <div className="big">Stop guessing.<br /><span>Know.</span></div>
+        <p>No more dashboards you don&apos;t read. Every euro traced to what it made, every channel judged, and one straight answer each month: what&apos;s working, what&apos;s not, and the single move to make next. <b>Decisions with proof, not hope.</b></p>
+        <a href="/contact" onClick={onClose}>Get the straight answer →</a>
+        <p className="foot">OARC — one team for the whole business. Malta.</p>
+      </div>
     </div>
   );
 }
@@ -2140,1046 +2202,1207 @@ function AIStaffContent({ onClose }: { onClose: () => void }) {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
-// CREATIVE CONTENT  — "Make us worth more" — racing-ground green palette
-// Faithful port of make_su_look_like_a_billion_-_creat prototype
-// Colour swap: gold (#D9B26A) → mint (#8FD6AE), bg (#100E0A) → #0E5A3A
+// CREATIVE CONTENT — exact prototype port, gold/dark world
+// src: make_su_look_like_a_billion_-_creat_1786497975381.txt
 // ────────────────────────────────────────────────────────────────────────────
 const CR_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
 .cr{
-  --bg:#0E5A3A;--bone:#F2EFE9;--mint:#8FD6AE;--mintd:#1A6B42;
-  --b72:rgba(14,90,58,.72);--b50:rgba(14,90,58,.5);--b32:rgba(14,90,58,.32);
-  --b18:rgba(14,90,58,.14);--b10:rgba(14,90,58,.08);
-  --g72:rgba(242,239,233,.72);--g50:rgba(242,239,233,.5);
-  --g18:rgba(242,239,233,.18);--g10:rgba(242,239,233,.1);
+  --bg:#100E0A;--bg2:#171410;--bone:#F2ECDD;--gold:#D9B26A;--goldd:#B98F3E;
+  --b72:rgba(242,236,221,.72);--b50:rgba(242,236,221,.5);--b32:rgba(242,236,221,.32);
+  --b18:rgba(242,236,221,.18);--b10:rgba(242,236,221,.1);
   --ui:'Space Grotesk',sans-serif;--serif:'Fraunces',serif;
   --e:cubic-bezier(.16,1,.3,1);
-  background:var(--bone);color:#0E5A3A;font-family:var(--ui);
+  background:var(--bg);color:var(--bone);font-family:var(--ui);
   -webkit-font-smoothing:antialiased;overflow-x:hidden}
-
-.cr .wrap{max-width:960px;margin:0 auto;padding:0 20px}
-
-/* ── HERO (green band) ── */
-.cr .hero{background:#0E5A3A;color:var(--bone);padding:2.4rem 0 2.8rem}
-.cr .kick{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--mint);border:1px solid var(--g18);padding:.42rem .8rem;border-radius:30px}
-.cr .hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.9rem,12vw,6.2rem);line-height:.92;
-  letter-spacing:-.03em;margin-top:1.3rem}
-.cr .hero h1 em{font-style:italic;font-weight:400;color:var(--mint)}
-.cr .hero .sub{font-size:clamp(1.06rem,1.9vw,1.3rem);color:var(--g72);line-height:1.55;margin-top:1.4rem;max-width:46ch}
+.cr *{margin:0;padding:0;box-sizing:border-box}
+.cr .wrap{max-width:960px;margin:0 auto;padding:0 22px}
+.cr .bar{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;max-width:960px;margin:0 auto}
+.cr .bar .b{font-weight:700;font-size:14px;letter-spacing:-.02em}
+.cr .bar .s{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--b50)}
+.cr .hero{padding:2.4rem 0 2.8rem}
+.cr .kick{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);border:1px solid var(--b18);padding:.42rem .8rem;border-radius:30px}
+.cr .hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.9rem,12vw,6.2rem);line-height:.92;letter-spacing:-.03em;margin-top:1.3rem}
+.cr .hero h1 em{font-style:italic;font-weight:400;color:var(--gold)}
+.cr .hero .sub{font-size:clamp(1.06rem,1.9vw,1.3rem);color:var(--b72);line-height:1.55;margin-top:1.4rem;max-width:46ch}
 .cr .stats{display:flex;flex-wrap:wrap;gap:1.6rem 2.4rem;margin-top:2.2rem}
-.cr .stats .st b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(2.3rem,7.5vw,3.2rem);
-  letter-spacing:-.02em;line-height:.85}
-.cr .stats .st b em{font-style:italic;color:var(--mint)}
-.cr .stats .st p{font-size:11.5px;color:var(--g50);line-height:1.4;margin-top:.55rem;max-width:18ch}
-
-/* ── THESIS (ivory band) ── */
+.cr .stats .st b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(2.3rem,7.5vw,3.2rem);letter-spacing:-.02em;line-height:.85}
+.cr .stats .st b em{font-style:italic;color:var(--gold)}
+.cr .stats .st p{font-size:11.5px;color:var(--b50);line-height:1.4;margin-top:.55rem;max-width:18ch}
 .cr .thesis{border-top:1px solid var(--b18);border-bottom:1px solid var(--b18);padding:2.4rem 0;margin:.6rem 0 0}
-.cr .thesis .lead{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mint);margin-bottom:1rem}
-.cr .thesis h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,5.6vw,2.9rem);line-height:1.08;letter-spacing:-.02em;max-width:18ch;color:#0E5A3A}
-.cr .thesis h2 em{font-style:italic;color:var(--mint)}
+.cr .thesis .lead{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.cr .thesis h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,5.6vw,2.9rem);line-height:1.08;letter-spacing:-.02em;max-width:18ch}
+.cr .thesis h2 em{font-style:italic;color:var(--gold)}
 .cr .thesis p{font-size:1rem;color:var(--b72);line-height:1.62;margin-top:1.2rem;max-width:54ch}
-
-/* ── MECHANISM (green band) ── */
-.cr .mech{background:#0E5A3A;color:var(--bone);padding:2.6rem 0}
-.cr .eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--g50);margin-bottom:.5rem}
+.cr .mech{padding:2.6rem 0}
+.cr .eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--b50);margin-bottom:.5rem}
 .cr .rt{font-family:var(--serif);font-weight:300;font-size:clamp(1.7rem,5.2vw,2.5rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:1.6rem}
-.cr .rt em{font-style:italic;color:var(--mint)}
+.cr .rt em{font-style:italic;color:var(--gold)}
 .cr .stage{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
-.cr .spec{background:#fff;border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:1rem .9rem 1.1rem;color:#0E5A3A}
+.cr .spec{background:var(--bg2);border:1px solid var(--b10);border-radius:14px;padding:1rem .9rem 1.1rem}
 .cr .spec .plate{height:96px;border-radius:9px;margin-bottom:.9rem;position:relative;overflow:hidden}
-.cr .plate-plain{background:rgba(143,214,174,.22);display:flex;align-items:center;justify-content:center}
-.cr .plate-plain::after{content:'YOUR BRAND';font-family:var(--ui);font-size:10px;letter-spacing:.15em;color:rgba(14,90,58,.4);font-weight:600}
-.cr .plate-craft{background:linear-gradient(150deg,#164a30,#0a2d1c);display:flex;align-items:center;justify-content:center;border:1px solid rgba(143,214,174,.3)}
-.cr .plate-craft .mono{font-family:var(--serif);font-style:italic;font-size:2rem;color:var(--mint)}
-.cr .plate-craft::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(143,214,174,.22),transparent);transform:translateX(-100%);animation:cr-sweep 3s var(--e) infinite}
+.cr .plate-plain{background:#26241d;display:flex;align-items:center;justify-content:center}
+.cr .plate-plain::after{content:'YOUR BRAND';font-family:var(--ui);font-size:10px;letter-spacing:.15em;color:var(--b32);font-weight:600}
+.cr .plate-craft{background:linear-gradient(150deg,#3a2f16,#1c1810);display:flex;align-items:center;justify-content:center;border:1px solid rgba(217,178,106,.3)}
+.cr .plate-craft .mono{font-family:var(--serif);font-style:italic;font-size:2rem;color:var(--gold)}
+.cr .plate-craft::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(217,178,106,.22),transparent);transform:translateX(-100%);animation:cr-sweep 3s var(--e) infinite}
 @keyframes cr-sweep{to{transform:translateX(100%)}}
-.cr .spec .lbl{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(14,90,58,.55)}
-.cr .spec.after .lbl{color:var(--mint)}
-.cr .spec .val{font-family:var(--serif);font-size:2.1rem;font-weight:400;line-height:1;margin:.5rem 0 .15rem;font-variant-numeric:tabular-nums;color:#0E5A3A}
-.cr .spec.after .val{color:var(--mint)}
-.cr .spec .vl{font-size:10px;color:rgba(14,90,58,.45);margin-bottom:.6rem;height:1.1rem}
-.cr .meter{height:6px;border-radius:6px;background:rgba(14,90,58,.12);overflow:hidden}
+.cr .spec .lbl{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--b50)}
+.cr .spec.after .lbl{color:var(--gold)}
+.cr .spec .val{font-family:var(--serif);font-size:2.1rem;font-weight:400;line-height:1;margin:.5rem 0 .15rem;font-variant-numeric:tabular-nums}
+.cr .spec.after .val{color:var(--gold)}
+.cr .spec .vl{font-size:10px;color:var(--b50);margin-bottom:.6rem;height:1.1rem}
+.cr .meter{height:6px;border-radius:6px;background:var(--b10);overflow:hidden}
 .cr .meter .fill{height:100%;width:0;border-radius:6px;transition:width 1.2s var(--e)}
-.cr .spec.before .fill{background:rgba(14,90,58,.3)}
-.cr .spec.after .fill{background:var(--mint)}
-.cr .mcap{font-size:12px;color:var(--g50);line-height:1.5;margin-top:1.2rem;max-width:52ch}
-.cr .mcap b{color:var(--mint);font-weight:600}
-
-/* ── THE WORK (ivory band) ── */
+.cr .spec.before .fill{background:var(--b32)}
+.cr .spec.after .fill{background:var(--gold)}
+.cr .mcap{font-size:12px;color:var(--b50);line-height:1.5;margin-top:1.2rem;max-width:52ch}
+.cr .mcap b{color:var(--gold);font-weight:600}
 .cr .work-sec{padding:1.4rem 0}
 .cr .roof{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--b50);margin-bottom:.5rem}
-.cr .rooftitle{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,5vw,2.3rem);letter-spacing:-.02em;line-height:1.1;max-width:22ch;margin-bottom:1.8rem;color:#0E5A3A}
-.cr .rooftitle em{font-style:italic;color:var(--mint)}
+.cr .rooftitle{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,5vw,2.3rem);letter-spacing:-.02em;line-height:1.1;max-width:22ch;margin-bottom:1.8rem}
+.cr .rooftitle em{font-style:italic;color:var(--gold)}
 .cr .work{border-top:1px solid var(--b18);padding:2rem 0}
-.cr .art{height:168px;border-radius:13px;position:relative;overflow:hidden;margin-bottom:1.2rem;
-  background:linear-gradient(160deg,#164a30,#0a2d1c);border:1px solid rgba(14,90,58,.1);
-  display:flex;align-items:center;justify-content:center}
-.cr .art .ast{font-family:var(--serif);font-style:italic;font-size:5rem;color:var(--mint);line-height:1}
+.cr .art{height:168px;border-radius:13px;position:relative;overflow:hidden;margin-bottom:1.2rem;background:linear-gradient(160deg,#1b1810,#121009);border:1px solid var(--b10);display:flex;align-items:center;justify-content:center}
+.cr .art .ast{font-family:var(--serif);font-style:italic;font-size:5rem;color:var(--gold);line-height:1}
 .cr .art .aa{font-family:var(--serif);font-size:4.4rem;color:var(--bone);letter-spacing:-.02em}
-.cr .art.identity{background-image:radial-gradient(rgba(242,239,233,.18) 1.2px,transparent 1.2px);background-size:17px 17px;background-color:#0a2d1c}
-/* reel */
-.cr .reel{width:66px;height:106px;border-radius:13px;border:1.5px solid var(--mint);position:relative;
-  background:rgba(143,214,174,.06);display:flex;align-items:center;justify-content:center}
-.cr .reel .rp{width:0;height:0;border-left:20px solid var(--mint);border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:4px}
-.cr .reel::before{content:'';position:absolute;top:11px;left:11px;right:11px;height:4px;border-radius:3px;background:rgba(242,239,233,.18)}
-.cr .reel::after{content:'';position:absolute;bottom:13px;left:11px;width:32px;height:4px;border-radius:3px;background:rgba(242,239,233,.18)}
-/* film */
-.cr .play{width:0;height:0;border-left:36px solid var(--mint);border-top:23px solid transparent;border-bottom:23px solid transparent}
+.cr .art.identity{background-image:radial-gradient(var(--b18) 1.2px,transparent 1.2px);background-size:17px 17px;background-color:#121009}
+.cr .reel{width:66px;height:106px;border-radius:13px;border:1.5px solid var(--gold);position:relative;background:rgba(217,178,106,.06);display:flex;align-items:center;justify-content:center}
+.cr .reel .rp{width:0;height:0;border-left:20px solid var(--gold);border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:4px}
+.cr .reel::before{content:'';position:absolute;top:11px;left:11px;right:11px;height:4px;border-radius:3px;background:var(--b18)}
+.cr .reel::after{content:'';position:absolute;bottom:13px;left:11px;width:32px;height:4px;border-radius:3px;background:var(--b18)}
+.cr .play{width:0;height:0;border-left:36px solid var(--gold);border-top:23px solid transparent;border-bottom:23px solid transparent}
 .cr .eq{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;gap:6px;align-items:flex-end;height:34px}
-.cr .eq b{width:5px;background:var(--mint);border-radius:2px;height:10px;animation:cr-eq 1.1s var(--e) infinite}
-.cr .eq b:nth-child(2){animation-delay:.15s}
-.cr .eq b:nth-child(3){animation-delay:.3s}
-.cr .eq b:nth-child(4){animation-delay:.45s}
-.cr .eq b:nth-child(5){animation-delay:.6s}
+.cr .eq b{width:5px;background:var(--gold);border-radius:2px;height:10px;animation:cr-eq 1.1s var(--e) infinite}
+.cr .eq b:nth-child(2){animation-delay:.15s}.cr .eq b:nth-child(3){animation-delay:.3s}
+.cr .eq b:nth-child(4){animation-delay:.45s}.cr .eq b:nth-child(5){animation-delay:.6s}
 @keyframes cr-eq{0%,100%{height:9px}50%{height:31px}}
-/* A/B ads */
 .cr .ab{display:flex;gap:14px;align-items:center}
-.cr .abx{width:60px;height:70px;border-radius:11px;border:1.5px solid rgba(242,239,233,.18);display:flex;align-items:center;justify-content:center;
-  font-family:var(--serif);font-size:1.7rem;color:rgba(242,239,233,.5);position:relative}
-.cr .abx.win{border-color:var(--mint);color:var(--mint);background:rgba(143,214,174,.1)}
-.cr .abx.win::after{content:'✓';position:absolute;top:-9px;right:-9px;width:22px;height:22px;border-radius:50%;
-  background:var(--mint);color:#0E5A3A;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:var(--ui);font-weight:700}
-/* ai grid */
+.cr .abx{width:60px;height:70px;border-radius:11px;border:1.5px solid var(--b18);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.7rem;color:var(--b50);position:relative}
+.cr .abx.win{border-color:var(--gold);color:var(--gold);background:rgba(217,178,106,.1)}
+.cr .abx.win::after{content:'\\2713';position:absolute;top:-9px;right:-9px;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#100E0A;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:var(--ui);font-weight:700}
 .cr .dgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;width:138px}
-.cr .dgrid i{width:13px;height:13px;border-radius:3px;background:rgba(242,239,233,.18)}
-.cr .dgrid i.on{background:var(--mint)}
-.cr .art.ai::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(143,214,174,.28),transparent);transform:translateX(-100%);animation:cr-sweep 2.8s var(--e) infinite}
-
-.cr .work .tag{font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--mint);
-  border:1px solid var(--b18);border-radius:20px;padding:.32rem .7rem;display:inline-block}
-.cr .work h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,5.6vw,2.5rem);letter-spacing:-.02em;line-height:1.02;margin-top:.9rem;color:#0E5A3A}
-.cr .work h3 em{font-style:italic;color:var(--mint)}
+.cr .dgrid i{width:13px;height:13px;border-radius:3px;background:var(--b18)}
+.cr .dgrid i.on{background:var(--gold)}
+.cr .art.ai::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(217,178,106,.28),transparent);transform:translateX(-100%);animation:cr-sweep 2.8s var(--e) infinite}
+.cr .work .tag{font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);border:1px solid var(--b18);border-radius:20px;padding:.32rem .7rem;display:inline-block}
+.cr .work h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,5.6vw,2.5rem);letter-spacing:-.02em;line-height:1.02;margin-top:.9rem}
+.cr .work h3 em{font-style:italic;color:var(--gold)}
 .cr .work .role{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--b50);margin-top:.8rem}
 .cr .work .body{font-size:1rem;color:var(--b72);line-height:1.62;margin-top:.7rem;max-width:56ch}
 .cr .work .deliv{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem}
-.cr .work .deliv span{font-size:11.5px;font-weight:500;color:#0E5A3A;background:rgba(14,90,58,.08);border-radius:5px;padding:.44rem .74rem}
-.cr .work .pf{margin-top:1.35rem;display:flex;align-items:baseline;gap:.75rem;border-left:2px solid var(--mint);padding-left:.95rem}
-.cr .work .pf b{font-family:var(--serif);font-size:clamp(2rem,7vw,2.7rem);font-weight:400;line-height:.8;color:#0E5A3A}
-.cr .work .pf b em{font-style:italic;color:var(--mint);font-size:.5em}
+.cr .work .deliv span{font-size:11.5px;font-weight:500;color:var(--bone);background:var(--b10);border-radius:5px;padding:.44rem .74rem}
+.cr .work .pf{margin-top:1.35rem;display:flex;align-items:baseline;gap:.75rem;border-left:2px solid var(--gold);padding-left:.95rem}
+.cr .work .pf b{font-family:var(--serif);font-size:clamp(2rem,7vw,2.7rem);font-weight:400;line-height:.8}
+.cr .work .pf b em{font-style:italic;color:var(--gold);font-size:.5em}
 .cr .work .pf p{font-size:12px;color:var(--b50);line-height:1.35;max-width:26ch}
-.cr .work.system{background:linear-gradient(160deg,rgba(143,214,174,.1),rgba(143,214,174,.04));
-  border:1px solid rgba(143,214,174,.34);border-radius:16px;padding:1.8rem 1.4rem;margin:.6rem 0}
-.cr .work.system .ip{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;
-  font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--mint)}
-.cr .work.system .ip::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--mint)}
-
-/* ── PROOF (ivory band) ── */
+.cr .work.system{background:linear-gradient(160deg,rgba(217,178,106,.08),transparent);border:1px solid rgba(217,178,106,.34);border-radius:16px;padding:1.8rem 1.4rem;margin:.6rem 0}
+.cr .work.system .ip{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--gold)}
+.cr .work.system .ip::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--gold)}
 .cr .proof-sec{padding:2.2rem 0;border-top:1px solid var(--b18)}
 .cr .trow{border-top:1px solid var(--b10);padding:1.2rem 0}
 .cr .trow:first-of-type{border-top:0}
-.cr .trow .tlab{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);display:block;margin-bottom:.5rem}
+.cr .trow .tlab{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.5rem}
 .cr .trow .tba{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
-.cr .trow .tbefore{font-size:1rem;color:var(--b50);text-decoration:line-through;text-decoration-color:var(--b32)}
-.cr .trow .arrow{color:var(--mint);font-weight:700;font-size:1.1rem}
-.cr .trow .tafter{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:#0E5A3A}
+.cr .trow .before{font-size:1rem;color:var(--b50);text-decoration:line-through;text-decoration-color:var(--b32)}
+.cr .trow .arrow{color:var(--gold);font-weight:700;font-size:1.1rem}
+.cr .trow .after{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--bone)}
 .cr .tcap{font-size:12px;color:var(--b50);line-height:1.45;margin-top:1.2rem;max-width:52ch}
-.cr .tcap b{color:var(--mint);font-weight:600}
-
-/* ── GUARANTEE — cream card (ivory on ivory: add border) ── */
-.cr .guar{background:var(--bone);color:#0E5A3A;border-radius:16px;border:1px solid var(--b18);
-  padding:2.4rem 1.6rem;margin:2.2rem 0}
-.cr .guar .g-eye{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mintd)}
+.cr .tcap b{color:var(--gold);font-weight:600}
+.cr .guar{background:var(--bone);color:#100E0A;border-radius:16px;padding:2.4rem 1.6rem;margin:2.2rem 0}
+.cr .guar .g-eye{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--goldd)}
 .cr .guar .g-big{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,5.8vw,2.8rem);line-height:1.08;letter-spacing:-.02em;margin-top:1rem;max-width:19ch}
-.cr .guar .g-big em{font-style:italic;color:var(--mintd)}
-.cr .guar .g-sub{font-size:1rem;color:rgba(14,90,58,.72);line-height:1.6;margin-top:1.2rem;max-width:52ch}
-.cr .guar .g-sig{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--mintd);margin-top:1.4rem}
-
-/* ── FAQ (ivory band) ── */
+.cr .guar .g-big em{font-style:italic;color:var(--goldd)}
+.cr .guar .g-sub{font-size:1rem;color:rgba(16,14,10,.72);line-height:1.6;margin-top:1.2rem;max-width:52ch}
+.cr .guar .g-sig{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--goldd);margin-top:1.4rem}
 .cr .faq{padding:2.2rem 0;border-top:1px solid var(--b18)}
 .cr .qa{border-top:1px solid var(--b10);padding:1.4rem 0}
 .cr .qa:first-of-type{border-top:0}
-.cr .qa h4{font-family:var(--serif);font-weight:400;font-size:clamp(1.2rem,3.6vw,1.45rem);letter-spacing:-.01em;line-height:1.25;color:#0E5A3A}
+.cr .qa h4{font-family:var(--serif);font-weight:400;font-size:clamp(1.2rem,3.6vw,1.45rem);letter-spacing:-.01em;line-height:1.25}
 .cr .qa p{font-size:.98rem;color:var(--b72);line-height:1.62;margin-top:.6rem;max-width:58ch}
-
-/* ── CLOSE (green band) ── */
-.cr .end{background:#0E5A3A;color:var(--bone);padding:2.4rem 0 calc(3rem + env(safe-area-inset-bottom))}
-.cr .end .roof{color:var(--g50)}
-.cr .step{display:flex;gap:1rem;border-top:1px solid var(--g10);padding:1.2rem 0}
+.cr .end{padding:2.4rem 0 calc(3rem + env(safe-area-inset-bottom));border-top:1px solid var(--b18)}
+.cr .step{display:flex;gap:1rem;border-top:1px solid var(--b10);padding:1.2rem 0}
 .cr .step:first-of-type{border-top:0}
-.cr .step .sn{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--mint);width:40px;flex-shrink:0;line-height:1}
-.cr .step .sc h4{font-size:1.1rem;font-weight:600;letter-spacing:-.01em;color:var(--bone)}
-.cr .step .sc p{font-size:.96rem;color:var(--g72);line-height:1.55;margin-top:.3rem;max-width:52ch}
-.cr .ident{font-size:1rem;color:var(--g72);line-height:1.62;margin:1.6rem 0 0;max-width:50ch}
+.cr .step .sn{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--gold);width:40px;flex-shrink:0;line-height:1}
+.cr .step .sc h4{font-size:1.1rem;font-weight:600;letter-spacing:-.01em}
+.cr .step .sc p{font-size:.96rem;color:var(--b72);line-height:1.55;margin-top:.3rem;max-width:52ch}
+.cr .ident{font-size:1rem;color:var(--b72);line-height:1.62;margin:1.6rem 0 0;max-width:50ch}
 .cr .ident b{color:var(--bone);font-weight:600}
-.cr .end .big{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:-.02em;line-height:.98;margin-top:2rem;color:var(--bone)}
-.cr .end .big em{font-style:italic;color:var(--mint)}
-.cr .end .k{font-size:clamp(1.05rem,1.9vw,1.3rem);color:var(--g72);line-height:1.45;margin-top:1.1rem;max-width:34ch}
-.cr .end a{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.6rem;font-size:12px;font-weight:600;
-  letter-spacing:.13em;text-transform:uppercase;color:#0E5A3A;background:var(--mint);text-decoration:none;
-  padding:1.1rem 1.8rem;border-radius:4px;transition:gap .3s var(--e),background .3s}
+.cr .end .big{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:-.02em;line-height:.98;margin-top:2rem}
+.cr .end .big em{font-style:italic;color:var(--gold)}
+.cr .end .k{font-size:clamp(1.05rem,1.9vw,1.3rem);color:var(--b72);line-height:1.45;margin-top:1.1rem;max-width:34ch}
+.cr .end a{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.6rem;font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#100E0A;background:var(--gold);text-decoration:none;padding:1.1rem 1.8rem;border-radius:4px;transition:gap .3s var(--e),background .3s}
 .cr .end a:hover{gap:1rem;background:var(--bone)}
-
-/* ── REVEAL ── */
 .cr .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--e),transform .7s var(--e)}
 .cr .reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){
-  .cr .reveal{opacity:1;transform:none}
-  .cr .meter .fill{transition:none}
+@media(prefers-reduced-motion:reduce){.cr .reveal{opacity:1;transform:none}.cr .meter .fill{transition:none}
   .cr .plate-craft::before,.cr .art.ai::after,.cr .eq b{animation:none}}
-
-/* ── GREEN BANDS: white accents on dark #0E5A3A background ── */
-.cr .kick{color:#FFFFFF;border-color:rgba(255,255,255,.28)}
-.cr .hero h1 em,.cr .stats .st b em{color:#FFFFFF}
-.cr .mech .rt em,.cr .mech .mcap b{color:#FFFFFF}
-.cr .mech .plate-craft .mono{color:#FFFFFF}
-.cr .end .big em,.cr .step .sn{color:#FFFFFF}
-.cr .end a{background:#FFFFFF}
-.cr .end a:hover{background:#F2EFE9}
-
-/* ── IVORY SECTIONS: dark-green accents (replaces invisible light mint on bone) ── */
-.cr .thesis .lead,.cr .thesis h2 em{color:#0E5A3A}
-.cr .rooftitle em{color:#0E5A3A}
-.cr .work .tag{color:#0E5A3A;border-color:rgba(14,90,58,.22)}
-.cr .work h3 em{color:#0E5A3A}
-.cr .work .pf{border-left-color:#0E5A3A}
-.cr .work .pf b em{color:#0E5A3A}
-.cr .work.system .ip{color:#0E5A3A}
-.cr .work.system .ip::before{background:#0E5A3A}
-.cr .trow .tlab,.cr .trow .arrow,.cr .tcap b{color:#0E5A3A}
-
-/* ── ART PANELS: white decorations on dark-green artwork tiles ── */
-.cr .reel{border-color:rgba(255,255,255,.7)}
-.cr .reel .rp{border-left-color:#FFFFFF}
-.cr .play{border-left-color:#FFFFFF}
-.cr .eq b{background:#FFFFFF}
-.cr .abx.win{border-color:rgba(255,255,255,.6);color:#FFFFFF}
-.cr .abx.win::after{background:#FFFFFF;color:#0E5A3A}
-.cr .dgrid i.on{background:#FFFFFF}
 `;
 
 const CR_WORKS = [
-  { tag:"Big Idea & Campaigns", system:false,
-    art:`<div class="art"><span class="ast">✳</span></div>`,
+  { tag:'Big Idea & Campaigns', system:false,
+    art:`<div class="art"><span class="ast">&#10035;</span></div>`,
     h:`We find the idea <em>everyone repeats</em>.`,
-    role:"Creative directors · strategists",
-    body:"The concept a whole market ends up talking about — the campaign, the brand platform, the launch, the cultural moment. This is the firepower that separates brands people love from businesses people forget. Not a logo. The idea the logo serves.",
-    deliv:["Brand platform","Campaigns","Launches","Cultural moments"],
-    pf:"49", pfEm:"%", pfP:"of marketing return traces to the idea and creative", ip:"" },
-  { tag:"Social & Content Studio", system:false,
+    role:'Creative directors · strategists',
+    body:'The concept a whole market ends up talking about — the campaign, the brand platform, the launch, the cultural moment. This is the firepower that separates brands people love from businesses people forget. Not a logo. The idea the logo serves.',
+    deliv:['Brand platform','Campaigns','Launches','Cultural moments'],
+    pf:'49', pfEm:'%', pfP:'of marketing return traces to the idea and creative', ip:'' },
+  { tag:'Social & Content Studio', system:false,
     art:`<div class="art"><div class="reel"><span class="rp"></span></div></div>`,
     h:`We make you <em>impossible to scroll past</em>.`,
-    role:"Social leads · writers · editors",
-    body:"An always-on studio making the content that lives where your buyers already are — short-form, reels, skits, founder POV, trends and UGC — enough of it, on-brand, to be everywhere at once. This is the modern way brands get known, loved and chosen, day after day.",
-    deliv:["Always-on social","Reels & skits","Founder POV","Trends & UGC"],
-    pf:"50", pfEm:"ms", pfP:"is all you get to make an impression in the feed", ip:"" },
-  { tag:"Brand & Identity", system:false,
+    role:'Social leads · writers · editors',
+    body:'An always-on studio making the content that lives where your buyers already are — short-form, reels, skits, founder POV, trends and UGC — enough of it, on-brand, to be everywhere at once. This is the modern way brands get known, loved and chosen, day after day.',
+    deliv:['Always-on social','Reels & skits','Founder POV','Trends & UGC'],
+    pf:'50', pfEm:'ms', pfP:'is all you get to make an impression in the feed', ip:'' },
+  { tag:'Brand & Identity', system:false,
     art:`<div class="art identity"><span class="aa">Aa</span></div>`,
     h:`We make you look like the <em>leader</em>.`,
-    role:"Art direction · designers",
-    body:"The identity system — logo, type, colour, art direction — engineered so you read as the biggest, most trusted name in the room, everywhere a buyer meets you. Consistency is what turns a business into a category leader instead of just another contender.",
-    deliv:["Brand identity","Art direction","Design system","Guidelines"],
-    pf:"20", pfEm:"%", pfP:"premium that strongly-branded businesses command (McKinsey)", ip:"" },
-  { tag:"Film & Motion", system:false,
+    role:'Art direction · designers',
+    body:'The identity system — logo, type, colour, art direction — engineered so you read as the biggest, most trusted name in the room, everywhere a buyer meets you. Consistency is what turns a business into a category leader instead of just another contender.',
+    deliv:['Brand identity','Art direction','Design system','Guidelines'],
+    pf:'20', pfEm:'%', pfP:'premium that strongly-branded businesses command (McKinsey)', ip:'' },
+  { tag:'Film & Motion', system:false,
     art:`<div class="art"><span class="play"></span><div class="eq"><b></b><b></b><b></b><b></b><b></b></div></div>`,
     h:`We make you look <em>worth millions</em>.`,
-    role:"Directors · editors · motion",
-    body:"Film, motion and photography — the highest-attention formats there are — produced so a business looks like it is worth far more than it spends. The hero films and motion that make people stop, feel something, and believe you are the real thing.",
-    deliv:["Hero films","Motion & VFX","Photography","Edit & post"],
-    pf:"2.5", pfEm:"×", pfP:"the attention film earns over static, second for second", ip:"" },
-  { tag:"Ad & Performance Creative", system:false,
+    role:'Directors · editors · motion',
+    body:'Film, motion and photography — the highest-attention formats there are — produced so a business looks like it is worth far more than it spends. The hero films and motion that make people stop, feel something, and believe you are the real thing.',
+    deliv:['Hero films','Motion & VFX','Photography','Edit & post'],
+    pf:'2.5', pfEm:'×', pfP:'the attention film earns over static, second for second', ip:'' },
+  { tag:'Ad & Performance Creative', system:false,
     art:`<div class="art"><div class="ab"><div class="abx">A</div><div class="abx win">B</div></div></div>`,
     h:`We make ads that <em>actually convert</em>.`,
-    role:"Performance creatives · editors",
-    body:"The scroll-stopping creative that goes into your paid — hooks, static and video ads, endless variations built and tested to win. We make the work and find the winners; the media buying lives on its own card. Here we make the creative that makes the spend pay.",
-    deliv:["Ad concepts & hooks","Static + video ads","Variation testing","Winning edits"],
-    pf:"56", pfEm:"%", pfP:"of paid ROI is the ad creative, not the audience (Nielsen)", ip:"" },
-  { tag:"AI Creative Engine", system:true,
+    role:'Performance creatives · editors',
+    body:'The scroll-stopping creative that goes into your paid — hooks, static and video ads, endless variations built and tested to win. We make the work and find the winners; the media buying lives on its own card. Here we make the creative that makes the spend pay.',
+    deliv:['Ad concepts & hooks','Static + video ads','Variation testing','Winning edits'],
+    pf:'56', pfEm:'%', pfP:'of paid ROI is the ad creative, not the audience (Nielsen)', ip:'' },
+  { tag:'AI Creative Engine', system:true,
     art:`<div class="art ai"><div class="dgrid"><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i></div></div>`,
     h:`We build your brand <em>a brain</em>.`,
-    role:"The one built thing · engineering",
-    body:"The single piece of software in the engagement — an AI creative engine trained on your finished brand. It generates on-brand social posts, ad variations and content on demand, at a scale no team could match by hand. Our taste, running when we are not in the room. You own it outright, in your full IP control.",
-    deliv:["On-brand asset engine","Social & ad variations","Trained on your brand","Yours to keep — full IP"],
-    pf:"24", pfEm:"/7", pfP:"on-brand social and ad creative, without a queue",
-    ip:"Trained on your brand · handed to you · your IP" },
+    role:'The one built thing · engineering',
+    body:'The single piece of software in the engagement — an AI creative engine trained on your finished brand. It generates on-brand social posts, ad variations and content on demand, at a scale no team could match by hand. Our taste, running when we are not in the room. You own it outright, in your full IP control.',
+    deliv:['On-brand asset engine','Social & ad variations','Trained on your brand','Yours to keep — full IP'],
+    pf:'24', pfEm:'/7', pfP:'on-brand social and ad creative, without a queue',
+    ip:'Trained on your brand · handed to you · your IP' },
+];
+
+const CR_FAQS = [
+  { q:'How does creative make a business worth more?', a:'Creative is the biggest single lever in marketing ROI — around half of the return comes from the work itself, not the targeting. A stronger idea, a distinctive brand and content people remember make a business look bigger, feel more trusted, and able to charge more for the same product.' },
+  { q:'How can a small business look like a big brand?', a:'With creative firepower, not a bigger budget. Buyers judge you in milliseconds, so a sharp idea, a distinctive identity, and enough on-brand content to be everywhere at once make a small company read as the category leader. People buy the business that looks like the leader.' },
+  { q:'Do you make ads, or buy media?', a:'We make the ad creative — the hooks, static and video ads, and the variations tested to win — so your spend actually pays. The media buying, targeting and budgets live on our Media card; here we make the creative that makes the spend work.' },
+  { q:'Do I own the designs and assets you create?', a:'Yes, in full. Every asset, the brand system, and the on-brand AI creative engine we build are handed to you in your complete IP control. You keep them and reuse them freely.' },
+  { q:'Is this design, or strategy?', a:'Both, plus social, film, ad creative and AI. We are a creative and AI software agency — one team covering the idea and campaigns, the identity, the social and content, the film, the ad creative, and a system you own that makes on-brand work at scale.' },
+];
+
+const CR_PROOF = [
+  { lab:'How big you look', before:'one of many', after:'the category leader' },
+  { lab:'What you can charge', before:'the cheapest quote', after:'a premium, paid gladly' },
+  { lab:'In the feed', before:'scrolled past', after:'screenshotted and shared' },
+];
+
+const CR_STEPS = [
+  { n:'01', h:'Read', p:'We learn your business, your buyers and your market — and find the idea only you can own.' },
+  { n:'02', h:'Make', p:'We build the brand, the social engine, the films and the ad creative — and the AI system that makes it at scale.' },
+  { n:'03', h:'Scale', p:'We hand you the system, keep you consistent everywhere, and push the bar higher over time.' },
 ];
 
 function CreativeContent({ onClose }: { onClose: () => void }) {
-  const mechRef = useRef<HTMLDivElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
+  const mechRef = useRef<HTMLElement>(null);
+  const vBeforeRef = useRef<HTMLDivElement>(null);
+  const vAfterRef = useRef<HTMLDivElement>(null);
 
-  // Mechanism: count-up + meter fill when .mech section enters view
   useEffect(() => {
-    const el = mechRef.current; if (!el) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
-    const io = new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting) return;
-      el.querySelectorAll<HTMLElement>(".fill[data-v]").forEach(f => { f.style.width = f.dataset.v + "%"; });
-      const vb = el.querySelector<HTMLElement>("#cr-v-before");
-      const va = el.querySelector<HTMLElement>("#cr-v-after");
-      if (reduce) { if (vb) vb.textContent = "34"; if (va) va.textContent = "92"; }
-      else {
-        function crCount(node: HTMLElement, target: number, ms: number) {
-          let start: number | null = null;
-          function step(ts: number) { if (!start) start = ts; const p = Math.min((ts - start) / ms, 1);
-            node.textContent = String(Math.round(p * target)); if (p < 1) requestAnimationFrame(step); }
-          requestAnimationFrame(step);
-        }
-        if (vb) crCount(vb, 34, 1100);
-        if (va) crCount(va, 92, 1300);
-      }
-      io.unobserve(e.target);
-    }, { threshold: .4 });
-    io.observe(el);
+    const id = 'cr-modal-css';
+    if (!document.getElementById(id)) {
+      const s = document.createElement('style');
+      s.id = id; s.textContent = CR_CSS;
+      document.head.appendChild(s);
+    }
+  }, []);
+
+  // reveal
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }),
+      { threshold: 0.14 }
+    );
+    wrapRef.current?.querySelectorAll('.reveal').forEach(n => io.observe(n));
     return () => io.disconnect();
   }, []);
 
-  // Scroll-triggered reveal animations (exact prototype behaviour)
+  // mechanism: meter fill + count-up on view
   useEffect(() => {
-    const root = wrapRef.current; if (!root) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
-    if (reduce) { root.querySelectorAll(".reveal").forEach(n => n.classList.add("in")); return; }
-    const io = new IntersectionObserver(es => {
-      es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
-    }, { threshold: .14 });
-    root.querySelectorAll(".reveal").forEach(n => io.observe(n));
-    return () => io.disconnect();
+    const mech = mechRef.current; if (!mech) return;
+    const reduce = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const rafIds: number[] = [];
+    function countTo(el: HTMLElement | null, target: number, ms: number) {
+      if (!el) return;
+      if (reduce) { el.textContent = String(target); return; }
+      let start: number | null = null;
+      function step(ts: number) {
+        if (start === null) start = ts;
+        const p = Math.min((ts - start) / ms, 1);
+        el!.textContent = String(Math.round(p * target));
+        if (p < 1) rafIds.push(requestAnimationFrame(step));
+      }
+      rafIds.push(requestAnimationFrame(step));
+    }
+    const mio = new IntersectionObserver(
+      es => es.forEach(en => {
+        if (en.isIntersecting) {
+          mech.querySelectorAll<HTMLElement>('.meter .fill').forEach(f => { f.style.width = (f.getAttribute('data-v') || '0') + '%'; });
+          countTo(vBeforeRef.current, 34, 1100);
+          countTo(vAfterRef.current, 92, 1300);
+          mio.unobserve(en.target);
+        }
+      }),
+      { threshold: 0.4 }
+    );
+    mio.observe(mech);
+    return () => { mio.disconnect(); rafIds.forEach(cancelAnimationFrame); };
   }, []);
 
   return (
     <div className="cr" ref={wrapRef}>
-      {/* eslint-disable-next-line react/no-danger */}
-      <style dangerouslySetInnerHTML={{ __html: CR_CSS }} />
+      <div className="bar"><span className="b">OARC</span><span className="s">Make us look like a billion</span></div>
 
-      {/* ── GREEN BAND: HERO ── */}
-      <section className="hero">
-        <div className="wrap">
+      <div className="wrap">
+        <section className="hero">
           <span className="kick">Creative firepower</span>
-          <h1>Make us worth<br /><em>more.</em></h1>
+          <h1>Make us look<br />like a <em>billion.</em></h1>
           <p className="sub">Whatever your size, we make you look like the category leader — the brand people remember, screenshot, and pay a premium for. Big ideas, an always-on social engine, films, ad creative that converts, and a system that makes it all. One team, full firepower.</p>
           <div className="stats">
             <div className="st"><b>49<em>%</em></b><p>of marketing return is the creative itself</p></div>
             <div className="st"><b>50<em>ms</em></b><p>is all a buyer needs to judge your brand</p></div>
             <div className="st"><b>20<em>%</em></b><p>premium that leader-looking brands command</p></div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── IVORY BAND: THESIS ── */}
-      <div className="wrap">
         <section className="thesis reveal">
           <p className="lead">Why this matters now</p>
           <h2>Looking small is a <em>choice.</em></h2>
-          <p>Buyers judge you in milliseconds, against brands with a hundred times your budget — and everyone now has the same average AI content. What closes that gap isn't a bigger spend. It's a sharper idea, a look that's unmistakably yours, and enough on-brand work to be everywhere at once. Firepower, not decoration. That's what a real creative team is for.</p>
+          <p>Buyers judge you in milliseconds, against brands with a hundred times your budget — and everyone now has the same average AI content. What closes that gap isn&apos;t a bigger spend. It&apos;s a sharper idea, a look that&apos;s unmistakably yours, and enough on-brand work to be everywhere at once. Firepower, not decoration. That&apos;s what a real creative team is for.</p>
         </section>
-      </div>
 
-      {/* ── GREEN BAND: MECHANISM — count-up before/after ── */}
-      <section className="mech reveal" ref={mechRef}>
-        <div className="wrap">
+        <section className="mech reveal" ref={mechRef}>
           <p className="eyebrow">Watch what creative does</p>
           <h2 className="rt">Look like a contender. Or the <em>leader.</em></h2>
           <div className="stage">
             <div className="spec before">
               <div className="plate plate-plain" />
               <span className="lbl">Before</span>
-              <div className="val" id="cr-v-before">0</div>
+              <div className="val" ref={vBeforeRef}>0</div>
               <div className="vl">looks like a startup</div>
               <div className="meter"><div className="fill" data-v="34" /></div>
             </div>
             <div className="spec after">
               <div className="plate plate-craft"><span className="mono">✳</span></div>
               <span className="lbl">After</span>
-              <div className="val" id="cr-v-after">0</div>
+              <div className="val" ref={vAfterRef}>0</div>
               <div className="vl">looks like the leader</div>
               <div className="meter"><div className="fill" data-v="92" /></div>
             </div>
           </div>
-          <p className="mcap"><b>Same company, same size — only the creative changed.</b> People don't buy the biggest business. They buy the one that looks like it. Raise how big you look and you raise your price, your pull and your permission to charge more.</p>
-        </div>
-      </section>
+          <p className="mcap"><b>Same company, same size — only the creative changed.</b> People don&apos;t buy the biggest business. They buy the one that looks like it. Raise how big you look and you raise your price, your pull and your permission to charge more.</p>
+        </section>
 
-      {/* ── IVORY BAND: WORK, PROOF, GUARANTEE, FAQ ── */}
-      <div className="wrap">
-
-        {/* SIX WORKS */}
         <section className="work-sec">
           <p className="roof reveal">The firepower, as one team</p>
           <div className="rooftitle reveal">Six crafts — <em>one point of view.</em></div>
-          {CR_WORKS.map((w, i) => (
-            <div key={i} className={`work reveal${w.system ? " system" : ""}`}>
-              {/* eslint-disable-next-line react/no-danger */}
-              <div dangerouslySetInnerHTML={{ __html: w.art }} />
-              <span className="tag">{w.tag}</span>
-              {/* eslint-disable-next-line react/no-danger */}
-              <h3 dangerouslySetInnerHTML={{ __html: w.h }} />
-              <p className="role">{w.role}</p>
-              <p className="body">{w.body}</p>
-              <div className="deliv">{w.deliv.map((d, j) => <span key={j}>{d}</span>)}</div>
-              {w.ip && <span className="ip">{w.ip}</span>}
-              <div className="pf">
-                {/* eslint-disable-next-line react/no-danger */}
-                <b dangerouslySetInnerHTML={{ __html: w.pf + (w.pfEm ? `<em>${w.pfEm}</em>` : "") }} />
-                <p>{w.pfP}</p>
+          <div>
+            {CR_WORKS.map((d, i) => (
+              <div key={i} className={`work reveal${d.system ? ' system' : ''}`}>
+                <div dangerouslySetInnerHTML={{ __html: d.art }} />
+                <span className="tag">{d.tag}</span>
+                <h3 dangerouslySetInnerHTML={{ __html: d.h }} />
+                <p className="role">{d.role}</p>
+                <p className="body">{d.body}</p>
+                <div className="deliv">{d.deliv.map((x, j) => <span key={j}>{x}</span>)}</div>
+                {d.ip && <span className="ip">{d.ip}</span>}
+                <div className="pf">
+                  <b dangerouslySetInnerHTML={{ __html: d.pf + (d.pfEm ? `<em>${d.pfEm}</em>` : '') }} />
+                  <p>{d.pfP}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </section>
 
-        {/* PROOF */}
         <section className="proof-sec reveal">
           <p className="roof">What changes when we make it</p>
           <div className="rooftitle">The <em>before</em> and after.</div>
-          <div className="trow">
-            <span className="tlab">How big you look</span>
-            <div className="tba"><span className="tbefore">one of many</span><span className="arrow">→</span><span className="tafter">the category leader</span></div>
-          </div>
-          <div className="trow">
-            <span className="tlab">What you can charge</span>
-            <div className="tba"><span className="tbefore">the cheapest quote</span><span className="arrow">→</span><span className="tafter">a premium, paid gladly</span></div>
-          </div>
-          <div className="trow">
-            <span className="tlab">In the feed</span>
-            <div className="tba"><span className="tbefore">scrolled past</span><span className="arrow">→</span><span className="tafter">screenshotted and shared</span></div>
-          </div>
+          {CR_PROOF.map((row, k) => (
+            <div className="trow" key={k}>
+              <span className="tlab">{row.lab}</span>
+              <div className="tba">
+                <span className="before">{row.before}</span>
+                <span className="arrow">→</span>
+                <span className="after">{row.after}</span>
+              </div>
+            </div>
+          ))}
           <p className="tcap"><b>A typical engagement:</b> a brand that looks twice its size, content people keep, ads that pull their weight, and the confidence to raise prices. Illustrative of a full engagement.</p>
         </section>
 
-        {/* GUARANTEE */}
         <section className="guar reveal">
           <p className="g-eye">Our guarantee</p>
-          <div className="g-big">If the work doesn't make you look <em>bigger and worth more</em>, we keep going until it does.</div>
-          <p className="g-sub">Creative is judged, not billed by the hour — so we don't charge for effort, we deliver work you'd put your name on and a brand that reads like the leader. We refine until it's undeniable. You carry none of the risk of trying us.</p>
+          <div className="g-big">If the work doesn&apos;t make you look <em>bigger and worth more</em>, we keep going until it does.</div>
+          <p className="g-sub">Creative is judged, not billed by the hour — so we don&apos;t charge for effort, we deliver work you&apos;d put your name on and a brand that reads like the leader. We refine until it&apos;s undeniable. You carry none of the risk of trying us.</p>
           <div className="g-sig">— OARC, your one team</div>
         </section>
 
-        {/* FAQ */}
         <section className="faq reveal">
           <p className="roof">Straight answers</p>
           <div className="rooftitle">The questions every owner <em>actually asks.</em></div>
-          <div className="qa"><h4>How does creative make a business worth more?</h4><p>Creative is the biggest single lever in marketing ROI — around half of the return comes from the work itself, not the targeting. A stronger idea, a distinctive brand and content people remember make a business look bigger, feel more trusted, and able to charge more for the same product.</p></div>
-          <div className="qa"><h4>How can a small business look like a big brand?</h4><p>With creative firepower, not a bigger budget. Buyers judge you in milliseconds, so a sharp idea, a distinctive identity, and enough on-brand content to be everywhere at once make a small company read as the category leader. People buy the business that looks like the leader.</p></div>
-          <div className="qa"><h4>Do you make ads, or buy media?</h4><p>We make the ad creative — the hooks, static and video ads, and the variations tested to win — so your spend actually pays. The media buying, targeting and budgets live on our Media card; here we make the creative that makes the spend work.</p></div>
-          <div className="qa"><h4>Do I own the designs and assets you create?</h4><p>Yes, in full. Every asset, the brand system, and the on-brand AI creative engine we build are handed to you in your complete IP control. You keep them and reuse them freely.</p></div>
-          <div className="qa"><h4>Is this design, or strategy?</h4><p>Both, plus social, film, ad creative and AI. We are a creative and AI software agency — one team covering the idea and campaigns, the identity, the social and content, the film, the ad creative, and a system you own that makes on-brand work at scale.</p></div>
+          {CR_FAQS.map((f, k) => (
+            <div className="qa" key={k}><h4>{f.q}</h4><p>{f.a}</p></div>
+          ))}
         </section>
 
-      </div>
-
-      {/* ── GREEN BAND: HOW WE START + CTA ── */}
-      <section className="end reveal">
-        <div className="wrap">
+        <section className="end reveal">
           <p className="roof">How we start</p>
-          <div className="step"><span className="sn">01</span><div className="sc"><h4>Read</h4><p>We learn your business, your buyers and your market — and find the idea only you can own.</p></div></div>
-          <div className="step"><span className="sn">02</span><div className="sc"><h4>Make</h4><p>We build the brand, the social engine, the films and the ad creative — and the AI system that makes it at scale.</p></div></div>
-          <div className="step"><span className="sn">03</span><div className="sc"><h4>Scale</h4><p>We hand you the system, keep you consistent everywhere, and push the bar higher over time.</p></div></div>
-          <p className="ident">At the end of the day we're a <b>creative and AI software agency</b> — so you get the ideas, the firepower and a system you keep. Taste, made repeatable.</p>
-          <div className="big">Make us worth more.<br /><em>Today.</em></div>
+          <div className="start">
+            {CR_STEPS.map((s, k) => (
+              <div className="step" key={k}>
+                <span className="sn">{s.n}</span>
+                <div className="sc"><h4>{s.h}</h4><p>{s.p}</p></div>
+              </div>
+            ))}
+          </div>
+          <p className="ident">At the end of the day we&apos;re a <b>creative and AI software agency</b> — so you get the ideas, the firepower and a system you keep. Taste, made repeatable.</p>
+          <div className="big">Look like a billion.<br /><em>Be worth it.</em></div>
           <p className="k">You keep every asset, the brand system, and the engine that makes more. We keep you looking like the leader.</p>
-          <a href="#" onClick={e => { e.preventDefault(); onClose(); }}>Book the creative audit →</a>
-        </div>
-      </section>
-
+          <a href="/contact" onClick={onClose}>Book the creative audit →</a>
+        </section>
+      </div>
     </div>
   );
 }
 
 // ────────────────────────────────────────────────────────────────────────────
-// OPERATIONS CONTENT  (light theme)
+// OPERATIONS CONTENT  (exact prototype port — light paper / green world)
+// src: take_the_boing_work_off_yur_plate_-_1786575410249.txt
 // ────────────────────────────────────────────────────────────────────────────
-const OP = { bg:"#F4F1EA", card:"#FBFAF6", em:"#0E7A54", ink:"#16150F",
-  dim:"rgba(22,21,15,.68)", c45:"rgba(22,21,15,.46)", line:"rgba(22,21,15,.11)" };
+const OP_CSS = `
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap');
+.op{
+  --paper:#F4F1EA;--card:#FBFAF6;--ink:#16150F;--em:#0E7A54;--emd:#0B6446;
+  --i70:rgba(22,21,15,.7);--i50:rgba(22,21,15,.5);--i30:rgba(22,21,15,.32);
+  --i16:rgba(22,21,15,.16);--i12:rgba(22,21,15,.12);--i08:rgba(22,21,15,.07);
+  --emg:rgba(14,122,84,.28);--emf:rgba(14,122,84,.08);--line:rgba(22,21,15,.12);
+  --ui:'Hanken Grotesk',sans-serif;--serif:'Newsreader',serif;--e:cubic-bezier(.16,1,.3,1);
+  background:var(--paper);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased}
+.op *{margin:0;padding:0;box-sizing:border-box}
+.op .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
+.op .top .brand{display:flex;align-items:baseline;gap:.7rem}
+.op .top .brand b{font-weight:800;font-size:13px;letter-spacing:-.02em}
+.op .top .brand s{font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--i30);text-decoration:none}
+.op .top .live{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--i50)}
+.op .top .live i{width:6px;height:6px;border-radius:50%;background:var(--em);animation:op-blink 1.9s ease-out infinite}
+@keyframes op-blink{0%{box-shadow:0 0 0 0 var(--emg)}100%{box-shadow:0 0 0 8px rgba(14,122,84,0)}}
+.op .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line)}
+.op .hero .lbl{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--em)}
+.op .hero h1{font-size:clamp(2.3rem,9.6vw,3.4rem);font-weight:800;line-height:.98;letter-spacing:-.04em;margin-top:.7rem}
+.op .hero h1 em{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.1em;color:var(--em)}
+.op .hero p{font-size:.98rem;color:var(--i70);line-height:1.55;margin-top:1rem;max-width:42ch}
+.op .hero p b{color:var(--ink);font-weight:600}
+.op .heroviz{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.2rem 1.1rem 1rem;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 10px 30px rgba(22,21,15,.04)}
+.op .heroviz .cap{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.9rem}
+.op .heroviz .cap b{font-size:12px;font-weight:700;letter-spacing:.02em}
+.op .heroviz .cap s{font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--i30);font-style:normal;text-decoration:none}
+.op .wk{width:100%;display:block}
+.op .wk .lblx{font-family:'Hanken Grotesk';font-weight:700;fill:var(--i30);font-size:11px;text-anchor:middle}
+.op .wk rect.c{fill:var(--i16);transition:fill .7s var(--e),stroke .7s var(--e);stroke:transparent;stroke-width:1.4}
+.op .wk.cleared rect.cl{fill:var(--emf);stroke:var(--em)}
+.op .hcount{margin-top:.9rem;display:flex;align-items:center;gap:.6rem;opacity:0;transform:translateY(6px);transition:.6s var(--e)}
+.op .heroviz.cleared .hcount{opacity:1;transform:none}
+.op .hcount b{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.5rem;color:var(--em)}
+.op .hcount span{font-size:12px;color:var(--i50);line-height:1.3}
+.op .hero .team{margin-top:1.7rem}
+.op .hero .team s{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--i50);font-style:normal;text-decoration:none}
+.op .hero .team .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:.7rem}
+.op .hero .team .row span{border:1px solid var(--line);padding:6px 10px;font-size:11px;color:var(--i70);border-radius:2px;background:var(--card)}
+.op .shead{padding:1.7rem 20px .4rem;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--i50);display:flex;align-items:center;gap:.8rem}
+.op .shead::after{content:'';flex:1;height:1px;background:var(--line)}
+.op .phase{padding:1.8rem 20px 2rem;border-top:1px solid var(--line)}
+.op .phase:first-of-type{border-top:0}
+.op .phase .idx{display:flex;align-items:baseline;gap:.6rem;font-variant-numeric:tabular-nums}
+.op .phase .idx b{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--em)}
+.op .phase .idx s{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--i50);text-decoration:none}
+.op .phase h2{font-size:clamp(2rem,8.2vw,2.6rem);font-weight:800;line-height:1;letter-spacing:-.035em;margin-top:1rem}
+.op .phase h2 em{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.14em;color:var(--em)}
+.op .phase .out{font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,5.5vw,1.7rem);color:var(--ink);margin-top:.9rem;line-height:1.14}
+.op .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--card);position:relative;overflow:hidden;aspect-ratio:1/.78;box-shadow:0 1px 0 rgba(255,255,255,.6) inset}
+.op .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(22,21,15,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.op .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.op .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.02em;color:var(--em)}
+.op .who::before{content:'';width:16px;height:1px;background:var(--em);opacity:.5}
+.op .cap{margin-top:.7rem;font-size:.9rem;color:var(--i70);line-height:1.55}
+.op .cap b{color:var(--ink);font-weight:600}
+.op .stat{margin-top:1.1rem;display:flex;align-items:baseline;gap:.7rem;padding-top:1rem;border-top:1px solid var(--line)}
+.op .stat b{font-size:clamp(2.4rem,11vw,3.2rem);font-weight:800;letter-spacing:-.05em;line-height:.85;font-variant-numeric:tabular-nums}
+.op .stat b em{font-family:var(--serif);font-style:italic;font-size:.42em;color:var(--em);font-weight:500}
+.op .stat p{font-size:11.5px;color:var(--i50);line-height:1.35;max-width:25ch}
+.op .bonus{margin:0 20px;padding:1.3rem 1.4rem;border:1px dashed var(--line);border-radius:10px;background:var(--card)}
+.op .bonus s{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--i50);font-style:normal;text-decoration:none}
+.op .bonus h4{font-family:var(--serif);font-style:italic;font-size:1.3rem;font-weight:400;margin:.4rem 0 .5rem}
+.op .bonus p{font-size:.88rem;color:var(--i70);line-height:1.55}
+.op .bonus p b{color:var(--ink);font-weight:600}
+.op .end{padding:2.2rem 20px calc(2.4rem + env(safe-area-inset-bottom));border-top:1px solid var(--line);margin-top:1.7rem}
+.op .end .big{font-family:var(--serif);font-style:italic;font-size:clamp(2.6rem,11vw,3.6rem);font-weight:400;line-height:1.02;letter-spacing:-.01em}
+.op .end .big span{color:var(--em)}
+.op .end p{font-size:.95rem;color:var(--i70);line-height:1.6;max-width:44ch;margin-top:1rem}
+.op .end p b{color:var(--ink);font-weight:600}
+.op .end a{display:block;margin-top:1.4rem;text-align:center;font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--paper);background:var(--em);text-decoration:none;padding:1.15rem;border-radius:6px}
+.op .end .foot{font-size:11px;color:var(--i30);letter-spacing:.04em;margin-top:1.4rem}
+.op .wire{stroke:var(--i16);stroke-width:1.25;fill:none}
+.op .node{fill:var(--i12)} .op .nodeOn{fill:var(--em)}
+.op .ring{fill:none;stroke:var(--em);stroke-width:1.5}
+.op .lab{font-family:'Hanken Grotesk';font-weight:600;fill:var(--i70)}
+.op .labk{font-family:'Hanken Grotesk';font-weight:800;fill:var(--paper)}
+.op .glow{filter:drop-shadow(0 0 7px var(--emg))}
+.op .draw{stroke-dasharray:var(--L,240);stroke-dashoffset:var(--L,240)}
+.op .live .draw{animation:op-draw 1.1s var(--e) forwards}
+@keyframes op-draw{to{stroke-dashoffset:0}}
+.op .pop{opacity:0;transform:scale(.4);transform-origin:center}
+.op .live .pop{animation:op-pop .5s var(--e) forwards}
+@keyframes op-pop{to{opacity:1;transform:scale(1)}}
+.op .up{opacity:0}
+.op .live .up{animation:op-up .6s var(--e) forwards}
+@keyframes op-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.op .growx{transform:scaleX(0);transform-origin:left center}
+.op .live .growx{animation:op-grwx .9s var(--e) forwards}
+@keyframes op-grwx{to{transform:scaleX(1)}}
+@media(prefers-reduced-motion:reduce){.op *{animation:none!important;transition-duration:.01ms!important}.op .up,.op .pop{opacity:1;transform:none}.op .draw{stroke-dashoffset:0}.op .growx{transform:none}}
+`;
 
-const SVG_OP_AUDIT = `<svg viewBox="0 0 400 250" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <text font-family="monospace" font-size="9" fill="rgba(22,21,15,.38)" letter-spacing=".1em" class="up" x="24" y="28" style="animation-delay:.05s">BIGGEST TIME SINKS</text>
-  ${[
-    { label:"Answering same questions", w:210, em:true },
-    { label:"Booking &amp; rescheduling", w:176, em:true },
-    { label:"Chasing payments", w:138, em:false },
-    { label:"Data entry", w:108, em:false },
-    { label:"Status reports", w:84, em:false },
-  ].map((b, i) => {
-    const y = 44 + i * 38;
-    return `<text font-family="monospace" font-size="10" fill="rgba(22,21,15,.55)" class="up" x="24" y="${y}" style="animation-delay:${i * 0.08}s">${b.label}</text>
-            <rect fill="${b.em ? "rgba(14,122,84,.18)" : "rgba(22,21,15,.06)"}" stroke="${b.em ? OP.em : "rgba(22,21,15,.12)"}" stroke-width="1.25" rx="4" class="growx" x="24" y="${y + 6}" width="${b.w}" height="14" style="animation-delay:${0.2 + i * 0.1}s"/>`;
-  }).join("")}
-  <text font-family="monospace" font-size="9.5" fill="${OP.em}" class="up" x="24" y="240" style="animation-delay:.8s">← these go to your AI team</text>
-</svg>`;
+const OP_PAPER = '#F4F1EA', OP_EM = '#0E7A54';
+const OP_TEAM = ['Operations strategists','Systems builders','Automation engineers','Your account lead'];
+const OP_PARTS = [
+  { n:'01', sp:'Where your time goes', h:'We find where your <em>time goes.</em>', out:'The week you can\u2019t see, mapped.',
+    who:'Operations strategists',
+    cap:'We follow how your business actually runs for a week and map every repeating job \u2014 the same questions answered, the bookings, the chasing, the entering, the reports. The restaurant re-ordering stock, the clinic confirming appointments, the shop replying to the same DM. You feel busy; <b>we show you exactly where it goes.</b>',
+    stat:'40', statEm:'%', statP:'of the average owner\u2019s week goes to work that doesn\u2019t grow the business', viz:'audit' },
+  { n:'02', sp:'Off your plate', h:'We take the <em>repetitive</em> jobs.', out:'The work that ate your day \u2014 gone.',
+    who:'Systems builders',
+    cap:'Answering, booking, reminders, follow-ups, invoicing and chasing, data entry, the weekly report \u2014 the jobs that don\u2019t need you, but eat your day. We take them off your plate one by one, until the week is yours again.',
+    stat:'20', statEm:'+', statP:'recurring jobs a typical business hands off', viz:'take' },
+  { n:'03', sp:'Runs itself', h:'We build it to <em>run itself.</em>', out:'Set up once. Runs every day.',
+    who:'Automation engineers',
+    cap:'Our people design the system and wire it into the tools you already use, so the work happens on its own \u2014 triggered, handled, done \u2014 without anyone remembering to do it. Set up once by people who\u2019ve done it before; it runs every day after.',
+    stat:'24/7', statP:'it runs without you \u2014 nights, weekends, holidays', viz:'flow' },
+  { n:'04', sp:'You stay in charge', h:'You stay <em>in charge.</em>', out:'Nothing happens you can\u2019t see or stop.',
+    who:'Your account lead',
+    cap:'Every action is logged, there\u2019s one switch to pause anything, and a real person on our side owns the exceptions \u2014 the odd case a system shouldn\u2019t decide. It works on its own, but it\u2019s never out of your hands.',
+    stat:'1', statEm:'tap', statP:'to pause anything \u2014 you\u2019re always in control', viz:'control' },
+] as const;
 
-const SVG_OP_TAKE = `<svg viewBox="0 0 400 292" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  ${["Answer FAQ message","Rebook cancellation","Send payment reminder","Log the enquiry","Chase overdue invoice","Weekly report draft"].map((t, i) => {
-    const y = 24 + i * 42; const done = i < 4;
-    return `<rect fill="${done ? "rgba(14,122,84,.07)" : OP.card}" stroke="${done ? OP.em : "rgba(22,21,15,.1)"}" stroke-width="1.25" rx="7" class="up" x="24" y="${y}" width="272" height="32" style="animation-delay:${i * 0.1}s"/>
-            <text font-family="monospace" font-size="10.5" fill="${done ? OP.em : "rgba(22,21,15,.45)"}" class="up" x="44" y="${y + 20}" style="animation-delay:${0.1 + i * 0.1}s">${t}</text>
-            <circle fill="${done ? OP.em : "rgba(22,21,15,.08)"}" stroke="${done ? OP.em : "rgba(22,21,15,.16)"}" stroke-width="1.25" class="pop" cx="332" cy="${y + 16}" r="12" style="animation-delay:${0.2 + i * 0.1}s"/>
-            ${done ? `<text font-family="monospace" font-size="12" fill="#F4F1EA" text-anchor="middle" class="pop" x="332" y="${y + 20}" style="animation-delay:${0.35 + i * 0.1}s">✓</text>` : ""}`;
-  }).join("")}
-</svg>`;
-
-const SVG_OP_FLOW = `<svg viewBox="0 0 400 224" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <line stroke="rgba(22,21,15,.12)" stroke-width="1.25" class="draw" style="--L:100;animation-delay:.3s" x1="100" y1="104" x2="158" y2="104"/>
-  <line stroke="rgba(22,21,15,.12)" stroke-width="1.25" class="draw" style="--L:100;animation-delay:.5s" x1="242" y1="104" x2="302" y2="104"/>
-  <path fill="none" stroke="rgba(14,122,84,.4)" stroke-width="1.25" stroke-dasharray="5 3" class="draw" style="--L:280;animation-delay:.8s" d="M336,120 Q336,184 200,184 Q64,184 64,120"/>
-  <circle fill="${OP.card}" stroke="${OP.em}" stroke-width="1.5" class="pop" cx="64" cy="104" r="36" style="animation-delay:.1s"/>
-  <text font-family="monospace" font-size="9.5" fill="${OP.em}" text-anchor="middle" class="up" x="64" y="100" style="animation-delay:.2s">Trigger</text>
-  <text font-family="monospace" font-size="8.5" fill="${OP.dim}" text-anchor="middle" class="up" x="64" y="113" style="animation-delay:.25s">fires</text>
-  <rect fill="${OP.card}" stroke="rgba(22,21,15,.12)" stroke-width="1.25" rx="10" class="up" x="158" y="84" width="84" height="40" style="animation-delay:.35s"/>
-  <text font-family="monospace" font-size="9" fill="${OP.dim}" text-anchor="middle" class="up" x="200" y="108" style="animation-delay:.5s">Steps run</text>
-  <circle fill="${OP.em}" class="pop" cx="336" cy="104" r="34" style="animation-delay:.6s"/>
-  <text font-family="monospace" font-size="9.5" font-weight="700" fill="#F4F1EA" text-anchor="middle" class="up" x="336" y="100" style="animation-delay:.75s">Done</text>
-  <text font-family="monospace" font-size="8.5" fill="#F4F1EA" text-anchor="middle" class="up" x="336" y="113" style="animation-delay:.8s">repeats</text>
-  <text font-family="monospace" font-size="9" fill="rgba(14,122,84,.7)" text-anchor="middle" class="up" x="200" y="200" style="animation-delay:1s">↺ loops automatically</text>
-</svg>`;
-
-const SVG_OP_CONTROL = `<svg viewBox="0 0 400 200" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <rect fill="${OP.card}" stroke="rgba(22,21,15,.1)" stroke-width="1.25" rx="10" class="up" x="24" y="20" width="280" height="148" style="animation-delay:.1s"/>
-  <text font-family="monospace" font-size="9" fill="rgba(22,21,15,.38)" letter-spacing=".1em" class="up" x="40" y="44" style="animation-delay:.2s">OPERATIONS LOG</text>
-  ${["09:14 — Booking confirmed auto","09:31 — Invoice sent (overdue)","10:02 — FAQ replied × 4","10:44 — Report drafted"].map((t, i) => {
-    const y = 62 + i * 28;
-    return `<rect fill="${i < 3 ? "rgba(14,122,84,.06)" : "rgba(22,21,15,.03)"}" rx="4" class="up" x="36" y="${y}" width="256" height="20" style="animation-delay:${0.3 + i * 0.1}s"/>
-            <text font-family="monospace" font-size="9.5" fill="rgba(22,21,15,.6)" class="up" x="48" y="${y + 14}" style="animation-delay:${0.4 + i * 0.1}s">${t}</text>`;
-  }).join("")}
-  <rect fill="${OP.em}" rx="6" class="pop" x="328" y="80" width="48" height="48" style="animation-delay:.7s"/>
-  <rect fill="#F4F1EA" rx="2" class="pop" x="340" y="92" width="8" height="24" style="animation-delay:.85s"/>
-  <rect fill="#F4F1EA" rx="2" class="pop" x="356" y="92" width="8" height="24" style="animation-delay:.9s"/>
-</svg>`;
+const OP_VIZ: Record<string, () => string> = {
+  audit() {
+    const rows = [{l:'Answering',v:.92,on:1},{l:'Booking',v:.72,on:1},{l:'Chasing',v:.56,on:0},{l:'Data entry',v:.44,on:0},{l:'Reports',v:.34,on:0}];
+    let s=''; const y0=30,gap=42,maxw=250,x0=118;
+    let y=y0;
+    rows.forEach((r,i)=>{ y=y0+i*gap;
+      s+=`<text class="lab up" x="${x0-12}" y="${y+17}" font-size="12.5" text-anchor="end" style="animation-delay:${i*.1}s">${r.l}</text>`+
+         `<rect class="${r.on?'nodeOn glow':'node'} growx" x="${x0}" y="${y}" width="${maxw*r.v}" height="24" rx="4" style="animation-delay:${i*.1+.1}s"/>`;});
+    s+=`<text class="lab up" x="${x0}" y="${y0+5*gap-4}" font-size="10.5" style="animation-delay:.7s" opacity=".55">hours a week \u2014 biggest sinks first</text>`;
+    return `<svg viewBox="0 0 400 250">${s}</svg>`;
+  },
+  take() {
+    const tasks=['Reply to the same DM','Confirm bookings','Chase invoices','Send reminders','Weekly report','Data entry']; let s='';
+    tasks.forEach((t,i)=>{ const y=22+i*40,gone=i<4;
+      s+=`<rect class="wire up" x="46" y="${y}" width="248" height="30" rx="8"${gone?' opacity=".4"':''} style="animation-delay:${i*.09}s"/>`+
+         `<text class="lab up" x="62" y="${y+20}" font-size="12.5"${gone?' opacity=".42"':''} style="animation-delay:${i*.09+.05}s">${t}</text>`+
+         `<circle class="${gone?'nodeOn glow':'node'} pop" cx="318" cy="${y+15}" r="13" style="animation-delay:${.6+i*.11}s"/>`;
+      if(gone)s+=`<path class="draw" style="--L:26;animation-delay:${.9+i*.11}s" d="M311,${y+15} l5,6 l10,-11" stroke="${OP_PAPER}" stroke-width="2.6" fill="none" stroke-linecap="round"/>`;});
+    s+=`<text class="lab up" x="46" y="278" font-size="10.5" style="animation-delay:1.1s" opacity=".55">handled \u2014 off your plate</text>`;
+    return `<svg viewBox="0 0 400 292">${s}</svg>`;
+  },
+  flow() {
+    const nodes=[{x:64,l:'Trigger'},{x:200,l:'Steps'},{x:336,l:'Done'}],y=104; let s='';
+    s+=`<path class="wire draw glow" style="--L:96" d="M92,${y} L172,${y}"/>`+
+       `<path class="wire draw glow" style="--L:96;animation-delay:.3s" d="M228,${y} L308,${y}"/>`;
+    nodes.forEach((n,i)=>{
+      s+=`<circle class="${i===2?'nodeOn glow':'ring glow'} pop" cx="${n.x}" cy="${y}" r="24" style="animation-delay:${i*.25}s"/>`+
+         `<text class="${i===2?'labk':'lab'} pop" x="${n.x}" y="${y+4}" font-size="11" font-weight="800" text-anchor="middle" style="animation-delay:${i*.25+.1}s">${n.l}</text>`;});
+    s+=`<path class="wire draw" style="--L:400;animation-delay:1s" d="M336,132 C336,204 64,204 64,132"/>`+
+       `<path class="pop" style="animation-delay:1.8s" d="M64,132 l-5,-14 l13,4 z" fill="${OP_EM}"/>`+
+       `<text class="lab up" x="200" y="200" font-size="10.5" text-anchor="middle" opacity=".55" style="animation-delay:1.2s">every day, on its own</text>`;
+    return `<svg viewBox="0 0 400 224">${s}</svg>`;
+  },
+  control() {
+    const rows=['09:02   Booking confirmed','09:14   Invoice chased','09:31   Reminder sent']; let s='';
+    rows.forEach((t,i)=>{ const y=30+i*42;
+      s+=`<rect class="wire up" x="40" y="${y}" width="236" height="32" rx="8" style="animation-delay:${i*.14}s"/>`+
+         `<circle class="nodeOn glow pop" cx="60" cy="${y+16}" r="5" style="animation-delay:${i*.14+.1}s"/>`+
+         `<text class="lab up" x="78" y="${y+21}" font-size="12" style="animation-delay:${i*.14+.1}s">${t}</text>`;});
+    s+=`<rect class="ring glow up" x="300" y="30" width="58" height="116" rx="18" style="animation-delay:.5s"/>`+
+       `<circle class="nodeOn glow pop" cx="329" cy="62" r="17" style="animation-delay:.8s"/>`+
+       `<rect x="324" y="54" width="4" height="16" rx="2" fill="${OP_PAPER}" class="pop" style="animation-delay:1s"/>`+
+       `<rect x="331" y="54" width="4" height="16" rx="2" fill="${OP_PAPER}" class="pop" style="animation-delay:1s"/>`+
+       `<text class="lab up" x="329" y="160" font-size="10.5" text-anchor="middle" style="animation-delay:1.1s">pause</text>`+
+       `<text class="lab up" x="40" y="182" font-size="10.5" opacity=".55" style="animation-delay:1s">every action logged \u00b7 one tap to stop</text>`;
+    return `<svg viewBox="0 0 400 200">${s}</svg>`;
+  },
+};
 
 function OperationsContent({ onClose }: { onClose: () => void }) {
   const wrapRef = useRef<HTMLDivElement>(null);
+  const wkRef = useRef<SVGSVGElement>(null);
+  const herovizRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const lid = 'op-modal-fonts';
-    if (!document.getElementById(lid)) {
-      const l = document.createElement('link');
-      l.id = lid; l.rel = 'stylesheet';
-      l.href = 'https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;1,400;1,600&display=swap';
-      document.head.appendChild(l);
-    }
-    const sid = 'op-modal-css';
-    if (!document.getElementById(sid)) {
+    const id = 'op-modal-css';
+    if (!document.getElementById(id)) {
       const s = document.createElement('style');
-      s.id = sid;
-      s.textContent = `.op-wrap h1,.op-wrap h2,.op-wrap h3,.op-wrap h4,.op-wrap p{font-family:'Hanken Grotesk',sans-serif!important}`;
+      s.id = id; s.textContent = OP_CSS;
       document.head.appendChild(s);
     }
   }, []);
 
-  const faqs = [
-    { q: "What does taking the boring work off my plate actually mean?", a: "We map the repetitive jobs that eat your team's time — answering the same questions, booking and rescheduling, chasing payments, data entry, reports — and build the automations and AI workflows that handle them, so your people do the work that matters." },
-    { q: "How much of my team's time can this actually return?", a: "Most businesses recover 8–14 hours per person per week. The exact number depends on the audit. The audit is the first step — and it's free." },
-    { q: "Do we need new software?", a: "Usually not. We build on the tools your team already uses. The automation connects what you have; your team doesn't need to learn anything new." },
-    { q: "Are you an AI company?", a: "We use AI where it speeds things up — but this is fundamentally about process design and automation. Real operations designers map the work, identify what can be automated, and build the systems." },
-  ];
-  const timeItems = [
-    "Answering the same questions every day",
-    "Booking, rescheduling, confirming",
-    "Chasing payments and invoices",
-    "Data entry and logging",
-    "Status updates and reports",
-    "Follow-ups that never got sent",
-  ];
+  // hero week grid — build + clear
+  useEffect(() => {
+    const wk = wkRef.current; if (!wk) return;
+    const heights = [4,5,3,5,4,2,1]; let svg = '';
+    for (let i=0;i<7;i++){
+      const x=22+i*52;
+      svg+=`<text class="lblx" x="${x+18}" y="16">${'MTWTFSS'[i]}</text>`;
+      for (let r=0;r<5;r++){
+        const filled=r>=(5-heights[i]); if(!filled)continue;
+        const essential=(r===4); const y=30+r*28;
+        svg+=`<rect class="c${essential?'':' cl'}" x="${x}" y="${y}" width="36" height="22" rx="4"/>`;
+      }
+    }
+    wk.innerHTML = svg;
+    const t = setTimeout(()=>{ wk.classList.add('cleared'); herovizRef.current?.classList.add('cleared'); }, 900);
+    return () => clearTimeout(t);
+  }, []);
+
+  // reveal viz on scroll
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('live'); io.unobserve(e.target); } }),
+      { threshold: 0.3 }
+    );
+    wrapRef.current?.querySelectorAll('.op .viz').forEach(v => io.observe(v));
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div className="op-wrap" ref={wrapRef} style={{ background: OP.bg, color: OP.ink }}>
-      <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${OP.line}` }}>
-        <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
-          fontSize: "clamp(2.4rem,10vw,3.8rem)", lineHeight: .9, letterSpacing: "-.05em",
-          textTransform: "uppercase", color: OP.ink, marginBottom: "1rem" }}>
-          Take the boring work<br />
-          <em style={{ fontFamily: "var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle: "italic", fontWeight: 400, textTransform: "none", letterSpacing: 0,
-            color: OP.em, fontSize: "1.04em" }}>off your plate.</em>
-        </h1>
-        <p style={{ fontSize: ".98rem", color: OP.dim, lineHeight: 1.6, maxWidth: "44ch" }}>
-          We map the repetitive jobs eating your team's time, then build the automations and
-          AI workflows that handle them.{" "}
-          <strong style={{ color: OP.ink }}>Most businesses get 8–14 hours per person per week back.</strong>
-        </p>
-        <div style={{ marginTop: "1.6rem", display: "flex", flexWrap: "wrap" as const, gap: 6 }}>
-          {timeItems.map(t => (
-            <span key={t} style={{ border: `1px solid ${OP.line}`, background: OP.card,
-              padding: "6px 10px", fontSize: 11, color: OP.dim, borderRadius: 4 }}>{t}</span>
-          ))}
+    <div className="op" ref={wrapRef}>
+      <div className="top">
+        <span className="brand"><b>OARC</b><s>Operations</s></span>
+        <span className="live"><i />Time back</span>
+      </div>
+
+      <div className="hero">
+        <p className="lbl">Your week, given back</p>
+        <h1>Take the boring work<br /><em>off your plate.</em></h1>
+        <p>Every week you lose hours to the same repetitive jobs — answering, booking, chasing, entering, reporting. <b>We find all of it, take it off you, and build it to run itself.</b> You get the one thing you can&apos;t buy back: time.</p>
+
+        <div className="heroviz" ref={herovizRef}>
+          <div className="cap"><b>A normal week</b><s>watch it clear</s></div>
+          <svg className="wk" ref={wkRef} viewBox="0 0 400 176" preserveAspectRatio="xMidYMid meet" />
+          <div className="hcount"><b>≈ 13 hrs</b><span>handed back to you,<br />every single week</span></div>
+        </div>
+
+        <div className="team">
+          <s>The people on it</s>
+          <div className="row">
+            {OP_TEAM.map(t => <span key={t}>{t}</span>)}
+          </div>
         </div>
       </div>
-      <div style={{ padding: "1.6rem 20px 0" }}><Kicker label="How we do it" color={OP.em} /></div>
-      {[
-        { n:"01", sp:"The audit", h:"We map where the <em>time goes</em>.", stat:"Free", statD:"the audit costs nothing — you see exactly what you'd get back",
-          cap:"We spend time with your team, map every repetitive job, and surface the biggest time sinks. Most businesses are surprised by how much time goes to the same five tasks. The audit is free — and it tells you the ROI before we build a thing.",
-          svg: SVG_OP_AUDIT, svgCap:"The biggest time sinks — found in the audit, handled by automation." },
-        { n:"02", sp:"Handle it all", h:"Every repetitive task <em>handled</em>.", stat:"13 hrs", statD:"the average time returned per person per week after the first three months",
-          cap:"Answering the same questions. Booking and rescheduling. Chasing payments. Logging data. Sending reports. We build the automations and AI workflows that handle each one — so your team never touches them again.",
-          svg: SVG_OP_TAKE, svgCap:"Every repeating task checked off — without a human in the loop." },
-        { n:"03", sp:"Triggers and loops", h:"Work that runs itself — <em>automatically</em>.", stat:"24/7", statD:"automations run without supervision — nights, weekends, bank holidays",
-          cap:"Every automation we build is trigger-based — an event fires it, the steps run, it loops back ready for the next time. No human needs to kick it off. It runs while your team is at home.",
-          svg: SVG_OP_FLOW, svgCap:"Trigger fires, steps run, loops back — no human required." },
-        { n:"04", sp:"You stay in control", h:"You stay in <em>control</em>.", stat:"Always", statD:"pause, edit or override any automation — you're always in the driving seat",
-          cap:"Every automation has a kill switch. You can pause, edit or override anything we've built — you're never dependent on us to make a change. We hand you a running system, not a black box.",
-          svg: SVG_OP_CONTROL, svgCap:"The operations log — everything running, always visible, always pauseable." },
-      ].map((p, i) => (
-        <Reveal key={i}>
-          <div style={{ padding: "1.8rem 20px 2rem", borderTop: `1px solid ${OP.line}` }}>
-            <div style={{ display: "flex", alignItems: "baseline", gap: ".6rem", marginBottom: ".9rem" }}>
-              <span style={{ fontFamily: "monospace", fontSize: 11, color: OP.em }}>{p.n}</span>
-              <span style={{ fontFamily: "monospace", fontSize: 9, letterSpacing: ".16em",
-                textTransform: "uppercase" as const, color: OP.c45 }}>{p.sp}</span>
+
+      <div className="shead">How the work leaves your plate</div>
+
+      <div>
+        {OP_PARTS.map((p, i) => (
+          <section key={i} className="phase">
+            <div className="idx"><b>{p.n}</b><s>{p.sp}</s></div>
+            <h2 dangerouslySetInnerHTML={{ __html: p.h }} />
+            <p className="out">{p.out}</p>
+            <div className="viz" dangerouslySetInnerHTML={{ __html: OP_VIZ[p.viz]() }} />
+            <p className="who">{p.who}</p>
+            <p className="cap" dangerouslySetInnerHTML={{ __html: p.cap }} />
+            <div className="stat">
+              <b dangerouslySetInnerHTML={{ __html: p.stat + ((p as {statEm?:string}).statEm ? `<em>${(p as {statEm?:string}).statEm}</em>` : '') }} />
+              <p>{p.statP}</p>
             </div>
-            <h2 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 700,
-              fontSize: "clamp(1.8rem,7vw,2.4rem)", lineHeight: 1.02, letterSpacing: "-.03em", color: OP.ink, marginBottom: ".9rem" }}
-              dangerouslySetInnerHTML={{ __html: p.h.replace(/<em>/g,
-                `<em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:${OP.em}">`) }} />
-            <p style={{ fontSize: ".92rem", color: OP.dim, lineHeight: 1.62, maxWidth: "52ch" }}>{p.cap}</p>
-            <VizBox svg={p.svg} bg={OP.card} brd={OP.line} dot="rgba(22,21,15,.04)" />
-            <p style={{ fontFamily: "monospace", fontSize: 10, color: OP.c45, marginTop: ".7rem" }}>{p.svgCap}</p>
-            <div style={{ display: "flex", alignItems: "baseline", gap: ".7rem",
-              borderTop: `1px solid ${OP.line}`, marginTop: "1rem", paddingTop: "1rem" }}>
-              <span style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
-                fontSize: "clamp(2rem,7vw,2.6rem)", color: OP.em, letterSpacing: "-.04em", lineHeight: .85 }}>{p.stat}</span>
-              <span style={{ fontSize: 11, color: OP.c45, lineHeight: 1.4, maxWidth: "28ch" }}>{p.statD}</span>
-            </div>
-          </div>
-        </Reveal>
-      ))}
-      <FAQ items={faqs} bg={OP.bg} border={OP.line} head={OP.ink} body={OP.dim} light />
-      <CTA big={<>Hours back every<br /><CtaItalic>single week.</CtaItalic></>}
-        sub="We map the time sinks, build the automations, and hand your team back 8–14 hours a week. Audit is free."
-        btn="Get a free audit" onClose={onClose} light />
+          </section>
+        ))}
+      </div>
+
+      <div className="bonus">
+        <s>Bonus, included</s>
+        <h4>Oh — and a little tool, on us.</h4>
+        <p>A small assistant that drafts the repetitive replies for a human to approve, so even the answering gets faster. <b>Nice to have, not the main event.</b> The system is designed and owned by the people above.</p>
+      </div>
+
+      <div className="end">
+        <div className="big">You get your<br /><span>week back.</span></div>
+        <p>The repetitive work — found, taken off you, and built to run itself, with your team owning it and you in control. What comes back is hours, every week, for the work that actually grows the business. <b>That&apos;s the whole point.</b></p>
+        <a href="/contact" onClick={onClose}>Get your week back →</a>
+        <p className="foot">OARC — one team for the whole business. Malta.</p>
+      </div>
     </div>
   );
 }
 
 // ────────────────────────────────────────────────────────────────────────────
-// AUTOMATION CONTENT
+// AUTOMATION CONTENT  (exact prototype port — dark mint world)
+// src: business_that_runs_itself_aia_nd_au_1786575410241.txt
 // ────────────────────────────────────────────────────────────────────────────
-const AU = { bg:"#0A0C0F", card:"#12151A", mint:"#34E39B", mint2:"rgba(52,227,155,.12)",
-  c:"#EAF0EC", dim:"rgba(234,240,236,.7)", c45:"rgba(234,240,236,.45)", line:"rgba(234,240,236,.1)" };
+const AU_CSS = `
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Martian+Mono:wght@400;500&display=swap');
+.au{
+  --ink:#0A0C0F;--deep:#06070A;--card:#12151A;--c:#EAF0EC;--mint:#34E39B;--mintd:#22B87C;
+  --c70:rgba(234,240,236,.72);--c45:rgba(234,240,236,.46);--c26:rgba(234,240,236,.26);
+  --c16:rgba(234,240,236,.15);--c10:rgba(234,240,236,.08);
+  --mg:rgba(52,227,155,.45);--mf:rgba(52,227,155,.12);--line:rgba(234,240,236,.12);
+  --ui:'Plus Jakarta Sans',sans-serif;--mono:'Martian Mono',monospace;--e:cubic-bezier(.16,1,.3,1);
+  background:var(--ink);color:var(--c);font-family:var(--ui);-webkit-font-smoothing:antialiased}
+.au *{margin:0;padding:0;box-sizing:border-box}
+.au .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
+.au .top .brand{display:flex;align-items:baseline;gap:.7rem}
+.au .top .brand b{font-weight:800;font-size:13px;letter-spacing:-.02em}
+.au .top .brand s{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--c26);text-decoration:none}
+.au .top .live{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--c45)}
+.au .top .live i{width:6px;height:6px;border-radius:50%;background:var(--mint);animation:au-blink 1.6s ease-out infinite}
+@keyframes au-blink{0%{box-shadow:0 0 0 0 var(--mg)}100%{box-shadow:0 0 0 8px rgba(52,227,155,0)}}
+.au .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line)}
+.au .hero .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mint)}
+.au .hero h1{font-size:clamp(2.4rem,9.4vw,3.6rem);font-weight:800;line-height:.98;letter-spacing:-.04em;margin-top:.8rem}
+.au .hero h1 em{font-style:normal;color:var(--mint)}
+.au .hero p{font-size:.98rem;color:var(--c70);line-height:1.58;margin-top:1rem;max-width:44ch}
+.au .hero p b{color:var(--c);font-weight:700}
+.au .frame{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.3rem 1rem 1rem;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.au .frame .fc{text-align:center;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--c26);margin-bottom:.4rem}
+.au .frame svg{width:100%;display:block;overflow:visible}
+.au .hero .team{margin-top:1.7rem}
+.au .hero .team s{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--c45);font-style:normal;text-decoration:none}
+.au .hero .team .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:.7rem}
+.au .hero .team .row span{border:1px solid var(--line);padding:6px 10px;font-size:11px;color:var(--c70);border-radius:2px}
+.au .shead{padding:1.7rem 20px .4rem;font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--c45);display:flex;align-items:center;gap:.8rem}
+.au .shead::after{content:'';flex:1;height:1px;background:var(--line)}
+.au .phase{padding:1.8rem 20px 2rem;border-top:1px solid var(--line)}
+.au .phase:first-of-type{border-top:0}
+.au .phase .idx{display:flex;align-items:baseline;gap:.6rem}
+.au .phase .idx b{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--mint)}
+.au .phase .idx s{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--c45);text-decoration:none}
+.au .phase h2{font-size:clamp(2rem,8.2vw,2.6rem);font-weight:800;line-height:1;letter-spacing:-.035em;margin-top:1rem}
+.au .phase h2 em{font-style:normal;color:var(--mint)}
+.au .phase .out{font-size:clamp(1.3rem,5.2vw,1.6rem);color:var(--c);margin-top:.9rem;line-height:1.2;font-weight:500}
+.au .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--deep);position:relative;overflow:hidden;aspect-ratio:1/.72}
+.au .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(234,240,236,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.au .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.au .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;color:var(--mint)}
+.au .who::before{content:'';width:16px;height:1px;background:var(--mint);opacity:.5}
+.au .cap{margin-top:.7rem;font-size:.92rem;color:var(--c70);line-height:1.6}
+.au .cap b{color:var(--c);font-weight:700}
+.au .stat{margin-top:1.1rem;display:flex;align-items:baseline;gap:.7rem;padding-top:1rem;border-top:1px solid var(--line)}
+.au .stat b{font-family:var(--mono);font-size:clamp(1.9rem,8.6vw,2.5rem);font-weight:500;letter-spacing:-.03em;line-height:.9}
+.au .stat b em{font-style:normal;font-size:.5em;color:var(--mint)}
+.au .stat p{font-size:11.5px;color:var(--c45);line-height:1.4;max-width:26ch}
+.au .value{padding:.4rem 20px 1rem}
+.au .vrow{display:flex;gap:.9rem;padding:1.1rem 0;border-top:1px solid var(--line);opacity:0;transform:translateY(12px);transition:opacity .6s var(--e),transform .6s var(--e)}
+.au .vrow:first-child{border-top:0}
+.au .vrow.live{opacity:1;transform:none}
+.au .vrow .vn{font-family:var(--mono);font-size:.85rem;color:var(--mint);flex-shrink:0;width:1.8rem;line-height:1.7}
+.au .vrow .vc h4{font-size:1.22rem;font-weight:700;letter-spacing:-.02em;line-height:1.12}
+.au .vrow .vc p{font-size:.9rem;color:var(--c70);line-height:1.55;margin-top:.35rem}
+.au .vrow .vc .st2{display:inline-block;margin-top:.55rem;font-family:var(--mono);font-size:9px;letter-spacing:.04em;text-transform:uppercase;color:var(--mint);border:1px solid var(--mg);padding:4px 9px;border-radius:2px}
+.au .breadth{padding:.6rem 20px 1.2rem}
+.au .clu{padding:1.15rem 0;border-top:1px solid var(--line)}
+.au .clu:first-child{border-top:0}
+.au .clu h5{display:flex;align-items:baseline;gap:.55rem;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--mint)}
+.au .clu h5 b{font-size:.95rem;color:var(--c26)}
+.au .clu .items{display:flex;flex-wrap:wrap;gap:6px;margin-top:.75rem}
+.au .clu .items span{border:1px solid var(--line);background:var(--card);padding:6px 10px;font-size:11.5px;color:var(--c70);border-radius:2px}
+.au .end{padding:2.2rem 20px calc(2.4rem + env(safe-area-inset-bottom));border-top:1px solid var(--line);margin-top:1.7rem}
+.au .end .big{font-size:clamp(2.6rem,11vw,3.7rem);font-weight:800;line-height:1;letter-spacing:-.04em}
+.au .end .big span{color:var(--mint)}
+.au .end p{font-size:.95rem;color:var(--c70);line-height:1.62;max-width:46ch;margin-top:1rem}
+.au .end p b{color:var(--c);font-weight:700}
+.au .end a{display:block;margin-top:1.4rem;text-align:center;font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;text-transform:uppercase;color:var(--ink);background:var(--mint);text-decoration:none;padding:1.15rem;border-radius:6px;font-weight:500}
+.au .end .foot{font-family:var(--mono);font-size:10px;color:var(--c26);letter-spacing:.02em;margin-top:1.4rem}
+.au .wire{stroke:var(--c16);stroke-width:1.25;fill:none}
+.au .node{fill:var(--c16)} .au .nodeOn{fill:var(--mint)}
+.au .ring{fill:none;stroke:var(--mint);stroke-width:1.5}
+.au .lab{font-family:'Martian Mono';font-weight:400;fill:var(--c70)}
+.au .labA{font-family:'Martian Mono';font-weight:500;fill:var(--mint)}
+.au .labk{font-family:'Plus Jakarta Sans';font-weight:700;fill:var(--ink)}
+.au .glow{filter:drop-shadow(0 0 7px var(--mg))}
+.au .draw{stroke-dasharray:var(--L,240);stroke-dashoffset:var(--L,240)}
+.au .live .draw{animation:au-draw 1.15s var(--e) forwards}
+@keyframes au-draw{to{stroke-dashoffset:0}}
+.au .pop{opacity:0;transform:scale(.4);transform-origin:center}
+.au .live .pop{animation:au-pop .5s var(--e) forwards}
+@keyframes au-pop{to{opacity:1;transform:scale(1)}}
+.au .up{opacity:0}
+.au .live .up{animation:au-up .6s var(--e) forwards}
+@keyframes au-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.au .grow{transform:scaleY(0);transform-origin:50% 100%}
+.au .live .grow{animation:au-grw .75s var(--e) forwards}
+@keyframes au-grw{to{transform:scaleY(1)}}
+.au .orbit{transform-origin:200px 150px;animation:au-orb 4.5s linear infinite}
+.au .orbit2{transform-origin:200px 120px;animation:au-orb 3.5s linear infinite}
+@keyframes au-orb{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.au *{animation:none!important;transition-duration:.01ms!important}.au .up,.au .pop{opacity:1;transform:none}.au .draw{stroke-dashoffset:0}.au .grow{transform:none}.au .vrow{opacity:1;transform:none}.au .orbit,.au .orbit2{animation:none!important}}
+`;
 
-const SVG_AU_CONNECT = `<svg viewBox="0 0 400 256" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  ${[
-    { l:"Sheets", x:72, y:54 }, { l:"Stripe", x:330, y:60 },
-    { l:"WhatsApp", x:60, y:196 }, { l:"POS", x:324, y:202 }, { l:"Email", x:200, y:38 },
-  ].map((n, i) => `
-    <line stroke="${AU.line}" stroke-width="1.25" class="draw" style="--L:160;animation-delay:${0.2 + i * 0.1}s" x1="${n.x}" y1="${n.y}" x2="200" y2="136"/>
-    <circle fill="${AU.mint2}" stroke="${AU.mint}" stroke-width="1.25" class="pop" cx="${n.x}" cy="${n.y}" r="18" style="animation-delay:${0.4 + i * 0.1}s"/>
-    <text font-family="monospace" font-size="8.5" fill="${AU.mint}" text-anchor="middle" class="up" x="${n.x}" y="${n.y + 4}" style="animation-delay:${0.55 + i * 0.1}s">${n.l}</text>
-  `).join("")}
-  <circle fill="${AU.mint}" class="pop" cx="200" cy="136" r="38" style="animation-delay:.75s"/>
-  <text font-family="monospace" font-size="9.5" font-weight="700" fill="${AU.bg}" text-anchor="middle" class="up" x="200" y="130" style="animation-delay:.9s">one</text>
-  <text font-family="monospace" font-size="9.5" font-weight="700" fill="${AU.bg}" text-anchor="middle" class="up" x="200" y="144" style="animation-delay:.95s">system</text>
-</svg>`;
+const AU_TEAM = ['Automation engineers','Integrations','AI','Support'];
+const AU_PARTS = [
+  { n:'01', sp:'Integrations', h:'Everything <em>talks</em> to everything.', out:'Your tools stop being islands.',
+    who:'Integrations',
+    cap:'Your bookings, your till, your inbox, your sheets, your ads \u2014 today they don\u2019t talk, so you\u2019re the glue, copying between them by hand. We wire them into one connected system so information moves on its own. The booking updates the calendar, the sale updates the stock, the lead lands in the CRM \u2014 <b>no one lifting a finger.</b>',
+    stat:'1', statP:'connected system where your tools were islands \u2014 no more copy-paste between apps', viz:'connect' },
+  { n:'02', sp:'Automation engineers', h:'Work <em>triggers</em> itself.', out:'One event, everything after it.',
+    who:'Automation engineers',
+    cap:'We set the rules once: when this happens, do that. A booking comes in \u2192 confirmation sent, reminder scheduled, table blocked. An invoice goes unpaid \u2192 a polite chase goes out on day three. The restaurant, the shop, the clinic \u2014 the busywork just happens, on time, every time.',
+    stat:'30', statEm:'%', statP:'of everyday work can run itself, hands-free', viz:'trigger' },
+  { n:'03', sp:'AI, inside the flow', h:'The smart part is <em>handled.</em>', out:'AI makes the small calls.',
+    who:'AI',
+    cap:'Where a little judgement is needed, AI handles it inside the flow \u2014 sorting the message, drafting the reply, routing the lead to the right person, flagging the odd one out. Not a robot pretending to be you; just the small decisions made instantly, so nothing waits in a queue for someone to get to it.',
+    stat:'80', statEm:'%', statP:'of routine questions and tasks handled without a human touching them', viz:'decide' },
+  { n:'04', sp:'Always-on', h:'It runs while you <em>sleep.</em>', out:'24/7, never forgets.',
+    who:'The system',
+    cap:'It doesn\u2019t take breaks, doesn\u2019t forget, doesn\u2019t call in sick. The follow-up still goes at 9pm, the reminder still fires on Sunday, the lead at 2am still gets an instant reply. <b>The business keeps working when you\u2019ve gone home.</b>',
+    stat:'24/7', statP:'always running \u2014 never a dropped ball, never a forgotten follow-up', viz:'always' },
+  { n:'05', sp:'Oversight', h:'You <em>watch</em> it, not run it.', out:'In control, hands-free.',
+    who:'Support',
+    cap:'You get one clear view of everything running \u2014 what fired, what\u2019s pending, what needs you. You step in only when you want, change a rule in a click, and otherwise let it run. The point isn\u2019t to remove you; it\u2019s to free you.',
+    stat:'0', statP:'things falling through the cracks \u2014 nothing waits on someone remembering', viz:'watch' },
+] as const;
 
-const SVG_AU_TRIGGER = `<svg viewBox="0 0 400 196" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <rect fill="${AU.mint2}" stroke="${AU.mint}" stroke-width="1.25" rx="8" class="up" x="28" y="78" width="90" height="40" style="animation-delay:.1s"/>
-  <text font-family="monospace" font-size="10" fill="${AU.mint}" text-anchor="middle" class="up" x="73" y="102" style="animation-delay:.2s">trigger</text>
-  <line stroke="${AU.line}" stroke-width="1.25" class="draw" style="--L:56;animation-delay:.3s" x1="118" y1="98" x2="170" y2="98"/>
-  <text font-family="monospace" font-size="9" fill="rgba(234,240,236,.35)" text-anchor="middle" class="up" x="144" y="92" style="animation-delay:.35s">fires</text>
-  ${[{ l:"send", y:56 }, { l:"update", y:98 }, { l:"notify", y:140 }].map((a, i) => `
-    <line stroke="${AU.line}" stroke-width="1" stroke-dasharray="4 3" class="draw" style="--L:50;animation-delay:${0.4 + i * 0.08}s" x1="170" y1="98" x2="214" y2="${a.y + 20}"/>
-    <rect fill="${AU.card}" stroke="${AU.line}" stroke-width="1.25" rx="8" class="up" x="214" y="${a.y}" width="80" height="40" style="animation-delay:${0.5 + i * 0.1}s"/>
-    <text font-family="monospace" font-size="10" fill="${AU.dim}" text-anchor="middle" class="up" x="254" y="${a.y + 24}" style="animation-delay:${0.65 + i * 0.1}s">${a.l}</text>
-  `).join("")}
-  <circle fill="${AU.mint}" class="pop" cx="324" cy="98" r="16" style="animation-delay:.85s"/>
-  <text font-family="monospace" font-size="12" fill="${AU.bg}" text-anchor="middle" class="pop" x="324" y="103" style="animation-delay:1s">✓</text>
-</svg>`;
+const AU_VALUE: [string,string,string][] = [
+  ['Hours back, every week','The manual busywork runs itself, so you get your time back for the work only you can do \u2014 not chasing, copying and reminding.','Your time back'],
+  ['Nothing falls through','Every follow-up, reminder, invoice and reply happens on time, without anyone having to remember it.','Zero dropped balls'],
+  ['Served around the clock','Leads answered and customers looked after while you sleep \u2014 you never lose one to a slow reply again.','Always on'],
+  ['Fewer mistakes','No typos, no missed steps, no double-entry \u2014 the system does it the same, correct way every single time.','No human error'],
+  ['Grow without hiring','Handle far more volume with the same team, because the extra work doesn\u2019t need extra hands.','Scale without headcount'],
+];
+const AU_CLUSTERS: [string,string[]][] = [
+  ['Marketing',['Post scheduling','Review requests','Retargeting triggers','Lead capture','Campaign automation','Win-back flows']],
+  ['Sales & CRM',['Lead routing','Follow-up sequences','Missed-call callback','Quote generation','Pipeline updates','Deal alerts']],
+  ['Bookings & customers',['Confirmations','Reminders','No-show chasing','Feedback requests','Loyalty & rewards','Waitlists']],
+  ['Finance & admin',['Invoicing','Payment reminders','Receipts','Expense sync','Reporting','Payroll prep']],
+  ['Operations',['Stock alerts','Reorder triggers','Supplier orders','Rota & scheduling','Task assignment','Checklists']],
+  ['Data & reporting',['Tool-to-tool sync','Dashboards','Weekly reports','Anomaly alerts','Backups','Data cleanup']],
+];
 
-const SVG_AU_DECIDE = `<svg viewBox="0 0 400 216" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <line stroke="${AU.line}" stroke-width="1.25" class="draw" style="--L:80;animation-delay:.1s" x1="30" y1="108" x2="150" y2="108"/>
-  <rect fill="${AU.mint2}" stroke="${AU.mint}" stroke-width="1.5" rx="4" class="pop" x="150" y="80" width="56" height="56" transform="rotate(45 178 108)" style="animation-delay:.3s"/>
-  <text font-family="monospace" font-size="10" font-weight="700" fill="${AU.mint}" text-anchor="middle" class="pop" x="178" y="104" style="animation-delay:.45s">AI</text>
-  <text font-family="monospace" font-size="9" fill="${AU.dim}" text-anchor="middle" class="pop" x="178" y="118" style="animation-delay:.5s">decides</text>
-  <line stroke="${AU.line}" stroke-width="1.25" class="draw" style="--L:80;animation-delay:.6s" x1="218" y1="80" x2="282" y2="48"/>
-  <line stroke="${AU.line}" stroke-width="1.25" class="draw" style="--L:80;animation-delay:.7s" x1="218" y1="136" x2="282" y2="168"/>
-  <rect fill="${AU.card}" stroke="${AU.line}" stroke-width="1.25" rx="8" class="up" x="282" y="28" width="96" height="40" style="animation-delay:.75s"/>
-  <text font-family="monospace" font-size="10" fill="${AU.dim}" text-anchor="middle" class="up" x="330" y="52" style="animation-delay:.9s">this way</text>
-  <rect fill="${AU.card}" stroke="${AU.line}" stroke-width="1.25" rx="8" class="up" x="282" y="148" width="96" height="40" style="animation-delay:.85s"/>
-  <text font-family="monospace" font-size="10" fill="${AU.dim}" text-anchor="middle" class="up" x="330" y="172" style="animation-delay:1s">or that</text>
-</svg>`;
-
-const SVG_AU_ALWAYS = `<svg viewBox="0 0 400 240" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <circle fill="none" stroke="${AU.line}" stroke-width="1.25" cx="200" cy="120" r="70"/>
-  <circle fill="none" stroke="rgba(52,227,155,.2)" stroke-width="1.5" stroke-dasharray="5 3" cx="200" cy="120" r="90"/>
-  <circle fill="${AU.card}" stroke="${AU.mint}" stroke-width="1.5" cx="200" cy="120" r="42"/>
-  <text font-family="monospace" font-size="18" font-weight="700" fill="${AU.mint}" text-anchor="middle" x="200" y="114">24</text>
-  <line stroke="${AU.mint}" stroke-width="1.5" x1="178" y1="120" x2="222" y2="120"/>
-  <text font-family="monospace" font-size="18" font-weight="700" fill="${AU.mint}" text-anchor="middle" x="200" y="136">7</text>
-  <g class="orbit">
-    <circle fill="${AU.mint}" cx="200" cy="30" r="8" style="filter:drop-shadow(0 0 8px rgba(52,227,155,.6))"/>
-  </g>
-  <text font-family="monospace" font-size="9.5" fill="${AU.c45}" text-anchor="middle" x="200" y="222">always on — no holidays, no sick days</text>
-</svg>`;
-
-const SVG_AU_WATCH = `<svg viewBox="0 0 400 224" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <rect fill="${AU.card}" stroke="${AU.line}" stroke-width="1.25" rx="12" class="up" x="24" y="24" width="280" height="168" style="animation-delay:.1s"/>
-  <text font-family="monospace" font-size="9" fill="${AU.c45}" letter-spacing=".1em" class="up" x="40" y="50" style="animation-delay:.2s">AUTOMATION DASHBOARD</text>
-  ${[{ h:80, c:AU.mint }, { h:56, c:AU.mint }, { h:96, c:AU.mint }, { h:42, c:"rgba(234,240,236,.2)" }, { h:64, c:AU.mint }].map((b, i) => {
-    const x = 48 + i * 48; const y = 160 - b.h;
-    return `<rect fill="${b.c}" rx="4" class="grow" x="${x}" y="${y}" width="32" height="${b.h}" style="animation-delay:${0.3 + i * 0.1}s"/>`;
-  }).join("")}
-  <circle fill="${AU.mint}" class="pop" cx="340" cy="48" r="10" style="animation-delay:.7s;filter:drop-shadow(0 0 6px rgba(52,227,155,.5))"/>
-  <text font-family="monospace" font-size="9" fill="${AU.mint}" class="up" x="326" y="74" text-anchor="middle" style="animation-delay:.85s">alert</text>
-</svg>`;
+const AU_VIZ: Record<string, () => string> = {
+  connect() {
+    const tools:[string,number,number][]=[['Sheets',72,54],['Stripe',330,60],['WhatsApp',60,196],['POS',324,202],['Email',200,38]];
+    let s='<circle class="nodeOn glow pop" cx="200" cy="128" r="34" style="animation-delay:.2s"/><text class="labk pop" x="200" y="132" font-size="10" text-anchor="middle" style="animation-delay:.35s">one system</text>';
+    tools.forEach((t,i)=>{s+=`<line class="wire draw" style="--L:180;animation-delay:${.5+i*.1}s" x1="200" y1="128" x2="${t[1]}" y2="${t[2]}"/>`+
+      `<rect class="wire up" x="${t[1]-38}" y="${t[2]-15}" width="76" height="30" rx="7" fill="rgba(234,240,236,.03)" style="animation-delay:${.7+i*.1}s"/>`+
+      `<text class="lab up" x="${t[1]}" y="${t[2]+4}" font-size="10.5" text-anchor="middle" style="animation-delay:${.8+i*.1}s">${t[0]}</text>`;});
+    return `<svg viewBox="0 0 400 256">${s}</svg>`;
+  },
+  trigger() {
+    let s='<rect class="nodeOn glow pop" x="26" y="96" width="72" height="44" rx="8" style="animation-delay:.2s"/><text class="labk pop" x="62" y="122" font-size="9" text-anchor="middle" style="animation-delay:.35s">trigger</text>';
+    const acts=['send','update','notify'],x0=134;
+    acts.forEach((t,i)=>{const x=x0+i*90;
+      s+=`<line class="wire draw glow" style="--L:38;animation-delay:${.5+i*.25}s" x1="${x-38}" y1="118" x2="${x-6}" y2="118"/>`+
+        `<rect class="wire up" x="${x}" y="96" width="72" height="44" rx="8" style="animation-delay:${.6+i*.25}s"/>`+
+        `<text class="lab up" x="${x+36}" y="122" font-size="10" text-anchor="middle" style="animation-delay:${.7+i*.25}s">${t}</text>`;});
+    s+='<text class="lab up" x="200" y="176" font-size="10.5" text-anchor="middle" opacity=".55" style="animation-delay:1.2s">one event \u2014 everything after it, automatic</text>';
+    return `<svg viewBox="0 0 400 196">${s}</svg>`;
+  },
+  decide() {
+    let s='<line class="wire draw" style="--L:70" x1="40" y1="120" x2="150" y2="120"/>';
+    s+='<polygon class="nodeOn glow pop" points="150,90 200,120 150,150 100,120" style="animation-delay:.4s"/><text class="labk pop" x="150" y="124" font-size="8" text-anchor="middle" style="animation-delay:.55s">AI</text>';
+    s+='<line class="wire draw glow" style="--L:112;animation-delay:.7s" x1="200" y1="120" x2="300" y2="70"/><rect class="nodeOn glow pop" x="300" y="52" width="72" height="36" rx="7" style="animation-delay:.9s"/><text class="labk pop" x="336" y="74" font-size="9" text-anchor="middle" style="animation-delay:1s">this way</text>';
+    s+='<line class="wire draw" style="--L:112;animation-delay:.7s" x1="200" y1="120" x2="300" y2="170"/><rect class="wire up" x="300" y="152" width="72" height="36" rx="7" style="animation-delay:.9s"/><text class="lab up" x="336" y="174" font-size="9" text-anchor="middle" style="animation-delay:1s">or that</text>';
+    return `<svg viewBox="0 0 400 216">${s}</svg>`;
+  },
+  always() {
+    let s='<circle class="wire" cx="200" cy="120" r="70"/>';
+    s+='<circle class="ring draw glow" style="--L:440" cx="200" cy="120" r="70"/>';
+    s+='<g class="orbit2"><circle class="nodeOn glow" cx="200" cy="50" r="5"/></g>';
+    s+='<text class="labA pop" x="200" y="116" font-size="19" text-anchor="middle" font-weight="500" style="animation-delay:.5s">24/7</text><text class="lab up" x="200" y="138" font-size="9" text-anchor="middle" opacity=".55" style="animation-delay:.7s">never stops</text>';
+    return `<svg viewBox="0 0 400 240">${s}</svg>`;
+  },
+  watch() {
+    let s='<rect class="wire up" x="60" y="46" width="280" height="140" rx="12" style="animation-delay:.2s"/>';
+    const bars=[58,88,72,108,82];bars.forEach((h,i)=>{const x=92+i*48;s+=`<rect class="nodeOn glow grow" x="${x}" y="${166-h}" width="26" height="${h}" rx="3" style="animation-delay:${.5+i*.1}s"/>`;});
+    s+='<circle class="nodeOn glow pop" cx="316" cy="68" r="5" style="animation-delay:1s"/><text class="labA up" x="200" y="208" font-size="10.5" text-anchor="middle" style="animation-delay:1.1s">you watch it \u2014 you don\u2019t run it</text>';
+    return `<svg viewBox="0 0 400 224">${s}</svg>`;
+  },
+};
 
 function AutomationContent({ onClose }: { onClose: () => void }) {
   const wrapRef = useRef<HTMLDivElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const flowRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    const lid = 'au-modal-fonts';
-    if (!document.getElementById(lid)) {
-      const l = document.createElement('link');
-      l.id = lid; l.rel = 'stylesheet';
-      l.href = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Martian+Mono:wght@400;500&display=swap';
-      document.head.appendChild(l);
-    }
-    const sid = 'au-modal-css';
-    if (!document.getElementById(sid)) {
+    const id = 'au-modal-css';
+    if (!document.getElementById(id)) {
       const s = document.createElement('style');
-      s.id = sid;
-      s.textContent = `.au-wrap h1,.au-wrap h2,.au-wrap h3,.au-wrap h4,.au-wrap p{font-family:'Plus Jakarta Sans',sans-serif!important}`;
+      s.id = id; s.textContent = AU_CSS;
       document.head.appendChild(s);
     }
   }, []);
 
-  const faqs = [
-    { q: "What does 'a business that runs itself' mean in practice?", a: "It means your core workflows — booking, invoicing, follow-up, lead routing, reporting — happen automatically when the trigger fires, without a human kicking them off. Your team focuses on work that actually needs a person." },
-    { q: "What tools do you connect?", a: "Whatever you already use: Stripe, Google Sheets, WhatsApp, your CRM, your POS, your email platform, your calendar. We connect what you have — we don't sell you new software." },
-    { q: "What if something breaks or needs changing?", a: "We monitor every automation and you can pause or override anything at any time. When your business changes, we update the workflows — usually in hours, not days." },
-    { q: "Are you an AI company?", a: "Automation is the foundation — AI is one layer on top where it adds value (smart routing, dynamic responses). Real engineers design and build the systems. The result is a business that runs whether you're watching or not." },
-  ];
-  const clusters = [
-    { title:"Marketing", items:["Lead capture", "Email sequences", "Re-engagement", "Campaign reporting"] },
-    { title:"Sales", items:["Lead routing", "Follow-up chains", "Pipeline updates", "Quote sending"] },
-    { title:"Bookings", items:["Confirmation sends", "Reminder messages", "Rescheduling", "No-show follow-up"] },
-    { title:"Finance", items:["Invoice creation", "Payment chasing", "Reconciliation alerts", "Report generation"] },
-    { title:"Operations", items:["Task creation", "Status updates", "Handoff triggers", "SLA alerts"] },
-    { title:"Data", items:["Cross-system sync", "CRM updates", "Dashboard refresh", "Anomaly flags"] },
-  ];
+  // hero engine
+  useEffect(() => {
+    const flow = flowRef.current; if (!flow) return;
+    const cx=200,cy=150,R=92,steps=['Lead in','Reply','Book','Remind','Invoice','Review']; let s='';
+    s+=`<circle class="ring" cx="${cx}" cy="${cy}" r="${R}" opacity=".22"/>`;
+    steps.forEach((nm,i)=>{const a=-Math.PI/2+i/steps.length*Math.PI*2,x=cx+Math.cos(a)*R,y=cy+Math.sin(a)*R;
+      s+=`<circle class="nodeOn glow pop" cx="${x}" cy="${y}" r="6" style="animation-delay:${.4+i*.1}s"/>`;
+      const lx=cx+Math.cos(a)*(R+12),ly=cy+Math.sin(a)*(R+12),an=Math.cos(a)>.25?'start':(Math.cos(a)<-.25?'end':'middle');
+      s+=`<text class="lab up" x="${lx}" y="${ly+4}" font-size="10" text-anchor="${an}" style="animation-delay:${.6+i*.1}s">${nm}</text>`;});
+    s+=`<g class="orbit"><circle class="nodeOn glow" cx="${cx}" cy="${cy-R}" r="4.5"/></g>`;
+    s+=`<circle class="ring glow pop" cx="${cx}" cy="${cy}" r="30" style="animation-delay:.15s"/>`+
+       `<circle class="nodeOn glow pop" cx="${cx}" cy="${cy}" r="16" style="animation-delay:.2s"/>`+
+       `<text class="labk pop" x="${cx}" y="${cy+4}" font-size="9" text-anchor="middle" style="animation-delay:.35s">auto</text>`;
+    flow.innerHTML = s;
+    const id = requestAnimationFrame(() => frameRef.current?.classList.add('live'));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  // reveal
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('live'); io.unobserve(e.target); } }),
+      { threshold: 0.25 }
+    );
+    wrapRef.current?.querySelectorAll('.au .viz,.au .vrow,.au .clu').forEach(v => io.observe(v));
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div className="au-wrap" ref={wrapRef} style={{ background: AU.bg, color: AU.c }}>
-      <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${AU.line}` }}>
-        <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
-          fontSize: "clamp(2.4rem,10vw,3.8rem)", lineHeight: .9, letterSpacing: "-.05em",
-          textTransform: "uppercase", color: AU.c, marginBottom: "1rem" }}>
-          The business that<br />
-          <em style={{ fontFamily: "var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle: "italic", fontWeight: 400, textTransform: "none", letterSpacing: 0,
-            color: AU.mint, fontSize: "1.04em" }}>runs itself.</em>
-        </h1>
-        <p style={{ fontSize: ".98rem", color: AU.dim, lineHeight: 1.6, maxWidth: "44ch" }}>
-          We connect your tools, build the triggers, and automate the workflows so your business
-          keeps moving — booking, invoicing, following up —{" "}
-          <strong style={{ color: AU.c }}>while your team works on things that actually need a person.</strong>
-        </p>
+    <div className="au" ref={wrapRef}>
+      <div className="top">
+        <span className="brand"><b>OARC</b><s>Automation</s></span>
+        <span className="live"><i />Runs itself</span>
       </div>
-      <div style={{ padding: "1.6rem 20px 0" }}><Kicker label="How automation works" color={AU.mint} /></div>
-      {[
-        { n:"01", sp:"One connected system", h:"Everything <em>connected</em> — one system.", stat:"Zero", statD:"data entry between systems once the automations are live",
-          cap:"Your tools don't talk to each other. We connect them — Stripe, WhatsApp, your CRM, your calendar, your spreadsheets — so data flows automatically without a person copying it from one place to another.",
-          svg: SVG_AU_CONNECT, svgCap:"All your tools connected through one central automation layer." },
-        { n:"02", sp:"Trigger → actions", h:"Trigger fires. <em>Job done.</em>", stat:"Seconds", statD:"from trigger to completed workflow — no human in the loop",
-          cap:"Every automation starts with a trigger — a booking, a payment, a new lead, a message. The moment it fires, a chain of actions runs: send, update, notify, log. The whole job is done before you'd have had time to open the tab.",
-          svg: SVG_AU_TRIGGER, svgCap:"One trigger fires, the chain runs, everything is done." },
-        { n:"03", sp:"AI routing", h:"AI decides which <em>path it takes</em>.", stat:"Smart", statD:"routing based on what the customer said, the amount owed, the lead score",
-          cap:"Some decisions need context. We use AI routing at the branch points — so a message from a high-value customer goes one way, a cold lead another. Smarter than a simple if/then, and it learns as it handles more.",
-          svg: SVG_AU_DECIDE, svgCap:"AI reads the context and routes to the right path — automatically." },
-        { n:"04", sp:"Always on", h:"Never off. <em>24/7.</em>", stat:"24/7", statD:"automations running — nights, weekends, bank holidays, while you sleep",
-          cap:"Your automation doesn't take holidays or get sick. A booking at 2 am gets confirmed. An overdue invoice at 11 pm gets chased. A lead that comes in on Sunday gets routed by Monday morning. Always on, never tiring.",
-          svg: SVG_AU_ALWAYS, svgCap:"The orbit never stops. Every trigger is caught, every job is done." },
-        { n:"05", sp:"Watch it work", h:"See it running — in <em>real time</em>.", stat:"Full", statD:"visibility into every automation, every trigger, every completed job",
-          cap:"You can see everything. A live dashboard shows which automations are running, how many tasks each one has handled, and an alert when anything needs attention. You're always in control of the system.",
-          svg: SVG_AU_WATCH, svgCap:"The dashboard: every automation live, every alert surfaced." },
-      ].map((p, i) => (
-        <Reveal key={i}>
-          <div style={{ padding: "1.8rem 20px 2rem", borderTop: `1px solid ${AU.line}` }}>
-            <div style={{ display: "flex", alignItems: "baseline", gap: ".6rem", marginBottom: ".9rem" }}>
-              <span style={{ fontFamily: "monospace", fontSize: 11, color: AU.mint }}>{p.n}</span>
-              <span style={{ fontFamily: "monospace", fontSize: 9, letterSpacing: ".16em",
-                textTransform: "uppercase" as const, color: AU.c45 }}>{p.sp}</span>
-            </div>
-            <h2 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 700,
-              fontSize: "clamp(1.8rem,7vw,2.4rem)", lineHeight: 1.02, letterSpacing: "-.03em", color: AU.c, marginBottom: ".9rem" }}
-              dangerouslySetInnerHTML={{ __html: p.h.replace(/<em>/g,
-                `<em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:${AU.mint}">`) }} />
-            <p style={{ fontSize: ".92rem", color: AU.dim, lineHeight: 1.62, maxWidth: "52ch" }}>{p.cap}</p>
-            <VizBox svg={p.svg} bg={AU.card} brd={AU.line} />
-            <p style={{ fontFamily: "monospace", fontSize: 10, color: AU.c45, marginTop: ".7rem" }}>{p.svgCap}</p>
-            <div style={{ display: "flex", alignItems: "baseline", gap: ".7rem",
-              borderTop: `1px solid ${AU.line}`, marginTop: "1rem", paddingTop: "1rem" }}>
-              <span style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
-                fontSize: "clamp(2rem,7vw,2.6rem)", color: AU.mint, letterSpacing: "-.04em", lineHeight: .85 }}>{p.stat}</span>
-              <span style={{ fontSize: 11, color: AU.c45, lineHeight: 1.4, maxWidth: "28ch" }}>{p.statD}</span>
-            </div>
-          </div>
-        </Reveal>
-      ))}
-      {/* what it's worth — VALUE rows */}
-      <Reveal>
-        <div style={{ padding: "1.6rem 20px 2rem", borderTop: `1px solid ${AU.line}` }}>
-          <Kicker label="What it's worth to you" color={AU.mint} />
-          <div style={{ marginTop: "1.2rem" }}>
-            {[
-              { h:"Hours back every week", s:"8–14 hrs", d:"per person per week" },
-              { h:"Nothing falls through", s:"0", d:"missed triggers — every job caught" },
-              { h:"Served around the clock", s:"24/7", d:"no sick days, no gaps, no holidays" },
-              { h:"Fewer mistakes", s:"100%", d:"human error eliminated from automated flows" },
-              { h:"Grow without hiring", s:"+ capacity", d:"add volume without adding headcount" },
-            ].map((v, i) => (
-              <div key={i} style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline",
-                padding:".9rem 0", borderTop: i > 0 ? `1px solid ${AU.line}` : "none" }}>
-                <span style={{ fontSize:".88rem", color:AU.dim, lineHeight:1.4 }}>{v.h}</span>
-                <div style={{ textAlign:"right", flexShrink:0, marginLeft:"1rem" }}>
-                  <span style={{ fontFamily:"monospace", fontSize:"1.3rem", fontWeight:700, color:AU.mint,
-                    display:"block", lineHeight:.9, letterSpacing:"-.02em" }}>{v.s}</span>
-                  <span style={{ fontFamily:"monospace", fontSize:9.5, color:AU.c45, letterSpacing:".04em" }}>{v.d}</span>
-                </div>
-              </div>
-            ))}
-          </div>
+
+      <div className="hero">
+        <p className="lbl">AI and automation</p>
+        <h1>The business that<br /><em>runs itself.</em></h1>
+        <p>Everything connected, the busywork triggering itself, the smart calls handled — running 24/7 while you watch it work. <b>Not more staff. A business that needs fewer hands to run.</b></p>
+
+        <div className="frame" ref={frameRef}>
+          <div className="fc">One engine — always running</div>
+          <svg ref={flowRef} viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" />
         </div>
-      </Reveal>
-      {/* cluster grid */}
-      <Reveal>
-        <div style={{ padding: "1.6rem 20px 2rem", borderTop: `1px solid ${AU.line}` }}>
-          <Kicker label="What we automate" color={AU.mint} />
-          <div style={{ marginTop: "1.2rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem 1.2rem" }}>
-            {clusters.map(c => (
-              <div key={c.title}>
-                <p style={{ fontFamily: "monospace", fontSize: 9, letterSpacing: ".14em",
-                  textTransform: "uppercase", color: AU.mint, marginBottom: ".5rem" }}>{c.title}</p>
-                {c.items.map(item => (
-                  <p key={item} style={{ fontSize: 11, color: AU.dim, lineHeight: 1.6 }}>· {item}</p>
-                ))}
-              </div>
-            ))}
-          </div>
+
+        <div className="team">
+          <s>The people on it</s>
+          <div className="row">{AU_TEAM.map(t => <span key={t}>{t}</span>)}</div>
         </div>
-      </Reveal>
-      <FAQ items={faqs} bg={AU.bg} border={AU.line} head={AU.c} body={AU.dim} />
-      <CTA big={<>A business that runs<br /><CtaItalic>on its own.</CtaItalic></>}
-        sub="Connect your tools, build the triggers, automate the workflows — so your business keeps moving while your team does work that actually needs a person."
-        btn="See what we can automate for you" onClose={onClose} />
+      </div>
+
+      <div className="shead">How it runs</div>
+      <div>
+        {AU_PARTS.map((p, i) => (
+          <section key={i} className="phase">
+            <div className="idx"><b>{p.n}</b><s>{p.sp}</s></div>
+            <h2 dangerouslySetInnerHTML={{ __html: p.h }} />
+            <p className="out">{p.out}</p>
+            <div className="viz" dangerouslySetInnerHTML={{ __html: AU_VIZ[p.viz]() }} />
+            <p className="who">{p.who}</p>
+            <p className="cap" dangerouslySetInnerHTML={{ __html: p.cap }} />
+            <div className="stat">
+              <b dangerouslySetInnerHTML={{ __html: p.stat + ((p as {statEm?:string}).statEm ? `<em>${(p as {statEm?:string}).statEm}</em>` : '') }} />
+              <p>{p.statP}</p>
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <div className="shead">What it&apos;s worth to you</div>
+      <div className="value">
+        {AU_VALUE.map((v, i) => (
+          <div key={i} className="vrow">
+            <div className="vn">0{i + 1}</div>
+            <div className="vc"><h4>{v[0]}</h4><p>{v[1]}</p><span className="st2">{v[2]}</span></div>
+          </div>
+        ))}
+      </div>
+
+      <div className="shead">Everything it runs — one system</div>
+      <div className="breadth">
+        {AU_CLUSTERS.map((c, ci) => (
+          <div key={ci} className="clu">
+            <h5><b>0{ci + 1}</b>{c[0]}</h5>
+            <div className="items">
+              {c[1].map((x, xi) => <span key={xi} className="up" style={{ animationDelay:`${xi*.03}s` }}>{x}</span>)}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="end">
+        <div className="big">Fewer hands.<br /><span>More business.</span></div>
+        <p>Your tools connected, the busywork triggering itself, the smart calls handled, running around the clock — while you oversee it in one view. <b>The point isn&apos;t to remove you. It&apos;s to free you.</b></p>
+        <a href="/contact" onClick={onClose}>See what we&apos;d automate first →</a>
+        <p className="foot">OARC — one team for the whole business. Malta.</p>
+      </div>
     </div>
   );
 }
 
 // ────────────────────────────────────────────────────────────────────────────
-// TRANSFORMATION CONTENT
+// TRANSFORMATION CONTENT  (exact prototype port — paper/cyan light world)
+// src: change_how_the_business_runs_1786575410243.txt
 // ────────────────────────────────────────────────────────────────────────────
-const TR = { bg:"#050A10", card:"#0A1018", sig:"#3EC6FF", sig2:"rgba(62,198,255,.12)",
-  c:"#E8F4FF", dim:"rgba(232,244,255,.7)", c45:"rgba(232,244,255,.45)", line:"rgba(232,244,255,.1)" };
+const TR_CSS = `
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+.trx{
+  --paper:#EEF1F4;--card:#F8FAFB;--ink:#0D1220;--cyan:#0E8FA8;--cyand:#0A7285;
+  --i70:rgba(13,18,32,.7);--i45:rgba(13,18,32,.45);--i30:rgba(13,18,32,.3);
+  --i16:rgba(13,18,32,.14);--i10:rgba(13,18,32,.07);
+  --cg:rgba(14,143,168,.3);--cf:rgba(14,143,168,.1);--line:rgba(13,18,32,.12);
+  --ui:'Space Grotesk',sans-serif;--mono:'IBM Plex Mono',monospace;--e:cubic-bezier(.16,1,.3,1);
+  background:var(--paper);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased}
+.trx *{margin:0;padding:0;box-sizing:border-box}
+.trx .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
+.trx .top .brand{display:flex;align-items:baseline;gap:.7rem}
+.trx .top .brand b{font-weight:700;font-size:13px;letter-spacing:-.02em}
+.trx .top .brand s{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--i30);text-decoration:none}
+.trx .top .live{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--i45)}
+.trx .top .live i{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:trx-blink 1.9s ease-out infinite}
+@keyframes trx-blink{0%{box-shadow:0 0 0 0 var(--cg)}100%{box-shadow:0 0 0 8px rgba(14,143,168,0)}}
+.trx .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line)}
+.trx .hero .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyand)}
+.trx .hero h1{font-size:clamp(2.3rem,9vw,3.5rem);font-weight:700;line-height:.98;letter-spacing:-.04em;margin-top:.7rem}
+.trx .hero h1 em{font-style:normal;color:var(--cyand)}
+.trx .hero p{font-size:.98rem;color:var(--i70);line-height:1.58;margin-top:1rem;max-width:44ch}
+.trx .hero p b{color:var(--ink);font-weight:700}
+.trx .frame{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.3rem 1rem 1rem;box-shadow:0 14px 34px rgba(13,18,32,.05)}
+.trx .frame .fc{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--i30);margin-bottom:.3rem;padding:0 .3rem}
+.trx .frame svg{width:100%;display:block;overflow:visible}
+.trx .hero .team{margin-top:1.7rem}
+.trx .hero .team s{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--i45);font-style:normal;text-decoration:none}
+.trx .hero .team .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:.7rem}
+.trx .hero .team .row span{border:1px solid var(--line);padding:6px 10px;font-size:11px;color:var(--i70);border-radius:2px;background:var(--card)}
+.trx .shead{padding:1.7rem 20px .4rem;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--i45);display:flex;align-items:center;gap:.8rem}
+.trx .shead::after{content:'';flex:1;height:1px;background:var(--line)}
+.trx .phase{padding:1.8rem 20px 2rem;border-top:1px solid var(--line)}
+.trx .phase:first-of-type{border-top:0}
+.trx .phase .idx{display:flex;align-items:baseline;gap:.6rem}
+.trx .phase .idx b{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--cyand)}
+.trx .phase .idx s{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--i45);text-decoration:none}
+.trx .phase h2{font-size:clamp(1.95rem,8vw,2.6rem);font-weight:700;line-height:1;letter-spacing:-.035em;margin-top:1rem}
+.trx .phase h2 em{font-style:normal;color:var(--cyand)}
+.trx .phase .out{font-size:clamp(1.3rem,5.2vw,1.6rem);color:var(--ink);margin-top:.9rem;line-height:1.2;font-weight:500}
+.trx .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--card);position:relative;overflow:hidden;aspect-ratio:1/.72;box-shadow:0 1px 0 rgba(255,255,255,.7) inset}
+.trx .viz::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(13,18,32,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(13,18,32,.05) 1px,transparent 1px);background-size:26px 26px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 88%)}
+.trx .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.trx .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--cyand)}
+.trx .who::before{content:'';width:16px;height:1px;background:var(--cyan);opacity:.5}
+.trx .cap{margin-top:.7rem;font-size:.92rem;color:var(--i70);line-height:1.6}
+.trx .cap b{color:var(--ink);font-weight:700}
+.trx .stat{margin-top:1.1rem;display:flex;align-items:baseline;gap:.7rem;padding-top:1rem;border-top:1px solid var(--line)}
+.trx .stat b{font-family:var(--mono);font-size:clamp(2.1rem,9.5vw,2.8rem);font-weight:500;letter-spacing:-.03em;line-height:.9}
+.trx .stat b em{font-style:normal;font-size:.42em;color:var(--cyand)}
+.trx .stat p{font-size:11.5px;color:var(--i45);line-height:1.4;max-width:26ch}
+.trx .bonus{margin:0 20px;padding:1.3rem 1.4rem;border:1px dashed var(--line);border-radius:10px;background:var(--card)}
+.trx .bonus s{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--i45);font-style:normal;text-decoration:none}
+.trx .bonus h4{font-size:1.15rem;font-weight:700;margin:.5rem 0 .5rem;letter-spacing:-.02em}
+.trx .bonus p{font-size:.88rem;color:var(--i70);line-height:1.55}
+.trx .bonus p b{color:var(--ink);font-weight:700}
+.trx .end{padding:2.2rem 20px calc(2.4rem + env(safe-area-inset-bottom));border-top:1px solid var(--line);margin-top:1.7rem}
+.trx .end .big{font-size:clamp(2.5rem,10.5vw,3.6rem);font-weight:700;line-height:1;letter-spacing:-.04em}
+.trx .end .big span{color:var(--cyand)}
+.trx .end p{font-size:.95rem;color:var(--i70);line-height:1.62;max-width:46ch;margin-top:1rem}
+.trx .end p b{color:var(--ink);font-weight:700}
+.trx .end a{display:block;margin-top:1.4rem;text-align:center;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--cyand);text-decoration:none;padding:1.15rem;border-radius:6px}
+.trx .end .foot{font-family:var(--mono);font-size:10.5px;color:var(--i30);letter-spacing:.02em;margin-top:1.4rem}
+.trx .wire{stroke:var(--i16);stroke-width:1.25;fill:none}
+.trx .node{fill:var(--i16)} .trx .nodeOn{fill:var(--cyan)}
+.trx .ring{fill:none;stroke:var(--cyan);stroke-width:1.5}
+.trx .lab{font-family:'IBM Plex Mono';font-weight:400;fill:var(--i70)}
+.trx .labA{font-family:'IBM Plex Mono';font-weight:500;fill:var(--cyand)}
+.trx .labk{font-family:'IBM Plex Mono';font-weight:500;fill:#fff}
+.trx .glow{filter:drop-shadow(0 0 7px var(--cg))}
+.trx .draw{stroke-dasharray:var(--L,240);stroke-dashoffset:var(--L,240)}
+.trx .live .draw{animation:trx-draw 1.15s var(--e) forwards}
+@keyframes trx-draw{to{stroke-dashoffset:0}}
+.trx .pop{opacity:0;transform:scale(.4);transform-origin:center}
+.trx .live .pop{animation:trx-pop .5s var(--e) forwards}
+@keyframes trx-pop{to{opacity:1;transform:scale(1)}}
+.trx .up{opacity:0}
+.trx .live .up{animation:trx-up .6s var(--e) forwards}
+@keyframes trx-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.trx .grow{transform:scaleY(0);transform-origin:50% 100%}
+.trx .live .grow{animation:trx-grw .75s var(--e) forwards}
+@keyframes trx-grw{to{transform:scaleY(1)}}
+.trx .growx{transform:scaleX(0);transform-origin:left center}
+.trx .live .growx{animation:trx-grwx .9s var(--e) forwards}
+@keyframes trx-grwx{to{transform:scaleX(1)}}
+@media(prefers-reduced-motion:reduce){.trx *{animation:none!important;transition-duration:.01ms!important}.trx .up,.trx .pop{opacity:1;transform:none}.trx .draw{stroke-dashoffset:0}.trx .grow,.trx .growx{transform:none}}
+`;
+
+const TR_CY = '#0E8FA8';
+const TR_TEAM = ['Discovery','Product & design','Engineering','Integrations','Support'];
+
+const TR_PARTS = [
+  { n:'01', sp:'Discovery', h:'We learn how it <em>really</em> runs.', out:'The real workflow, not the org chart.',
+    who:'Discovery team',
+    cap:'Before a line of code, we map how your business truly runs \u2014 the WhatsApp threads, the spreadsheet everyone secretly depends on, the step only Maria knows. Most transformations fail because nobody did this first. The restaurant\u2019s real bottleneck is the pass, not the till; the trades firm bleeds hours in quoting, not on the job. <b>We find the actual break before we build.</b>',
+    stat:'70', statEm:'%', statP:'of transformations fail \u2014 almost always because no one mapped how the business really runs first', viz:'map' },
+  { n:'02', sp:'Product & design', h:'Built for <em>you</em>, not a template.', out:'Fitted to your workflow, not you to it.',
+    who:'Product & design',
+    cap:'Off-the-shelf tools make you bend your business to their shape. We do the opposite: design the system around how you actually work, so staff adopt it in a day because it matches what they already do. The shop\u2019s stock speaks its own product names; the clinic\u2019s bookings follow its own rules.',
+    stat:'0', statP:'templates \u2014 it\u2019s built to your workflow, not you bent to someone else\u2019s', viz:'custom' },
+  { n:'03', sp:'Engineering', h:'Live in <em>weeks</em>, not years.', out:'A working version, fast.',
+    who:'Engineering',
+    cap:'We don\u2019t vanish for a year and hand over slides. We ship the smallest thing that works \u2014 the one screen, the one flow that moves the needle \u2014 live in weeks, then improve it with you in the open. <b>You\u2019re using it while competitors are still scoping.</b>',
+    stat:'6', statEm:'weeks', statP:'to a working first version in your hands \u2014 not a year of promises', viz:'ship' },
+  { n:'04', sp:'Integrations', h:'It plugs into what you <em>have</em>.', out:'No rip-and-replace.',
+    who:'Engineering',
+    cap:'Your new system sits on top of the rails you already run \u2014 your POS, Stripe, your sheets, your calendar \u2014 pulling them into one place instead of replacing them. Nothing gets thrown out; everything finally talks to everything else.',
+    stat:'1', statP:'system on your POS, Stripe and sheets \u2014 one place, no rip-and-replace', viz:'integrate' },
+  { n:'05', sp:'Support', h:'You <em>own</em> it.', out:'Yours, and always improving.',
+    who:'The whole team',
+    cap:'It\u2019s your software \u2014 the code, the data, no lock-in and no hostage fees. And it\u2019s a living system, not a finished project: we stay and evolve it as the business grows, so it never becomes the old thing you\u2019re stuck with.',
+    stat:'100', statEm:'%', statP:'yours: the code, the data, no lock-in \u2014 and we keep improving it', viz:'own' },
+] as const;
+
+const TR_VIZ: Record<string, () => string> = {
+  map() {
+    const st:[string,number][]=[['A',54],['B',150],['C',246],['D',342]],y=92;let s='';
+    st.forEach((n,i)=>{s+=`<rect class="wire up" x="${n[1]}" y="${y}" width="60" height="44" rx="7" fill="rgba(13,18,32,.03)" style="animation-delay:${i*.12}s"/>`+
+      `<text class="lab up" x="${n[1]+30}" y="${y+27}" font-size="14" text-anchor="middle" style="animation-delay:${i*.12}s">${n[0]}</text>`;});
+    s+=`<line class="wire draw" style="--L:32;animation-delay:.5s" x1="116" y1="${y+22}" x2="148" y2="${y+22}"/>`;
+    s+=`<line class="draw glow" style="--L:32;animation-delay:.7s" x1="208" y1="${y+22}" x2="244" y2="${y+22}" stroke="${TR_CY}" stroke-width="2.2" stroke-dasharray="4 4"/>`;
+    s+=`<text class="labA up" x="228" y="${y-12}" font-size="11" text-anchor="middle" style="animation-delay:1s">where it breaks</text>`;
+    s+=`<line class="wire draw" style="--L:32;animation-delay:.9s" x1="308" y1="${y+22}" x2="340" y2="${y+22}"/>`;
+    s+=`<text class="lab up" x="200" y="${y+88}" font-size="10.5" text-anchor="middle" opacity=".55" style="animation-delay:1.1s">how it actually runs</text>`;
+    return `<svg viewBox="0 0 400 208">${s}</svg>`;
+  },
+  custom() {
+    let s='<rect class="wire up" x="150" y="66" width="100" height="100" rx="10" style="animation-delay:.1s"/><text class="lab up" x="200" y="52" font-size="10.5" text-anchor="middle" opacity=".55" style="animation-delay:.15s">the shape of your work</text>';
+    s+='<rect class="node up" x="58" y="94" width="66" height="66" rx="10" style="animation-delay:.35s"/><text class="lab up" x="91" y="182" font-size="10.5" text-anchor="middle" opacity=".55" style="animation-delay:.45s">template</text>';
+    s+='<rect class="nodeOn glow pop" x="158" y="74" width="84" height="84" rx="8" style="animation-delay:.75s"/><path class="draw" style="--L:30;animation-delay:1.05s" d="M186,116 l9,10 l17,-21" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round"/>';
+    s+='<text class="labA up" x="200" y="182" font-size="10.5" text-anchor="middle" style="animation-delay:.95s">built for you</text>';
+    return `<svg viewBox="0 0 400 196">${s}</svg>`;
+  },
+  ship() {
+    let s='<text class="lab up" x="40" y="52" font-size="11" style="animation-delay:.2s">the usual</text>'+
+      '<rect class="node growx" x="40" y="62" width="320" height="26" rx="6" style="transform-origin:40px center;animation-delay:.3s"/><text class="lab up" x="54" y="80" font-size="11" style="animation-delay:.8s">a year of slides</text>';
+    s+='<text class="labA up" x="40" y="128" font-size="11" style="animation-delay:.5s">us</text>'+
+      '<rect class="nodeOn glow growx" x="40" y="138" width="122" height="26" rx="6" style="transform-origin:40px center;animation-delay:.6s"/><text class="labk up" x="54" y="156" font-size="11" style="animation-delay:.95s">weeks \u00b7 live</text>';
+    s+='<rect class="ring up" x="176" y="138" width="54" height="26" rx="13" style="animation-delay:1s"/><text class="labA up" x="203" y="156" font-size="10" text-anchor="middle" style="animation-delay:1.1s">LIVE</text>';
+    return `<svg viewBox="0 0 400 196">${s}</svg>`;
+  },
+  integrate() {
+    const tools:[string,number,number][]=[['POS',72,54],['Stripe',330,64],['Sheets',62,198],['Calendar',322,206]];
+    let s='<circle class="nodeOn glow pop" cx="200" cy="130" r="36" style="animation-delay:.2s"/><text class="labk pop" x="200" y="134" font-size="11" text-anchor="middle" font-weight="500" style="animation-delay:.35s">your system</text>';
+    tools.forEach((t,i)=>{s+=`<line class="wire draw" style="--L:180;animation-delay:${.5+i*.12}s" x1="200" y1="130" x2="${t[1]}" y2="${t[2]}"/>`+
+      `<rect class="wire up" x="${t[1]-36}" y="${t[2]-16}" width="72" height="32" rx="7" fill="rgba(13,18,32,.03)" style="animation-delay:${.7+i*.12}s"/>`+
+      `<text class="lab up" x="${t[1]}" y="${t[2]+5}" font-size="11" text-anchor="middle" style="animation-delay:${.8+i*.12}s">${t[0]}</text>`;});
+    return `<svg viewBox="0 0 400 260">${s}</svg>`;
+  },
+  own() {
+    let s='<rect class="nodeOn glow pop" x="150" y="92" width="100" height="78" rx="12" style="animation-delay:.35s"/><text class="labk pop" x="200" y="137" font-size="12" text-anchor="middle" font-weight="500" style="animation-delay:.55s">yours</text>';
+    s+=`<rect class="ring pop" x="184" y="66" width="32" height="22" rx="4" style="animation-delay:.65s"/><path class="draw" style="--L:44;animation-delay:.85s" d="M191,66 v-9 a11,11 0 0 1 22,0" fill="none" stroke="${TR_CY}" stroke-width="2"/>`;
+    s+=`<path class="wire draw glow" style="--L:320;animation-delay:1.05s" d="M250,131 C304,131 304,206 200,206 C118,206 106,156 120,136"/><path class="pop" style="animation-delay:1.75s" d="M120,136 l-3,-14 l13,5 z" fill="${TR_CY}"/>`;
+    s+='<text class="labA up" x="200" y="236" font-size="10.5" text-anchor="middle" style="animation-delay:1.2s">and always improving</text>';
+    return `<svg viewBox="0 0 400 252">${s}</svg>`;
+  },
+};
 
 function TransformationContent({ onClose }: { onClose: () => void }) {
   const wrapRef = useRef<HTMLDivElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    const lid = 'tr-modal-fonts';
-    if (!document.getElementById(lid)) {
-      const l = document.createElement('link');
-      l.id = lid; l.rel = 'stylesheet';
-      l.href = 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap';
-      document.head.appendChild(l);
-    }
-    const sid = 'tr-modal-css';
-    if (!document.getElementById(sid)) {
+    const id = 'trx-modal-css';
+    if (!document.getElementById(id)) {
       const s = document.createElement('style');
-      s.id = sid;
-      s.textContent = `.tr-wrap h1,.tr-wrap h2,.tr-wrap h3,.tr-wrap h4,.tr-wrap p{font-family:'Space Grotesk',sans-serif!important}`;
+      s.id = id; s.textContent = TR_CSS;
       document.head.appendChild(s);
     }
   }, []);
 
-  const lifecycle = [
-    { n:"01", stage:"Discover", desc:"Guests find you — website, maps, social" },
-    { n:"02", stage:"Book", desc:"They reserve — online, phone, in person" },
-    { n:"03", stage:"Order", desc:"They choose — menu, products, services" },
-    { n:"04", stage:"Serve", desc:"You deliver — kitchen, floor, fulfilment" },
-    { n:"05", stage:"Pay", desc:"Transaction happens — fast, frictionless" },
-    { n:"06", stage:"Review", desc:"They share — Google, TripAdvisor, social" },
-    { n:"07", stage:"Return", desc:"They come back — loyalty, re-engagement" },
-  ];
-  const platforms = [
-    { id:"MENU", name:"Digital menu", desc:"QR, kiosk or screen" },
-    { id:"KITCHEN", name:"Kitchen system", desc:"Orders flow direct" },
-    { id:"KIOSK", name:"Self-order", desc:"Staff freed up" },
-    { id:"DESK", name:"Reservations", desc:"Bookings managed" },
-    { id:"TABLE", name:"Table service", desc:"Order at seat" },
-    { id:"BRIDGE", name:"The bridge", desc:"All platforms, one view" },
-  ];
-  const phases = [
-    { n:"01", sp:"Diagnose", h:"We map where the business <em>breaks</em>.", stat:"Day 1", statD:"we map the full picture before touching a single system",
-      cap:"Before we build anything, we spend time inside the operation — front of house, back of house, the systems, the team. We find the five places friction costs the most money. That diagnostic shapes everything." },
-    { n:"02", sp:"Design", h:"We design it — <em>around your operation</em>.", stat:"Custom", statD:"every transformation is designed for this business, not a template",
-      cap:"No two restaurants, hotels or retail operations are the same. The transformation we build fits the floor plan, the team structure, the volume, the brand. We design it with you, not for a generic use case." },
-    { n:"03", sp:"Ship in 7 days", h:"Live in a <em>week</em>.", stat:"7 days", statD:"from kick-off to live systems — not weeks, not months",
-      cap:"We move fast. Most clients are live within a week. We install, configure, train the team, and run the first service with you. No six-month implementation. No consultant day-rates while nothing happens." },
-    { n:"04", sp:"Integrate", h:"Everything talks to <em>everything</em>.", stat:"100%", statD:"of your data in one place — reservations, orders, payments, reviews",
-      cap:"The front-of-house talks to the kitchen. Reservations talk to the floor. Payments talk to the POS. We connect the full loop so data flows without anyone typing it twice." },
-    { n:"05", sp:"You own it", h:"The system is <em>yours</em>.", stat:"4+", statD:"stars — the typical review score after the first three months",
-      cap:"We hand over a running system, train your team, and stay on call. You're not dependent on us to keep it working. You own the tech, you own the data, you own the result." },
-  ];
-  const faqs = [
-    { q: "What does 'transformation' actually involve?", a: "We redesign the full customer journey — from discovery to repeat visit — implementing the tech stack that makes each step faster, easier and more profitable. The menu, the kitchen, the reservations, the payments, the reviews, the loyalty. All of it." },
-    { q: "How fast can you actually deploy?", a: "Most businesses are live within 7 days of kick-off. We don't do six-month implementation projects. We install, configure, train and go live — then we stay on for the first month to make sure it sticks." },
-    { q: "Are you consultants?", a: "No. Consultants give you a report. We build the thing, install it, train your team on it, and run the first service with you. We only get paid if the system is live and working — not for writing recommendations." },
-    { q: "Are you an AI company?", a: "AI is one layer of the transformation — smart routing, demand forecasting, review management. But the transformation is physical: the systems in your space, the screens your team uses, the flow your guests experience." },
-  ];
+  // hero: chaos -> built
+  useEffect(() => {
+    const hero = heroRef.current; if (!hero) return;
+    const chaos=[[52,44],[96,86],[40,120],[104,150],[70,96]];let s='';
+    const links=[[0,1],[1,2],[2,3],[0,4],[4,3],[1,4]];
+    links.forEach((l,i)=>{s+=`<line class="wire draw" style="--L:120;animation-delay:${i*.08}s" x1="${chaos[l[0]][0]}" y1="${chaos[l[0]][1]}" x2="${chaos[l[1]][0]}" y2="${chaos[l[1]][1]}"/>`;});
+    chaos.forEach((p,i)=>{s+=`<circle class="node pop" cx="${p[0]}" cy="${p[1]}" r="6" style="animation-delay:${.3+i*.06}s"/>`;});
+    s+='<text class="lab up" x="70" y="180" font-size="10" text-anchor="middle" opacity=".55" style="animation-delay:.7s">tools that don\u2019t talk</text>';
+    s+=`<path class="wire draw glow" style="--L:60;animation-delay:.9s" d="M168,96 L228,96"/><path class="pop" style="animation-delay:1.4s" d="M228,90 l12,6 l-12,6 z" fill="${TR_CY}"/>`;
+    s+='<rect class="ring glow pop" x="268" y="40" width="104" height="112" rx="12" style="animation-delay:1.1s"/>';
+    [58,84,110].forEach((y,i)=>{s+=`<rect class="nodeOn growx" x="284" y="${y}" width="${72-i*12}" height="12" rx="3" style="transform-origin:284px center;animation-delay:${1.3+i*.12}s"/>`;});
+    s+='<text class="labA up" x="320" y="180" font-size="10" text-anchor="middle" style="animation-delay:1.5s">one system</text>';
+    hero.innerHTML = s;
+    const id = requestAnimationFrame(() => frameRef.current?.classList.add('live'));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  // reveal
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('live'); io.unobserve(e.target); } }),
+      { threshold: 0.3 }
+    );
+    wrapRef.current?.querySelectorAll('.trx .viz').forEach(v => io.observe(v));
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div className="tr-wrap" ref={wrapRef} style={{ background: TR.bg, color: TR.c }}>
-      <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${TR.line}` }}>
-        <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
-          fontSize: "clamp(2.4rem,10vw,3.8rem)", lineHeight: .9, letterSpacing: "-.05em",
-          textTransform: "uppercase", color: TR.c, marginBottom: "1rem" }}>
-          Change how<br />
-          <em style={{ fontFamily: "var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle: "italic", fontWeight: 400, textTransform: "none", letterSpacing: 0,
-            color: TR.sig, fontSize: "1.04em" }}>the business runs.</em>
-        </h1>
-        <p style={{ fontSize: ".98rem", color: TR.dim, lineHeight: 1.6, maxWidth: "44ch" }}>
-          We redesign the full guest journey — from the moment they discover you to the moment
-          they come back — and implement the tech that makes every step faster and more profitable.{" "}
-          <strong style={{ color: TR.c }}>Live in 7 days. No consultant day-rates.</strong>
-        </p>
-        {/* speed metrics */}
-        <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "1.2rem 2rem", marginTop: "1.8rem" }}>
-          {[["7d","from kick-off to live systems"], ["100%","of your data in one place"],
-            ["4+","star review score after 3 months"], ["24/7","system monitoring after go-live"]].map(([v, d]) => (
-            <div key={v}>
-              <p style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)",
-                fontWeight: 800, fontSize: "clamp(1.8rem,6vw,2.4rem)", color: TR.sig,
-                letterSpacing: "-.04em", lineHeight: .85, marginBottom: ".4rem" }}>{v}</p>
-              <p style={{ fontFamily: "monospace", fontSize: 10, color: TR.c45, maxWidth: "18ch" }}>{d}</p>
-            </div>
-          ))}
+    <div className="trx" ref={wrapRef}>
+      <div className="top">
+        <span className="brand"><b>OARC</b><s>Build</s></span>
+        <span className="live"><i />We build the system</span>
+      </div>
+
+      <div className="hero">
+        <p className="lbl">Change how the business runs</p>
+        <h1>Software your business<br /><em>should run on.</em></h1>
+        <p>Some businesses run on spreadsheets, WhatsApp and duct tape. We design and build the custom software they should run on — <b>a real product and engineering team, live in weeks, and it&apos;s yours to keep.</b></p>
+
+        <div className="frame" ref={frameRef}>
+          <div className="fc"><span>Today</span><span>Built</span></div>
+          <svg ref={heroRef} viewBox="0 0 400 190" preserveAspectRatio="xMidYMid meet" />
+        </div>
+
+        <div className="team">
+          <s>The people on it</s>
+          <div className="row">{TR_TEAM.map(t => <span key={t}>{t}</span>)}</div>
         </div>
       </div>
-      {/* lifecycle rail */}
-      <Reveal>
-        <div style={{ padding: "1.6rem 20px 2rem", borderBottom: `1px solid ${TR.line}` }}>
-          <Kicker label="The full guest lifecycle" color={TR.sig} />
-          <div style={{ marginTop: "1.2rem" }}>
-            {lifecycle.map((l, i) => (
-              <div key={i} style={{ display: "flex", gap: "1rem", padding: ".9rem 0",
-                borderTop: i > 0 ? `1px solid ${TR.line}` : "none" }}>
-                <span style={{ fontFamily: "monospace", fontSize: 10, color: TR.sig,
-                  width: 28, flexShrink: 0 }}>{l.n}</span>
-                <div>
-                  <span style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)",
-                    fontWeight: 700, fontSize: "1.05rem", letterSpacing: "-.02em", color: TR.c }}>{l.stage}</span>
-                  <span style={{ fontSize: ".88rem", color: TR.dim, marginLeft: "1rem" }}>{l.desc}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Reveal>
-      {/* platform modules */}
-      <Reveal>
-        <div style={{ padding: "1.6rem 20px 2rem", borderBottom: `1px solid ${TR.line}` }}>
-          <Kicker label="The platform" color={TR.sig} />
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: "1.2rem" }}>
-            {platforms.map(p => (
-              <div key={p.id} style={{ background: TR.card, border: `1px solid ${TR.line}`,
-                borderRadius: 8, padding: "12px 14px" }}>
-                <p style={{ fontFamily: "monospace", fontSize: 9, color: TR.sig,
-                  letterSpacing: ".12em", marginBottom: ".4rem" }}>{p.id}</p>
-                <p style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)",
-                  fontWeight: 700, fontSize: "1rem", color: TR.c, marginBottom: ".25rem" }}>{p.name}</p>
-                <p style={{ fontSize: 11, color: TR.c45 }}>{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Reveal>
-      {/* anti-consultancy */}
-      <Reveal>
-        <div style={{ margin: "1.8rem 20px 0", padding: "1.4rem", background: TR.card,
-          border: `1px solid ${TR.sig}22`, borderRadius: 12 }}>
-          <Kicker label="Not a consultancy" color={TR.sig} />
-          {[
-            { n:"01", t:"No reports. A running system.", b:"We build it, install it and run the first service with you. You don't pay for recommendations you have to implement yourself." },
-            { n:"02", t:"No day-rate.", b:"We price by outcome, not hours. If the system isn't live and working in 7 days, we keep going until it is — at no extra cost." },
-            { n:"03", t:"You own it.", b:"We hand over the system, train your team, and stay on call. You're never dependent on us to keep it working." },
-          ].map((p, i) => (
-            <div key={i} style={{ borderTop: i > 0 ? `1px solid ${TR.line}` : "none", paddingTop: i > 0 ? "1rem" : ".7rem", marginTop: i > 0 ? "1rem" : 0 }}>
-              <p style={{ fontFamily: "monospace", fontSize: 10, color: TR.sig, marginBottom: ".3rem" }}>{p.n} — {p.t}</p>
-              <p style={{ fontSize: ".88rem", color: TR.dim, lineHeight: 1.55 }}>{p.b}</p>
+
+      <div className="shead">How we build the change</div>
+      <div>
+        {TR_PARTS.map((p, i) => (
+          <section key={i} className="phase">
+            <div className="idx"><b>{p.n}</b><s>{p.sp}</s></div>
+            <h2 dangerouslySetInnerHTML={{ __html: p.h }} />
+            <p className="out">{p.out}</p>
+            <div className="viz" dangerouslySetInnerHTML={{ __html: TR_VIZ[p.viz]() }} />
+            <p className="who">{p.who}</p>
+            <p className="cap" dangerouslySetInnerHTML={{ __html: p.cap }} />
+            <div className="stat">
+              <b dangerouslySetInnerHTML={{ __html: p.stat + ((p as {statEm?:string}).statEm ? `<em>${(p as {statEm?:string}).statEm}</em>` : '') }} />
+              <p>{p.statP}</p>
             </div>
-          ))}
-        </div>
-      </Reveal>
-      <div style={{ padding: "1.6rem 20px 0" }}><Kicker label="How it happens" color={TR.sig} /></div>
-      {phases.map((p, i) => (
-        <Reveal key={i}>
-          <div style={{ padding: "1.8rem 20px 2rem", borderTop: `1px solid ${TR.line}` }}>
-            <div style={{ display: "flex", alignItems: "baseline", gap: ".6rem", marginBottom: ".9rem" }}>
-              <span style={{ fontFamily: "monospace", fontSize: 11, color: TR.sig }}>{p.n}</span>
-              <span style={{ fontFamily: "monospace", fontSize: 9, letterSpacing: ".16em",
-                textTransform: "uppercase" as const, color: TR.c45 }}>{p.sp}</span>
-            </div>
-            <h2 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 700,
-              fontSize: "clamp(1.8rem,7vw,2.4rem)", lineHeight: 1.02, letterSpacing: "-.03em", color: TR.c, marginBottom: ".9rem" }}
-              dangerouslySetInnerHTML={{ __html: p.h.replace(/<em>/g,
-                `<em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:${TR.sig}">`) }} />
-            <p style={{ fontSize: ".92rem", color: TR.dim, lineHeight: 1.62, maxWidth: "52ch" }}>{p.cap}</p>
-            <div style={{ display: "flex", alignItems: "baseline", gap: ".7rem",
-              borderTop: `1px solid ${TR.line}`, marginTop: "1.2rem", paddingTop: "1rem" }}>
-              <span style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
-                fontSize: "clamp(2rem,7vw,2.6rem)", color: TR.sig, letterSpacing: "-.04em", lineHeight: .85 }}>{p.stat}</span>
-              <span style={{ fontSize: 11, color: TR.c45, lineHeight: 1.4, maxWidth: "28ch" }}>{p.statD}</span>
-            </div>
-          </div>
-        </Reveal>
-      ))}
-      {/* ── CUSTOM SOFTWARE — change how the business runs ── */}
-      <Reveal>
-        <div style={{ padding:"1.8rem 20px 2.2rem", borderTop:`2px solid ${TR.line}` }}>
-          <p style={{ fontFamily:"monospace", fontSize:10, letterSpacing:".18em", textTransform:"uppercase" as const,
-            color:TR.sig, marginBottom:".5rem" }}>Also — custom software</p>
-          <h2 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
-            fontSize:"clamp(2rem,8vw,3rem)", lineHeight:.95, letterSpacing:"-.04em", color:TR.c, marginBottom:"1rem" }}>
-            Software your business<br />
-            <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
-              fontStyle:"italic", fontWeight:400, color:TR.sig }}>should run on.</em>
-          </h2>
-          <p style={{ fontSize:".95rem", color:TR.dim, lineHeight:1.6, maxWidth:"46ch" }}>
-            When off-the-shelf tools don't fit the way your business actually runs, we build the software that does.{" "}
-            <strong style={{ color:TR.c }}>Owned by you. Built for exactly your operation.</strong>
-          </p>
-          {[
-            { n:"01", sp:"Discovery", h:"We map what <em>needs building</em>.", stat:"Week 1",
-              statD:"deep-dive into your process before a line of code is written",
-              cap:"We spend time inside your operation before we touch a keyboard — interviews, workflow maps, system audits. By the end of week one we know exactly what to build and why." },
-            { n:"02", sp:"Product & design", h:"We design it — <em>around your team</em>.", stat:"Custom",
-              statD:"designed for your exact workflow, not a generic use case",
-              cap:"No templates. We design the product around the people who will use it — the screens they'll see, the actions they'll take, the data they'll read. Every flow validated before engineering starts." },
-            { n:"03", sp:"Engineering", h:"We build it — <em>properly</em>.", stat:"Solid",
-              statD:"production-grade code, tested, documented, handed over",
-              cap:"Real engineers, proper code, full test coverage. We build for the long run — not a prototype that breaks at scale, but software your team can rely on for years." },
-            { n:"04", sp:"Integrations", h:"It connects to <em>everything</em>.", stat:"100%",
-              statD:"of your existing tools connected — no double-entry, no silos",
-              cap:"Your new software talks to your POS, your CRM, your payments, your reporting. Data flows where it needs to go automatically — no one copies it by hand." },
-            { n:"05", sp:"Support", h:"You own it — <em>we stay on call</em>.", stat:"Always",
-              statD:"support, updates and iterations after go-live — you're never alone",
-              cap:"We hand over the code, train your team, and stay on call. When your business changes, the software changes too. You own it." },
-          ].map((p, i) => (
-            <Reveal key={i}>
-              <div style={{ padding:"1.6rem 0 1.8rem", borderTop:`1px solid ${TR.line}` }}>
-                <div style={{ display:"flex", alignItems:"baseline", gap:".6rem", marginBottom:".9rem" }}>
-                  <span style={{ fontFamily:"monospace", fontSize:11, color:TR.sig }}>{p.n}</span>
-                  <span style={{ fontFamily:"monospace", fontSize:9, letterSpacing:".16em",
-                    textTransform:"uppercase" as const, color:TR.c45 }}>{p.sp}</span>
-                </div>
-                <h3 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:700,
-                  fontSize:"clamp(1.7rem,6.5vw,2.2rem)", lineHeight:1.02, letterSpacing:"-.03em",
-                  color:TR.c, marginBottom:".9rem" }}
-                  dangerouslySetInnerHTML={{ __html: p.h.replace(/<em>/g,
-                    `<em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:400;color:${TR.sig}">`) }} />
-                <p style={{ fontSize:".92rem", color:TR.dim, lineHeight:1.62, maxWidth:"52ch" }}>{p.cap}</p>
-                <div style={{ display:"flex", alignItems:"baseline", gap:".7rem",
-                  borderTop:`1px solid ${TR.line}`, marginTop:"1.2rem", paddingTop:"1rem" }}>
-                  <span style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
-                    fontSize:"clamp(1.8rem,6.5vw,2.4rem)", color:TR.sig,
-                    letterSpacing:"-.04em", lineHeight:.85 }}>{p.stat}</span>
-                  <span style={{ fontSize:11, color:TR.c45, lineHeight:1.4, maxWidth:"28ch" }}>{p.statD}</span>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Reveal>
-      <FAQ items={faqs} bg={TR.bg} border={TR.line} head={TR.c} body={TR.dim} />
-      <CTA big={<>Live in a week.<br /><CtaItalic>No consultants.</CtaItalic></>}
-        sub="We redesign the full guest journey, implement the tech, train your team and go live — in 7 days. No day-rates, no recommendations you have to implement yourself."
-        btn="Start the transformation" onClose={onClose} />
+          </section>
+        ))}
+      </div>
+
+      <div className="bonus">
+        <s>Bonus, included</s>
+        <h4>Oh — and AI, where it earns its place.</h4>
+        <p>Where AI genuinely helps inside the system — a smart search, a first-draft, a prediction — it&apos;s built in. <b>But this is real engineering, not an AI badge.</b> Nice to have, not the point.</p>
+      </div>
+
+      <div className="end">
+        <div className="big">Not their software.<br /><span>Yours.</span></div>
+        <p>We map how it really works, build it around you, ship in weeks and hand you the keys — then keep making it better. Everyone sells you their software; <b>we build you yours.</b></p>
+        <a href="/contact" onClick={onClose}>Show me what we&apos;d build →</a>
+        <p className="foot">OARC — one team for the whole business. Malta.</p>
+      </div>
     </div>
   );
 }
@@ -3339,274 +3562,312 @@ function ReputationContent({ onClose }: { onClose: () => void }) {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
-// BRAND CONTENT  (light theme)
+// BRAND CONTENT  (exact prototype port — stone/oxblood light world)
+// src: card_brand_1786575410242.txt
 // ────────────────────────────────────────────────────────────────────────────
-const BR = { bg:"#ECE7DE", card:"#F5F1EA", ox:"#8A2233", oxd:"#6E1926",
-  ink:"#16120F", dim:"rgba(22,18,15,.7)", c45:"rgba(22,18,15,.46)", line:"rgba(22,18,15,.13)" };
+const BR_CSS = `
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,500&family=Manrope:wght@400;500;600;700&display=swap');
+.br{
+  --stone:#ECE7DE;--card:#F5F1EA;--ink:#16120F;--ox:#8A2233;--oxd:#6E1926;
+  --i70:rgba(22,18,15,.7);--i45:rgba(22,18,15,.46);--i30:rgba(22,18,15,.3);
+  --i16:rgba(22,18,15,.15);--i10:rgba(22,18,15,.07);
+  --og:rgba(138,34,51,.3);--of:rgba(138,34,51,.09);--line:rgba(22,18,15,.13);
+  --disp:'Playfair Display',serif;--ui:'Manrope',sans-serif;--e:cubic-bezier(.16,1,.3,1);
+  background:var(--stone);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased}
+.br *{margin:0;padding:0;box-sizing:border-box}
+.br .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
+.br .top .brand{display:flex;align-items:baseline;gap:.7rem}
+.br .top .brand b{font-weight:700;font-size:13px;letter-spacing:-.01em}
+.br .top .brand s{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--i30);text-decoration:none}
+.br .top .live{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--i45)}
+.br .top .live i{width:6px;height:6px;border-radius:50%;background:var(--ox);animation:br-blink 1.9s ease-out infinite}
+@keyframes br-blink{0%{box-shadow:0 0 0 0 var(--og)}100%{box-shadow:0 0 0 8px rgba(138,34,51,0)}}
+.br .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line)}
+.br .hero .lbl{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ox)}
+.br .hero h1{font-family:var(--disp);font-weight:900;font-size:clamp(2.5rem,10vw,3.7rem);line-height:.98;letter-spacing:-.02em;margin-top:.8rem}
+.br .hero h1 em{font-style:italic;font-weight:500;color:var(--ox)}
+.br .hero p{font-size:.98rem;color:var(--i70);line-height:1.6;margin-top:1.1rem;max-width:44ch}
+.br .hero p b{color:var(--ink);font-weight:700}
+.br .frame{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.4rem 1rem 1rem;box-shadow:0 14px 34px rgba(22,18,15,.06)}
+.br .frame .fc{text-align:center;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--i30);margin-bottom:.5rem}
+.br .frame svg{width:100%;display:block;overflow:visible}
+.br .hero .team{margin-top:1.7rem}
+.br .hero .team s{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--i45);font-style:normal;text-decoration:none}
+.br .hero .team .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:.7rem}
+.br .hero .team .row span{border:1px solid var(--line);padding:6px 10px;font-size:11px;color:var(--i70);border-radius:2px;background:var(--card)}
+.br .shead{padding:1.7rem 20px .4rem;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--i45);display:flex;align-items:center;gap:.8rem}
+.br .shead::after{content:'';flex:1;height:1px;background:var(--line)}
+.br .phase{padding:1.8rem 20px 2rem;border-top:1px solid var(--line)}
+.br .phase:first-of-type{border-top:0}
+.br .phase .idx{display:flex;align-items:baseline;gap:.6rem}
+.br .phase .idx b{font-family:var(--disp);font-style:italic;font-size:1.15rem;color:var(--ox)}
+.br .phase .idx s{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--i45);text-decoration:none}
+.br .phase h2{font-family:var(--disp);font-weight:700;font-size:clamp(2rem,8.4vw,2.7rem);line-height:1.02;letter-spacing:-.02em;margin-top:.9rem}
+.br .phase h2 em{font-style:italic;font-weight:500;color:var(--ox)}
+.br .phase .out{font-family:var(--disp);font-style:italic;font-weight:500;font-size:clamp(1.35rem,5.5vw,1.7rem);color:var(--ink);margin-top:.8rem;line-height:1.2}
+.br .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--card);position:relative;overflow:hidden;aspect-ratio:1/.78;box-shadow:0 1px 0 rgba(255,255,255,.7) inset}
+.br .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(22,18,15,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.br .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.br .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.02em;color:var(--ox)}
+.br .who::before{content:'';width:16px;height:1px;background:var(--ox);opacity:.5}
+.br .cap{margin-top:.7rem;font-size:.92rem;color:var(--i70);line-height:1.62}
+.br .cap b{color:var(--ink);font-weight:700}
+.br .stat{margin-top:1.1rem;display:flex;align-items:baseline;gap:.7rem;padding-top:1rem;border-top:1px solid var(--line)}
+.br .stat b{font-family:var(--disp);font-size:clamp(2.4rem,11vw,3.2rem);font-weight:700;letter-spacing:-.02em;line-height:.86}
+.br .stat b em{font-style:italic;font-size:.4em;color:var(--ox);font-weight:500}
+.br .stat p{font-size:11.5px;color:var(--i45);line-height:1.4;max-width:26ch}
+.br .value{padding:.4rem 20px 1rem}
+.br .vrow{display:flex;gap:.9rem;padding:1.1rem 0;border-top:1px solid var(--line);opacity:0;transform:translateY(12px);transition:opacity .6s var(--e),transform .6s var(--e)}
+.br .vrow:first-child{border-top:0}
+.br .vrow.live{opacity:1;transform:none}
+.br .vrow .vn{font-family:var(--disp);font-style:italic;font-weight:500;color:var(--ox);font-size:1rem;flex-shrink:0;width:1.5rem;line-height:1.5}
+.br .vrow .vc h4{font-family:var(--disp);font-weight:700;font-size:1.22rem;letter-spacing:-.01em;line-height:1.12}
+.br .vrow .vc p{font-size:.9rem;color:var(--i70);line-height:1.55;margin-top:.35rem}
+.br .vrow .vc .st2{display:inline-block;margin-top:.55rem;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ox);border:1px solid var(--og);padding:4px 9px;border-radius:2px}
+.br .breadth{padding:.6rem 20px 1.2rem}
+.br .clu{padding:1.15rem 0;border-top:1px solid var(--line)}
+.br .clu:first-child{border-top:0}
+.br .clu h5{display:flex;align-items:baseline;gap:.55rem;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ox)}
+.br .clu h5 b{font-family:var(--disp);font-style:italic;font-weight:500;font-size:1.05rem;color:var(--i30);letter-spacing:0}
+.br .clu .items{display:flex;flex-wrap:wrap;gap:6px;margin-top:.75rem}
+.br .clu .items span{border:1px solid var(--line);background:var(--card);padding:6px 10px;font-size:11.5px;color:var(--i70);border-radius:2px}
+.br .bonus{margin:0 20px;padding:1.3rem 1.4rem;border:1px dashed var(--line);border-radius:10px;background:var(--card)}
+.br .bonus s{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--i45);font-style:normal;text-decoration:none}
+.br .bonus h4{font-family:var(--disp);font-style:italic;font-weight:500;font-size:1.3rem;margin:.4rem 0 .5rem}
+.br .bonus p{font-size:.88rem;color:var(--i70);line-height:1.55}
+.br .bonus p b{color:var(--ink);font-weight:700}
+.br .end{padding:2.2rem 20px calc(2.4rem + env(safe-area-inset-bottom));border-top:1px solid var(--line);margin-top:1.7rem}
+.br .end .big{font-family:var(--disp);font-weight:700;font-size:clamp(2.3rem,9.6vw,3.3rem);line-height:1.04;letter-spacing:-.02em}
+.br .end .big span{font-style:italic;font-weight:500;color:var(--ox)}
+.br .end p{font-size:.95rem;color:var(--i70);line-height:1.64;max-width:46ch;margin-top:1.1rem}
+.br .end p b{color:var(--ink);font-weight:700}
+.br .end a{display:block;margin-top:1.4rem;text-align:center;font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--stone);background:var(--ox);text-decoration:none;padding:1.15rem;border-radius:6px}
+.br .end .foot{font-size:11px;color:var(--i30);letter-spacing:.04em;margin-top:1.4rem}
+.br .wire{stroke:var(--i16);stroke-width:1.25;fill:none}
+.br .node{fill:var(--i16)} .br .nodeOn{fill:var(--ox)}
+.br .ring{fill:none;stroke:var(--ox);stroke-width:1.5}
+.br .lab{font-family:'Manrope';font-weight:600;fill:var(--i70)}
+.br .labA{font-family:'Manrope';font-weight:700;fill:var(--ox)}
+.br .labk{font-family:'Manrope';font-weight:700;fill:var(--stone)}
+.br .glow{filter:drop-shadow(0 0 7px var(--og))}
+.br .draw{stroke-dasharray:var(--L,240);stroke-dashoffset:var(--L,240)}
+.br .live .draw{animation:br-draw 1.15s var(--e) forwards}
+@keyframes br-draw{to{stroke-dashoffset:0}}
+.br .pop{opacity:0;transform:scale(.4);transform-origin:center}
+.br .live .pop{animation:br-pop .5s var(--e) forwards}
+@keyframes br-pop{to{opacity:1;transform:scale(1)}}
+.br .up{opacity:0}
+.br .live .up{animation:br-up .6s var(--e) forwards}
+@keyframes br-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.br .grow{transform:scaleY(0);transform-origin:50% 100%}
+.br .live .grow{animation:br-grw .7s var(--e) forwards}
+@keyframes br-grw{to{transform:scaleY(1)}}
+@media(prefers-reduced-motion:reduce){.br *{animation:none!important;transition-duration:.01ms!important}.br .up,.br .pop{opacity:1;transform:none}.br .draw{stroke-dashoffset:0}.br .grow{transform:none}.br .vrow{opacity:1;transform:none}}
+`;
 
-const SVG_BR_PURPOSE = `<svg viewBox="0 0 400 240" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <circle fill="none" stroke="rgba(22,18,15,.16)" stroke-width="1.25" class="draw" style="--L:440" cx="200" cy="118" r="70"/>
-  <circle fill="none" stroke="rgba(22,18,15,.1)" stroke-width="1.25" class="draw" style="--L:660;animation-delay:.2s" cx="200" cy="118" r="104"/>
-  <circle fill="${BR.ox}" class="pop" cx="200" cy="118" r="26" style="animation-delay:.3s"/>
-  <text font-family="monospace" font-size="12" font-weight="700" fill="${BR.card}" text-anchor="middle" class="pop" x="200" y="122" style="animation-delay:.45s">why</text>
-  <circle fill="rgba(22,18,15,.15)" class="pop" cx="200" cy="48" r="6" style="animation-delay:.7s"/>
-  <circle fill="rgba(22,18,15,.15)" class="pop" cx="270" cy="118" r="6" style="animation-delay:.8s"/>
-  <circle fill="rgba(22,18,15,.15)" class="pop" cx="200" cy="188" r="6" style="animation-delay:.9s"/>
-  <circle fill="rgba(22,18,15,.15)" class="pop" cx="130" cy="118" r="6" style="animation-delay:1s"/>
-  <text font-family="monospace" font-size="10.5" fill="rgba(22,18,15,.45)" text-anchor="middle" class="up" x="200" y="228" style="animation-delay:1.1s">everything is built on it</text>
-</svg>`;
+const BR_OX = '#8A2233';
+const BR_TEAM = ['Brand strategists','Naming & voice','Designers','The Studio'];
 
-const SVG_BR_POSITIONING = `<svg viewBox="0 0 400 216" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <line stroke="rgba(22,18,15,.16)" stroke-width="1.25" x1="42" y1="196" x2="360" y2="196"/>
-  <line stroke="rgba(22,18,15,.16)" stroke-width="1.25" x1="42" y1="36" x2="42" y2="196"/>
-  <circle fill="rgba(22,18,15,.15)" class="pop" cx="82" cy="168" r="6" style="animation-delay:.2s"/>
-  <circle fill="rgba(22,18,15,.15)" class="pop" cx="112" cy="180" r="6" style="animation-delay:.28s"/>
-  <circle fill="rgba(22,18,15,.15)" class="pop" cx="96" cy="150" r="6" style="animation-delay:.36s"/>
-  <circle fill="rgba(22,18,15,.15)" class="pop" cx="132" cy="166" r="6" style="animation-delay:.44s"/>
-  <circle fill="rgba(22,18,15,.15)" class="pop" cx="72" cy="150" r="6" style="animation-delay:.52s"/>
-  <text font-family="monospace" font-size="10" fill="rgba(22,18,15,.45)" text-anchor="middle" class="up" x="100" y="192" style="animation-delay:.65s">everyone else</text>
-  <circle fill="none" stroke="${BR.ox}" stroke-width="1.5" class="pop" cx="300" cy="80" r="30" style="animation-delay:.95s"/>
-  <circle fill="${BR.ox}" class="pop" cx="300" cy="80" r="12" style="animation-delay:.9s"/>
-  <text font-family="monospace" font-size="11" font-weight="700" fill="${BR.ox}" text-anchor="middle" class="up" x="300" y="128" style="animation-delay:1.1s">you, alone</text>
-</svg>`;
+const BR_PARTS = [
+  { n:'01', sp:'Purpose', h:'What you actually <em>stand for.</em>', out:'A belief, not a slogan.',
+    who:'Brand strategists',
+    cap:'We find the real reason your business exists beyond making money \u2014 the belief a certain kind of customer will choose you for. It\u2019s not a tagline; it\u2019s the thing everything else is built on. The bakery that\u2019s really about mornings worth waking up for; the gym that\u2019s really about proving something to yourself.',
+    stat:'64', statEm:'%', statP:'say shared values are the main reason they choose one brand over another', viz:'purpose' },
+  { n:'02', sp:'Positioning', h:'The one place you <em>own.</em>', out:'Where you win by default.',
+    who:'Brand strategists',
+    cap:'Most businesses fight in the same crowded spot and end up competing on price. We find the space that\u2019s yours alone \u2014 the promise no competitor is making \u2014 so that for the right customer <b>you\u2019re not the better choice, you\u2019re the only one.</b>',
+    stat:'1', statP:'position no competitor can take from you \u2014 the end of competing on price', viz:'positioning' },
+  { n:'03', sp:'Naming & voice', h:'How you <em>sound and feel.</em>', out:'Recognisable in a dark room.',
+    who:'Naming & voice',
+    cap:'A name, a voice, a look and a feeling that are unmistakably yours \u2014 the same on the sign, the post and the reply. Consistency is what turns a business into something people recognise before they read the name. Even a single signature colour does most of that work.',
+    stat:'80', statEm:'%', statP:'how much a signature colour can lift brand recognition', viz:'personality' },
+  { n:'04', sp:'Promise', h:'Why they pick you over <em>cheaper.</em>', out:'The reason to pay more.',
+    who:'Brand strategists',
+    cap:'A brand\u2019s real job is to make price the second question. We build the promise \u2014 what a customer can always count on from you \u2014 so people choose you knowing you cost more, and feel right about it. <b>That\u2019s what turns a business into a brand people pay more for.</b>',
+    stat:'46', statEm:'%', statP:'of people will pay more to buy from a brand they trust', viz:'promise' },
+  { n:'05', sp:'The system', h:'Then it shows up the <em>same.</em>', out:'Everywhere, without slipping.',
+    who:'Designers \u2192 The Studio',
+    cap:'The foundation becomes a system \u2014 the rules, the assets, the guardrails \u2014 so every menu, ad, post and shopfront looks and sounds like the same business. Then it\u2019s handed to the Studio to produce, already knowing exactly what it should be. Consistency alone is worth real money.',
+    stat:'23', statEm:'%', statP:'how much consistent brand presentation can lift revenue', viz:'system' },
+] as const;
 
-const SVG_BR_PERSONALITY = `<svg viewBox="0 0 400 222" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  ${[["post",54], ["sign",164], ["reply",274]].map(([t, x], i) => `
-    <rect fill="none" stroke="rgba(22,18,15,.14)" stroke-width="1.25" rx="8" class="up" x="${x}" y="54" width="82" height="104" style="animation-delay:${i * 0.15}s"/>
-    <circle fill="${BR.ox}" class="pop" cx="${(x as number)+41}" cy="92" r="15" style="animation-delay:${0.5 + i * 0.15}s"/>
-    <rect fill="rgba(22,18,15,.12)" rx="3" class="up" x="${(x as number)+16}" y="120" width="50" height="6" style="animation-delay:${0.6 + i * 0.15}s"/>
-    <rect fill="rgba(22,18,15,.08)" rx="3" class="up" x="${(x as number)+16}" y="132" width="34" height="6" style="animation-delay:${0.65 + i * 0.15}s"/>
-    <text font-family="monospace" font-size="10" fill="rgba(22,18,15,.45)" text-anchor="middle" class="up" x="${(x as number)+41}" y="180" style="animation-delay:${0.7 + i * 0.15}s">${t}</text>
-  `).join("")}
-  <text font-family="monospace" font-size="10.5" font-weight="700" fill="${BR.ox}" text-anchor="middle" class="up" x="200" y="210" style="animation-delay:1.05s">recognisable anywhere</text>
-</svg>`;
+const BR_CLUSTERS: [string,string[]][] = [
+  ['Strategy',['Brand strategy','Positioning','Naming','Brand architecture','Messaging','Tone of voice','Category & competitor audit','Brand workshops']],
+  ['Identity',['Logo & marks','Visual identity system','Typography','Colour system','Iconography','Brand guidelines','Brand book','Sub-brands & lockups']],
+  ['Content & film',['Photography','Food & product shoots','Video & film','Motion graphics','Animation','Illustration','3D & CGI','Music & sound']],
+  ['Digital & product',['Website design','UI / UX','Product design','Landing pages','Email design','Social templates','Design systems']],
+  ['Campaign & words',['Campaign concepts','Ad creative','Copywriting','Taglines & scripts','Launch campaigns','Content series']],
+  ['Physical & space',['Print & editorial','Packaging','Signage','Environmental','Merch & apparel','Events & exhibitions','Menus & collateral']],
+];
 
-const SVG_BR_PROMISE = `<svg viewBox="0 0 400 210" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <rect fill="none" stroke="rgba(22,18,15,.14)" stroke-width="1.25" rx="10" class="up" x="54" y="56" width="118" height="118" style="animation-delay:.2s"/>
-  <text font-family="monospace" font-size="22" fill="rgba(22,18,15,.35)" text-anchor="middle" class="up" x="113" y="126" style="animation-delay:.3s">€</text>
-  <text font-family="monospace" font-size="10.5" fill="rgba(22,18,15,.45)" text-anchor="middle" class="up" x="113" y="196" style="animation-delay:.4s">cheaper</text>
-  <rect fill="${BR.ox}" rx="10" class="pop" x="228" y="56" width="118" height="118" style="animation-delay:.6s"/>
-  <text font-family="monospace" font-size="22" font-weight="700" fill="${BR.card}" text-anchor="middle" class="pop" x="287" y="130" style="animation-delay:.75s">€€</text>
-  <circle fill="none" stroke="${BR.card}" stroke-width="2" class="pop" cx="336" cy="66" r="14" style="animation-delay:1s"/>
-  <path fill="none" stroke="${BR.card}" stroke-width="2.4" stroke-linecap="round" class="draw" style="--L:22;animation-delay:1.2s" d="M328,66 l5,6 l10,-12"/>
-  <text font-family="monospace" font-size="10.5" fill="${BR.ox}" text-anchor="middle" class="up" x="287" y="196" style="animation-delay:1.05s">still chosen</text>
-</svg>`;
+const BR_VALUE: [string,string,string][] = [
+  ['You can charge more \u2014 and they pay it','Price stops being the first question. When people trust and recognise you, they choose you knowing you cost more, and feel right about it.','You set the price'],
+  ['You stop competing on price','With a position that\u2019s yours alone, the right customer has no real alternative \u2014 so you win without discounting your way there.','No race to the bottom'],
+  ['You\u2019re remembered \u2014 and recommended','People recall you before they even search, and tell others. 88% trust a word from someone they know over any ad you could buy.','88% trust word of mouth'],
+  ['Every marketing euro works harder','A consistent brand makes every ad, post and page convert better \u2014 the creative alone drives about half of what an ad returns.','~49% of ad return'],
+  ['The business itself becomes worth more','A brand is an asset on the business, not a cost \u2014 it\u2019s what a buyer, investor or partner pays a premium for when it matters.','An asset, not a cost'],
+];
 
-const SVG_BR_SYSTEM = `<svg viewBox="0 0 400 220" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <rect fill="${BR.ox}" rx="7" class="pop" x="150" y="28" width="100" height="34" style="animation-delay:.2s"/>
-  <text font-family="monospace" font-size="11" font-weight="700" fill="${BR.card}" text-anchor="middle" class="pop" x="200" y="50" style="animation-delay:.35s">foundation</text>
-  ${[64,148,232,316].map((x, i) => `
-    <line stroke="rgba(22,18,15,.12)" stroke-width="1.25" class="draw" style="--L:100;animation-delay:${0.5 + i * 0.1}s" x1="200" y1="62" x2="${x+26}" y2="118"/>
-    <rect fill="none" stroke="rgba(22,18,15,.14)" stroke-width="1.25" rx="8" class="up" x="${x}" y="118" width="52" height="66" style="animation-delay:${0.7 + i * 0.1}s"/>
-    <circle fill="${BR.ox}" class="pop" cx="${x+26}" cy="142" r="9" style="animation-delay:${0.9 + i * 0.1}s"/>
-    <rect fill="rgba(22,18,15,.1)" rx="2" class="up" x="${x+11}" y="160" width="30" height="5" style="animation-delay:${1 + i * 0.1}s"/>
-  `).join("")}
-  <text font-family="monospace" font-size="10.5" fill="rgba(22,18,15,.45)" text-anchor="middle" class="up" x="200" y="208" style="animation-delay:1.2s">the same everywhere</text>
-</svg>`;
+const BR_VIZ: Record<string, () => string> = {
+  purpose() {
+    let s='<circle class="wire draw" style="--L:440" cx="200" cy="118" r="70"/><circle class="wire draw" style="--L:660;animation-delay:.2s" cx="200" cy="118" r="104"/>';
+    s+='<circle class="nodeOn glow pop" cx="200" cy="118" r="26" style="animation-delay:.3s"/><text class="labk pop" x="200" y="122" font-size="12" text-anchor="middle" style="animation-delay:.45s">why</text>';
+    const sat=[[200,48],[270,118],[200,188],[130,118]];sat.forEach((p,i)=>{s+=`<circle class="node pop" cx="${p[0]}" cy="${p[1]}" r="6" style="animation-delay:${.7+i*.1}s"/>`;});
+    s+='<text class="lab up" x="200" y="228" font-size="10.5" text-anchor="middle" opacity=".55" style="animation-delay:1s">everything is built on it</text>';
+    return `<svg viewBox="0 0 400 240">${s}</svg>`;
+  },
+  positioning() {
+    let s='<line class="wire" x1="42" y1="196" x2="360" y2="196"/><line class="wire" x1="42" y1="36" x2="42" y2="196"/>';
+    const comp=[[82,168],[112,180],[96,150],[132,166],[72,150]];comp.forEach((p,i)=>{s+=`<circle class="node pop" cx="${p[0]}" cy="${p[1]}" r="6" style="animation-delay:${.2+i*.08}s"/>`;});
+    s+='<text class="lab up" x="100" y="192" font-size="10" text-anchor="middle" opacity=".5" style="animation-delay:.6s">everyone else</text>';
+    s+='<circle class="ring glow pop" cx="300" cy="80" r="30" style="animation-delay:.95s"/><circle class="nodeOn glow pop" cx="300" cy="80" r="12" style="animation-delay:.9s"/>';
+    s+='<text class="labA up" x="300" y="132" font-size="11" text-anchor="middle" style="animation-delay:1.1s">you, alone</text>';
+    return `<svg viewBox="0 0 400 216">${s}</svg>`;
+  },
+  personality() {
+    const surf:[string,number][]=[['post',54],['sign',164],['reply',274]];let s='';
+    surf.forEach((t,i)=>{const x=t[1];s+=`<rect class="wire up" x="${x}" y="54" width="82" height="104" rx="8" style="animation-delay:${i*.15}s"/>`+
+      `<circle class="nodeOn glow pop" cx="${x+41}" cy="92" r="15" style="animation-delay:${.5+i*.15}s"/>`+
+      `<rect class="node up" x="${x+16}" y="120" width="50" height="6" rx="3" style="animation-delay:${.6+i*.15}s"/>`+
+      `<rect class="node up" x="${x+16}" y="132" width="34" height="6" rx="3" style="animation-delay:${.65+i*.15}s"/>`+
+      `<text class="lab up" x="${x+41}" y="180" font-size="10" text-anchor="middle" opacity=".55" style="animation-delay:${.7+i*.15}s">${t[0]}</text>`;});
+    s+='<text class="labA up" x="200" y="208" font-size="10.5" text-anchor="middle" style="animation-delay:1s">recognisable anywhere</text>';
+    return `<svg viewBox="0 0 400 222">${s}</svg>`;
+  },
+  promise() {
+    let s='<rect class="wire up" x="54" y="56" width="118" height="118" rx="10" style="animation-delay:.2s"/><text class="lab up" x="113" y="122" font-size="15" text-anchor="middle" style="animation-delay:.3s">\u20ac</text><text class="lab up" x="113" y="196" font-size="10.5" text-anchor="middle" opacity=".55" style="animation-delay:.4s">cheaper</text>';
+    s+='<rect class="nodeOn glow pop" x="228" y="56" width="118" height="118" rx="10" style="animation-delay:.6s"/><text class="labk pop" x="287" y="124" font-size="17" text-anchor="middle" style="animation-delay:.75s">\u20ac\u20ac</text>';
+    s+=`<circle class="ring glow pop" cx="336" cy="66" r="16" style="animation-delay:1s"/><path class="draw" style="--L:24;animation-delay:1.2s" d="M328,66 l5,6 l11,-13" stroke="${BR_OX}" stroke-width="2.6" fill="none" stroke-linecap="round"/>`;
+    s+='<text class="labA up" x="287" y="196" font-size="10.5" text-anchor="middle" style="animation-delay:1s">still chosen</text>';
+    return `<svg viewBox="0 0 400 210">${s}</svg>`;
+  },
+  system() {
+    let s='<rect class="nodeOn glow pop" x="150" y="28" width="100" height="34" rx="7" style="animation-delay:.2s"/><text class="labk pop" x="200" y="50" font-size="11" text-anchor="middle" style="animation-delay:.35s">foundation</text>';
+    const outs=[64,148,232,316];outs.forEach((x,i)=>{s+=`<line class="wire draw" style="--L:120;animation-delay:${.5+i*.1}s" x1="200" y1="62" x2="${x+26}" y2="118"/>`+
+      `<rect class="wire up" x="${x}" y="118" width="52" height="66" rx="8" style="animation-delay:${.7+i*.1}s"/>`+
+      `<circle class="nodeOn pop" cx="${x+26}" cy="142" r="9" style="animation-delay:${.9+i*.1}s"/>`+
+      `<rect class="node up" x="${x+11}" y="160" width="30" height="5" rx="2" style="animation-delay:${1+i*.1}s"/>`;});
+    s+='<text class="lab up" x="200" y="206" font-size="10.5" text-anchor="middle" opacity=".55" style="animation-delay:1.2s">the same everywhere \u2014 handed to the Studio</text>';
+    return `<svg viewBox="0 0 400 220">${s}</svg>`;
+  },
+};
 
 function BrandContent({ onClose }: { onClose: () => void }) {
   const wrapRef = useRef<HTMLDivElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const universeRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    const lid = 'br-modal-fonts';
-    if (!document.getElementById(lid)) {
-      const l = document.createElement('link');
-      l.id = lid; l.rel = 'stylesheet';
-      l.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,400;1,700&family=Manrope:wght@400;500;600;700&display=swap';
-      document.head.appendChild(l);
-    }
-    const sid = 'br-modal-css';
-    if (!document.getElementById(sid)) {
+    const id = 'br-modal-css';
+    if (!document.getElementById(id)) {
       const s = document.createElement('style');
-      s.id = sid;
-      s.textContent = `.br-wrap h1,.br-wrap h2,.br-wrap h3,.br-wrap h4{font-family:'Playfair Display',serif!important}.br-wrap p,.br-wrap span[class],.br-wrap li{font-family:'Manrope',sans-serif!important}`;
+      s.id = id; s.textContent = BR_CSS;
       document.head.appendChild(s);
     }
   }, []);
 
-  const phases = [
-    { n:"01", sp:"Purpose", h:"What you actually <em>stand for</em>.", out:"A belief, not a slogan.",
-      who:"Brand strategists",
-      cap:"We find the real reason your business exists beyond making money — the belief a certain kind of customer will choose you for. It's not a tagline; it's the thing everything else is built on.",
-      stat:"64%", statD:"say shared values are the main reason they choose one brand over another",
-      svg: SVG_BR_PURPOSE },
-    { n:"02", sp:"Positioning", h:"The one place you <em>own</em>.", out:"Where you win by default.",
-      who:"Brand strategists",
-      cap:"Most businesses fight in the same crowded spot and end up competing on price. We find the space that's yours alone — the promise no competitor is making — so you're not the better choice, you're the only one.",
-      stat:"1", statD:"position no competitor can take from you — the end of competing on price",
-      svg: SVG_BR_POSITIONING },
-    { n:"03", sp:"Naming & voice", h:"How you <em>sound and feel</em>.", out:"Recognisable in a dark room.",
-      who:"Naming & voice",
-      cap:"A name, a voice and a look that are unmistakably yours — the same on the sign, the post and the reply. Consistency is what turns a business into something people recognise before they read the name.",
-      stat:"80%", statD:"how much a signature colour can lift brand recognition",
-      svg: SVG_BR_PERSONALITY },
-    { n:"04", sp:"Promise", h:"Why they pick you over <em>cheaper</em>.", out:"The reason to pay more.",
-      who:"Brand strategists",
-      cap:"A brand's real job is to make price the second question. We build the promise — what a customer can always count on from you — so people choose you knowing you cost more, and feel right about it.",
-      stat:"46%", statD:"of people will pay more to buy from a brand they trust",
-      svg: SVG_BR_PROMISE },
-    { n:"05", sp:"The system", h:"Then it shows up the <em>same</em>.", out:"Everywhere, without slipping.",
-      who:"Designers → The Studio",
-      cap:"The foundation becomes a system — the rules, the assets, the guardrails — so every menu, ad, post and shopfront looks and sounds like the same business. Consistency alone is worth real money.",
-      stat:"23%", statD:"how much consistent brand presentation can lift revenue",
-      svg: SVG_BR_SYSTEM },
-  ];
-  const clusters = [
-    { title:"Strategy", items:["Brand strategy","Positioning","Naming","Brand architecture","Messaging","Tone of voice"] },
-    { title:"Identity", items:["Logo & marks","Visual identity system","Typography","Colour system","Brand guidelines","Brand book"] },
-    { title:"Content & film", items:["Photography","Video & film","Motion graphics","Animation","Illustration"] },
-    { title:"Digital", items:["Website design","UI / UX","Product design","Social templates","Design systems"] },
-    { title:"Campaign", items:["Campaign concepts","Ad creative","Copywriting","Taglines","Scripts"] },
-    { title:"Physical", items:["Print & editorial","Packaging","Signage","Environmental","Menus"] },
-  ];
-  const values = [
-    { t:"You can charge more — and they pay it", b:"Price stops being the first question. When people trust and recognise you, they choose you knowing you cost more, and feel right about it.", tag:"You set the price" },
-    { t:"You stop competing on price", b:"With a position that's yours alone, the right customer has no real alternative — so you win without discounting your way there.", tag:"No race to the bottom" },
-    { t:"You're remembered — and recommended", b:"People recall you before they even search, and tell others. 88% trust a word from someone they know over any ad you could buy.", tag:"88% trust word of mouth" },
-    { t:"Every marketing euro works harder", b:"A consistent brand makes every ad, post and page convert better — the creative alone drives about half of what an ad returns.", tag:"~49% of ad return" },
-    { t:"The business becomes worth more", b:"A brand is an asset on the business, not a cost — it's what a buyer, investor or partner pays a premium for when it matters.", tag:"An asset, not a cost" },
-  ];
-  const faqs = [
-    { q:"Isn't a brand just a logo?", a:"No. A logo is one asset. A brand is the reason a customer chooses you over someone cheaper — what you stand for, the space you own, and the promise people remember." },
-    { q:"How is this different from Creative?", a:"Creative makes a business look worth more — the videos, identity and assets. Brand decides what it's worth in the first place — the strategy and foundation that all the creative is built on. Both live at OARC; they're stronger together." },
-    { q:"What does a brand foundation actually change?", a:"It lets you stop competing on price, be remembered, charge more, and make every piece of creative consistent and stronger." },
-    { q:"Are you an AI company?", a:"No. Real brand strategists and designers build your foundation. A small tool that checks brand consistency is included as a bonus — not the main thing." },
-  ];
+  // hero: the whole creative world radiating from you
+  useEffect(() => {
+    const universe = universeRef.current; if (!universe) return;
+    const cx=200,cy=150,R=94,crafts=['Strategy','Identity','Film & content','Digital','Campaign','Physical & space'];let s='';
+    crafts.forEach((nm,i)=>{const a=-Math.PI/2+i/crafts.length*Math.PI*2,x=cx+Math.cos(a)*R,y=cy+Math.sin(a)*R;
+      s+=`<line class="wire draw" style="--L:120;animation-delay:${.3+i*.09}s" x1="${cx}" y1="${cy}" x2="${x}" y2="${y}"/>`+
+         `<circle class="nodeOn glow pop" cx="${x}" cy="${y}" r="7" style="animation-delay:${.6+i*.09}s"/>`;
+      const lx=cx+Math.cos(a)*(R+12),ly=cy+Math.sin(a)*(R+12),an=Math.cos(a)>.25?'start':(Math.cos(a)<-.25?'end':'middle');
+      s+=`<text class="lab up" x="${lx}" y="${ly+4}" font-size="11" text-anchor="${an}" style="animation-delay:${.8+i*.09}s">${nm}</text>`;});
+    s+=`<circle class="ring glow pop" cx="${cx}" cy="${cy}" r="30" style="animation-delay:.2s"/>`+
+       `<circle class="nodeOn glow pop" cx="${cx}" cy="${cy}" r="17" style="animation-delay:.25s"/>`+
+       `<text class="labk pop" x="${cx}" y="${cy+4}" font-size="10" text-anchor="middle" style="animation-delay:.4s">you</text>`;
+    universe.innerHTML = s;
+    const id = requestAnimationFrame(() => frameRef.current?.classList.add('live'));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  // reveal
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('live'); io.unobserve(e.target); } }),
+      { threshold: 0.25 }
+    );
+    wrapRef.current?.querySelectorAll('.br .viz,.br .clu,.br .vrow').forEach(v => io.observe(v));
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div className="br-wrap" ref={wrapRef} style={{ background: BR.bg, color: BR.ink }}>
-      <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${BR.line}` }}>
-        <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
-          fontSize: "clamp(2.4rem,10vw,3.8rem)", lineHeight: .9, letterSpacing: "-.05em",
-          textTransform: "uppercase", color: BR.ink, marginBottom: "1rem" }}>
-          Everything they see,<br />
-          <em style={{ fontFamily: "var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle: "italic", fontWeight: 400, textTransform: "none", letterSpacing: 0,
-            color: BR.ox, fontSize: "1.04em" }}>hear and feel.</em>
-        </h1>
-        <p style={{ fontSize: ".98rem", color: BR.dim, lineHeight: 1.6, maxWidth: "44ch" }}>
-          Every image, film, word, screen, sign and space that makes someone feel something
-          about your business — and choose you. Strategy, identity, content, campaigns, the lot.{" "}
-          <strong style={{ color: BR.ink }}>One team for the entire creative world of your company.</strong>
-        </p>
-        <div style={{ display: "flex", flexWrap: "wrap" as const, gap: 6, marginTop: "1.4rem" }}>
-          {["Brand strategists","Naming & voice","Designers","The Studio"].map(t => (
-            <span key={t} style={{ border: `1px solid ${BR.line}`, padding: "6px 10px",
-              fontSize: 11, color: BR.dim, borderRadius: 2, background: BR.card }}>{t}</span>
-          ))}
+    <div className="br" ref={wrapRef}>
+      <div className="top">
+        <span className="brand"><b>OARC</b><s>Brand</s></span>
+        <span className="live"><i />The foundation</span>
+      </div>
+
+      <div className="hero">
+        <p className="lbl">Creative and brand</p>
+        <h1>Everything they see,<br /><em>hear and feel.</em></h1>
+        <p>Every image, film, word, screen, sign and space that makes someone feel something about your business — and choose you. Strategy, identity, content, product, campaigns, the lot. <b>One team for the entire creative world of your company.</b></p>
+
+        <div className="frame" ref={frameRef}>
+          <div className="fc">One creative world — every craft</div>
+          <svg ref={universeRef} viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" />
+        </div>
+
+        <div className="team">
+          <s>The people on it</s>
+          <div className="row">{BR_TEAM.map(t => <span key={t}>{t}</span>)}</div>
         </div>
       </div>
-      {/* 5 strategy phases with vizzes */}
-      <div style={{ padding: "1.6rem 20px .4rem" }}>
-        <p style={{ fontSize: 10.5, fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase" as const,
-          color: BR.c45, display: "flex", alignItems: "center", gap: ".8rem" }}>
-          The strategy underneath it all
-          <span style={{ flex: 1, height: 1, background: BR.line, display: "inline-block" }} />
-        </p>
-      </div>
-      {phases.map((p, i) => (
-        <Reveal key={i}>
-          <div style={{ padding: "1.8rem 20px 2rem", borderTop: `1px solid ${BR.line}` }}>
-            <div style={{ display: "flex", alignItems: "baseline", gap: ".6rem", marginBottom: ".9rem" }}>
-              <span style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)",
-                fontStyle: "italic", fontSize: "1.15rem", color: BR.ox }}>{p.n}</span>
-              <span style={{ fontSize: 10.5, fontWeight: 700, letterSpacing: ".18em",
-                textTransform: "uppercase" as const, color: BR.c45 }}>{p.sp}</span>
+
+      <div className="shead">The strategy underneath it all</div>
+      <div>
+        {BR_PARTS.map((p, i) => (
+          <section key={i} className="phase">
+            <div className="idx"><b>{p.n}</b><s>{p.sp}</s></div>
+            <h2 dangerouslySetInnerHTML={{ __html: p.h }} />
+            <p className="out">{p.out}</p>
+            <div className="viz" dangerouslySetInnerHTML={{ __html: BR_VIZ[p.viz]() }} />
+            <p className="who">{p.who}</p>
+            <p className="cap" dangerouslySetInnerHTML={{ __html: p.cap }} />
+            <div className="stat">
+              <b dangerouslySetInnerHTML={{ __html: p.stat + ((p as {statEm?:string}).statEm ? `<em>${(p as {statEm?:string}).statEm}</em>` : '') }} />
+              <p>{p.statP}</p>
             </div>
-            <h2 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 700,
-              fontSize: "clamp(1.8rem,7vw,2.4rem)", lineHeight: 1.02, letterSpacing: "-.02em", color: BR.ink, marginBottom: ".5rem" }}
-              dangerouslySetInnerHTML={{ __html: p.h.replace(/<em>/g,
-                `<em style="font-family:var(--font-instrument-serif,serif);font-style:italic;font-weight:500;color:${BR.ox}">`) }} />
-            <p style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)",
-              fontStyle: "italic", fontSize: "clamp(1.1rem,4vw,1.35rem)", color: BR.ink,
-              marginBottom: ".7rem", lineHeight: 1.2 }}>{p.out}</p>
-            <VizBox svg={p.svg} bg={BR.card} brd={BR.line} dot="rgba(22,18,15,.04)" />
-            <p style={{ fontSize: 10.5, fontWeight: 700, letterSpacing: ".02em",
-              color: BR.ox, marginTop: ".8rem", marginBottom: ".6rem" }}>— {p.who}</p>
-            <p style={{ fontSize: ".92rem", color: BR.dim, lineHeight: 1.62, maxWidth: "52ch", marginBottom: ".8rem" }}>{p.cap}</p>
-            <div style={{ display: "flex", alignItems: "baseline", gap: ".7rem",
-              paddingTop: "1rem", borderTop: `1px solid ${BR.line}` }}>
-              <span style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)",
-                fontWeight: 700, fontSize: "clamp(2rem,7vw,2.6rem)", letterSpacing: "-.02em",
-                lineHeight: .86, color: BR.ink }}>{p.stat}</span>
-              <span style={{ fontSize: 11.5, color: BR.c45, lineHeight: 1.4, maxWidth: "26ch" }}>{p.statD}</span>
+          </section>
+        ))}
+      </div>
+
+      <div className="shead">What it&apos;s worth to you</div>
+      <div className="value">
+        {BR_VALUE.map((v, i) => (
+          <div key={i} className="vrow">
+            <div className="vn">0{i + 1}</div>
+            <div className="vc"><h4>{v[0]}</h4><p>{v[1]}</p><span className="st2">{v[2]}</span></div>
+          </div>
+        ))}
+      </div>
+
+      <div className="shead">Then we make all of it — one team</div>
+      <div className="breadth">
+        {BR_CLUSTERS.map((c, ci) => (
+          <div key={ci} className="clu">
+            <h5><b>0{ci + 1}</b>{c[0]}</h5>
+            <div className="items">
+              {c[1].map((x, xi) => <span key={xi} className="up" style={{ animationDelay:`${xi*.03}s` }}>{x}</span>)}
             </div>
           </div>
-        </Reveal>
-      ))}
-      {/* what it's worth */}
-      <div style={{ padding: ".4rem 20px 1rem" }}>
-        <p style={{ fontSize: 10.5, fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase" as const,
-          color: BR.c45, display: "flex", alignItems: "center", gap: ".8rem" }}>
-          What it's worth to you
-          <span style={{ flex: 1, height: 1, background: BR.line, display: "inline-block" }} />
-        </p>
-        {values.map((v, i) => (
-          <Reveal key={i}>
-            <div style={{ display: "flex", gap: ".9rem", padding: "1.1rem 0",
-              borderTop: i > 0 ? `1px solid ${BR.line}` : "none" }}>
-              <span style={{ fontFamily: "var(--font-instrument-serif,'Instrument Serif',serif)",
-                fontStyle: "italic", color: BR.ox, fontSize: "1rem", flexShrink: 0,
-                width: "1.5rem", lineHeight: 1.5 }}>0{i+1}</span>
-              <div>
-                <h4 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)",
-                  fontWeight: 700, fontSize: "1.22rem", letterSpacing: "-.01em", color: BR.ink, marginBottom: ".35rem" }}>
-                  {v.t}
-                </h4>
-                <p style={{ fontSize: ".9rem", color: BR.dim, lineHeight: 1.55, marginBottom: ".55rem" }}>{v.b}</p>
-                <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".06em",
-                  textTransform: "uppercase" as const, color: BR.ox,
-                  border: `1px solid rgba(138,34,51,.3)`, padding: "4px 9px", borderRadius: 2 }}>{v.tag}</span>
-              </div>
-            </div>
-          </Reveal>
         ))}
       </div>
-      {/* breadth clusters */}
-      <div style={{ padding: ".6rem 20px 1.2rem" }}>
-        <p style={{ fontSize: 10.5, fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase" as const,
-          color: BR.c45, display: "flex", alignItems: "center", gap: ".8rem", marginBottom: "1rem" }}>
-          Then we make all of it — one team
-          <span style={{ flex: 1, height: 1, background: BR.line, display: "inline-block" }} />
-        </p>
-        {clusters.map((c, ci) => (
-          <Reveal key={ci}>
-            <div style={{ padding: "1.15rem 0", borderTop: ci > 0 ? `1px solid ${BR.line}` : "none" }}>
-              <div style={{ display: "flex", alignItems: "baseline", gap: ".55rem", marginBottom: ".75rem" }}>
-                <span style={{ fontFamily: "var(--font-instrument-serif,'Instrument Serif',serif)",
-                  fontStyle: "italic", fontWeight: 500, fontSize: "1.05rem", color: BR.c45 }}>0{ci+1}</span>
-                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".14em",
-                  textTransform: "uppercase" as const, color: BR.ox }}>{c.title}</span>
-              </div>
-              <div style={{ display: "flex", flexWrap: "wrap" as const, gap: 6 }}>
-                {c.items.map(item => (
-                  <span key={item} style={{ border: `1px solid ${BR.line}`, background: BR.card,
-                    padding: "6px 10px", fontSize: 11.5, color: BR.dim, borderRadius: 2 }}>{item}</span>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        ))}
+
+      <div className="bonus">
+        <s>Bonus, included</s>
+        <h4>Oh — and a little tool, on us.</h4>
+        <p>A small tool that scans where your brand is showing up inconsistent — an old logo here, a wrong colour there — so nothing slips. <b>Nice to have, not the main event.</b> The thinking is done by the people above.</p>
       </div>
-      <Reveal>
-        <div style={{ margin: "0 20px 1.8rem", padding: "1.3rem 1.4rem",
-          border: `1px dashed ${BR.line}`, borderRadius: 10, background: BR.card }}>
-          <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".16em",
-            textTransform: "uppercase" as const, color: BR.c45, marginBottom: ".7rem" }}>Bonus, included</p>
-          <h4 style={{ fontFamily: "var(--font-instrument-serif,'Instrument Serif',serif)",
-            fontStyle: "italic", fontWeight: 500, fontSize: "1.3rem", color: BR.ink, marginBottom: ".5rem" }}>
-            Oh — and a little tool, on us.
-          </h4>
-          <p style={{ fontSize: ".88rem", color: BR.dim, lineHeight: 1.55 }}>
-            A small tool that scans where your brand is showing up inconsistent — an old logo here,
-            a wrong colour there — so nothing slips.{" "}
-            <strong style={{ color: BR.ink }}>Nice to have, not the main event.</strong>
-          </p>
-        </div>
-      </Reveal>
-      <FAQ items={faqs} bg={BR.bg} border={BR.line} head={BR.ink} body={BR.dim} light />
-      <CTA big={<>The whole way your business<br /><CtaItalic>looks, sounds and feels.</CtaItalic></>}
-        sub="Strategy, identity, every craft — one team, one standard, everywhere anyone meets your business."
-        btn="Build our creative world" onClose={onClose} light />
+
+      <div className="end">
+        <div className="big">The whole way your business<br /><span>looks, sounds and feels.</span></div>
+        <p>Strategy that decides what you stand for, and every craft that brings it to life — identity, film, digital, campaigns, space. <b>One team, one standard, everywhere anyone meets you.</b></p>
+        <a href="/contact" onClick={onClose}>Build our creative world →</a>
+        <p className="foot">OARC — one team for the whole business. Malta.</p>
+      </div>
     </div>
   );
 }
@@ -4367,13 +4628,13 @@ const CONTENT_MAP: Record<string, (props:{onClose:()=>void}) => React.ReactEleme
 
 // ── per-department header colours ─────────────────────────────────────────────
 const DEPT_HDR_BG: Record<string,string> = {
-  Growth: T.noir,  Sales: T.noir,  Media: T.noir,  Social: T.noir,
-  Clarity: "#0B0D12",  "AI Staff": "#060607",  Creative: "#0E5A3A",
+  Growth: "#F6F1E9",  Sales: "#FFFFFF",  Media: "#0C0F16",  Social: T.noir,
+  Clarity: "#0B0D12",  "AI Staff": "#060607",  Creative: "#100E0A",
   Operations: "#F4F1EA",  Automation: "#0A0C0F",  Transformation: "#050A10",
   Reputation: "#F5F1E8",  Brand: "#ECE7DE",
   Enquiries: T.noir,  Ship: "#EEF1F4",  Products: "#050A10",  Compare: T.noir,
 };
-const LIGHT_DEPTS = new Set(["Operations","Reputation","Brand","Ship"]);
+const LIGHT_DEPTS = new Set(["Operations","Reputation","Brand","Ship","Growth","Sales"]);
 
 // ── Main modal ────────────────────────────────────────────────────────────────
 interface DepartmentDetailModalProps {
