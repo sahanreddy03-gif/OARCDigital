@@ -1,86 +1,194 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
 import { m } from 'framer-motion';
 import { VOICE_PRODUCTS } from '@/lib/voice-products/voiceProductBrands';
-import { AI_AGENTS_HERO_POSTER, AI_AGENTS_HERO_VIDEO } from '@/lib/media/aiAgentsHeroVideo';
 
-function VideoCardPreview({ accentLight }: { accentLight: string }) {
-  const ref = useRef<HTMLVideoElement>(null);
-  useEffect(() => {
-    ref.current?.play().catch(() => {});
-  }, []);
-  return (
-    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-      <video ref={ref} autoPlay loop muted playsInline preload="auto" poster={AI_AGENTS_HERO_POSTER} className="h-full w-full object-cover object-top">
-        <source src={AI_AGENTS_HERO_VIDEO} type="video/mp4" />
-      </video>
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-      <div className="absolute bottom-3 left-3 flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: accentLight }} />
-        <span className="text-[10px] font-bold tracking-widest text-white">OARC 3D · LIVE</span>
-      </div>
-    </div>
-  );
-}
+/** Accent colours that are vivid enough to work on dark backgrounds */
+const CARD_ACCENTS: Record<string, { bar: string; glow: string; tag: string }> = {
+  'ai-restaurant-voice-host': {
+    bar: '#4ade80',
+    glow: 'rgba(74,222,128,0.18)',
+    tag: 'text-emerald-400',
+  },
+  'ai-voice-receptionist': {
+    bar: '#fbbf24',
+    glow: 'rgba(251,191,36,0.18)',
+    tag: 'text-amber-400',
+  },
+  'ai-voice-csr': {
+    bar: '#38bdf8',
+    glow: 'rgba(56,189,248,0.18)',
+    tag: 'text-sky-400',
+  },
+  'ai-voice-dispatcher': {
+    bar: '#fb923c',
+    glow: 'rgba(251,146,60,0.18)',
+    tag: 'text-orange-400',
+  },
+  'ai-voice-sales': {
+    bar: '#fde047',
+    glow: 'rgba(253,224,71,0.18)',
+    tag: 'text-yellow-300',
+  },
+  'ai-voice-follow-up': {
+    bar: '#c084fc',
+    glow: 'rgba(192,132,252,0.18)',
+    tag: 'text-violet-400',
+  },
+};
 
 /** Six voice-AI products — each its own "company" on /ai-agents */
 export default function VoiceProductSuite() {
   return (
     <section className="py-20 md:py-28 bg-black border-t border-white/10 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'linear-gradient(rgba(74,222,128,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(74,222,128,0.06) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-
-      {/* Featured 3D video strip — same HQ asset as /ai-agents hero */}
-      <div className="max-w-7xl mx-auto px-6 mb-16 relative z-10">
-        <div className="relative rounded-3xl overflow-hidden border border-white/10 aspect-[21/9] max-h-[340px]">
-          <video autoPlay loop muted playsInline preload="auto" poster={AI_AGENTS_HERO_POSTER} className="absolute inset-0 h-full w-full object-cover object-top">
-            <source src={AI_AGENTS_HERO_VIDEO} type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
-          <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-12">
-            <p className="text-xs font-bold tracking-[0.2em] text-emerald-400 mb-2">OARC 3D · HIGH QUALITY</p>
-            <h3 className="text-2xl md:text-4xl font-bold text-white max-w-lg leading-tight">The same 3D host you see on AI Agents — now on every voice product.</h3>
-          </div>
-        </div>
-      </div>
+      {/* Subtle dot-grid */}
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle, rgba(196,255,77,0.08) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <p className="text-xs font-bold tracking-[0.2em] text-emerald-400 mb-3 text-center">VOICE AI SUITE</p>
-        <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-4 tracking-tight">
-          Six products. Six brains. One operator.
-        </h2>
-        <p className="text-white/60 text-center max-w-2xl mx-auto mb-14 text-lg">
-          Hover any card — watch the 3D host come alive. Each product is its own company.
-        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {VOICE_PRODUCTS.map((p, i) => (
-            <m.div key={p.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}>
-              <Link href={p.path} className="group block h-full rounded-2xl overflow-hidden border border-white/10 bg-white/5 hover:border-emerald-400/40 transition-all duration-300 hover:shadow-[0_0_40px_rgba(74,222,128,0.15)]">
-                <div className="relative h-44 overflow-hidden bg-black">
-                  <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0" style={{ background: p.gradient }} />
-                  <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" style={{ background: p.glow }} />
-                  <div className="absolute bottom-3 left-4 z-10 transition-opacity group-hover:opacity-0">
-                    <span className="text-2xl font-black text-white tracking-tight">{p.companyName}</span>
-                    <p className="text-xs text-white/70 font-medium">{p.companyTag}</p>
-                  </div>
-                  <VideoCardPreview accentLight={p.accentLight} />
-                </div>
-                <div className="p-5">
-                  <p className="text-sm font-bold text-emerald-400 mb-2">{p.metric.value} · {p.metric.label}</p>
-                  <p className="text-white/90 font-semibold text-base leading-snug mb-3">{p.hook}</p>
-                  <span className="text-sm font-bold text-white/50 group-hover:text-emerald-400 transition-colors">Explore {p.companyName} →</span>
-                </div>
-              </Link>
-            </m.div>
+        {/* ── Section header ── */}
+        <div className="max-w-3xl mb-16">
+          <p className="text-[10px] font-bold tracking-[0.22em] text-[#c4ff4d] mb-4 uppercase">
+            Voice AI Suite · Built &amp; Managed by OARC
+          </p>
+          <h2 className="text-3xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight mb-5">
+            Six products.<br />
+            <span className="text-[#c4ff4d]">One intelligence layer.</span>
+          </h2>
+          <p className="text-white/55 text-lg leading-relaxed max-w-2xl">
+            We don't hand you a login and wish you luck. Each product is trained on your
+            business, plugged into your systems, and managed by OARC engineers — so the
+            intelligence compounds week by week, not just out of the box.
+          </p>
+        </div>
+
+        {/* ── Agency value strip ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/[0.07] rounded-2xl overflow-hidden mb-16">
+          {[
+            { label: 'Trained on you', desc: 'Your prices, your tone, your rules — not a generic template.' },
+            { label: 'Plugged in live', desc: 'CRM, calendar, WhatsApp, phone. Connected from day one.' },
+            { label: 'Managed weekly', desc: 'OARC reviews every transcript and improves the brain for you.' },
+          ].map((item) => (
+            <div key={item.label} className="bg-black px-6 py-5">
+              <p className="text-white font-semibold text-sm mb-1">{item.label}</p>
+              <p className="text-white/40 text-xs leading-relaxed">{item.desc}</p>
+            </div>
           ))}
         </div>
 
-        <p className="text-center mt-12 text-white/40 text-sm">
+        {/* ── Product cards ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {VOICE_PRODUCTS.map((p, i) => {
+            const accent = CARD_ACCENTS[p.slug] ?? {
+              bar: '#c4ff4d',
+              glow: 'rgba(196,255,77,0.14)',
+              tag: 'text-[#c4ff4d]',
+            };
+            return (
+              <m.div
+                key={p.slug}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Link
+                  href={p.path}
+                  className="group flex flex-col h-full rounded-2xl overflow-hidden border border-white/[0.09] bg-[#0a0a0a] hover:border-white/20 transition-all duration-300"
+                  style={{
+                    boxShadow: `0 0 0 0 ${accent.bar}`,
+                    transition: 'box-shadow 0.35s ease, border-color 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.boxShadow = `0 0 36px ${accent.glow}`;
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.boxShadow = '0 0 0 0 transparent';
+                  }}
+                >
+                  {/* Top accent bar */}
+                  <div
+                    className="h-[3px] w-full flex-shrink-0"
+                    style={{ background: accent.bar }}
+                  />
+
+                  <div className="flex flex-col flex-1 p-6 gap-5">
+                    {/* Metric chip */}
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <span
+                          className={`text-[10px] font-bold tracking-[0.18em] uppercase ${accent.tag}`}
+                        >
+                          {p.metric.value}
+                        </span>
+                        <p className="text-white/35 text-[10px] mt-0.5 tracking-wide">
+                          {p.metric.label}
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-1.5 flex-shrink-0 mt-0.5">
+                        <span
+                          className="w-1.5 h-1.5 rounded-full animate-pulse"
+                          style={{ background: accent.bar }}
+                        />
+                        <span className="text-[9px] font-bold tracking-widest text-white/30 uppercase">
+                          LIVE
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Identity */}
+                    <div>
+                      <h3 className="text-xl font-black text-white tracking-tight leading-none mb-1">
+                        {p.companyName}
+                      </h3>
+                      <p className={`text-xs font-medium ${accent.tag} opacity-70`}>
+                        {p.companyTag}
+                      </p>
+                    </div>
+
+                    {/* Hook */}
+                    <p className="text-white/65 text-sm leading-relaxed flex-1">
+                      {p.hook}
+                    </p>
+
+                    {/* Agency proof line */}
+                    <p className="text-white/30 text-xs leading-relaxed border-t border-white/[0.06] pt-4">
+                      {p.wedge}
+                    </p>
+
+                    {/* CTA row */}
+                    <div className="flex items-center justify-between pt-1">
+                      <span
+                        className={`text-xs font-bold tracking-wide group-hover:opacity-100 opacity-50 transition-opacity ${accent.tag}`}
+                      >
+                        Explore {p.companyName} →
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </m.div>
+            );
+          })}
+        </div>
+
+        {/* ── Bottom note ── */}
+        <p className="text-center mt-12 text-white/30 text-xs tracking-wide">
           Restaurants: also see{' '}
-          <Link href="/h360/restaurant-phone-ai-malta" className="text-emerald-400 font-semibold hover:underline">H360 Voice Host</Link>
-          {' '}inside the full Malta restaurant stack.
+          <Link
+            href="/h360/restaurant-phone-ai-malta"
+            className="text-emerald-400 font-semibold hover:underline"
+          >
+            H360 Voice Host
+          </Link>{' '}
+          inside the full Malta restaurant stack.
         </p>
       </div>
     </section>
