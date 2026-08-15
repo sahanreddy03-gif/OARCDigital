@@ -18,6 +18,7 @@ import {
   PersonalizationSteps
 } from '@/components/ai';
 import VoiceProductSuite from '@/components/voice-products/VoiceProductSuite';
+import IntelligenceShowcase from '@/components/ai/IntelligenceShowcase';
 import { AI_AGENTS_HERO_POSTER, AI_AGENTS_HERO_VIDEO } from '@/lib/media/aiAgentsHeroVideo';
 import { 
   ArrowRight, Check,
@@ -412,39 +413,9 @@ export default function PageContent() {
           </div>
         </section>
         
-        {/* In action right now — chat bubble proof */}
-        <section className="relative z-10 py-16 sm:py-20 px-4 sm:px-6 bg-zinc-950 border-t border-white/5">
-          <div className="max-w-2xl mx-auto">
-            <m.div className="text-center mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-                While you read this,<br />
-                <span className="text-[#c4ff4d]">here's what just happened.</span>
-              </h2>
-            </m.div>
-            <div className="space-y-3">
-              {[
-                { text: 'Missed call at 14:32 — returned in 19s. Reservation saved.', right: false, delay: 0 },
-                { text: 'Table for 4 booked — Friday 20:00. Confirmation sent on WhatsApp.', right: true, delay: 0.15 },
-                { text: 'New 5★ review — reply drafted in your voice. Approve?', right: false, delay: 0.3 },
-                { text: 'Quote followed up. Client said yes — invoice sent.', right: true, delay: 0.45 },
-              ].map((bub, i) => (
-                <m.div key={i} className={`flex ${bub.right ? 'justify-end' : 'justify-start'}`}
-                  initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }} transition={{ delay: bub.delay, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
-                  <div className={`max-w-[82%] px-4 py-3 rounded-2xl text-sm leading-relaxed
-                    ${bub.right
-                      ? 'bg-[#c4ff4d]/10 border border-[#c4ff4d]/20 text-[#c4ff4d] rounded-tr-sm'
-                      : 'bg-white/[0.06] border border-white/10 text-white/80 rounded-tl-sm'}`}>
-                    {bub.text}
-                  </div>
-                </m.div>
-              ))}
-            </div>
-            <m.p className="text-center text-white/25 text-[10px] font-mono mt-7 tracking-widest uppercase"
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.7 }}>
-              On shift in Malta venues · responding in seconds · never off
-            </m.p>
-          </div>
+        {/* The Intelligence Showcase — the whole journey, live */}
+        <section className="relative z-10 py-20 sm:py-28 px-4 sm:px-6 bg-zinc-950 border-t border-white/5" data-testid="section-intelligence-showcase">
+          <IntelligenceShowcase />
         </section>
 
         {/* How they're trained — 3-phase training story */}
