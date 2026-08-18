@@ -6,7 +6,7 @@ import { m, AnimatePresence } from 'framer-motion';
 import type { VoiceProductBrand } from '@/lib/voice-products/voiceProductBrands';
 import VoiceCompanyDemo from './VoiceCompanyDemo';
 import AiAgentsHeroVideo from '@/components/media/AiAgentsHeroVideo';
-import CreativeNavigation from '@/components/CreativeNavigation';
+import MinimalNav from '@/components/MinimalNav';
 import Footer from '@/components/Footer';
 import { NAP } from '@/lib/seo/nap';
 
@@ -16,7 +16,7 @@ export default function VoiceCompanyPage({ brand }: { brand: VoiceProductBrand }
 
   return (
     <>
-      <CreativeNavigation />
+      <MinimalNav theme="dark" />
       <main style={{ background: '#030303', color: '#fff', minHeight: '100vh' }}>
         {/* Hero — full ai-agents 3D video background */}
         <section style={{ position: 'relative', overflow: 'hidden', minHeight: 'min(92vh, 920px)' }}>

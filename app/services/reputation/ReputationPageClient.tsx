@@ -1,5 +1,6 @@
 "use client";
 
+import MinimalNav from '@/components/MinimalNav';
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 
@@ -117,15 +118,7 @@ const FAQS = [
 export default function ReputationPageClient() {
   return (
     <div style={{ background:C.bg, color:C.ink, overflowX:"hidden" }}>
-      {/* top bar */}
-      <nav style={{ display:"flex", justifyContent:"space-between", alignItems:"center",
-        padding:"16px 22px", paddingTop:"max(16px,env(safe-area-inset-top))",
-        borderBottom:`1.5px solid ${C.ink}`, background:C.bg }}>
-        <Link href="/" style={{ fontFamily:C.sm, fontWeight:700, fontSize:13,
-          letterSpacing:"-.01em", color:C.ink, textDecoration:"none" }}>OARC</Link>
-        <span style={{ fontFamily:C.sm, fontSize:10, fontWeight:700, letterSpacing:".18em",
-          textTransform:"uppercase" as const, color:C.low }}>Make me famous</span>
-      </nav>
+      <MinimalNav theme="light" />
 
       <div style={{ maxWidth:960, margin:"0 auto", padding:"0 22px" }}>
 

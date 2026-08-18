@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/ai-icons';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
 import Footer from '@/components/Footer';
-import CreativeNavigation from '@/components/CreativeNavigation';
+import MinimalNav from '@/components/MinimalNav';
 import { NAP } from "@/lib/seo/nap";
 import { 
   TeamCarousel, 
@@ -260,7 +260,7 @@ export default function PageContent() {
         </script>
 </>
       
-      <CreativeNavigation />
+      <MinimalNav theme="dark" />
       
       <main className="min-h-screen bg-black text-white overflow-x-hidden relative" style={{ fontFamily: 'var(--font-pixelag)' }}>
         
