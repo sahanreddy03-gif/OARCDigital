@@ -18,7 +18,7 @@ import {
   Eye, Crosshair, Brain, Crown, Rocket, LineChart, Lock, Unlock
 } from 'lucide-react';
 import { SiInstagram, SiFacebook, SiTiktok, SiLinkedin, SiYoutube, SiGoogle, SiFigma, SiSlack, SiNotion, SiMeta, SiShopify, SiHubspot, SiMailchimp, SiZapier, SiWhatsapp } from 'react-icons/si';
-import CreativeNavigation from '@/components/CreativeNavigation';
+import MinimalNav from '@/components/MinimalNav';
 import Footer from '@/components/Footer';
 import { NAP } from "@/lib/seo/nap";
 import { ORG_SAMEAS } from "@/lib/schema";
@@ -1160,7 +1160,7 @@ export default function PageContent() {
         })}</script>
 </>
 
-      <CreativeNavigation />
+      <MinimalNav theme="dark" />
       
       <main className="bg-[#F0FFF4]">
         {/* ========== HERO SECTION - VAYNERMEDIA STYLE ========== */}

@@ -1,4 +1,4 @@
-import Navigation from "./Navigation";
+import MinimalNav from "../MinimalNav";
 import Footer from "../Footer";
 
 interface LayoutProps {
@@ -9,8 +9,8 @@ interface LayoutProps {
 
 export default function Layout({ children, showNav = true, showFooter = true }: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col">
-      {showNav && <Navigation />}
+    <div className="relative min-h-screen flex flex-col">
+      {showNav && <MinimalNav theme="dark" />}
       <main className="flex-1">
         {children}
       </main>

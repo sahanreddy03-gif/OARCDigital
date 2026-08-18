@@ -7,7 +7,7 @@ import { GlassCard } from '@/components/ui/glass-card';
 import { AnimatedGridBackground } from '@/components/ui/animated-grid-background';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
 import Footer from '@/components/Footer';
-import CreativeNavigation from '@/components/CreativeNavigation';
+import MinimalNav from '@/components/MinimalNav';
 import QuickLeadModal from '@/components/QuickLeadModal';
 import { NAP } from "@/lib/seo/nap";
 import { 
@@ -265,7 +265,7 @@ export default function PageContent() {
         })}</script>
 </>
 
-      <CreativeNavigation />
+      <MinimalNav theme="dark" />
 
       <main className="bg-black min-h-screen overflow-x-hidden">
         

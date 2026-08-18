@@ -1,5 +1,6 @@
 "use client";
 
+import MinimalNav from '@/components/MinimalNav';
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 
@@ -127,24 +128,7 @@ function Hl({ text, i }: { text: string; i: number }) {
 export default function BrandPageClient() {
   return (
     <div style={{ background:C.bg, color:C.ink, overflowX:"hidden" }}>
-      {/* top bar */}
-      <nav style={{ display:"flex", justifyContent:"space-between", alignItems:"center",
-        padding:"16px 22px", paddingTop:"max(16px,env(safe-area-inset-top))",
-        borderBottom:`1px solid ${C.line}`, background:C.bg,
-        position:"sticky" as const, top:0, zIndex:20,
-        backdropFilter:"blur(10px)" }}>
-        <div style={{ display:"flex", alignItems:"baseline", gap:".7rem" }}>
-          <Link href="/" style={{ fontFamily:C.sm, fontWeight:700, fontSize:13,
-            letterSpacing:"-.01em", color:C.ink, textDecoration:"none" }}>OARC</Link>
-          <span style={{ fontFamily:C.sm, fontSize:9.5, letterSpacing:".18em",
-            textTransform:"uppercase" as const, color:"rgba(22,18,15,.3)" }}>Brand</span>
-        </div>
-        <Link href="/contact" style={{ fontFamily:C.sm, fontSize:10, fontWeight:700,
-          letterSpacing:".14em", textTransform:"uppercase" as const, color:C.bg,
-          background:C.ox, textDecoration:"none", padding:".55rem 1rem", borderRadius:5 }}>
-          Start here
-        </Link>
-      </nav>
+      <MinimalNav theme="light" />
 
       <div style={{ maxWidth:960, margin:"0 auto", padding:"0 22px" }}>
 

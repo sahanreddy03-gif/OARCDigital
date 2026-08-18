@@ -6,7 +6,7 @@ import { m } from 'framer-motion';
 
 import { Button } from '@/components/ui/button';
 import { GlassCard } from '@/components/ui/glass-card';
-import CreativeNavigation from '@/components/CreativeNavigation';
+import MinimalNav from '@/components/MinimalNav';
 import Footer from '@/components/Footer';
 import FAQSection from '@/components/FAQSection';
 import { aiTeamMembers, agentRatings } from '@/components/ai/aiAgentsData';
@@ -19,7 +19,7 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
   if (!agent) {
     return (
       <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center">
-        <CreativeNavigation />
+        <MinimalNav theme="dark" />
         <div className="text-center px-6">
           <h1 className="text-4xl font-bold mb-4">Agent Not Found</h1>
           <p className="text-white/60 mb-8">We couldn't find an agent with that ID.</p>
@@ -41,7 +41,7 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
 
   return (
     <>
-      <CreativeNavigation />
+      <MinimalNav theme="dark" />
 
       <main className="min-h-screen bg-black text-white">
         {/* Hero */}
