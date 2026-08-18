@@ -197,13 +197,6 @@ const GM_CSS = `
   --ui:'Instrument Sans',sans-serif;--serif:'Spectral',serif;--e:cubic-bezier(.16,1,.3,1);
   background:var(--bone);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .gmx *{margin:0;padding:0;box-sizing:border-box}
-.gmx .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);background:rgba(246,241,233,.86);backdrop-filter:blur(10px)}
-.gmx .top .brand{display:flex;align-items:baseline;gap:.7rem}
-.gmx .top .brand b{font-weight:700;font-size:13px;letter-spacing:-.02em}
-.gmx .top .brand s{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--i30);text-decoration:none;font-style:normal}
-.gmx .top .live{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--i45)}
-.gmx .top .live i{width:6px;height:6px;border-radius:50%;background:var(--terra);animation:gmx-blink 1.9s ease-out infinite}
-@keyframes gmx-blink{0%{box-shadow:0 0 0 0 var(--tg)}100%{box-shadow:0 0 0 8px rgba(192,83,43,0)}}
 .gmx .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line)}
 .gmx .hero .lbl{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terra)}
 .gmx .hero h1{font-size:clamp(2.4rem,10vw,3.6rem);font-weight:700;line-height:.96;letter-spacing:-.035em;margin-top:.7rem}
@@ -397,11 +390,6 @@ function GrowthContent({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="gmx" ref={wrapRef}>
-      <div className="top">
-        <span className="brand"><b>OARC</b><s>Growth</s></span>
-        <span className="live"><i />The whole journey</span>
-      </div>
-
       <div className="hero">
         <p className="lbl">Growth</p>
         <h1>Bring me more<br /><em>customers.</em></h1>
@@ -852,13 +840,6 @@ const MM_CSS = `
   background:var(--ink);color:var(--c);font-family:var(--ui);
   -webkit-font-smoothing:antialiased;overflow-x:hidden
 }
-.mm .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);background:rgba(12,15,22,.86);backdrop-filter:blur(10px)}
-.mm .top .brand{display:flex;align-items:baseline;gap:.7rem}
-.mm .top .brand b{font-weight:900;font-size:13px;letter-spacing:-.02em}
-.mm .top .brand s{font-size:9.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--c26);text-decoration:none;font-style:normal}
-.mm .top .live{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--c45)}
-.mm .top .live i{width:6px;height:6px;border-radius:50%;background:var(--am);animation:mm-blink 1.8s ease-out infinite}
-@keyframes mm-blink{0%{box-shadow:0 0 0 0 var(--amg)}100%{box-shadow:0 0 0 8px rgba(246,166,28,0)}}
 .mm .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--am)}
 .mm h1{font-size:clamp(2.3rem,9.2vw,3.4rem);font-weight:900;line-height:.98;letter-spacing:-.04em;margin-top:.7rem}
 .mm h1 em{font-style:normal;color:var(--am)}
@@ -1071,10 +1052,6 @@ function MediaContent({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="mm" ref={wrapRef}>
-      <div className="top">
-        <span className="brand"><b>OARC</b><s>Media</s></span>
-        <span className="live"><i />Ad spend that pays</span>
-      </div>
       <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:"1px solid var(--line)" }}>
         <p className="lbl">Marketing and media</p>
         <h1>We make your money<br /><em>come back with more.</em></h1>
@@ -1154,16 +1131,6 @@ const SC_CSS = `
   font-family:'Familjen Grotesk',sans-serif;
   -webkit-font-smoothing:antialiased;overflow-x:hidden
 }
-.sc .top{display:flex;justify-content:space-between;align-items:center;
-  padding:16px 20px;padding-top:max(16px,env(safe-area-inset-top));
-  border-bottom:1px solid var(--line);position:sticky;top:0;
-  background:rgba(14,12,20,.86);backdrop-filter:blur(10px);z-index:20}
-.sc .top .brand{display:flex;align-items:baseline;gap:.7rem}
-.sc .top .brand b{font-weight:700;font-size:13px;letter-spacing:-.02em}
-.sc .top .brand s{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--c26);text-decoration:none}
-.sc .top .live-ind{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c45)}
-.sc .top .live-ind i{width:6px;height:6px;border-radius:50%;background:var(--em);animation:sc-blink 1.7s ease-out infinite;font-style:normal}
-@keyframes sc-blink{0%{box-shadow:0 0 0 0 var(--emg)}100%{box-shadow:0 0 0 8px rgba(255,106,43,0)}}
 .sc .hero{padding:1.7rem 20px 2.4rem;border-bottom:1px solid var(--line)}
 .sc .hero .lbl{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--em)}
 .sc .hero h1{font-size:clamp(2.2rem,9.4vw,3.3rem);font-weight:700;line-height:.98;letter-spacing:-.045em;margin-top:.7rem}
@@ -1426,11 +1393,6 @@ function SocialContent({ onClose }: { onClose: () => void }) {
   return (
     <div className="sc" ref={wrapRef}>
       {/* sticky top bar */}
-      <div className="top">
-        <span className="brand"><b>OARC</b><s>Social</s></span>
-        <span className="live-ind"><i />One team</span>
-      </div>
-
       {/* hero */}
       <div className="hero">
         <p className="lbl">Everything social takes</p>
@@ -1572,13 +1534,6 @@ const CL_CSS = `
   --ui:'Sora',sans-serif;--mono:'JetBrains Mono',monospace;--e:cubic-bezier(.16,1,.3,1);
   background:var(--ink);color:var(--c);font-family:var(--ui);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .clx *{margin:0;padding:0;box-sizing:border-box}
-.clx .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);background:rgba(11,13,18,.86);backdrop-filter:blur(10px)}
-.clx .top .brand{display:flex;align-items:baseline;gap:.7rem}
-.clx .top .brand b{font-weight:800;font-size:13px;letter-spacing:-.02em}
-.clx .top .brand s{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--c26);text-decoration:none;font-style:normal}
-.clx .top .live{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--c45)}
-.clx .top .live i{width:6px;height:6px;border-radius:50%;background:var(--az);animation:clx-blink 1.8s ease-out infinite}
-@keyframes clx-blink{0%{box-shadow:0 0 0 0 var(--azg)}100%{box-shadow:0 0 0 8px rgba(61,123,255,0)}}
 .clx .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line)}
 .clx .hero .lbl{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--az)}
 .clx .hero h1{font-size:clamp(2.3rem,9.4vw,3.4rem);font-weight:800;line-height:.98;letter-spacing:-.04em;margin-top:.7rem}
@@ -1766,11 +1721,6 @@ function ClarityContent({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="clx" ref={wrapRef}>
-      <div className="top">
-        <span className="brand"><b>OARC</b><s>Measurement</s></span>
-        <span className="live"><i />The answer</span>
-      </div>
-
       <div className="hero">
         <p className="lbl">Tell me what&apos;s working</p>
         <h1>We tell you what&apos;s<br /><em>actually working.</em></h1>
@@ -1845,15 +1795,6 @@ const AIS_CSS = `
   background:#0B0C0D;color:#F5F5F3;
   font-family:'Schibsted Grotesk',var(--font-bricolage,'Bricolage Grotesque',sans-serif);
   -webkit-font-smoothing:antialiased;overflow-x:hidden}
-.ais .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;
-  border-bottom:1px solid var(--line);position:sticky;top:0;
-  background:rgba(11,12,13,.88);backdrop-filter:blur(10px);z-index:20}
-.ais .top .brand{display:flex;align-items:baseline;gap:.7rem}
-.ais .top .brand b{font-weight:800;font-size:13px;letter-spacing:-.02em}
-.ais .top .brand s{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--c26);text-decoration:none}
-.ais .top .live{display:flex;align-items:center;gap:7px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--c45)}
-.ais .top .live i{width:6px;height:6px;border-radius:50%;background:var(--vi);animation:ais-blink 1.8s ease-out infinite;display:inline-block;flex-shrink:0}
-@keyframes ais-blink{0%{box-shadow:0 0 0 0 var(--vig)}100%{box-shadow:0 0 0 8px rgba(245,245,243,0)}}
 .ais .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
 .ais .hero::before{content:'';position:absolute;top:-40px;right:-60px;width:280px;height:280px;border-radius:50%;
   background:radial-gradient(circle,rgba(245,245,243,.09),rgba(245,245,243,.03) 45%,transparent 70%);filter:blur(10px)}
@@ -2109,11 +2050,6 @@ function AIStaffContent({ onClose }: { onClose: () => void }) {
   return (
     <div className="ais" ref={wrapRef}>
       {/* sticky top bar */}
-      <div className="top">
-        <span className="brand"><b>OARC</b><s>AI</s></span>
-        <span className="live"><i />&nbsp;Malta&apos;s AI agency</span>
-      </div>
-
       {/* hero */}
       <div className="hero">
         <p className="lbl">Pick your employee</p>
@@ -2593,13 +2529,6 @@ const OP_CSS = `
   --ui:'Hanken Grotesk',sans-serif;--serif:'Newsreader',serif;--e:cubic-bezier(.16,1,.3,1);
   background:var(--paper);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased}
 .op *{margin:0;padding:0;box-sizing:border-box}
-.op .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
-.op .top .brand{display:flex;align-items:baseline;gap:.7rem}
-.op .top .brand b{font-weight:800;font-size:13px;letter-spacing:-.02em}
-.op .top .brand s{font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--i30);text-decoration:none}
-.op .top .live{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--i50)}
-.op .top .live i{width:6px;height:6px;border-radius:50%;background:var(--em);animation:op-blink 1.9s ease-out infinite}
-@keyframes op-blink{0%{box-shadow:0 0 0 0 var(--emg)}100%{box-shadow:0 0 0 8px rgba(14,122,84,0)}}
 .op .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line)}
 .op .hero .lbl{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--em)}
 .op .hero h1{font-size:clamp(2.3rem,9.6vw,3.4rem);font-weight:800;line-height:.98;letter-spacing:-.04em;margin-top:.7rem}
@@ -2790,11 +2719,6 @@ function OperationsContent({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="op" ref={wrapRef}>
-      <div className="top">
-        <span className="brand"><b>OARC</b><s>Operations</s></span>
-        <span className="live"><i />Time back</span>
-      </div>
-
       <div className="hero">
         <p className="lbl">Your week, given back</p>
         <h1>Take the boring work<br /><em>off your plate.</em></h1>
@@ -2863,13 +2787,6 @@ const AU_CSS = `
   --ui:'Plus Jakarta Sans',sans-serif;--mono:'Martian Mono',monospace;--e:cubic-bezier(.16,1,.3,1);
   background:var(--ink);color:var(--c);font-family:var(--ui);-webkit-font-smoothing:antialiased}
 .au *{margin:0;padding:0;box-sizing:border-box}
-.au .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
-.au .top .brand{display:flex;align-items:baseline;gap:.7rem}
-.au .top .brand b{font-weight:800;font-size:13px;letter-spacing:-.02em}
-.au .top .brand s{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--c26);text-decoration:none}
-.au .top .live{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--c45)}
-.au .top .live i{width:6px;height:6px;border-radius:50%;background:var(--mint);animation:au-blink 1.6s ease-out infinite}
-@keyframes au-blink{0%{box-shadow:0 0 0 0 var(--mg)}100%{box-shadow:0 0 0 8px rgba(52,227,155,0)}}
 .au .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line)}
 .au .hero .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mint)}
 .au .hero h1{font-size:clamp(2.4rem,9.4vw,3.6rem);font-weight:800;line-height:.98;letter-spacing:-.04em;margin-top:.8rem}
@@ -3076,11 +2993,6 @@ function AutomationContent({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="au" ref={wrapRef}>
-      <div className="top">
-        <span className="brand"><b>OARC</b><s>Automation</s></span>
-        <span className="live"><i />Runs itself</span>
-      </div>
-
       <div className="hero">
         <p className="lbl">AI and automation</p>
         <h1>The business that<br /><em>runs itself.</em></h1>
@@ -3161,13 +3073,6 @@ const TR_CSS = `
   --ui:'Space Grotesk',sans-serif;--mono:'IBM Plex Mono',monospace;--e:cubic-bezier(.16,1,.3,1);
   background:var(--paper);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased}
 .trx *{margin:0;padding:0;box-sizing:border-box}
-.trx .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
-.trx .top .brand{display:flex;align-items:baseline;gap:.7rem}
-.trx .top .brand b{font-weight:700;font-size:13px;letter-spacing:-.02em}
-.trx .top .brand s{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--i30);text-decoration:none}
-.trx .top .live{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--i45)}
-.trx .top .live i{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:trx-blink 1.9s ease-out infinite}
-@keyframes trx-blink{0%{box-shadow:0 0 0 0 var(--cg)}100%{box-shadow:0 0 0 8px rgba(14,143,168,0)}}
 .trx .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line)}
 .trx .hero .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyand)}
 .trx .hero h1{font-size:clamp(2.3rem,9vw,3.5rem);font-weight:700;line-height:.98;letter-spacing:-.04em;margin-top:.7rem}
@@ -3352,11 +3257,6 @@ function TransformationContent({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="trx" ref={wrapRef}>
-      <div className="top">
-        <span className="brand"><b>OARC</b><s>Build</s></span>
-        <span className="live"><i />We build the system</span>
-      </div>
-
       <div className="hero">
         <p className="lbl">Change how the business runs</p>
         <h1>Software your business<br /><em>should run on.</em></h1>
@@ -3575,13 +3475,6 @@ const BR_CSS = `
   --disp:'Playfair Display',serif;--ui:'Manrope',sans-serif;--e:cubic-bezier(.16,1,.3,1);
   background:var(--stone);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased}
 .br *{margin:0;padding:0;box-sizing:border-box}
-.br .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
-.br .top .brand{display:flex;align-items:baseline;gap:.7rem}
-.br .top .brand b{font-weight:700;font-size:13px;letter-spacing:-.01em}
-.br .top .brand s{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--i30);text-decoration:none}
-.br .top .live{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--i45)}
-.br .top .live i{width:6px;height:6px;border-radius:50%;background:var(--ox);animation:br-blink 1.9s ease-out infinite}
-@keyframes br-blink{0%{box-shadow:0 0 0 0 var(--og)}100%{box-shadow:0 0 0 8px rgba(138,34,51,0)}}
 .br .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line)}
 .br .hero .lbl{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ox)}
 .br .hero h1{font-family:var(--disp);font-weight:900;font-size:clamp(2.5rem,10vw,3.7rem);line-height:.98;letter-spacing:-.02em;margin-top:.8rem}
@@ -3795,11 +3688,6 @@ function BrandContent({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="br" ref={wrapRef}>
-      <div className="top">
-        <span className="brand"><b>OARC</b><s>Brand</s></span>
-        <span className="live"><i />The foundation</span>
-      </div>
-
       <div className="hero">
         <p className="lbl">Creative and brand</p>
         <h1>Everything they see,<br /><em>hear and feel.</em></h1>
