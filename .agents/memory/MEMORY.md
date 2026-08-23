@@ -4,3 +4,4 @@
 - [Department modal rebuild pattern](modal-rebuild-pattern.md) — exact port workflow: scope CSS under .xyz class, inject via useEffect→document.head, convert JS VIZ generators to TS, use dangerouslySetInnerHTML for SVG panels
 - [OARC design system colors](oarc-design-system.md) — authoritative design sheet v2; AI/machine modals use Graphite world (bg #0B0C0D, accent white #F5F5F3, monochrome only — no color)
 - [Department gallery direction](department-gallery-direction.md) — departments use authored image panels with title and promise beneath, so the navigation cue stays clear
+- [Work experience rollout](work-experience-rollout.md) — establish the visual language through one /our-work proof card before expanding the portfolio or detail pages
