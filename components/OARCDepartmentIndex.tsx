@@ -14,20 +14,11 @@ type Department = {
 };
 
 /*
- * This is intentionally a one-card proof before the full department set is
- * art-directed. The data shape keeps every existing destination available to
- * SEO and makes the final rail straightforward once this visual direction is
- * approved.
+ * One-card art-direction proof. The complete department data remains here so
+ * all destinations stay discoverable while the visual system is approved.
  */
 const DEPARTMENTS: Department[] = [
-  {
-    name: "Growth",
-    statement: "Bring me more customers.",
-    key: "Growth",
-    href: "/services/growth",
-    image: caseStudies["fanstake-sports-platform"].thumbnailImage,
-    imageAlt: "A sales team turning attention into new opportunities",
-  },
+  { name: "Growth", statement: "Turn attention into demand.", key: "Growth", href: "/services/growth", image: "/attached_assets/generated_images/oarc-growth-editorial-proof.jpg", imageAlt: "A founder drawing a sculptural green curve upward through a limestone plaza" },
   { name: "AI Staff", statement: "Pick your employee.", key: "AI Staff", href: "/services/ai-staff", image: caseStudies["nexgen-retail-ai-transformation"].thumbnailImage, imageAlt: "An AI workforce interface" },
   { name: "Creative", statement: "Make us worth more.", key: "Creative", href: "/services/creative", image: caseStudies["naturalcare-beauty"].thumbnailImage, imageAlt: "A natural beauty brand campaign" },
   { name: "Reputation", statement: "Make them remember you.", key: "Reputation", href: "/services/reputation", image: caseStudies["authentic-stories"].thumbnailImage, imageAlt: "Creators building an authentic brand story" },
@@ -64,44 +55,14 @@ export default function OARCDepartmentIndex() {
           position: relative;
           background: var(--paper);
           color: var(--ink);
-          padding: clamp(4rem, 9vw, 9rem) 0 clamp(5rem, 10vw, 10rem);
-        }
-        .odg-proof-head {
-          max-width: 1600px;
-          margin: 0 auto;
-          padding: 0 clamp(1.25rem, 4vw, 4.5rem) clamp(2.25rem, 4vw, 4rem);
-        }
-        .odg-proof-title {
-          max-width: 9ch;
-          margin: 0;
-          font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
-          font-size: clamp(3.5rem, 9vw, 10rem);
-          font-weight: 800;
-          letter-spacing: -.08em;
-          line-height: .82;
-        }
-        .odg-proof-title em {
-          display: block;
-          font-family: var(--font-instrument-serif, "Instrument Serif", serif);
-          font-size: 1.06em;
-          font-style: italic;
-          font-weight: 400;
-          letter-spacing: -.055em;
-        }
-        .odg-proof-intro {
-          max-width: 26ch;
-          margin: 1.75rem 0 0;
-          font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
-          font-size: clamp(1.05rem, 1.8vw, 1.3rem);
-          line-height: 1.3;
-          color: rgba(14,13,12,.66);
+          padding: clamp(2rem, 4.5vw, 5rem) 0 clamp(5rem, 9vw, 9rem);
         }
         .odg-proof-rail {
           display: flex;
           overflow-x: auto;
-          padding: 0 clamp(1.25rem, 4vw, 4.5rem) 1rem;
+          padding: 0 clamp(1rem, 3.2vw, 3.5rem) 1rem;
           scroll-snap-type: x mandatory;
-          scroll-padding-left: clamp(1.25rem, 4vw, 4.5rem);
+          scroll-padding-left: clamp(1rem, 3.2vw, 3.5rem);
           overscroll-behavior-x: contain;
           scrollbar-width: none;
           -webkit-overflow-scrolling: touch;
@@ -109,16 +70,12 @@ export default function OARCDepartmentIndex() {
         }
         .odg-proof-rail::-webkit-scrollbar { display: none; }
         .odg-growth-card {
-          position: relative;
-          isolation: isolate;
-          flex: 0 0 min(72vw, 760px);
-          aspect-ratio: 1.12 / 1;
-          overflow: hidden;
+          flex: 0 0 min(94vw, 1320px);
+          display: block;
           padding: 0;
           border: 0;
-          border-radius: 2px;
-          background: var(--ink);
-          color: var(--paper);
+          background: transparent;
+          color: var(--ink);
           cursor: pointer;
           scroll-snap-align: start;
           text-align: left;
@@ -126,7 +83,14 @@ export default function OARCDepartmentIndex() {
         }
         .odg-growth-card:focus-visible {
           outline: 3px solid var(--green);
-          outline-offset: 6px;
+          outline-offset: 7px;
+        }
+        .odg-growth-media {
+          position: relative;
+          display: block;
+          aspect-ratio: 1 / 1;
+          overflow: hidden;
+          background: #D8D0C1;
         }
         .odg-growth-image {
           position: absolute;
@@ -135,99 +99,81 @@ export default function OARCDepartmentIndex() {
           height: 100%;
           object-fit: cover;
           object-position: center;
-          filter: saturate(.92);
-          transition: transform 800ms cubic-bezier(.16,1,.3,1), filter 800ms cubic-bezier(.16,1,.3,1);
+          transition: transform 1100ms cubic-bezier(.16,1,.3,1);
         }
-        .odg-growth-card:hover .odg-growth-image {
-          transform: scale(1.045);
-          filter: saturate(1.08);
-        }
-        .odg-growth-wash {
-          position: absolute;
-          inset: 0;
-          z-index: 1;
-          background: rgba(14,13,12,.2);
-          pointer-events: none;
-        }
+        .odg-growth-card:hover .odg-growth-image { transform: scale(1.025); }
         .odg-growth-copy {
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          z-index: 2;
-          display: flex;
-          align-items: flex-end;
-          justify-content: space-between;
-          gap: 2rem;
-          padding: clamp(1.5rem, 4vw, 3.5rem);
-          background: rgba(14,13,12,.84);
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1.22fr) auto;
+          gap: clamp(1rem, 3vw, 4rem);
+          align-items: end;
+          padding: clamp(1.35rem, 2.3vw, 2.5rem) 0 0;
         }
         .odg-growth-name {
           display: block;
-          margin-bottom: .6rem;
-          color: #C4FF4D;
           font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
-          font-size: clamp(1.25rem, 2vw, 1.8rem);
+          font-size: clamp(2.7rem, 5.2vw, 6.75rem);
           font-weight: 800;
-          letter-spacing: -.04em;
+          letter-spacing: -.09em;
+          line-height: .8;
         }
         .odg-growth-message {
-          max-width: 9ch;
+          max-width: 11ch;
           margin: 0;
-          color: var(--paper);
           font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
-          font-size: clamp(2.6rem, 6vw, 6.5rem);
-          font-weight: 800;
-          letter-spacing: -.075em;
-          line-height: .86;
+          font-size: clamp(1.65rem, 3.25vw, 4.3rem);
+          font-weight: 700;
+          letter-spacing: -.065em;
+          line-height: .9;
         }
         .odg-growth-message em {
           font-family: var(--font-instrument-serif, "Instrument Serif", serif);
-          font-size: 1.08em;
+          font-size: 1.12em;
           font-style: italic;
           font-weight: 400;
           letter-spacing: -.055em;
         }
         .odg-growth-action {
-          flex: 0 0 auto;
-          align-self: flex-end;
-          color: var(--paper);
+          display: inline-flex;
+          align-items: center;
+          min-height: 2.6rem;
+          padding-bottom: .15rem;
+          border-bottom: 2px solid var(--ink);
           font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
-          font-size: clamp(1rem, 1.7vw, 1.4rem);
+          font-size: clamp(1rem, 1.4vw, 1.25rem);
           font-weight: 800;
-          letter-spacing: -.035em;
-          transition: color 240ms ease, transform 240ms ease;
+          letter-spacing: -.045em;
+          white-space: nowrap;
+          transition: transform 350ms cubic-bezier(.16,1,.3,1);
         }
-        .odg-growth-card:hover .odg-growth-action {
-          color: #C4FF4D;
-          transform: translateX(5px);
-        }
+        .odg-growth-card:hover .odg-growth-action { transform: translateX(8px); }
         @media (max-width: 680px) {
-          .oarc-department-gallery { padding-top: 3.5rem; }
-          .odg-proof-title { font-size: clamp(3.4rem, 17vw, 5.5rem); }
-          .odg-proof-intro { margin-top: 1.35rem; }
-          .odg-growth-card {
-            flex-basis: 86vw;
-            aspect-ratio: .78 / 1;
-          }
+          .odg-growth-card { flex-basis: 92vw; }
+          .odg-growth-media { aspect-ratio: .87 / 1; }
           .odg-growth-copy {
-            display: block;
-            padding: 1.4rem;
+            grid-template-columns: 1fr auto;
+            gap: 1.25rem;
+            padding-top: 1.25rem;
           }
-          .odg-growth-message { font-size: clamp(2.55rem, 11vw, 4.1rem); }
+          .odg-growth-message {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            font-size: clamp(2.3rem, 10vw, 3.65rem);
+          }
           .odg-growth-action {
-            display: block;
-            margin-top: 1.3rem;
+            grid-column: 2;
+            grid-row: 1;
+            align-self: center;
+            font-size: .98rem;
           }
         }
         @media (prefers-reduced-motion: reduce) {
           .odg-growth-image, .odg-growth-action { transition: none; }
-          .odg-growth-card:hover .odg-growth-image { transform: none; }
+          .odg-growth-card:hover .odg-growth-image,
           .odg-growth-card:hover .odg-growth-action { transform: none; }
         }
       `}</style>
 
-      {/* Keep every department route crawlable while this first-card proof is reviewed. */}
       <nav aria-label="Department pages" className="sr-only">
         {DEPARTMENTS.map((department) => (
           <a key={department.key} href={department.href}>
@@ -235,15 +181,6 @@ export default function OARCDepartmentIndex() {
           </a>
         ))}
       </nav>
-
-      <header className="odg-proof-head">
-        <h2 className="odg-proof-title">
-          What needs<br /><em>to move?</em>
-        </h2>
-        <p className="odg-proof-intro">
-          Start with the change your business needs next.
-        </p>
-      </header>
 
       <div className="odg-proof-rail" aria-label="Department preview">
         <button
@@ -253,21 +190,20 @@ export default function OARCDepartmentIndex() {
           aria-label={`Explore ${growth.name}: ${growth.statement}`}
           onClick={() => setOpenDept(growth.key)}
         >
-          <img
-            className="odg-growth-image"
-            src={growth.image}
-            alt={growth.imageAlt}
-            loading="lazy"
-          />
-          <span className="odg-growth-wash" aria-hidden="true" />
+          <span className="odg-growth-media">
+            <img
+              className="odg-growth-image"
+              src={growth.image}
+              alt={growth.imageAlt}
+              loading="eager"
+            />
+          </span>
           <span className="odg-growth-copy">
-            <span>
-              <span className="odg-growth-name">{growth.name}</span>
-              <strong className="odg-growth-message">
-                Bring me more<br /><em>customers.</em>
-              </strong>
-            </span>
-            <span className="odg-growth-action" aria-hidden="true">Explore Growth ↗</span>
+            <span className="odg-growth-name">{growth.name}</span>
+            <strong className="odg-growth-message">
+              Turn attention<br />into <em>demand.</em>
+            </strong>
+            <span className="odg-growth-action" aria-hidden="true">Explore ↗</span>
           </span>
         </button>
       </div>
