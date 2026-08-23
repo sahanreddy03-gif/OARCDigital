@@ -198,9 +198,60 @@ export default function PageContent() {
       </section>
 
       {/* Case Studies Grid - Premium Clean Aesthetic */}
-      <section className="relative py-16 md:py-24 overflow-hidden min-h-screen">
+      <section id="recent-work" className="relative py-16 md:py-24 overflow-hidden min-h-screen bg-[#fff]">
+        <style>{`
+          .oarc-instrument-proof {
+            width: min(100%, 440px);
+          }
+          .oarc-instrument-proof-link {
+            display: block;
+            color: #151515;
+            text-decoration: none;
+          }
+          .oarc-instrument-artwork {
+            position: relative;
+            display: grid;
+            place-items: center;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 1.65rem;
+            background: #8c8a90;
+            transition: transform 600ms cubic-bezier(.16,1,.3,1);
+          }
+          .oarc-instrument-proof-link:hover .oarc-instrument-artwork {
+            transform: scale(.985);
+          }
+          .oarc-instrument-project-title {
+            color: #fff5a3;
+            font-family: var(--font-instrument-serif, "Instrument Serif", Georgia, serif);
+            font-size: clamp(4.5rem, 9vw, 7.5rem);
+            font-weight: 400;
+            letter-spacing: -.075em;
+            line-height: .82;
+          }
+          .oarc-instrument-caption {
+            padding-top: 1.15rem;
+            color: #888888;
+            font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
+            font-size: .95rem;
+            letter-spacing: -.025em;
+            line-height: 1;
+          }
+          .oarc-instrument-project-title:focus-visible,
+          .oarc-instrument-proof-link:focus-visible {
+            outline: 3px solid #151515;
+            outline-offset: 7px;
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .oarc-instrument-artwork { transition: none; }
+            .oarc-instrument-proof-link:hover .oarc-instrument-artwork { transform: none; }
+          }
+        `}</style>
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative">
+          <div className="mb-8 border-t border-black/15 pt-4 text-[11px] uppercase tracking-[.16em] text-black/60">
+            Recent work
+          </div>
           <m.div 
             className="grid grid-cols-12 gap-5 md:gap-6"
             initial="hidden"
@@ -213,7 +264,34 @@ export default function PageContent() {
               }
             }}
           >
-            {filteredStudies.map((study, index) => {
+            {filteredStudies.slice(0, 1).map((study, index) => {
+              if (index === 0) {
+                return (
+                  <m.div
+                    key={study.slug}
+                    className="col-span-12"
+                    variants={{
+                      hidden: { opacity: 0, y: 30 },
+                      visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
+                    }}
+                  >
+                    <div className="oarc-instrument-proof">
+                      <Link
+                        href={`/case-studies/${study.slug}`}
+                        className="oarc-instrument-proof-link"
+                        aria-label={`Open ${study.brand} case study`}
+                        data-testid={`card-case-study-${study.slug}`}
+                      >
+                        <div className="oarc-instrument-artwork">
+                          <span className="oarc-instrument-project-title">Pjazza</span>
+                        </div>
+                        <div className="oarc-instrument-caption">OARC Digital</div>
+                      </Link>
+                    </div>
+                  </m.div>
+                );
+              }
+
               const isAI = isAICategory(study.category);
               const isLarge = index === 0 || (index % 7 === 0);
               const isMedium = index === 1 || index === 2 || (index % 5 === 0 && !isLarge);
