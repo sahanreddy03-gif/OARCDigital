@@ -18,7 +18,7 @@ type Department = {
  * all destinations stay discoverable while the visual system is approved.
  */
 const DEPARTMENTS: Department[] = [
-  { name: "Growth", statement: "Bring me more customers.", key: "Growth", href: "/services/growth", image: "/attached_assets/generated_images/oarc-growth-card-v2.jpg", imageAlt: "A crimson sphere rising on a green line above an ivory architectural form" },
+  { name: "Growth", statement: "Turn attention into demand.", key: "Growth", href: "/services/growth", image: "/attached_assets/generated_images/oarc-growth-card-v2.jpg", imageAlt: "A crimson sphere rising on a green line above an ivory architectural form" },
   { name: "AI Staff", statement: "Pick your employee.", key: "AI Staff", href: "/services/ai-staff", image: caseStudies["nexgen-retail-ai-transformation"].thumbnailImage, imageAlt: "An AI workforce interface" },
   { name: "Creative", statement: "Make us worth more.", key: "Creative", href: "/services/creative", image: caseStudies["naturalcare-beauty"].thumbnailImage, imageAlt: "A natural beauty brand campaign" },
   { name: "Reputation", statement: "Make them remember you.", key: "Reputation", href: "/services/reputation", image: caseStudies["authentic-stories"].thumbnailImage, imageAlt: "Creators building an authentic brand story" },
@@ -121,7 +121,7 @@ export default function OARCDepartmentIndex() {
         .odg-growth-title {
           display: block;
           font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
-          font-size: clamp(3.8rem, 8vw, 8rem);
+          font-size: clamp(3.6rem, 7.4vw, 7.7rem);
           font-style: normal;
           font-weight: 800;
           letter-spacing: -.105em;
@@ -130,11 +130,11 @@ export default function OARCDepartmentIndex() {
         }
         .odg-growth-support {
           display: block;
-          max-width: 10ch;
-          margin-top: 1.4rem;
+          max-width: 11ch;
+          margin-top: 1.25rem;
           color: #FAF9F6;
           font-family: var(--font-instrument-serif, "Instrument Serif", serif);
-          font-size: clamp(1.9rem, 3.8vw, 3.75rem);
+          font-size: clamp(2rem, 3.65vw, 3.6rem);
           font-style: italic;
           font-weight: 400;
           letter-spacing: -.045em;
@@ -150,7 +150,7 @@ export default function OARCDepartmentIndex() {
           }
           .odg-growth-title { font-size: clamp(3.5rem, 17vw, 6.1rem); }
           .odg-growth-support {
-            margin-top: 1.05rem;
+            margin-top: 1rem;
             font-size: clamp(1.8rem, 8vw, 3rem);
           }
         }
