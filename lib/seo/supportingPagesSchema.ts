@@ -58,39 +58,24 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
 
   "/our-work": {
     path: "/our-work",
-    title: "Our Work — Case Studies & Campaigns | OARC Digital Malta",
+    title: "Our Work | Evidence-Led PJAZZA Product Story | OARC Digital",
     description:
-      "Selected OARC Digital projects: AI agents in production, brand systems, video, paid campaigns, and revenue automation builds across Malta and the EU.",
+      "OARC Digital's evidence-led work collection begins with PJAZZA, OARC's own live shopping marketplace for Malta.",
     faqs: [
       {
-        question: "What kind of work does OARC Digital showcase?",
+        question: "What work does OARC Digital currently showcase?",
         answer:
-          "Brand systems, video production, AI agent deployments, paid campaigns, web builds, and full revenue-automation programmes. Every case is published with a measured before/after on the metric the client asked us to move — not vanity metrics.",
+          "The current public work collection features PJAZZA, an OARC-owned product. PJAZZA is presented as Malta's live shopping marketplace and links directly to its public product page.",
       },
       {
         question: "How are case studies selected?",
         answer:
-          "We publish work where the client granted naming rights and the measured outcome cleared a meaningful baseline. Anonymised case studies sit behind the contact form for regulated clients (iGaming, fintech, healthcare) where naming would breach an NDA.",
+          "A project is published only when its public name, OARC relationship, media, link, and visible claims have an identified source. Unsupported outcomes, dates, testimonials, and service claims are withheld.",
       },
       {
         question: "Can OARC share results from an industry similar to mine?",
         answer:
-          `Yes — WhatsApp ${NAP.phoneDisplay} or email ${NAP.email} with your industry and we will send a tailored reel of comparable engagements within 24 working hours.`,
-      },
-      {
-        question: "Does OARC Digital work outside Malta?",
-        answer:
-          "About 35% of the active engagement book serves clients across the EU, GCC (UAE, KSA), and India. Production happens from Birkirkara; account management adapts to your timezone.",
-      },
-      {
-        question: "Are OARC's case-study results independently verified?",
-        answer:
-          "We publish the underlying analytics platform (GA4, Meta Ads Manager, HubSpot, the agent's own dashboard) on every case so the figure is auditable. References on request for any case under enterprise consideration.",
-      },
-      {
-        question: "How does OARC measure campaign success?",
-        answer:
-          "Each engagement opens with a baseline (revenue, lead volume, CAC, retention) and a 90-day target. Weekly performance reports compare actuals against the target. AI-agent and automation work is measured by hours of human time replaced and revenue uplift.",
+          `Contact OARC on WhatsApp at ${NAP.phoneDisplay} or email ${NAP.email} to discuss your project. Additional work is added to the public collection only after its evidence is approved.`,
       },
     ],
   },
@@ -253,39 +238,24 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
 
   "/case-studies": {
     path: "/case-studies",
-    title: "Case Studies — OARC Digital Malta | Detailed Engagement Write-Ups",
+    title: "Case Studies | Evidence-Led PJAZZA Product Story | OARC Digital",
     description:
-      "Detailed long-form case studies from OARC Digital across hospitality, iGaming, real estate, fintech, and SaaS. Methodology, measured outcomes, and the systems we built.",
+      "OARC Digital's evidence-led case-study collection currently features PJAZZA, OARC's own live shopping marketplace for Malta.",
     faqs: [
       {
-        question: "What is in an OARC Digital case study?",
+        question: "What case study is currently published?",
         answer:
-          "Each case study covers the brief, the diagnosis, the system we built (creative, AI agents, automation), the timeline, and the measured outcome on the metric the client asked us to move. Where possible the underlying analytics platform is named so the result is auditable.",
+          "The current public case study is PJAZZA, an OARC-owned product. Its story links to the official PJAZZA page, where visitors can inspect the public product directly.",
       },
       {
         question: "How do case studies differ from /our-work?",
         answer:
-          "/our-work is the high-level portfolio grid. /case-studies is the long-form library — same engagements, more depth on diagnosis, methodology, and the operating model behind the result.",
+          "/our-work is the editorial entry point for OARC's public work collection. /case-studies is the matching detail library for the same evidence-approved project stories.",
       },
       {
-        question: "Can I see case studies from my industry?",
+        question: "How does OARC decide what to publish?",
         answer:
-          `Yes — filter by industry on the index, or WhatsApp ${NAP.phoneDisplay} for a tailored reel of vertical-relevant engagements. Anonymised cases for regulated clients (iGaming, fintech, healthcare) are available on request.`,
-      },
-      {
-        question: "How recent are the published case studies?",
-        answer:
-          "We publish a new case study per quarter and refresh existing ones with new metrics every six months so the figures shown are never older than the most recent reporting period.",
-      },
-      {
-        question: "Can OARC reference a past client on my behalf?",
-        answer:
-          `For active engagement consideration we will arrange a direct reference call with a comparable past client where the relationship permits. Email ${NAP.email} to request a reference.`,
-      },
-      {
-        question: "How are case-study outcomes verified?",
-        answer:
-          "Every quoted figure is sourced from the platform that produced it (GA4, Meta Ads Manager, HubSpot, the AI agent's own console). References on request for enterprise diligence.",
+          "Before a project is published, OARC confirms its public name, relationship to the work, approved media, direct verification link, and the source behind every visible claim. Information without an approved source is withheld.",
       },
     ],
   },

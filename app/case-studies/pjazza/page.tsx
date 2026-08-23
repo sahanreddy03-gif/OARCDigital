@@ -1,27 +1,39 @@
 import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+import { buildPjazzaCaseStudyGraph } from "@/lib/schema/workCaseStudy";
 
+const TITLE = "PJAZZA — Malta's Live Shopping Marketplace | OARC Digital";
+const DESCRIPTION =
+  "PJAZZA is OARC Digital's own product: Malta's live shopping marketplace, with 24+ businesses, 12 sectors, and escrow protection.";
 
 export const metadata: Metadata = {
-  title: "PJAZZA — Malta's Live Shopping Marketplace | OARC Digital",
-  description: "OARC Digital's own product: PJAZZA, Malta's first live commerce marketplace. Watch it live, buy it now. 12 sectors, 24+ founding businesses at maltaverse.live/pjazza.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "https://oarcdigital.com/case-studies/pjazza" },
   openGraph: {
-    images: ogImageEntry({ title: "PJAZZA — Malta's Live Shopping Marketplace | OARC Digital", subtitle: "OARC Digital's own product: PJAZZA, Malta's first live commerce marketplace. Watch it live, buy it now. 12 sectors, 24+ founding businesses at maltaverse.live/pjazza." }),
-    title: "PJAZZA — Malta's Live Shopping Marketplace | OARC Digital",
-    description: "OARC Digital's own product: PJAZZA, Malta's first live commerce marketplace. Watch it live, buy it now. 12 sectors, 24+ founding businesses at maltaverse.live/pjazza.",
+    images: ogImageEntry({ title: TITLE, subtitle: DESCRIPTION }),
+    title: TITLE,
+    description: DESCRIPTION,
     url: "https://oarcdigital.com/case-studies/pjazza",
     type: "article",
   },
   twitter: {
-    images: [ogImageUrl({ title: "PJAZZA — Malta's Live Shopping Marketplace | OARC Digital", subtitle: "OARC Digital's own product: PJAZZA, Malta's first live commerce marketplace. Watch it live, buy it now. 12 sectors, 24+ founding businesses at maltaverse.live/pjazza." })],
+    images: [ogImageUrl({ title: TITLE, subtitle: DESCRIPTION })],
     card: "summary_large_image",
-    title: "PJAZZA — Malta's Live Shopping Marketplace | OARC Digital",
-    description: "OARC Digital's own product: PJAZZA, Malta's first live commerce marketplace. Watch it live, buy it now. 12 sectors, 24+ founding businesses at maltaverse.live/pjazza.",
+    title: TITLE,
+    description: DESCRIPTION,
   },
 };
 
 export default function Page() {
-  return <PageContent />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildPjazzaCaseStudyGraph()) }}
+      />
+      <PageContent />
+    </>
+  );
 }

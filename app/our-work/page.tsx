@@ -30,13 +30,13 @@ export default function Page() {
   return (
     <>
       <SpeakableJsonLd path="/our-work" />
-        <RouteSchema
-          type="pillar"
-          path="/our-work"
-          title="Our Work — Case Studies & Campaigns | OARC Digital Malta"
-          description="Selected OARC Digital projects: AI agents in production, brand systems, video, paid campaigns, and revenue automation builds across Malta and the EU."
-          faqs={SUPPORTING_PAGE_SCHEMAS["/our-work"].faqs}
-        />
+      <RouteSchema
+        type="pillar"
+        path="/our-work"
+        title={supportingPagesSEO.ourWork.title}
+        description={supportingPagesSEO.ourWork.description}
+        faqs={SUPPORTING_PAGE_SCHEMAS["/our-work"].faqs}
+      />
       <PageContent />
     </>
   );
