@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { caseStudies } from "@/data/caseStudies";
 import DepartmentDetailModal from "./DepartmentDetailModal";
 
 type Department = {
@@ -8,40 +9,49 @@ type Department = {
   statement: string;
   key: string;
   href: string;
-  signals: string[];
+  image: string;
+  imageAlt: string;
 };
 
 /*
- * One visual language, not 16 mini designs.
- * The department detail modals remain exactly as they are; this component is
- * their calmer, tactile front door.
+ * This is intentionally a one-card proof before the full department set is
+ * art-directed. The data shape keeps every existing destination available to
+ * SEO and makes the final rail straightforward once this visual direction is
+ * approved.
  */
 const DEPARTMENTS: Department[] = [
-  { name: "Growth", statement: "Bring me more customers.", key: "Growth", href: "/services/growth", signals: ["Find", "Pick", "Return"] },
-  { name: "AI Staff", statement: "Pick your employee.", key: "AI Staff", href: "/services/ai-staff", signals: ["Sales", "Support", "Bookings"] },
-  { name: "Creative", statement: "Make us worth more.", key: "Creative", href: "/services/creative", signals: ["Campaigns", "Content", "Identity"] },
-  { name: "Reputation", statement: "Make me famous.", key: "Reputation", href: "/services/reputation", signals: ["Press", "Creators", "Stories"] },
-  { name: "Sales", statement: "Close more sales.", key: "Sales", href: "/services/sales", signals: ["Offers", "Pipeline", "Proof"] },
-  { name: "Enquiries", statement: "Turn enquiries into money.", key: "Enquiries", href: "/services/automation", signals: ["Reply", "Qualify", "Book"] },
-  { name: "Social", statement: "Our powerhouse.", key: "Social", href: "/services/social", signals: ["Strategy", "Video", "Community"] },
-  { name: "Media", statement: "Ad spend that pays.", key: "Media", href: "/services/media", signals: ["Meta", "Google", "Return"] },
-  { name: "Brand", statement: "Creative and brand.", key: "Brand", href: "/services/brand", signals: ["Position", "Identity", "Voice"] },
-  { name: "Operations", statement: "Take work off my plate.", key: "Operations", href: "/services/operations", signals: ["Time back", "Follow-up", "Flow"] },
-  { name: "Clarity", statement: "Tell me what's working.", key: "Clarity", href: "/services/clarity", signals: ["Metrics", "Trace", "Decide"] },
-  { name: "Automation", statement: "The business runs itself.", key: "Automation", href: "/services/automation", signals: ["CRM", "Payments", "Reports"] },
-  { name: "Transformation", statement: "Change how it runs.", key: "Transformation", href: "/services/transformation", signals: ["Systems", "Guests", "Growth"] },
-  { name: "Ship", statement: "We ship.", key: "Ship", href: "/h360", signals: ["Software", "Week one", "Own it"] },
-  { name: "Products", statement: "We build, not advise.", key: "Products", href: "/h360", signals: ["H360", "Workforce", "People"] },
-  { name: "Compare", statement: "Paper versus production.", key: "Compare", href: "/why-oarc", signals: ["Proof", "Platform", "Outcomes"] },
+  {
+    name: "Growth",
+    statement: "Bring me more customers.",
+    key: "Growth",
+    href: "/services/growth",
+    image: caseStudies["fanstake-sports-platform"].thumbnailImage,
+    imageAlt: "A sales team turning attention into new opportunities",
+  },
+  { name: "AI Staff", statement: "Pick your employee.", key: "AI Staff", href: "/services/ai-staff", image: caseStudies["nexgen-retail-ai-transformation"].thumbnailImage, imageAlt: "An AI workforce interface" },
+  { name: "Creative", statement: "Make us worth more.", key: "Creative", href: "/services/creative", image: caseStudies["naturalcare-beauty"].thumbnailImage, imageAlt: "A natural beauty brand campaign" },
+  { name: "Reputation", statement: "Make them remember you.", key: "Reputation", href: "/services/reputation", image: caseStudies["authentic-stories"].thumbnailImage, imageAlt: "Creators building an authentic brand story" },
+  { name: "Sales", statement: "Close more sales.", key: "Sales", href: "/services/sales", image: caseStudies["propflow-property-platform"].thumbnailImage, imageAlt: "A property sales experience" },
+  { name: "Enquiries", statement: "Turn questions into revenue.", key: "Enquiries", href: "/services/automation", image: caseStudies["sportsai-interactive"].thumbnailImage, imageAlt: "A conversational customer experience" },
+  { name: "Social", statement: "Give people a reason to share.", key: "Social", href: "/services/social", image: caseStudies["authentic-stories"].thumbnailImage, imageAlt: "Social creators making a story people share" },
+  { name: "Media", statement: "Put your spend to work.", key: "Media", href: "/services/media", image: caseStudies["digital-finance-solutions"].thumbnailImage, imageAlt: "A performance-led digital system" },
+  { name: "Brand", statement: "Be the one they remember.", key: "Brand", href: "/services/brand", image: caseStudies["maison-lumiere"].thumbnailImage, imageAlt: "A luxury product brand" },
+  { name: "Operations", statement: "Take the work off your plate.", key: "Operations", href: "/services/operations", image: caseStudies["global-supply-systems"].thumbnailImage, imageAlt: "A connected operations system" },
+  { name: "Clarity", statement: "Know what is working.", key: "Clarity", href: "/services/clarity", image: caseStudies["strategypulse-enterprise"].thumbnailImage, imageAlt: "A strategic planning dashboard" },
+  { name: "Automation", statement: "Let the business run better.", key: "Automation", href: "/services/automation", image: caseStudies["digital-finance-solutions"].thumbnailImage, imageAlt: "An automated financial workflow" },
+  { name: "Transformation", statement: "Change how the business moves.", key: "Transformation", href: "/services/transformation", image: caseStudies["nexgen-retail-ai-transformation"].thumbnailImage, imageAlt: "A transformed retail operation" },
+  { name: "Ship", statement: "Get the thing into the world.", key: "Ship", href: "/h360", image: caseStudies["pjazza"].thumbnailImage, imageAlt: "A live commerce product ready to ship" },
+  { name: "Products", statement: "Build what the business needs.", key: "Products", href: "/h360", image: caseStudies["cloudbase-technologies"].thumbnailImage, imageAlt: "A product team building a digital system" },
+  { name: "Compare", statement: "Choose production over promises.", key: "Compare", href: "/why-oarc", image: caseStudies["national-distributor-nlp"].thumbnailImage, imageAlt: "A working system replacing a paper process" },
 ];
-
-const TONES = ["paper", "green", "ink"] as const;
 
 export default function OARCDepartmentIndex() {
   const [openDept, setOpenDept] = useState<string | null>(null);
+  const growth = DEPARTMENTS[0];
 
   return (
     <section
+      id="departments"
       className="oarc-department-gallery"
       aria-label="OARC departments"
       data-testid="oarc-department-index"
@@ -51,164 +61,173 @@ export default function OARCDepartmentIndex() {
           --paper: #F2EFE9;
           --ink: #0E0D0C;
           --green: #0E5A3A;
-          --line: rgba(14,13,12,.16);
           position: relative;
           background: var(--paper);
           color: var(--ink);
-          font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
-          padding: clamp(3.75rem, 7.5vw, 8rem) 0 clamp(4.5rem, 8vw, 9rem);
+          padding: clamp(4rem, 9vw, 9rem) 0 clamp(5rem, 10vw, 10rem);
         }
-        .oarc-department-gallery::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          opacity: .035;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
-          mix-blend-mode: multiply;
-        }
-        .odg-head {
-          position: relative;
-          z-index: 1;
-          display: grid;
-          grid-template-columns: minmax(0, 1.25fr) minmax(180px, .75fr);
-          gap: 2rem;
-          align-items: end;
+        .odg-proof-head {
           max-width: 1600px;
           margin: 0 auto;
-          padding: 0 clamp(1.25rem, 4vw, 4.5rem) clamp(2rem, 4vw, 3.75rem);
+          padding: 0 clamp(1.25rem, 4vw, 4.5rem) clamp(2.25rem, 4vw, 4rem);
         }
-        .odg-kicker {
-          display: flex;
-          align-items: center;
-          gap: .7rem;
-          margin: 0 0 1rem;
-          font-family: var(--font-space-mono, "Space Mono", monospace);
-          font-size: 9px;
-          line-height: 1;
-          letter-spacing: .22em;
-          text-transform: uppercase;
-        }
-        .odg-kicker::before { content: ""; width: 24px; height: 1px; background: var(--green); }
-        .odg-title {
-          max-width: 10ch;
+        .odg-proof-title {
+          max-width: 9ch;
           margin: 0;
-          font-size: clamp(3.15rem, 7.6vw, 8.9rem);
+          font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
+          font-size: clamp(3.5rem, 9vw, 10rem);
           font-weight: 800;
-          letter-spacing: -.07em;
+          letter-spacing: -.08em;
           line-height: .82;
         }
-        .odg-title em {
-          color: var(--green);
+        .odg-proof-title em {
+          display: block;
           font-family: var(--font-instrument-serif, "Instrument Serif", serif);
           font-size: 1.06em;
           font-style: italic;
           font-weight: 400;
-          letter-spacing: -.05em;
+          letter-spacing: -.055em;
         }
-        .odg-note {
-          max-width: 29ch;
-          margin: 0 0 .25rem auto;
-          color: rgba(14,13,12,.62);
-          font-size: clamp(1rem, 1.5vw, 1.2rem);
-          line-height: 1.35;
+        .odg-proof-intro {
+          max-width: 26ch;
+          margin: 1.75rem 0 0;
+          font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
+          font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+          line-height: 1.3;
+          color: rgba(14,13,12,.66);
         }
-        .odg-note span {
-          display: block;
-          margin-top: 1.25rem;
-          color: var(--ink);
-          font-family: var(--font-space-mono, "Space Mono", monospace);
-          font-size: 9px;
-          letter-spacing: .2em;
-          text-transform: uppercase;
-        }
-        .odg-rule { position: relative; z-index: 1; height: 1px; background: var(--line); margin: 0 clamp(1.25rem, 4vw, 4.5rem) clamp(1.15rem, 2vw, 1.5rem); }
-        .odg-rail {
-          position: relative;
-          z-index: 1;
+        .odg-proof-rail {
           display: flex;
-          gap: clamp(.75rem, 1.4vw, 1.35rem);
           overflow-x: auto;
-          overscroll-behavior-x: contain;
+          padding: 0 clamp(1.25rem, 4vw, 4.5rem) 1rem;
           scroll-snap-type: x mandatory;
           scroll-padding-left: clamp(1.25rem, 4vw, 4.5rem);
-          padding: 0 clamp(1.25rem, 4vw, 4.5rem) 1rem;
+          overscroll-behavior-x: contain;
           scrollbar-width: none;
           -webkit-overflow-scrolling: touch;
-          cursor: grab;
           touch-action: pan-x pan-y;
         }
-        .odg-rail:active { cursor: grabbing; }
-        .odg-rail::-webkit-scrollbar { display: none; }
-        .odg-card {
-          --card-bg: var(--paper);
-          --card-fg: var(--ink);
-          --card-line: rgba(14,13,12,.16);
-          --card-muted: rgba(14,13,12,.56);
-          --card-accent: var(--green);
+        .odg-proof-rail::-webkit-scrollbar { display: none; }
+        .odg-growth-card {
           position: relative;
           isolation: isolate;
-          flex: 0 0 clamp(275px, 27vw, 430px);
-          min-height: clamp(390px, 36vw, 510px);
-          scroll-snap-align: start;
+          flex: 0 0 min(72vw, 760px);
+          aspect-ratio: 1.12 / 1;
           overflow: hidden;
-          border: 1px solid var(--card-line);
-          border-radius: 18px;
-          background: var(--card-bg);
-          color: var(--card-fg);
-          padding: clamp(1.15rem, 2.1vw, 1.8rem);
+          padding: 0;
+          border: 0;
+          border-radius: 2px;
+          background: var(--ink);
+          color: var(--paper);
+          cursor: pointer;
+          scroll-snap-align: start;
           text-align: left;
-          transition: transform 420ms cubic-bezier(.16,1,.3,1), box-shadow 420ms cubic-bezier(.16,1,.3,1);
           -webkit-tap-highlight-color: transparent;
         }
-        .odg-card:hover { transform: translateY(-7px); box-shadow: 0 18px 35px rgba(14,13,12,.15); }
-        .odg-card:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
-        .odg-card::after {
-          content: attr(data-number);
+        .odg-growth-card:focus-visible {
+          outline: 3px solid var(--green);
+          outline-offset: 6px;
+        }
+        .odg-growth-image {
           position: absolute;
-          right: -0.07em;
-          bottom: -.17em;
-          z-index: -1;
-          color: currentColor;
-          font-size: clamp(8.5rem, 14vw, 14rem);
-          font-weight: 800;
-          letter-spacing: -.13em;
-          line-height: .72;
-          opacity: .055;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          filter: saturate(.92);
+          transition: transform 800ms cubic-bezier(.16,1,.3,1), filter 800ms cubic-bezier(.16,1,.3,1);
+        }
+        .odg-growth-card:hover .odg-growth-image {
+          transform: scale(1.045);
+          filter: saturate(1.08);
+        }
+        .odg-growth-wash {
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          background: rgba(14,13,12,.2);
           pointer-events: none;
         }
-        .odg-card--green { --card-bg: var(--green); --card-fg: var(--paper); --card-line: rgba(242,239,233,.17); --card-muted: rgba(242,239,233,.68); --card-accent: #C4FF4D; }
-        .odg-card--ink { --card-bg: var(--ink); --card-fg: var(--paper); --card-line: rgba(242,239,233,.15); --card-muted: rgba(242,239,233,.62); --card-accent: #C4FF4D; }
-        .odg-card-top { display: flex; align-items: center; justify-content: space-between; color: var(--card-muted); font-family: var(--font-space-mono, "Space Mono", monospace); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; }
-        .odg-plus { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid var(--card-line); border-radius: 50%; color: var(--card-fg); font-family: Arial, sans-serif; font-size: 16px; font-weight: 300; transition: background 220ms, color 220ms, transform 320ms cubic-bezier(.16,1,.3,1); }
-        .odg-card:hover .odg-plus { background: var(--card-accent); color: var(--ink); border-color: var(--card-accent); transform: rotate(90deg); }
-        .odg-card-body { position: absolute; inset: auto clamp(1.15rem, 2.1vw, 1.8rem) clamp(1.15rem, 2.1vw, 1.8rem); }
-        .odg-name { display: block; margin-bottom: .7rem; color: var(--card-accent); font-family: var(--font-space-mono, "Space Mono", monospace); font-size: 9px; letter-spacing: .22em; text-transform: uppercase; }
-        .odg-statement { max-width: 9ch; margin: 0 0 1.35rem; font-size: clamp(2.15rem, 3.3vw, 3.7rem); font-weight: 800; letter-spacing: -.065em; line-height: .88; }
-        .odg-signals { display: flex; flex-wrap: wrap; gap: .42rem .85rem; }
-        .odg-signal { color: var(--card-muted); font-size: 11px; line-height: 1.2; }
-        .odg-signal:not(:last-child)::after { content: "·"; margin-left: .85rem; color: var(--card-accent); }
-        .odg-hint { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; max-width: 1600px; margin: .45rem auto 0; padding: 0 clamp(1.25rem, 4vw, 4.5rem); color: rgba(14,13,12,.48); font-family: var(--font-space-mono, "Space Mono", monospace); font-size: 9px; letter-spacing: .17em; text-transform: uppercase; }
-        .odg-hint i { display: block; width: clamp(5rem, 13vw, 11rem); height: 1px; background: rgba(14,13,12,.22); }
+        .odg-growth-copy {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 2;
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          gap: 2rem;
+          padding: clamp(1.5rem, 4vw, 3.5rem);
+          background: rgba(14,13,12,.84);
+        }
+        .odg-growth-name {
+          display: block;
+          margin-bottom: .6rem;
+          color: #C4FF4D;
+          font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
+          font-size: clamp(1.25rem, 2vw, 1.8rem);
+          font-weight: 800;
+          letter-spacing: -.04em;
+        }
+        .odg-growth-message {
+          max-width: 9ch;
+          margin: 0;
+          color: var(--paper);
+          font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
+          font-size: clamp(2.6rem, 6vw, 6.5rem);
+          font-weight: 800;
+          letter-spacing: -.075em;
+          line-height: .86;
+        }
+        .odg-growth-message em {
+          font-family: var(--font-instrument-serif, "Instrument Serif", serif);
+          font-size: 1.08em;
+          font-style: italic;
+          font-weight: 400;
+          letter-spacing: -.055em;
+        }
+        .odg-growth-action {
+          flex: 0 0 auto;
+          align-self: flex-end;
+          color: var(--paper);
+          font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
+          font-size: clamp(1rem, 1.7vw, 1.4rem);
+          font-weight: 800;
+          letter-spacing: -.035em;
+          transition: color 240ms ease, transform 240ms ease;
+        }
+        .odg-growth-card:hover .odg-growth-action {
+          color: #C4FF4D;
+          transform: translateX(5px);
+        }
         @media (max-width: 680px) {
           .oarc-department-gallery { padding-top: 3.5rem; }
-          .odg-head { display: block; padding-bottom: 2.4rem; }
-          .odg-title { max-width: 9ch; font-size: clamp(3.3rem, 17vw, 5.3rem); }
-          .odg-note { max-width: 30ch; margin: 1.5rem 0 0; font-size: 1rem; }
-          .odg-note span { margin-top: 1rem; }
-          .odg-rail { gap: .75rem; padding-bottom: .8rem; }
-          .odg-card { flex-basis: 82vw; min-height: 425px; border-radius: 15px; }
-          .odg-statement { font-size: clamp(2.4rem, 11vw, 3.6rem); }
-          .odg-hint { margin-top: .6rem; }
-          .odg-hint span:last-child { display: none; }
+          .odg-proof-title { font-size: clamp(3.4rem, 17vw, 5.5rem); }
+          .odg-proof-intro { margin-top: 1.35rem; }
+          .odg-growth-card {
+            flex-basis: 86vw;
+            aspect-ratio: .78 / 1;
+          }
+          .odg-growth-copy {
+            display: block;
+            padding: 1.4rem;
+          }
+          .odg-growth-message { font-size: clamp(2.55rem, 11vw, 4.1rem); }
+          .odg-growth-action {
+            display: block;
+            margin-top: 1.3rem;
+          }
         }
         @media (prefers-reduced-motion: reduce) {
-          .odg-card, .odg-plus { transition: none; }
-          .odg-card:hover { transform: none; }
+          .odg-growth-image, .odg-growth-action { transition: none; }
+          .odg-growth-card:hover .odg-growth-image { transform: none; }
+          .odg-growth-card:hover .odg-growth-action { transform: none; }
         }
       `}</style>
 
-      {/* Crawlable department routes remain available independently of the rail. */}
+      {/* Keep every department route crawlable while this first-card proof is reviewed. */}
       <nav aria-label="Department pages" className="sr-only">
         {DEPARTMENTS.map((department) => (
           <a key={department.key} href={department.href}>
@@ -217,52 +236,40 @@ export default function OARCDepartmentIndex() {
         ))}
       </nav>
 
-      <header className="odg-head">
-        <div>
-          <p className="odg-kicker">OARC / One team</p>
-          <h2 className="odg-title">Every move.<br /><em>One direction.</em></h2>
-        </div>
-        <p className="odg-note">
-          Start with the change your business needs next. Then pull the whole team behind it.
-          <span>Swipe to explore →</span>
+      <header className="odg-proof-head">
+        <h2 className="odg-proof-title">
+          What needs<br /><em>to move?</em>
+        </h2>
+        <p className="odg-proof-intro">
+          Start with the change your business needs next.
         </p>
       </header>
 
-      <div className="odg-rule" aria-hidden="true" />
-
-      <div className="odg-rail" aria-label="Browse OARC departments">
-        {DEPARTMENTS.map((department, index) => {
-          const tone = TONES[index % TONES.length];
-          const number = String(index + 1).padStart(2, "0");
-          return (
-            <button
-              key={department.key}
-              type="button"
-              className={`odg-card odg-card--${tone}`}
-              data-number={number}
-              aria-label={`Explore ${department.name}`}
-              onClick={() => setOpenDept(department.key)}
-            >
-              <span className="odg-card-top">
-                <span>{number} / 16</span>
-                <span className="odg-plus" aria-hidden="true">+</span>
-              </span>
-              <span className="odg-card-body">
-                <span className="odg-name">{department.name}</span>
-                <strong className="odg-statement">{department.statement}</strong>
-                <span className="odg-signals" aria-label={`${department.name} focus areas`}>
-                  {department.signals.map((signal) => <span className="odg-signal" key={signal}>{signal}</span>)}
-                </span>
-              </span>
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="odg-hint" aria-hidden="true">
-        <span>16 ways to move forward</span>
-        <i />
-        <span>Drag or swipe</span>
+      <div className="odg-proof-rail" aria-label="Department preview">
+        <button
+          type="button"
+          className="odg-growth-card"
+          data-testid="department-card-growth"
+          aria-label={`Explore ${growth.name}: ${growth.statement}`}
+          onClick={() => setOpenDept(growth.key)}
+        >
+          <img
+            className="odg-growth-image"
+            src={growth.image}
+            alt={growth.imageAlt}
+            loading="lazy"
+          />
+          <span className="odg-growth-wash" aria-hidden="true" />
+          <span className="odg-growth-copy">
+            <span>
+              <span className="odg-growth-name">{growth.name}</span>
+              <strong className="odg-growth-message">
+                Bring me more<br /><em>customers.</em>
+              </strong>
+            </span>
+            <span className="odg-growth-action" aria-hidden="true">Explore Growth ↗</span>
+          </span>
+        </button>
       </div>
 
       <DepartmentDetailModal dept={openDept} onClose={() => setOpenDept(null)} />
