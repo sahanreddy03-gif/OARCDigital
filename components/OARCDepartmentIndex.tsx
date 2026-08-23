@@ -18,7 +18,7 @@ type Department = {
  * all destinations stay discoverable while the visual system is approved.
  */
 const DEPARTMENTS: Department[] = [
-  { name: "Growth", statement: "Bring me more customers.", key: "Growth", href: "/services/growth", image: "/attached_assets/generated_images/oarc-growth-editorial-proof.jpg", imageAlt: "A founder drawing a sculptural green curve upward through a limestone plaza" },
+  { name: "Growth", statement: "Bring me more customers.", key: "Growth", href: "/services/growth", image: "/attached_assets/generated_images/oarc-growth-card-v2.jpg", imageAlt: "A crimson sphere rising on a green line above an ivory architectural form" },
   { name: "AI Staff", statement: "Pick your employee.", key: "AI Staff", href: "/services/ai-staff", image: caseStudies["nexgen-retail-ai-transformation"].thumbnailImage, imageAlt: "An AI workforce interface" },
   { name: "Creative", statement: "Make us worth more.", key: "Creative", href: "/services/creative", image: caseStudies["naturalcare-beauty"].thumbnailImage, imageAlt: "A natural beauty brand campaign" },
   { name: "Reputation", statement: "Make them remember you.", key: "Reputation", href: "/services/reputation", image: caseStudies["authentic-stories"].thumbnailImage, imageAlt: "Creators building an authentic brand story" },
@@ -111,45 +111,47 @@ export default function OARCDepartmentIndex() {
         }
         .odg-growth-copy {
           position: absolute;
+          top: clamp(1.35rem, 3.8vw, 3.75rem);
           right: clamp(1.25rem, 4vw, 4.5rem);
-          bottom: clamp(1.25rem, 4vw, 4.5rem);
           left: clamp(1.25rem, 4vw, 4.5rem);
           z-index: 1;
           color: #FAF9F6;
-          text-shadow: 0 2px 18px rgba(0,0,0,.32);
+          text-shadow: 0 2px 16px rgba(0,0,0,.28);
         }
         .odg-growth-title {
           display: block;
-          font-family: var(--font-instrument-serif, "Instrument Serif", serif);
-          font-size: clamp(4.25rem, 10vw, 10rem);
-          font-style: italic;
-          font-weight: 400;
-          letter-spacing: -.075em;
-          line-height: .72;
+          font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
+          font-size: clamp(3.8rem, 8vw, 8rem);
+          font-style: normal;
+          font-weight: 800;
+          letter-spacing: -.105em;
+          line-height: .78;
+          text-transform: uppercase;
         }
         .odg-growth-support {
           display: block;
-          max-width: 13ch;
-          margin-top: 1.15rem;
+          max-width: 10ch;
+          margin-top: 1.4rem;
           color: #FAF9F6;
-          font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
-          font-size: clamp(1.25rem, 2.15vw, 2.1rem);
-          font-weight: 600;
+          font-family: var(--font-instrument-serif, "Instrument Serif", serif);
+          font-size: clamp(1.9rem, 3.8vw, 3.75rem);
+          font-style: italic;
+          font-weight: 400;
           letter-spacing: -.045em;
-          line-height: .95;
+          line-height: .86;
         }
         @media (max-width: 680px) {
           .odg-growth-card { flex-basis: 86vw; }
           .odg-growth-media { aspect-ratio: .86 / 1; }
           .odg-growth-copy {
+            top: 1.35rem;
             right: 1.35rem;
-            bottom: 1.35rem;
             left: 1.35rem;
           }
-          .odg-growth-title { font-size: clamp(4rem, 18vw, 6.6rem); }
+          .odg-growth-title { font-size: clamp(3.5rem, 17vw, 6.1rem); }
           .odg-growth-support {
-            margin-top: .95rem;
-            font-size: clamp(1.2rem, 5.2vw, 1.7rem);
+            margin-top: 1.05rem;
+            font-size: clamp(1.8rem, 8vw, 3rem);
           }
         }
         @media (prefers-reduced-motion: reduce) {
