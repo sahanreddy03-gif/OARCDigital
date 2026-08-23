@@ -110,9 +110,12 @@ export default function MinimalNav({ theme = "dark" }: { theme?: "dark" | "light
     panelRef.current?.querySelector<HTMLElement>("a, button")?.focus();
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    /* The menu is the active modal: background utilities must not sit above it. */
+    document.documentElement.dataset.oarcMenuOpen = "true";
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = prev;
+      delete document.documentElement.dataset.oarcMenuOpen;
       triggerRef.current?.focus();
     };
   }, [open]);
@@ -326,6 +329,13 @@ export default function MinimalNav({ theme = "dark" }: { theme?: "dark" | "light
             @keyframes oarcMnFade{from{opacity:0}to{opacity:1}}
             @keyframes oarcMnSlide{from{transform:translateX(32px);opacity:0}to{transform:translateX(0);opacity:1}}
             @keyframes oarcMnItem{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
+            html[data-oarc-menu-open="true"] [data-testid="cookie-consent-banner"],
+            html[data-oarc-menu-open="true"] [data-testid="link-mobile-whatsapp"],
+            html[data-oarc-menu-open="true"] [data-testid="link-call-float"],
+            html[data-oarc-menu-open="true"] [data-testid="button-open-chat"],
+            html[data-oarc-menu-open="true"] [data-testid="arc-chat-window"]{
+              display:none !important;
+            }
             @media(prefers-reduced-motion:reduce){
               .oarc-mn-fade,.oarc-mn-slide,.oarc-mn-item{animation:none}
             }
