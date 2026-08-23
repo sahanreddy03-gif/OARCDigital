@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 
 // ── Engine realm tokens ──────────────────────────────────────────────────────
@@ -4533,30 +4533,69 @@ interface DepartmentDetailModalProps {
 export default function DepartmentDetailModal({ dept, onClose }: DepartmentDetailModalProps) {
   const [mounted,  setMounted]  = useState(false);
   const [visible,  setVisible]  = useState(false);
-
-  useEffect(() => {
-    if (!dept) { setMounted(false); return; }
-    setMounted(true);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    // Two rAF ticks to ensure DOM is painted before animating in
-    const id1 = requestAnimationFrame(() =>
-      requestAnimationFrame(() => setVisible(true))
-    );
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") handleClose(); };
-    window.addEventListener("keydown", onKey);
-    return () => {
-      cancelAnimationFrame(id1);
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dept]);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLElement | null>(null);
 
   const handleClose = useCallback(() => {
     setVisible(false);
-    setTimeout(() => { setMounted(false); onClose(); }, 420);
+    setMounted(false);
+    onClose();
+    requestAnimationFrame(() => {
+      if (triggerRef.current?.isConnected) triggerRef.current.focus();
+    });
   }, [onClose]);
+
+  useEffect(() => {
+    if (!dept) { setMounted(false); return; }
+    triggerRef.current = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    setMounted(true);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const id1 = requestAnimationFrame(() => setVisible(true));
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        handleClose();
+        return;
+      }
+      if (e.key !== "Tab" || !panelRef.current) return;
+
+      const focusable = panelRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusable.length) {
+        e.preventDefault();
+        panelRef.current.focus();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (e.shiftKey) {
+        if (active === first || !panelRef.current.contains(active)) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else if (active === last || !panelRef.current.contains(active)) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey, true);
+    return () => {
+      cancelAnimationFrame(id1);
+      document.removeEventListener("keydown", onKey, true);
+      document.body.style.overflow = prev;
+    };
+  }, [dept, handleClose]);
+
+  useLayoutEffect(() => {
+    if (dept && mounted) closeButtonRef.current?.focus();
+  }, [dept, mounted]);
 
   if (!dept || !mounted) return null;
 
@@ -4565,14 +4604,20 @@ export default function DepartmentDetailModal({ dept, onClose }: DepartmentDetai
   return createPortal(
     <>
       {/* backdrop */}
-      <div onClick={handleClose} style={{
+      <div aria-hidden="true" onClick={handleClose} style={{
         position:"fixed", inset:0, zIndex:8998,
         background:"rgba(14,13,12,.6)",
         opacity: visible ? 1 : 0,
         transition:`opacity 420ms ${T.e}`,
       }} />
       {/* panel */}
-      <div style={{
+      <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="department-detail-modal-title"
+        tabIndex={-1}
+        style={{
         position:"fixed", left:0, right:0, bottom:0,
         height:"94dvh", zIndex:8999,
         display:"flex", flexDirection:"column" as const,
@@ -4583,6 +4628,11 @@ export default function DepartmentDetailModal({ dept, onClose }: DepartmentDetai
         transition:`transform 480ms ${T.e}`,
         boxShadow:"0 -20px 80px rgba(0,0,0,.6)",
       }}>
+        <h2 id="department-detail-modal-title" style={{
+          position:"absolute", width:1, height:1, padding:0, margin:-1,
+          overflow:"hidden", clip:"rect(0, 0, 0, 0)", whiteSpace:"nowrap",
+          border:0,
+        }}>{dept} department details</h2>
         {/* sticky top bar */}
         {(() => {
           const hdrBg   = DEPT_HDR_BG[dept] ?? T.noir;
@@ -4597,7 +4647,7 @@ export default function DepartmentDetailModal({ dept, onClose }: DepartmentDetai
               backdropFilter:"blur(14px)", flexShrink:0,
               borderBottom:`1px solid ${bdrCol}`,
             }}>
-              <button onClick={handleClose} aria-label="Close" style={{
+              <button ref={closeButtonRef} onClick={handleClose} aria-label="Close department details" style={{
                 background:"transparent",
                 border:`1px solid ${bdrCol}`,
                 borderRadius:6, cursor:"pointer",
