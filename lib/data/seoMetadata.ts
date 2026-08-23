@@ -19,8 +19,8 @@ export const supportingPagesSEO: Record<string, PageSEO> = {
     ogType: 'website'
   },
   ourWork: {
-    title: 'Our Work | Case Studies & Success Stories | OARC Digital',
-    description: 'Explore OARC Digital\'s portfolio of successful AI-powered marketing campaigns and creative projects for global brands. Real results, authentic metrics, and proven expertise in AI creative and revenue automation.',
+    title: 'Our Work | Evidence-Led PJAZZA Product Story | OARC Digital',
+    description: 'Explore OARC Digital\'s evidence-led work. The first project story follows PJAZZA, OARC Digital\'s own live shopping marketplace for Malta.',
     path: '/our-work',
     ogType: 'website'
   },

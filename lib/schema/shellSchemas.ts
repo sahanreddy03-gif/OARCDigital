@@ -72,13 +72,27 @@ export function buildOurWorkShellGraph() {
   return shellGraph({
     url: `${SITE_BASE}/our-work`,
     type: "CollectionPage",
-    name: "Our Work — OARC Digital Case Studies & Campaigns",
+    name: "Our Work — Evidence-Led PJAZZA Product Story | OARC Digital",
     description:
-      "Selected OARC Digital projects across Malta and Europe — AI agents in production, brand systems, and revenue automation builds.",
+      "OARC Digital's evidence-led work collection, beginning with PJAZZA: OARC's own live shopping marketplace for Malta.",
     breadcrumb: [
       { name: "Home", url: `${SITE_BASE}/` },
       { name: "Our Work", url: `${SITE_BASE}/our-work` },
     ],
+    extra: {
+      mainEntity: {
+        "@type": "ItemList",
+        numberOfItems: 1,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "PJAZZA",
+            url: `${SITE_BASE}/case-studies/pjazza`,
+          },
+        ],
+      },
+    },
   });
 }
 

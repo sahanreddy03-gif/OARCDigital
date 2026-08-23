@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { m } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { caseStudies } from "@/data/caseStudies";
+import { workEvidenceLedger } from "@/data/workEvidence";
 import { buildOurWorkShellGraph } from "@/lib/schema/shellSchemas";
 
 export default function PageContent() {
@@ -14,6 +15,7 @@ export default function PageContent() {
   }, []);
 
   const proofStudy = caseStudies.pjazza;
+  const evidence = workEvidenceLedger.pjazza;
 
   return (
     <Layout navTheme="light">
@@ -44,7 +46,8 @@ export default function PageContent() {
             a real reason to be chosen.
           </h1>
           <p className="oarc-work-intro-copy">
-            Selected products, campaigns, and systems made with care, clarity, and a point of view.
+            Our first evidence-led project story. Every visible fact comes from approved project
+            media or a public source.
           </p>
         </section>
 
@@ -72,9 +75,12 @@ export default function PageContent() {
               </div>
 
               <div className="oarc-work-card-copy">
-                <p className="oarc-work-card-category"># OARC PRODUCT</p>
+                <p className="oarc-work-card-category">OARC-owned product</p>
                 <h2>{proofStudy.brand}</h2>
-                <p className="oarc-work-card-description">{proofStudy.description}.</p>
+                <p className="oarc-work-card-description">{proofStudy.description}</p>
+                <p className="oarc-work-card-source">
+                  Public source: <span>{evidence.officialUrl?.replace("https://", "")}</span>
+                </p>
                 <span className="oarc-work-card-cta">
                   View case study
                   <ArrowRight size={19} strokeWidth={1.35} />
@@ -254,6 +260,18 @@ export default function PageContent() {
           font-size: clamp(22px, 2.8vw, 35px);
           letter-spacing: -0.06em;
           line-height: 0.98;
+        }
+
+        .oarc-work-card-source {
+          margin: -7px 0 22px;
+          color: var(--work-muted);
+          font-family: var(--font-space-mono, "Space Mono", monospace);
+          font-size: 9px;
+          letter-spacing: 0.05em;
+        }
+
+        .oarc-work-card-source span {
+          color: var(--work-ink);
         }
 
         .oarc-work-card-cta {

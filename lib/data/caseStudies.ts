@@ -1,4 +1,7 @@
-// Centralized case studies metadata - Original OARC Digital content
+import { isPublicWork, workEvidenceLedger } from "./workEvidence";
+
+// Centralized case studies metadata. Records remain in this internal catalogue
+// until their evidence status permits public publication.
 export interface CaseStudyMetrics {
   value: string;
   label: string;
@@ -80,24 +83,19 @@ export const caseStudies: Record<string, CaseStudy> = {
   'pjazza': {
     slug: 'pjazza',
     brand: 'PJAZZA',
-    category: "OARC's Own Product",
-    description: "Malta's First Live Shopping Marketplace",
-    fullDescription: "PJAZZA is OARC Digital's own product — a live commerce marketplace purpose-built for Malta. 200+ founding businesses, 12 sectors, launching May 2026 at maltaverse.live.",
-    challenge: "Malta's local businesses lacked a trusted, modern digital commerce platform — invisible online and unable to sell live to their community.",
-    strategy: "OARC built PJAZZA from scratch — a live streaming marketplace with built-in escrow, 12 sector verticals, a people/freelancer marketplace, and same-day delivery.",
-    results: "200+ founding businesses committed pre-launch. Full platform shipped for May 2026 launch at maltaverse.live/pjazza.",
-    metrics: { value: '200+', label: 'Founding Businesses' },
+    category: "OARC-Owned Product",
+    description: workEvidenceLedger.pjazza.shortDescription,
+    fullDescription: "PJAZZA is OARC Digital's own product: Malta's live shopping marketplace. Its public product page lists 24+ businesses, 12 sectors, and escrow protection.",
+    results: "The public product page lists 24+ businesses, 12 sectors, and escrow protection.",
+    metrics: { value: '24+', label: 'businesses listed publicly' },
     secondaryMetrics: [
       { value: '12', label: 'Sectors' },
-      { value: 'May 2026', label: 'Launch' },
-      { value: 'Malta-first', label: 'Live Commerce' }
+      { value: 'Escrow', label: 'protected' },
     ],
-    services: ['Product Strategy', 'UX Design', 'Brand Identity', 'Full-Stack Development', 'Live Commerce Architecture', 'Business Onboarding'],
-    platforms: ['iOS', 'Android', 'Web'],
+    platforms: ['Public web platform'],
     thumbnailImage: pjazzaThumb,
     heroImage: pjazzaHero,
     gridClass: 'col-span-12 md:col-span-8',
-    timeline: '2025–2026',
   },
   'nexgen-retail-ai-transformation': {
     slug: 'nexgen-retail-ai-transformation',
@@ -604,18 +602,11 @@ export const caseStudies: Record<string, CaseStudy> = {
   }
 };
 
-// Export as array for easy iteration
-export const caseStudiesArray = Object.values(caseStudies);
+// The ledger is the public-publication gate. Every current record without an
+// explicit evidence entry is withheld rather than presented as client proof.
+export const caseStudiesArray = Object.values(caseStudies).filter((study) => isPublicWork(study.slug));
 
-// Featured case studies for homepage (6 most impressive)
-export const featuredCaseStudies = [
-  caseStudies['pjazza'],
-  caseStudies['nexgen-retail-ai-transformation'],
-  caseStudies['national-distributor-nlp'],
-  caseStudies['cricketpulse-india'],
-  caseStudies['apex-fitness-collective'],
-  caseStudies['naturalcare-beauty'],
-].filter(Boolean);
+export const featuredCaseStudies = caseStudiesArray;
 
 // Case studies by category for filtering
 export const caseStudiesByCategory = {

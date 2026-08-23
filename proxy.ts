@@ -16,6 +16,7 @@ import {
   ARCHIVED_LOCATION_REDIRECTS,
   INDUSTRY_REDIRECTS,
 } from "./lib/seo/redirectMap";
+import { isPublicWork } from "./lib/data/workEvidence";
 
 const GONE_HTML = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
@@ -55,6 +56,18 @@ export function proxy(req: NextRequest): NextResponse | undefined {
   const { pathname } = req.nextUrl;
 
   if (HARD_410_PATHS.has(pathname)) return gone();
+
+  // Case-study publication is controlled by the evidence ledger. Legacy route
+  // files are retained for internal reference, but no unverified entry may be
+  // served or indexed as public proof.
+  if (pathname === "/case-studies" || pathname === "/case-studies/") {
+    return undefined;
+  }
+  if (pathname.startsWith("/case-studies/")) {
+    const parts = pathname.replace(/\/+$/, "").split("/").filter(Boolean);
+    if (parts.length === 2 && isPublicWork(parts[1])) return undefined;
+    return gone();
+  }
 
   // /aeo/{slug} — NOINDEX_AEO_SLUGS injects x-robots-tag for thin AEO pages.
   // Currently empty (all 44 AEO pages score KEEP); mechanism ready for future use.

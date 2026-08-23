@@ -14,9 +14,9 @@ import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import { caseStudiesArray } from "@/data/caseStudies";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
-const TITLE = "Case Studies — OARC Digital Malta | Detailed Engagement Write-Ups";
+const TITLE = "Case Studies | Evidence-Led PJAZZA Product Story | OARC Digital";
 const DESCRIPTION =
-  "Detailed long-form case studies from OARC Digital across hospitality, iGaming, real estate, fintech, and SaaS. Methodology, measured outcomes, and the systems we built.";
+  "Evidence-led project stories from OARC Digital. The first published case study follows PJAZZA, OARC's own live shopping marketplace for Malta.";
 const URL = "https://oarcdigital.com/case-studies";
 
 export const metadata: Metadata = {
@@ -66,10 +66,9 @@ export default function Page() {
               className="text-xl text-zinc-300 max-w-3xl"
               data-testid="text-case-studies-lead"
             >
-              Long-form engagement write-ups from OARC Digital — methodology,
-              measured outcomes, and the systems we built. Every case lists the
-              metric the client asked us to move and the platform that produced
-              the figure.
+              Project stories published only when a name, media, link, and visible
+              claim have an identified source. The first release follows PJAZZA,
+              an OARC-owned product.
             </p>
           </div>
         </section>

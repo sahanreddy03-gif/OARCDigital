@@ -1,427 +1,496 @@
 "use client";
 
-import { useEffect } from 'react';
-import Link from 'next/link';
-import { ArrowLeft, ArrowUpRight, ExternalLink, Play, Users, Layers, Globe, TrendingUp, Shield, Zap } from 'lucide-react';
-import Layout from '@/components/layout/Layout';
-import { m } from 'framer-motion';
+import { useEffect } from "react";
+import Link from "next/link";
+import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
+import { m } from "framer-motion";
+import Layout from "@/components/layout/Layout";
+import { workEvidenceLedger } from "@/data/workEvidence";
 
-const pjazzaLogo = "/attached_assets/logo.svg";
-const heroScreen = "/attached_assets/IMG_0605_1775068068190.jpeg";
-const desktopShot = "/attached_assets/screenshot-1775068037591.png";
-const howItWorks = "/attached_assets/IMG_0612_1775068068190.jpeg";
-const liveFeed = "/attached_assets/IMG_0610_1775068068190.jpeg";
-const storeBrowse = "/attached_assets/IMG_0606_1775068068190.jpeg";
-const peopleHire = "/attached_assets/IMG_0613_1775068068190.jpeg";
-const businessScreen = "/attached_assets/IMG_0620_1775068068190.jpeg";
-const whyPjazza = "/attached_assets/IMG_0622_1775068068190.jpeg";
-
-const stats = [
-  { value: '24+', label: 'Founding Businesses', icon: Users },
-  { value: '12', label: 'Sectors Covered', icon: Layers },
-  { value: 'Live', label: 'Commerce Platform', icon: TrendingUp },
-  { value: 'Malta-first', label: 'Live Marketplace', icon: Globe },
-];
-
-const sectors = [
-  'Food & Dining', 'Property & Real Estate', 'Cars & Automotive', 'Yachts & Marine',
-  'Home Services & Trades', 'Freelancers & Professionals', 'Health & Wellness', 'Fashion & Retail',
-  'Electronics', 'Tourism', 'Education', 'Pets & Animals',
-];
+const heroImage = "/attached_assets/IMG_0605_1775068068190.jpeg";
+const platformImage = "/attached_assets/screenshot-1775068037591.png";
+const marketplaceImage = "/attached_assets/IMG_0610_1775068068190.jpeg";
 
 export default function PjazzaCaseStudy() {
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const evidence = workEvidenceLedger.pjazza;
 
   return (
-    <Layout>
-      
-
-      {/* HERO */}
-      <section className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden bg-black" data-testid="section-pjazza-hero">
-        <div className="absolute inset-0">
-          <img src={heroScreen} alt="PJAZZA live shopping" className="w-full h-full object-cover opacity-35" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent" />
-        </div>
-
-        <div className="absolute top-24 left-0 right-0 z-20">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <Link href="/our-work">
-              <m.button
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm font-medium transition-colors"
-                data-testid="button-back-our-work"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Our Work
-              </m.button>
+    <Layout navTheme="light" showFooter={false}>
+      <article className="pjazza-page">
+        <div className="pjazza-frame">
+          <header className="pjazza-topline">
+            <Link href="/our-work" className="pjazza-back" data-testid="button-back-our-work">
+              <ArrowLeft size={16} strokeWidth={1.4} />
+              Selected work
             </Link>
-          </div>
-        </div>
+            <span>Case study 01 / 01</span>
+          </header>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-16 md:pb-24 w-full">
-          <m.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#E11D48]/20 border border-[#E11D48]/40 rounded-full text-[#E11D48] text-xs font-bold uppercase tracking-widest mb-8">
-              <span className="w-2 h-2 rounded-full bg-[#E11D48] animate-pulse" />
-              Built by OARC Digital — Our Own Product
-            </div>
-
-            <div className="mb-6">
-              <img src={pjazzaLogo} alt="PJAZZA" className="h-14 md:h-18 w-auto" />
-            </div>
-
-            <h1 className="font-bold text-white leading-[1.02] tracking-tight mb-6" style={{ fontSize: 'clamp(2.5rem, 7vw, 5.5rem)' }}>
-              Watch it live.<br />
-              <span className="text-[#E11D48]">Buy it now.</span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed mb-10">
-              Malta's live shopping marketplace — see every product, service, and property in real time
-              before you buy. We didn't just market Malta. We built the marketplace.
-            </p>
-
-            <div className="flex flex-wrap gap-3 mb-10">
-              {stats.map((stat) => {
-                const Icon = stat.icon;
-                return (
-                  <div key={stat.label} className="flex items-center gap-3 px-5 py-3 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
-                    <Icon className="w-4 h-4 text-[#E11D48] flex-shrink-0" />
-                    <div>
-                      <div className="text-xl font-bold text-white leading-none">{stat.value}</div>
-                      <div className="text-xs text-white/40 mt-0.5">{stat.label}</div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            <a
-              href="https://maltaverse.live/pjazza"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#E11D48] text-white font-semibold rounded-full hover:bg-[#c81a3f] transition-colors"
-              data-testid="link-pjazza-live"
-            >
-              Visit maltaverse.live/pjazza
-              <ExternalLink className="w-4 h-4" />
-            </a>
-          </m.div>
-        </div>
-      </section>
-
-      {/* THE STORY */}
-      <section className="py-24 md:py-32 bg-zinc-950" data-testid="section-pjazza-story">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
-            <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-              <div className="inline-flex items-center gap-2 mb-6">
-                <div className="w-8 h-[2px] bg-[#E11D48]" />
-                <span className="text-sm font-bold text-white/50 uppercase tracking-widest">The Brief</span>
-              </div>
-              <h2 className="font-bold text-white mb-6 leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)', letterSpacing: '-0.02em' }}>
-                Malta's commerce needed a revolution.
-              </h2>
-              <div className="space-y-5 text-white/60 leading-relaxed">
-                <p>Malta's local businesses were invisible online. Facebook groups, WhatsApp chains, and outdated directories were the status quo — no discoverability, no trust infrastructure, no way to sell live to your community.</p>
-                <p>The OARC team saw what platforms like Whatnot and TikTok Shop were doing globally and asked: <em className="text-white/80 not-italic">why doesn't Malta have this?</em></p>
-                <p>Rather than pitch the idea to a client, we built it ourselves. PJAZZA — meaning "town square" in Maltese — is a live commerce marketplace where any local business can broadcast, sell, and connect with Malta's community in real time.</p>
-              </div>
-            </m.div>
-
-            <m.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }} className="relative">
-              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50">
-                <img src={desktopShot} alt="PJAZZA desktop platform" className="w-full h-auto" loading="lazy" />
-              </div>
-              <div className="absolute -bottom-4 -right-4 rounded-xl overflow-hidden border border-white/10 shadow-xl w-36 h-52 md:w-44 md:h-64">
-                <img src={storeBrowse} alt="PJAZZA store browse" className="w-full h-full object-cover object-top" loading="lazy" />
-              </div>
-            </m.div>
-          </div>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section className="py-24 md:py-32 bg-black" data-testid="section-pjazza-how-it-works">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <section className="pjazza-hero" aria-labelledby="pjazza-title">
             <m.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="rounded-2xl overflow-hidden border border-white/10 max-w-xs mx-auto md:mx-0"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="pjazza-hero-copy"
             >
-              <img src={howItWorks} alt="See it. Chat it. Buy it." className="w-full h-auto" loading="lazy" />
-            </m.div>
-
-            <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }}>
-              <div className="inline-flex items-center gap-2 mb-6">
-                <div className="w-8 h-[2px] bg-[#E11D48]" />
-                <span className="text-sm font-bold text-white/50 uppercase tracking-widest">How It Works</span>
-              </div>
-              <h2 className="font-bold text-white mb-8 leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)', letterSpacing: '-0.02em' }}>
-                See it. Chat it.<br /><span className="text-[#E11D48]">Buy it.</span>
-              </h2>
-              <div className="space-y-4">
-                {[
-                  { icon: Play, num: '01', title: 'Watch live', desc: 'See every product, property, and service streamed live by Malta businesses. No filters. No staging.' },
-                  { icon: Users, num: '02', title: 'Chat & negotiate', desc: 'Ask questions in real time, negotiate price, and engage directly with the seller during the live stream.' },
-                  { icon: Shield, num: '03', title: 'Protected payment', desc: 'Built-in escrow ensures your money is only released once you receive exactly what you saw live.' },
-                ].map((step) => {
-                  const Icon = step.icon;
-                  return (
-                    <div key={step.num} className="flex gap-4 p-4 bg-zinc-900 border border-white/[0.06] rounded-xl">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-[#E11D48]/15 border border-[#E11D48]/25 flex items-center justify-center">
-                        <Icon className="w-4 h-4 text-[#E11D48]" />
-                      </div>
-                      <div>
-                        <div className="text-xs text-[#E11D48] font-bold mb-0.5">{step.num}</div>
-                        <h3 className="text-white font-bold mb-1">{step.title}</h3>
-                        <p className="text-sm text-white/50 leading-relaxed">{step.desc}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </m.div>
-          </div>
-        </div>
-      </section>
-
-      {/* LIVE FEED + 12 SECTORS */}
-      <section className="py-24 md:py-32 bg-zinc-950" data-testid="section-pjazza-sectors">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-16 items-start">
-            <m.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <div className="inline-flex items-center gap-2 mb-6">
-                <div className="w-8 h-[2px] bg-[#E11D48]" />
-                <span className="text-sm font-bold text-white/50 uppercase tracking-widest">12 Sectors</span>
-              </div>
-              <h2 className="font-bold text-white mb-4 leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}>
-                Every corner of Malta's economy
-              </h2>
-              <p className="text-white/50 mb-8 leading-relaxed">From artisan food stalls to luxury yachts — PJAZZA connects all of Malta's commercial life in one live marketplace.</p>
-
-              <div className="grid grid-cols-2 gap-2">
-                {sectors.map((sector, i) => (
-                  <m.div
-                    key={sector}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: i * 0.04 }}
-                    className="px-3 py-2.5 bg-white/[0.03] border border-white/[0.07] rounded-lg"
-                    data-testid={`sector-${i}`}
-                  >
-                    <span className="text-sm text-white/70 font-medium">{sector}</span>
-                  </m.div>
-                ))}
-              </div>
-            </m.div>
-
-            <m.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.15 }}
-              className="rounded-2xl overflow-hidden border border-white/10 max-w-xs mx-auto md:mx-0 md:max-w-none"
-            >
-              <img src={liveFeed} alt="PJAZZA live feed and sectors" className="w-full h-auto" loading="lazy" />
-            </m.div>
-          </div>
-        </div>
-      </section>
-
-      {/* SHOP & HIRE */}
-      <section className="py-24 md:py-32 bg-black" data-testid="section-pjazza-shop-hire">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <m.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-14 text-center">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <div className="w-8 h-[2px] bg-[#E11D48]" />
-              <span className="text-sm font-bold text-white/40 uppercase tracking-widest">Two-sided marketplace</span>
-              <div className="w-8 h-[2px] bg-[#E11D48]" />
-            </div>
-            <h2 className="font-bold text-white" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}>
-              Shop any store. Hire anyone.
-            </h2>
-          </m.div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <m.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative rounded-2xl overflow-hidden border border-white/10 group"
-              data-testid="card-shop"
-            >
-              <img src={storeBrowse} alt="Shop any store in Malta" className="w-full h-72 md:h-96 object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="text-[#E11D48] text-xs font-bold uppercase tracking-widest mb-2">Shop Live</p>
-                <h3 className="text-2xl font-bold text-white mb-2">Shop any store in Malta</h3>
-                <p className="text-white/60 text-sm leading-relaxed">Watch streams or video call — see products in real time. Same-day delivery across Malta.</p>
-              </div>
-            </m.div>
-
-            <m.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative rounded-2xl overflow-hidden border border-white/10 group"
-              data-testid="card-hire"
-            >
-              <img src={peopleHire} alt="Hire anyone in Malta" className="w-full h-72 md:h-96 object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="text-[#E11D48] text-xs font-bold uppercase tracking-widest mb-2">People</p>
-                <h3 className="text-2xl font-bold text-white mb-2">Hire anyone in Malta</h3>
-                <p className="text-white/60 text-sm leading-relaxed">Watch them work live. Book instantly. Tradespeople, lawyers, trainers, and more — all verified and live.</p>
-              </div>
-            </m.div>
-          </div>
-        </div>
-      </section>
-
-      {/* FOR BUSINESSES */}
-      <section className="py-24 md:py-32 bg-zinc-950" data-testid="section-pjazza-business">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-              <div className="inline-flex items-center gap-2 mb-6">
-                <div className="w-8 h-[2px] bg-[#E11D48]" />
-                <span className="text-sm font-bold text-white/50 uppercase tracking-widest">For Businesses</span>
-              </div>
-              <h2 className="font-bold text-white mb-6 leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)', letterSpacing: '-0.02em' }}>
-                Your shop window<br /><span className="text-[#E11D48]">is now live.</span>
-              </h2>
-              <p className="text-white/60 leading-relaxed mb-8">Whatever your business — restaurant, trade, retail, freelance — show Malta what you do in real time. No ads. No algorithms. Just real customers watching you, live.</p>
-
-              <div className="space-y-3">
-                {[
-                  { icon: Zap, text: '60 seconds to go live — upload once, plays 24/7, no editing needed' },
-                  { icon: Users, text: 'Built-in audience — every buyer browsing your sector sees you automatically' },
-                  { icon: Shield, text: 'Pay only when you earn — 90 days free, zero risk to try' },
-                ].map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-lg bg-[#E11D48]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Icon className="w-3.5 h-3.5 text-[#E11D48]" />
-                      </div>
-                      <p className="text-sm text-white/60">{item.text}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </m.div>
-
-            <m.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.15 }}
-              className="rounded-2xl overflow-hidden border border-white/10 max-w-xs mx-auto md:mx-0"
-            >
-              <img src={businessScreen} alt="Your shop window is now live" className="w-full h-auto" loading="lazy" />
-            </m.div>
-          </div>
-        </div>
-      </section>
-
-      {/* WHY PJAZZA */}
-      <section className="py-24 md:py-32 bg-black" data-testid="section-pjazza-why">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <m.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="rounded-2xl overflow-hidden border border-white/10 max-w-xs mx-auto md:mx-0 order-2 md:order-1"
-            >
-              <img src={whyPjazza} alt="Every objection turned into a strength" className="w-full h-auto" loading="lazy" />
-            </m.div>
-
-            <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }} className="order-1 md:order-2">
-              <div className="inline-flex items-center gap-2 mb-6">
-                <div className="w-8 h-[2px] bg-[#E11D48]" />
-                <span className="text-sm font-bold text-white/50 uppercase tracking-widest">Why This Matters</span>
-              </div>
-              <h2 className="font-bold text-white mb-6 leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)', letterSpacing: '-0.02em' }}>
-                We don't just advise.<br /><span className="text-[#E11D48]">We build.</span>
-              </h2>
-              <div className="space-y-5 text-white/60 leading-relaxed">
-                <p>PJAZZA is proof of what OARC Digital can do when given full creative and technical ownership. We researched the market, designed the product, wrote the code, and shipped the platform — the same capabilities we bring to every client engagement.</p>
-                <p>With founding businesses already committed and Malta's only live shopping marketplace live at maltaverse.live, PJAZZA is on track to become the dominant commerce platform on the island — and a portfolio piece no other agency can match.</p>
-                <p>When you work with OARC, you're working with a team that has built, launched, and owns a marketplace. That's a different conversation entirely.</p>
-              </div>
-            </m.div>
-          </div>
-        </div>
-      </section>
-
-      {/* LAUNCH CALLOUT */}
-      <section className="py-20 bg-[#E11D48]" data-testid="section-pjazza-launch">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <p className="text-white/70 text-sm font-bold uppercase tracking-widest mb-2">Live at</p>
-              <h3 className="text-3xl md:text-4xl font-bold text-white">maltaverse.live/pjazza</h3>
-              <p className="text-white/70 mt-2">Malta's first live shopping marketplace · 12 sectors · Escrow protected</p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
+              <p className="pjazza-kicker">OARC-owned product</p>
+              <h1 id="pjazza-title">PJAZZA</h1>
+              <p className="pjazza-hero-statement">A live shopping marketplace for Malta.</p>
+              <p className="pjazza-hero-summary">
+                PJAZZA is OARC Digital&apos;s own product. Its public site describes it as Malta&apos;s
+                live shopping marketplace.
+              </p>
               <a
-                href="https://maltaverse.live/pjazza"
+                href={evidence.officialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-white text-[#E11D48] font-bold rounded-full hover:bg-white/90 transition-colors"
-                data-testid="link-pjazza-cta-primary"
+                className="pjazza-primary-link"
+                data-testid="link-pjazza-live"
               >
-                Visit the Platform
-                <ExternalLink className="w-4 h-4" />
+                Visit the public product
+                <ExternalLink size={17} strokeWidth={1.45} />
               </a>
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center justify-center gap-2 px-7 py-4 border-2 border-white/40 text-white font-bold rounded-full hover:border-white/70 transition-colors"
-                  data-testid="button-pjazza-contact"
-                >
-                  Work with OARC
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+            </m.div>
 
-      {/* BOTTOM CTA */}
-      <section className="py-24 md:py-32 bg-zinc-950" data-testid="section-pjazza-cta">
-        <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
-          <m.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <h2 className="font-bold text-white mb-6 leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.02em' }}>
-              Ready to build something<br /><span className="text-[#ff914d]">no one else has?</span>
-            </h2>
-            <p className="text-lg text-white/50 mb-10 max-w-xl mx-auto">PJAZZA is what happens when the best AI-creative team in Malta goes all in. Let's do the same for your brand.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <button className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#ff914d] text-zinc-900 font-bold rounded-full hover:bg-[#ffa366] transition-colors" data-testid="button-cta-contact-bottom">
-                  Start a Project
-                  <ArrowUpRight className="w-5 h-5" />
-                </button>
-              </Link>
-              <Link href="/our-work">
-                <button className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-medium rounded-full hover:bg-white/5 hover:border-white/30 transition-colors" data-testid="button-back-portfolio">
-                  View Full Portfolio
-                </button>
+            <m.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="pjazza-hero-media"
+            >
+              <img
+                src={heroImage}
+                alt="PJAZZA marketplace interface shown on a mobile screen"
+                fetchPriority="high"
+              />
+              <span className="pjazza-media-note">Approved project media</span>
+            </m.div>
+          </section>
+
+          <section className="pjazza-context" aria-labelledby="project-context-title">
+            <p className="pjazza-section-label">The context</p>
+            <div>
+              <h2 id="project-context-title">
+                A first-party product story, not a borrowed client claim.
+              </h2>
+              <p>
+                OARC presents PJAZZA as its own product. This case study is designed so that
+                visitors can inspect the public product directly, rather than relying on
+                unverified performance language or anonymous testimonials.
+              </p>
+            </div>
+          </section>
+
+          <section className="pjazza-proof" aria-labelledby="public-proof-title">
+            <div className="pjazza-proof-heading">
+              <p className="pjazza-section-label">What the public site lists</p>
+              <h2 id="public-proof-title">Simple facts, linked to the product.</h2>
+              <p>
+                These details are repeated exactly from the public PJAZZA page. No date,
+                performance result, or additional feature is stated here without a supplied source.
+              </p>
+            </div>
+            <ul className="pjazza-fact-list">
+              {evidence.verifiedFacts.map((fact, index) => (
+                <li key={fact}>
+                  <span>0{index + 1}</span>
+                  {fact}
+                </li>
+              ))}
+            </ul>
+            <a
+              href={evidence.officialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pjazza-source-link"
+              data-testid="link-pjazza-source"
+            >
+              Read the public product page
+              <ArrowRight size={18} strokeWidth={1.4} />
+            </a>
+          </section>
+
+          <section className="pjazza-media-story" aria-label="PJAZZA product media">
+            <figure className="pjazza-platform-shot">
+              <img src={platformImage} alt="PJAZZA marketplace home screen on desktop" loading="lazy" />
+              <figcaption>Marketplace interface</figcaption>
+            </figure>
+            <div className="pjazza-media-copy">
+              <p className="pjazza-section-label">The work</p>
+              <h2>Show the product. Let people judge the product.</h2>
+              <p>
+                The evidence-led approach keeps the story close to what can be seen and
+                verified: a real product, its public destination, and the supplied interface
+                visuals that frame the experience.
+              </p>
+              <Link href="/our-work" className="pjazza-back-link">
+                Back to selected work
+                <ArrowRight size={17} strokeWidth={1.4} />
               </Link>
             </div>
-          </m.div>
+          </section>
+
+          <figure className="pjazza-wide-media">
+            <img src={marketplaceImage} alt="PJAZZA marketplace browse screen" loading="lazy" />
+            <figcaption>Approved project media / PJAZZA</figcaption>
+          </figure>
+
+          <footer className="pjazza-footer">
+            <span>OARC Digital</span>
+            <span>Evidence-led work / PJAZZA</span>
+          </footer>
         </div>
-      </section>
+      </article>
+
+      <style jsx>{`
+        .pjazza-page {
+          --pjazza-ivory: #f2efe9;
+          --pjazza-ink: #0e0d0c;
+          --pjazza-muted: #74716c;
+          --pjazza-line: rgba(14, 13, 12, 0.15);
+          min-height: 100vh;
+          overflow: hidden;
+          background: var(--pjazza-ivory);
+          color: var(--pjazza-ink);
+          font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
+        }
+
+        .pjazza-frame {
+          max-width: 1440px;
+          margin: 0 auto;
+          padding: 28px clamp(24px, 4.3vw, 62px) 0;
+        }
+
+        .pjazza-topline,
+        .pjazza-section-label,
+        .pjazza-media-note,
+        .pjazza-platform-shot figcaption,
+        .pjazza-wide-media figcaption,
+        .pjazza-footer {
+          color: var(--pjazza-muted);
+          font-family: var(--font-space-mono, "Space Mono", monospace);
+          font-size: 10px;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+        }
+
+        .pjazza-topline {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-bottom: 17px;
+          border-bottom: 1px solid var(--pjazza-line);
+        }
+
+        .pjazza-back,
+        .pjazza-back-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          color: var(--pjazza-ink);
+          font-family: inherit;
+          font-size: 14px;
+          letter-spacing: -0.02em;
+          text-decoration: none;
+        }
+
+        .pjazza-hero {
+          display: grid;
+          grid-template-columns: minmax(0, 0.9fr) minmax(340px, 1.1fr);
+          align-items: end;
+          gap: clamp(40px, 9vw, 145px);
+          padding: clamp(64px, 10vw, 145px) clamp(0px, 4.3vw, 62px) clamp(82px, 11vw, 150px);
+        }
+
+        .pjazza-kicker {
+          margin: 0 0 24px;
+          color: var(--pjazza-muted);
+          font-family: var(--font-space-mono, "Space Mono", monospace);
+          font-size: 10px;
+          letter-spacing: 0.13em;
+          text-transform: uppercase;
+        }
+
+        .pjazza-hero h1,
+        .pjazza-context h2,
+        .pjazza-proof h2,
+        .pjazza-media-copy h2 {
+          margin: 0;
+          font-family: var(--font-instrument-serif, "Instrument Serif", Georgia, serif);
+          font-weight: 400;
+          letter-spacing: -0.06em;
+          line-height: 0.92;
+        }
+
+        .pjazza-hero h1 {
+          font-size: clamp(66px, 10vw, 142px);
+        }
+
+        .pjazza-hero-statement {
+          max-width: 530px;
+          margin: 23px 0 0;
+          font-size: clamp(27px, 3.1vw, 46px);
+          letter-spacing: -0.055em;
+          line-height: 0.98;
+        }
+
+        .pjazza-hero-summary,
+        .pjazza-context p,
+        .pjazza-proof-heading p,
+        .pjazza-media-copy p {
+          max-width: 480px;
+          color: var(--pjazza-muted);
+          font-size: 17px;
+          letter-spacing: -0.028em;
+          line-height: 1.35;
+        }
+
+        .pjazza-hero-summary {
+          margin: 25px 0 30px;
+        }
+
+        .pjazza-primary-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 30px;
+          padding: 15px 20px 15px 22px;
+          border-radius: 999px;
+          color: var(--pjazza-ivory);
+          background: var(--pjazza-ink);
+          font-size: 14px;
+          text-decoration: none;
+          transition: gap 220ms ease, background 220ms ease;
+        }
+
+        .pjazza-primary-link:hover {
+          gap: 38px;
+          background: #2b2824;
+        }
+
+        .pjazza-hero-media {
+          position: relative;
+          overflow: hidden;
+          border-radius: 27px;
+          aspect-ratio: 0.92 / 1;
+          background: #dbd8d0;
+        }
+
+        .pjazza-hero-media img,
+        .pjazza-platform-shot img,
+        .pjazza-wide-media img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .pjazza-hero-media img {
+          object-position: center;
+        }
+
+        .pjazza-media-note {
+          position: absolute;
+          left: 17px;
+          bottom: 15px;
+          padding: 8px 10px;
+          color: var(--pjazza-ink);
+          background: var(--pjazza-ivory);
+          border-radius: 999px;
+          font-size: 8px;
+        }
+
+        .pjazza-context,
+        .pjazza-proof {
+          display: grid;
+          grid-template-columns: minmax(170px, 0.5fr) minmax(0, 1.5fr);
+          gap: 32px;
+          padding: clamp(62px, 8vw, 112px) clamp(0px, 4.3vw, 62px);
+          border-top: 1px solid var(--pjazza-line);
+        }
+
+        .pjazza-context h2,
+        .pjazza-proof h2,
+        .pjazza-media-copy h2 {
+          max-width: 720px;
+          font-size: clamp(40px, 5.5vw, 76px);
+        }
+
+        .pjazza-context p {
+          margin: 30px 0 0;
+        }
+
+        .pjazza-proof {
+          grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+          align-items: end;
+        }
+
+        .pjazza-proof-heading p {
+          margin: 26px 0 0;
+        }
+
+        .pjazza-fact-list {
+          display: grid;
+          gap: 0;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          border-top: 1px solid var(--pjazza-line);
+        }
+
+        .pjazza-fact-list li {
+          display: flex;
+          gap: 22px;
+          padding: 18px 0;
+          border-bottom: 1px solid var(--pjazza-line);
+          font-size: clamp(19px, 2.3vw, 29px);
+          letter-spacing: -0.05em;
+        }
+
+        .pjazza-fact-list span {
+          color: var(--pjazza-muted);
+          font-family: var(--font-space-mono, "Space Mono", monospace);
+          font-size: 10px;
+          letter-spacing: 0.09em;
+        }
+
+        .pjazza-source-link {
+          grid-column: 1 / -1;
+          display: inline-flex;
+          align-items: center;
+          justify-content: space-between;
+          width: fit-content;
+          gap: 36px;
+          margin-top: 8px;
+          padding-bottom: 8px;
+          border-bottom: 1px solid var(--pjazza-ink);
+          color: var(--pjazza-ink);
+          font-size: 15px;
+          text-decoration: none;
+        }
+
+        .pjazza-media-story {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(260px, 0.78fr);
+          gap: clamp(46px, 10vw, 160px);
+          align-items: center;
+          padding: clamp(70px, 10vw, 150px) clamp(0px, 4.3vw, 62px);
+          border-top: 1px solid var(--pjazza-line);
+        }
+
+        .pjazza-platform-shot {
+          margin: 0;
+        }
+
+        .pjazza-platform-shot img {
+          aspect-ratio: 1.2 / 1;
+          border-radius: 23px;
+          object-position: top;
+        }
+
+        .pjazza-platform-shot figcaption,
+        .pjazza-wide-media figcaption {
+          display: block;
+          margin-top: 12px;
+        }
+
+        .pjazza-media-copy p {
+          margin: 29px 0;
+        }
+
+        .pjazza-back-link {
+          gap: 20px;
+          padding-bottom: 6px;
+          border-bottom: 1px solid var(--pjazza-ink);
+        }
+
+        .pjazza-wide-media {
+          position: relative;
+          margin: 0;
+        }
+
+        .pjazza-wide-media img {
+          aspect-ratio: 2 / 0.9;
+          border-radius: 27px;
+          object-position: top;
+        }
+
+        .pjazza-footer {
+          display: flex;
+          justify-content: space-between;
+          margin-top: clamp(72px, 10vw, 142px);
+          padding: 24px 0 35px;
+          border-top: 1px solid var(--pjazza-line);
+        }
+
+        @media (max-width: 760px) {
+          .pjazza-frame {
+            padding-top: 23px;
+          }
+
+          .pjazza-hero,
+          .pjazza-context,
+          .pjazza-proof,
+          .pjazza-media-story {
+            grid-template-columns: 1fr;
+          }
+
+          .pjazza-hero {
+            gap: 48px;
+            padding-top: 63px;
+            padding-bottom: 77px;
+          }
+
+          .pjazza-hero h1 {
+            font-size: clamp(66px, 20vw, 94px);
+          }
+
+          .pjazza-hero-media {
+            aspect-ratio: 1 / 1.08;
+          }
+
+          .pjazza-context,
+          .pjazza-proof {
+            gap: 28px;
+          }
+
+          .pjazza-proof {
+            padding-bottom: 72px;
+          }
+
+          .pjazza-source-link {
+            grid-column: auto;
+            width: 100%;
+          }
+
+          .pjazza-media-story {
+            gap: 41px;
+          }
+
+          .pjazza-platform-shot img,
+          .pjazza-wide-media img {
+            border-radius: 20px;
+          }
+
+          .pjazza-wide-media img {
+            aspect-ratio: 1.1 / 1;
+          }
+
+          .pjazza-footer {
+            display: grid;
+            gap: 10px;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .pjazza-primary-link {
+            transition: none;
+          }
+        }
+      `}</style>
     </Layout>
   );
 }

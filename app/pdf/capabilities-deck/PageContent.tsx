@@ -1,15 +1,13 @@
 "use client";
 
 import { Zap, Users, TrendingUp, Target, Clock, Globe, Cpu, Palette, Database, Rocket, Sparkles } from "lucide-react";
-import { companyInfo, aboutText, coreServices, whyChooseUs, processSteps, caseStudies as maltaCaseStudies, technologyStack, clientTestimonials, keyDifferentiators } from "@/data/companyProfile";
-import { caseStudies as websiteCaseStudies } from "@/data/caseStudies";
+import { companyInfo, aboutText, coreServices, whyChooseUs, processSteps, technologyStack, keyDifferentiators } from "@/data/companyProfile";
+import { caseStudiesArray as websiteCases } from "@/data/caseStudies";
 import { useEffect } from "react";
 const logoImage = "/attached_assets/fdfdfd_1762818183304.png";
 import { pdfPagesSEO } from "@/data/seoMetadata";
 
 export default function PageContent() {
-  const websiteCases = Object.values(websiteCaseStudies);
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
@@ -72,27 +70,27 @@ export default function PageContent() {
               </p>
             </div>
 
-            {/* Quick Stats */}
+            {/* Evidence-led release markers */}
             <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto pt-8">
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-r from-green-500/30 to-transparent rounded-xl blur-lg group-hover:blur-xl transition-all"></div>
                 <div className="relative text-center p-5 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                  <div className="text-3xl font-black text-[#00FF9C] mb-1">100+</div>
-                  <div className="text-xs text-white/60 uppercase tracking-wider">Campaigns</div>
+                  <div className="text-lg font-black text-[#00FF9C] mb-1">Evidence-led</div>
+                  <div className="text-xs text-white/60 uppercase tracking-wider">Work release</div>
                 </div>
               </div>
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-500/30 to-transparent rounded-xl blur-lg group-hover:blur-xl transition-all"></div>
                 <div className="relative text-center p-5 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                  <div className="text-3xl font-black text-[#FF5A00] mb-1">6</div>
-                  <div className="text-xs text-white/60 uppercase tracking-wider">Major Brands</div>
+                  <div className="text-lg font-black text-[#FF5A00] mb-1">PJAZZA</div>
+                  <div className="text-xs text-white/60 uppercase tracking-wider">OARC-owned product</div>
                 </div>
               </div>
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#c4ff4d]/30 to-transparent rounded-xl blur-lg group-hover:blur-xl transition-all"></div>
                 <div className="relative text-center p-5 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                  <div className="text-3xl font-black text-[#c4ff4d] mb-1">24/7</div>
-                  <div className="text-xs text-white/60 uppercase tracking-wider">AI Systems</div>
+                  <div className="text-lg font-black text-[#c4ff4d] mb-1">Public</div>
+                  <div className="text-xs text-white/60 uppercase tracking-wider">Verification path</div>
                 </div>
               </div>
             </div>
@@ -127,25 +125,25 @@ export default function PageContent() {
               </div>
             </div>
 
-            {/* At a Glance Metrics */}
+            {/* Publication Standard */}
             <div className="pdf-card bg-gradient-to-br from-[#0a0a0a] to-[#1a1a1a] text-white">
-              <h3 className="text-2xl font-bold mb-6">At a Glance</h3>
+              <h3 className="text-2xl font-bold mb-6">How We Publish Work</h3>
               <div className="space-y-4">
                 <div className="flex justify-between items-center pb-3 border-b border-white/10">
-                  <span className="text-white/70">Total Campaign Reach</span>
-                  <span className="text-2xl font-black text-[#00FF9C]">120M+</span>
+                  <span className="text-white/70">Public name & ownership</span>
+                  <span className="text-sm font-bold text-[#00FF9C]">Required</span>
                 </div>
                 <div className="flex justify-between items-center pb-3 border-b border-white/10">
-                  <span className="text-white/70">Avg. Engagement Boost</span>
-                  <span className="text-2xl font-black text-[#FF5A00]">+165%</span>
+                  <span className="text-white/70">Approved project media</span>
+                  <span className="text-sm font-bold text-[#FF5A00]">Required</span>
                 </div>
                 <div className="flex justify-between items-center pb-3 border-b border-white/10">
-                  <span className="text-white/70">Client ROI Increase</span>
-                  <span className="text-2xl font-black text-[#c4ff4d]">+68%</span>
+                  <span className="text-white/70">Direct verification path</span>
+                  <span className="text-sm font-bold text-[#c4ff4d]">Required</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-white/70">AI Systems Deployed</span>
-                  <span className="text-2xl font-black text-white">50+</span>
+                  <span className="text-white/70">Unsupported claims</span>
+                  <span className="text-sm font-bold text-white">Withheld</span>
                 </div>
               </div>
             </div>
@@ -246,138 +244,57 @@ export default function PageContent() {
           </div>
         </div>
 
-        {/* PAGE 5-6: CASE STUDIES (Website Cases) */}
+        {/* PAGE 5: EVIDENCE-LED PROJECT STORY */}
         <div className="pdf-page">
           <div className="pdf-section-header">
-            <h2>Global Brand Success Stories</h2>
-            <p>Results That Speak Volumes</p>
+            <h2>Evidence-Led Project Story</h2>
+            <p>Public facts with a direct verification path</p>
           </div>
 
           <div className="grid grid-cols-2 gap-6">
-            {/* FitnessPro Network */}
-            <div className="pdf-card case-study-card">
-              <div className="case-study-badge">{websiteCases[0].category}</div>
-              <h3 className="text-2xl font-black mb-2">{websiteCases[0].brand}</h3>
-              <p className="text-gray-600 mb-4">{websiteCases[0].description}</p>
-              <div className="metric-card">
-                <div className="metric-value">{websiteCases[0].metrics.value}</div>
-                <div className="metric-label">{websiteCases[0].metrics.label}</div>
-              </div>
-            </div>
-
-            {/* Maison Lumière */}
-            <div className="pdf-card case-study-card">
-              <div className="case-study-badge">{websiteCases[1].category}</div>
-              <h3 className="text-2xl font-black mb-2">{websiteCases[1].brand}</h3>
-              <p className="text-gray-600 mb-4">{websiteCases[1].description}</p>
-              <div className="metric-card">
-                <div className="metric-value">{websiteCases[1].metrics.value}</div>
-                <div className="metric-label">{websiteCases[1].metrics.label}</div>
-              </div>
-            </div>
-
-            {/* NaturalCare Beauty */}
-            <div className="pdf-card case-study-card">
-              <div className="case-study-badge">{websiteCases[2].category}</div>
-              <h3 className="text-2xl font-black mb-2">{websiteCases[2].brand}</h3>
-              <p className="text-gray-600 mb-4">{websiteCases[2].description}</p>
-              <div className="metric-card">
-                <div className="metric-value">{websiteCases[2].metrics.value}</div>
-                <div className="metric-label">{websiteCases[2].metrics.label}</div>
-              </div>
-            </div>
-
-            {/* Volta Home */}
-            <div className="pdf-card case-study-card">
-              <div className="case-study-badge">{websiteCases[3].category}</div>
-              <h3 className="text-2xl font-black mb-2">{websiteCases[3].brand}</h3>
-              <p className="text-gray-600 mb-4">{websiteCases[3].description}</p>
-              <div className="metric-card">
-                <div className="metric-value">{websiteCases[3].metrics.value}</div>
-                <div className="metric-label">{websiteCases[3].metrics.label}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="pdf-page">
-          <div className="pdf-section-header">
-            <h2>More Success Stories</h2>
-            <p>Continued Excellence</p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-6 mb-8">
-            {/* GamingTech Elite */}
-            <div className="pdf-card case-study-card">
-              <div className="case-study-badge">{websiteCases[4].category}</div>
-              <h3 className="text-2xl font-black mb-2">{websiteCases[4].brand}</h3>
-              <p className="text-gray-600 mb-4">{websiteCases[4].description}</p>
-              <div className="metric-card">
-                <div className="metric-value">{websiteCases[4].metrics.value}</div>
-                <div className="metric-label">{websiteCases[4].metrics.label}</div>
-              </div>
-            </div>
-
-            {/* ProGamer Network */}
-            <div className="pdf-card case-study-card">
-              <div className="case-study-badge">{websiteCases[5].category}</div>
-              <h3 className="text-2xl font-black mb-2">{websiteCases[5].brand}</h3>
-              <p className="text-gray-600 mb-4">{websiteCases[5].description}</p>
-              <div className="metric-card">
-                <div className="metric-value">{websiteCases[5].metrics.value}</div>
-                <div className="metric-label">{websiteCases[5].metrics.label}</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Client Testimonials */}
-          <div className="space-y-4">
-            {clientTestimonials.slice(0, 2).map((testimonial, index) => (
-              <div key={index} className="pdf-card border-l-4 border-[#00FF9C] bg-gray-50">
-                <p className="text-gray-800 italic mb-3">"{testimonial.quote}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="text-sm">
-                    <div className="font-bold text-gray-900">{testimonial.author}</div>
-                    <div className="text-gray-600">{testimonial.position}, {testimonial.company}</div>
-                  </div>
+            {websiteCases.map((study) => (
+              <div key={study.slug} className="pdf-card case-study-card">
+                <div className="case-study-badge">{study.category}</div>
+                <h3 className="text-2xl font-black mb-2">{study.brand}</h3>
+                <p className="text-gray-600 mb-4">{study.description}</p>
+                <div className="metric-card">
+                  <div className="metric-value">{study.metrics.value}</div>
+                  <div className="metric-label">{study.metrics.label}</div>
                 </div>
+                <a
+                  href="https://maltaverse.live/pjazza"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-block text-sm font-bold text-[#FF5A00] underline"
+                >
+                  Verify at maltaverse.live/pjazza
+                </a>
               </div>
             ))}
           </div>
+
+          <div className="mt-8 max-w-2xl text-gray-600">
+            This release publishes only work with a direct source behind its visible claims.
+          </div>
         </div>
 
-        {/* PAGE 7: MALTA/EU CASE STUDIES */}
+        {/* PAGE 7: WORK PUBLICATION STANDARD */}
         <div className="pdf-page">
           <div className="pdf-section-header">
-            <h2>Malta & EU Success Stories</h2>
-            <p>Local Expertise, Measurable Results</p>
+            <h2>How We Publish Work</h2>
+            <p>Evidence first. Claims second.</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-6">
-            {maltaCaseStudies.map((study, index) => (
-              <div key={index} className="pdf-card">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="text-xs font-bold text-white bg-[#FF5A00] px-3 py-1 rounded-full">
-                    {study.industry}
-                  </div>
-                  <div className="text-xs text-gray-500">{study.location}</div>
-                </div>
-                <h3 className="text-xl font-black mb-2">{study.client}</h3>
-                <p className="text-sm text-gray-600 mb-3"><strong>Challenge:</strong> {study.challenge}</p>
-                <p className="text-sm text-gray-700 mb-4">{study.solution}</p>
-                
-                {/* Results Table */}
-                <div className="space-y-2">
-                  {study.results.map((result, rIndex) => (
-                    <div key={rIndex} className="flex justify-between items-center py-2 border-b border-gray-200 last:border-0">
-                      <span className="text-xs text-gray-600">{result.metric}</span>
-                      <div className="text-right">
-                        <div className="font-black text-lg text-[#00FF9C]">{result.value}</div>
-                        <div className="text-xs text-gray-500">{result.period}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+          <div className="grid grid-cols-3 gap-6">
+            {[
+              ["01", "Name & ownership", "We publish a project only when its public name and relationship to OARC are clear."],
+              ["02", "Media & links", "Each visible image is approved for that story and each public product has a direct verification path."],
+              ["03", "Claims & results", "A figure, date, testimonial, or service is held back unless a specific source supports it."],
+            ].map(([number, title, detail]) => (
+              <div key={number} className="pdf-card">
+                <div className="mb-6 text-sm font-black text-[#FF5A00]">{number}</div>
+                <h3 className="mb-3 text-xl font-black">{title}</h3>
+                <p className="text-sm leading-relaxed text-gray-600">{detail}</p>
               </div>
             ))}
           </div>
@@ -669,7 +586,7 @@ export default function PageContent() {
               </div>
               <div className="text-center">
                 <Target className="w-8 h-8 text-[#00FF9C] mx-auto mb-2" />
-                <p className="text-xs font-semibold">ROI-Focused Results</p>
+                <p className="text-xs font-semibold">Clear Project Reporting</p>
               </div>
               <div className="text-center">
                 <TrendingUp className="w-8 h-8 text-[#c4ff4d] mx-auto mb-2" />
@@ -683,86 +600,29 @@ export default function PageContent() {
           </div>
         </div>
 
-        {/* PAGE 11: RESULTS DASHBOARD */}
+        {/* PAGE 11: EVIDENCE REVIEW */}
         <div className="pdf-page">
           <div className="pdf-section-header">
-            <h2>Aggregate Results Dashboard</h2>
-            <p>Real Performance Across All Clients</p>
+            <h2>Evidence Review</h2>
+            <p>What qualifies a project for public proof</p>
           </div>
 
-          {/* Top Metrics */}
-          <div className="grid grid-cols-4 gap-6 mb-8">
-            <div className="pdf-card text-center bg-gradient-to-br from-[#FF5A00] to-[#FF8A40] text-white">
-              <div className="text-4xl font-black mb-2">120M+</div>
-              <div className="text-sm uppercase tracking-wide opacity-90">Total Reach</div>
-            </div>
-            <div className="pdf-card text-center bg-gradient-to-br from-[#00FF9C] to-[#30FFB0] text-black">
-              <div className="text-4xl font-black mb-2">+165%</div>
-              <div className="text-sm uppercase tracking-wide opacity-90">Avg Engagement</div>
-            </div>
-            <div className="pdf-card text-center bg-gradient-to-br from-[#c4ff4d] to-[#d4ff6d] text-black">
-              <div className="text-4xl font-black mb-2">+68%</div>
-              <div className="text-sm uppercase tracking-wide opacity-90">Avg ROI</div>
-            </div>
-            <div className="pdf-card text-center bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a] text-white">
-              <div className="text-4xl font-black mb-2">50+</div>
-              <div className="text-sm uppercase tracking-wide opacity-90">AI Systems</div>
-            </div>
-          </div>
-
-          {/* Performance Breakdown */}
           <div className="grid grid-cols-2 gap-6">
             <div className="pdf-card">
-              <h3 className="text-lg font-bold mb-4">By Service Category</h3>
-              <div className="space-y-4">
-                <div>
-                  <div className="flex justify-between mb-2 text-sm">
-                    <span className="font-semibold">AI Creative Services</span>
-                    <span className="text-[#FF5A00] font-bold">45%</span>
-                  </div>
-                  <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-[#FF5A00] to-[#FF8A40]" style={{width: '45%'}}></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between mb-2 text-sm">
-                    <span className="font-semibold">AI Employees</span>
-                    <span className="text-[#00FF9C] font-bold">30%</span>
-                  </div>
-                  <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-[#00FF9C] to-[#30FFB0]" style={{width: '30%'}}></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between mb-2 text-sm">
-                    <span className="font-semibold">Revenue Automation</span>
-                    <span className="text-[#c4ff4d] font-bold">25%</span>
-                  </div>
-                  <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-[#c4ff4d] to-[#d4ff6d]" style={{width: '25%'}}></div>
-                  </div>
-                </div>
-              </div>
+              <h3 className="mb-4 text-lg font-bold">Before a project is published</h3>
+              <ul className="space-y-3 text-sm leading-relaxed text-gray-700">
+                <li>• Confirm the preferred public name and OARC&apos;s relationship to the work.</li>
+                <li>• Confirm that each image or film is approved for the case study.</li>
+                <li>• Add the official verification link where it is publicly available.</li>
+              </ul>
             </div>
-
             <div className="pdf-card">
-              <h3 className="text-lg font-bold mb-4">Client Satisfaction</h3>
-              <div className="space-y-4">
-                <div className="text-center py-4 bg-gray-50 rounded-lg">
-                  <div className="text-6xl font-black text-[#00FF9C] mb-2">4.9</div>
-                  <div className="text-sm text-gray-600">Average Rating (out of 5.0)</div>
-                </div>
-                <div className="grid grid-cols-2 gap-3 text-center">
-                  <div className="py-3 bg-gray-50 rounded-lg">
-                    <div className="text-3xl font-black text-[#FF5A00]">98%</div>
-                    <div className="text-xs text-gray-600">Retention Rate</div>
-                  </div>
-                  <div className="py-3 bg-gray-50 rounded-lg">
-                    <div className="text-3xl font-black text-[#c4ff4d]">95%</div>
-                    <div className="text-xs text-gray-600">Referral Rate</div>
-                  </div>
-                </div>
-              </div>
+              <h3 className="mb-4 text-lg font-bold">What stays out</h3>
+              <ul className="space-y-3 text-sm leading-relaxed text-gray-700">
+                <li>• Unsourced performance numbers, launch dates, and outcome claims.</li>
+                <li>• Testimonials without a supplied approval and attribution.</li>
+                <li>• Generic client proof that cannot be independently inspected.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -803,20 +663,12 @@ export default function PageContent() {
               </div>
             </div>
 
-            {/* Social Proof */}
+            {/* Evidence-led work release */}
             <div className="pt-12 border-t border-white/10">
-              <p className="text-white/60 text-sm mb-4">Trusted by Global & Local Brands</p>
-              <div className="flex justify-center gap-8 text-white/40 text-sm">
-                <span>Apex Fitness</span>
-                <span>•</span>
-                <span>Maison Lumière</span>
-                <span>•</span>
-                <span>NaturalCare</span>
-                <span>•</span>
-                <span>Volta Home</span>
-                <span>•</span>
-                <span>Phantom Peripherals</span>
-              </div>
+              <p className="text-white/60 text-sm">Evidence-led work release</p>
+              <p className="mt-3 text-sm text-white/40">
+                Explore the PJAZZA product story and its public verification path at oarcdigital.com/our-work.
+              </p>
             </div>
 
             {/* Final Tagline */}
