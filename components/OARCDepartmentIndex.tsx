@@ -18,7 +18,7 @@ type Department = {
  * all destinations stay discoverable while the visual system is approved.
  */
 const DEPARTMENTS: Department[] = [
-  { name: "Growth", statement: "Turn attention into demand.", key: "Growth", href: "/services/growth", image: "/attached_assets/generated_images/oarc-growth-editorial-proof.jpg", imageAlt: "A founder drawing a sculptural green curve upward through a limestone plaza" },
+  { name: "Growth", statement: "Bring me more customers.", key: "Growth", href: "/services/growth", image: "/attached_assets/generated_images/oarc-growth-editorial-proof.jpg", imageAlt: "A founder drawing a sculptural green curve upward through a limestone plaza" },
   { name: "AI Staff", statement: "Pick your employee.", key: "AI Staff", href: "/services/ai-staff", image: caseStudies["nexgen-retail-ai-transformation"].thumbnailImage, imageAlt: "An AI workforce interface" },
   { name: "Creative", statement: "Make us worth more.", key: "Creative", href: "/services/creative", image: caseStudies["naturalcare-beauty"].thumbnailImage, imageAlt: "A natural beauty brand campaign" },
   { name: "Reputation", statement: "Make them remember you.", key: "Reputation", href: "/services/reputation", image: caseStudies["authentic-stories"].thumbnailImage, imageAlt: "Creators building an authentic brand story" },
@@ -109,26 +109,48 @@ export default function OARCDepartmentIndex() {
           background: rgba(14,13,12,.18);
           pointer-events: none;
         }
-        .odg-growth-title {
+        .odg-growth-copy {
           position: absolute;
           right: clamp(1.25rem, 4vw, 4.5rem);
           bottom: clamp(1.25rem, 4vw, 4.5rem);
           left: clamp(1.25rem, 4vw, 4.5rem);
-          display: flex;
-          align-items: flex-end;
           z-index: 1;
           color: #FAF9F6;
-          font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
-          font-size: clamp(2.8rem, 6.8vw, 7rem);
-          font-weight: 800;
-          letter-spacing: -.085em;
-          line-height: .82;
           text-shadow: 0 2px 18px rgba(0,0,0,.32);
+        }
+        .odg-growth-title {
+          display: block;
+          font-family: var(--font-instrument-serif, "Instrument Serif", serif);
+          font-size: clamp(4.25rem, 10vw, 10rem);
+          font-style: italic;
+          font-weight: 400;
+          letter-spacing: -.075em;
+          line-height: .72;
+        }
+        .odg-growth-support {
+          display: block;
+          max-width: 13ch;
+          margin-top: 1.15rem;
+          color: #FAF9F6;
+          font-family: var(--font-bricolage, "Bricolage Grotesque", sans-serif);
+          font-size: clamp(1.25rem, 2.15vw, 2.1rem);
+          font-weight: 600;
+          letter-spacing: -.045em;
+          line-height: .95;
         }
         @media (max-width: 680px) {
           .odg-growth-card { flex-basis: 86vw; }
           .odg-growth-media { aspect-ratio: .86 / 1; }
-          .odg-growth-title { font-size: clamp(2.55rem, 10vw, 4.25rem); }
+          .odg-growth-copy {
+            right: 1.35rem;
+            bottom: 1.35rem;
+            left: 1.35rem;
+          }
+          .odg-growth-title { font-size: clamp(4rem, 18vw, 6.6rem); }
+          .odg-growth-support {
+            margin-top: .95rem;
+            font-size: clamp(1.2rem, 5.2vw, 1.7rem);
+          }
         }
         @media (prefers-reduced-motion: reduce) {
           .odg-growth-image { transition: none; }
@@ -159,7 +181,10 @@ export default function OARCDepartmentIndex() {
               alt={growth.imageAlt}
               loading="eager"
             />
-            <strong className="odg-growth-title">Turn attention into demand.</strong>
+            <span className="odg-growth-copy">
+              <span className="odg-growth-title">{growth.name}</span>
+              <span className="odg-growth-support">{growth.statement}</span>
+            </span>
           </span>
         </button>
       </div>
