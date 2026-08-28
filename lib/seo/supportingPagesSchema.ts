@@ -95,6 +95,45 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
     ],
   },
 
+  "/new-work": {
+    path: "/new-work",
+    title: "New Work — 32 OARC Digital Records | OARC Digital Malta",
+    description:
+      "A complete OARC Digital Work index bringing together 21 original OARC records and 11 newly curated client and event records with clear source and evidence boundaries.",
+    faqs: [
+      {
+        question: "What is New Work?",
+        answer:
+          "New Work is one OARC Digital index containing 21 original OARC work records and 11 newly curated client and event records.",
+      },
+      {
+        question: "How are the records separated?",
+        answer:
+          "Each record is labelled as original OARC work or a curated record before the visitor opens it, and the source, category, and evidence state remain visible on the collection page.",
+      },
+      {
+        question: "Are the 21 original records client case studies?",
+        answer:
+          "They are the original OARC collection and remain linked to their established case-study routes; the New Work index does not relabel them as the 11 newly curated client and event records.",
+      },
+      {
+        question: "How many curated records are included?",
+        answer:
+          "The combined page includes 11 curated named client and event records, including separate Fan Zone and Spinola Gin Fest records.",
+      },
+      {
+        question: "Does New Work replace Our Work?",
+        answer:
+          "No. New Work is a separate collection at /new-work; the existing OARC Digital /our-work page remains a separate route.",
+      },
+      {
+        question: "Can every record claim the same type of outcome?",
+        answer:
+          "No. The evidence state varies by record, so original, public-product, regulated, launch, event, and dated client contexts remain explicitly labelled.",
+      },
+    ],
+  },
+
   "/contact": {
     path: "/contact",
     title: "Contact OARC Digital — Birkirkara, Malta | Book a 30-Minute Audit",

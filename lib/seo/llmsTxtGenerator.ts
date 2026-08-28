@@ -76,6 +76,11 @@ const SUPPLEMENTAL_META: Record<string, { title: string; description: string }> 
     description:
       "Explore OARC Digital's portfolio of successful AI-powered marketing campaigns and creative projects for global brands. Real results, authentic metrics, and proven expertise in AI creative and revenue automation.",
   },
+  "/new-work": {
+    title: "New Work — 32 OARC Digital Records | OARC Digital Malta",
+    description:
+      "A complete OARC Digital Work index bringing together 21 original OARC records and 11 newly curated client and event records with clear source and evidence boundaries.",
+  },
   "/contact": {
     title: "Contact OARC Digital | Get in Touch with Our Team",
     description:

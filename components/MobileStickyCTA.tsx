@@ -6,7 +6,7 @@ import { whatsappUrl } from "@/lib/utm";
 
 export default function MobileStickyCTA() {
   const pathname = usePathname() ?? "/";
-  if (pathname.startsWith("/h360")) return null;
+  if (pathname.startsWith("/h360") || pathname === "/new-work") return null;
   const wa = whatsappUrl(pathname);
 
   return (
