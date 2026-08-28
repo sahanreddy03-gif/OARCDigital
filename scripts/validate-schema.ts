@@ -46,7 +46,7 @@ type CanonicalPage = {
   url: string;
   tier: "P0" | "P1" | "P2" | "P3";
   /** Primary schema entity expected on this page. */
-  expects: "pillar" | "service" | "shell";
+  expects: "pillar" | "service" | "shell" | "documentation";
 };
 
 const CANONICAL_60: CanonicalPage[] = [
@@ -63,7 +63,7 @@ const CANONICAL_60: CanonicalPage[] = [
   { url: "/pricing", tier: "P1", expects: "shell" },
   { url: "/why-us", tier: "P1", expects: "shell" },
   { url: "/blog", tier: "P1", expects: "shell" },
-  { url: "/case-studies", tier: "P1", expects: "shell" },
+  { url: "/our-work/methodology", tier: "P1", expects: "documentation" },
   { url: "/tools", tier: "P2", expects: "shell" },
   // Tier 3 — headline services
   { url: "/services/branding", tier: "P1", expects: "service" },
@@ -137,7 +137,7 @@ function urlToPagePath(url: string): string {
 
 type PageCheck = {
   url: string;
-  expects: "pillar" | "service" | "shell";
+  expects: "pillar" | "service" | "shell" | "documentation";
   /** File contents (page.tsx). Empty when missing. */
   source: string;
   /** True when the file exists on disk. */
@@ -313,6 +313,21 @@ function checkShell(p: PageCheck): void {
 }
 
 /**
+ * Documentation standards need a public WebPage and breadcrumb but should not
+ * manufacture FAQ content merely to satisfy a generic conversion-page rule.
+ */
+function checkDocumentation(p: PageCheck): void {
+  if (p.expects !== "documentation") return;
+  if (!/<RouteSchema[\s\S]*?type=["']page["']/.test(p.source)) {
+    issues.push({
+      url: p.url,
+      type: "pillar",
+      message: "documentation page does not mount <RouteSchema type=\"page\"> — canonical WebPage and BreadcrumbList will not emit",
+    });
+  }
+}
+
+/**
  * Speakable JSON-LD presence. Two acceptable mounts:
  *   - <SpeakableJsonLd path="..." />  (only emits when path is in TOP_PAGES)
  *   - inline `<script type="application/ld+json">` carrying a SpeakableSpecification
@@ -392,6 +407,7 @@ function main(): void {
     checkService(p);
     checkPillar(p);
     checkShell(p);
+    checkDocumentation(p);
     checkSpeakable(p);
     checkBreadcrumb(p);
     checkReview(p);

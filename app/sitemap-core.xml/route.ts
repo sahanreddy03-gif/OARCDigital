@@ -30,6 +30,7 @@ export const CORE: CoreEntry[] = [
   { path: "/h360", priority: 0.9, changefreq: "weekly" },
   { path: "/services", priority: 0.9, changefreq: "weekly" },
   { path: "/our-work", priority: 0.9, changefreq: "weekly" },
+  { path: "/our-work/methodology", priority: 0.7, changefreq: "monthly" },
   { path: "/contact", priority: 0.9, changefreq: "monthly" },
   { path: "/about", priority: 0.7, changefreq: "monthly" },
   { path: "/blog", priority: 0.8, changefreq: "weekly" },

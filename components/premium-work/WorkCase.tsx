@@ -1,0 +1,326 @@
+"use client";
+
+/**
+ * OARC Design Reminder — each case is a purpose-built documentary, never a repeated landing-page template.
+ * PJAZZA is a warm, human, public-product journey; all evidence, live links, and disclosure states remain explicit.
+ */
+import { ArrowUpRight, ChevronLeft, CircleCheck, MoveRight, Play, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+
+import { useState, type CSSProperties } from "react";
+import { ORIGINAL_STUDIES } from "@/lib/data/premium-work/originalStudies";
+import { DISCOVERY_CONTENT, type DiscoveryContent } from "@/lib/data/premium-work/discoveryContent";
+import { CLIENT_CASE_STUDIES } from "@/lib/data/premium-work/clientCaseStudies";
+
+type EvidenceMedia = { src: string; alt: string; label: string; caption: string };
+type LiveRecord = { relationship: string; links: { label: string; url: string; note: string }[]; instagramStatus: string; verified: string; confidential?: boolean };
+type FAQ = { question: string; answer: string };
+type ProofLedger = { state: string; role: string; check: string; source: string; reviewed: string };
+type Story = {
+  name: string; eyebrow: string; title: string[]; intro: string; image: string; journeyImage: string; mode: string; record: string;
+  facts: string[]; source: string; sourceLabel: string; chapters: { number: string; label: string; title: string; body: string }[];
+  stages: { name: string; moment: string; system: string; value: string }[]; filmTitle: string; filmLabel: string; filmText: string; closeTitle: string; closeText: string;
+  evidenceMedia?: EvidenceMedia[]; liveRecord?: LiveRecord; faq?: FAQ[]; journeyTitle?: { first: string; accent: string };
+  structure?: string; theme?: { bg: string; paper: string; ink: string; signal: string; accent: string };
+  clientRecord?: boolean; heroAlt?: string;
+};
+
+const STORIES: Record<string, Story> = {
+  pjazza: {
+    name: "PJAZZA",
+    eyebrow: "PUBLIC PRODUCT / LIVE COMMERCE",
+    title: ["SEE IT", "BEFORE YOU", "DECIDE."],
+    intro: "A public live-shopping marketplace designed to move the useful question closer to a local buying decision.",
+    image: "/attached_assets/premium-work/pjazza-food_b3085783.jpg",
+    journeyImage: "/attached_assets/premium-work/pjazza-electrician_b56f2c78.jpg",
+    mode: "Public product / OARC–Maltaverse role wording pending approval",
+    record: "For a buyer, context is often the missing part of the purchase. For a seller, showing the truth can be the shortest route to trust.",
+    facts: ["12 displayed sectors", "24+ businesses shown", "Watch → chat → protected payment"],
+    source: "https://www.maltaverse.live/pjazza",
+    sourceLabel: "Live PJAZZA product page",
+    chapters: [
+      { number: "01", label: "THE PRESSURE", title: "A listing cannot answer the question you have now.", body: "A static image can show an object. It cannot always show scale, condition, movement, atmosphere, or the person who knows the answer. PJAZZA starts from that practical gap in local commerce: people need more context before they decide." },
+      { number: "02", label: "THE BUILD", title: "Make the marketplace behave like a conversation.", body: "The product brings live discovery, seller presence, category browsing, and direct buyer interaction into one public marketplace. Its point is not video for its own sake. The point is to move the useful question closer to the decision." },
+      { number: "03", label: "THE VALUE", title: "More confidence for the buyer. A richer shop window for the seller.", body: "The live product page shows the system spanning products, services, and property. In the public case, this is presented as a current product proposition and experience—not as an unverified claim about revenue, conversion, or market leadership." },
+    ],
+    evidenceMedia: [
+      { src: "/attached_assets/premium-work/pjazza-car_d813e37a.jpg", alt: "Official PJAZZA marketplace imagery showing an automotive walkaround context", label: "CARS & AUTO", caption: "A public marketplace category shown as a source-linked product context." },
+      { src: "/attached_assets/premium-work/pjazza-property_4f730440.jpg", alt: "Official PJAZZA marketplace imagery showing a property live-tour context", label: "PROPERTY", caption: "The public marketplace presents live-tour context as part of its product experience." },
+      { src: "/attached_assets/premium-work/pjazza-yacht_ccabfa41.jpg", alt: "Official PJAZZA marketplace imagery showing a yacht live-tour context", label: "YACHTS & MARINE", caption: "One category example from the public PJAZZA sector and feature surfaces." },
+    ],
+    liveRecord: {
+      relationship: "Product Design & Platform Build — public OARC case page; final OARC/Maltaverse relationship wording pending owner approval.",
+      links: [
+        { label: "Visit PJAZZA", url: "https://www.maltaverse.live/pjazza", note: "Official product page" },
+        { label: "PJAZZA Community", url: "https://www.maltaverse.live/pjazza/community", note: "Official public community destination" },
+        { label: "PJAZZA Magazine", url: "https://www.maltaverse.live/pjazza/magazine", note: "Official public magazine destination" },
+      ],
+      instagramStatus: "No verified official PJAZZA or Maltaverse Instagram link was found on the official product page or through targeted public search. A social link will be added only after the owner confirms the handle.",
+      verified: "Links and public product state checked 26 August 2026.",
+    },
+    faq: [
+      { question: "What does PJAZZA do?", answer: "PJAZZA’s official product page presents it as a Malta live-shopping marketplace where people can watch products, services, and property in real time, ask questions, and move toward the next step with the seller." },
+      { question: "What public evidence is shown in this case?", answer: "The product page currently displays 12 sectors and 24+ businesses, alongside the public journey Watch live → Chat & negotiate → Protected payment. These are dated public product-page values, not OARC commercial-outcome claims." },
+      { question: "What did OARC do?", answer: "OARC’s current public PJAZZA project page states that its team researched the market, designed the product, wrote the code, and shipped the platform. The final public relationship label remains subject to OARC and Maltaverse owner approval." },
+    ],
+    stages: [
+      { name: "Discover", moment: "A person finds a local offer worth looking at.", system: "Live listings and sector discovery make the first surface more specific than a general search.", value: "The buyer reaches a relevant offer faster." },
+      { name: "Watch", moment: "The offer moves from still image to real-time context.", system: "A live product or service view lets detail, scale, and environment become visible.", value: "The buyer sees more before asking for more." },
+      { name: "Ask", moment: "The decision becomes a question to a real seller or provider.", system: "Direct conversation creates a human bridge between interest and action.", value: "Uncertainty can be resolved in the moment." },
+      { name: "Decide", moment: "The buyer has enough context to take the next step.", system: "The marketplace connects the live interaction to the product’s transaction/trust language.", value: "The next action is clearer for both sides." },
+    ],
+    filmTitle: "The marketplace begins with a person.",
+    filmLabel: "LIVE MARKETPLACE / PRODUCT JOURNEY",
+    filmText: "PJAZZA’s public product surface includes people and services alongside stores and live tours. The full production case should add one approved seller or service recording here: the moment a static listing becomes a real interaction.",
+    closeTitle: "The real product is decision confidence.",
+    closeText: "PJAZZA is documented here through its public product journey: a local marketplace where watching, asking, and deciding happen closer together. Analytics-led performance claims should be added only after an approved evidence record exists.",
+  },
+  h360: {
+    name: "H360", eyebrow: "OARC PRODUCT SYSTEM / RESTAURANTS", title: ["ONE RESTAURANT.", "MANY MOMENTS.", "ONE SYSTEM."], intro: "A connected restaurant system designed to turn discovery, bookings, guest questions, orders, and operations into a clearer day.", image: "/attached_assets/premium-work/h360-public-product-hub_b339c106.webp", journeyImage: "/attached_assets/premium-work/h360-service-blueprint_49d8f69c.jpg", mode: "Public product / feature review required", record: "A restaurant night does not arrive in departments. A call, a booking, an order, and a full floor arrive at the same time.", facts: ["Visibility → booking → order", "Voice Host → handoff → owner view", "Product features / not client outcomes"], source: "https://oarcdigital.com/h360", sourceLabel: "Live H360 product hub",
+    chapters: [
+      { number: "01", label: "THE PRESSURE", title: "The Friday-night problem is not one problem.", body: "A venue can be hard to find, hard to book, hard to order from, and hard to run—often at the same time. H360 is framed as one operating system because those moments are felt together by the guest and the team." },
+      { number: "02", label: "THE BUILD", title: "Connect the guest journey to the operator’s next action.", body: "The current H360 product pages describe a stack of connected behaviours: local discovery, bookings, a restaurant phone host, direct ordering, payments, repeat-guest tools, and operating surfaces. The system is made to move a request toward a clearer action." },
+      { number: "03", label: "THE VALUE", title: "Give the restaurant a joined-up day, not another disconnected tool.", body: "The public product describes how a guest can find, book, call, order, and return while the restaurant has a more usable operational record. Product examples and fee scenarios on the site are not represented here as verified results for a named venue." },
+    ],
+    liveRecord: {
+      relationship: "H360 is publicly presented as OARC Digital’s hospitality product line for Malta restaurants.",
+      links: [
+        { label: "Visit H360", url: "https://oarcdigital.com/h360", note: "Official H360 product hub" },
+        { label: "OARC Digital on Instagram", url: "https://instagram.com/oarcdigital", note: "Official public product-parent account" },
+        { label: "H360 Booking", url: "https://oarcdigital.com/h360/restaurant-booking-system-malta", note: "Official public workflow page" },
+      ],
+      instagramStatus: "H360 is publicly presented under OARC Digital. The linked OARC Digital account is the official public social destination; a separate H360 profile will be used only if the owner confirms it.",
+      verified: "Links and public product state checked 26 August 2026.",
+    },
+    faq: [
+      { question: "What is H360?", answer: "H360 is OARC Digital’s public hospitality product line for Malta restaurants. Its product hub describes a modular restaurant system spanning visibility, bookings, phone handling, direct orders, loyalty, marketing, and operations." },
+      { question: "What problem does H360 address?", answer: "The public product narrative treats restaurant demand, guest communication, table booking, ordering, and operations as connected moments rather than separate categories. The case explains that operating sequence, not a generic software feature list." },
+      { question: "Are the H360 figures in this case client results?", answer: "No. Any figures or examples on the public product hub are shown as feature illustrations or product-page statements unless an approved named-restaurant evidence pack establishes a client outcome, timeframe, and source owner." },
+    ],
+    stages: [
+      { name: "Get found", moment: "A guest looks for a place before service has begun.", system: "H360’s public product hub frames local visibility as the first operating surface.", value: "The venue can make its booking/order path discoverable." },
+      { name: "Book", moment: "A guest chooses a time without waiting for the phone.", system: "The Booking flow shows a link, a chosen slot, a lock, confirmation, and an operator list.", value: "The guest gets clarity; the operator sees intent." },
+      { name: "Be answered", moment: "A call comes in while the team is serving.", system: "Voice Host is described as handling venue questions, availability, booking and handoff rules.", value: "The restaurant has a defined path for the call." },
+      { name: "Order direct", moment: "A guest is at the table or ready to order.", system: "The ORDER flow shows QR → menu → kitchen ticket → operator record.", value: "The order can move through a direct, visible sequence." },
+      { name: "Return", moment: "A useful guest interaction becomes a relationship.", system: "The broader H360 suite includes retention and owner-view product surfaces.", value: "The day can become a record the team can use." },
+    ],
+    filmTitle: "The restaurant day has a sequence.", filmLabel: "OPERATING BLUEPRINT / SYSTEM ARTIFACT", filmText: "This evidence panel is for a clear product walkthrough: discovery, booking, call handling, direct order, and owner view. The final version uses approved H360 screens and one restaurant context—not lifestyle footage alone.", closeTitle: "Hospitality is a sequence, not a stack of tabs.", closeText: "H360 is shown through its live public product mechanics: how attention can become a booking, a call can become a handoff, and an order can become an operating record. Client outcomes require an approved deployment source pack.",
+  },
+  "data-foundation": {
+    name: "DATA FOUNDATION", eyebrow: "CONFIDENTIAL ENGAGEMENT / DATA GOVERNANCE", title: ["WHEN THE", "DATA COULD", "NOT AGREE."], intro: "An anonymised system story about making fragmented distributor data more governed, usable, and traceable—without exposing the client behind it.", image: "/attached_assets/premium-work/oarc-confidential-data-foundation_61730536.jpg", journeyImage: "/attached_assets/premium-work/oarc-confidential-data-lineage_2e1a3236.jpg", mode: "Confidential engagement / public system story only", record: "When the same product, customer, or supplier exists in several systems with several answers, every downstream decision starts with doubt.", facts: ["10,000+ unique SKUs described", "ERP + CRM + legacy sources", "No client performance metrics published"], source: "https://oarcdigital.com/our-work/data-foundation", sourceLabel: "OARC’s public anonymous case record",
+    chapters: [
+      { number: "01", label: "THE PRESSURE", title: "The record changed depending on where you looked.", body: "The public OARC record describes a national B2B and B2C distributor whose product IDs, customer and supplier records, dates, units, and addresses did not align across ERP, CRM, and legacy spreadsheets. The operating consequence was not theoretical: order error, fulfilment delay, forecasting uncertainty, and weak visibility all began with the same source problem." },
+      { number: "02", label: "THE INTERVENTION", title: "Turn messy history into a governed system of record.", body: "The documented approach moved from audit to standardisation, matching, validation, enrichment, and visibility. The value of that sequence is traceability: a record should not simply look clean; its owner should understand what changed, why it changed, and what still needs attention." },
+      { number: "03", label: "THE DISCIPLINE", title: "A transformation is only useful if the next exception can be found.", body: "The public case describes validation rules and data-quality dashboards as the ongoing layer. This case does not repeat the source page’s performance figures because the named client, measurement method, timeframe, and approval record are confidential. It shows the business logic of the system, not invented proof." },
+    ],
+    liveRecord: { relationship: "Confidential UK distributor engagement. The client identity, website, social accounts, and operational data remain withheld by design.", links: [{ label: "View OARC’s public anonymous record", url: "https://oarcdigital.com/our-work/data-foundation", note: "OARC public source" }], instagramStatus: "No client social links are displayed. Confidentiality takes priority over portfolio completeness.", verified: "Disclosure boundary reviewed 26 August 2026.", confidential: true },
+    faq: [
+      { question: "What was the business problem?", answer: "OARC’s public anonymous record describes a distributor with product, customer, supplier, and format inconsistencies across ERP, CRM, and legacy data sources. The case frames the problem as an operational data-governance issue, not simply a technical cleanup task." },
+      { question: "What did the system do?", answer: "The public case describes auditing, standardising, fuzzy matching, de-duplication, rule-based validation, enrichment, and data-quality visibility. The rebuilt story presents these as a governed workflow from exception to accountable record." },
+      { question: "Why are the client name and results not shown?", answer: "This is a confidential engagement. Client identity, brand links, raw operational data, and quantitative results require written client approval and a documented measurement basis before publication." },
+    ],
+    stages: [
+      { name: "Audit", moment: "Find every place where the same thing has a different answer.", system: "Map identifiers, formats, missing fields, duplicates, and dependencies across source systems.", value: "The team can see the shape of the problem before changing the record." },
+      { name: "Standardise", moment: "Give every repeatable field a common language.", system: "Normalise formats, patterns, product descriptors, units, date structures, and core reference values.", value: "Operational systems can compare like with like." },
+      { name: "Match", moment: "Resolve the duplicates without erasing the record’s history.", system: "Use matching logic and review rules to connect and merge related product, customer, and supplier records.", value: "A decision can start from a more reliable reference." },
+      { name: "Validate", moment: "Keep the next exception from becoming the next mess.", system: "Apply rule-based checks and a quality view that make anomalies, gaps, and ownership visible.", value: "Data governance becomes an operating habit, not a cleanup project." },
+    ],
+    journeyTitle: { first: "From conflict to", accent: "control." }, filmTitle: "The record needs a lineage.", filmLabel: "ILLUSTRATIVE SYSTEM MAP / NO CLIENT DATA", filmText: "This illustrative system visual explains the public intervention pattern: audit, standardise, match, validate. It does not depict client data, a client system, or a measured outcome.", closeTitle: "The client stays confidential. The discipline stays visible.", closeText: "OARC’s public anonymous case record describes a governed data foundation for a national distributor. This rebuilt case protects the client and withholds unverified figures while making the operating logic of the work legible.",
+  },
+};
+
+Object.assign(STORIES, ORIGINAL_STUDIES);
+Object.assign(STORIES, CLIENT_CASE_STUDIES);
+
+/** OARC Design Reminder — a proof ledger shows a visitor what can be checked before any editorial narrative asks for trust. */
+const PROOF_LEDGERS: Record<string, ProofLedger> = {
+  pjazza: { state: "PUBLIC PRODUCT / SOURCE-LINKED", role: "Product design and platform-build relationship is publicly described; final OARC–Maltaverse role wording remains owner-approved only.", check: "Public product journey, sectors, business listing count, product categories, and official destinations.", source: "Official PJAZZA and OARC public product pages.", reviewed: "Reviewed 27 August 2026" },
+  h360: { state: "PUBLIC OARC PRODUCT / FEATURE RECORD", role: "H360 is publicly presented as an OARC Digital hospitality product line; named venue delivery scope is not claimed here.", check: "Official H360 product hub, public workflow pages, and OARC product-parent identity.", source: "Official OARC H360 product pages.", reviewed: "Reviewed 27 August 2026" },
+  "data-foundation": { state: "RESTRICTED ENGAGEMENT / ANONYMOUS RECORD", role: "OARC’s public anonymous record documents a data-governance intervention; client identity and operational detail are protected.", check: "Approved anonymous business context, intervention method, and public OARC record.", source: "OARC anonymous case record and non-identifying explanatory assets.", reviewed: "Disclosure reviewed 27 August 2026" },
+  "live-context": { state: "RESTRICTED ENGAGEMENT / PUBLIC EXPLANATION", role: "The public story explains the approved product-design principle without naming the client or exposing private work.", check: "The disclosed design problem and original non-identifying explanatory artefacts only.", source: "Approved restricted narrative and original OARC artefacts.", reviewed: "Disclosure reviewed 27 August 2026" },
+};
+
+/** OARC Design Reminder — organic language is a useful route through a real problem, never a list of empty keywords. */
+const CASE_TOPIC_PATHS: Record<string, { query: string; href: string; route: string }> = {
+  pjazza: { query: "LIVE SHOPPING MARKETPLACE · MALTA", href: "/marketplace-app-development-malta", route: "DIGITAL PRODUCTS & MARKETPLACES" },
+  h360: { query: "RESTAURANT MARKETING & SYSTEMS · MALTA", href: "/restaurant-marketing-malta", route: "RESTAURANT GROWTH" },
+  "data-foundation": { query: "DATA QUALITY, GOVERNANCE & INTEGRATIONS", href: "/ai-automation-malta", route: "AI OPERATIONS" },
+  "live-context": { query: "MOBILE APP & INFORMATION EXPERIENCE DESIGN", href: "/web-app-development-malta", route: "DIGITAL PRODUCT BUILD" },
+  "meridian-retail-response": { query: "AI CUSTOMER SUPPORT & SALES HANDOFFS", href: "/ai-automation-malta", route: "AI OPERATIONS" },
+  "cobalt-decision-thread": { query: "GROWTH STRATEGY & DELIVERY GOVERNANCE", href: "/ai-consulting-malta", route: "AI CONSULTING" },
+  "skyline-first-response": { query: "WEBSITE DESIGN & CUSTOMER ENQUIRY EXPERIENCE", href: "/website-design-malta", route: "WEBSITE DESIGN" },
+  "vela-signal-pipeline": { query: "CUSTOMER ACQUISITION & SALES WORKFLOW DESIGN", href: "/creative-growth-malta", route: "CREATIVE & GROWTH" },
+  "ashford-in-real-life": { query: "PAID CREATIVE & VIDEO PRODUCTION", href: "/creative-growth-malta", route: "CREATIVE & GROWTH" },
+  "kinetic-member-energy": { query: "COMMUNITY CONTENT & SOCIAL MEDIA MANAGEMENT", href: "/creative-growth-malta", route: "CREATIVE & GROWTH" },
+  "maison-verre-discovery": { query: "BRAND IDENTITY & PRODUCT LAUNCH CAMPAIGNS", href: "/creative-growth-malta", route: "CREATIVE & GROWTH" },
+  "botanic-muse-field-notes": { query: "CONTENT STRATEGY & RESPONSIBLE BRAND COMMUNITY", href: "/creative-growth-malta", route: "CREATIVE & GROWTH" },
+  "vertex-after-launch": { query: "PRODUCT ENGAGEMENT & COMMUNITY STRATEGY", href: "/marketplace-app-development-malta", route: "DIGITAL PRODUCTS" },
+  "arena-one-regional-signal": { query: "CAMPAIGN STRATEGY, VIDEO & CULTURAL DISTRIBUTION", href: "/creative-growth-malta", route: "CREATIVE & GROWTH" },
+  "wellbridge-clear-path": { query: "SERVICE DESIGN & ACCOUNTABLE WORKFLOW AUTOMATION", href: "/ai-automation-malta", route: "AI OPERATIONS" },
+  "aurum-document-trail": { query: "DOCUMENT WORKFLOW AUTOMATION & HUMAN REVIEW", href: "/ai-automation-malta", route: "AI OPERATIONS" },
+  "hearth-test-kitchen": { query: "CREATIVE OPERATIONS & PAID CREATIVE TESTING", href: "/creative-growth-malta", route: "CREATIVE & GROWTH" },
+  "fanline-live-ritual": { query: "LIVE AUDIENCE EXPERIENCE & MOBILE PRODUCT DESIGN", href: "/web-app-development-malta", route: "DIGITAL PRODUCT BUILD" },
+  "crownline-fresh-signal": { query: "OPERATIONAL DECISION SUPPORT & DATA WORKFLOWS", href: "/ai-automation-malta", route: "AI OPERATIONS" },
+  "bluebridge-candidate-welcome": { query: "CANDIDATE COMMUNICATION & HUMAN HANDOFFS", href: "/website-design-malta", route: "WEBSITE DESIGN" },
+  "northforge-adoption-ladder": { query: "AI AUTOMATION & AI CONSULTING · MALTA", href: "/ai-automation-malta", route: "AI OPERATIONS" },
+  "belgrave-client-time": { query: "CUSTOMER EXPERIENCE & SERVICE WORKFLOW DESIGN", href: "/website-design-malta", route: "WEBSITE DESIGN" },
+};
+
+/** OARC Design Reminder — artefacts expose a case-specific decision; they never stand in for client evidence. */
+const CASE_ARTEFACTS: Record<string, EvidenceMedia> = {
+  pjazza: { src: "/attached_assets/premium-work/pjazza-marketplace-loop_292cb428.svg", alt: "Illustrative four-stage PJAZZA marketplace journey from discover to decide", label: "ILLUSTRATIVE PRODUCT JOURNEY", caption: "A source-safe explanation of the public product journey. It is not a performance chart or transaction record." },
+  "meridian-retail-response": { src: "/attached_assets/premium-work/meridian-routing-logic_08ddcea9.svg", alt: "Illustrative Meridian routing model for resolve, qualify, and escalate", label: "ORIGINAL ROUTING ARTEFACT", caption: "An original OARC model of a customer-question handoff. It is not a live retailer workflow." },
+  "skyline-first-response": { src: "/attached_assets/premium-work/skyline-human-handoff_7381ec79.svg", alt: "Illustrative Skyline sequence from question to prepared human conversation", label: "ORIGINAL SERVICE ARTEFACT", caption: "A scenario model of a prepared property enquiry. It does not depict a listing, agent, or conversion result." },
+  "northforge-adoption-ladder": { src: "/attached_assets/premium-work/northforge-adoption-ladder_07e21822.svg", alt: "Illustrative Northforge ladder showing choose, own, practice, and review", label: "ORIGINAL OPERATING-MODEL ARTEFACT", caption: "An OARC framework for accountable AI adoption. It is not an enterprise deployment record." },
+  "data-foundation": { src: "/attached_assets/premium-work/data-foundation-lineage_6d46aab8.svg", alt: "Illustrative data foundation lineage from conflicting source systems through audit and validation", label: "ANONYMISED INTERVENTION PATTERN", caption: "A source-safe visualisation of the published intervention logic. It contains no client record, identity, or outcome figure." },
+};
+
+/** OARC Design Reminder — licensed atmosphere makes a world tangible, but stays visually and verbally separate from delivered client proof. */
+const CAMPAIGN_CONTEXT: Record<string, EvidenceMedia> = {
+  pjazza: { src: "/attached_assets/premium-work/oarc-market-live-context-unsplash_a174d120.jpg", alt: "Licensed editorial photograph of a lively market context", label: "LICENSED EDITORIAL ATMOSPHERE", caption: "A contemporary market context used to establish the human world around live commerce. It is not a PJAZZA seller, transaction, or product-delivery record." },
+  h360: { src: "/attached_assets/premium-work/oarc-restaurant-service-unsplash_6e88eba7.jpg", alt: "Licensed editorial photograph of restaurant service", label: "LICENSED EDITORIAL ATMOSPHERE", caption: "A hospitality-service context used to frame the operating day. It is not a named H360 restaurant, booking record, or deployment claim." },
+  "maison-verre-discovery": { src: "/attached_assets/premium-work/oarc-fragrance-material-unsplash_a7449a24.jpg", alt: "Licensed editorial still life of an unbranded fragrance bottle and material textures", label: "LICENSED EDITORIAL ATMOSPHERE", caption: "A material-world reference used in an OARC Original fragrance launch study. It is not a Maison Verre product, retailer, or campaign asset." },
+};
+
+function Journey({ story }: { story: Story }) {
+  const [active, setActive] = useState(0);
+  const stage = story.stages[active];
+  const title = story.journeyTitle ?? { first: "One decision.", accent: "One useful next step." };
+  return <section className="journey-module"><div className="journey-heading"><span>THE SYSTEM, IN MOTION</span><h2>{title.first}<br /><i>{title.accent}</i></h2></div><div className="journey-layout"><div className="journey-tabs" role="tablist" aria-label={`${story.name} journey`}>{story.stages.map((item, index) => <button key={item.name} onClick={() => setActive(index)} className={active === index ? "active" : ""} role="tab" aria-selected={active === index}><b>{String(index + 1).padStart(2, "0")}</b>{item.name}</button>)}</div><article className="journey-detail"><p className="journey-mark">{stage.name}</p><h3>{stage.moment}</h3><dl><div><dt>WHAT THE SYSTEM DOES</dt><dd>{stage.system}</dd></div><div><dt>WHY IT MATTERS</dt><dd>{stage.value}</dd></div></dl></article></div></section>;
+}
+
+function LiveBrandRecord({ record, isClient }: { record: LiveRecord; isClient?: boolean }) {
+  const title = record.confidential ? <>The client stays <i>private.</i></> : isClient ? <>See the brand <i>outside the case.</i></> : <>See the product <i>outside the case.</i></>;
+  return <section className="live-brand-record" aria-labelledby="live-brand-title"><div><p>{record.confidential ? "CONFIDENTIALITY RECORD" : isClient ? "LIVE BRAND RECORD" : "LIVE PRODUCT RECORD"}</p><h2 id="live-brand-title">{title}</h2><p className="live-brand-relationship">{record.relationship}</p><p className="live-brand-verified">{record.verified}</p></div><div className="live-brand-actions">{record.links.map((link) => <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer"><span>{link.note}</span><b>{link.label}</b><ArrowUpRight size={18} /></a>)}<div className="instagram-status"><b>{record.confidential ? "PUBLIC LINKS" : "INSTAGRAM"}</b><p>{record.instagramStatus}</p></div></div></section>;
+}
+
+function OriginalStudyRecord({ story }: { story: Story }) {
+  return <section className="original-study-record" aria-labelledby="original-study-record-title"><div><p>OARC ORIGINAL STUDY</p><h2 id="original-study-record-title">A designed direction,<br /><i>not a client claim.</i></h2></div><div><p>{story.mode}</p><p>This case uses original OARC narrative, art direction, and illustrative artefacts to make a business or operating-system idea tangible. It does not represent an external client, live brand, or verified commercial outcome.</p><strong>Collection disclosure: each OARC Original Study is visibly identified on its card, case header, and closing record.</strong></div></section>;
+}
+
+function ConfidentialRecord({ story }: { story: Story }) {
+  return <section className="confidential-record" aria-labelledby="confidential-record-title"><div><p>RESTRICTED DISCLOSURE</p><h2 id="confidential-record-title">The client stays<br /><i>protected.</i></h2></div><div><p>{story.mode}</p><p>This story makes the design or operating principle visible without naming the client, exposing private systems or data, linking to client social accounts, or implying an unapproved result. It may be published only under its documented disclosure boundary.</p><strong>Public detail is limited to the approved anonymous source record and original, non-identifying explanatory artefacts.</strong></div></section>;
+}
+
+function OriginalChapters({ story }: { story: Story }) {
+  const structure = story.structure ?? "studio";
+  const family = ["thread", "cobalt", "trail", "ladder"].includes(structure) ? "ledger" : ["route", "care-path", "welcome"].includes(structure) ? "service" : ["signal", "fresh", "tempo"].includes(structure) ? "signal" : ["pulse", "afterglow", "relay", "ritual"].includes(structure) ? "culture" : "studio";
+  const instruction = family === "ledger" ? "TRACE THE DECISION" : family === "service" ? "FOLLOW THE HANDOFF" : family === "signal" ? "READ THE SIGNAL" : family === "culture" ? "ENTER THE RHYTHM" : "STUDY THE MAKING";
+  return <section className={`original-journey journey-${structure} original-family-${family}`} aria-label={`${story.name} original study journey`}><header><p>THE ORIGINAL JOURNEY</p><h2>{story.name.split(" ").slice(0, 2).join(" ")}<br /><i>in three decisive moves.</i></h2><span>Pressure, designed intervention, and intended value—presented as a scenario design, not a client-result narrative.</span></header><div className="original-journey-beats">{story.chapters.map((chapter, index) => <article key={chapter.number} data-beat={index + 1}><div className="original-chapter-key"><b>{chapter.number}</b><span>{chapter.label}</span></div><h3>{chapter.title}</h3><p>{chapter.body}</p><em>{instruction}</em></article>)}</div></section>;
+}
+
+function OriginalSystem({ story }: { story: Story }) {
+  const structure = story.structure ?? "ledger";
+  const format = ["route", "care-path", "welcome"].includes(structure) ? "route" : ["ladder"].includes(structure) ? "ladder" : ["ritual", "relay", "afterglow", "pulse"].includes(structure) ? "rhythm" : ["signal", "fresh", "tempo"].includes(structure) ? "signal" : "ledger";
+  return <section className={`original-system original-system-${format} system-${structure}`} aria-labelledby="original-system-title"><header><p>THE PROTOTYPE, IN MOTION</p><h2 id="original-system-title">{story.journeyTitle?.first}<br /><i>{story.journeyTitle?.accent}</i></h2></header><div className="original-system-stages">{story.stages.map((stage, index) => <article key={stage.name}><b>{String(index + 1).padStart(2, "0")}</b><span>{stage.name}</span><h3>{stage.moment}</h3><p>{stage.system}</p><em>{stage.value}</em></article>)}</div><p className="original-system-note">Illustrative scenario model. It explains the intended design logic and does not show a live client system, private data, or measured external outcome.</p></section>;
+}
+
+function EvidenceArtefact({ artefact }: { artefact: EvidenceMedia }) {
+  return <section className="case-artefact" aria-labelledby="case-artefact-title"><div><p>{artefact.label}</p><h2 id="case-artefact-title">See the <i>decision logic.</i></h2><span>{artefact.caption}</span></div><figure><img src={artefact.src} alt={artefact.alt} loading="lazy" decoding="async" /><figcaption>OARC explanatory artefact / status stated above</figcaption></figure></section>;
+}
+
+function CampaignContext({ context, story }: { context: EvidenceMedia; story: Story }) {
+  return <section className="campaign-context" aria-labelledby="campaign-context-title"><figure><img src={context.src} alt={context.alt} loading="lazy" decoding="async" /><figcaption>{context.label} / SOURCE RECORDED IN OARC ASSET REGISTER</figcaption></figure><div><p>{context.label}</p><h2 id="campaign-context-title">The world around<br /><i>{story.name}.</i></h2><p>{context.caption}</p></div></section>;
+}
+
+function MarketplaceProofWall({ media }: { media: EvidenceMedia[] }) {
+  return <section className="marketplace-proof-wall" aria-labelledby="marketplace-proof-title"><div className="marketplace-proof-intro"><p>PUBLIC PRODUCT / MARKETPLACE CONTEXT</p><h2 id="marketplace-proof-title">A decision has a <i>setting.</i></h2><span>These official public product-category surfaces show why the marketplace must carry context across very different local decisions.</span></div><div className="marketplace-proof-strip">{media.slice(0, 3).map((item, index) => <figure key={item.label}><img src={item.src} alt={item.alt} loading={index === 0 ? "eager" : "lazy"} decoding="async" /><figcaption><b>0{index + 1}</b><span>{item.label}</span></figcaption></figure>)}</div><aside><b>THE LIVE-COMMERCE QUESTION</b><p>What does a person need to see, ask, and trust before an offer becomes a decision?</p></aside></section>;
+}
+
+function ArchiveProtocol() {
+  return <section className="archive-protocol" aria-labelledby="archive-protocol-title"><header><p>PUBLIC ANONYMOUS RECORD / BOUNDARY FIRST</p><h2 id="archive-protocol-title">The record is useful<br />because its <i>limits are visible.</i></h2></header><div><article><b>01 / SOURCE</b><span>Approved anonymous description and non-identifying explanatory material.</span></article><article><b>02 / WITHHELD</b><span>Client name, raw record, private system, and unapproved performance detail.</span></article><article><b>03 / REVIEW</b><span>Publication scope, redaction, and result language remain subject to owner approval.</span></article></div></section>;
+}
+
+function ObjectSequence() {
+  return <section className="object-sequence" aria-labelledby="object-sequence-title"><header><p>OARC ORIGINAL / LAUNCH SEQUENCE</p><h2 id="object-sequence-title">A fragrance should arrive<br />as a <i>sequence of clues.</i></h2></header><div><article><span>01</span><b>Memory</b><p>Start with the place, feeling, or image that makes the invitation worth opening.</p></article><article><span>02</span><b>Material</b><p>Give the launch a physical language: glass, reflection, paper, and a precise colour memory.</p></article><article><span>03</span><b>Invitation</b><p>Let curiosity earn the reveal. The bottle arrives only after its world has been felt.</p></article></div><p className="object-sequence-note">OARC Original scenario direction / no product, launch, or retail outcome claim.</p></section>;
+}
+
+function CaseProofLedger({ story, slug, isOriginal }: { story: Story; slug: string; isOriginal: boolean }) {
+  const clientLedger = { state: "CLIENT RECORD / ROSTER + SOURCE-SELECTED MEDIA", role: "Named client, service scope, and dated result snapshot are recorded in OARC’s 14 August 2026 roster. Visual media is selected only from the corresponding named client or event source folder.", check: "The linked official public destination, the stated roster snapshot, and the case-specific visual/source boundary.", source: `${story.sourceLabel}. Metrics are dated roster-record facts, not live counters.`, reviewed: "Record reviewed 27 August 2026" };
+  const ledger = PROOF_LEDGERS[slug] ?? (story.clientRecord ? clientLedger : { state: "OARC ORIGINAL STUDY / SCENARIO RECORD", role: "OARC developed this original method and illustrative scenario to make a specific business or operating problem discussable.", check: "The original narrative, scenario assumptions, explanatory artefacts, and stated validation approach.", source: "Original OARC direction; no external client, delivery, or outcome claim.", reviewed: "Record reviewed 27 August 2026" });
+  if (story.clientRecord) {
+    const caseNumber = String(Object.keys(CLIENT_CASE_STUDIES).indexOf(slug) + 1).padStart(2, "0");
+    return <section className="client-proof-rail" aria-label={`${story.name} proof record`}><aside className="client-proof-spine"><span>OPEN<br />RECORD</span><b>CLIENT<br />{caseNumber}</b><i>SOURCE<br />FIRST</i></aside><div className="client-proof-content"><header><p>CASE-SPECIFIC EVIDENCE</p><h2>{ledger.state}</h2><span>{ledger.reviewed}</span></header><dl><div><dt>OARC ROLE / BOUNDARY</dt><dd>{ledger.role}</dd></div><div><dt>WHAT A VISITOR CAN CHECK</dt><dd>{ledger.check}</dd></div><div><dt>SOURCE STATE</dt><dd>{ledger.source}</dd></div></dl></div></section>;
+  }
+  return <section className={`case-proof-ledger ${isOriginal ? "proof-ledger-original" : ""}`} aria-label={`${story.name} proof record`}><div className="case-proof-ledger-title"><p>OPEN CASE RECORD</p><h2>{ledger.state}</h2><span>{ledger.reviewed}</span></div><dl><div><dt>OARC ROLE / BOUNDARY</dt><dd>{ledger.role}</dd></div><div><dt>WHAT A VISITOR CAN CHECK</dt><dd>{ledger.check}</dd></div><div><dt>SOURCE STATE</dt><dd>{ledger.source}</dd></div></dl></section>;
+}
+
+/** OARC Design Reminder — direct answers surface scope, evidence, and a verification path for people and answer engines; they are never hidden keyword copy. */
+function CaseAnswerPanel({ story }: { story: Story }) {
+  if (!story.clientRecord || !story.liveRecord) return null;
+  return <section className="case-answer-panel" aria-labelledby="case-answer-title"><div><p>THE DIRECT ANSWER</p><h2 id="case-answer-title">What did OARC<br /><i>document here?</i></h2></div><dl><div><dt>WHAT OARC DID</dt><dd>{story.liveRecord.relationship}</dd></div><div><dt>WHAT THIS RECORD SHOWS</dt><dd>{story.facts.join(" · ")}</dd></div><div><dt>WHERE TO VERIFY</dt><dd><a href={story.source} target="_blank" rel="noopener noreferrer">{story.sourceLabel} <ArrowUpRight size={14} /></a></dd></div></dl></section>;
+}
+
+/** OARC Design Reminder — H360 gets an operating-day ribbon, never another generic product-card sequence. */
+function RestaurantDayRibbon() {
+  return <section className="restaurant-day-ribbon" aria-labelledby="restaurant-day-title"><header><p>PUBLIC PRODUCT / OPERATING DAY</p><h2 id="restaurant-day-title">One guest journey.<br /><i>Five real moments.</i></h2><span>H360’s public product language is organised here as the restaurant day it is designed to support—not as a claim about a named venue result.</span></header><ol><li><b>01</b><strong>BE FOUND</strong><p>Make the venue and next action legible before service begins.</p></li><li><b>02</b><strong>BOOK</strong><p>Give a guest a clear route from intent to a chosen time.</p></li><li><b>03</b><strong>BE ANSWERED</strong><p>Carry the question toward the right restaurant response.</p></li><li><b>04</b><strong>ORDER DIRECT</strong><p>Keep menu choice, payment, and the operating record connected.</p></li><li><b>05</b><strong>RETURN</strong><p>Let a useful interaction become a relationship the venue can recognise.</p></li></ol><footer><b>WHAT THIS RECORD SHOWS</b><span>Public product sequence and official workflow language. Named-restaurant outcomes require an approved deployment record.</span></footer></section>;
+}
+
+/** OARC Design Reminder — original studies reveal their own logic early through distinct families, not through a shared agency-case template. */
+function OriginalSignature({ story }: { story: Story }) {
+  const structure = story.structure ?? "studio";
+  const family = ["thread", "cobalt", "trail", "ladder"].includes(structure) ? "ledger" : ["route", "care-path", "welcome"].includes(structure) ? "service" : ["signal", "fresh", "tempo"].includes(structure) ? "signal" : ["pulse", "afterglow", "relay", "ritual"].includes(structure) ? "culture" : "studio";
+  const label = family === "ledger" ? "THE ACCOUNTABLE TRACE" : family === "service" ? "THE HUMAN HANDOFF" : family === "signal" ? "THE MOMENT TO ACT" : family === "culture" ? "THE PARTICIPATION RHYTHM" : "THE MAKING SEQUENCE";
+  const heading = family === "ledger" ? <>A decision should leave<br /><i>a trace.</i></> : family === "service" ? <>A service moment needs<br /><i>an owner.</i></> : family === "signal" ? <>A signal matters when<br /><i>someone can read it.</i></> : family === "culture" ? <>A shared moment needs<br /><i>a return path.</i></> : <>Make the idea tangible<br /><i>before the claim.</i></>;
+  return <section className={`original-signature original-signature-${family} signature-${structure}`} aria-labelledby="original-signature-title"><header><p>{label}</p><h2 id="original-signature-title">{heading}</h2><span>Original OARC scenario structure / intended logic only.</span></header><div className="original-signature-stages">{story.stages.slice(0, 4).map((stage, index) => <article key={stage.name}><b>{String(index + 1).padStart(2, "0")}</b><strong>{stage.name}</strong><p>{stage.moment}</p><em>{stage.value}</em></article>)}</div></section>;
+}
+
+function CaseDiscoveryDepth({ content, isOriginal, isConfidential }: { content: DiscoveryContent; isOriginal: boolean; isConfidential: boolean }) {
+  const label = isOriginal ? "OARC ORIGINAL / METHOD RECORD" : isConfidential ? "RESTRICTED ENGAGEMENT / PUBLIC EXPLANATION" : "PUBLIC PRODUCT / BUYER RECORD";
+  return <><section className="case-discovery-depth" aria-labelledby="case-discovery-title"><aside className="case-discovery-aside"><p>{label}</p><h2 id="case-discovery-title">The detail a<br /><i>serious buyer</i><br />needs.</h2><span>Clear enough to inspect, specific enough to be useful, and explicit about the difference between a public fact, a restricted record, and an original method.</span></aside><div className="case-discovery-grid"><article><b>WHAT IT IS</b><h3>{content.answerTitle}</h3><p>{content.answer}</p></article><article><b>THE BUSINESS QUESTION</b><h3>Start with the pressure.</h3><p>{content.businessQuestion}</p></article><article><b>HOW OARC APPROACHES IT</b><h3>Make the next decision clearer.</h3><p>{content.workingMethod}</p></article><article><b>{content.evidenceTitle.toUpperCase()}</b><h3>State the evidence boundary.</h3><p>{content.evidence}</p></article></div></section><section className="case-fit-bridge" aria-labelledby="case-fit-title"><div className="case-fit-copy"><span>IF THIS LOOKS LIKE YOUR BUSINESS</span><h2 id="case-fit-title">{content.fitTitle}</h2><p>{content.fit}</p><div className="contact-action-row"><a href={content.enquiry.href} target="_blank" rel="noopener noreferrer">{content.enquiry.label} <ArrowUpRight size={17} /></a><a href="https://wa.me/35679711799?text=Hi%20OARC%20Digital%2C%20I%20want%20to%20talk%20through%20a%20project." target="_blank" rel="noopener noreferrer" className="contact-action-secondary">WhatsApp OARC <ArrowUpRight size={17} /></a><a href="tel:+35679711799" className="contact-action-text">Call +356 7971 1799</a></div></div><aside className="case-service-stack"><b>RELATED OARC CAPABILITIES</b>{content.services.map((service) => <a href={service.href} target="_blank" rel="noopener noreferrer" key={`${service.href}-${service.label}`}>{service.label}<ArrowUpRight size={16} /></a>)}<Link href="/our-work/methodology">How OARC documents its work <ArrowUpRight size={16} /></Link></aside></section></>;
+}
+
+function CaseTopicPaths({ slug, content, isOriginal }: { slug: string; content: DiscoveryContent; isOriginal: boolean }) {
+  const topic = CASE_TOPIC_PATHS[slug];
+  if (!topic) return null;
+  const heading = slug === "pjazza" ? <>Start with the<br /><i>buyer’s question.</i></> : slug === "h360" ? <>Find the moment<br /><i>that breaks the day.</i></> : slug === "data-foundation" ? <>Name the record<br /><i>that will not agree.</i></> : slug === "live-context" ? <>Protect the<br /><i>first glance.</i></> : <>Find the repeated<br /><i>moment that matters.</i></>;
+  const projectEmail = `mailto:hello@oarcdigital.com?subject=${encodeURIComponent(`OARC project — ${topic.query}`)}&body=${encodeURIComponent(`Hi OARC Digital,\n\nI reached out from the ${topic.query} case route.\n\nThe business problem I want to discuss:\n\nMy current situation:\n\nBest next step for me:`)}`;
+  return <section className={`case-topic-paths topic-${slug} ${isOriginal ? "case-topic-original" : ""}`} aria-labelledby="case-topic-title"><header><p>READ THIS BY THE REAL PROBLEM</p><h2 id="case-topic-title">{heading}</h2><span>{isOriginal ? "This is an OARC method record. The route explains where the method may be useful; it does not turn the study into a client claim." : "This route connects the case record to an ordinary buyer question and a relevant OARC conversation."}</span></header><div><Link href={topic.href}><b>01</b><em>{topic.query}</em><h3>{content.businessQuestion}</h3><span>{topic.route} <ArrowUpRight size={16} /></span></Link><a href={projectEmail}><b>02</b><em>PROJECT CONVERSATION</em><h3>{content.fitTitle}</h3><span>EMAIL OARC / CONTEXT INCLUDED <ArrowUpRight size={16} /></span></a></div></section>;
+}
+
+export default function WorkCase() {
+  const params = useParams<{ slug: string }>();
+  const slug = params?.slug ?? "pjazza";
+  const knownStory = STORIES[slug];
+  const story = knownStory ?? STORIES.pjazza;
+  const isConfidential = story.mode.includes("Confidential");
+  const isOriginal = slug in ORIGINAL_STUDIES && !isConfidential;
+  const isClient = Boolean(story.clientRecord);
+  const discovery = DISCOVERY_CONTENT[slug];
+  const artefact = CASE_ARTEFACTS[slug];
+  const campaignContext = CAMPAIGN_CONTEXT[slug];
+  const rootStyle = story.theme ? ({ "--study-bg": story.theme.bg, "--study-paper": story.theme.paper, "--study-ink": story.theme.ink, "--study-signal": story.theme.signal, "--study-accent": story.theme.accent } as CSSProperties) : undefined;
+
+
+  if (!knownStory) return <main className="premium-work-root documentary"><section className="source-disclosure"><span>RECORD UNAVAILABLE</span><h2>This OARC Work record could not be found.</h2><Link href="/our-work">Return to Our Work</Link></section></main>;
+
+  const caseFormat = slug === "pjazza" ? "marketplace" : slug === "h360" ? "hospitality" : slug === "data-foundation" ? "archive" : slug === "live-context" ? "live" : isClient ? "client" : "original";
+  const heroAlt = story.heroAlt ?? (story.name === "PJAZZA" ? "Official PJAZZA marketplace imagery showing a food-and-dining context" : story.name === "DATA FOUNDATION" ? "Illustrative data-governance system visual with no client data" : isConfidential ? "Original non-identifying experience illustration" : `Original visual world for the ${story.name} scenario study`);
+  return <main className={`case-page documentary case-${slug} case-format-${caseFormat} ${isOriginal ? `original-case structure-${story.structure}` : ""} ${isClient ? "client-case" : ""}`} style={rootStyle}>
+    <header className="case-nav-light"><Link href="/our-work" className="oarc-brand light-brand" aria-label="OARC Digital Work"><span className="brand-word"><b>OARC</b><i>DIGITAL</i></span></Link><span className="case-signal">OARC SIGNAL / {isOriginal ? "ORIGINAL" : isConfidential ? "RESTRICTED" : isClient ? "CLIENT WORK" : "PUBLIC RECORD"}</span><Link href="/our-work" className="back-link-light"><ChevronLeft size={16} /> All stories</Link></header>
+    <section className="documentary-hero"><div className="documentary-hero-copy"><p>{story.eyebrow}</p><h1>{story.title.map((line, index) => <span className={index === 1 ? "hero-italic" : ""} key={line}>{line}</span>)}</h1><p className="documentary-intro">{story.intro}</p><div className="documentary-status"><CircleCheck size={15} /> {story.mode}</div></div><figure className={!story.image ? "documentary-hero-art" : ""}>{story.image ? <img src={story.image} alt={heroAlt} decoding="async" fetchPriority="high" /> : <div className="launch-art" aria-label="OARC original launch treatment; no client media" role="img"><span>DNM</span><b>LAUNCH<br />SEQUENCE</b><i>2026</i></div>}<figcaption><span>{story.name} / {isOriginal ? "OARC Original Study" : isClient ? "Client case record" : "Case story"}</span>{isOriginal ? <span>Original OARC illustrative asset</span> : <a href={story.source} target="_blank" rel="noopener noreferrer">Source: {story.sourceLabel} <ArrowUpRight size={14} /></a>}</figcaption></figure></section>
+    <CaseProofLedger story={story} slug={slug} isOriginal={isOriginal} />
+    <CaseAnswerPanel story={story} />
+    <section className="case-record-light"><p>WHAT THIS IS</p><div><h2>{story.record}</h2><div className="record-facts">{story.facts.map((fact, index) => <div key={fact}><b>{String(index + 1).padStart(2, "0")}</b><span>{fact}</span></div>)}</div></div></section>
+    {slug === "h360" && <RestaurantDayRibbon />}
+    {discovery && <CaseDiscoveryDepth content={discovery} isOriginal={isOriginal} isConfidential={isConfidential} />}
+    {discovery && <CaseTopicPaths slug={slug} content={discovery} isOriginal={isOriginal} />}
+    {isOriginal && <OriginalSignature story={story} />}
+    {slug === "pjazza" && story.evidenceMedia && <MarketplaceProofWall media={story.evidenceMedia} />}
+    {slug === "data-foundation" && <ArchiveProtocol />}
+    {slug === "maison-verre-discovery" && <ObjectSequence />}
+    {story.evidenceMedia && slug !== "pjazza" && <section className="pjazza-evidence-gallery" aria-labelledby="pjazza-evidence-title"><div className="case-section-intro"><p>PUBLIC PRODUCT EVIDENCE</p><h2 id="pjazza-evidence-title">The marketplace must work across <i>different kinds of decisions.</i></h2><span>Official product-page imagery, used as source-linked product context.</span></div><div className="pjazza-evidence-grid">{story.evidenceMedia.map((media, index) => <figure key={media.label} className={`pjazza-evidence-item evidence-${index + 1}`}><img src={media.src} alt={media.alt} loading="lazy" decoding="async" /><figcaption><b>{media.label}</b><span>{media.caption}</span></figcaption></figure>)}</div></section>}
+    {isOriginal ? <OriginalChapters story={story} /> : <section className="case-chapters-light">{story.chapters.map((chapter, index) => <article key={chapter.number}><div className="chapter-key"><b>{chapter.number}</b><span>{chapter.label}</span></div><div><h2>{chapter.title}</h2><p>{chapter.body}</p></div>{index === 1 && <aside><Sparkles size={31} /><span>THE DESIGN HAS A JOB: MAKE THE SYSTEM LEGIBLE.</span></aside>}</article>)}</section>}
+    {campaignContext && <CampaignContext context={campaignContext} story={story} />}
+    {artefact && <EvidenceArtefact artefact={artefact} />}
+    <section className="case-film-panel"><figure className={!story.journeyImage ? "case-film-art" : ""}>{story.journeyImage ? <img src={story.journeyImage} alt={story.heroAlt ?? (story.name === "PJAZZA" ? "Official PJAZZA marketplace imagery showing a public people-and-services context" : story.name === "DATA FOUNDATION" ? "Illustrative four-stage data-governance process visual with no client data" : isConfidential ? "Original non-identifying mobile experience illustration" : `Original supporting visual for the ${story.name} scenario study`)} loading="lazy" decoding="async" /> : <div className="launch-art launch-art-small" aria-hidden="true"><span>DNM</span><b>FIRST<br />SIGNAL</b><i>OARC</i></div>}</figure><div><span>{story.filmLabel}</span><h2>{story.filmTitle}</h2><p>{story.filmText}</p><span className="asset-status"><Play size={14} /> {isOriginal ? "ORIGINAL ILLUSTRATIVE ARTEFACT" : isClient ? story.image ? "SOURCE-SELECTED CASE MEDIA" : "OARC LAUNCH TREATMENT / NO CLIENT MEDIA" : "APPROVED RECORDING REQUIRED BEFORE PUBLICATION"}</span></div></section>
+    {isOriginal ? <OriginalSystem story={story} /> : <Journey story={story} />}
+    {story.liveRecord && <LiveBrandRecord record={story.liveRecord} isClient={isClient} />}
+    {isOriginal && <OriginalStudyRecord story={story} />}
+    {isConfidential && <ConfidentialRecord story={story} />}
+    {story.faq && <section className="case-faq" aria-labelledby="case-faq-title"><div className="case-section-intro"><p>{isClient ? "PLAIN-LANGUAGE CLIENT RECORD" : "PLAIN-LANGUAGE PRODUCT RECORD"}</p><h2 id="case-faq-title">The answers a person—and a search engine—<i>should be able to find.</i></h2></div><div>{story.faq.map((item, index) => <details key={item.question} open={index === 0}><summary><span>{String(index + 1).padStart(2, "0")}</span>{item.question}<MoveRight size={18} /></summary><p>{item.answer}</p></details>)}</div></section>}
+    <section className="source-disclosure"><span>{isOriginal ? "STUDY DISCLOSURE" : "SOURCE DISCIPLINE"}</span><h2>{story.closeTitle}</h2><p>{story.closeText}</p>{isOriginal ? <span className="source-static-label">ORIGINAL OARC SCENARIO / NO EXTERNAL CLIENT SOURCE</span> : <a href={story.source} target="_blank" rel="noopener noreferrer">Visit the approved public source <ArrowUpRight size={17} /></a>}</section>
+    <footer className="case-footer-light"><span>OARC DIGITAL / RESEARCH-LED WORK</span><span>© 2026</span></footer>
+  </main>;
+}

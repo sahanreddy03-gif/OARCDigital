@@ -316,7 +316,7 @@ Auto-generated from lib/seo/topPages.ts + lib/seo/llmsTxtGenerator.ts. The singl
 31. [Customer Acquisition Malta | Predictable CPA at Scale](https://oarcdigital.com/services/customer-acquisition) — tier service
 32. [AI Virtual Talent Hub | Autonomous AI Agents On-Demand](https://oarcdigital.com/services/hire-ai-employees) — tier service
 33. [Our Services | AI Creative, AI Employees & Revenue Automation](https://oarcdigital.com/services) — tier supporting
-34. [Our Work | Case Studies & Success Stories](https://oarcdigital.com/our-work) — tier supporting
+34. [Our Work — Evidence-Led Case Studies](https://oarcdigital.com/our-work) — tier supporting
 35. [Contact OARC Digital | Get in Touch with Our Team](https://oarcdigital.com/contact) — tier supporting
 36. [Pricing Plans](https://oarcdigital.com/pricing) — tier supporting
 37. [Who We Are | Our Founding Story](https://oarcdigital.com/why-us) — tier supporting
@@ -336,7 +336,7 @@ Auto-generated from lib/seo/topPages.ts + lib/seo/llmsTxtGenerator.ts. The singl
 51. [3D & AR Experiences | Immersive Design](https://oarcdigital.com/services/immersive-3d-ar) — tier service
 52. [Performance Analytics & Reporting | Data-Driven Insights](https://oarcdigital.com/services/performance-analytics) — tier service
 53. [About OARC Digital | Malta's AI-Native Creative & Automation Agency](https://oarcdigital.com/about) — tier strategic
-54. [Case Studies — OARC Digital Malta | Detailed Engagement Write-Ups](https://oarcdigital.com/case-studies) — tier strategic
+54. [How OARC Documents Its Work](https://oarcdigital.com/our-work/methodology) — tier strategic
 55. [Industries We Serve in Malta](https://oarcdigital.com/industries) — tier strategic
 56. [Business Diagnostics | OARC Intelligence](https://oarcdigital.com/intelligence) — tier strategic
 57. [Free Business Diagnostics — Malta](https://oarcdigital.com/diagnostics) — tier strategic

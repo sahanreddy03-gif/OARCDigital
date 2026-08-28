@@ -107,7 +107,7 @@ export default function BrandShowcaseSection() {
             className="col-span-12 md:col-span-7 md:row-span-2"
             style={{ opacity: 0 }}
           >
-            <Link href={`/case-studies/${heroStudy.slug}`}>
+            <Link href="/our-work">
               <div
                 className="group relative overflow-hidden rounded-xl bg-zinc-900 hover-elevate hover:-translate-y-1 transition-all duration-500 cursor-pointer h-[280px] md:h-full"
                 data-testid="card-case-study-hero"
@@ -151,7 +151,7 @@ export default function BrandShowcaseSection() {
               className="col-span-6 md:col-span-5"
               style={{ opacity: 0 }}
             >
-              <Link href={`/case-studies/${study.slug}`}>
+              <Link href="/our-work">
                 <div
                   className="group relative overflow-hidden rounded-xl bg-zinc-900 hover-elevate hover:-translate-y-0.5 transition-all duration-400 cursor-pointer h-[180px] md:h-[160px]"
                   data-testid={`card-case-study-medium-${index}`}
@@ -193,7 +193,7 @@ export default function BrandShowcaseSection() {
               className="col-span-4"
               style={{ opacity: 0 }}
             >
-              <Link href={`/case-studies/${study.slug}`}>
+              <Link href="/our-work">
                 <div
                   className="group relative overflow-hidden rounded-lg bg-zinc-900 hover-elevate hover:-translate-y-0.5 transition-all duration-400 cursor-pointer h-[140px] md:h-[130px]"
                   data-testid={`card-case-study-small-${index}`}

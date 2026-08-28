@@ -58,39 +58,39 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
 
   "/our-work": {
     path: "/our-work",
-    title: "Our Work — Case Studies & Campaigns | OARC Digital Malta",
+    title: "Our Work — Evidence-Led Case Studies | OARC Digital Malta",
     description:
-      "Selected OARC Digital projects: AI agents in production, brand systems, video, paid campaigns, and revenue automation builds across Malta and the EU.",
+      "OARC Digital case records for client work, event campaigns, public products, restricted engagements, and original studies—each with stated source context and a clear next step.",
     faqs: [
       {
-        question: "What kind of work does OARC Digital showcase?",
+        question: "What kinds of records appear in OARC Digital’s Work collection?",
         answer:
-          "Brand systems, video production, AI agent deployments, paid campaigns, web builds, and full revenue-automation programmes. Every case is published with a measured before/after on the metric the client asked us to move — not vanity metrics.",
+          "The collection brings together named client and event records, public OARC products, restricted anonymous engagement records, and OARC Original Studies. Each entry states its own evidence and disclosure context.",
       },
       {
-        question: "How are case studies selected?",
+        question: "How does OARC label the status of a Work record?",
         answer:
-          "We publish work where the client granted naming rights and the measured outcome cleared a meaningful baseline. Anonymised case studies sit behind the contact form for regulated clients (iGaming, fintech, healthcare) where naming would breach an NDA.",
+          "Every record identifies whether it is a public client record, a source-linked product, a restricted engagement, or an OARC Original Study before the main story begins.",
       },
       {
-        question: "Can OARC share results from an industry similar to mine?",
+        question: "What do the images in an OARC Work record prove?",
         answer:
-          `Yes — WhatsApp ${NAP.phoneDisplay} or email ${NAP.email} with your industry and we will send a tailored reel of comparable engagements within 24 working hours.`,
+          "Images are labelled as product evidence, source-selected client or event media, licensed editorial atmosphere, or original OARC artefacts. Visual context is not presented as proof of a result it cannot support.",
       },
       {
-        question: "Does OARC Digital work outside Malta?",
+        question: "Are figures in client records live performance counters?",
         answer:
-          "About 35% of the active engagement book serves clients across the EU, GCC (UAE, KSA), and India. Production happens from Birkirkara; account management adapts to your timezone.",
+          "No. Any figures in a client record are described with their source and date, such as a stated roster snapshot, rather than represented as live counters or a current campaign result.",
       },
       {
-        question: "Are OARC's case-study results independently verified?",
+        question: "Why are some OARC Work records anonymous or restricted?",
         answer:
-          "We publish the underlying analytics platform (GA4, Meta Ads Manager, HubSpot, the agent's own dashboard) on every case so the figure is auditable. References on request for any case under enterprise consideration.",
+          "Restricted records protect a client name or non-public details while still stating the disclosure boundary and the part of OARC’s work that can be described responsibly.",
       },
       {
-        question: "How does OARC measure campaign success?",
+        question: "What is an OARC Original Study?",
         answer:
-          "Each engagement opens with a baseline (revenue, lead volume, CAC, retention) and a 90-day target. Weekly performance reports compare actuals against the target. AI-agent and automation work is measured by hours of human time replaced and revenue uplift.",
+          "An OARC Original Study is an explicitly labelled internal concept or method record. It makes a creative, product, community, or operating-system direction visible without claiming an external client, deployed programme, or commercial outcome.",
       },
     ],
   },

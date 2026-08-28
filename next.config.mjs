@@ -75,6 +75,14 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // The legacy portfolio is replaced by the native Premium Work collection.
+      { source: '/case-studies', destination: '/our-work', permanent: true },
+      { source: '/case-studies/pjazza', destination: '/our-work/pjazza', permanent: true },
+      { source: '/case-studies/national-distributor-nlp', destination: '/our-work/data-foundation', permanent: true },
+      { source: '/case-studies/cricketpulse-india', destination: '/our-work/live-context', permanent: true },
+      { source: '/case-studies/:path*', destination: '/our-work', permanent: true },
+      { source: '/work', destination: '/our-work', permanent: true },
+      { source: '/work/:path*', destination: '/our-work/:path*', permanent: true },
       { source: '/h360/restaurant-marketing-malta', destination: '/h360', permanent: true },
       { source: '/h360/demo', destination: '/h360#h360-audit', permanent: true },
       // Meta App Live requires a resolvable Privacy Policy URL
@@ -94,6 +102,7 @@ const nextConfig = {
       { source: '/assets/:path*', headers: immutableCache },
       { source: '/media/:path*', headers: immutableCache },
       { source: '/agents/:path*', headers: immutableCache },
+      { source: '/attached_assets/premium-work/:path*', headers: immutableCache },
       {
         source: '/:path*\\.(png|jpg|jpeg|webp|avif|svg|ico|gif|woff|woff2|ttf|otf|mp4|webm|mov)',
         headers: immutableCache,

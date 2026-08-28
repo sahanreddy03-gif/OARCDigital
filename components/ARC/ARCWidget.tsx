@@ -1,5 +1,6 @@
 "use client";
 
+/** OARC Design Reminder — Premium Work is an exact standalone OARC documentary surface with its own deliberate contact path and no floating global chrome. */
 import { useState, useEffect } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
 import { X, Phone, Sparkles } from 'lucide-react';
@@ -111,7 +112,8 @@ export function ARCWidget() {
   // panel still mounts when triggered.
   // H360 is its own site — no OARC floating launcher on /h360/*
   const isH360 = location.startsWith('/h360');
-  const hideFloatingButton = location === '/contact' || isH360;
+  const isPremiumWork = location.startsWith('/work') || location.startsWith('/our-work');
+  const hideFloatingButton = location === '/contact' || isH360 || isPremiumWork;
 
   return (
     <>

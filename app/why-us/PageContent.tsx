@@ -660,7 +660,7 @@ export default function PageContent() {
             {[
               { label: "H360",         title: "Restaurant marketing Malta", body: "Google, reviews, direct orders, loyalty — built by operators who run Malta venues.", href: "/h360",         testId: "link-related-h360" },
               { label: "Comparison",   title: "Why choose OARC",    body: "Side-by-side vs the typical Malta agency — speed, cost, AI, lock-in.",       href: "/why-oarc",     testId: "link-related-comparison" },
-              { label: "Case studies", title: "The work in numbers", body: "Real Malta clients. Real revenue outcomes. Real time-to-launch.",             href: "/case-studies",  testId: "link-related-case-studies" },
+              { label: "Our work", title: "Evidence-led work records", body: "Client, product, restricted, and original records with stated source context and evidence boundaries.", href: "/our-work",       testId: "link-related-case-studies" },
             ].map((s) => (
               <Link key={s.href} href={s.href} className="block p-10 group bg-black" data-testid={s.testId}>
                 <p className="text-[9px] tracking-widest uppercase text-white/20 mb-5">{s.label}</p>

@@ -72,9 +72,9 @@ const SUPPLEMENTAL_META: Record<string, { title: string; description: string }> 
       "Explore OARC Digital's comprehensive suite of AI-powered services: creative production, AI employees for hire, and revenue automation solutions. Elite marketing services designed for ambitious brands in Malta and globally.",
   },
   "/our-work": {
-    title: "Our Work | Case Studies & Success Stories | OARC Digital",
+    title: "Our Work — Evidence-Led Case Studies | OARC Digital Malta",
     description:
-      "Explore OARC Digital's portfolio of successful AI-powered marketing campaigns and creative projects for global brands. Real results, authentic metrics, and proven expertise in AI creative and revenue automation.",
+      "OARC Digital case records for client work, event campaigns, public products, restricted engagements, and original studies—each with stated source context and a clear next step.",
   },
   "/contact": {
     title: "Contact OARC Digital | Get in Touch with Our Team",
@@ -106,10 +106,10 @@ const SUPPLEMENTAL_META: Record<string, { title: string; description: string }> 
     description:
       "Founded in Birkirkara to bring AI, creative, and automation under one roof for Maltese businesses. Meet the team and the operating principles behind OARC Digital.",
   },
-  "/case-studies": {
-    title: "Case Studies — OARC Digital Malta | Detailed Engagement Write-Ups",
+  "/our-work/methodology": {
+    title: "How OARC Documents Its Work | OARC Digital Malta",
     description:
-      "Detailed long-form case studies from OARC Digital across hospitality, iGaming, real estate, fintech, and SaaS. Methodology, measured outcomes, and the systems we built.",
+      "OARC Digital’s public documentation standard for products, client records, confidential engagements, and Original Studies.",
   },
   "/industries": {
     title: "Industries We Serve in Malta | OARC Digital",
@@ -401,6 +401,13 @@ export function buildCoreIndexSection(): string {
  *  pricing handoff). Kept generic-but-true so AI engines have at least
  *  one anchor fact per page even when the framework schema is absent. */
 function commonFactsFor(m: CorePageMeta): string[] {
+  if (m.path === "/our-work/methodology") {
+    return [
+      "The methodology separates public, illustrative, restricted, and measured material so a visitor can distinguish a public client record, product, restricted engagement, and OARC Original Study. (source: https://oarcdigital.com/our-work/methodology)",
+      "Each public record is expected to state OARC’s role, relevant source context, and disclosure boundary rather than treating visual atmosphere as proof. (source: https://oarcdigital.com/our-work/methodology)",
+      "Where a documented outcome is absent, the standard requires a launch or validation state instead of an invented number. (source: https://oarcdigital.com/our-work/methodology)",
+    ];
+  }
   return [
     `OARC Digital is headquartered at Level 1, The Brewhouse, Central Business District, Birkirkara CBD 2010, Malta — the team running ${m.canonical} works on-island. (source: https://oarcdigital.com/contact)`,
     `${m.canonical} is part of OARC Digital's ranked Core 60 (tier ${m.tier}, ${m.kind}) — the canonical pages OARC Digital wants AI answer engines to cite for queries about its services. (source: https://oarcdigital.com/sitemap.xml)`,
@@ -412,6 +419,18 @@ function commonFactsFor(m: CorePageMeta): string[] {
  *  structure as the framework FAQ block so AI engines can ingest a
  *  consistent shape across all 60 pages. */
 function commonFaqsFor(m: CorePageMeta): { q: string; a: string }[] {
+  if (m.path === "/our-work/methodology") {
+    return [
+      {
+        q: "What does OARC Digital’s Work methodology explain?",
+        a: "It explains how OARC labels a record’s state, identifies its role, carries its source context, labels visual material, and distinguishes documented measurements from launch or validation status.",
+      },
+      {
+        q: "How should a visitor read a restricted OARC Work record?",
+        a: "A restricted record states its disclosure boundary rather than exposing a client or non-public outcome. It should be read as a bounded account of OARC’s work, not as a named, independently verifiable client result.",
+      },
+    ];
+  }
   const subject = m.title.replace(/\s*[\|—–-]\s*OARC Digital.*$/i, "").trim();
   return [
     {
@@ -464,11 +483,13 @@ export function buildSupplementalLlmsFullEntries(): string {
       lines.push(`A: ${a}`);
       lines.push("");
     }
-    lines.push("**Pricing & contact**");
-    lines.push(
-      "Pricing: free 30-minute discovery call, then fixed-fee or outcome-priced quote (see https://oarcdigital.com/pricing). Contact: OARC Digital, Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. WhatsApp +356 7971 1799 · hello@oarcdigital.com",
-    );
-    lines.push("");
+    if (m.path !== "/our-work/methodology") {
+      lines.push("**Pricing & contact**");
+      lines.push(
+        "Pricing: free 30-minute discovery call, then fixed-fee or outcome-priced quote (see https://oarcdigital.com/pricing). Contact: OARC Digital, Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, Malta. WhatsApp +356 7971 1799 · hello@oarcdigital.com",
+      );
+      lines.push("");
+    }
     lines.push("---");
     lines.push("");
   }

@@ -1,12 +1,13 @@
 "use client";
 
+/** OARC Design Reminder — the Premium Work route carries its own exact contact system and must not inherit floating global conversion chrome. */
 import { usePathname } from "next/navigation";
 import { SiWhatsapp } from "react-icons/si";
 import { whatsappUrl } from "@/lib/utm";
 
 export default function MobileStickyCTA() {
   const pathname = usePathname() ?? "/";
-  if (pathname.startsWith("/h360")) return null;
+  if (pathname.startsWith("/h360") || pathname.startsWith("/work") || pathname.startsWith("/our-work")) return null;
   const wa = whatsappUrl(pathname);
 
   return (
