@@ -85,3 +85,31 @@
 
 /* OARC Design Reminder — Evidence in Motion: media-rich client records lead the catalogue; archive and original studies remain visibly quieter. */
 .premium-work-root .record-chapter{border-top:4px solid #baff16;display:grid;gap:26px;grid-column:span 12;grid-template-columns:.78fr 1fr 1.1fr;margin:58px 0 20px;padding:25px 0 2px}.premium-work-root .record-chapter span{color:#6a961a;font:900 10px/1.2 var(--font-premium-manrope),sans-serif;letter-spacing:.12em}.premium-work-root .record-chapter h3{font:900 clamp(35px,4vw,61px)/.83 var(--font-premium-manrope),sans-serif;letter-spacing:-.09em;margin:0}.premium-work-root .record-chapter h3 i{font-family:var(--font-premium-serif),serif;font-weight:400}.premium-work-root .record-chapter p{font-size:13px;line-height:1.6;margin:4px 0;max-width:390px}.premium-work-root .chapter-product{border-top-color:#22261f}.premium-work-root .chapter-product span{color:#22261f}.premium-work-root .chapter-original{border-top-color:#c9d5cc}.premium-work-root .chapter-original span{color:#53695c}.premium-work-root .chapter-original h3{color:#25382c}.premium-work-root .client-card-tiffany figure:before,.premium-work-root .client-card-louisiana-mama figure:before,.premium-work-root .client-card-palino figure:before,.premium-work-root .client-card-ricky-jr-burger figure:before,.premium-work-root .client-card-calle-bistro figure:before,.premium-work-root .client-card-kreta figure:before,.premium-work-root .client-card-massive-fan-zone figure:before,.premium-work-root .client-card-spinola-gin-fest figure:before,.premium-work-root .client-card-portomaso-casino figure:before{background:rgba(17,20,15,.74);border-left:3px solid #baff16;color:#fafff6;content:"";font:900 9px/1.2 var(--font-premium-manrope),sans-serif;left:0;letter-spacing:.11em;padding:10px 12px;position:absolute;top:0;z-index:2}.premium-work-root .client-card-tiffany figure:before{content:"PORTOMASO / NIGHT SERVICE"}.premium-work-root .client-card-louisiana-mama figure:before{content:"QORMI / DIRECT ORDER"}.premium-work-root .client-card-palino figure:before{content:"PIZZA / LOCAL RHYTHM"}.premium-work-root .client-card-ricky-jr-burger figure:before{content:"BURGER / SOCIAL SIGNAL"}.premium-work-root .client-card-calle-bistro figure:before{content:"SLIEMA / TABLE INTENT"}.premium-work-root .client-card-kreta figure:before{content:"PACEVILLE / LOCAL FINDABILITY"}.premium-work-root .client-card-massive-fan-zone figure:before{content:"SPINOLA BAY / MATCH NIGHT"}.premium-work-root .client-card-spinola-gin-fest figure:before{content:"SPINOLA BAY / 4TH EDITION"}.premium-work-root .client-card-portomaso-casino figure:before{content:"ST JULIAN'S / TABLE CONTEXT"}@media(max-width:850px){.premium-work-root .record-chapter{grid-template-columns:1fr;margin:36px 0 10px;padding-top:20px}.premium-work-root .record-chapter p{margin:0}.premium-work-root .client-card-tiffany figure:before,.premium-work-root .client-card-louisiana-mama figure:before,.premium-work-root .client-card-palino figure:before,.premium-work-root .client-card-ricky-jr-burger figure:before,.premium-work-root .client-card-calle-bistro figure:before,.premium-work-root .client-card-kreta figure:before,.premium-work-root .client-card-massive-fan-zone figure:before,.premium-work-root .client-card-spinola-gin-fest figure:before,.premium-work-root .client-card-portomaso-casino figure:before{font-size:8px;padding:8px 10px}}
+
+/* Premium showcase refinement: let the work and photography lead; keep accents restrained. */
+.premium-work-root .work-index-light .story-card,
+.premium-work-root .work-index-light .story-card-copy {
+  background: #f4f1e8;
+  color: #171a15;
+}
+.premium-work-root .work-index-light .story-card figure {
+  background: #dfe4d8;
+}
+.premium-work-root .work-index-light .story-card-copy > span,
+.premium-work-root .work-index-light .story-card-copy em {
+  color: #526052;
+}
+.premium-work-root .work-index-light .story-card-copy h3 {
+  color: #171a15;
+}
+.premium-work-root .work-index-light .story-card:hover {
+  background: #ebe9dc;
+}
+
+.premium-work-root .work-index-light .purpose-strip {
+  background: var(--lime);
+  color: var(--ink);
+}
+.premium-work-root .work-index-light .purpose-strip p {
+  max-width: 1180px;
+}
