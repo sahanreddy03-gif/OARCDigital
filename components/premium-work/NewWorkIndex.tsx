@@ -23,6 +23,17 @@ const CLIENT_SCOPE: Record<string, string> = {
   "portomaso-casino": "Approved venue-media showcase",
 };
 
+const SERVICE_SIGNALS = [
+  { label: "Digital marketing", href: "/aeo/digital-marketing-agency-malta" },
+  { label: "Social media management", href: "/aeo/social-media-agency-malta" },
+  { label: "Social video & content", href: "/aeo/video-production-malta" },
+  { label: "TikTok marketing", href: "/aeo/tiktok-marketing-malta" },
+  { label: "Website design & development", href: "/aeo/web-design-malta" },
+  { label: "AI chatbot implementation", href: "/aeo/ai-chatbot-malta" },
+  { label: "Marketing automation", href: "/aeo/marketing-automation-malta" },
+  { label: "Paid advertising", href: "/aeo/paid-advertising-malta" },
+];
+
 const clientProjects = Object.entries(CLIENT_CASE_STUDIES).map(([slug, story], index) => ({
   key: `client-${slug}`,
   href: `/new-work/${slug}`,
@@ -91,6 +102,8 @@ export default function NewWorkIndex() {
       <div className="story-controls"><div role="tablist" aria-label="Filter New Work records">{filters.map((item) => <button key={item} className={filter === item ? "active" : ""} onClick={() => setFilter(item)} role="tab" aria-selected={filter === item}>{item}</button>)}</div><span>{visible.length.toString().padStart(2, "0")} RECORDS / {filter.toUpperCase()}</span></div>
       <div className="story-cards">{visible.map((project, index) => <Link href={project.href} className={`story-card ${project.style}`} style={{ "--client-accent": project.accent } as React.CSSProperties} key={project.key}><figure>{project.image ? <img src={project.image} alt={`${project.title}: ${project.evidence}`} loading={project.category !== "Client concept work" || index < 2 ? "eager" : "lazy"} decoding="async" /> : <div className="client-launch-card-art" role="img" aria-label={`${project.title}: launch work in production`}><span>{project.title}</span><b>LAUNCH<br />WORK<br />IN PRODUCTION</b></div>}<figcaption><b>{project.number}</b><span>{"categoryLabel" in project ? project.categoryLabel : project.category}</span></figcaption></figure><div className="story-card-copy"><span>{project.tag}</span><h3>{project.title}</h3><p>{project.line}</p><div><b>{project.number}</b><em>{project.evidence}</em><ArrowUpRight size={19} /></div></div></Link>)}</div>
     </section>
+
+    <section className="service-index-rail" aria-labelledby="new-work-services-title"><div><p className="ink-label">OARC DELIVERY CAPABILITIES</p><h2 id="new-work-services-title">From strategy to<br /><i>implementation.</i></h2><p>These case studies sit inside the work OARC delivers for ambitious brands: digital marketing, social content, video, TikTok, websites, automation, AI chatbots, and paid growth.</p></div><nav aria-label="OARC Digital services from New Work">{SERVICE_SIGNALS.map((service) => <Link href={service.href} key={service.href}>{service.label}<ArrowUpRight size={16} /></Link>)}</nav></section>
 
     <section className="standard-section" id="new-work-standard"><div className="standard-stamp"><span>OARC</span><b>NEW<br />WORK</b></div><div><p className="ink-label">HOW TO READ THIS COLLECTION</p><h2>One collection.<br />Four client types.</h2><p>The work stays premium because the labelling stays simple. Each record shows the client context, the OARC delivery, and the public destination or approved project evidence available for that engagement.</p></div><ol><li><b>01</b> Client partnerships lead with OARC’s actual scope and approved public brand links.</li><li><b>02</b> Client products and private projects are identified before the story begins.</li><li><b>03</b> Concept-led client projects show thinking and craft through the same pressure-led standard as the named partnerships.</li></ol></section>
     <section className="archive-section" id="new-work-contact"><div><p className="ink-label">THE NEXT PARTNERSHIP</p><h2>Bring the real<br /><i>pressure.</i></h2><p>Bring the ambition, the business problem, or the moment that deserves a sharper creative and digital response.</p></div><a href="/contact" className="archive-contact">Start a conversation <ArrowUpRight size={19} /></a></section>

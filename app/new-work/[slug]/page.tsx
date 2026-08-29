@@ -30,9 +30,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const publicName = ORIGINAL_STUDY_PUBLIC_NAMES[slug] ?? story.name;
   const title = `${publicName} — New Work | OARC Digital`;
   const description = story.intro;
+  const keywords = [
+    `${publicName} OARC Digital case study`,
+    "digital marketing agency Malta",
+    "social media management Malta",
+    "social video and TikTok marketing",
+    "content production and campaigns",
+    "website and AI chatbot implementation",
+    "marketing automation Malta",
+  ];
   return {
     title,
     description,
+    keywords,
     alternates: getHreflangAlternates(`/new-work/${slug}`),
     openGraph: { title, description, url: `https://oarcdigital.com/new-work/${slug}`, type: "article", images: ogImageEntry({ title: publicName, subtitle: story.intro }) },
     twitter: { card: "summary_large_image", title, description, images: [ogImageUrl({ title: publicName, subtitle: story.intro })] },

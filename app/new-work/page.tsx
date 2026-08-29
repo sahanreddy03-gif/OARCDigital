@@ -7,11 +7,13 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 
 const title = "New Work — OARC Digital Client Portfolio | Malta";
-const description = "Explore OARC Digital client work across brand, content, digital products, systems, events, and launch campaigns, with scope and public project context in every case.";
+const description = "Explore OARC Digital client work across digital marketing, social media management, social video, TikTok campaigns, content production, websites, paid advertising, automation, AI chatbots, digital products, and launch campaigns.";
+const keywords = ["digital marketing agency Malta", "social media management Malta", "social media video", "TikTok marketing Malta", "video production Malta", "content creation Malta", "website design Malta", "AI chatbot implementation Malta", "marketing automation Malta", "paid advertising Malta", "digital agency Malta"];
 
 export const metadata: Metadata = {
   title,
   description,
+  keywords,
   alternates: getHreflangAlternates("/new-work"),
   openGraph: {
     title,
