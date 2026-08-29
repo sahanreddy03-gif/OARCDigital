@@ -380,11 +380,11 @@ export default function HeroSection() {
             style={{
               backgroundImage: `url(${HERO_CUSTOMERS_VIDEO.posterJpg})`,
               backgroundPosition: "center 40%",
-              filter: "brightness(0.45) contrast(1.08) saturate(1.05) blur(22px)",
+              filter: "brightness(0.58) contrast(1.04) saturate(1.22) blur(22px)",
               transform: "scale(1.18)",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 from-0% via-black/35 via-45% to-black/85 to-100%" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 from-0% via-black/20 via-45% to-black/70 to-100%" />
         </div>
 
         {/* ========== DESKTOP LAYOUT ========== */}
@@ -404,12 +404,13 @@ export default function HeroSection() {
           style={{ 
             backgroundImage: `url(${heroBackground})`,
             backgroundPosition: '35% center',
+            filter: 'brightness(1.12) saturate(1.18) contrast(1.03)',
           }}
         />
         {/* Desktop gradient overlays - always visible for text readability */}
-        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
-        <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
-        <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/60" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/68 via-black/20 to-transparent" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-black/24 via-transparent to-black/36" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent via-black/5 to-black/45" />
         
         {/* Desktop animations - always show immediately */}
         <>
@@ -479,8 +480,8 @@ export default function HeroSection() {
           </div>
 
           <p
-            className="shrink-0 mt-2 px-4 text-center leading-[1.3]"
-            style={{ fontSize: "clamp(0.95rem, 4.2vw, 1.15rem)" }}
+            className="shrink-0 mt-2 px-3 text-center leading-none whitespace-nowrap tracking-[-0.018em]"
+            style={{ fontSize: "clamp(0.76rem, 3.35vw, 1.08rem)" }}
             data-testid="text-hero-inhouse-line"
             data-speakable
           >
@@ -489,8 +490,7 @@ export default function HeroSection() {
             </span>{" "}
             <span className={`${heroSerif.className} italic text-white`}>
               Studio, Sales &amp; Tech
-            </span>
-            <br />
+            </span>{" "}
             <span className={`${heroSans.className} text-white font-semibold`}>
               at your disposal
             </span>

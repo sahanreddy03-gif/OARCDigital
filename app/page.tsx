@@ -177,6 +177,11 @@ export default function Page() {
         {/* SHIFT HAPPENS + department index — one unified bone surface, no gap */}
         <div style={{ background: "#F2EFE9" }}>
           <ShiftHappensSection />
+          <div
+            id="homepage-floating-controls-trigger"
+            aria-hidden="true"
+            className="h-px w-full"
+          />
           <OARCDepartmentIndex />
         </div>
 
