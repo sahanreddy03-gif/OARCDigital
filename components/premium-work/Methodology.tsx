@@ -1,0 +1,16 @@
+/** OARC Design Reminder — this is an evidence ledger, not a sales page: off-white paper, black type, lime only for active proof signals. */
+import { ArrowUpRight, ChevronLeft, MoveRight } from "lucide-react";
+import Link from "next/link";
+
+const standards = [
+  ["01", "Name the state.", "Every public record says whether it is verified work, a public product, a restricted anonymous engagement, or an OARC Original Study before a visitor reaches the main story."],
+  ["02", "Show the role.", "A credible case identifies what OARC actually did, the delivered artefacts, and the boundaries of the contribution. We do not turn a mood board into a delivery claim."],
+  ["03", "Let the source travel.", "A public product or result needs a source, owner, date, and approved public route. A private engagement states its disclosure boundary instead of exposing a client without permission."],
+  ["04", "Make the visual earn its place.", "Every visual is labelled as product evidence, licensed editorial atmosphere, or an original OARC artefact. Campaign energy can establish a world; it cannot substitute for proof."],
+  ["05", "Measure only what can be explained.", "When a result is published, it will carry a definition, timeframe, source owner, and caveat. If that record is absent, the story will state a launch or validation state rather than invent a number."],
+  ["06", "Keep the record reviewable.", "Links, rights, approvals, facts, and outcomes are reviewed as records. When they change, the page date and disclosure change with them."],
+];
+
+export default function Methodology() {
+  return <main className="methodology-page"><header className="case-nav-light"><Link href="/our-work" className="oarc-brand light-brand" aria-label="OARC Digital Work"><span className="brand-word"><b>OARC</b><i>DIGITAL</i></span></Link><span className="case-signal">OARC SIGNAL / METHOD</span><Link href="/our-work" className="back-link-light"><ChevronLeft size={16} /> All stories</Link></header><section className="method-hero"><p>PUBLIC DOCUMENTATION STANDARD</p><h1>HOW WE<br />MAKE THE WORK<br /><i>HOLD UP.</i></h1><div><span>OARC / 01—06</span><p>This is the public standard behind the collection: what qualifies as evidence, how imagery is described, and how a story stays useful under real scrutiny.</p></div></section><section className="method-answer"><p>THE DIRECT ANSWER</p><h2>OARC documents the work by separating <strong>what is public, illustrative, restricted, and measured</strong>—then putting the supporting record beside the claim.</h2><span>That makes the page easier for a person to question and easier for a search engine to understand.</span></section><section className="method-standards" aria-label="OARC documentation standards">{standards.map(([number, title, copy]) => <article key={number}><b>{number}</b><h2>{title}</h2><p>{copy}</p><span>OARC STANDARD <MoveRight size={14} /></span></article>)}</section><section className="method-close"><p>LOOKING FOR THE RECORD?</p><h2>Start with the facts.<br /><i>Then see the work.</i></h2><Link href="/our-work">Explore the collection <ArrowUpRight size={18} /></Link></section><footer className="case-footer-light"><span>OARC DIGITAL / RESEARCH-LED WORK</span><span>© 2026</span></footer></main>;
+}

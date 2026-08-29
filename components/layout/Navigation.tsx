@@ -134,6 +134,7 @@ export default function Navigation() {
   const navLinks = [
     { href: "/solutions", label: "Automation" },
     { href: "/our-work",  label: "Our Work" },
+    { href: "/new-work",  label: "New Work" },
     { href: "/pricing",   label: "Pricing" },
     { href: "/tools",     label: "Tools" },
   ];
