@@ -6,6 +6,8 @@ import { Inter_Tight, Instrument_Serif } from "next/font/google";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import MobileHeroMasonryGrid from "./MobileHeroMasonryGrid";
+import MobileHeroCustomersVideo from "./MobileHeroCustomersVideo";
+import { HERO_CUSTOMERS_VIDEO } from "@/lib/media/heroCustomersVideo";
 const heroBackground = "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
 
 /** Superside headline pair — Inter Tight (sans) + Instrument Serif (italic accent). */
@@ -370,13 +372,15 @@ export default function HeroSection() {
       >
         
         {/* ========== MOBILE LAYOUT ========== */}
-        {/* Lightweight colour field — no animated canvas or autoplay video above the H1. */}
-        <div className="md:hidden absolute inset-0 bg-[#0b1013]">
+        {/* Dark film grade behind H1 / pills / footer. The small top scene is intentionally omitted. */}
+        <div className="md:hidden absolute inset-0 bg-black">
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 bg-cover bg-no-repeat"
             style={{
-              background:
-                "radial-gradient(circle at 12% 20%, rgba(255,126,72,0.38), transparent 31%), radial-gradient(circle at 92% 34%, rgba(75,185,188,0.32), transparent 35%), radial-gradient(circle at 48% 78%, rgba(190,218,82,0.2), transparent 38%), linear-gradient(145deg, #21131a 0%, #11161c 52%, #0a1718 100%)",
+              backgroundImage: `url(${HERO_CUSTOMERS_VIDEO.posterJpg})`,
+              backgroundPosition: "center 40%",
+              filter: "brightness(0.58) contrast(1.04) saturate(1.22) blur(22px)",
+              transform: "scale(1.18)",
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/55" />
@@ -421,11 +425,11 @@ export default function HeroSection() {
         </>
         
         {/* ========== CONTENT ========== */}
-        {/* MOBILE — static, lightweight opening. Carousel stays pinned at bottom. */}
+        {/* MOBILE — carousel stays pinned at bottom. */}
         <div
           className={`md:hidden relative h-[100svh] flex flex-col overflow-hidden ${heroSans.className}`}
           style={{
-            paddingTop: "max(6.25rem, calc(env(safe-area-inset-top) + 5.25rem))",
+            paddingTop: "max(4.25rem, calc(env(safe-area-inset-top) + 3.25rem))",
             paddingBottom: "max(0.2rem, env(safe-area-inset-bottom))",
           }}
         >
@@ -448,6 +452,15 @@ export default function HeroSection() {
                 Team
               </span>
             </h1>
+          </div>
+
+          {/* Film band — exact 16:9 of the video so cover fills edge-to-edge with no crop */}
+          <div
+            className="relative shrink-0 w-full overflow-hidden mt-1.5"
+            style={{ aspectRatio: "16 / 9", width: "100%" }}
+            data-testid="hero-mobile-customers-band"
+          >
+            <MobileHeroCustomersVideo />
           </div>
 
           <div className="shrink-0 w-full px-3 mt-2 flex gap-2 justify-center">
@@ -477,8 +490,7 @@ export default function HeroSection() {
             </span>
           </p>
 
-          {/* Keep the proof carousel anchored to the lower edge without media above the H1. */}
-          <div className="flex-1 min-h-6" aria-hidden="true" />
+          {/* Carousel — fixed at the bottom of the first viewport; do not move */}
           <div className="shrink-0 isolate mt-1.5" data-testid="hero-mobile-carousel-wrap">
             <MobileHeroMasonryGrid />
           </div>
