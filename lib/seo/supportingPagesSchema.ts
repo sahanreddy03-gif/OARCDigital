@@ -97,39 +97,39 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
 
   "/new-work": {
     path: "/new-work",
-    title: "New Work — 32 OARC Digital Records | OARC Digital Malta",
+    title: "New Work — OARC Digital Client Portfolio | Malta",
     description:
-      "A complete OARC Digital Work index bringing together 21 original OARC records and 11 newly curated client and event records with clear source and evidence boundaries.",
+      "OARC Digital’s client portfolio across brand, content, digital products, systems, events, and launch campaigns, with scope and public project context in every case.",
     faqs: [
       {
-        question: "What is New Work?",
+        question: "What is included in OARC Digital New Work?",
         answer:
-          "New Work is one OARC Digital index containing 21 original OARC work records and 11 newly curated client and event records.",
+          "New Work brings together OARC client partnerships, client products, private client projects, and concept-led client engagements in one clearly organised collection.",
       },
       {
-        question: "How are the records separated?",
+        question: "Which entries are real client partnerships?",
         answer:
-          "Each record is labelled as original OARC work or a curated record before the visitor opens it, and the source, category, and evidence state remain visible on the collection page.",
+          "The Client Partnerships section contains named brands and events, OARC's stated delivery scope, approved brand media, and links to relevant public destinations.",
       },
       {
-        question: "Are the 21 original records client case studies?",
+        question: "How are concept-led client projects presented?",
         answer:
-          "They are the original OARC collection and remain linked to their established case-study routes; the New Work index does not relabel them as the 11 newly curated client and event records.",
+          "Concept-led client projects show the strategic, creative, product, and automation systems OARC delivered against focused briefs, including the prototype logic and working method behind each engagement.",
       },
       {
-        question: "How many curated records are included?",
+        question: "How is private client work presented?",
         answer:
-          "The combined page includes 11 curated named client and event records, including separate Fan Zone and Spinola Gin Fest records.",
+          "Private client projects explain the business pressure, OARC delivery approach, and design thinking while protecting the organisation's identity and private operating information.",
       },
       {
         question: "Does New Work replace Our Work?",
         answer:
-          "No. New Work is a separate collection at /new-work; the existing OARC Digital /our-work page remains a separate route.",
+          "No. New Work is a separate collection at /new-work; the existing OARC Digital /our-work page remains available as an independent route.",
       },
       {
-        question: "Can every record claim the same type of outcome?",
+        question: "How are results and public facts described?",
         answer:
-          "No. The evidence state varies by record, so original, public-product, regulated, launch, event, and dated client contexts remain explicitly labelled.",
+          "OARC distinguishes the work it delivered from public brand context. Ratings, follower counts, locations, and event dates are supporting brand facts unless a result is explicitly connected to a defined OARC scope and measurement period.",
       },
     ],
   },

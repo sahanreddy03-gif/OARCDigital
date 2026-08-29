@@ -6,8 +6,8 @@ import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags"
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 
-const title = "New Work — 32 OARC Digital Case Studies | OARC Digital Malta";
-const description = "A Premium Work proof index bringing together 21 original case studies and 11 curated client and event records with clear source and evidence boundaries.";
+const title = "New Work — OARC Digital Client Portfolio | Malta";
+const description = "Explore OARC Digital client work across brand, content, digital products, systems, events, and launch campaigns, with scope and public project context in every case.";
 
 export const metadata: Metadata = {
   title,
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     description,
     url: "https://oarcdigital.com/new-work",
     type: "website",
-    images: ogImageEntry({ title: "New Work — 32 OARC Digital Case Studies", subtitle: "Original Premium Work case studies and curated client records on one inspectable surface." }),
+    images: ogImageEntry({ title: "New Work — OARC Digital Client Portfolio", subtitle: "Brand, content, digital products, systems, events, and launch campaigns." }),
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: [ogImageUrl({ title: "New Work — 32 OARC Digital Case Studies", subtitle: "Original Premium Work case studies and curated client records on one inspectable surface." })],
+    images: [ogImageUrl({ title: "New Work — OARC Digital Client Portfolio", subtitle: "Brand, content, digital products, systems, events, and launch campaigns." })],
   },
   robots: { index: true, follow: true },
 };
