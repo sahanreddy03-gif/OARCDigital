@@ -6,6 +6,7 @@ import { X, Phone, Sparkles } from 'lucide-react';
 import { usePathname } from "next/navigation";
 import { ARCChat } from './ARCChat';
 import { NAP } from "@/lib/seo/nap";
+import { useHomepageFloatingControlsVisibility } from "@/components/useHomepageFloatingControlsVisibility";
 
 const PHONE_NUMBER = NAP.phoneE164;
 
@@ -17,6 +18,7 @@ export function ARCWidget() {
   const [isMobile, setIsMobile] = useState(false);
   const [initialPrompt, setInitialPrompt] = useState<string | null>(null);
   const [contextMode, setContextMode] = useState<'default' | 'h360'>('default');
+  const showFloatingControls = useHomepageFloatingControlsVisibility();
 
   // Global open hook: any element on the page can call
   //   window.dispatchEvent(new CustomEvent('arc:open', { detail: { prompt?: string } }))
@@ -60,7 +62,7 @@ export function ARCWidget() {
   }, []);
 
   useEffect(() => {
-    if (isOpen || popupDismissed) return;
+    if (isOpen || popupDismissed || !showFloatingControls) return;
     
     const hasSeenPopup = sessionStorage.getItem('arc-popup-seen-v2');
     if (hasSeenPopup) return;
@@ -70,7 +72,11 @@ export function ARCWidget() {
     }, 5000);
 
     return () => clearTimeout(showTimer);
-  }, [isOpen, popupDismissed]);
+  }, [isOpen, popupDismissed, showFloatingControls]);
+
+  useEffect(() => {
+    if (!showFloatingControls) setShowPopup(false);
+  }, [showFloatingControls]);
 
   useEffect(() => {
     if (!showPopup) return;
@@ -128,7 +134,7 @@ export function ARCWidget() {
 
       {/* Call Button - Above ARC - Only on landing pages */}
       <AnimatePresence>
-        {!isOpen && isLandingPage && (
+        {!isOpen && isLandingPage && showFloatingControls && (
           <m.a
             href={`tel:${PHONE_NUMBER}`}
             initial={{ scale: 0, opacity: 0 }}
@@ -152,7 +158,7 @@ export function ARCWidget() {
 
       {/* ARC Chat Button */}
       <AnimatePresence>
-        {!isOpen && !hideFloatingButton && (
+        {!isOpen && !hideFloatingButton && showFloatingControls && (
           <m.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
