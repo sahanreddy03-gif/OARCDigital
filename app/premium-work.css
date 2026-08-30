@@ -228,3 +228,13 @@
   .premium-work-root .light-hero-copy h1{font-size:clamp(59px,16vw,84px);line-height:.74;margin:27px 0 32px}
   .premium-work-root .hero-signal{bottom:12%;width:58vw}
 }
+
+/* Supplied event video — native controls, poster-first loading, and a useful text fallback. */
+.premium-work-root .case-media-video{background:#101311;display:block;height:100%;max-width:100%;object-fit:cover;width:100%}
+.premium-work-root .case-media-video:focus-visible{outline:3px solid var(--lime);outline-offset:-3px}
+.premium-work-root .case-media-video p{color:#fff;display:block;font-size:13px;line-height:1.5;padding:24px}
+.premium-work-root .case-media-video p a{color:var(--lime);text-decoration:underline;text-underline-offset:3px}
+.premium-work-root .case-film-panel figure:has(.case-media-video),
+.premium-work-root .pjazza-evidence-item:has(.case-media-video),
+.premium-work-root .case-delivery-grid figure:has(.case-media-video),
+.premium-work-root .case-chapter-media:has(.case-media-video){background:#101311}

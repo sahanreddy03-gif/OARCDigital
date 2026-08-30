@@ -23,6 +23,18 @@ const CASE_METADATA: Record<string, { title: string; keywords: string[] }> = {
     title: "Portomaso Casino — Venue Content & Events Case Study | OARC Digital",
     keywords: ["Portomaso Casino", "venue content Malta", "event campaign Malta", "hospitality video production", "casino events"],
   },
+  "massive-fan-zone": {
+    title: "Massive Promotions Fan Zone — Event Campaign Case Study | OARC Digital",
+    keywords: ["Massive Promotions Fan Zone", "Spinola Bay Fan Zone", "event marketing Malta", "social media content for events", "paid advertising Malta", "ticket sales campaign"],
+  },
+  "spinola-gin-fest": {
+    title: "Spinola Gin Fest — Festival Campaign Case Study | OARC Digital",
+    keywords: ["Spinola Gin Fest", "festival marketing Malta", "event promotion Malta", "social media content Malta", "paid advertising Malta", "video production Malta"],
+  },
+  "drink-n-more": {
+    title: "Drink N More — Launch Campaign Case Study | OARC Digital",
+    keywords: ["Drink N More launch campaign", "venue launch Malta", "event marketing Malta", "social media content Malta", "paid advertising Malta", "video production Malta"],
+  },
   h360: {
     title: "H360 — Restaurant Marketing System & Product Story | OARC Digital",
     keywords: ["H360 restaurant system", "restaurant marketing Malta", "restaurant booking system", "hospitality product", "restaurant digital transformation"],
