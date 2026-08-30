@@ -16,6 +16,7 @@ const PRIMARY = [
   { href: "/ai-agents", label: "AI Agents" },
   { href: "/solutions", label: "Automation" },
   { href: "/our-work",  label: "Our Work" },
+  { href: "/new-work",  label: "New Work" },
   { href: "/pricing",   label: "Pricing" },
 ];
 
