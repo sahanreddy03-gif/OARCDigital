@@ -15,8 +15,11 @@ export type DiscoveryContent = {
   enquiry: { label: string; href: string };
 };
 
-const oarc = "https://oarcdigital.com";
-const contact = `${oarc}/contact`;
+// These are internal destinations. Relative URLs keep the collection correct
+// in previews, deployments, and alternate hostnames without creating an
+// external-link detour for the visitor.
+const oarc = "";
+const contact = "/contact";
 
 export const DISCOVERY_CONTENT: Record<string, DiscoveryContent> = {
   pjazza: {

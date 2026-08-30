@@ -74,7 +74,12 @@ const SUPPLEMENTAL_META: Record<string, { title: string; description: string }> 
   "/our-work": {
     title: "Our Work | Case Studies & Success Stories | OARC Digital",
     description:
-      "Explore OARC Digital's portfolio of successful AI-powered marketing campaigns and creative projects for global brands. Real results, authentic metrics, and proven expertise in AI creative and revenue automation.",
+      "Explore OARC Digital's portfolio of named partnerships, public OARC products, private systems, and clearly labelled concept studies across creative, digital products, and automation.",
+  },
+  "/new-work": {
+    title: "New Work — OARC Digital Client Portfolio | Malta",
+    description:
+      "Explore OARC Digital work across named hospitality partnerships, public products, private systems, and clearly labelled concept studies. Each record identifies its evidence state and links to the public source or approved context available.",
   },
   "/contact": {
     title: "Contact OARC Digital | Get in Touch with Our Team",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AIStaffPageClient from "./AIStaffPageClient";
+import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
 const TITLE = "AI Staff Malta — Hire Your AI Employee | OARC";
 const DESCRIPTION =
@@ -76,6 +77,7 @@ export const metadata: Metadata = {
     url: CANONICAL,
     type: "website",
     siteName: "OARC Digital",
+    images: ogImageEntry({ title: TITLE, subtitle: DESCRIPTION }),
   },
   twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
   other: { "geo.region": "MT", "geo.placename": "Malta" },

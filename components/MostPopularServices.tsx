@@ -1,15 +1,5 @@
 import Link from "next/link";
 import { ArrowUpRight, Sparkles } from "lucide-react";
-import {
-  PROOF_PROJECTS_DELIVERED,
-  PROOF_SATISFACTION_RATING,
-} from "@/lib/proofMetrics";
-
-// 6 destination URLs and their data-testid attributes are SEO/test contracts —
-// preserve verbatim.
-
-const PROJECTS_NUM = PROOF_PROJECTS_DELIVERED.replace(/\+$/, "");
-const [RATING_NUM, RATING_DENOM] = PROOF_SATISFACTION_RATING.split("/");
 
 type AccentTheme = "amber" | "teal";
 
@@ -250,27 +240,10 @@ function HeroCard({ tile }: { tile: Tile }) {
         {tile.blurb}
       </p>
 
-      <div className="mt-auto pt-8">
-        <div className="flex items-end gap-4 border-t border-white/10 pt-6">
-          <div>
-            <div className="text-4xl font-light leading-none tracking-tight text-white md:text-5xl">
-              {PROJECTS_NUM}
-              <span className="text-orange-400">+</span>
-            </div>
-            <p className="mt-2 text-xs font-medium uppercase tracking-wider text-zinc-400">
-              Malta projects shipped to date
-            </p>
-          </div>
-          <div className="ml-auto hidden text-right md:block">
-            <div className="text-2xl font-light leading-none tracking-tight text-white">
-              {RATING_NUM}
-              <span className="text-orange-400/70">/{RATING_DENOM}</span>
-            </div>
-            <p className="mt-2 text-xs font-medium uppercase tracking-wider text-zinc-400">
-              Avg client rating
-            </p>
-          </div>
-        </div>
+      <div className="mt-auto border-t border-white/10 pt-6">
+        <p className="text-xs font-medium uppercase tracking-wider text-zinc-400">
+          Start with the public point of view
+        </p>
       </div>
     </CardShell>
   );
@@ -339,9 +312,8 @@ export default function MostPopularServices() {
               The pages Malta business owners read before they call us
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-zinc-400 md:text-base">
-              Read together by the founders behind{" "}
-              <span className="text-zinc-200">{PROOF_PROJECTS_DELIVERED} shipped Malta projects</span>{" "}
-              — the entry points that tell you whether OARC is the right fit before you ever fill in a form.
+              These are the clearest entry points into OARC’s services, products, and operating point of view
+              before you ever fill in a form.
             </p>
           </div>
           <Link

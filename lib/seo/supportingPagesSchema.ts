@@ -77,6 +77,16 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           `Contact OARC on WhatsApp at ${NAP.phoneDisplay} or email ${NAP.email} to discuss your project. Additional work is added to the public collection only after its evidence is approved.`,
       },
+      {
+        question: "Where can I verify the work?",
+        answer:
+          "Each published record identifies the public source, supplied media, or approved private-project boundary that supports the visible story.",
+      },
+      {
+        question: "Does the collection publish unsupported performance claims?",
+        answer:
+          "No. Quantitative outcomes, testimonials, and rankings are omitted unless the source, scope, timeframe, and approval basis are clear.",
+      },
     ],
   },
 
@@ -84,12 +94,12 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
     path: "/new-work",
     title: "New Work — OARC Digital Client Portfolio | Malta",
     description:
-      "OARC Digital’s client portfolio across brand, content, digital products, systems, events, and launch campaigns, with scope and public project context in every case.",
+      "OARC Digital’s work across named partnerships, public products, private systems, and clearly labelled concept studies, with scope and public context in every case.",
     faqs: [
       {
         question: "What is included in OARC Digital New Work?",
         answer:
-          "New Work brings together OARC client partnerships, client products, private client projects, and concept-led client engagements in one clearly organised collection.",
+          "New Work brings together named partnerships, public OARC products, private systems, and clearly labelled concept studies in one organised collection.",
       },
       {
         question: "Which entries are real client partnerships?",
@@ -99,7 +109,7 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
       {
         question: "How are concept-led client projects presented?",
         answer:
-          "Concept-led client projects show the strategic, creative, product, and automation systems OARC delivered against focused briefs, including the prototype logic and working method behind each engagement.",
+          "Concept studies show the strategic, creative, product, and automation systems OARC developed against illustrative briefs, including the prototype logic and working method behind each study.",
       },
       {
         question: "How is private client work presented?",
@@ -295,6 +305,16 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         question: "How does OARC decide what to publish?",
         answer:
           "Before a project is published, OARC confirms its public name, relationship to the work, approved media, direct verification link, and the source behind every visible claim. Information without an approved source is withheld.",
+      },
+      {
+        question: "What evidence is included in a case study?",
+        answer:
+          "A case study can include an approved public source, supplied project media, a private-project disclosure, and a clear account of what is known versus intentionally withheld.",
+      },
+      {
+        question: "Are all portfolio records external client work?",
+        answer:
+          "No. The portfolio distinguishes named partnerships, OARC-owned products, protected systems, and illustrative concept studies so readers can interpret each record correctly.",
       },
     ],
   },

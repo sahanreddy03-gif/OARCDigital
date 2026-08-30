@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ClarityPageClient from "./ClarityPageClient";
+import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
 const TITLE = "Marketing Analytics Malta — We Tell You What's Working | OARC";
 const DESCRIPTION =
@@ -76,6 +77,7 @@ export const metadata: Metadata = {
     url: CANONICAL,
     type: "website",
     siteName: "OARC Digital",
+    images: ogImageEntry({ title: TITLE, subtitle: DESCRIPTION }),
   },
   twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
   other: { "geo.region": "MT", "geo.placename": "Malta" },

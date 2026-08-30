@@ -84,6 +84,7 @@ export const TOP_PAGES: readonly TopPage[] = [
   // ── Tier 3: supporting / conversion shells (8) ─────────────────────────
   { path: "/services",                                           kind: "pillar",  tier: "supporting" },
   { path: "/our-work",                                           kind: "pillar",  tier: "supporting" },
+  { path: "/new-work",                                           kind: "pillar",  tier: "supporting" },
   { path: "/contact",                                            kind: "pillar",  tier: "supporting" },
   { path: "/pricing",                                            kind: "pillar",  tier: "supporting" },
   { path: "/why-us",                                             kind: "pillar",  tier: "supporting" },

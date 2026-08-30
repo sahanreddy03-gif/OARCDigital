@@ -317,32 +317,33 @@ Auto-generated from lib/seo/topPages.ts + lib/seo/llmsTxtGenerator.ts. The singl
 32. [AI Virtual Talent Hub | Autonomous AI Agents On-Demand](https://oarcdigital.com/services/hire-ai-employees) — tier service
 33. [Our Services | AI Creative, AI Employees & Revenue Automation](https://oarcdigital.com/services) — tier supporting
 34. [Our Work | Case Studies & Success Stories](https://oarcdigital.com/our-work) — tier supporting
-35. [Contact OARC Digital | Get in Touch with Our Team](https://oarcdigital.com/contact) — tier supporting
-36. [Pricing Plans](https://oarcdigital.com/pricing) — tier supporting
-37. [Who We Are | Our Founding Story](https://oarcdigital.com/why-us) — tier supporting
-38. [OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies](https://oarcdigital.com/blog) — tier supporting
-39. [Business Automation & Revenue Systems — Malta](https://oarcdigital.com/automation) — tier supporting
-40. [AI Tools & Tech Stack](https://oarcdigital.com/tools) — tier supporting
-41. [Influencer Marketing | Creator Partnerships](https://oarcdigital.com/services/influencer-marketing) — tier service
-42. [API Integration Malta | Connect Any System](https://oarcdigital.com/services/api-integration) — tier service
-43. [Ecommerce Development Malta | Shopify, WooCommerce & Headless](https://oarcdigital.com/services/ecommerce-development) — tier service
-44. [MVP Development Services Malta | Launch Your Startup in 8-12 Weeks](https://oarcdigital.com/services/mvp-development) — tier service
-45. [Growth Strategy & Consulting | Strategic Planning](https://oarcdigital.com/services/growth-strategy) — tier service
-46. [Ad Creative Design | Performance Marketing Creative](https://oarcdigital.com/services/ad-creative) — tier service
-47. [Email Creative Design | Email Marketing Design](https://oarcdigital.com/services/email-creative) — tier service
-48. [Print & Packaging Design | Physical Product Design](https://oarcdigital.com/services/print-packaging) — tier service
-49. [Illustration Services | Custom Digital Art](https://oarcdigital.com/services/illustration) — tier service
-50. [Design Systems | Scalable UI Frameworks](https://oarcdigital.com/services/design-systems) — tier service
-51. [3D & AR Experiences | Immersive Design](https://oarcdigital.com/services/immersive-3d-ar) — tier service
-52. [Performance Analytics & Reporting | Data-Driven Insights](https://oarcdigital.com/services/performance-analytics) — tier service
-53. [About OARC Digital | Malta's AI-Native Creative & Automation Agency](https://oarcdigital.com/about) — tier strategic
-54. [Case Studies — OARC Digital Malta | Detailed Engagement Write-Ups](https://oarcdigital.com/case-studies) — tier strategic
-55. [Industries We Serve in Malta](https://oarcdigital.com/industries) — tier strategic
-56. [Business Diagnostics | OARC Intelligence](https://oarcdigital.com/intelligence) — tier strategic
-57. [Free Business Diagnostics — Malta](https://oarcdigital.com/diagnostics) — tier strategic
-58. [Enterprise Solutions](https://oarcdigital.com/enterprise) — tier strategic
-59. [Road Map 2026](https://oarcdigital.com/roadmap-2026) — tier strategic
-60. [PDF Marketing Hub — Capabilities, Profiles & One-Pagers](https://oarcdigital.com/pdf-hub) — tier strategic
+35. [New Work — OARC Digital Client Portfolio | Malta](https://oarcdigital.com/new-work) — tier supporting
+36. [Contact OARC Digital | Get in Touch with Our Team](https://oarcdigital.com/contact) — tier supporting
+37. [Pricing Plans](https://oarcdigital.com/pricing) — tier supporting
+38. [Who We Are | Our Founding Story](https://oarcdigital.com/why-us) — tier supporting
+39. [OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies](https://oarcdigital.com/blog) — tier supporting
+40. [Business Automation & Revenue Systems — Malta](https://oarcdigital.com/automation) — tier supporting
+41. [AI Tools & Tech Stack](https://oarcdigital.com/tools) — tier supporting
+42. [Influencer Marketing | Creator Partnerships](https://oarcdigital.com/services/influencer-marketing) — tier service
+43. [API Integration Malta | Connect Any System](https://oarcdigital.com/services/api-integration) — tier service
+44. [Ecommerce Development Malta | Shopify, WooCommerce & Headless](https://oarcdigital.com/services/ecommerce-development) — tier service
+45. [MVP Development Services Malta | Launch Your Startup in 8-12 Weeks](https://oarcdigital.com/services/mvp-development) — tier service
+46. [Growth Strategy & Consulting | Strategic Planning](https://oarcdigital.com/services/growth-strategy) — tier service
+47. [Ad Creative Design | Performance Marketing Creative](https://oarcdigital.com/services/ad-creative) — tier service
+48. [Email Creative Design | Email Marketing Design](https://oarcdigital.com/services/email-creative) — tier service
+49. [Print & Packaging Design | Physical Product Design](https://oarcdigital.com/services/print-packaging) — tier service
+50. [Illustration Services | Custom Digital Art](https://oarcdigital.com/services/illustration) — tier service
+51. [Design Systems | Scalable UI Frameworks](https://oarcdigital.com/services/design-systems) — tier service
+52. [3D & AR Experiences | Immersive Design](https://oarcdigital.com/services/immersive-3d-ar) — tier service
+53. [Performance Analytics & Reporting | Data-Driven Insights](https://oarcdigital.com/services/performance-analytics) — tier service
+54. [About OARC Digital | Malta's AI-Native Creative & Automation Agency](https://oarcdigital.com/about) — tier strategic
+55. [Case Studies — OARC Digital Malta | Detailed Engagement Write-Ups](https://oarcdigital.com/case-studies) — tier strategic
+56. [Industries We Serve in Malta](https://oarcdigital.com/industries) — tier strategic
+57. [Business Diagnostics | OARC Intelligence](https://oarcdigital.com/intelligence) — tier strategic
+58. [Free Business Diagnostics — Malta](https://oarcdigital.com/diagnostics) — tier strategic
+59. [Enterprise Solutions](https://oarcdigital.com/enterprise) — tier strategic
+60. [Road Map 2026](https://oarcdigital.com/roadmap-2026) — tier strategic
+61. [PDF Marketing Hub — Capabilities, Profiles & One-Pagers](https://oarcdigital.com/pdf-hub) — tier strategic
 
 <!-- AUTOGEN:CORE-60-INDEX:END -->
 

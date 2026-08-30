@@ -24,6 +24,14 @@ type Story = {
   clientRecord?: boolean; heroAlt?: string;
 };
 
+function displayCopy(value: string, isConceptStudy: boolean) {
+  if (!isConceptStudy) return value;
+  return value
+    .replace(/\bOARC client project\b/gi, "OARC concept study")
+    .replace(/\bclient project\b/gi, "concept study")
+    .replace(/\bclient brief\b/gi, "illustrative brief");
+}
+
 const STORIES: Record<string, Story> = {
   pjazza: {
     name: "PJAZZA",
@@ -141,28 +149,28 @@ const PROOF_LEDGERS: Record<string, ProofLedger> = {
 
 /** OARC Design Reminder — organic language is a useful route through a real problem, never a list of empty keywords. */
 const CASE_TOPIC_PATHS: Record<string, { query: string; href: string; route: string }> = {
-  pjazza: { query: "LIVE SHOPPING MARKETPLACE · MALTA", href: "/marketplace-app-development-malta", route: "DIGITAL PRODUCTS & MARKETPLACES" },
-  h360: { query: "RESTAURANT MARKETING & SYSTEMS · MALTA", href: "/restaurant-marketing-malta", route: "RESTAURANT GROWTH" },
-  "data-foundation": { query: "DATA QUALITY, GOVERNANCE & INTEGRATIONS", href: "/ai-automation-malta", route: "AI OPERATIONS" },
-  "live-context": { query: "MOBILE APP & INFORMATION EXPERIENCE DESIGN", href: "/web-app-development-malta", route: "DIGITAL PRODUCT BUILD" },
-  "meridian-retail-response": { query: "AI CUSTOMER SUPPORT & SALES HANDOFFS", href: "/ai-automation-malta", route: "AI OPERATIONS" },
-  "cobalt-decision-thread": { query: "GROWTH STRATEGY & DELIVERY GOVERNANCE", href: "/ai-consulting-malta", route: "AI CONSULTING" },
-  "skyline-first-response": { query: "WEBSITE DESIGN & CUSTOMER ENQUIRY EXPERIENCE", href: "/website-design-malta", route: "WEBSITE DESIGN" },
-  "vela-signal-pipeline": { query: "CUSTOMER ACQUISITION & SALES WORKFLOW DESIGN", href: "/creative-growth-malta", route: "CREATIVE & GROWTH" },
-  "ashford-in-real-life": { query: "PAID CREATIVE & VIDEO PRODUCTION", href: "/creative-growth-malta", route: "CREATIVE & GROWTH" },
-  "kinetic-member-energy": { query: "COMMUNITY CONTENT & SOCIAL MEDIA MANAGEMENT", href: "/creative-growth-malta", route: "CREATIVE & GROWTH" },
-  "maison-verre-discovery": { query: "BRAND IDENTITY & PRODUCT LAUNCH CAMPAIGNS", href: "/creative-growth-malta", route: "CREATIVE & GROWTH" },
-  "botanic-muse-field-notes": { query: "CONTENT STRATEGY & RESPONSIBLE BRAND COMMUNITY", href: "/creative-growth-malta", route: "CREATIVE & GROWTH" },
-  "vertex-after-launch": { query: "PRODUCT ENGAGEMENT & COMMUNITY STRATEGY", href: "/marketplace-app-development-malta", route: "DIGITAL PRODUCTS" },
-  "arena-one-regional-signal": { query: "CAMPAIGN STRATEGY, VIDEO & CULTURAL DISTRIBUTION", href: "/creative-growth-malta", route: "CREATIVE & GROWTH" },
-  "wellbridge-clear-path": { query: "SERVICE DESIGN & ACCOUNTABLE WORKFLOW AUTOMATION", href: "/ai-automation-malta", route: "AI OPERATIONS" },
-  "aurum-document-trail": { query: "DOCUMENT WORKFLOW AUTOMATION & HUMAN REVIEW", href: "/ai-automation-malta", route: "AI OPERATIONS" },
-  "hearth-test-kitchen": { query: "CREATIVE OPERATIONS & PAID CREATIVE TESTING", href: "/creative-growth-malta", route: "CREATIVE & GROWTH" },
-  "fanline-live-ritual": { query: "LIVE AUDIENCE EXPERIENCE & MOBILE PRODUCT DESIGN", href: "/web-app-development-malta", route: "DIGITAL PRODUCT BUILD" },
-  "crownline-fresh-signal": { query: "OPERATIONAL DECISION SUPPORT & DATA WORKFLOWS", href: "/ai-automation-malta", route: "AI OPERATIONS" },
-  "bluebridge-candidate-welcome": { query: "CANDIDATE COMMUNICATION & HUMAN HANDOFFS", href: "/website-design-malta", route: "WEBSITE DESIGN" },
-  "northforge-adoption-ladder": { query: "AI AUTOMATION & AI CONSULTING · MALTA", href: "/ai-automation-malta", route: "AI OPERATIONS" },
-  "belgrave-client-time": { query: "CUSTOMER EXPERIENCE & SERVICE WORKFLOW DESIGN", href: "/website-design-malta", route: "WEBSITE DESIGN" },
+  pjazza: { query: "LIVE SHOPPING MARKETPLACE · MALTA", href: "/aeo/app-development-malta", route: "DIGITAL PRODUCTS & MARKETPLACES" },
+  h360: { query: "RESTAURANT MARKETING & SYSTEMS · MALTA", href: "/aeo/hospitality-360-malta", route: "RESTAURANT GROWTH" },
+  "data-foundation": { query: "DATA QUALITY, GOVERNANCE & INTEGRATIONS", href: "/aeo/custom-software-malta", route: "AI OPERATIONS" },
+  "live-context": { query: "MOBILE APP & INFORMATION EXPERIENCE DESIGN", href: "/aeo/mobile-app-developers-malta", route: "DIGITAL PRODUCT BUILD" },
+  "meridian-retail-response": { query: "AI CUSTOMER SUPPORT & SALES HANDOFFS", href: "/aeo/ai-chatbot-malta", route: "AI OPERATIONS" },
+  "cobalt-decision-thread": { query: "GROWTH STRATEGY & DELIVERY GOVERNANCE", href: "/aeo/digital-marketing-agency-malta", route: "AI CONSULTING" },
+  "skyline-first-response": { query: "WEBSITE DESIGN & CUSTOMER ENQUIRY EXPERIENCE", href: "/aeo/web-design-malta", route: "WEBSITE DESIGN" },
+  "vela-signal-pipeline": { query: "CUSTOMER ACQUISITION & SALES WORKFLOW DESIGN", href: "/aeo/digital-marketing-agency-malta", route: "CREATIVE & GROWTH" },
+  "ashford-in-real-life": { query: "PAID CREATIVE & VIDEO PRODUCTION", href: "/aeo/video-production-malta", route: "CREATIVE & GROWTH" },
+  "kinetic-member-energy": { query: "COMMUNITY CONTENT & SOCIAL MEDIA MANAGEMENT", href: "/aeo/social-media-agency-malta", route: "CREATIVE & GROWTH" },
+  "maison-verre-discovery": { query: "BRAND IDENTITY & PRODUCT LAUNCH CAMPAIGNS", href: "/aeo/branding-agency-malta", route: "CREATIVE & GROWTH" },
+  "botanic-muse-field-notes": { query: "CONTENT STRATEGY & RESPONSIBLE BRAND COMMUNITY", href: "/aeo/content-creation-malta", route: "CREATIVE & GROWTH" },
+  "vertex-after-launch": { query: "PRODUCT ENGAGEMENT & COMMUNITY STRATEGY", href: "/aeo/app-development-malta", route: "DIGITAL PRODUCTS" },
+  "arena-one-regional-signal": { query: "CAMPAIGN STRATEGY, VIDEO & CULTURAL DISTRIBUTION", href: "/aeo/video-production-malta", route: "CREATIVE & GROWTH" },
+  "wellbridge-clear-path": { query: "SERVICE DESIGN & ACCOUNTABLE WORKFLOW AUTOMATION", href: "/aeo/ai-agency-malta", route: "AI OPERATIONS" },
+  "aurum-document-trail": { query: "DOCUMENT WORKFLOW AUTOMATION & HUMAN REVIEW", href: "/aeo/custom-software-malta", route: "AI OPERATIONS" },
+  "hearth-test-kitchen": { query: "CREATIVE OPERATIONS & PAID CREATIVE TESTING", href: "/aeo/paid-advertising-malta", route: "CREATIVE & GROWTH" },
+  "fanline-live-ritual": { query: "LIVE AUDIENCE EXPERIENCE & MOBILE PRODUCT DESIGN", href: "/aeo/mobile-app-developers-malta", route: "DIGITAL PRODUCT BUILD" },
+  "crownline-fresh-signal": { query: "OPERATIONAL DECISION SUPPORT & DATA WORKFLOWS", href: "/aeo/custom-software-malta", route: "AI OPERATIONS" },
+  "bluebridge-candidate-welcome": { query: "CANDIDATE COMMUNICATION & HUMAN HANDOFFS", href: "/aeo/web-design-malta", route: "WEBSITE DESIGN" },
+  "northforge-adoption-ladder": { query: "AI AUTOMATION & AI CONSULTING · MALTA", href: "/aeo/ai-agency-malta", route: "AI OPERATIONS" },
+  "belgrave-client-time": { query: "CUSTOMER EXPERIENCE & SERVICE WORKFLOW DESIGN", href: "/aeo/web-design-malta", route: "WEBSITE DESIGN" },
 };
 
 /** OARC Design Reminder — artefacts expose a case-specific decision; they never stand in for client evidence. */
@@ -209,30 +217,31 @@ function getCaseContextFallback(story: Story, slug: string): EvidenceMedia {
   return CASE_CONTEXT_FALLBACKS.general;
 }
 
-function CaseDeliverySummary({ story, slug, context, artefact }: { story: Story; slug: string; context?: EvidenceMedia; artefact?: EvidenceMedia }) {
+function CaseDeliverySummary({ story, slug, context, artefact, isOriginal }: { story: Story; slug: string; context?: EvidenceMedia; artefact?: EvidenceMedia; isOriginal: boolean }) {
   const fallback = getCaseContextFallback(story, slug);
+  const copy = (value: string) => displayCopy(value, isOriginal);
   const selectedMedia = story.evidenceMedia ?? [];
   const media = [
     { item: story.image ? { src: story.image, alt: story.heroAlt ?? `${story.name} case visual`, label: "CLIENT CHALLENGE / CASE FRAME", caption: "The primary case visual introduces the client problem and its working context." } : fallback, key: "challenge" },
     { item: artefact ?? selectedMedia[1] ?? { src: story.journeyImage || fallback.src, alt: `${story.name} delivery visual`, label: "OARC DELIVERY / WORKING SYSTEM", caption: "The delivery visual shows the method, system, or campaign logic OARC brought to the brief." }, key: "delivery" },
     { item: selectedMedia[2] ?? context ?? fallback, key: "outcome" },
   ];
-  return <section className="case-delivery-summary" aria-labelledby="case-delivery-title"><header><p>THE CLIENT STORY / OARC DELIVERY</p><h2 id="case-delivery-title">From pressure to<br /><i>visible progress.</i></h2><span>Every case starts with the client challenge, shows what OARC delivered, and makes the resulting shift easier to understand.</span></header><div className="case-delivery-grid">{[
-    { label: "01 / CLIENT CHALLENGE", chapter: story.chapters[0], media: media[0] },
+  return <section className="case-delivery-summary" aria-labelledby="case-delivery-title"><header><p>{isOriginal ? "THE CONCEPT STUDY / OARC METHOD" : "THE CLIENT STORY / OARC DELIVERY"}</p><h2 id="case-delivery-title">From pressure to<br /><i>visible progress.</i></h2><span>{isOriginal ? "Each study starts with a scenario, shows the OARC intervention, and keeps intended value separate from client outcomes." : "Every case starts with the client challenge, shows what OARC delivered, and makes the resulting shift easier to understand."}</span></header><div className="case-delivery-grid">{[
+    { label: isOriginal ? "01 / THE SCENARIO" : "01 / CLIENT CHALLENGE", chapter: story.chapters[0], media: media[0] },
     { label: "02 / WHAT OARC DELIVERED", chapter: story.chapters[1] ?? story.chapters[0], media: media[1] },
-    { label: "03 / WHAT THE WORK ACCOMPLISHED", chapter: story.chapters[2] ?? story.chapters[1] ?? story.chapters[0], media: media[2] },
-  ].map(({ label, chapter, media: frame }) => <article key={label}><figure><img src={frame.item.src} alt={frame.item.alt} loading="lazy" decoding="async" /><figcaption><b>{frame.item.label}</b><span>{frame.item.caption}</span></figcaption></figure><p>{label}</p><h3>{chapter.title}</h3><span>{chapter.body}</span></article>)}</div></section>;
+    { label: isOriginal ? "03 / INTENDED VALUE" : "03 / WHAT THE WORK ACCOMPLISHED", chapter: story.chapters[2] ?? story.chapters[1] ?? story.chapters[0], media: media[2] },
+  ].map(({ label, chapter, media: frame }) => <article key={label}><figure><img src={frame.item.src} alt={frame.item.alt} loading="lazy" decoding="async" /><figcaption><b>{frame.item.label}</b><span>{frame.item.caption}</span></figcaption></figure><p>{label}</p><h3>{copy(chapter.title)}</h3><span>{copy(chapter.body)}</span></article>)}</div></section>;
 }
 
 function CaseServiceSignalRail({ story }: { story: Story }) {
   return <section className="case-service-signal" aria-labelledby="case-services-title"><div><p>RELATED OARC DELIVERY</p><h2 id="case-services-title">The capabilities behind<br /><i>the work.</i></h2><span>{story.name} sits inside the same implementation practice: strategy, creative production, digital delivery, and accountable optimisation working together.</span></div><nav aria-label={`${story.name} related OARC services`}>{CASE_SERVICE_LINKS.map((service) => <Link href={service.href} key={service.href}><span>{service.label}</span><ArrowUpRight size={16} /></Link>)}</nav></section>;
 }
 
-function Journey({ story }: { story: Story }) {
+function Journey({ story, isOriginal }: { story: Story; isOriginal: boolean }) {
   const [active, setActive] = useState(0);
   const stage = story.stages[active];
   const title = story.journeyTitle ?? { first: "One decision.", accent: "One useful next step." };
-  return <section className="journey-module"><div className="journey-heading"><span>THE SYSTEM, IN MOTION</span><h2>{title.first}<br /><i>{title.accent}</i></h2></div><div className="journey-layout"><div className="journey-tabs" role="tablist" aria-label={`${story.name} journey`}>{story.stages.map((item, index) => <button key={item.name} onClick={() => setActive(index)} className={active === index ? "active" : ""} role="tab" aria-selected={active === index}><b>{String(index + 1).padStart(2, "0")}</b>{item.name}</button>)}</div><article className="journey-detail"><p className="journey-mark">{stage.name}</p><h3>{stage.moment}</h3><dl><div><dt>WHAT THE SYSTEM DOES</dt><dd>{stage.system}</dd></div><div><dt>WHY IT MATTERS</dt><dd>{stage.value}</dd></div></dl></article></div></section>;
+  return <section className="journey-module"><div className="journey-heading"><span>{isOriginal ? "THE CONCEPT, IN MOTION" : "THE SYSTEM, IN MOTION"}</span><h2>{title.first}<br /><i>{title.accent}</i></h2></div><div className="journey-layout"><div className="journey-tabs" role="tablist" aria-label={`${story.name} journey`}>{story.stages.map((item, index) => <button key={item.name} onClick={() => setActive(index)} className={active === index ? "active" : ""} role="tab" aria-selected={active === index}><b>{String(index + 1).padStart(2, "0")}</b>{displayCopy(item.name, isOriginal)}</button>)}</div><article className="journey-detail"><p className="journey-mark">{displayCopy(stage.name, isOriginal)}</p><h3>{displayCopy(stage.moment, isOriginal)}</h3><dl><div><dt>WHAT THE SYSTEM DOES</dt><dd>{displayCopy(stage.system, isOriginal)}</dd></div><div><dt>WHY IT MATTERS</dt><dd>{displayCopy(stage.value, isOriginal)}</dd></div></dl></article></div></section>;
 }
 
 function LiveBrandRecord({ record, isClient }: { record: LiveRecord; isClient?: boolean }) {
@@ -241,7 +250,7 @@ function LiveBrandRecord({ record, isClient }: { record: LiveRecord; isClient?: 
 }
 
 function OriginalStudyRecord({ story }: { story: Story }) {
-  return <section className="original-study-record" aria-labelledby="original-study-record-title"><div><p>CLIENT CONCEPT PROJECT</p><h2 id="original-study-record-title">A designed direction,<br /><i>made tangible.</i></h2></div><div><p>{story.mode}</p><p>OARC delivered this concept, visual world, and working prototype against a focused client brief to make a sharper system or experience tangible.</p><strong>Client brief, OARC thinking, and a delivered prototype.</strong></div></section>;
+  return <section className="original-study-record" aria-labelledby="original-study-record-title"><div><p>OARC CONCEPT STUDY</p><h2 id="original-study-record-title">A designed direction,<br /><i>made tangible.</i></h2></div><div><p>{displayCopy(story.mode, true)}</p><p>OARC developed this illustrative concept, visual world, and working prototype to make a sharper system or experience tangible.</p><strong>Illustrative brief, OARC thinking, and a concept prototype.</strong></div></section>;
 }
 
 function ConfidentialRecord({ story }: { story: Story }) {
@@ -259,13 +268,13 @@ function OriginalChapters({ story, slug }: { story: Story; slug: string }) {
   const structure = story.structure ?? "studio";
   const family = ["thread", "cobalt", "trail", "ladder"].includes(structure) ? "ledger" : ["route", "care-path", "welcome"].includes(structure) ? "service" : ["signal", "fresh", "tempo"].includes(structure) ? "signal" : ["pulse", "afterglow", "relay", "ritual"].includes(structure) ? "culture" : "studio";
   const instruction = family === "ledger" ? "TRACE THE DECISION" : family === "service" ? "FOLLOW THE HANDOFF" : family === "signal" ? "READ THE SIGNAL" : family === "culture" ? "ENTER THE RHYTHM" : "STUDY THE MAKING";
-  return <section className={`original-journey journey-${structure} original-family-${family}`} aria-label={`${story.name} client project journey`}><header><p>THE CLIENT JOURNEY</p><h2>{story.name.split(" ").slice(0, 2).join(" ")}<br /><i>in three decisive moves.</i></h2><span>Pressure, intervention, and intended value—kept clear from first frame to final move.</span></header><div className="original-journey-beats">{story.chapters.map((chapter, index) => <article key={chapter.number} data-beat={index + 1}><div className="original-chapter-key"><b>{chapter.number}</b><span>{chapter.label}</span></div><h3>{chapter.title}</h3><p>{chapter.body}</p><CaseChapterMedia story={story} slug={slug} index={index} label={chapter.label} /><em>{instruction}</em></article>)}</div></section>;
+  return <section className={`original-journey journey-${structure} original-family-${family}`} aria-label={`${story.name} concept study journey`}><header><p>THE STUDY JOURNEY</p><h2>{story.name.split(" ").slice(0, 2).join(" ")}<br /><i>in three decisive moves.</i></h2><span>Pressure, intervention, and intended value—kept clear from first frame to final move.</span></header><div className="original-journey-beats">{story.chapters.map((chapter, index) => <article key={chapter.number} data-beat={index + 1}><div className="original-chapter-key"><b>{chapter.number}</b><span>{displayCopy(chapter.label, true)}</span></div><h3>{displayCopy(chapter.title, true)}</h3><p>{displayCopy(chapter.body, true)}</p><CaseChapterMedia story={story} slug={slug} index={index} label={displayCopy(chapter.label, true)} /><em>{instruction}</em></article>)}</div></section>;
 }
 
 function OriginalSystem({ story }: { story: Story }) {
   const structure = story.structure ?? "ledger";
   const format = ["route", "care-path", "welcome"].includes(structure) ? "route" : ["ladder"].includes(structure) ? "ladder" : ["ritual", "relay", "afterglow", "pulse"].includes(structure) ? "rhythm" : ["signal", "fresh", "tempo"].includes(structure) ? "signal" : "ledger";
-  return <section className={`original-system original-system-${format} system-${structure}`} aria-labelledby="original-system-title"><header><p>THE DELIVERY, IN MOTION</p><h2 id="original-system-title">{story.journeyTitle?.first}<br /><i>{story.journeyTitle?.accent}</i></h2></header><div className="original-system-stages">{story.stages.map((stage, index) => <article key={stage.name}><b>{String(index + 1).padStart(2, "0")}</b><span>{stage.name}</span><h3>{stage.moment}</h3><p>{stage.system}</p><em>{stage.value}</em></article>)}</div><p className="original-system-note">Client delivery logic shown through the working sequence and supporting artefacts; private data and measured outcomes are not displayed on this page.</p></section>;
+  return <section className={`original-system original-system-${format} system-${structure}`} aria-labelledby="original-system-title"><header><p>THE CONCEPT, IN MOTION</p><h2 id="original-system-title">{story.journeyTitle?.first}<br /><i>{story.journeyTitle?.accent}</i></h2></header><div className="original-system-stages">{story.stages.map((stage, index) => <article key={stage.name}><b>{String(index + 1).padStart(2, "0")}</b><span>{displayCopy(stage.name, true)}</span><h3>{displayCopy(stage.moment, true)}</h3><p>{displayCopy(stage.system, true)}</p><em>{displayCopy(stage.value, true)}</em></article>)}</div><p className="original-system-note">Concept logic shown through the working sequence and supporting artefacts; private data and measured outcomes are not displayed on this page.</p></section>;
 }
 
 function EvidenceArtefact({ artefact }: { artefact: EvidenceMedia }) {
@@ -290,7 +299,7 @@ function ObjectSequence() {
 
 function CaseProofLedger({ story, slug, isOriginal }: { story: Story; slug: string; isOriginal: boolean }) {
   const clientLedger = { state: "CLIENT PARTNERSHIP / OARC DELIVERY", role: story.liveRecord?.relationship ?? "OARC delivery for the named brand or event.", check: story.facts.join(" · "), source: `${story.sourceLabel}.`, reviewed: "OARC New Work / 2026" };
-  const ledger = PROOF_LEDGERS[slug] ?? (story.clientRecord ? clientLedger : { state: "CLIENT PROJECT / OARC DELIVERY", role: "OARC developed this client project to make a specific business or operating problem tangible and easier to act on.", check: "The narrative, designed artefacts, and prototype logic presented on this page.", source: "Client project brief and OARC delivery.", reviewed: "OARC New Work / 2026" });
+  const ledger = PROOF_LEDGERS[slug] ?? (story.clientRecord ? clientLedger : { state: "OARC CONCEPT STUDY / ILLUSTRATIVE DELIVERY", role: "OARC developed this concept study to make a specific business or operating problem tangible and easier to act on.", check: "The narrative, designed artefacts, and prototype logic presented on this page.", source: "Illustrative brief and OARC concept delivery.", reviewed: "OARC New Work / 2026" });
   if (story.clientRecord) {
     const caseNumber = String(Object.keys(CLIENT_CASE_STUDIES).indexOf(slug) + 1).padStart(2, "0");
     return <section className="client-proof-rail" aria-label={`${story.name} proof record`}><aside className="client-proof-spine"><span>OPEN<br />RECORD</span><b>CLIENT<br />{caseNumber}</b><i>SOURCE<br />FIRST</i></aside><div className="client-proof-content"><header><p>THE WORK, IN CONTEXT</p><h2>{ledger.state}</h2><span>{ledger.reviewed}</span></header><dl><div><dt>OARC ROLE</dt><dd>{ledger.role}</dd></div><div><dt>WHAT THE CASE SHOWS</dt><dd>{ledger.check}</dd></div><div><dt>CASE CONTEXT</dt><dd>{ledger.source}</dd></div></dl></div></section>;
@@ -315,12 +324,13 @@ function OriginalSignature({ story }: { story: Story }) {
   const family = ["thread", "cobalt", "trail", "ladder"].includes(structure) ? "ledger" : ["route", "care-path", "welcome"].includes(structure) ? "service" : ["signal", "fresh", "tempo"].includes(structure) ? "signal" : ["pulse", "afterglow", "relay", "ritual"].includes(structure) ? "culture" : "studio";
   const label = family === "ledger" ? "THE ACCOUNTABLE TRACE" : family === "service" ? "THE HUMAN HANDOFF" : family === "signal" ? "THE MOMENT TO ACT" : family === "culture" ? "THE PARTICIPATION RHYTHM" : "THE MAKING SEQUENCE";
   const heading = family === "ledger" ? <>A decision should leave<br /><i>a trace.</i></> : family === "service" ? <>A service moment needs<br /><i>an owner.</i></> : family === "signal" ? <>A signal matters when<br /><i>someone can read it.</i></> : family === "culture" ? <>A shared moment needs<br /><i>a return path.</i></> : <>Make the idea tangible<br /><i>before the claim.</i></>;
-  return <section className={`original-signature original-signature-${family} signature-${structure}`} aria-labelledby="original-signature-title"><header><p>{label}</p><h2 id="original-signature-title">{heading}</h2><span>Client delivery / the working logic in view.</span></header><div className="original-signature-stages">{story.stages.slice(0, 4).map((stage, index) => <article key={stage.name}><b>{String(index + 1).padStart(2, "0")}</b><strong>{stage.name}</strong><p>{stage.moment}</p><em>{stage.value}</em></article>)}</div></section>;
+  return <section className={`original-signature original-signature-${family} signature-${structure}`} aria-labelledby="original-signature-title"><header><p>{label}</p><h2 id="original-signature-title">{heading}</h2><span>Concept delivery / the working logic in view.</span></header><div className="original-signature-stages">{story.stages.slice(0, 4).map((stage, index) => <article key={stage.name}><b>{String(index + 1).padStart(2, "0")}</b><strong>{displayCopy(stage.name, true)}</strong><p>{displayCopy(stage.moment, true)}</p><em>{displayCopy(stage.value, true)}</em></article>)}</div></section>;
 }
 
 function CaseDiscoveryDepth({ content, isOriginal, isConfidential }: { content: DiscoveryContent; isOriginal: boolean; isConfidential: boolean }) {
-  const label = isOriginal ? "CLIENT PROJECT / CONCEPT-LED DELIVERY" : isConfidential ? "CLIENT SYSTEMS / SELECTED VIEW" : "PUBLIC PRODUCT / WORK";
-  return <><section className="case-discovery-depth" aria-labelledby="case-discovery-title"><aside className="case-discovery-aside"><p>{label}</p><h2 id="case-discovery-title">The work behind<br /><i>the impression.</i></h2><span>See the thinking, craft, and operating detail that gives the work its weight.</span></aside><div className="case-discovery-grid"><article><b>WHAT IT IS</b><h3>{content.answerTitle}</h3><p>{content.answer}</p></article><article><b>THE BUSINESS QUESTION</b><h3>Start with the pressure.</h3><p>{content.businessQuestion}</p></article><article><b>HOW OARC BUILT IT</b><h3>Make the next decision clearer.</h3><p>{content.workingMethod}</p></article><article><b>{content.evidenceTitle.toUpperCase()}</b><h3>Keep the important detail in view.</h3><p>{content.evidence}</p></article></div></section><section className="case-fit-bridge" aria-labelledby="case-fit-title"><div className="case-fit-copy"><span>IF THIS LOOKS LIKE YOUR BUSINESS</span><h2 id="case-fit-title">{content.fitTitle}</h2><p>{content.fit}</p><div className="contact-action-row"><a href={content.enquiry.href} target="_blank" rel="noopener noreferrer">{content.enquiry.label} <ArrowUpRight size={17} /></a><a href="https://wa.me/35679711799?text=Hi%20OARC%20Digital%2C%20I%20want%20to%20talk%20through%20a%20project." target="_blank" rel="noopener noreferrer" className="contact-action-secondary">WhatsApp OARC <ArrowUpRight size={17} /></a><a href="tel:+35679711799" className="contact-action-text">Call +356 7971 1799</a></div></div><aside className="case-service-stack"><b>RELATED OARC CAPABILITIES</b>{content.services.map((service) => <a href={service.href} target="_blank" rel="noopener noreferrer" key={`${service.href}-${service.label}`}>{service.label}<ArrowUpRight size={16} /></a>)}<Link href="/new-work#new-work-standard">How OARC documents its work <ArrowUpRight size={16} /></Link></aside></section></>;
+  const label = isOriginal ? "OARC CONCEPT STUDY / ILLUSTRATIVE DELIVERY" : isConfidential ? "CLIENT SYSTEMS / SELECTED VIEW" : "PUBLIC PRODUCT / WORK";
+  const copy = (value: string) => displayCopy(value, isOriginal);
+  return <><section className="case-discovery-depth" aria-labelledby="case-discovery-title"><aside className="case-discovery-aside"><p>{label}</p><h2 id="case-discovery-title">The work behind<br /><i>the impression.</i></h2><span>See the thinking, craft, and operating detail that gives the work its weight.</span></aside><div className="case-discovery-grid"><article><b>WHAT IT IS</b><h3>{copy(content.answerTitle)}</h3><p>{copy(content.answer)}</p></article><article><b>THE BUSINESS QUESTION</b><h3>Start with the pressure.</h3><p>{copy(content.businessQuestion)}</p></article><article><b>HOW OARC BUILT IT</b><h3>Make the next decision clearer.</h3><p>{copy(content.workingMethod)}</p></article><article><b>{copy(content.evidenceTitle).toUpperCase()}</b><h3>Keep the important detail in view.</h3><p>{copy(content.evidence)}</p></article></div></section><section className="case-fit-bridge" aria-labelledby="case-fit-title"><div className="case-fit-copy"><span>IF THIS LOOKS LIKE YOUR BUSINESS</span><h2 id="case-fit-title">{copy(content.fitTitle)}</h2><p>{copy(content.fit)}</p><div className="contact-action-row"><Link href={content.enquiry.href}>{content.enquiry.label} <ArrowUpRight size={17} /></Link><a href="https://wa.me/35679711799?text=Hi%20OARC%20Digital%2C%20I%20want%20to%20talk%20through%20a%20project." target="_blank" rel="noopener noreferrer" className="contact-action-secondary">WhatsApp OARC <ArrowUpRight size={17} /></a><a href="tel:+35679711799" className="contact-action-text">Call +356 7971 1799</a></div></div><aside className="case-service-stack"><b>RELATED OARC CAPABILITIES</b>{content.services.map((service) => <Link href={service.href} key={`${service.href}-${service.label}`}>{service.label}<ArrowUpRight size={16} /></Link>)}<Link href="/new-work#new-work-standard">How OARC documents its work <ArrowUpRight size={16} /></Link></aside></section></>;
 }
 
 function CaseTopicPaths({ slug, content, isOriginal }: { slug: string; content: DiscoveryContent; isOriginal: boolean }) {
@@ -328,7 +338,7 @@ function CaseTopicPaths({ slug, content, isOriginal }: { slug: string; content: 
   if (!topic) return null;
   const heading = slug === "pjazza" ? <>Start with the<br /><i>buyer’s question.</i></> : slug === "h360" ? <>Find the moment<br /><i>that breaks the day.</i></> : slug === "data-foundation" ? <>Name the record<br /><i>that will not agree.</i></> : slug === "live-context" ? <>Protect the<br /><i>first glance.</i></> : <>Find the repeated<br /><i>moment that matters.</i></>;
   const projectEmail = `mailto:hello@oarcdigital.com?subject=${encodeURIComponent(`OARC project — ${topic.query}`)}&body=${encodeURIComponent(`Hi OARC Digital,\n\nI reached out from the ${topic.query} case route.\n\nThe business problem I want to discuss:\n\nMy current situation:\n\nBest next step for me:`)}`;
-  return <section className={`case-topic-paths topic-${slug} ${isOriginal ? "case-topic-original" : ""}`} aria-labelledby="case-topic-title"><header><p>READ THIS BY THE REAL PROBLEM</p><h2 id="case-topic-title">{heading}</h2><span>{isOriginal ? "A focused client brief, made concrete through OARC method." : "A clear route from the work shown here to the next relevant conversation."}</span></header><div><Link href={topic.href}><b>01</b><em>{topic.query}</em><h3>{content.businessQuestion}</h3><span>{topic.route} <ArrowUpRight size={16} /></span></Link><a href={projectEmail}><b>02</b><em>PROJECT CONVERSATION</em><h3>{content.fitTitle}</h3><span>EMAIL OARC / CONTEXT INCLUDED <ArrowUpRight size={16} /></span></a></div></section>;
+  return <section className={`case-topic-paths topic-${slug} ${isOriginal ? "case-topic-original" : ""}`} aria-labelledby="case-topic-title"><header><p>READ THIS BY THE REAL PROBLEM</p><h2 id="case-topic-title">{heading}</h2><span>{isOriginal ? "A focused scenario, made concrete through OARC method." : "A clear route from the work shown here to the next relevant conversation."}</span></header><div><Link href={topic.href}><b>01</b><em>{topic.query}</em><h3>{content.businessQuestion}</h3><span>{topic.route} <ArrowUpRight size={16} /></span></Link><a href={projectEmail}><b>02</b><em>PROJECT CONVERSATION</em><h3>{content.fitTitle}</h3><span>EMAIL OARC / CONTEXT INCLUDED <ArrowUpRight size={16} /></span></a></div></section>;
 }
 
 export default function WorkCase({ slug = "pjazza" }: { slug?: string }) {
@@ -336,8 +346,8 @@ export default function WorkCase({ slug = "pjazza" }: { slug?: string }) {
   const baseStory = knownStory ?? STORIES.pjazza;
   const isConfidential = slug === "data-foundation" || slug === "live-context";
   const isOriginal = slug in ORIGINAL_STUDIES && !isConfidential;
-  const story = isOriginal && ORIGINAL_STUDY_PUBLIC_NAMES[slug]
-    ? { ...baseStory, name: ORIGINAL_STUDY_PUBLIC_NAMES[slug], eyebrow: baseStory.eyebrow.replace("OARC ORIGINAL STUDY", "CLIENT PROJECT"), mode: "Client project / campaign and prototype delivered by OARC" }
+   const story = isOriginal && ORIGINAL_STUDY_PUBLIC_NAMES[slug]
+     ? { ...baseStory, name: ORIGINAL_STUDY_PUBLIC_NAMES[slug], eyebrow: baseStory.eyebrow.replace("OARC ORIGINAL STUDY", "OARC CONCEPT STUDY"), mode: "OARC concept study / illustrative campaign and prototype" }
     : baseStory;
   const isClient = Boolean(story.clientRecord);
   const discovery = DISCOVERY_CONTENT[slug];
@@ -349,16 +359,16 @@ export default function WorkCase({ slug = "pjazza" }: { slug?: string }) {
   if (!knownStory) return <main className="premium-work-root documentary"><section className="source-disclosure"><span>RECORD UNAVAILABLE</span><h2>This OARC Work record could not be found.</h2><Link href="/new-work">Return to Our Work</Link></section></main>;
 
   const caseFormat = slug === "pjazza" ? "marketplace" : slug === "h360" ? "hospitality" : slug === "data-foundation" ? "archive" : slug === "live-context" ? "live" : isClient ? "client" : "original";
-  const publicEyebrow = story.eyebrow.replace(/OARC ORIGINAL STUDY\s*\/\s*/i, "CLIENT PROJECT / ");
-  const publicMode = story.mode.replace(/confidential engagement|restricted-disclosure|original study/gi, "client project").replace(/\s*\/\s*no (external )?client.*$/i, "");
-  const heroAlt = story.heroAlt ?? (story.name === "PJAZZA" ? "Official PJAZZA marketplace imagery showing a food-and-dining context" : story.name === "DATA FOUNDATION" ? "Illustrative data-governance system visual with no client data" : isConfidential ? "Private client project illustration" : `Client project visual world for ${story.name}`);
+   const publicEyebrow = story.eyebrow.replace(/OARC ORIGINAL STUDY\s*\/\s*/i, "OARC CONCEPT STUDY / ").replace(/OARC CLIENT PROJECT\s*\/\s*/i, "OARC CONCEPT STUDY / ");
+   const publicMode = isOriginal ? "OARC concept study / illustrative delivery" : story.mode.replace(/confidential engagement|restricted-disclosure|original study/gi, "client project").replace(/\s*\/\s*no (external )?client.*$/i, "");
+   const heroAlt = story.heroAlt ?? (story.name === "PJAZZA" ? "Official PJAZZA marketplace imagery showing a food-and-dining context" : story.name === "DATA FOUNDATION" ? "Illustrative data-governance system visual with no client data" : isConfidential ? "Private client project illustration" : isOriginal ? `Illustrative concept-study visual for ${story.name}` : `Client project visual world for ${story.name}`);
   return <main className={`case-page documentary case-${slug} case-format-${caseFormat} ${isOriginal ? `original-case structure-${story.structure}` : ""} ${isClient ? "client-case" : ""}`} style={rootStyle}>
-    <header className="case-nav-light"><Link href="/new-work" className="oarc-brand light-brand" aria-label="OARC Digital Work"><span className="brand-word"><b>OARC</b><i>DIGITAL</i></span></Link><span className="case-signal">{isOriginal ? "CLIENT PROJECT / OARC DELIVERY" : isConfidential ? "CLIENT SYSTEMS / OARC DELIVERY" : isClient ? "CLIENT PARTNERSHIP / OARC DELIVERY" : "CLIENT PRODUCT / LIVE RECORD"}</span><Link href="/new-work" className="back-link-light"><ChevronLeft size={16} /> All stories</Link></header>
-    <section className="documentary-hero"><div className="documentary-hero-copy"><p>{publicEyebrow}</p><h1>{story.title.map((line, index) => <span className={index === 1 ? "hero-italic" : ""} key={line}>{line}</span>)}</h1><p className="documentary-intro">{story.intro}</p><div className="documentary-status"><CircleCheck size={15} /> {publicMode}</div></div><figure className={!story.image ? "documentary-hero-art" : ""}>{story.image ? <img src={story.image} alt={heroAlt} decoding="async" fetchPriority="high" /> : <div className="launch-art" aria-label="Client launch treatment visual" role="img"><span>DNM</span><b>LAUNCH<br />SEQUENCE</b><i>2026</i></div>}<figcaption><span>{story.name} / {isOriginal ? "Client project" : isClient ? "OARC client partnership" : isConfidential ? "Client systems" : "Client product"}</span>{isOriginal ? <span>Client project visual / OARC art direction</span> : <a href={story.source} target="_blank" rel="noopener noreferrer">Source: {story.sourceLabel} <ArrowUpRight size={14} /></a>}</figcaption></figure></section>
+     <header className="case-nav-light"><Link href="/new-work" className="oarc-brand light-brand" aria-label="OARC Digital Work"><span className="brand-word"><b>OARC</b><i>DIGITAL</i></span></Link><span className="case-signal">{isOriginal ? "OARC CONCEPT STUDY / ILLUSTRATIVE" : isConfidential ? "CLIENT SYSTEMS / OARC DELIVERY" : isClient ? "CLIENT PARTNERSHIP / OARC DELIVERY" : "CLIENT PRODUCT / LIVE RECORD"}</span><Link href="/new-work" className="back-link-light"><ChevronLeft size={16} /> All stories</Link></header>
+     <section className="documentary-hero"><div className="documentary-hero-copy"><p>{publicEyebrow}</p><h1>{story.title.map((line, index) => <span className={index === 1 ? "hero-italic" : ""} key={line}>{line}</span>)}</h1><p className="documentary-intro">{displayCopy(story.intro, isOriginal)}</p><div className="documentary-status"><CircleCheck size={15} /> {publicMode}</div></div><figure className={!story.image ? "documentary-hero-art" : ""}>{story.image ? <img src={story.image} alt={heroAlt} decoding="async" fetchPriority="high" /> : <div className="launch-art" aria-label="Illustrative client launch treatment visual" role="img"><span>DNM</span><b>LAUNCH<br />SEQUENCE</b><i>2026</i></div>}<figcaption><span>{story.name} / {isOriginal ? "OARC concept study" : isClient ? "OARC client partnership" : isConfidential ? "Client systems" : "Client product"}</span>{isOriginal ? <span>Illustrative concept visual / OARC art direction</span> : <a href={story.source} target="_blank" rel="noopener noreferrer">Source: {story.sourceLabel} <ArrowUpRight size={14} /></a>}</figcaption></figure></section>
     <CaseProofLedger story={story} slug={slug} isOriginal={isOriginal} />
     <CaseAnswerPanel story={story} />
-    <section className="case-record-light"><p>WHAT THIS IS</p><div><h2>{story.record}</h2><div className="record-facts">{story.facts.map((fact, index) => <div key={fact}><b>{String(index + 1).padStart(2, "0")}</b><span>{fact}</span></div>)}</div></div></section>
-    <CaseDeliverySummary story={story} slug={slug} context={campaignContext} artefact={artefact} />
+     <section className="case-record-light"><p>WHAT THIS IS</p><div><h2>{displayCopy(story.record, isOriginal)}</h2><div className="record-facts">{story.facts.map((fact, index) => <div key={fact}><b>{String(index + 1).padStart(2, "0")}</b><span>{displayCopy(fact, isOriginal)}</span></div>)}</div></div></section>
+     <CaseDeliverySummary story={story} slug={slug} context={campaignContext} artefact={artefact} isOriginal={isOriginal} />
     <CaseServiceSignalRail story={story} />
     {slug === "h360" && <RestaurantDayRibbon />}
     {discovery && <CaseDiscoveryDepth content={discovery} isOriginal={isOriginal} isConfidential={isConfidential} />}
@@ -368,16 +378,16 @@ export default function WorkCase({ slug = "pjazza" }: { slug?: string }) {
     {slug === "data-foundation" && <ArchiveProtocol />}
     {slug === "maison-verre-discovery" && <ObjectSequence />}
      {story.evidenceMedia && slug !== "pjazza" && <section className="pjazza-evidence-gallery" aria-labelledby="pjazza-evidence-title"><div className="case-section-intro"><p>{isClient ? "SELECTED CLIENT CAMPAIGN MEDIA" : "PUBLIC PRODUCT EVIDENCE"}</p><h2 id="pjazza-evidence-title">{isClient ? <>The campaign starts with <i>the real world.</i></> : <>The marketplace must work across <i>different kinds of decisions.</i></>}</h2><span>{isClient ? `Supplied ${story.name} imagery organised into a useful campaign sequence for social, video, and paid creative.` : "Official product-page imagery, used as source-linked product context."}</span></div><div className="pjazza-evidence-grid">{story.evidenceMedia.map((media, index) => <figure key={media.label} className={`pjazza-evidence-item evidence-${index + 1}`}><img src={media.src} alt={media.alt} loading="lazy" decoding="async" /><figcaption><b>{media.label}</b><span>{media.caption}</span></figcaption></figure>)}</div></section>}
-    {isOriginal ? <OriginalChapters story={story} slug={slug} /> : <section className="case-chapters-light">{story.chapters.map((chapter, index) => <article key={chapter.number}><div className="chapter-key"><b>{chapter.number}</b><span>{chapter.label}</span></div><div><h2>{chapter.title}</h2><p>{chapter.body}</p><CaseChapterMedia story={story} slug={slug} index={index} label={chapter.label} /></div>{index === 1 && <aside><Sparkles size={31} /><span>THE DESIGN HAS A JOB: MAKE THE SYSTEM LEGIBLE.</span></aside>}</article>)}</section>}
+     {isOriginal ? <OriginalChapters story={story} slug={slug} /> : <section className="case-chapters-light">{story.chapters.map((chapter, index) => <article key={chapter.number}><div className="chapter-key"><b>{chapter.number}</b><span>{chapter.label}</span></div><div><h2>{chapter.title}</h2><p>{chapter.body}</p><CaseChapterMedia story={story} slug={slug} index={index} label={chapter.label} /></div>{index === 1 && <aside><Sparkles size={31} /><span>THE DESIGN HAS A JOB: MAKE THE SYSTEM LEGIBLE.</span></aside>}</article>)}</section>}
     {campaignContext && <CampaignContext context={campaignContext} story={story} />}
     {artefact && <EvidenceArtefact artefact={artefact} />}
     <section className="case-film-panel"><figure className={!story.journeyImage ? "case-film-art" : ""}>{story.journeyImage ? <img src={story.journeyImage} alt={story.heroAlt ?? (story.name === "PJAZZA" ? "Official PJAZZA marketplace imagery showing a public people-and-services context" : story.name === "DATA FOUNDATION" ? "Illustrative four-stage data-governance process visual with no client data" : isConfidential ? "Private client project mobile experience illustration" : `Client project supporting visual for ${story.name}`)} loading="lazy" decoding="async" /> : <div className="launch-art launch-art-small" aria-hidden="true"><span>DNM</span><b>FIRST<br />SIGNAL</b><i>OARC</i></div>}</figure><div><span>{story.filmLabel}</span><h2>{story.filmTitle}</h2><p>{story.filmText}</p><span className="asset-status"><Play size={14} /> {isOriginal ? "CLIENT PROJECT / DELIVERED ARTEFACT" : isClient ? story.image ? "SOURCE-SELECTED CASE MEDIA" : "OARC LAUNCH TREATMENT / MEDIA PENDING" : "APPROVED RECORDING REQUIRED BEFORE PUBLICATION"}</span></div></section>
-    {isOriginal ? <OriginalSystem story={story} /> : <Journey story={story} />}
+     {isOriginal ? <OriginalSystem story={story} /> : <Journey story={story} isOriginal={false} />}
     {story.liveRecord && <LiveBrandRecord record={story.liveRecord} isClient={isClient} />}
     {isOriginal && <OriginalStudyRecord story={story} />}
     {isConfidential && <ConfidentialRecord story={story} />}
-    {story.faq && <section className="case-faq" aria-labelledby="case-faq-title"><div className="case-section-intro"><p>{isClient ? "THE CLIENT PARTNERSHIP" : isOriginal ? "THE CLIENT PROJECT" : isConfidential ? "THE CLIENT SYSTEMS" : "THE CLIENT PRODUCT"}</p><h2 id="case-faq-title">The answers a person—and a search engine—<i>should be able to find.</i></h2></div><div>{story.faq.map((item, index) => <details key={item.question} open={index === 0}><summary><span>{String(index + 1).padStart(2, "0")}</span>{item.question}<MoveRight size={18} /></summary><p>{item.answer}</p></details>)}</div></section>}
-    <section className="source-disclosure"><span>{isOriginal ? "CLIENT PROJECT" : isConfidential ? "CLIENT SYSTEMS" : "THE CLOSING FRAME"}</span><h2>{story.closeTitle}</h2><p>{story.closeText}</p>{isOriginal ? <span className="source-static-label">CLIENT PROJECT / OARC DELIVERY AND PROTOTYPE</span> : <a href={story.source} target="_blank" rel="noopener noreferrer">Visit the approved public source <ArrowUpRight size={17} /></a>}</section>
+     {story.faq && <section className="case-faq" aria-labelledby="case-faq-title"><div className="case-section-intro"><p>{isClient ? "THE CLIENT PARTNERSHIP" : isOriginal ? "THE CONCEPT STUDY" : isConfidential ? "THE CLIENT SYSTEMS" : "THE CLIENT PRODUCT"}</p><h2 id="case-faq-title">The answers a person—and a search engine—<i>should be able to find.</i></h2></div><div>{story.faq.map((item, index) => <details key={item.question} open={index === 0}><summary><span>{String(index + 1).padStart(2, "0")}</span>{displayCopy(item.question, isOriginal)}<MoveRight size={18} /></summary><p>{displayCopy(item.answer, isOriginal)}</p></details>)}</div></section>}
+     <section className="source-disclosure"><span>{isOriginal ? "OARC CONCEPT STUDY" : isConfidential ? "CLIENT SYSTEMS" : "THE CLOSING FRAME"}</span><h2>{displayCopy(story.closeTitle, isOriginal)}</h2><p>{displayCopy(story.closeText, isOriginal)}</p>{isOriginal ? <span className="source-static-label">OARC CONCEPT STUDY / ILLUSTRATIVE DELIVERY</span> : <a href={story.source} target="_blank" rel="noopener noreferrer">Visit the approved public source <ArrowUpRight size={17} /></a>}</section>
     <footer className="case-footer-light"><span>OARC DIGITAL / RESEARCH-LED WORK</span><span>© 2026</span></footer>
   </main>;
 }
