@@ -355,6 +355,19 @@ export default function HeroSection() {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    .hero-type {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-kerning: normal;
+      font-optical-sizing: auto;
+      font-synthesis: none;
+      font-variant-ligatures: common-ligatures contextual;
+      text-rendering: optimizeLegibility;
+    }
+    .hero-display-type {
+      text-wrap: balance;
+      text-shadow: 0 1px 18px rgba(0, 0, 0, 0.2);
+    }
     @media (prefers-reduced-motion: reduce) {
       @keyframes fadeSlideUp {
         from { opacity: 0; }
@@ -427,14 +440,14 @@ export default function HeroSection() {
         {/* ========== CONTENT ========== */}
         {/* MOBILE — carousel stays pinned at bottom. */}
         <div
-          className={`md:hidden relative h-[100svh] flex flex-col overflow-hidden ${heroSans.className}`}
+          className={`hero-type md:hidden relative h-[100svh] flex flex-col overflow-hidden ${heroSans.className}`}
           style={{
             paddingTop: "max(4.25rem, calc(env(safe-area-inset-top) + 3.25rem))",
             paddingBottom: "max(0.2rem, env(safe-area-inset-bottom))",
           }}
         >
           <div className="shrink-0 px-3 text-center">
-            <h1 className="text-white" data-testid="text-hero-headline" data-speakable>
+            <h1 className="hero-display-type text-white" data-testid="text-hero-headline" data-speakable>
               <span
                 className={`${heroSans.className} block font-semibold tracking-[-0.035em] leading-[1.05]`}
                 style={{ fontSize: "clamp(1.55rem, 7.6vw, 1.95rem)" }}
@@ -497,13 +510,13 @@ export default function HeroSection() {
         </div>
 
         {/* DESKTOP — unchanged from checkpoint structure */}
-        <div className="hidden md:flex relative flex-1 flex-col justify-end pt-16 lg:pt-20 pb-6">
+        <div className="hero-type hidden md:flex relative flex-1 flex-col justify-end pt-16 lg:pt-20 pb-6">
           <div className="w-full">
             <div className="w-full pl-8 lg:pl-12 pr-0">
               <div className="w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl text-left">
                 <div className="relative">
                   <h1
-                    className="mb-6 lg:mb-8 text-white"
+                    className="hero-display-type mb-6 lg:mb-8 text-white"
                     data-testid="text-hero-headline-desktop"
                     data-speakable
                   >
