@@ -11,7 +11,7 @@ import { ORIGINAL_STUDIES, ORIGINAL_STUDY_PUBLIC_NAMES } from "@/lib/data/premiu
 import { DISCOVERY_CONTENT, type DiscoveryContent } from "@/lib/data/premium-work/discoveryContent";
 import { CLIENT_CASE_STUDIES } from "@/lib/data/premium-work/clientCaseStudies";
 
-type EvidenceMedia = { src: string; alt: string; label: string; caption: string };
+type EvidenceMedia = { src: string; alt: string; label: string; caption: string; kind?: "image" | "video"; poster?: string };
 type LiveRecord = { relationship: string; links: { label: string; url: string; note: string }[]; instagramStatus: string; verified: string; confidential?: boolean };
 type FAQ = { question: string; answer: string };
 type ProofLedger = { state: string; role: string; check: string; source: string; reviewed: string };
@@ -19,7 +19,7 @@ type Story = {
   name: string; eyebrow: string; title: string[]; intro: string; image: string; journeyImage: string; mode: string; record: string;
   facts: string[]; source: string; sourceLabel: string; chapters: { number: string; label: string; title: string; body: string }[];
   stages: { name: string; moment: string; system: string; value: string }[]; filmTitle: string; filmLabel: string; filmText: string; closeTitle: string; closeText: string;
-  evidenceMedia?: EvidenceMedia[]; liveRecord?: LiveRecord; faq?: FAQ[]; journeyTitle?: { first: string; accent: string };
+  evidenceMedia?: EvidenceMedia[]; filmMedia?: EvidenceMedia; liveRecord?: LiveRecord; faq?: FAQ[]; journeyTitle?: { first: string; accent: string };
   structure?: string; theme?: { bg: string; paper: string; ink: string; signal: string; accent: string };
   clientRecord?: boolean; heroAlt?: string;
 };
@@ -217,6 +217,13 @@ function getCaseContextFallback(story: Story, slug: string): EvidenceMedia {
   return CASE_CONTEXT_FALLBACKS.general;
 }
 
+function CaseMedia({ item }: { item: EvidenceMedia }) {
+  if (item.kind === "video") {
+    return <video className="case-media-video" controls playsInline preload="metadata" poster={item.poster} aria-label={item.alt}><source src={item.src} type="video/mp4" /><p>Video unavailable. <a href={item.src}>Open the supplied case video.</a></p></video>;
+  }
+  return <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />;
+}
+
 function CaseDeliverySummary({ story, slug, context, artefact, isOriginal }: { story: Story; slug: string; context?: EvidenceMedia; artefact?: EvidenceMedia; isOriginal: boolean }) {
   const fallback = getCaseContextFallback(story, slug);
   const copy = (value: string) => displayCopy(value, isOriginal);
@@ -230,7 +237,7 @@ function CaseDeliverySummary({ story, slug, context, artefact, isOriginal }: { s
     { label: isOriginal ? "01 / THE SCENARIO" : "01 / CLIENT CHALLENGE", chapter: story.chapters[0], media: media[0] },
     { label: "02 / WHAT OARC DELIVERED", chapter: story.chapters[1] ?? story.chapters[0], media: media[1] },
     { label: isOriginal ? "03 / INTENDED VALUE" : "03 / WHAT THE WORK ACCOMPLISHED", chapter: story.chapters[2] ?? story.chapters[1] ?? story.chapters[0], media: media[2] },
-  ].map(({ label, chapter, media: frame }) => <article key={label}><figure><img src={frame.item.src} alt={frame.item.alt} loading="lazy" decoding="async" /><figcaption><b>{frame.item.label}</b><span>{frame.item.caption}</span></figcaption></figure><p>{label}</p><h3>{copy(chapter.title)}</h3><span>{copy(chapter.body)}</span></article>)}</div></section>;
+  ].map(({ label, chapter, media: frame }) => <article key={label}><figure><CaseMedia item={frame.item} /><figcaption><b>{frame.item.label}</b><span>{frame.item.caption}</span></figcaption></figure><p>{label}</p><h3>{copy(chapter.title)}</h3><span>{copy(chapter.body)}</span></article>)}</div></section>;
 }
 
 function CaseServiceSignalRail({ story }: { story: Story }) {
@@ -260,8 +267,8 @@ function ConfidentialRecord({ story }: { story: Story }) {
 function CaseChapterMedia({ story, slug, index, label }: { story: Story; slug: string; index: number; label: string }) {
   const fallback = getCaseContextFallback(story, slug);
   const selected = story.evidenceMedia?.[index];
-  const item = selected ?? (index === 0 && story.image ? { src: story.image, alt: story.heroAlt ?? `${story.name} challenge visual` } : index === 1 && story.journeyImage ? { src: story.journeyImage, alt: `${story.name} OARC delivery visual` } : { src: fallback.src, alt: fallback.alt });
-  return <figure className="case-chapter-media"><img src={item.src} alt={item.alt} loading="lazy" decoding="async" /><figcaption><b>{label}</b><span>{index === 2 ? fallback.caption : "Case visual / OARC delivery context"}</span></figcaption></figure>;
+  const item: EvidenceMedia = selected ?? (index === 0 && story.image ? { src: story.image, alt: story.heroAlt ?? `${story.name} challenge visual`, label, caption: "Case visual / OARC delivery context" } : index === 1 && story.journeyImage ? { src: story.journeyImage, alt: `${story.name} OARC delivery visual`, label, caption: "Case visual / OARC delivery context" } : fallback);
+  return <figure className="case-chapter-media"><CaseMedia item={item} /><figcaption><b>{label}</b><span>{index === 2 ? fallback.caption : "Case visual / OARC delivery context"}</span></figcaption></figure>;
 }
 
 function OriginalChapters({ story, slug }: { story: Story; slug: string }) {
@@ -278,15 +285,15 @@ function OriginalSystem({ story }: { story: Story }) {
 }
 
 function EvidenceArtefact({ artefact }: { artefact: EvidenceMedia }) {
-  return <section className="case-artefact" aria-labelledby="case-artefact-title"><div><p>{artefact.label}</p><h2 id="case-artefact-title">See the <i>decision logic.</i></h2><span>{artefact.caption}</span></div><figure><img src={artefact.src} alt={artefact.alt} loading="lazy" decoding="async" /><figcaption>OARC explanatory artefact / status stated above</figcaption></figure></section>;
+  return <section className="case-artefact" aria-labelledby="case-artefact-title"><div><p>{artefact.label}</p><h2 id="case-artefact-title">See the <i>decision logic.</i></h2><span>{artefact.caption}</span></div><figure><CaseMedia item={artefact} /><figcaption>OARC explanatory artefact / status stated above</figcaption></figure></section>;
 }
 
 function CampaignContext({ context, story }: { context: EvidenceMedia; story: Story }) {
-  return <section className="campaign-context" aria-labelledby="campaign-context-title"><figure><img src={context.src} alt={context.alt} loading="lazy" decoding="async" /><figcaption>{context.label} / SOURCE RECORDED IN OARC ASSET REGISTER</figcaption></figure><div><p>{context.label}</p><h2 id="campaign-context-title">The world around<br /><i>{story.name}.</i></h2><p>{context.caption}</p></div></section>;
+  return <section className="campaign-context" aria-labelledby="campaign-context-title"><figure><CaseMedia item={context} /><figcaption>{context.label} / SOURCE RECORDED IN OARC ASSET REGISTER</figcaption></figure><div><p>{context.label}</p><h2 id="campaign-context-title">The world around<br /><i>{story.name}.</i></h2><p>{context.caption}</p></div></section>;
 }
 
 function MarketplaceProofWall({ media }: { media: EvidenceMedia[] }) {
-  return <section className="marketplace-proof-wall" aria-labelledby="marketplace-proof-title"><div className="marketplace-proof-intro"><p>PUBLIC PRODUCT / MARKETPLACE CONTEXT</p><h2 id="marketplace-proof-title">A decision has a <i>setting.</i></h2><span>These official public product-category surfaces show why the marketplace must carry context across very different local decisions.</span></div><div className="marketplace-proof-strip">{media.slice(0, 3).map((item, index) => <figure key={item.label}><img src={item.src} alt={item.alt} loading={index === 0 ? "eager" : "lazy"} decoding="async" /><figcaption><b>0{index + 1}</b><span>{item.label}</span></figcaption></figure>)}</div><aside><b>THE LIVE-COMMERCE QUESTION</b><p>What does a person need to see, ask, and trust before an offer becomes a decision?</p></aside></section>;
+  return <section className="marketplace-proof-wall" aria-labelledby="marketplace-proof-title"><div className="marketplace-proof-intro"><p>PUBLIC PRODUCT / MARKETPLACE CONTEXT</p><h2 id="marketplace-proof-title">A decision has a <i>setting.</i></h2><span>These official public product-category surfaces show why the marketplace must carry context across very different local decisions.</span></div><div className="marketplace-proof-strip">{media.slice(0, 3).map((item, index) => <figure key={item.label}><CaseMedia item={item} /><figcaption><b>0{index + 1}</b><span>{item.label}</span></figcaption></figure>)}</div><aside><b>THE LIVE-COMMERCE QUESTION</b><p>What does a person need to see, ask, and trust before an offer becomes a decision?</p></aside></section>;
 }
 
 function ArchiveProtocol() {
@@ -377,11 +384,11 @@ export default function WorkCase({ slug = "pjazza" }: { slug?: string }) {
     {slug === "pjazza" && story.evidenceMedia && <MarketplaceProofWall media={story.evidenceMedia} />}
     {slug === "data-foundation" && <ArchiveProtocol />}
     {slug === "maison-verre-discovery" && <ObjectSequence />}
-     {story.evidenceMedia && slug !== "pjazza" && <section className="pjazza-evidence-gallery" aria-labelledby="pjazza-evidence-title"><div className="case-section-intro"><p>{isClient ? "SELECTED CLIENT CAMPAIGN MEDIA" : "PUBLIC PRODUCT EVIDENCE"}</p><h2 id="pjazza-evidence-title">{isClient ? <>The campaign starts with <i>the real world.</i></> : <>The marketplace must work across <i>different kinds of decisions.</i></>}</h2><span>{isClient ? `Supplied ${story.name} imagery organised into a useful campaign sequence for social, video, and paid creative.` : "Official product-page imagery, used as source-linked product context."}</span></div><div className="pjazza-evidence-grid">{story.evidenceMedia.map((media, index) => <figure key={media.label} className={`pjazza-evidence-item evidence-${index + 1}`}><img src={media.src} alt={media.alt} loading="lazy" decoding="async" /><figcaption><b>{media.label}</b><span>{media.caption}</span></figcaption></figure>)}</div></section>}
+     {story.evidenceMedia && slug !== "pjazza" && <section className="pjazza-evidence-gallery" aria-labelledby="pjazza-evidence-title"><div className="case-section-intro"><p>{isClient ? "SELECTED CLIENT CAMPAIGN MEDIA" : "PUBLIC PRODUCT EVIDENCE"}</p><h2 id="pjazza-evidence-title">{isClient ? <>The campaign starts with <i>the real world.</i></> : <>The marketplace must work across <i>different kinds of decisions.</i></>}</h2><span>{isClient ? `Supplied ${story.name} imagery organised into a useful campaign sequence for social, video, and paid creative.` : "Official product-page imagery, used as source-linked product context."}</span></div><div className="pjazza-evidence-grid">{story.evidenceMedia.map((media, index) => <figure key={media.label} className={`pjazza-evidence-item evidence-${index + 1}`}><CaseMedia item={media} /><figcaption><b>{media.label}</b><span>{media.caption}</span></figcaption></figure>)}</div></section>}
      {isOriginal ? <OriginalChapters story={story} slug={slug} /> : <section className="case-chapters-light">{story.chapters.map((chapter, index) => <article key={chapter.number}><div className="chapter-key"><b>{chapter.number}</b><span>{chapter.label}</span></div><div><h2>{chapter.title}</h2><p>{chapter.body}</p><CaseChapterMedia story={story} slug={slug} index={index} label={chapter.label} /></div>{index === 1 && <aside><Sparkles size={31} /><span>THE DESIGN HAS A JOB: MAKE THE SYSTEM LEGIBLE.</span></aside>}</article>)}</section>}
     {campaignContext && <CampaignContext context={campaignContext} story={story} />}
     {artefact && <EvidenceArtefact artefact={artefact} />}
-    <section className="case-film-panel"><figure className={!story.journeyImage ? "case-film-art" : ""}>{story.journeyImage ? <img src={story.journeyImage} alt={story.heroAlt ?? (story.name === "PJAZZA" ? "Official PJAZZA marketplace imagery showing a public people-and-services context" : story.name === "DATA FOUNDATION" ? "Illustrative four-stage data-governance process visual with no client data" : isConfidential ? "Private client project mobile experience illustration" : `Client project supporting visual for ${story.name}`)} loading="lazy" decoding="async" /> : <div className="launch-art launch-art-small" aria-hidden="true"><span>DNM</span><b>FIRST<br />SIGNAL</b><i>OARC</i></div>}</figure><div><span>{story.filmLabel}</span><h2>{story.filmTitle}</h2><p>{story.filmText}</p><span className="asset-status"><Play size={14} /> {isOriginal ? "CLIENT PROJECT / DELIVERED ARTEFACT" : isClient ? story.image ? "SOURCE-SELECTED CASE MEDIA" : "OARC LAUNCH TREATMENT / MEDIA PENDING" : "APPROVED RECORDING REQUIRED BEFORE PUBLICATION"}</span></div></section>
+    <section className="case-film-panel"><figure className={!story.filmMedia && !story.journeyImage ? "case-film-art" : ""}>{story.filmMedia ? <CaseMedia item={story.filmMedia} /> : story.journeyImage ? <CaseMedia item={{ src: story.journeyImage, alt: story.heroAlt ?? (story.name === "PJAZZA" ? "Official PJAZZA marketplace imagery showing a public people-and-services context" : story.name === "DATA FOUNDATION" ? "Illustrative four-stage data-governance process visual with no client data" : isConfidential ? "Private client project mobile experience illustration" : `Client project supporting visual for ${story.name}`), label: story.filmLabel, caption: story.filmText }} /> : <div className="launch-art launch-art-small" aria-hidden="true"><span>DNM</span><b>FIRST<br />SIGNAL</b><i>OARC</i></div>}</figure><div><span>{story.filmLabel}</span><h2>{story.filmTitle}</h2><p>{story.filmText}</p><span className="asset-status"><Play size={14} /> {isOriginal ? "CLIENT PROJECT / DELIVERED ARTEFACT" : isClient ? story.filmMedia ? "SOURCE-SELECTED CASE VIDEO" : story.image ? "SOURCE-SELECTED CASE MEDIA" : "OARC LAUNCH TREATMENT / MEDIA PENDING" : "APPROVED RECORDING REQUIRED BEFORE PUBLICATION"}</span></div></section>
      {isOriginal ? <OriginalSystem story={story} /> : <Journey story={story} isOriginal={false} />}
     {story.liveRecord && <LiveBrandRecord record={story.liveRecord} isClient={isClient} />}
     {isOriginal && <OriginalStudyRecord story={story} />}
