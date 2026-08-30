@@ -128,7 +128,7 @@ export default function MinimalNav({ theme = "dark" }: { theme?: "dark" | "light
     <>
       {/* ── Trigger — static corner mark, scrolls away with page ── */}
       <div
-        className="absolute top-0 right-0 z-50"
+        className="absolute top-0 right-0 z-50 hidden md:block"
         style={{
           paddingTop: "max(16px, env(safe-area-inset-top))",
           paddingRight: "max(18px, env(safe-area-inset-right))",
@@ -330,7 +330,6 @@ export default function MinimalNav({ theme = "dark" }: { theme?: "dark" | "light
             @keyframes oarcMnFade{from{opacity:0}to{opacity:1}}
             @keyframes oarcMnSlide{from{transform:translateX(32px);opacity:0}to{transform:translateX(0);opacity:1}}
             @keyframes oarcMnItem{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
-            html[data-oarc-menu-open="true"] [data-testid="cookie-consent-banner"],
             html[data-oarc-menu-open="true"] [data-testid="link-mobile-whatsapp"],
             html[data-oarc-menu-open="true"] [data-testid="link-call-float"],
             html[data-oarc-menu-open="true"] [data-testid="button-open-chat"],
