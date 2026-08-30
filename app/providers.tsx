@@ -14,16 +14,12 @@ const ARCWidget = dynamic(() => import('@/components/ARC/ARCWidget'), {
   ssr: false,
 });
 
-const CookieConsent = dynamic(() => import('@/components/CookieConsent'), {
-  ssr: false,
-});
-
 /**
  * Motion stack (one orchestration point):
  * - MotionConfig: respect OS reduced-motion
  * - LazyMotion domAnimation: ~4.6kb initial vs full motion bundle
  * - SmoothScroll: Lenis after idle (does not block SSR/SEO HTML)
- * - ARC / cookies: dynamic import (no main-bundle cost)
+ * - ARC: dynamic import (no main-bundle cost)
  */
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -37,7 +33,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
               </Suspense>
               {children}
               <ARCWidget />
-              <CookieConsent />
               <Toaster />
             </TooltipProvider>
           </SmoothScroll>

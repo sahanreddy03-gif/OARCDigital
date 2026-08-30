@@ -2,7 +2,8 @@
 
 type Logo = {
   name: string;
-  src: string;
+  src?: string;
+  textMark?: string;
 };
 
 type LogoRail = {
@@ -21,7 +22,8 @@ const LOGO_RAILS: LogoRail[] = [
     tone: "client",
     logos: [
       { name: "Kreta", src: "/brand-logos/clients/kreta.png" },
-      { name: "Louisiana Mama", src: "/brand-logos/clients/louisiana-mama.png" },
+      { name: "Palino", src: "/brand-logos/clients/palino.png" },
+      { name: "Louisiana Mama", textMark: "LOUISIANA MAMA" },
       { name: "MCW", src: "/brand-logos/clients/mcw.png" },
     ],
   },
@@ -103,7 +105,11 @@ function LogoRail({ rail, index }: { rail: LogoRail; index: number }) {
         >
           {ticker.map((logo, logoIndex) => (
             <span className="logo-tile" key={`${logo.name}-${logoIndex}`}>
-              <img src={logo.src} alt="" loading="lazy" decoding="async" />
+              {logo.src ? (
+                <img src={logo.src} alt="" aria-hidden="true" loading="lazy" decoding="async" />
+              ) : (
+                <b className="logo-text-mark">{logo.textMark}</b>
+              )}
             </span>
           ))}
         </div>
@@ -156,8 +162,10 @@ export default function TrustedBrandsSection() {
         .logo-rail-client .logo-rail-track{animation-duration:26s}
         .logo-rail-uk .logo-rail-track{animation-duration:31s}
         .logo-tile{display:flex;align-items:center;justify-content:center;flex:0 0 144px;height:53px;margin-right:10px;border:1px solid rgba(17,19,15,.1);background:rgba(255,255,255,.48);border-radius:3px}
-        .logo-rail-client .logo-tile{flex-basis:184px;height:68px;background:rgba(255,255,255,.8);border-color:rgba(17,19,15,.14)}
+        .logo-rail-client .logo-tile{flex-basis:184px;height:68px;background:#151715;border-color:#151715}
         .logo-tile img{display:block;width:100%;height:100%;object-fit:contain}
+        .logo-text-mark{display:block;padding:0 18px;color:#161815;font:900 17px/.92 var(--font-space-grotesk,sans-serif);letter-spacing:-.07em;text-align:center}
+        .logo-rail-client .logo-text-mark{color:#fff}
         .logo-rail-reference .logo-tile img{opacity:.76}
         @keyframes logo-rail-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
         @media(prefers-reduced-motion:reduce){.logo-rail-track{animation:none;transform:none}}

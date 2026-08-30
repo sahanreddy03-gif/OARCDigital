@@ -6,3 +6,4 @@
 - [Department gallery direction](department-gallery-direction.md) — departments use authored image panels with title and promise beneath, so the navigation cue stays clear
 - [Work experience rollout](work-experience-rollout.md) — establish the visual language through one /our-work proof card before expanding the portfolio or detail pages
 - [Drive media imports](drive-media-import.md) — use project-relative connector writes and optimize supplied originals before adding them to public assets
+- [Brand authority logos](brand-authority-logos.md) — separate verified client marks from sector references; never mix oversized global names into an implied client wall

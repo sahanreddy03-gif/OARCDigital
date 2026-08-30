@@ -11,15 +11,15 @@ export const FEATURED_WORK_ORDER = [
   "pjazza",
   "data-foundation",
   "live-context",
+  "calle-bistro",
+  "kreta",
+  "mcw-cbd",
+  "ricky-jr-burger",
   "massive-fan-zone",
   "spinola-gin-fest",
   "drink-n-more",
-  "calle-bistro",
-  "kreta",
   "louisiana-mama",
-  "mcw-cbd",
   "palino",
-  "ricky-jr-burger",
 ] as const;
 
 export const FEATURED_WORK_RANK: Map<string, number> = new Map(

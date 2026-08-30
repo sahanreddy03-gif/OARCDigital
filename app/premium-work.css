@@ -221,8 +221,10 @@
 .premium-work-root .light-hero-copy>div{max-width:610px}
 .premium-work-root .hero-signal{bottom:16%;top:auto;width:min(42vw,560px)}
 @media(max-width:850px){
+  .premium-work-root .light-topbar,
+  .premium-work-root .case-nav-light{display:none!important}
   .premium-work-root .light-hero{min-height:650px}
-  .premium-work-root .light-hero-copy{margin:112px 22px 0}
+  .premium-work-root .light-hero-copy{margin:58px 22px 0}
   .premium-work-root .light-hero-copy h1{font-size:clamp(59px,16vw,84px);line-height:.74;margin:27px 0 32px}
   .premium-work-root .hero-signal{bottom:12%;width:58vw}
 }
