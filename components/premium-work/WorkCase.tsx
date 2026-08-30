@@ -211,10 +211,11 @@ function getCaseContextFallback(story: Story, slug: string): EvidenceMedia {
 
 function CaseDeliverySummary({ story, slug, context, artefact }: { story: Story; slug: string; context?: EvidenceMedia; artefact?: EvidenceMedia }) {
   const fallback = getCaseContextFallback(story, slug);
+  const selectedMedia = story.evidenceMedia ?? [];
   const media = [
     { item: story.image ? { src: story.image, alt: story.heroAlt ?? `${story.name} case visual`, label: "CLIENT CHALLENGE / CASE FRAME", caption: "The primary case visual introduces the client problem and its working context." } : fallback, key: "challenge" },
-    { item: artefact ?? { src: story.journeyImage || fallback.src, alt: `${story.name} delivery visual`, label: "OARC DELIVERY / WORKING SYSTEM", caption: "The delivery visual shows the method, system, or campaign logic OARC brought to the brief." }, key: "delivery" },
-    { item: context ?? fallback, key: "outcome" },
+    { item: artefact ?? selectedMedia[1] ?? { src: story.journeyImage || fallback.src, alt: `${story.name} delivery visual`, label: "OARC DELIVERY / WORKING SYSTEM", caption: "The delivery visual shows the method, system, or campaign logic OARC brought to the brief." }, key: "delivery" },
+    { item: selectedMedia[2] ?? context ?? fallback, key: "outcome" },
   ];
   return <section className="case-delivery-summary" aria-labelledby="case-delivery-title"><header><p>THE CLIENT STORY / OARC DELIVERY</p><h2 id="case-delivery-title">From pressure to<br /><i>visible progress.</i></h2><span>Every case starts with the client challenge, shows what OARC delivered, and makes the resulting shift easier to understand.</span></header><div className="case-delivery-grid">{[
     { label: "01 / CLIENT CHALLENGE", chapter: story.chapters[0], media: media[0] },
@@ -249,7 +250,8 @@ function ConfidentialRecord({ story }: { story: Story }) {
 
 function CaseChapterMedia({ story, slug, index, label }: { story: Story; slug: string; index: number; label: string }) {
   const fallback = getCaseContextFallback(story, slug);
-  const item = index === 0 && story.image ? { src: story.image, alt: story.heroAlt ?? `${story.name} challenge visual` } : index === 1 && story.journeyImage ? { src: story.journeyImage, alt: `${story.name} OARC delivery visual` } : { src: fallback.src, alt: fallback.alt };
+  const selected = story.evidenceMedia?.[index];
+  const item = selected ?? (index === 0 && story.image ? { src: story.image, alt: story.heroAlt ?? `${story.name} challenge visual` } : index === 1 && story.journeyImage ? { src: story.journeyImage, alt: `${story.name} OARC delivery visual` } : { src: fallback.src, alt: fallback.alt });
   return <figure className="case-chapter-media"><img src={item.src} alt={item.alt} loading="lazy" decoding="async" /><figcaption><b>{label}</b><span>{index === 2 ? fallback.caption : "Case visual / OARC delivery context"}</span></figcaption></figure>;
 }
 
@@ -365,7 +367,7 @@ export default function WorkCase({ slug = "pjazza" }: { slug?: string }) {
     {slug === "pjazza" && story.evidenceMedia && <MarketplaceProofWall media={story.evidenceMedia} />}
     {slug === "data-foundation" && <ArchiveProtocol />}
     {slug === "maison-verre-discovery" && <ObjectSequence />}
-    {story.evidenceMedia && slug !== "pjazza" && <section className="pjazza-evidence-gallery" aria-labelledby="pjazza-evidence-title"><div className="case-section-intro"><p>PUBLIC PRODUCT EVIDENCE</p><h2 id="pjazza-evidence-title">The marketplace must work across <i>different kinds of decisions.</i></h2><span>Official product-page imagery, used as source-linked product context.</span></div><div className="pjazza-evidence-grid">{story.evidenceMedia.map((media, index) => <figure key={media.label} className={`pjazza-evidence-item evidence-${index + 1}`}><img src={media.src} alt={media.alt} loading="lazy" decoding="async" /><figcaption><b>{media.label}</b><span>{media.caption}</span></figcaption></figure>)}</div></section>}
+     {story.evidenceMedia && slug !== "pjazza" && <section className="pjazza-evidence-gallery" aria-labelledby="pjazza-evidence-title"><div className="case-section-intro"><p>{isClient ? "SELECTED CLIENT CAMPAIGN MEDIA" : "PUBLIC PRODUCT EVIDENCE"}</p><h2 id="pjazza-evidence-title">{isClient ? <>The campaign starts with <i>the real world.</i></> : <>The marketplace must work across <i>different kinds of decisions.</i></>}</h2><span>{isClient ? `Supplied ${story.name} imagery organised into a useful campaign sequence for social, video, and paid creative.` : "Official product-page imagery, used as source-linked product context."}</span></div><div className="pjazza-evidence-grid">{story.evidenceMedia.map((media, index) => <figure key={media.label} className={`pjazza-evidence-item evidence-${index + 1}`}><img src={media.src} alt={media.alt} loading="lazy" decoding="async" /><figcaption><b>{media.label}</b><span>{media.caption}</span></figcaption></figure>)}</div></section>}
     {isOriginal ? <OriginalChapters story={story} slug={slug} /> : <section className="case-chapters-light">{story.chapters.map((chapter, index) => <article key={chapter.number}><div className="chapter-key"><b>{chapter.number}</b><span>{chapter.label}</span></div><div><h2>{chapter.title}</h2><p>{chapter.body}</p><CaseChapterMedia story={story} slug={slug} index={index} label={chapter.label} /></div>{index === 1 && <aside><Sparkles size={31} /><span>THE DESIGN HAS A JOB: MAKE THE SYSTEM LEGIBLE.</span></aside>}</article>)}</section>}
     {campaignContext && <CampaignContext context={campaignContext} story={story} />}
     {artefact && <EvidenceArtefact artefact={artefact} />}

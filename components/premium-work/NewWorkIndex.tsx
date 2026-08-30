@@ -41,7 +41,7 @@ const PROJECT_MARKS: Record<string, string> = {
   "mcw-cbd": "CBD retail · multi-location content · product education",
   "calle-bistro": "Local search · website · paid social",
   kreta: "Restaurant discovery · content · booking journey",
-  tiffany: "Real estate brand · video · event booking",
+  tiffany: "Champagne, wine & hospitality · social content · campaigns",
   "massive-fan-zone": "Event campaign · social video · paid media",
   "spinola-gin-fest": "Festival marketing · content · audience growth",
   "drink-n-more": "Product launch · social content · campaign production",
@@ -135,7 +135,7 @@ export default function NewWorkIndex() {
       {menuOpen && <nav className="light-mobile-nav" aria-label="Mobile New Work navigation"><a href="#new-work-records" onClick={() => setMenuOpen(false)}>Work</a><a href="#new-work-standard" onClick={() => setMenuOpen(false)}>How to read it</a><Link href="/our-work" onClick={() => setMenuOpen(false)}>Our Work</Link><a href="#new-work-contact" onClick={() => setMenuOpen(false)}>Start a conversation</a></nav>}
       <div className="hero-signal" />
       <div className="light-hero-copy"><p className="ink-label">CLIENT PARTNERSHIPS · CLIENT PRODUCTS · CLIENT SYSTEMS</p><h1>WORK YOU CAN<br /><i>TRUST.</i></h1><div><p><strong>Real brands and real OARC delivery lead this collection.</strong> Client products, client systems, and client projects follow in clearly marked sections—so every record says exactly what it is.</p><a href="#new-work-records" aria-label="View selected OARC work"><ArrowDownRight size={23} /></a></div></div>
-      <div className="hero-collage"><figure className="hero-collage-a"><img src="/attached_assets/premium-work/tiffany-mixology.jpeg" alt="Tiffany Lounge mixology and hospitality content showing OARC’s venue storytelling work" decoding="async" fetchPriority="high" /><figcaption>TIFFANY LOUNGE / HOSPITALITY CONTENT</figcaption></figure><figure className="hero-collage-b"><img src="/attached_assets/premium-work/portomaso-casino-blackjack.jpg" alt="Portomaso Casino branded blackjack venue visual showing OARC’s venue-media work" loading="eager" decoding="async" /><figcaption>PORTOMASO CASINO / VENUE MEDIA</figcaption></figure><span>SELECTED<br />CLIENT<br />WORK</span></div>
+      <div className="hero-collage"><figure className="hero-collage-a"><img src="/attached_assets/premium-work/client-media/tiffany-hero.jpg" alt="Tiffany Champagne, Wine & Bar guest holding a cocktail inside the Portomaso venue" decoding="async" fetchPriority="high" /><figcaption>TIFFANY / SOCIAL & VIDEO CAMPAIGN</figcaption></figure><figure className="hero-collage-b"><img src="/attached_assets/premium-work/client-media/portomaso-vip-lounge.jpg" alt="Portomaso Casino VIP lounge venue photography" loading="eager" decoding="async" /><figcaption>PORTOMASO / VENUE CAMPAIGN</figcaption></figure><span>SELECTED<br />CLIENT<br />WORK</span></div>
     </section>
 
     <section className="work-answer-index" aria-labelledby="new-work-answer-title"><div><p>THE DIRECT ANSWER</p><h2 id="new-work-answer-title">What will you<br /><i>find here?</i></h2></div><p>Client partnerships show the brand and OARC’s delivery. Client products show live product work. Client systems projects show the business problem and delivery approach. Client projects show the campaign, system, and digital work behind a focused brief.</p><a href="#new-work-standard">How to read the collection <ArrowUpRight size={17} /></a></section>
