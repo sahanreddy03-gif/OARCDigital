@@ -80,6 +80,45 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
     ],
   },
 
+  "/new-work": {
+    path: "/new-work",
+    title: "New Work — OARC Digital Client Portfolio | Malta",
+    description:
+      "OARC Digital’s client portfolio across brand, content, digital products, systems, events, and launch campaigns, with scope and public project context in every case.",
+    faqs: [
+      {
+        question: "What is included in OARC Digital New Work?",
+        answer:
+          "New Work brings together OARC client partnerships, client products, private client projects, and concept-led client engagements in one clearly organised collection.",
+      },
+      {
+        question: "Which entries are real client partnerships?",
+        answer:
+          "The Client Partnerships section contains named brands and events, OARC's stated delivery scope, approved brand media, and links to relevant public destinations.",
+      },
+      {
+        question: "How are concept-led client projects presented?",
+        answer:
+          "Concept-led client projects show the strategic, creative, product, and automation systems OARC delivered against focused briefs, including the prototype logic and working method behind each engagement.",
+      },
+      {
+        question: "How is private client work presented?",
+        answer:
+          "Private client projects explain the business pressure, OARC delivery approach, and design thinking while protecting the organisation's identity and private operating information.",
+      },
+      {
+        question: "Does New Work replace Our Work?",
+        answer:
+          "No. New Work is a separate collection at /new-work; the existing OARC Digital /our-work page remains available as an independent route.",
+      },
+      {
+        question: "How are results and public facts described?",
+        answer:
+          "OARC distinguishes the work it delivered from public brand context. Ratings, follower counts, locations, and event dates are supporting brand facts unless a result is explicitly connected to a defined OARC scope and measurement period.",
+      },
+    ],
+  },
+
   "/contact": {
     path: "/contact",
     title: "Contact OARC Digital — Birkirkara, Malta | Book a 30-Minute Audit",
