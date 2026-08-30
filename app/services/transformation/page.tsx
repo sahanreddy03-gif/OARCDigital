@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TransformationPageClient from "./TransformationPageClient";
+import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
 const TITLE = "Digital Transformation Malta — Change How the Business Runs | OARC";
 const DESCRIPTION =
@@ -84,6 +85,7 @@ export const metadata: Metadata = {
     url: CANONICAL,
     type: "website",
     siteName: "OARC Digital",
+    images: ogImageEntry({ title: TITLE, subtitle: DESCRIPTION }),
   },
   twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
   other: { "geo.region": "MT", "geo.placename": "Malta" },

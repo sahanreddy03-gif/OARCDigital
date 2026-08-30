@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import BrandPageClient from "./BrandPageClient";
+import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
 const TITLE = "Brand Strategy Malta — Creative and Brand Identity | OARC";
 const DESCRIPTION =
@@ -72,6 +73,7 @@ export const metadata: Metadata = {
     url: CANONICAL,
     type: "website",
     siteName: "OARC Digital",
+    images: ogImageEntry({ title: TITLE, subtitle: DESCRIPTION }),
   },
   twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
   other: { "geo.region": "MT", "geo.placename": "Malta" },

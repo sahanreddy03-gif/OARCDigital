@@ -53,6 +53,7 @@ const NODES: LinkNode[] = [
       "/automation",
       "/services",
       "/our-work",
+      "/new-work",
       "/contact",
     ],
   },
@@ -152,10 +153,25 @@ const NODES: LinkNode[] = [
     shortLabel: "Portfolio",
     hub: "homepage",
     spokes: [
+      "/new-work",
       "/aeo/restaurant-marketing-malta",
       "/aeo/hospitality-360-malta",
       "/aeo/digital-marketing-agency-malta",
       "/services/social-media-creative-management",
+    ],
+  },
+  {
+    path: "/new-work",
+    title: "New Work — OARC Digital Client Portfolio",
+    shortLabel: "New Work",
+    hub: "homepage",
+    spokes: [
+      "/our-work",
+      "/aeo/digital-marketing-agency-malta",
+      "/aeo/social-media-agency-malta",
+      "/aeo/video-production-malta",
+      "/aeo/web-design-malta",
+      "/contact",
     ],
   },
   {

@@ -79,6 +79,21 @@ type PillarProps = CommonProps & {
   aggregateRating?: AggregateRatingOpts;
 };
 
+type CollectionProps = CommonProps & {
+  type: "collection";
+  faqs?: { question: string; answer: string }[];
+  items: { name: string; url: string; description?: string; image?: string }[];
+};
+
+type CaseStudyProps = CommonProps & {
+  type: "caseStudy";
+  image?: string;
+  keywords?: string[];
+  sourceUrl?: string;
+  sourceName?: string;
+  faqs?: { question: string; answer: string }[];
+};
+
 type GenericProps = CommonProps & {
   type?: "page";
 };
@@ -88,6 +103,8 @@ export type RouteSchemaProps =
   | ServiceProps
   | LocalBusinessProps
   | PillarProps
+  | CollectionProps
+  | CaseStudyProps
   | GenericProps;
 
 export default function RouteSchema(props: RouteSchemaProps) {
@@ -219,6 +236,72 @@ export default function RouteSchema(props: RouteSchemaProps) {
       isPartOf: { "@id": `${BASE}/#website` },
       about: { "@id": `${BASE}/#organization` },
       primaryImageOfPage: { "@type": "ImageObject", url: `${BASE}/oarc-logo.png` },
+    });
+    if (props.faqs && props.faqs.length) nodes.push(buildFAQ(props.faqs, true));
+  } else if (props.type === "collection") {
+    const collectionId = `${url}#collection`;
+    nodes.push(buildOrganization());
+    nodes.push(buildWebSite());
+    nodes.push({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": `${url}#webpage`,
+      url,
+      name: props.title,
+      description: props.description,
+      isPartOf: { "@id": `${BASE}/#website` },
+      about: { "@id": `${BASE}/#organization` },
+      mainEntity: { "@id": collectionId },
+    });
+    nodes.push({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": collectionId,
+      name: props.title,
+      itemListOrder: "https://schema.org/ItemListOrderAscending",
+      numberOfItems: props.items.length,
+      itemListElement: props.items.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: item.url.startsWith("http") ? item.url : `${BASE}${item.url}`,
+        item: {
+          "@type": "CreativeWork",
+          name: item.name,
+          description: item.description,
+          ...(item.image ? { image: item.image.startsWith("http") ? item.image : `${BASE}${item.image}` } : {}),
+          url: item.url.startsWith("http") ? item.url : `${BASE}${item.url}`,
+        },
+      })),
+    });
+    if (props.faqs && props.faqs.length) nodes.push(buildFAQ(props.faqs, true));
+  } else if (props.type === "caseStudy") {
+    const workId = `${url}#case-study`;
+    nodes.push(buildOrganization());
+    nodes.push({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      url,
+      name: props.title,
+      description: props.description,
+      isPartOf: { "@id": `${BASE}/#website` },
+      about: { "@id": `${BASE}/#organization` },
+      mainEntity: { "@id": workId },
+      ...(props.image ? { primaryImageOfPage: { "@type": "ImageObject", url: props.image.startsWith("http") ? props.image : `${BASE}${props.image}` } } : {}),
+    });
+    nodes.push({
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "@id": workId,
+      name: props.title,
+      description: props.description,
+      url,
+      genre: "Case study",
+      creator: { "@id": `${BASE}/#organization` },
+      publisher: { "@id": `${BASE}/#organization` },
+      ...(props.image ? { image: props.image.startsWith("http") ? props.image : `${BASE}${props.image}` } : {}),
+      ...(props.keywords?.length ? { keywords: props.keywords.join(", ") } : {}),
+      ...(props.sourceUrl ? { citation: { "@type": "CreativeWork", name: props.sourceName ?? "Public project source", url: props.sourceUrl } } : {}),
     });
     if (props.faqs && props.faqs.length) nodes.push(buildFAQ(props.faqs, true));
   } else {

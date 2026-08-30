@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
 const TITLE = "Sales Systems Malta — Close More Sales | OARC";
 const DESCRIPTION =
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: CANONICAL },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: CANONICAL, type: "website", siteName: "OARC Digital" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: CANONICAL, type: "website", siteName: "OARC Digital", images: ogImageEntry({ title: TITLE, subtitle: DESCRIPTION }) },
   twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
   other: { "geo.region": "MT", "geo.placename": "Malta" },
 };
