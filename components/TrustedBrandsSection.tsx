@@ -59,7 +59,7 @@ function LogoMark({ logo, logoIndex }: { logo: Logo; logoIndex: number }) {
           src={logo.src}
           alt=""
           aria-hidden="true"
-          loading="lazy"
+          loading="eager"
           decoding="async"
           style={{ transform: `scale(${logo.scale ?? 1})` }}
         />
