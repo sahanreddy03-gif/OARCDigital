@@ -4,98 +4,52 @@ type Logo = {
   name: string;
   src?: string;
   textMark?: string;
+  scale?: number;
 };
 
-type LogoRail = {
-  id: string;
-  label: string;
-  note: string;
-  logos: Logo[];
-  tone: "client" | "reference";
-  duration: number;
-  delay: number;
-};
-
-const LOGO_RAILS: LogoRail[] = [
-  {
-    id: "clients",
-    label: "Named client work",
-    note: "Verified public client records",
-    tone: "client",
-    duration: 30,
-    delay: -4,
-    logos: [
-      { name: "Kreta", src: "/brand-logos/clients/kreta.png" },
-      { name: "Palino", src: "/brand-logos/clients/palino.png" },
-      { name: "Louisiana Mama", textMark: "LOUISIANA MAMA" },
-      { name: "MCW", src: "/brand-logos/clients/mcw.png" },
-    ],
-  },
-  {
-    id: "hospitality",
-    label: "Hospitality & F&B",
-    note: "Sector reference",
-    tone: "reference",
-    duration: 44,
-    delay: -13,
-    logos: [
-      { name: "BrewDog", src: "/brand-logos/hospitality/brewdog.png" },
-      { name: "Cafe del Mar", src: "/brand-logos/hospitality/cafedelmar.png" },
-      { name: "Dishoom", src: "/brand-logos/hospitality/dishoom.png" },
-      { name: "JA Resorts", src: "/brand-logos/hospitality/jaresorts.png" },
-      { name: "LEON", src: "/brand-logos/hospitality/leon.png" },
-      { name: "Malmaison", src: "/brand-logos/hospitality/malmaison.png" },
-      { name: "Nero", src: "/brand-logos/hospitality/nero.png" },
-      { name: "The Hoxton", src: "/brand-logos/hospitality/thehoxton.png" },
-      { name: "Turtle Bay", src: "/brand-logos/hospitality/turtlebay.png" },
-      { name: "Wahaca", src: "/brand-logos/hospitality/wahaca.png" },
-      { name: "Zizzi", src: "/brand-logos/hospitality/zizzi.png" },
-    ],
-  },
-  {
-    id: "sectors",
-    label: "Mobility · fintech · iGaming",
-    note: "Category context",
-    tone: "reference",
-    duration: 48,
-    delay: -27,
-    logos: [
-      { name: "32Red", src: "/brand-logos/sectors/32red.png" },
-      { name: "Betsson", src: "/brand-logos/sectors/betsson.png" },
-      { name: "BetVictor", src: "/brand-logos/sectors/betvictor.png" },
-      { name: "Bolt", src: "/brand-logos/sectors/bolt.png" },
-      { name: "eCabs", src: "/brand-logos/sectors/ecabs.png" },
-      { name: "LeoVegas", src: "/brand-logos/sectors/leovegas.png" },
-      { name: "Revolut", src: "/brand-logos/sectors/revolut.png" },
-      { name: "Skyscanner", src: "/brand-logos/sectors/skyscanner.png" },
-      { name: "SumUp", src: "/brand-logos/sectors/sumup.png" },
-      { name: "tabby", src: "/brand-logos/sectors/tabby.png" },
-      { name: "talabat", src: "/brand-logos/sectors/talabat.png" },
-      { name: "Unibet", src: "/brand-logos/sectors/unibet.png" },
-      { name: "Wise", src: "/brand-logos/sectors/wise.png" },
-      { name: "Wolt", src: "/brand-logos/sectors/wolt.png" },
-    ],
-  },
-  {
-    id: "uk",
-    label: "UK leisure",
-    note: "Category context",
-    tone: "reference",
-    duration: 40,
-    delay: -8,
-    logos: [
-      { name: "The Alchemist", src: "/brand-logos/uk/alchemist.png" },
-      { name: "Dirty Martini", src: "/brand-logos/uk/dirtymartini.png" },
-      { name: "Festival Republic", src: "/brand-logos/uk/festivalrepublic.png" },
-      { name: "Kilimanjaro Live", src: "/brand-logos/uk/kilimanjaro.png" },
-      { name: "Premier Inn", src: "/brand-logos/uk/premierinn.png" },
-      { name: "Slug & Lettuce", src: "/brand-logos/uk/sluglettuce.png" },
-      { name: "TONI&GUY", src: "/brand-logos/uk/toniguy.png" },
-    ],
-  },
+const MIXED_LOGOS: Logo[] = [
+  { name: "Kreta", src: "/brand-logos/clients/kreta.png" },
+  { name: "BrewDog", src: "/brand-logos/hospitality/brewdog.png" },
+  { name: "32Red", src: "/brand-logos/sectors/32red.png" },
+  { name: "The Alchemist", src: "/brand-logos/uk/alchemist.png" },
+  { name: "Palino", src: "/brand-logos/clients/palino.png" },
+  { name: "Cafe del Mar", src: "/brand-logos/hospitality/cafedelmar.png" },
+  { name: "Betsson", src: "/brand-logos/sectors/betsson.png" },
+  { name: "Dirty Martini", src: "/brand-logos/uk/dirtymartini.png" },
+  { name: "Louisiana Mama", textMark: "LOUISIANA MAMA" },
+  { name: "Dishoom", src: "/brand-logos/hospitality/dishoom.png" },
+  { name: "BetVictor", src: "/brand-logos/sectors/betvictor.png" },
+  { name: "Festival Republic", src: "/brand-logos/uk/festivalrepublic.png" },
+  { name: "MCW", src: "/brand-logos/clients/mcw.png", scale: 1.45 },
+  { name: "JA Resorts", src: "/brand-logos/hospitality/jaresorts.png" },
+  { name: "Bolt", src: "/brand-logos/sectors/bolt.png" },
+  { name: "Kilimanjaro Live", src: "/brand-logos/uk/kilimanjaro.png" },
+  { name: "LEON", src: "/brand-logos/hospitality/leon.png" },
+  { name: "eCabs", src: "/brand-logos/sectors/ecabs.png" },
+  { name: "Premier Inn", src: "/brand-logos/uk/premierinn.png" },
+  { name: "Malmaison", src: "/brand-logos/hospitality/malmaison.png" },
+  { name: "LeoVegas", src: "/brand-logos/sectors/leovegas.png" },
+  { name: "Slug & Lettuce", src: "/brand-logos/uk/sluglettuce.png" },
+  { name: "Nero", src: "/brand-logos/hospitality/nero.png" },
+  { name: "Revolut", src: "/brand-logos/sectors/revolut.png" },
+  { name: "TONI&GUY", src: "/brand-logos/uk/toniguy.png" },
+  { name: "The Hoxton", src: "/brand-logos/hospitality/thehoxton.png" },
+  { name: "Skyscanner", src: "/brand-logos/sectors/skyscanner.png" },
+  { name: "Turtle Bay", src: "/brand-logos/hospitality/turtlebay.png" },
+  { name: "SumUp", src: "/brand-logos/sectors/sumup.png" },
+  { name: "Wahaca", src: "/brand-logos/hospitality/wahaca.png" },
+  { name: "tabby", src: "/brand-logos/sectors/tabby.png" },
+  { name: "Zizzi", src: "/brand-logos/hospitality/zizzi.png" },
+  { name: "talabat", src: "/brand-logos/sectors/talabat.png" },
+  { name: "Unibet", src: "/brand-logos/sectors/unibet.png" },
+  { name: "Wise", src: "/brand-logos/sectors/wise.png" },
+  { name: "Wolt", src: "/brand-logos/sectors/wolt.png" },
 ];
 
-const BG = "#0B0C0D";
+const LOGO_ROWS = [
+  MIXED_LOGOS.filter((_, index) => index % 2 === 0),
+  MIXED_LOGOS.filter((_, index) => index % 2 === 1),
+] as const;
 
 function LogoMark({ logo, logoIndex }: { logo: Logo; logoIndex: number }) {
   return (
@@ -107,6 +61,7 @@ function LogoMark({ logo, logoIndex }: { logo: Logo; logoIndex: number }) {
           aria-hidden="true"
           loading="lazy"
           decoding="async"
+          style={{ transform: `scale(${logo.scale ?? 1})` }}
         />
       ) : (
         <b className="brand-wall-text-mark">{logo.textMark}</b>
@@ -115,40 +70,33 @@ function LogoMark({ logo, logoIndex }: { logo: Logo; logoIndex: number }) {
   );
 }
 
-function LogoRail({ rail }: { rail: LogoRail }) {
-  // Three identical passes keep the rail filled on wide screens while allowing
-  // the animation to loop at exactly one pass without a visible jump.
-  const ticker = [...rail.logos, ...rail.logos, ...rail.logos];
+function LogoRow({
+  logos,
+  direction,
+  rowIndex,
+}: {
+  logos: readonly Logo[];
+  direction: "forward" | "reverse";
+  rowIndex: number;
+}) {
+  const ticker = [...logos, ...logos];
 
   return (
     <div
-      className={`brand-wall-row brand-wall-row-${rail.tone}`}
-      data-testid={`logo-rail-${rail.id}`}
+      className={`brand-strip brand-strip-${direction}`}
+      data-testid={`logo-row-${rowIndex}`}
     >
-      <div className="brand-wall-row-meta">
-        <p className="brand-wall-row-label">{rail.label}</p>
-        <p className="brand-wall-row-note">{rail.note}</p>
-      </div>
-
       <div className="brand-wall-viewport">
-        <div
-          className="brand-wall-track"
-          style={{
-            animationDuration: `${rail.duration}s`,
-            animationDelay: `${rail.delay}s`,
-          }}
-          aria-hidden="true"
-          data-testid={`logo-marquee-${rail.id}`}
-        >
-          {ticker.map((logo, logoIndex) => (
-            <LogoMark logo={logo} logoIndex={logoIndex} key={`${logo.name}-${logoIndex}`} />
-          ))}
-        </div>
+      <div
+        className={`brand-wall-track brand-wall-track-${direction}`}
+        aria-hidden="true"
+        data-testid={`logo-marquee-${rowIndex}`}
+      >
+        {ticker.map((logo, logoIndex) => (
+          <LogoMark logo={logo} logoIndex={logoIndex} key={`${logo.name}-${logoIndex}`} />
+        ))}
       </div>
-
-      <p className="sr-only">
-        {rail.note}: {rail.logos.map((logo) => logo.name).join(", ")}.
-      </p>
+      </div>
     </div>
   );
 }
@@ -156,128 +104,73 @@ function LogoRail({ rail }: { rail: LogoRail }) {
 export default function TrustedBrandsSection() {
   return (
     <section
-      className="trusted-brands-section relative py-20 md:py-28"
-      style={{ backgroundColor: BG }}
+      className="trusted-brands-section"
       data-testid="section-trust-strip"
-      aria-labelledby="trust-strip-title"
+      aria-label="Selected brand marks"
     >
-      <div className="brand-wall-shell">
-        <div className="brand-wall-intro">
-          <div>
-            <p className="brand-wall-kicker">OARC / Selected context</p>
-            <h2 id="trust-strip-title">Know the room. Then change it.</h2>
-          </div>
-          <p className="brand-wall-description">
-            Named client work, followed by the categories and cultures we keep
-            close. Every mark is labelled for what it is.
-          </p>
-        </div>
-
-        <div className="brand-wall-rows">
-          {LOGO_RAILS.map((rail) => (
-            <LogoRail key={rail.id} rail={rail} />
-          ))}
-        </div>
-
-        <p className="brand-wall-footnote">
-          Client work first <span aria-hidden="true">·</span> category context after
-        </p>
+      <div className="brand-wall" aria-hidden="true">
+        <LogoRow logos={LOGO_ROWS[0]} direction="forward" rowIndex={0} />
+        <LogoRow logos={LOGO_ROWS[1]} direction="reverse" rowIndex={1} />
       </div>
+
+      <ul className="sr-only" aria-label="Brand names">
+        {MIXED_LOGOS.map((logo) => (
+          <li key={logo.name}>{logo.name}</li>
+        ))}
+      </ul>
 
       <style
         dangerouslySetInnerHTML={{
           __html: `
             .trusted-brands-section{
-              --wall-bg:${BG};
-              color:#f5f5f3;
-              overflow:clip;
+              position:relative;
+              width:100%;
+              max-width:100%;
+              overflow-x:hidden;
+              background:#0B0C0D;
             }
-            .brand-wall-shell{
-              width:min(100% - 40px, 1600px);
-              margin:0 auto;
-            }
-            .brand-wall-intro{
-              display:flex;
-              align-items:flex-end;
-              justify-content:space-between;
-              gap:48px;
-              padding-bottom:clamp(48px,7vw,88px);
-            }
-            .brand-wall-kicker,
-            .brand-wall-row-label,
-            .brand-wall-footnote{
-              margin:0;
-              color:#a9aca8;
-              font:700 10px/1.3 var(--font-space-mono,monospace);
-              letter-spacing:.16em;
-              text-transform:uppercase;
-            }
-            .brand-wall-kicker{
-              color:#f5f5f3;
-              margin-bottom:18px;
-            }
-            .brand-wall-intro h2{
-              max-width:620px;
-              margin:0;
-              color:#f5f5f3;
-              font:800 clamp(2.25rem,5.3vw,5.6rem)/.92 var(--font-bricolage, var(--font-space-grotesk, sans-serif));
-              letter-spacing:-.075em;
-            }
-            .brand-wall-description{
-              max-width:310px;
-              margin:0 0 3px;
-              color:#8d928f;
-              font:400 13px/1.55 var(--font-space-mono,monospace);
-            }
-            .brand-wall-rows{
-              border-top:1px solid rgba(245,245,243,.18);
-            }
-            .brand-wall-row{
+            .brand-wall{
               display:grid;
-              grid-template-columns:minmax(174px, .23fr) minmax(0, 1fr);
-              align-items:center;
-              gap:clamp(20px,4vw,72px);
+              gap:2px;
+              width:100%;
+            }
+            .brand-strip{
+              position:relative;
+              overflow:hidden;
               min-width:0;
-              padding:25px 0;
-              border-bottom:1px solid rgba(245,245,243,.12);
+              width:100%;
             }
-            .brand-wall-row-client{
-              padding-top:30px;
-              padding-bottom:30px;
+            .brand-strip-forward{
+              background:#F5F5F3;
             }
-            .brand-wall-row-label{
-              color:#f5f5f3;
-              letter-spacing:.1em;
-            }
-            .brand-wall-row-client .brand-wall-row-label{
-              color:#f5f5f3;
-            }
-            .brand-wall-row-note{
-              margin:7px 0 0;
-              color:#707572;
-              font:400 10px/1.4 var(--font-space-mono,monospace);
-              letter-spacing:.02em;
+            .brand-strip-reverse{
+              background:#0E5A3A;
             }
             .brand-wall-viewport{
               position:relative;
               min-width:0;
+              width:100%;
               overflow:hidden;
-              padding:4px 0;
-              box-shadow:inset 30px 0 24px -28px ${BG}, inset -30px 0 24px -28px ${BG};
+              padding:clamp(8px,1.15vw,16px) 0;
             }
             .brand-wall-track{
               display:flex;
               width:max-content;
               align-items:center;
-              gap:clamp(36px,5.4vw,96px);
-              animation:brand-wall-marquee 42s linear infinite;
+              gap:clamp(28px,4vw,68px);
               will-change:transform;
+            }
+            .brand-wall-track-forward{
+              animation:brand-wall-forward 50s linear infinite;
+            }
+            .brand-wall-track-reverse{
+              animation:brand-wall-reverse 54s linear infinite;
             }
             .brand-wall-logo{
               display:flex;
-              flex:0 0 clamp(118px,12vw,204px);
-              width:clamp(118px,12vw,204px);
-              height:clamp(40px,4.3vw,68px);
+              flex:0 0 clamp(150px,16vw,258px);
+              width:clamp(150px,16vw,258px);
+              height:clamp(44px,5vw,76px);
               align-items:center;
               justify-content:center;
             }
@@ -286,42 +179,35 @@ export default function TrustedBrandsSection() {
               width:100%;
               height:100%;
               object-fit:contain;
-              filter:grayscale(1) brightness(1.65) contrast(.94);
-              opacity:.66;
             }
-            .brand-wall-row-client .brand-wall-logo{
-              flex-basis:clamp(148px,16vw,248px);
-              width:clamp(148px,16vw,248px);
-              height:clamp(48px,5.2vw,82px);
+            .brand-strip-forward .brand-wall-logo img{
+              filter:grayscale(1) brightness(0);
+              opacity:.82;
             }
-            .brand-wall-row-client .brand-wall-logo img{
-              opacity:.96;
-              filter:grayscale(1) brightness(1.8) contrast(1.02);
+            .brand-strip-reverse .brand-wall-logo img{
+              filter:grayscale(1) brightness(0) invert(1);
+              opacity:.9;
             }
             .brand-wall-text-mark{
               display:block;
-              color:#f5f5f3;
-              font:800 clamp(13px,1.55vw,22px)/.9 var(--font-space-grotesk, sans-serif);
+              font:800 clamp(15px,1.75vw,26px)/.9 var(--font-space-grotesk, sans-serif);
               letter-spacing:-.08em;
               text-align:center;
               white-space:nowrap;
             }
-            .brand-wall-row-reference .brand-wall-text-mark{
-              color:#b8bcb8;
+            .brand-strip-forward .brand-wall-text-mark{
+              color:#0B0C0D;
             }
-            .brand-wall-footnote{
-              padding-top:20px;
-              color:#636865;
-              font-size:9px;
-              letter-spacing:.1em;
+            .brand-strip-reverse .brand-wall-text-mark{
+              color:#F5F5F3;
             }
-            .brand-wall-footnote span{
-              padding:0 7px;
-              color:#f5f5f3;
-            }
-            @keyframes brand-wall-marquee{
-              from{transform:translate3d(-33.333333%,0,0)}
+            @keyframes brand-wall-forward{
+              from{transform:translate3d(-50%,0,0)}
               to{transform:translate3d(0,0,0)}
+            }
+            @keyframes brand-wall-reverse{
+              from{transform:translate3d(0,0,0)}
+              to{transform:translate3d(-50%,0,0)}
             }
             @media(prefers-reduced-motion:reduce){
               .brand-wall-track{
@@ -329,63 +215,26 @@ export default function TrustedBrandsSection() {
                 transform:none;
               }
             }
-            @media(max-width:760px){
-              .brand-wall-shell{
-                width:min(100% - 32px, 600px);
+            @media(max-width:640px){
+              .trusted-brands-section{
+                padding:0;
               }
-              .brand-wall-intro{
-                display:block;
-                padding-bottom:52px;
+              .brand-wall{
+                gap:2px;
               }
-              .brand-wall-intro h2{
-                max-width:420px;
-                font-size:clamp(2.3rem,12vw,4rem);
-              }
-              .brand-wall-description{
-                max-width:360px;
-                margin-top:24px;
-                font-size:11px;
-              }
-              .brand-wall-row{
-                display:block;
-                padding:22px 0;
-              }
-              .brand-wall-row-client{
-                padding-top:27px;
-                padding-bottom:27px;
-              }
-              .brand-wall-row-meta{
-                display:flex;
-                align-items:baseline;
-                justify-content:space-between;
-                gap:16px;
-                margin-bottom:13px;
-              }
-              .brand-wall-row-note{
-                margin:0;
-                text-align:right;
+              .brand-wall-viewport{
+                padding:6px 0;
               }
               .brand-wall-track{
-                gap:32px;
+                gap:28px;
               }
               .brand-wall-logo{
-                flex-basis:126px;
-                width:126px;
-                height:44px;
+                flex-basis:144px;
+                width:144px;
+                height:46px;
               }
-              .brand-wall-row-client .brand-wall-logo{
-                flex-basis:154px;
-                width:154px;
-                height:54px;
-              }
-            }
-            @media(max-width:420px){
-              .brand-wall-row-meta{
-                display:block;
-              }
-              .brand-wall-row-note{
-                margin-top:6px;
-                text-align:left;
+              .brand-wall-text-mark{
+                font-size:15px;
               }
             }
           `,
