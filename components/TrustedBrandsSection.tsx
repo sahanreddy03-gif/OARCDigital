@@ -128,10 +128,11 @@ export default function TrustedBrandsSection() {
               max-width:100%;
               overflow-x:hidden;
               background:#0B0C0D;
+              padding:clamp(10px,1.5vw,18px) 0;
             }
             .brand-wall{
               display:grid;
-              gap:2px;
+              gap:clamp(6px,0.8vw,10px);
               width:100%;
             }
             .brand-strip{
@@ -139,25 +140,27 @@ export default function TrustedBrandsSection() {
               overflow:hidden;
               min-width:0;
               width:100%;
+              border:1px solid rgba(245,245,243,.18);
+              background:#deded9;
             }
             .brand-strip-forward{
-              background:#F5F5F3;
+              background:#deded9;
             }
             .brand-strip-reverse{
-              background:#0E5A3A;
+              background:#deded9;
             }
             .brand-wall-viewport{
               position:relative;
               min-width:0;
               width:100%;
               overflow:hidden;
-              padding:clamp(8px,1.15vw,16px) 0;
+              padding:clamp(8px,1vw,14px) 0;
             }
             .brand-wall-track{
               display:flex;
               width:max-content;
               align-items:center;
-              gap:clamp(28px,4vw,68px);
+              gap:clamp(12px,1.5vw,24px);
               will-change:transform;
             }
             .brand-wall-track-forward{
@@ -170,23 +173,23 @@ export default function TrustedBrandsSection() {
               display:flex;
               flex:0 0 clamp(150px,16vw,258px);
               width:clamp(150px,16vw,258px);
-              height:clamp(44px,5vw,76px);
+              height:clamp(56px,5.6vw,82px);
               align-items:center;
               justify-content:center;
+              box-sizing:border-box;
+              padding:clamp(8px,1vw,14px) clamp(14px,1.8vw,26px);
+              border:1px solid rgba(11,12,13,.12);
+              border-radius:10px;
+              background:#F5F5F3;
+              box-shadow:0 2px 0 rgba(11,12,13,.08), inset 0 0 0 1px rgba(255,255,255,.42);
             }
             .brand-wall-logo img{
               display:block;
-              width:100%;
-              height:100%;
+              width:92%;
+              height:82%;
               object-fit:contain;
-            }
-            .brand-strip-forward .brand-wall-logo img{
-              filter:grayscale(1) brightness(0);
+              filter:brightness(0) grayscale(1);
               opacity:.82;
-            }
-            .brand-strip-reverse .brand-wall-logo img{
-              filter:grayscale(1) brightness(0) invert(1);
-              opacity:.9;
             }
             .brand-wall-text-mark{
               display:block;
@@ -194,12 +197,7 @@ export default function TrustedBrandsSection() {
               letter-spacing:-.08em;
               text-align:center;
               white-space:nowrap;
-            }
-            .brand-strip-forward .brand-wall-text-mark{
               color:#0B0C0D;
-            }
-            .brand-strip-reverse .brand-wall-text-mark{
-              color:#F5F5F3;
             }
             @keyframes brand-wall-forward{
               from{transform:translate3d(-50%,0,0)}
@@ -217,21 +215,23 @@ export default function TrustedBrandsSection() {
             }
             @media(max-width:640px){
               .trusted-brands-section{
-                padding:0;
+                padding:8px 0;
               }
               .brand-wall{
-                gap:2px;
+                gap:6px;
               }
               .brand-wall-viewport{
-                padding:6px 0;
+                padding:7px 0;
               }
               .brand-wall-track{
-                gap:28px;
+                gap:12px;
               }
               .brand-wall-logo{
                 flex-basis:144px;
                 width:144px;
-                height:46px;
+                height:58px;
+                padding:8px 12px;
+                border-radius:8px;
               }
               .brand-wall-text-mark{
                 font-size:15px;
