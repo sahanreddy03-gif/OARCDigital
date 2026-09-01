@@ -5,7 +5,7 @@ import TheShiftLanding from "@/components/TheShiftLanding";
 import { getHreflangAlternates } from "@/lib/seo/discoveryTags";
 
 const title = "The Shift — OARC Digital AI Operator | Malta";
-const description = "Meet the OARC Digital AI operator: an always-on layer that helps real teams handle customer moments, follow-ups, and operational work across the day.";
+const description = "Meet OARC Digital's AI helper: it answers customers, follows up, and helps your team get important jobs done all day.";
 
 export const metadata: Metadata = {
   title,

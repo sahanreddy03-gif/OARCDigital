@@ -18,124 +18,124 @@ const scenes: Scene[] = [
     time: "00:12",
     industry: "Hospitality",
     slug: "hospitality",
-    headline: "A guest calls at midnight. The answer is already ready.",
-    body: "A late-night request is answered, the context is captured, and the next action is queued without waking the team.",
+    headline: "A guest calls late. It answers.",
+    body: "The guest gets help right away. The team sees a clear note in the morning.",
     mode: "call",
     lines: [
-      "Inbound · after hours · language recognised",
-      "Guest context matched · stay history available",
-      "Request answered · next action prepared",
-      "Team note written · morning handoff scheduled",
+      "New call · late at night",
+      "Guest details found",
+      "Question answered",
+      "Team note saved for morning",
     ],
   },
   {
     time: "03:10",
     industry: "Logistics",
     slug: "logistics",
-    headline: "An exception appears. It does not become a fire.",
-    body: "The operator finds the affected work, prepares the updates, and leaves the human team with the decision that actually needs them.",
+    headline: "A delivery has a problem. It finds it.",
+    body: "It shows the right person what happened and what needs to happen next.",
     mode: "timeline",
     lines: [
-      "03:10 — exception detected · affected work mapped",
-      "03:14 — customer updates prepared",
-      "03:31 — priority cases routed to owner",
-      "03:47 — clearance document requested",
+      "03:10 — delivery problem found",
+      "03:14 — customer message ready",
+      "03:31 — right person told",
+      "03:47 — missing document requested",
     ],
   },
   {
     time: "08:00",
-    industry: "Every business",
+    industry: "Every team",
     slug: "operator",
-    headline: "It calls you. Two minutes. The whole business.",
-    body: "What happened overnight, what needs a decision, and where the next opportunity sits — condensed into a useful morning briefing.",
+    headline: "It gives you the morning update.",
+    body: "You hear what happened, what needs your help, and what can wait.",
     mode: "briefing",
     lines: [
-      "Calling owner · 08:00 · daily briefing",
-      "Overnight: handled, closed, and waiting",
-      "Needs you: decisions queued with context",
-      "Next move: mission ready for approval",
+      "Morning update ready",
+      "Handled overnight",
+      "Needs your decision",
+      "Next step ready",
     ],
   },
   {
     time: "09:12",
     industry: "Home services",
     slug: "home-services",
-    headline: "The quote went quiet. The follow-up does not.",
-    body: "A warm lead gets a timely, useful answer while the team is doing the work — then the next appointment is prepared.",
+    headline: "A customer goes quiet. It follows up.",
+    body: "It sends a helpful message while the team is busy, then gets the next appointment ready.",
     mode: "call",
     lines: [
-      "Outbound · quote follow-up · context loaded",
-      "Question identified · answer prepared",
-      "Appointment request captured",
-      "Reminder set · owner briefed",
+      "Follow-up needed",
+      "Helpful answer ready",
+      "Appointment request saved",
+      "Reminder set for the team",
     ],
   },
   {
     time: "14:20",
     industry: "Real estate",
     slug: "real-estate",
-    headline: "A renewal is due. The conversation starts early.",
-    body: "The operator watches the important dates, prepares the right conversation, and keeps the relationship moving before it becomes urgent.",
+    headline: "An important date is near. It reminds you.",
+    body: "It spots the date, prepares a message, and gives the team time to act.",
     mode: "board",
     lines: [
-      "Lease · expiry approaching · renewal task opened",
-      "Buyer context matched · last touch reviewed",
-      "Relevant property surfaced",
-      "Agent briefed · next step queued",
+      "Important date coming soon",
+      "Past messages checked",
+      "Right property found",
+      "Team told what to do next",
     ],
   },
   {
     time: "22:40",
     industry: "Sales",
     slug: "sales",
-    headline: "A lead lands. The response starts in seconds.",
-    body: "The enquiry is qualified against the real criteria, the history is found, and the right person receives a useful brief.",
+    headline: "A new customer writes. It replies quickly.",
+    body: "It finds the important details and gives the right person a useful summary.",
     mode: "call",
     lines: [
-      "Inbound lead · 22:40 · response initiated",
-      "Company matched · previous context found",
-      "Qualification complete · timing understood",
-      "Meeting request prepared · CRM updated",
+      "New customer message",
+      "Past messages found",
+      "What they need understood",
+      "Meeting request ready",
     ],
   },
 ];
 
 const industries = [
-  ["01", "Hospitality & travel", "hospitality"],
-  ["02", "Sales & revenue", "sales"],
-  ["03", "Healthcare & dental", "healthcare"],
-  ["04", "Finance & insurance", "finance-insurance"],
-  ["05", "Real estate & property", "real-estate"],
+  ["01", "Hotels & travel", "hospitality"],
+  ["02", "Sales", "sales"],
+  ["03", "Doctors & dentists", "healthcare"],
+  ["04", "Money & insurance", "finance-insurance"],
+  ["05", "Homes & property", "real-estate"],
   ["06", "Legal", "legal"],
-  ["07", "Logistics & maritime", "logistics"],
-  ["08", "Home services & auto", "home-services"],
-  ["09", "Education & enrolment", "education"],
-  ["10", "Government & citizen services", "government"],
+  ["07", "Shipping & delivery", "logistics"],
+  ["08", "Home repairs & cars", "home-services"],
+  ["09", "Schools", "education"],
+  ["10", "Public services", "government"],
 ] as const;
 
 const comparisonRows: readonly [string, boolean, boolean][] = [
-  ["Works across the day, not just office hours", true, false],
-  ["Makes outbound moves, not just replies", true, false],
-  ["Works inside the systems already in use", true, false],
-  ["Leaves a clear handoff when a human decision is needed", true, false],
-  ["Gets more useful as it learns the business", true, false],
+  ["Works after office hours", true, false],
+  ["Can send messages and follow up", true, false],
+  ["Works with the tools you already use", true, false],
+  ["Tells a person when help is needed", true, false],
+  ["Gets better at your way of working", true, false],
 ];
 
 const proofImages = [
   {
     src: "/attached_assets/premium-work/client-media/tiffany-hero.jpg",
     label: "Hospitality",
-    title: "Context that travels with the work.",
+  title: "Keeps the right details together.",
   },
   {
     src: "/attached_assets/premium-work/client-media/portomaso-entrance.jpg",
     label: "Experience",
-    title: "A better response is a better experience.",
+  title: "Helps people get answers faster.",
   },
   {
     src: "/attached_assets/premium-work/pjazza-food_b3085783.jpg",
     label: "Commerce",
-    title: "Useful action, close to the moment.",
+  title: "Acts while the moment still matters.",
   },
 ];
 
@@ -218,9 +218,9 @@ function Simulation({
   }, [active, reducedMotion, scene.lines.length]);
 
   return (
-    <div className="shift-sim" aria-label={`Live ${scene.industry} operator simulation`} role="img">
+    <div className="shift-sim" aria-label={`Example of how the helper works for ${scene.industry}`} role="img">
       <div className="shift-sim__top">
-        <span className="shift-sim__live"><i /> OPERATOR · LIVE</span>
+        <span className="shift-sim__live"><i /> HELPER · LIVE</span>
         <span>{scene.mode.toUpperCase()}</span>
       </div>
       {(scene.mode === "call" || scene.mode === "briefing") && (
@@ -272,8 +272,8 @@ function ShiftWorkday() {
       <div className="shift-clock" aria-hidden="true"><i /> {clock}</div>
       <div className="shift-wrap shift-day__intro">
         <Reveal>
-          <p className="shift-kicker">One operator · one working day</p>
-          <h2>Scroll through the work.<br /><em>Not the promise.</em></h2>
+          <p className="shift-kicker">One helper · one working day</p>
+          <h2>See the helper<br /><em>at work.</em></h2>
         </Reveal>
       </div>
       <div className="shift-scenes">
@@ -297,7 +297,7 @@ function ShiftWorkday() {
                 <p className="shift-time"><span>{scene.time}</span> — {scene.industry}</p>
                 <h3>{scene.headline}</h3>
                 <p className="shift-muted">{scene.body}</p>
-                <Link href={`/industries/${scene.slug}`} className="shift-text-link">Open {scene.industry} <span>↗</span></Link>
+                <Link href={`/industries/${scene.slug}`} className="shift-text-link">See {scene.industry} <span>↗</span></Link>
               </Reveal>
               <Reveal className="shift-scene__visual" delay={120}>
                 <Simulation scene={scene} active={activeIndex === index} />
@@ -308,7 +308,7 @@ function ShiftWorkday() {
       </div>
       <div className="shift-wrap shift-day__close">
         <Reveal>
-          <p>It does not replace the people who know the business. It makes sure the important work does not wait for them to remember it.</p>
+          <p>It does not replace your team. It takes care of repeat work so people can focus on bigger decisions.</p>
         </Reveal>
       </div>
     </section>
@@ -332,17 +332,17 @@ export default function TheShiftLanding() {
             </Reveal>
             <h1>
               <Reveal delay={60}><span>It&apos;s not</span></Reveal>
-              <Reveal delay={140}><span>software.</span></Reveal>
-              <Reveal delay={220}><span className="is-outline">It&apos;s an</span></Reveal>
-              <Reveal delay={300}><span className="is-signal">operator.</span></Reveal>
+              <Reveal delay={140}><span>just software.</span></Reveal>
+              <Reveal delay={220}><span className="is-outline">It&apos;s a</span></Reveal>
+              <Reveal delay={300}><span className="is-signal">helper.</span></Reveal>
             </h1>
             <div className="shift-hero__footer">
               <Reveal delay={420}>
-                <p>An AI-native operator that works across the moments your team cannot always be there for — inside the systems you already use.</p>
+                <p>A digital helper that works all day, talks to customers, and helps your team get important jobs done.</p>
               </Reveal>
               <Reveal delay={520} className="shift-hero__actions">
-                <a href="#shift" className="shift-button shift-button--signal">Watch the shift <span>↓</span></a>
-                <Link href="/contact" className="shift-button">Give it a mission <span>↗</span></Link>
+                <a href="#shift" className="shift-button shift-button--signal">See how it works <span>↓</span></a>
+                <Link href="/contact" className="shift-button">Tell us what you need <span>↗</span></Link>
               </Reveal>
             </div>
           </div>
@@ -359,8 +359,8 @@ export default function TheShiftLanding() {
         <section className="shift-industries">
           <div className="shift-wrap">
             <Reveal>
-              <p className="shift-kicker">Ten industries · one intelligence</p>
-              <h2>Find your<br /><em>operator.</em></h2>
+              <p className="shift-kicker">One helper · many kinds of work</p>
+              <h2>Where could<br />it <em>help?</em></h2>
             </Reveal>
             <div className="shift-industry-list">
               {industries.map(([index, name, slug]) => (
@@ -379,8 +379,8 @@ export default function TheShiftLanding() {
         <section className="shift-proof">
           <div className="shift-wrap">
             <Reveal>
-              <p className="shift-kicker">Made for the real world</p>
-              <h2>The operator belongs<br />where the work <em>happens.</em></h2>
+              <p className="shift-kicker">Built for real work</p>
+              <h2>The helper goes<br />where the work <em>happens.</em></h2>
             </Reveal>
             <div className="shift-proof__grid">
               {proofImages.map((image, index) => (
@@ -397,15 +397,15 @@ export default function TheShiftLanding() {
         <section className="shift-comparison">
           <div className="shift-wrap">
             <Reveal>
-              <p className="shift-kicker">The useful difference</p>
-              <h2>Not another tool<br /><em>to manage.</em></h2>
+              <p className="shift-kicker">Why it helps</p>
+              <h2>More than a tool<br /><em>on a screen.</em></h2>
             </Reveal>
             <div className="shift-table">
-              <div className="shift-table__head"><span>What it does</span><strong>The operator</strong><span>Another tool</span></div>
-              {comparisonRows.map(([label, operator, tool]) => (
+              <div className="shift-table__head"><span>What it can do</span><strong>This helper</strong><span>A usual tool</span></div>
+              {comparisonRows.map(([label, isHelper, tool]) => (
                 <div className="shift-table__row" key={label}>
                   <span>{label}</span>
-                  <strong>{operator ? "●" : "—"}</strong>
+                  <strong>{isHelper ? "●" : "—"}</strong>
                   <span>{tool ? "●" : "—"}</span>
                 </div>
               ))}
@@ -415,17 +415,17 @@ export default function TheShiftLanding() {
 
         <section className="shift-statement">
           <div className="shift-wrap">
-            <Reveal><p>Software depreciates.<br /><em>This compounds.</em></p></Reveal>
+            <Reveal><p>It learns your way of working.<br /><em>It gets more helpful.</em></p></Reveal>
           </div>
         </section>
 
         <section className="shift-start">
           <div className="shift-wrap shift-start__inner">
             <Reveal>
-              <p className="shift-kicker shift-kicker--light">Start with one mission</p>
-              <h2>Give it a problem<br />worth <em>solving.</em></h2>
-              <p className="shift-start__body">Show us the moment that keeps falling through the cracks. We will map the work, build the operator, and prove the first mission before anything else.</p>
-              <Link href="/contact" className="shift-button shift-button--signal">Start a conversation <span>↗</span></Link>
+              <p className="shift-kicker shift-kicker--light">Start with one job</p>
+              <h2>Give it one problem<br />to <em>solve.</em></h2>
+              <p className="shift-start__body">Tell us about a job that gets missed or takes too much time. We will show you how the helper can take it on.</p>
+              <Link href="/contact" className="shift-button shift-button--signal">Tell us the problem <span>↗</span></Link>
             </Reveal>
           </div>
         </section>
