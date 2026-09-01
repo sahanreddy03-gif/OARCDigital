@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function TheShiftPage() {
   return (
-    <Layout navTheme="light">
+    <Layout navTheme="dark" showMobileNav>
       <RouteSchema
         type="service"
         path="/the-shift"

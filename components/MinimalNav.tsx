@@ -82,7 +82,13 @@ const SERVICE_GROUPS: { title: string; href: string; accent: string; items: { na
   },
 ];
 
-export default function MinimalNav({ theme = "dark" }: { theme?: "dark" | "light" }) {
+export default function MinimalNav({
+  theme = "dark",
+  showMobileTrigger = false,
+}: {
+  theme?: "dark" | "light";
+  showMobileTrigger?: boolean;
+}) {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -129,7 +135,7 @@ export default function MinimalNav({ theme = "dark" }: { theme?: "dark" | "light
     <>
       {/* ── Trigger — static corner mark, scrolls away with page ── */}
       <div
-        className="absolute top-0 right-0 z-50 hidden md:block"
+        className={`absolute top-0 right-0 z-50 ${showMobileTrigger ? "block" : "hidden md:block"}`}
         style={{
           paddingTop: "max(16px, env(safe-area-inset-top))",
           paddingRight: "max(18px, env(safe-area-inset-right))",
@@ -140,14 +146,19 @@ export default function MinimalNav({ theme = "dark" }: { theme?: "dark" | "light
           onClick={() => setOpen(true)}
           aria-expanded={open}
           aria-controls="oarc-menu-panel"
-          aria-label="Open menu"
+          aria-label="Open navigation menu"
           data-testid="button-menu-mark"
-          className={`group relative flex h-11 w-11 items-center justify-center rounded-full transition-all duration-300 ${
+          className={`group relative flex h-11 items-center justify-center rounded-full transition-all duration-300 ${
+            showMobileTrigger ? "w-[76px] gap-2 border border-current/30 bg-black/20 px-3 backdrop-blur-sm" : "w-11"
+          } ${
             isLight
               ? "text-zinc-600/50 hover:text-zinc-900 hover:bg-black/5"
               : "text-white/35 hover:text-white hover:bg-white/8"
           }`}
         >
+          {showMobileTrigger && (
+            <span className="font-mono text-[9px] font-semibold tracking-[0.18em]">MENU</span>
+          )}
           <span aria-hidden className="flex flex-col items-end gap-[6px]">
             <span className="block h-px w-[18px] bg-current transition-all duration-300 group-hover:w-5" />
             <span className="block h-px w-[12px] bg-current transition-all duration-300 group-hover:w-5" />
