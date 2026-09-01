@@ -12,7 +12,7 @@ interface LayoutProps {
 export default function Layout({
   children,
   showNav = true,
-  showMobileNav = false,
+  showMobileNav = true,
   showFooter = true,
   navTheme = "dark",
 }: LayoutProps) {
