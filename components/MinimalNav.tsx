@@ -17,6 +17,7 @@ const PRIMARY = [
   { href: "/solutions", label: "Automation" },
   { href: "/our-work",  label: "Our Work" },
   { href: "/new-work",  label: "New Work" },
+  { href: "/the-shift", label: "The Shift" },
   { href: "/pricing",   label: "Pricing" },
 ];
 
