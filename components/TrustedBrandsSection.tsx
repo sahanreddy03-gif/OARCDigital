@@ -2,48 +2,45 @@
 
 type Logo = {
   name: string;
-  src?: string;
-  textMark?: string;
-  scale?: number;
+  src: string;
 };
 
 const MIXED_LOGOS: Logo[] = [
-  { name: "Kreta", src: "/brand-logos/clients/kreta.png" },
-  { name: "BrewDog", src: "/brand-logos/hospitality/brewdog.png" },
-  { name: "32Red", src: "/brand-logos/sectors/32red.png" },
-  { name: "The Alchemist", src: "/brand-logos/uk/alchemist.png" },
-  { name: "Palino", src: "/brand-logos/clients/palino.png" },
-  { name: "Cafe del Mar", src: "/brand-logos/hospitality/cafedelmar.png" },
-  { name: "Betsson", src: "/brand-logos/sectors/betsson.png" },
-  { name: "Dirty Martini", src: "/brand-logos/uk/dirtymartini.png" },
-  { name: "Louisiana Mama", textMark: "LOUISIANA MAMA" },
-  { name: "Dishoom", src: "/brand-logos/hospitality/dishoom.png" },
-  { name: "BetVictor", src: "/brand-logos/sectors/betvictor.png" },
-  { name: "Festival Republic", src: "/brand-logos/uk/festivalrepublic.png" },
-  { name: "MCW", src: "/brand-logos/clients/mcw.png", scale: 1.45 },
-  { name: "JA Resorts", src: "/brand-logos/hospitality/jaresorts.png" },
-  { name: "Bolt", src: "/brand-logos/sectors/bolt.png" },
-  { name: "Kilimanjaro Live", src: "/brand-logos/uk/kilimanjaro.png" },
-  { name: "LEON", src: "/brand-logos/hospitality/leon.png" },
-  { name: "eCabs", src: "/brand-logos/sectors/ecabs.png" },
-  { name: "Premier Inn", src: "/brand-logos/uk/premierinn.png" },
-  { name: "Malmaison", src: "/brand-logos/hospitality/malmaison.png" },
-  { name: "LeoVegas", src: "/brand-logos/sectors/leovegas.png" },
-  { name: "Slug & Lettuce", src: "/brand-logos/uk/sluglettuce.png" },
-  { name: "Nero", src: "/brand-logos/hospitality/nero.png" },
-  { name: "Revolut", src: "/brand-logos/sectors/revolut.png" },
-  { name: "TONI&GUY", src: "/brand-logos/uk/toniguy.png" },
-  { name: "The Hoxton", src: "/brand-logos/hospitality/thehoxton.png" },
-  { name: "Skyscanner", src: "/brand-logos/sectors/skyscanner.png" },
-  { name: "Turtle Bay", src: "/brand-logos/hospitality/turtlebay.png" },
-  { name: "SumUp", src: "/brand-logos/sectors/sumup.png" },
-  { name: "Wahaca", src: "/brand-logos/hospitality/wahaca.png" },
-  { name: "tabby", src: "/brand-logos/sectors/tabby.png" },
-  { name: "Zizzi", src: "/brand-logos/hospitality/zizzi.png" },
-  { name: "talabat", src: "/brand-logos/sectors/talabat.png" },
-  { name: "Unibet", src: "/brand-logos/sectors/unibet.png" },
-  { name: "Wise", src: "/brand-logos/sectors/wise.png" },
-  { name: "Wolt", src: "/brand-logos/sectors/wolt.png" },
+  { name: "Kreta", src: "/brand-logos/normalized/kreta.png" },
+  { name: "BrewDog", src: "/brand-logos/normalized/brewdog.png" },
+  { name: "32Red", src: "/brand-logos/normalized/32red.png" },
+  { name: "The Alchemist", src: "/brand-logos/normalized/alchemist.png" },
+  { name: "Palino", src: "/brand-logos/normalized/palino.png" },
+  { name: "Cafe del Mar", src: "/brand-logos/normalized/cafedelmar.png" },
+  { name: "Betsson", src: "/brand-logos/normalized/betsson.png" },
+  { name: "Dirty Martini", src: "/brand-logos/normalized/dirtymartini.png" },
+  { name: "Dishoom", src: "/brand-logos/normalized/dishoom.png" },
+  { name: "BetVictor", src: "/brand-logos/normalized/betvictor.png" },
+  { name: "Festival Republic", src: "/brand-logos/normalized/festivalrepublic.png" },
+  { name: "MCW", src: "/brand-logos/normalized/mcw.png" },
+  { name: "JA Resorts", src: "/brand-logos/normalized/jaresorts.png" },
+  { name: "Bolt", src: "/brand-logos/normalized/bolt.png" },
+  { name: "Kilimanjaro Live", src: "/brand-logos/normalized/kilimanjaro.png" },
+  { name: "LEON", src: "/brand-logos/normalized/leon.png" },
+  { name: "eCabs", src: "/brand-logos/normalized/ecabs.png" },
+  { name: "Premier Inn", src: "/brand-logos/normalized/premierinn.png" },
+  { name: "Malmaison", src: "/brand-logos/normalized/malmaison.png" },
+  { name: "LeoVegas", src: "/brand-logos/normalized/leovegas.png" },
+  { name: "Slug & Lettuce", src: "/brand-logos/normalized/sluglettuce.png" },
+  { name: "Nero", src: "/brand-logos/normalized/nero.png" },
+  { name: "Revolut", src: "/brand-logos/normalized/revolut.png" },
+  { name: "TONI&GUY", src: "/brand-logos/normalized/toniguy.png" },
+  { name: "The Hoxton", src: "/brand-logos/normalized/thehoxton.png" },
+  { name: "Skyscanner", src: "/brand-logos/normalized/skyscanner.png" },
+  { name: "Turtle Bay", src: "/brand-logos/normalized/turtlebay.png" },
+  { name: "SumUp", src: "/brand-logos/normalized/sumup.png" },
+  { name: "Wahaca", src: "/brand-logos/normalized/wahaca.png" },
+  { name: "tabby", src: "/brand-logos/normalized/tabby.png" },
+  { name: "Zizzi", src: "/brand-logos/normalized/zizzi.png" },
+  { name: "talabat", src: "/brand-logos/normalized/talabat.png" },
+  { name: "Unibet", src: "/brand-logos/normalized/unibet.png" },
+  { name: "Wise", src: "/brand-logos/normalized/wise.png" },
+  { name: "Wolt", src: "/brand-logos/normalized/wolt.png" },
 ];
 
 const LOGO_ROWS = [
@@ -54,18 +51,14 @@ const LOGO_ROWS = [
 function LogoMark({ logo, logoIndex }: { logo: Logo; logoIndex: number }) {
   return (
     <span className="brand-wall-logo" key={`${logo.name}-${logoIndex}`}>
-      {logo.src ? (
-        <img
-          src={logo.src}
-          alt=""
-          aria-hidden="true"
-          loading="eager"
-          decoding="async"
-          style={{ transform: `scale(${logo.scale ?? 1})` }}
-        />
-      ) : (
-        <b className="brand-wall-text-mark">{logo.textMark}</b>
-      )}
+      <img
+        className="brand-wall-mark"
+        src={logo.src}
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        decoding="async"
+      />
     </span>
   );
 }
@@ -87,15 +80,15 @@ function LogoRow({
       data-testid={`logo-row-${rowIndex}`}
     >
       <div className="brand-wall-viewport">
-      <div
-        className={`brand-wall-track brand-wall-track-${direction}`}
-        aria-hidden="true"
-        data-testid={`logo-marquee-${rowIndex}`}
-      >
-        {ticker.map((logo, logoIndex) => (
-          <LogoMark logo={logo} logoIndex={logoIndex} key={`${logo.name}-${logoIndex}`} />
-        ))}
-      </div>
+        <div
+          className={`brand-wall-track brand-wall-track-${direction}`}
+          aria-hidden="true"
+          data-testid={`logo-marquee-${rowIndex}`}
+        >
+          {ticker.map((logo, logoIndex) => (
+            <LogoMark logo={logo} logoIndex={logoIndex} key={`${logo.name}-${logoIndex}`} />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -172,27 +165,21 @@ export default function TrustedBrandsSection() {
             }
             .brand-wall-logo{
               display:flex;
-              flex:0 0 clamp(180px,19vw,310px);
-              width:clamp(180px,19vw,310px);
-              height:clamp(64px,7vw,100px);
+              flex:0 0 clamp(176px,18vw,280px);
+              width:clamp(176px,18vw,280px);
+              height:clamp(68px,7vw,96px);
               align-items:center;
               justify-content:center;
+              padding:0 clamp(12px,1.4vw,24px);
             }
-            .brand-wall-logo img{
+            .brand-wall-mark{
               display:block;
-              width:118%;
-              height:118%;
+              width:auto;
+              height:clamp(34px,4vw,52px);
+              max-width:100%;
               object-fit:contain;
               filter:brightness(0) grayscale(1) invert(1);
-              opacity:.9;
-            }
-            .brand-wall-text-mark{
-              display:block;
-              font:800 clamp(15px,1.75vw,26px)/.9 var(--font-space-grotesk, sans-serif);
-              letter-spacing:-.08em;
-              text-align:center;
-              white-space:nowrap;
-              color:#F5F5F3;
+              opacity:.88;
             }
             @keyframes brand-wall-forward{
               from{transform:translate3d(-50%,0,0)}
@@ -225,9 +212,10 @@ export default function TrustedBrandsSection() {
                 flex-basis:160px;
                 width:160px;
                 height:64px;
+                padding:0 12px;
               }
-              .brand-wall-text-mark{
-                font-size:15px;
+              .brand-wall-mark{
+                height:36px;
               }
             }
           `,
