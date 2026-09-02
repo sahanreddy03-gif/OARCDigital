@@ -9,3 +9,4 @@
 - [Brand authority logos](brand-authority-logos.md) — separate verified client marks from sector references; never mix oversized global names into an implied client wall
 - [Validated environment edits](validated-environment-edits.md) — use the platform’s schema-checked replacement path for temporary .replit package changes
 - [Nested route dev cache](nested-route-dev-cache.md) — after adding App Router subroutes, clear .next and restart if dev returns 404 while production build lists them
+- [Vercel lockfile portability](vercel-lockfile-portability.md) — root npm lockfiles deployed outside Replit must not retain package-firewall.replit.local resolved URLs
