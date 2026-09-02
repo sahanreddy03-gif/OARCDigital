@@ -81,11 +81,6 @@ const SUPPLEMENTAL_META: Record<string, { title: string; description: string }> 
     description:
       "Explore OARC Digital work across named hospitality partnerships, public products, private systems, and clearly labelled concept studies. Each record identifies its evidence state and links to the public source or approved context available.",
   },
-  "/new-work": {
-    title: "New Work — 32 OARC Digital Records | OARC Digital Malta",
-    description:
-      "A complete OARC Digital Work index bringing together 21 original OARC records and 11 newly curated client and event records with clear source and evidence boundaries.",
-  },
   "/contact": {
     title: "Contact OARC Digital | Get in Touch with Our Team",
     description:
