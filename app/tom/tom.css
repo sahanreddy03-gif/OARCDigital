@@ -70,7 +70,7 @@
   color: var(--white);
 }
 
-.tom-hero-video {
+.tom-hero-still {
   position: absolute;
   z-index: -1;
   inset: 0;
