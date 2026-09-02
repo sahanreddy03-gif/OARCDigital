@@ -2,7 +2,8 @@
 
 type Logo = {
   name: string;
-  src: string;
+  src?: string;
+  textMark?: string;
 };
 
 const MIXED_LOGOS: Logo[] = [
@@ -14,6 +15,7 @@ const MIXED_LOGOS: Logo[] = [
   { name: "Cafe del Mar", src: "/brand-logos/normalized/cafedelmar.png" },
   { name: "Betsson", src: "/brand-logos/normalized/betsson.png" },
   { name: "Dirty Martini", src: "/brand-logos/normalized/dirtymartini.png" },
+  { name: "Louisiana Mama", textMark: "LOUISIANA MAMA" },
   { name: "Dishoom", src: "/brand-logos/normalized/dishoom.png" },
   { name: "BetVictor", src: "/brand-logos/normalized/betvictor.png" },
   { name: "Festival Republic", src: "/brand-logos/normalized/festivalrepublic.png" },
@@ -51,14 +53,20 @@ const LOGO_ROWS = [
 function LogoMark({ logo, logoIndex }: { logo: Logo; logoIndex: number }) {
   return (
     <span className="brand-wall-logo" key={`${logo.name}-${logoIndex}`}>
-      <img
-        className="brand-wall-mark"
-        src={logo.src}
-        alt=""
-        aria-hidden="true"
-        loading="eager"
-        decoding="async"
-      />
+      {logo.src ? (
+        <img
+          className="brand-wall-mark"
+          src={logo.src}
+          alt=""
+          aria-hidden="true"
+          loading="eager"
+          decoding="async"
+        />
+      ) : (
+        <b className="brand-wall-text-mark" aria-hidden="true">
+          {logo.textMark}
+        </b>
+      )}
     </span>
   );
 }
@@ -181,6 +189,19 @@ export default function TrustedBrandsSection() {
               filter:brightness(0) grayscale(1) invert(1);
               opacity:.88;
             }
+            .brand-wall-text-mark{
+              display:flex;
+              align-items:center;
+              justify-content:center;
+              width:100%;
+              height:clamp(34px,4vw,52px);
+              overflow:hidden;
+              color:#F5F5F3;
+              font:800 clamp(14px,1.55vw,22px)/1 var(--font-space-grotesk, sans-serif);
+              letter-spacing:-.08em;
+              text-align:center;
+              white-space:nowrap;
+            }
             @keyframes brand-wall-forward{
               from{transform:translate3d(-50%,0,0)}
               to{transform:translate3d(0,0,0)}
@@ -216,6 +237,10 @@ export default function TrustedBrandsSection() {
               }
               .brand-wall-mark{
                 height:36px;
+              }
+              .brand-wall-text-mark{
+                height:36px;
+                font-size:15px;
               }
             }
           `,
