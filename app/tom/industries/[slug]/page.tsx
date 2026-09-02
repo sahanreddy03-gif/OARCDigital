@@ -1,30 +1,5 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import Layout from "@/components/layout/Layout";
-import RouteSchema from "@/components/RouteSchema";
-import { getHreflangAlternates } from "@/lib/seo/discoveryTags";
-import { industryBySlug, industries } from "../../copy";
+import { redirect } from "next/navigation";
 
-export function generateStaticParams(){return industries.map(i=>({slug:i.slug}));}
-export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{
- const i=industryBySlug[(await params).slug]??industries[0];
- return {title:`Tom for ${i.name} | OARC Digital`,description:i.lead,alternates:getHreflangAlternates(`/tom/industries/${i.slug}`),openGraph:{title:`Tom for ${i.name} | OARC Digital`,description:i.lead,url:`https://oarcdigital.com/tom/industries/${i.slug}`,type:"website"},twitter:{card:"summary_large_image",title:`Tom for ${i.name} | OARC Digital`,description:i.lead}};
-}
-
-export default async function IndustryPage({params}:{params:Promise<{slug:string}>}) {
- const i=industryBySlug[(await params).slug]; if(!i) notFound();
- return <Layout navTheme="dark" showMobileNav><RouteSchema type="service" path={`/tom/industries/${i.slug}`} title={`Tom for ${i.name}`} description={i.lead} serviceType="Managed AI workforce" audience={[i.name]}/><main className="tom-page">
-  <section className="tom-industry-hero"><div className="tom-wrap"><p className="tom-kicker" style={{color:"#8fd6ae"}}>{i.kicker}</p><h1 className="tom-display">{i.headline}</h1><p className="tom-lead">{i.lead}</p><div className="tom-actions"><Link className="tom-button tom-button--red" href="/tom/start">Build our first mission ↗</Link><Link className="tom-button" href="/tom#force">See it work ↓</Link></div></div></section>
-  <section className="tom-missed"><div className="tom-wrap"><p className="tom-kicker" style={{color:"#f5f5f3"}}>THE BIGGEST MISSED OPPORTUNITY</p><p>{i.missed}</p></div></section>
-  <section className="tom-section"><div className="tom-wrap"><p className="tom-kicker">WHAT TOM HANDLES</p><h2 className="tom-display">What Tom handles</h2><p className="tom-copy">He arrives already trained in {i.name.toLowerCase()} — then we train him on your business: your rules, your prices, your people, your exceptions.</p><ul className="tom-list">{i.items.map(x=><li key={x}>{x}</li>)}</ul></div></section>
-  <section className="tom-section tom-light"><div className="tom-wrap"><p className="tom-kicker">LABELLED SIMULATION</p><h2 className="tom-display">One real moment from his shift.</h2><div className="tom-split"><div className="tom-panel"><h3>The voice</h3><div className="tom-log">{i.voice.map(x=><div key={x}>{x}</div>)}</div></div><div className="tom-panel"><h3>The work, same second</h3><div className="tom-log">{i.work.map(x=><div key={x}>{x}</div>)}</div></div></div><p className="tom-kicker" style={{marginTop:"1rem"}}>Labelled simulation.</p></div></section>
-  <section className="tom-section"><div className="tom-wrap"><p className="tom-kicker">BEHIND THE SCENES</p><h2 className="tom-display">What happened behind the scenes</h2><p className="tom-copy">{i.behind}</p></div></section>
-  <section className="tom-section tom-light"><div className="tom-wrap"><p className="tom-kicker">HOW IT HELPS YOUR STAFF</p><h2 className="tom-display">How it helps your staff</h2><p className="tom-copy">{i.staff}</p><p className="tom-copy" style={{marginTop:"2rem"}}>And it works both ways: it briefs your people, chases the internal tasks that slip, and answers your new hire's "how do we do this here?" — because it remembers everything, even when people move on.</p></div></section>
-  <section className="tom-section"><div className="tom-wrap"><p className="tom-kicker">WHAT ALWAYS STAYS WITH HUMANS</p><h2 className="tom-display">What always stays with humans</h2><p className="tom-copy">Tom is powerful because his limits are explicit. In {i.name.toLowerCase()}, these always require your people:</p><ul className="tom-list">{i.humans.map(x=><li key={x}>{x}</li>)}</ul></div></section>
-  <section className="tom-section tom-force"><div className="tom-wrap"><p className="tom-kicker" style={{color:"#8fd6ae"}}>THE SPECIALIST AGENTS BEHIND YOUR OPERATOR</p><h2 className="tom-display">One voice in front. These work behind it.</h2><div className="tom-card-grid">{i.agents.map(a=><article className="tom-card" key={a.name}><strong>AGENT / ACTIVE</strong><h3>{a.name}</h3><p>{a.body}</p></article>)}</div></div></section>
-  <section className="tom-section tom-light"><div className="tom-wrap"><p className="tom-kicker">MEASURE THE FIRST MISSION</p><h2 className="tom-display">The number owners feel.</h2><p className="tom-copy">{i.graph}</p><p className="tom-kicker" style={{marginTop:"2rem"}}>Use the client's own numbers after month one. This is a measurement brief, not invented proof.</p></div></section>
-  <section className="tom-section"><div className="tom-wrap"><p className="tom-kicker">ALREADY PROVEN — JUST NOT HERE YET</p><p className="tom-copy">{i.proof}</p><p className="tom-display" style={{fontSize:"clamp(2.5rem,5vw,5.5rem)",margin:"3rem 0"}}>{i.punch}</p><h2 className="tom-display">Give him one important job.</h2><p className="tom-lead">Tell us the task in your {i.name.toLowerCase()} business that gets missed too often. We'll show you where Tom takes over — built around your business, in person, in Malta.</p></div></section>
-  <section className="tom-cta"><div className="tom-wrap"><p className="tom-kicker" style={{color:"#8fd6ae"}}>ONE RELATIONSHIP. ONE FEE.</p><h2 className="tom-display">Start with one problem.</h2><p className="tom-lead">A managed AI workforce, built around your business and run by OARC. He never resigns, never calls in sick, never asks for a raise — and everything he learns stays yours.</p><div className="tom-actions"><Link className="tom-button tom-button--red" href="/tom/start">Start with one problem ↗</Link><Link className="tom-button" href="/tom">Other industries ↓</Link></div><nav aria-label="Tom supporting links" className="tom-actions"><Link className="tom-button" href="/services/ai-support-specialist">OARC AI support</Link><Link className="tom-button" href="/contact">Talk to OARC</Link></nav></div></section>
- </main></Layout>;
+export default async function LegacyIndustryRoute({ params }: { params: Promise<{ slug: string }> }) {
+  redirect(`/tom/${(await params).slug}`);
 }
