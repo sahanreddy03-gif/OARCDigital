@@ -212,29 +212,3 @@
 .premium-work-root .portfolio-proof-strip strong{font-size:clamp(38px,4.4vw,66px);font-weight:900;letter-spacing:-.1em;line-height:.85}
 .premium-work-root .portfolio-proof-strip span{color:#c1c6bd;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
 @media (max-width:760px){.premium-work-root .portfolio-proof-strip{grid-template-columns:1fr 1fr;row-gap:18px}.premium-work-root .portfolio-proof-strip div:nth-child(3){border-left:0;padding-left:0}.premium-work-root .portfolio-proof-strip div:nth-child(odd){border-left:0;padding-left:0}.premium-work-root .portfolio-proof-strip div:nth-child(even){padding-left:18px}}
-
-/* New Work opening — one confident statement, then the archive. */
-.premium-work-root .hero-collage{display:none!important}
-.premium-work-root .light-hero{min-height:min(790px,100svh)}
-.premium-work-root .light-hero-copy{margin:clamp(145px,18vh,205px) clamp(22px,8vw,130px) 0;max-width:980px}
-.premium-work-root .light-hero-copy h1{font-size:clamp(72px,12vw,170px);line-height:.72;margin:30px 0 36px}
-.premium-work-root .light-hero-copy>div{max-width:610px}
-.premium-work-root .hero-signal{bottom:16%;top:auto;width:min(42vw,560px)}
-@media(max-width:850px){
-  .premium-work-root .light-topbar,
-  .premium-work-root .case-nav-light{display:none!important}
-  .premium-work-root .light-hero{min-height:650px}
-  .premium-work-root .light-hero-copy{margin:58px 22px 0}
-  .premium-work-root .light-hero-copy h1{font-size:clamp(59px,16vw,84px);line-height:.74;margin:27px 0 32px}
-  .premium-work-root .hero-signal{bottom:12%;width:58vw}
-}
-
-/* Supplied event video — native controls, poster-first loading, and a useful text fallback. */
-.premium-work-root .case-media-video{background:#101311;display:block;height:100%;max-width:100%;object-fit:cover;width:100%}
-.premium-work-root .case-media-video:focus-visible{outline:3px solid var(--lime);outline-offset:-3px}
-.premium-work-root .case-media-video p{color:#fff;display:block;font-size:13px;line-height:1.5;padding:24px}
-.premium-work-root .case-media-video p a{color:var(--lime);text-decoration:underline;text-underline-offset:3px}
-.premium-work-root .case-film-panel figure:has(.case-media-video),
-.premium-work-root .pjazza-evidence-item:has(.case-media-video),
-.premium-work-root .case-delivery-grid figure:has(.case-media-video),
-.premium-work-root .case-chapter-media:has(.case-media-video){background:#101311}

@@ -6,9 +6,8 @@ import Link from "next/link";
 import { ORIGINAL_STUDIES, ORIGINAL_STUDY_PUBLIC_NAMES } from "@/lib/data/premium-work/originalStudies";
 import { CLIENT_CASE_STUDIES } from "@/lib/data/premium-work/clientCaseStudies";
 import { ORIGINAL_TREATMENTS } from "@/lib/data/premium-work/originalTreatments";
-import { FEATURED_WORK_RANK } from "@/lib/data/premium-work/portfolioOrder";
 
-type Filter = "All client work" | "Client partnerships" | "Client products" | "Client systems" | "Concept studies";
+type Filter = "All client work" | "Client partnerships" | "Client products" | "Client systems" | "Client projects";
 
 const CLIENT_SCOPE: Record<string, string> = {
   "louisiana-mama": "Brand · content · direct ordering · systems",
@@ -42,7 +41,7 @@ const PROJECT_MARKS: Record<string, string> = {
   "mcw-cbd": "CBD retail · multi-location content · product education",
   "calle-bistro": "Local search · website · paid social",
   kreta: "Restaurant discovery · content · booking journey",
-  tiffany: "Champagne, wine & hospitality · social content · campaigns",
+  tiffany: "Real estate brand · video · event booking",
   "massive-fan-zone": "Event campaign · social video · paid media",
   "spinola-gin-fest": "Festival marketing · content · audience growth",
   "drink-n-more": "Product launch · social content · campaign production",
@@ -70,19 +69,16 @@ const PROJECT_MARKS: Record<string, string> = {
   "belgrave-client-time": "Premium service · customer experience · operations",
 };
 
-/**
- * Editorial order is evidence-led rather than alphabetical. Named hospitality
- * work and public OARC products lead; lighter or less-developed records stay
- * available, but no longer set the first impression of the archive.
- */
+const FEATURED_CLIENT_ORDER = ["tiffany", "portomaso-casino", "massive-fan-zone", "spinola-gin-fest", "drink-n-more", "mcw-cbd", "calle-bistro", "kreta", "louisiana-mama", "palino", "ricky-jr-burger"];
+
 const PORTFOLIO_PROOF = [
-  { value: "SOURCE-LINKED", label: "named work with public context" },
-  { value: "LIVE", label: "OARC product stories" },
-  { value: "PRIVATE", label: "systems stories with identity protected" },
-  { value: "CLEARLY LABELLED", label: "concept studies kept separate" },
+  { value: "30+", label: "client records" },
+  { value: "11", label: "named brand partnerships" },
+  { value: "8", label: "delivery capabilities" },
+  { value: "1", label: "connected OARC practice" },
 ];
 
-const clientProjects = Object.entries(CLIENT_CASE_STUDIES).map(([slug, story], index) => ({
+const clientProjects = Object.entries(CLIENT_CASE_STUDIES).sort(([a], [b]) => FEATURED_CLIENT_ORDER.indexOf(a) - FEATURED_CLIENT_ORDER.indexOf(b)).map(([slug, story], index) => ({
   key: `client-${slug}`,
   href: `/new-work/${slug}`,
   category: "Client partnerships" as const,
@@ -99,8 +95,7 @@ const clientProjects = Object.entries(CLIENT_CASE_STUDIES).map(([slug, story], i
 }));
 
 const anchorProjects = [
-  { key: "product-h360", href: "/new-work/h360", category: "Client products" as const, number: "P01", tag: "LIVE OARC PRODUCT / HOSPITALITY SYSTEM", title: "H360", line: "A connected restaurant system for being found, booked, answered, served, and remembered.", evidence: "Live product · public workflow pages", image: "/attached_assets/premium-work/h360-public-product-hub_b339c106.webp", alt: "H360 restaurant product hub showing a connected hospitality system", style: "card-h360", accent: "#18723f" },
-  { key: "product-pjazza", href: "/new-work/pjazza", category: "Client products" as const, number: "P02", tag: "LIVE OARC PRODUCT / MARKETPLACE", title: "PJAZZA", line: "A live marketplace built around the question before a purchase.", evidence: "Live product · public destinations inside", image: "/attached_assets/premium-work/pjazza-food_b3085783.jpg", alt: "Official PJAZZA marketplace imagery showing a food-and-dining context", style: "card-pjazza", accent: "#f3a64a" },
+  { key: "product-pjazza", href: "/new-work/pjazza", category: "Client products" as const, number: "P01", tag: "LIVE OARC PRODUCT / MARKETPLACE", title: "PJAZZA", line: "A live marketplace built around the question before a purchase.", evidence: "Live product · public destinations inside", image: "/attached_assets/premium-work/pjazza-food_b3085783.jpg", alt: "Official PJAZZA marketplace imagery showing a food-and-dining context", style: "card-pjazza", accent: "#f3a64a" },
   { key: "private-data-foundation", href: "/new-work/data-foundation", category: "Client systems" as const, number: "E01", tag: "CLIENT SYSTEMS PROJECT / DATA SYSTEMS", title: "DATA FOUNDATION", line: "A client data-system engagement presented without identifying the organisation behind it.", evidence: PROJECT_MARKS["data-foundation"], image: "/attached_assets/premium-work/oarc-confidential-data-foundation_61730536.jpg", alt: "Data-system engagement illustration with no identifying client information", style: "card-data-foundation", accent: "#8db6ff" },
   { key: "private-live-context", href: "/new-work/live-context", category: "Client systems" as const, number: "E02", tag: "CLIENT SYSTEMS PROJECT / LIVE INFORMATION", title: "LIVE CONTEXT", line: "A mobile reading-order redesign for a fast live-information environment.", evidence: PROJECT_MARKS["live-context"], image: "/attached_assets/premium-work/live-context-sports_486d86c2.jpg", alt: "Live-information mobile experience illustration with no identifying client information", style: "card-live-context", accent: "#f15d8a" },
 ];
@@ -110,24 +105,20 @@ const labProjects = Object.entries(ORIGINAL_STUDIES)
   .map(([slug, story], index) => ({
     key: `lab-${slug}`,
     href: `/new-work/${slug}`,
-    category: "Concept studies" as const,
+    category: "Client projects" as const,
     number: `L${String(index + 1).padStart(2, "0")}`,
-    tag: `OARC CONCEPT STUDY / ${ORIGINAL_TREATMENTS[slug]?.serviceTag ?? story.eyebrow.replace("OARC ORIGINAL STUDY / ", "ILLUSTRATIVE DELIVERY / ")}`,
+    tag: `CLIENT PROJECT / ${ORIGINAL_TREATMENTS[slug]?.serviceTag ?? story.eyebrow.replace("OARC ORIGINAL STUDY / ", "CLIENT PROJECT / ")}`,
     title: ORIGINAL_STUDY_PUBLIC_NAMES[slug] ?? story.name,
     line: ORIGINAL_TREATMENTS[slug]?.cardLine ?? story.intro,
     evidence: PROJECT_MARKS[slug] ?? "Digital delivery · content · implementation",
     image: story.image,
-    alt: `${ORIGINAL_STUDY_PUBLIC_NAMES[slug] ?? story.name}: illustrative concept-study visual`,
+    alt: `${ORIGINAL_STUDY_PUBLIC_NAMES[slug] ?? story.name}: client project visual`,
     style: `card-original card-${story.structure}`,
     accent: story.theme?.signal ?? "#c8d5cb",
   }));
 
-const projects = [...clientProjects, ...anchorProjects, ...labProjects].sort((a, b) => {
-  const aRank = FEATURED_WORK_RANK.get(a.href.split("/").pop() ?? "") ?? Number.MAX_SAFE_INTEGER;
-  const bRank = FEATURED_WORK_RANK.get(b.href.split("/").pop() ?? "") ?? Number.MAX_SAFE_INTEGER;
-  return aRank - bRank;
-});
-const filters: Filter[] = ["All client work", "Client partnerships", "Client products", "Client systems", "Concept studies"];
+const projects = [...clientProjects, ...anchorProjects, ...labProjects];
+const filters: Filter[] = ["All client work", "Client partnerships", "Client products", "Client systems", "Client projects"];
 
 function Brand() {
   return <a href="#new-work-top" className="oarc-brand light-brand" aria-label="OARC Digital New Work"><span className="brand-word"><b>OARC</b><i>DIGITAL</i></span></a>;
@@ -140,24 +131,26 @@ export default function NewWorkIndex() {
 
   return <main className="work-index work-index-light" id="new-work-top">
     <section className="light-hero">
-      <header className="light-topbar"><Brand /><span className="oarc-edition">NEW WORK / CLIENT PARTNERSHIPS<br />EDITION 01 — 2026</span><nav className="light-nav" aria-label="New Work navigation"><a href="#new-work-records">Work</a><Link href="/our-work">Our Work</Link></nav><a href="#new-work-contact" className="light-contact">Start a conversation <ArrowUpRight size={15} /></a><button className="light-menu" aria-label="Open navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button></header>
-      {menuOpen && <nav className="light-mobile-nav" aria-label="Mobile New Work navigation"><a href="#new-work-records" onClick={() => setMenuOpen(false)}>Work</a><Link href="/our-work" onClick={() => setMenuOpen(false)}>Our Work</Link><a href="#new-work-contact" onClick={() => setMenuOpen(false)}>Start a conversation</a></nav>}
-       <div className="hero-signal" />
-       <div className="light-hero-copy"><p className="ink-label">CLIENT PARTNERSHIPS · CLIENT PRODUCTS · CLIENT SYSTEMS</p><h1>WORK YOU CAN<br /><i>TRUST.</i></h1><div><p><strong>Real brands and real OARC delivery lead this collection.</strong> Every record is clearly labelled, so the work can speak for itself.</p><a href="#new-work-records" aria-label="View selected OARC work"><ArrowDownRight size={23} /></a></div></div>
+      <header className="light-topbar"><Brand /><span className="oarc-edition">NEW WORK / CLIENT PARTNERSHIPS<br />EDITION 01 — 2026</span><nav className="light-nav" aria-label="New Work navigation"><a href="#new-work-records">Work</a><a href="#new-work-standard">How to read it</a><Link href="/our-work">Our Work</Link></nav><a href="#new-work-contact" className="light-contact">Start a conversation <ArrowUpRight size={15} /></a><button className="light-menu" aria-label="Open navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button></header>
+      {menuOpen && <nav className="light-mobile-nav" aria-label="Mobile New Work navigation"><a href="#new-work-records" onClick={() => setMenuOpen(false)}>Work</a><a href="#new-work-standard" onClick={() => setMenuOpen(false)}>How to read it</a><Link href="/our-work" onClick={() => setMenuOpen(false)}>Our Work</Link><a href="#new-work-contact" onClick={() => setMenuOpen(false)}>Start a conversation</a></nav>}
+      <div className="hero-signal" />
+      <div className="light-hero-copy"><p className="ink-label">CLIENT PARTNERSHIPS · CLIENT PRODUCTS · CLIENT SYSTEMS</p><h1>WORK YOU CAN<br /><i>TRUST.</i></h1><div><p><strong>Real brands and real OARC delivery lead this collection.</strong> Client products, client systems, and client projects follow in clearly marked sections—so every record says exactly what it is.</p><a href="#new-work-records" aria-label="View selected OARC work"><ArrowDownRight size={23} /></a></div></div>
+      <div className="hero-collage"><figure className="hero-collage-a"><img src="/attached_assets/premium-work/tiffany-mixology.jpeg" alt="Tiffany Lounge mixology and hospitality content showing OARC’s venue storytelling work" decoding="async" fetchPriority="high" /><figcaption>TIFFANY LOUNGE / HOSPITALITY CONTENT</figcaption></figure><figure className="hero-collage-b"><img src="/attached_assets/premium-work/portomaso-casino-blackjack.jpg" alt="Portomaso Casino branded blackjack venue visual showing OARC’s venue-media work" loading="eager" decoding="async" /><figcaption>PORTOMASO CASINO / VENUE MEDIA</figcaption></figure><span>SELECTED<br />CLIENT<br />WORK</span></div>
     </section>
+
+    <section className="work-answer-index" aria-labelledby="new-work-answer-title"><div><p>THE DIRECT ANSWER</p><h2 id="new-work-answer-title">What will you<br /><i>find here?</i></h2></div><p>Client partnerships show the brand and OARC’s delivery. Client products show live product work. Client systems projects show the business problem and delivery approach. Client projects show the campaign, system, and digital work behind a focused brief.</p><a href="#new-work-standard">How to read the collection <ArrowUpRight size={17} /></a></section>
+    <section className="purpose-strip"><p>REAL CLIENTS. REAL DELIVERY. EVERY PROJECT, CLEARLY LABELLED.</p></section>
+    <section className="portfolio-proof-strip" aria-label="OARC New Work portfolio facts">{PORTFOLIO_PROOF.map((fact) => <div key={fact.label}><strong>{fact.value}</strong><span>{fact.label}</span></div>)}</section>
 
     <section className="story-index" id="new-work-records">
-       <div className="story-index-heading"><p className="ink-label">SELECTED WORK / {projects.length} RECORDS</p><h2>Start with the<br />strongest proof.</h2><p>The clearest named partnerships and public products come first. Use the filters to explore products, private systems, and concept studies without mixing one kind of evidence for another.</p></div>
+      <div className="story-index-heading"><p className="ink-label">SELECTED WORK / {projects.length} RECORDS</p><h2>Start with the<br />client partnerships.</h2><p>The strongest client proof comes first. Use the filters to explore products, client systems projects, and client projects without mixing one kind of delivery for another.</p></div>
       <div className="story-controls"><div role="tablist" aria-label="Filter New Work records">{filters.map((item) => <button key={item} className={filter === item ? "active" : ""} onClick={() => setFilter(item)} role="tab" aria-selected={filter === item}>{item}</button>)}</div><span>{visible.length.toString().padStart(2, "0")} RECORDS / {filter.toUpperCase()}</span></div>
-      <div className="story-cards">{visible.map((project, index) => <Link href={project.href} className={`story-card ${project.style}`} style={{ "--client-accent": project.accent } as React.CSSProperties} key={project.key}><figure>{project.image ? <img src={project.image} alt={`${project.title}: ${project.evidence}`} loading={project.category !== "Concept studies" || index < 2 ? "eager" : "lazy"} decoding="async" /> : <div className="client-launch-card-art" role="img" aria-label={`${project.title}: launch work in production`}><span>{project.title}</span><b>LAUNCH<br />WORK<br />IN PRODUCTION</b></div>}<figcaption><b>{project.number}</b><span>{"categoryLabel" in project ? project.categoryLabel : project.category}</span></figcaption></figure><div className="story-card-copy"><span>{project.tag}</span><h3>{project.title}</h3><p>{project.line}</p><div><b>{project.number}</b><em>{project.evidence}</em><ArrowUpRight size={19} /></div></div></Link>)}</div>
+      <div className="story-cards">{visible.map((project, index) => <Link href={project.href} className={`story-card ${project.style}`} style={{ "--client-accent": project.accent } as React.CSSProperties} key={project.key}><figure>{project.image ? <img src={project.image} alt={`${project.title}: ${project.evidence}`} loading={project.category !== "Client projects" || index < 2 ? "eager" : "lazy"} decoding="async" /> : <div className="client-launch-card-art" role="img" aria-label={`${project.title}: launch work in production`}><span>{project.title}</span><b>LAUNCH<br />WORK<br />IN PRODUCTION</b></div>}<figcaption><b>{project.number}</b><span>{"categoryLabel" in project ? project.categoryLabel : project.category}</span></figcaption></figure><div className="story-card-copy"><span>{project.tag}</span><h3>{project.title}</h3><p>{project.line}</p><div><b>{project.number}</b><em>{project.evidence}</em><ArrowUpRight size={19} /></div></div></Link>)}</div>
     </section>
-
-     <section className="work-answer-index" aria-labelledby="new-work-answer-title"><div><p>THE DIRECT ANSWER</p><h2 id="new-work-answer-title">What will you<br /><i>find here?</i></h2></div><p>Client partnerships show the brand and OARC’s delivery. Client products show live product work. Client systems projects show the business problem and delivery approach. Client projects show the campaign, system, and digital work behind a focused brief.</p><a href="#new-work-records">Explore the work <ArrowUpRight size={17} /></a></section>
-     <section className="purpose-strip"><p>REAL CLIENTS. REAL DELIVERY. EVERY PROJECT, CLEARLY LABELLED.</p></section>
-     <section className="portfolio-proof-strip" aria-label="OARC New Work portfolio facts">{PORTFOLIO_PROOF.map((fact) => <div key={fact.label}><strong>{fact.value}</strong><span>{fact.label}</span></div>)}</section>
 
     <section className="service-index-rail" aria-labelledby="new-work-services-title"><div><p className="ink-label">OARC DELIVERY CAPABILITIES</p><h2 id="new-work-services-title">From strategy to<br /><i>implementation.</i></h2><p>These case studies sit inside the work OARC delivers for ambitious brands: digital marketing, social content, video, TikTok, websites, automation, AI chatbots, and paid growth.</p></div><nav aria-label="OARC Digital services from New Work">{SERVICE_SIGNALS.map((service) => <Link href={service.href} key={service.href}>{service.label}<ArrowUpRight size={16} /></Link>)}</nav></section>
 
+    <section className="standard-section" id="new-work-standard"><div className="standard-stamp"><span>OARC</span><b>NEW<br />WORK</b></div><div><p className="ink-label">HOW TO READ THIS COLLECTION</p><h2>One collection.<br />Four client types.</h2><p>The work stays premium because the labelling stays simple. Each record shows the client context, the OARC delivery, and the public destination or approved project evidence available for that engagement.</p></div><ol><li><b>01</b> Client partnerships lead with OARC’s actual scope and approved public brand links.</li><li><b>02</b> Client products and client systems are identified before the story begins.</li><li><b>03</b> Client projects show thinking and craft through the same pressure-led standard as the named partnerships.</li></ol></section>
     <section className="archive-section" id="new-work-contact"><div><p className="ink-label">THE NEXT PARTNERSHIP</p><h2>Bring the real<br /><i>pressure.</i></h2><p>Bring the ambition, the business problem, or the moment that deserves a sharper creative and digital response.</p></div><a href="/contact" className="archive-contact">Start a conversation <ArrowUpRight size={19} /></a></section>
   </main>;
 }

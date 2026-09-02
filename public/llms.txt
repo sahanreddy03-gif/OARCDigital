@@ -317,7 +317,7 @@ Auto-generated from lib/seo/topPages.ts + lib/seo/llmsTxtGenerator.ts. The singl
 32. [AI Virtual Talent Hub | Autonomous AI Agents On-Demand](https://oarcdigital.com/services/hire-ai-employees) — tier service
 33. [Our Services | AI Creative, AI Employees & Revenue Automation](https://oarcdigital.com/services) — tier supporting
 34. [Our Work | Case Studies & Success Stories](https://oarcdigital.com/our-work) — tier supporting
-35. [New Work — OARC Digital Client Portfolio | Malta](https://oarcdigital.com/new-work) — tier supporting
+35. [New Work — 32 OARC Digital Records](https://oarcdigital.com/new-work) — tier supporting
 36. [Contact OARC Digital | Get in Touch with Our Team](https://oarcdigital.com/contact) — tier supporting
 37. [Pricing Plans](https://oarcdigital.com/pricing) — tier supporting
 38. [Who We Are | Our Founding Story](https://oarcdigital.com/why-us) — tier supporting

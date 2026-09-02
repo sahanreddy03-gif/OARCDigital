@@ -1,7 +1,3 @@
-"use client";
-
-import { useEffect } from "react";
-
 const PRERENDER_URLS = [
   "/",
   "/services",
@@ -14,30 +10,15 @@ const PRERENDER_URLS = [
 ];
 
 export default function SpeculationRules() {
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    if (
-      !HTMLScriptElement.supports ||
-      !HTMLScriptElement.supports("speculationrules")
-    ) {
-      return;
-    }
-    if (document.getElementById("oarc-speculation-rules")) return;
+  const rules = JSON.stringify({
+    prerender: [
+      {
+        source: "list",
+        urls: PRERENDER_URLS,
+        eagerness: "moderate",
+      },
+    ],
+  });
 
-    const script = document.createElement("script");
-    script.type = "speculationrules";
-    script.id = "oarc-speculation-rules";
-    script.textContent = JSON.stringify({
-      prerender: [
-        {
-          source: "list",
-          urls: PRERENDER_URLS,
-          eagerness: "moderate",
-        },
-      ],
-    });
-    document.head.appendChild(script);
-  }, []);
-
-  return null;
+  return <script id="oarc-speculation-rules" type="speculationrules" dangerouslySetInnerHTML={{ __html: rules }} />;
 }
