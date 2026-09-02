@@ -166,9 +166,14 @@ export default function Section2() {
                   className="relative bg-black rounded-[1.5rem] overflow-hidden"
                   style={{ aspectRatio: "9/19" }}
                 >
-                  <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-                    <source src="/phone-video.mp4" type="video/mp4" />
-                  </video>
+                  <img
+                    src="/hero-cards/ai/ai-phone-agent.jpg"
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
               <div className="absolute -top-3 -right-3">

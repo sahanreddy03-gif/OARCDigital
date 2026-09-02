@@ -2,47 +2,48 @@
 
 type Logo = {
   name: string;
-  src?: string;
-  textMark?: string;
+  src: string;
+  treatment?: "mono" | "original";
+  opticalScale?: number;
 };
 
 const MIXED_LOGOS: Logo[] = [
-  { name: "Kreta", src: "/brand-logos/normalized/kreta.png" },
-  { name: "BrewDog", src: "/brand-logos/normalized/brewdog.png" },
-  { name: "32Red", src: "/brand-logos/normalized/32red.png" },
-  { name: "The Alchemist", src: "/brand-logos/normalized/alchemist.png" },
-  { name: "Palino", src: "/brand-logos/normalized/palino.png" },
-  { name: "Cafe del Mar", src: "/brand-logos/normalized/cafedelmar.png" },
+  { name: "Kreta", src: "/brand-logos/recreated/kreta.svg" },
+  { name: "BrewDog", src: "/brand-logos/normalized/brewdog.png", opticalScale: 1.08 },
+  { name: "32Red", src: "/brand-logos/normalized/32red.png", opticalScale: 1.06 },
+  { name: "The Alchemist", src: "/brand-logos/recreated/alchemist.svg" },
+  { name: "Palino", src: "/brand-logos/normalized/palino.png", opticalScale: 1.02 },
+  { name: "Cafe del Mar", src: "/brand-logos/recreated/cafe-del-mar.svg" },
   { name: "Betsson", src: "/brand-logos/normalized/betsson.png" },
-  { name: "Dirty Martini", src: "/brand-logos/normalized/dirtymartini.png" },
-  { name: "Louisiana Mama", textMark: "LOUISIANA MAMA" },
+  { name: "Dirty Martini", src: "/brand-logos/normalized/dirtymartini.png", opticalScale: 1.06 },
+  { name: "Louisiana Mama", src: "/brand-logos/recreated/louisiana-mama.svg" },
   { name: "Dishoom", src: "/brand-logos/normalized/dishoom.png" },
-  { name: "BetVictor", src: "/brand-logos/normalized/betvictor.png" },
-  { name: "Festival Republic", src: "/brand-logos/normalized/festivalrepublic.png" },
-  { name: "MCW", src: "/brand-logos/normalized/mcw.png" },
-  { name: "JA Resorts", src: "/brand-logos/normalized/jaresorts.png" },
-  { name: "Bolt", src: "/brand-logos/normalized/bolt.png" },
-  { name: "Kilimanjaro Live", src: "/brand-logos/normalized/kilimanjaro.png" },
-  { name: "LEON", src: "/brand-logos/normalized/leon.png" },
+  { name: "BetVictor", src: "/brand-logos/recreated/betvictor.svg" },
+  { name: "Festival Republic", src: "/brand-logos/normalized/festivalrepublic.png", opticalScale: 1.02 },
+  { name: "MCW", src: "/brand-logos/normalized/mcw.png", treatment: "original" },
+  { name: "JA Resorts", src: "/brand-logos/normalized/jaresorts.png", opticalScale: 1.02 },
+  { name: "Bolt", src: "/brand-logos/normalized/bolt.png", opticalScale: 1.05 },
+  { name: "Kilimanjaro Live", src: "/brand-logos/normalized/kilimanjaro.png", opticalScale: 0.96 },
+  { name: "LEON", src: "/brand-logos/normalized/leon.png", opticalScale: 1.05 },
   { name: "eCabs", src: "/brand-logos/normalized/ecabs.png" },
-  { name: "Premier Inn", src: "/brand-logos/normalized/premierinn.png" },
-  { name: "Malmaison", src: "/brand-logos/normalized/malmaison.png" },
+  { name: "Premier Inn", src: "/brand-logos/recreated/premier-inn.svg" },
+  { name: "Malmaison", src: "/brand-logos/normalized/malmaison.png", opticalScale: 1.05 },
   { name: "LeoVegas", src: "/brand-logos/normalized/leovegas.png" },
-  { name: "Slug & Lettuce", src: "/brand-logos/normalized/sluglettuce.png" },
-  { name: "Nero", src: "/brand-logos/normalized/nero.png" },
+  { name: "Slug & Lettuce", src: "/brand-logos/normalized/sluglettuce.png", opticalScale: 0.94 },
+  { name: "Nero", src: "/brand-logos/normalized/nero.png", opticalScale: 1.04 },
   { name: "Revolut", src: "/brand-logos/normalized/revolut.png" },
   { name: "TONI&GUY", src: "/brand-logos/normalized/toniguy.png" },
-  { name: "The Hoxton", src: "/brand-logos/normalized/thehoxton.png" },
+  { name: "The Hoxton", src: "/brand-logos/recreated/the-hoxton.svg" },
   { name: "Skyscanner", src: "/brand-logos/normalized/skyscanner.png" },
-  { name: "Turtle Bay", src: "/brand-logos/normalized/turtlebay.png" },
-  { name: "SumUp", src: "/brand-logos/normalized/sumup.png" },
-  { name: "Wahaca", src: "/brand-logos/normalized/wahaca.png" },
-  { name: "tabby", src: "/brand-logos/normalized/tabby.png" },
-  { name: "Zizzi", src: "/brand-logos/normalized/zizzi.png" },
+  { name: "Turtle Bay", src: "/brand-logos/normalized/turtlebay.png", opticalScale: 1.02 },
+  { name: "SumUp", src: "/brand-logos/normalized/sumup.png", opticalScale: 1.04 },
+  { name: "Wahaca", src: "/brand-logos/normalized/wahaca.png", opticalScale: 1.02 },
+  { name: "tabby", src: "/brand-logos/recreated/tabby.svg" },
+  { name: "Zizzi", src: "/brand-logos/normalized/zizzi.png", opticalScale: 1.04 },
   { name: "talabat", src: "/brand-logos/normalized/talabat.png" },
-  { name: "Unibet", src: "/brand-logos/normalized/unibet.png" },
-  { name: "Wise", src: "/brand-logos/normalized/wise.png" },
-  { name: "Wolt", src: "/brand-logos/normalized/wolt.png" },
+  { name: "Unibet", src: "/brand-logos/recreated/unibet.svg" },
+  { name: "Wise", src: "/brand-logos/normalized/wise.png", opticalScale: 1.06 },
+  { name: "Wolt", src: "/brand-logos/normalized/wolt.png", opticalScale: 1.05 },
 ];
 
 const LOGO_ROWS = [
@@ -53,20 +54,15 @@ const LOGO_ROWS = [
 function LogoMark({ logo, logoIndex }: { logo: Logo; logoIndex: number }) {
   return (
     <span className="brand-wall-logo" key={`${logo.name}-${logoIndex}`}>
-      {logo.src ? (
-        <img
-          className="brand-wall-mark"
-          src={logo.src}
-          alt=""
-          aria-hidden="true"
-          loading="eager"
-          decoding="async"
-        />
-      ) : (
-        <b className="brand-wall-text-mark" aria-hidden="true">
-          {logo.textMark}
-        </b>
-      )}
+      <img
+        className={`brand-wall-mark brand-wall-mark-${logo.treatment ?? "mono"}`}
+        src={logo.src}
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        decoding="async"
+        style={{ "--brand-optical-scale": logo.opticalScale ?? 1 } as React.CSSProperties}
+      />
     </span>
   );
 }
@@ -105,6 +101,7 @@ function LogoRow({
 export default function TrustedBrandsSection() {
   return (
     <section
+      id="trusted-brands"
       className="trusted-brands-section"
       data-testid="section-trust-strip"
       aria-label="Selected brand marks"
@@ -162,7 +159,7 @@ export default function TrustedBrandsSection() {
               display:flex;
               width:max-content;
               align-items:center;
-              gap:clamp(28px,4vw,68px);
+              gap:clamp(18px,2.6vw,42px);
               will-change:transform;
             }
             .brand-wall-track-forward{
@@ -173,34 +170,28 @@ export default function TrustedBrandsSection() {
             }
             .brand-wall-logo{
               display:flex;
-              flex:0 0 clamp(176px,18vw,280px);
-              width:clamp(176px,18vw,280px);
-              height:clamp(68px,7vw,96px);
+              flex:0 0 clamp(210px,18vw,270px);
+              width:clamp(210px,18vw,270px);
+              height:clamp(76px,7vw,94px);
               align-items:center;
               justify-content:center;
-              padding:0 clamp(12px,1.4vw,24px);
+              padding:0 clamp(16px,1.5vw,24px);
             }
             .brand-wall-mark{
               display:block;
               width:auto;
-              height:clamp(34px,4vw,52px);
-              max-width:100%;
+              height:clamp(42px,3.8vw,52px);
+              max-width:clamp(158px,14vw,202px);
               object-fit:contain;
-              filter:brightness(0) grayscale(1) invert(1);
-              opacity:.88;
+              transform:scale(var(--brand-optical-scale,1));
+              transform-origin:center;
+              opacity:.9;
             }
-            .brand-wall-text-mark{
-              display:flex;
-              align-items:center;
-              justify-content:center;
-              width:100%;
-              height:clamp(34px,4vw,52px);
-              overflow:hidden;
-              color:#F5F5F3;
-              font:800 clamp(14px,1.55vw,22px)/1 var(--font-space-grotesk, sans-serif);
-              letter-spacing:-.08em;
-              text-align:center;
-              white-space:nowrap;
+            .brand-wall-mark-mono{
+              filter:brightness(0) grayscale(1) invert(1);
+            }
+            .brand-wall-mark-original{
+              filter:none;
             }
             @keyframes brand-wall-forward{
               from{transform:translate3d(-50%,0,0)}
@@ -227,20 +218,13 @@ export default function TrustedBrandsSection() {
                 padding:12px 0;
               }
               .brand-wall-track{
-                gap:28px;
+                gap:18px;
               }
               .brand-wall-logo{
-                flex-basis:160px;
-                width:160px;
-                height:64px;
-                padding:0 12px;
-              }
-              .brand-wall-mark{
-                height:36px;
-              }
-              .brand-wall-text-mark{
-                height:36px;
-                font-size:15px;
+                flex-basis:190px;
+                width:190px;
+                height:68px;
+                padding:0 15px;
               }
             }
           `,
