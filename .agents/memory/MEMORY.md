@@ -8,3 +8,4 @@
 - [Drive media imports](drive-media-import.md) — use project-relative connector writes and optimize supplied originals before adding them to public assets
 - [Brand authority logos](brand-authority-logos.md) — separate verified client marks from sector references; never mix oversized global names into an implied client wall
 - [Validated environment edits](validated-environment-edits.md) — use the platform’s schema-checked replacement path for temporary .replit package changes
+- [Nested route dev cache](nested-route-dev-cache.md) — after adding App Router subroutes, clear .next and restart if dev returns 404 while production build lists them
