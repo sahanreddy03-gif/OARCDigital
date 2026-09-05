@@ -4,25 +4,307 @@ import { notFound } from "next/navigation";
 import Layout from "@/components/layout/Layout";
 import RouteSchema from "@/components/RouteSchema";
 import { getHreflangAlternates } from "@/lib/seo/discoveryTags";
-import { industryBySlug, industries } from "./copy";
+import TomDigitalTwin from "./TomDigitalTwin";
+import { tomBriefPages, type TomBriefPage } from "./tom-v2-data";
 
-export function generateStaticParams(){return industries.map(i=>({slug:i.slug}));}
-export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{
- const i=industryBySlug[(await params).slug]??industries[0];
- return {title:i.metaTitle,description:i.metaDescription,alternates:getHreflangAlternates(`/tom/${i.slug}`),openGraph:{title:i.metaTitle,description:i.metaDescription,url:`https://oarcdigital.com/tom/${i.slug}`,type:"website"},twitter:{card:"summary_large_image",title:i.metaTitle,description:i.metaDescription}};
+const pageBySlug = Object.fromEntries(tomBriefPages.map((page) => [page.slug, page]));
+
+type TomBlock = TomBriefPage["blocks"][number];
+type TomVisual = { readonly label: string; readonly brief: string };
+
+function getBlock(page: TomBriefPage, number: number) {
+  return page.blocks.find((block) => block.number === number);
 }
-export default async function IndustryPage({params}:{params:Promise<{slug:string}>}) {
- const i=industryBySlug[(await params).slug]; if(!i) notFound();
-  return <Layout navTheme="dark" showMobileNav><RouteSchema type="service" path={`/tom/${i.slug}`} title={i.metaTitle} description={i.metaDescription} serviceType="Managed AI workforce" audience={[i.name]}/><main className="tom-page">
-   <section className="tom-industry-hero"><div className="tom-industry-hero-art" aria-hidden="true"><span className="tom-art-status">TOM / LIVE</span><div className="tom-art-core">TOM<br/><small>OPERATOR</small></div></div><div className="tom-wrap"><p className="tom-kicker" style={{color:"#8fd6ae"}}>{i.kicker}</p><h1 className="tom-display">{i.headline}</h1><p className="tom-lead">{i.lead}</p><div className="tom-actions"><Link className="tom-button tom-button--red" href="/tom/start">Build our first mission ↗</Link><Link className="tom-button" href="/tom#force">See him work ↓</Link></div></div></section>
-  <section className="tom-missed"><div className="tom-wrap"><p className="tom-kicker" style={{color:"#f5f5f3"}}>{i.missedKicker}</p><p>{i.missed}</p></div></section>
-  <section className="tom-section"><div className="tom-wrap"><p className="tom-kicker">WHAT TOM HANDLES</p><h2 className="tom-display">What Tom handles</h2><p className="tom-copy">He arrives already fluent in {i.name.toLowerCase()} — then we train him on your business: your rules, your prices, your people, your exceptions. He speaks English, Maltese, Italian, German, and French, and he's on shift every hour of every day.</p><ul className="tom-list">{i.items.map(x=><li key={x}>{x}</li>)}</ul></div></section>
-  <section className="tom-section tom-light"><div className="tom-wrap"><p className="tom-kicker">ONE REAL MOMENT FROM HIS SHIFT · LABELLED SIMULATION</p><h2 className="tom-display">One real moment from his shift.</h2><div className="tom-split"><div className="tom-panel"><h3>The voice, what the customer hears</h3><div className="tom-log">{i.voice.map(x=><div key={x}>{x}</div>)}</div></div><div className="tom-panel"><h3>The work, same second, behind</h3><div className="tom-log">{i.work.map(x=><div key={x}>{x}</div>)}</div></div></div><p className="tom-kicker" style={{marginTop:"1rem"}}>Labelled simulation — the demo we run on YOUR business during the first visit.</p></div></section>
-   <section className="tom-section"><div className="tom-wrap"><p className="tom-kicker">WHAT HE DID BEHIND THE SCENES</p><h2 className="tom-display">{i.behindHeadline}</h2><p className="tom-copy">{i.behind}</p><div className="tom-measurement" role="img" aria-label={`Measurement visualization for ${i.name}`}><svg viewBox="0 0 800 288" preserveAspectRatio="none"><path d="M0 242 C95 236 125 226 198 232 S310 211 370 214 S504 188 568 174 S690 133 800 92" fill="none" stroke="#777" strokeDasharray="8 8" strokeWidth="3"/><path d="M0 262 C90 260 116 246 190 250 S304 236 368 226 S478 188 548 166 S690 86 800 38" fill="none" stroke="#c8102e" strokeWidth="6"/></svg></div></div></section>
-   <section className="tom-section tom-light"><div className="tom-wrap"><p className="tom-kicker">HOW HE HELPS YOUR STAFF</p><h2 className="tom-display">{i.staffHeadline}</h2><p className="tom-copy">{i.staff}</p><p className="tom-copy" style={{marginTop:"2rem"}}>And he works both ways: he briefs your people, chases the internal tasks that slip, and answers your new hire's "how do we do this here?" — because he remembers everything, even when people move on.</p><div className="tom-staff-visual" aria-hidden="true"><span>STAFF BRIEF / SENT BY TOM</span><strong>Your team starts with the right context, not another inbox.</strong><small>WORKFLOW · BRIEFING · FOLLOW-UP · MEMORY</small></div></div></section>
-  <section className="tom-section"><div className="tom-wrap"><p className="tom-kicker">WHAT ALWAYS STAYS WITH YOUR PEOPLE</p><h2 className="tom-display">{i.humanHeadline}</h2><p className="tom-copy">{i.humanLead}</p><ul className="tom-list">{i.humans.map(x=><li key={x}>{x}</li>)}</ul></div></section>
-  <section className="tom-section tom-force"><div className="tom-wrap"><p className="tom-kicker" style={{color:"#8fd6ae"}}>{i.agentsKicker}</p><h2 className="tom-display">{i.agentsHeadline}</h2><div className="tom-card-grid">{i.agents.map(a=><article className="tom-card" key={a.name}><strong>AGENT / ACTIVE</strong><h3>{a.name}</h3><p>{a.body}</p></article>)}</div></div></section>
-  <section className="tom-section"><div className="tom-wrap"><p className="tom-kicker">{i.proofKicker}</p><p className="tom-copy">{i.proof}</p><p className="tom-display" style={{fontSize:"clamp(2.5rem,5vw,5.5rem)",margin:"3rem 0"}}>{i.punch}</p><h2 className="tom-display">{i.closeHeadline}</h2><p className="tom-lead">{i.closeLead}</p><div className="tom-actions"><Link className="tom-button tom-button--red" href="/tom/start">Start with one problem ↗</Link><Link className="tom-button" href="/tom">{i.secondaryCta} ↓</Link></div></div></section>
-  <section className="tom-cta"><div className="tom-wrap"><nav aria-label="Tom supporting links" className="tom-actions">{i.internalLinks.map(link=><Link className="tom-button" href={link.href} key={link.href}>{link.label}</Link>)}</nav></div></section>
- </main></Layout>;
+
+function getField(block: TomBlock | undefined, key: string) {
+  return ((block?.fields ?? {}) as Record<string, string>)[key] ?? "";
+}
+
+function parseButtons(value: string) {
+  return [...value.matchAll(/\[([^\]]+)\]/g)].map((match) => match[1]);
+}
+
+function splitValueLine(value: string) {
+  const match = value.match(/^(.+?)\.\s+(So .+)$/);
+  return match ? { body: `${match[1]}.`, value: match[2] } : { body: value, value: "" };
+}
+
+function parseSimulation(caption: string) {
+  const leftMarker = caption.indexOf("Left panel —");
+  const rightMarker = caption.indexOf(" Right panel —");
+  if (leftMarker === -1 || rightMarker === -1) {
+    return { voice: [], work: [], note: caption };
+  }
+
+  const left = caption.slice(leftMarker, rightMarker).replace(/^Left panel —[^>]+>\s*/, "");
+  const right = caption.slice(rightMarker).replace(/^ Right panel —[^>]+>\s*/, "");
+  return {
+    voice: left.split(/\s+>\s+/).map((line) => line.trim()).filter(Boolean),
+    work: right.split(/\s+>\s+/).map((line) => line.trim()).filter(Boolean),
+    note: caption.slice(0, leftMarker).replace(/[. ]+$/, "").trim(),
+  };
+}
+
+function SceneBrief({ visual }: { visual: TomVisual | null | undefined }) {
+  if (!visual) return null;
+  return (
+    <aside className="tom-scene-brief">
+      <div className="tom-scene-orbit" aria-hidden="true">
+        <span />
+        <span />
+        <b>●</b>
+      </div>
+      <div>
+        <p className="tom-kicker">{visual.label}</p>
+        <p>{visual.brief}</p>
+      </div>
+    </aside>
+  );
+}
+
+export function generateStaticParams() {
+  return tomBriefPages.map((page) => ({ slug: page.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const page = pageBySlug[(await params).slug] ?? tomBriefPages[0];
+  return {
+    title: page.metaTitle,
+    description: page.metaDescription,
+    alternates: getHreflangAlternates(`/tom/${page.slug}`),
+    openGraph: {
+      title: page.metaTitle,
+      description: page.metaDescription,
+      url: `https://oarcdigital.com/tom/${page.slug}`,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.metaTitle,
+      description: page.metaDescription,
+    },
+  };
+}
+
+export default async function IndustryPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const page = pageBySlug[(await params).slug];
+  if (!page) notFound();
+
+  const hero = getBlock(page, 1);
+  const missed = getBlock(page, 2);
+  const handles = getBlock(page, 3);
+  const moment = getBlock(page, 4);
+  const trace = getBlock(page, 5);
+  const team = getBlock(page, 6);
+  const limits = getBlock(page, 7);
+  const force = getBlock(page, 8);
+  const close = getBlock(page, 9);
+  const heroButtons = parseButtons(getField(hero, "buttons"));
+  const closeButtons = parseButtons(getField(close, "buttons"));
+  const simulation = parseSimulation(getField(moment, "caption above"));
+  const valueItems = handles?.list.map((item) => splitValueLine(item.body)) ?? [];
+  const agentStations = force?.list.map((agent) => agent.name) ?? [];
+
+  return (
+    <Layout navTheme="dark" showMobileNav>
+      <RouteSchema
+        type="service"
+        path={`/tom/${page.slug}`}
+        title={page.metaTitle}
+        description={page.metaDescription}
+        serviceType="Managed AI workforce"
+        audience={[page.name]}
+      />
+      <main className="tom-page">
+        <section className="tom-industry-hero">
+          <div className="tom-industry-hero-art" aria-hidden="true">
+            <TomDigitalTwin
+              room={page.name}
+              stations={agentStations}
+              focus={hero?.visual?.label ?? "THE ROOM"}
+            />
+          </div>
+          <div className="tom-wrap">
+            <p className="tom-kicker" style={{ color: "#8fd6ae" }}>{getField(hero, "kicker")}</p>
+            <h1 className="tom-display">{getField(hero, "headline")}</h1>
+            <p className="tom-lead">{getField(hero, "lead")}</p>
+            <div className="tom-actions">
+              <Link className="tom-button tom-button--red" href="/tom/start">
+                {heroButtons[0] ?? "Give him one job"} ↗
+              </Link>
+              <a className="tom-button" href="#moment">
+                {heroButtons[1] ?? "See him work"} ↓
+              </a>
+            </div>
+            <div className="tom-value-strip" aria-label="How Tom creates value">
+              <div><span>01</span><strong>The problem arrives</strong><small>call · lead · request · exception</small></div>
+              <div><span>02</span><strong>He does the work</strong><small>speaks · books · updates · follows through</small></div>
+              <div><span>03</span><strong>Your team gets the result</strong><small>briefed · prepared · still in control</small></div>
+            </div>
+          </div>
+        </section>
+
+        <section className="tom-section tom-context">
+          <div className="tom-wrap">
+            <p className="tom-kicker">DOMAIN FIRST / {page.name}</p>
+            <h2 className="tom-display">This is the room he is built for.</h2>
+            <div className="tom-context-grid">
+              {page.domainBrief.slice(0, 3).map((item) => (
+                <article key={item.label}>
+                  <p className="tom-kicker">{item.label}</p>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
+            <details className="tom-context-more">
+              <summary>See the full operating brief</summary>
+              <div className="tom-context-grid">
+                {page.domainBrief.slice(3).map((item) => (
+                  <article key={item.label}>
+                    <p className="tom-kicker">{item.label}</p>
+                    <p>{item.text}</p>
+                  </article>
+                ))}
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section className="tom-missed">
+          <div className="tom-wrap">
+            <p className="tom-kicker" style={{ color: "#f5f5f3" }}>{getField(missed, "kicker")}</p>
+            <p>{getField(missed, "statement (display type)") || getField(missed, "body")}</p>
+          </div>
+        </section>
+
+        <section className="tom-section">
+          <div className="tom-wrap">
+            <p className="tom-kicker">WHAT HE HANDLES / THE WORK, NOT THE PITCH</p>
+            <h2 className="tom-display">{getField(handles, "headline")}</h2>
+            <p className="tom-copy">{getField(handles, "lead")}</p>
+            <div className="tom-value-list">
+              {valueItems.map((item) => (
+                <article key={item.body}>
+                  <p>{item.body}</p>
+                  {item.value && <strong>{item.value}</strong>}
+                </article>
+              ))}
+            </div>
+            <SceneBrief visual={handles?.visual} />
+          </div>
+        </section>
+
+        <section className="tom-section tom-light" id="moment">
+          <div className="tom-wrap">
+            <p className="tom-kicker">BLOCK 4 / ONE REAL MOMENT FROM HIS SHIFT</p>
+            <h2 className="tom-display">{getField(moment, "headline")}</h2>
+            <div className="tom-split">
+              <div className="tom-panel">
+                <h3>THE VOICE / WHAT THE CUSTOMER HEARS</h3>
+                <div className="tom-log">
+                  {simulation.voice.map((line) => <div key={line}>{line}</div>)}
+                </div>
+              </div>
+              <div className="tom-panel">
+                <h3>THE WORK / SAME SECOND / BEHIND</h3>
+                <div className="tom-log">
+                  {simulation.work.map((line) => <div key={line}>{line}</div>)}
+                </div>
+              </div>
+            </div>
+            <p className="tom-simulation-note">{getField(moment, "caption below") || simulation.note}</p>
+            <SceneBrief visual={moment?.visual} />
+          </div>
+        </section>
+
+        <section className="tom-section">
+          <div className="tom-wrap">
+            <p className="tom-kicker">BLOCK 5 / WHAT HE DID WHILE HE WAS TALKING</p>
+            <h2 className="tom-display">{getField(trace, "headline")}</h2>
+            <p className="tom-copy tom-copy--large">{getField(trace, "body")}</p>
+            <p className="tom-value-line">{getField(trace, "value line (mono)")}</p>
+            <SceneBrief visual={trace?.visual} />
+          </div>
+        </section>
+
+        <section className="tom-section tom-light">
+          <div className="tom-wrap">
+            <p className="tom-kicker">BLOCK 6 / WHAT YOUR TEAM GETS</p>
+            <h2 className="tom-display">{getField(team, "headline")}</h2>
+            <p className="tom-copy">{getField(team, "body")}</p>
+            <p className="tom-copy" style={{ marginTop: "2rem" }}>{getField(team, "body 2")}</p>
+            <p className="tom-value-line">{getField(team, "value line (mono)")}</p>
+            <SceneBrief visual={team?.visual} />
+          </div>
+        </section>
+
+        <section className="tom-section tom-limits">
+          <div className="tom-wrap">
+            <p className="tom-kicker">BLOCK 7 / HUMAN CONTROL</p>
+            <h2 className="tom-display">{getField(limits, "headline")}</h2>
+            <p className="tom-copy">{getField(limits, "lead")}</p>
+            <ul className="tom-list">
+              {limits?.list.map((item) => <li key={item.body}>{item.body}</li>)}
+            </ul>
+          </div>
+        </section>
+
+        <section className="tom-section tom-force">
+          <div className="tom-wrap">
+            <p className="tom-kicker" style={{ color: "#8fd6ae" }}>{getField(force, "kicker")}</p>
+            <h2 className="tom-display">{getField(force, "headline")}</h2>
+            <div className="tom-card-grid">
+              {force?.list.map((agent) => (
+                <article className="tom-card" key={agent.name}>
+                  <strong>AGENT / ACTIVE</strong>
+                  <h3>{agent.name}</h3>
+                  <p>{agent.body}</p>
+                  {agent.value && <small>VALUE / {agent.value}</small>}
+                </article>
+              ))}
+            </div>
+            <SceneBrief visual={force?.visual} />
+          </div>
+        </section>
+
+        <section className="tom-section">
+          <div className="tom-wrap">
+            <p className="tom-kicker">{getField(close, "kicker")}</p>
+            <p className="tom-copy">{getField(close, "body")}</p>
+            <p className="tom-display tom-punch">{getField(close, "punch (display type)")}</p>
+            <h2 className="tom-display">{getField(close, "close headline")}</h2>
+            <p className="tom-lead">{getField(close, "close lead")}</p>
+            <div className="tom-actions">
+              <Link className="tom-button tom-button--red" href="/tom/start">
+                {closeButtons[0] ?? "Start with one problem"} ↗
+              </Link>
+              <Link className="tom-button" href="/tom">
+                {closeButtons[1] ?? "See him in another industry"} ↓
+              </Link>
+            </div>
+            <SceneBrief visual={close?.visual} />
+          </div>
+        </section>
+
+        <section className="tom-cta">
+          <div className="tom-wrap">
+            <p className="tom-kicker">ONE PERSON AT THE FRONT. A SPECIALIST TEAM BEHIND HIM.</p>
+            <h2 className="tom-display">Start with the one thing that keeps falling through the cracks.</h2>
+            <div className="tom-actions">
+              <Link className="tom-button tom-button--red" href="/tom/start">Start with one problem ↗</Link>
+              <Link className="tom-button" href="/tom">See the other rooms ↓</Link>
+            </div>
+          </div>
+        </section>
+      </main>
+    </Layout>
+  );
 }
