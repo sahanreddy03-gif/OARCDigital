@@ -11,3 +11,4 @@
 - [Nested route dev cache](nested-route-dev-cache.md) — after adding App Router subroutes, clear .next and restart if dev returns 404 while production build lists them
 - [Vercel lockfile portability](vercel-lockfile-portability.md) — root npm lockfiles deployed outside Replit must not retain package-firewall.replit.local resolved URLs
 - [Tom WebGL fallback](tom-webgl-fallback.md) — probe for usable WebGL and keep a designed CSS/CAD fallback so preview browsers never blank the industry page
+- [Tom product positioning](tom-product-positioning.md) — Tom is shorthand; lead with the OARC Operator System and prove the workflow, actions, evidence, and handoff
