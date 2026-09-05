@@ -133,7 +133,7 @@ export default async function IndustryPage({
             />
           </div>
           <div className="tom-wrap">
-            <p className="tom-kicker" style={{ color: "#8fd6ae" }}>{getField(hero, "kicker")}</p>
+            <p className="tom-kicker" style={{ color: "#8fd6ae" }}>{getField(hero, "kicker").replace(/^TOM\b/, "OARC OPERATOR")}</p>
             <h1 className="tom-display">{getField(hero, "headline")}</h1>
             <p className="tom-lead">{getField(hero, "lead")}</p>
             <div className="tom-actions">

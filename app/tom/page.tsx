@@ -4,13 +4,13 @@ import RouteSchema from "@/components/RouteSchema";
 import TomExperience from "./TomExperience";
 
 export const metadata: Metadata = {
-  title: "Tom — You will have one person | OARC Digital",
-  description: "One AI operator who talks to your customers, does the work the same second, coordinates your staff, and watches your business — built around your company, in person, in Malta.",
+  title: "OARC Operator System — work moves while the call is happening",
+  description: "A managed operating layer that receives work, understands business rules, acts inside your systems, proves the result, and keeps people in control.",
   alternates: { canonical: "https://oarcdigital.com/tom" },
-  openGraph: { title: "Tom — You will have one person | OARC Digital", description: "One AI operator who talks to your customers, does the work the same second, coordinates your staff, and watches your business — built around your company, in person, in Malta.", url: "https://oarcdigital.com/tom", type: "website" },
-  twitter: { card: "summary_large_image", title: "Tom — You will have one person | OARC Digital", description: "One AI operator. An entire department behind him." },
+  openGraph: { title: "OARC Operator System — work moves while the call is happening", description: "A managed operating layer that receives work, understands business rules, acts inside your systems, proves the result, and keeps people in control.", url: "https://oarcdigital.com/tom", type: "website" },
+  twitter: { card: "summary_large_image", title: "OARC Operator System", description: "One operating layer. Every permitted action visible." },
 };
 
 export default function TomPage() {
-  return <Layout navTheme="dark" showMobileNav><RouteSchema type="service" path="/tom" title="Tom — You will have one person" description={metadata.description as string} serviceType="AI operator and business automation" audience={["Hospitality","Sales","Healthcare","Finance","Real estate","Logistics","Home services"]} faqs={[{question:"Will my customers know he's AI?",answer:"He never pretends to be human — if anyone asks, he says so, plainly."},{question:"What happens when he doesn't know?",answer:"He says so and hands over to your chosen person, instantly, with the full story attached."}]}/><TomExperience /></Layout>;
+  return <Layout navTheme="dark" showMobileNav><RouteSchema type="service" path="/tom" title="OARC Operator System" description={metadata.description as string} serviceType="Managed AI operating layer" audience={["Hospitality","Sales","Healthcare","Finance","Real estate","Logistics","Home services"]} faqs={[{question:"What is the OARC Operator System?",answer:"A managed operating layer that receives work, understands your business rules, takes permitted actions inside your systems, and records the result."},{question:"What happens when it does not know?",answer:"It says so and hands over to your chosen person with the full context attached."}]}/><TomExperience /></Layout>;
 }
