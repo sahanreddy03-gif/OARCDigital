@@ -14,3 +14,4 @@
 - [Tom product positioning](tom-product-positioning.md) — Tom is shorthand; lead with the OARC Operator System and prove the workflow, actions, evidence, and handoff
 - [OARC AI service architecture](oarc-ai-service-architecture.md) — organise AI services around revenue, customer/field, employee/business, and commerce/custom operators
 - [Programmatic SEO tuple gates](programmatic-seo-tuple-gates.md) — admit restored Malta URLs by exact ledger tuples; segment allowlists create accidental indexable products
+- [Publishing requires explicit approval](publishing-approval.md) — never publish, promote, duplicate, or replace the live site without the user’s clear approval each time
