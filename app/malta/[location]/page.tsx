@@ -5,18 +5,62 @@ import { ArrowRight } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import Layout from '@/components/layout/Layout';
 import JsonLd from '@/components/JsonLd';
-import { locationServices } from '@/shared/seoConfig';
-import { buildLocationHubContent, getServiceProfile } from '@/lib/seo/generateUniquePageContent';
+import {
+  buildLocationHubContent,
+  getIndustryProfile,
+  getServiceProfile,
+} from '@/lib/seo/generateUniquePageContent';
 import restore from '@/lib/seo/restore.json';
 import { NAP } from '@/lib/seo/nap';
+import {
+  currentAdditionalLocationServiceLocations,
+  currentAdditionalLocationServices,
+  historicalIndustries,
+  historicalParentLocations,
+  historicalServices,
+} from '@/shared/historicalProgrammaticInventory';
 
-const serviceCatalog = locationServices.map((slug) => {
-  const svc = getServiceProfile(slug);
+const currentLocationSet = new Set(currentAdditionalLocationServiceLocations);
+
+function serviceCatalogForLocation(location: string) {
+  const slugs = [
+    ...(historicalParentLocations.includes(location) ? historicalServices : []),
+    ...(currentLocationSet.has(location) ? currentAdditionalLocationServices : []),
+  ];
+  return slugs.map((slug) => {
+    const svc = getServiceProfile(slug);
+    return {
+      slug,
+      name: svc?.name ?? slug,
+      desc: svc?.description.split('—')[0].trim() ?? '',
+    };
+  });
+}
+
+const matrixCatalog = historicalIndustries.map((industry) => {
+  const profile = getIndustryProfile(industry);
   return {
-    slug,
-    name: svc?.name ?? slug,
-    desc: svc?.description.split('—')[0].trim() ?? '',
+    slug: industry,
+    name: profile?.name ?? industry,
+    services: historicalServices.map((service) => {
+      const svc = getServiceProfile(service);
+      return {
+        slug: service,
+        name: svc?.shortName ?? service,
+      };
+    }),
   };
+});
+
+export const dynamicParams = true;
+export const revalidate = 604800;
+
+const serviceCatalog = (location: string) => serviceCatalogForLocation(location);
+
+const _assertServiceProfiles = historicalServices.map((slug) => {
+  const svc = getServiceProfile(slug);
+  if (!svc) throw new Error(`Missing historical service profile: ${slug}`);
+  return svc;
 });
 
 type LocationParams = { location: string };
@@ -27,7 +71,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<LocationParams> }): Promise<Metadata> {
   const { location } = await params;
-  const c = buildLocationHubContent(location, serviceCatalog);
+  const c = buildLocationHubContent(location, serviceCatalog(location));
   if (!c) return { title: 'Location Not Found | OARC Digital' };
   return {
     title: c.title,
@@ -40,7 +84,7 @@ export async function generateMetadata({ params }: { params: Promise<LocationPar
 
 export default async function LocationHubPage({ params }: { params: Promise<LocationParams> }) {
   const { location } = await params;
-  const c = buildLocationHubContent(location, serviceCatalog);
+  const c = buildLocationHubContent(location, serviceCatalog(location));
   if (!c) notFound();
 
   return (
@@ -51,6 +95,8 @@ export default async function LocationHubPage({ params }: { params: Promise<Loca
           <div className="max-w-4xl mx-auto px-6 md:px-8">
             <div className="flex items-center gap-2 mb-6 text-sm text-zinc-400">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
+              <span>/</span>
+              <Link href="/malta" className="hover:text-white transition-colors">Malta</Link>
               <span>/</span>
               <span className="text-white">{c.hero.eyebrow.replace('Malta — ', '')}</span>
             </div>
@@ -89,24 +135,62 @@ export default async function LocationHubPage({ params }: { params: Promise<Loca
             </div>
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-bold mb-8">Services Available in {c.hero.eyebrow.replace('Malta — ', '')}</h2>
-          <div className="grid md:grid-cols-2 gap-4 mb-12">
-            {c.services.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/malta/${location}/${service.slug}`}
-                className="group p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/50 transition-all"
-                data-testid={`link-service-${service.slug}`}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="font-bold mb-1">{service.name}</h3>
-                    <p className="text-sm text-muted-foreground">{service.desc}</p>
+          {c.services.length > 0 && (
+            <>
+              <h2 className="text-2xl md:text-3xl font-bold mb-8">Services Available in {c.hero.eyebrow.replace('Malta — ', '')}</h2>
+              <div className="grid md:grid-cols-2 gap-4 mb-16">
+                {c.services.map((service) => (
+                  <Link
+                    key={service.slug}
+                    href={`/malta/${location}/${service.slug}`}
+                    className="group p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/50 transition-all"
+                    data-testid={`link-service-${service.slug}`}
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h3 className="font-bold mb-1">{service.name}</h3>
+                        <p className="text-sm text-muted-foreground">{service.desc}</p>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-orange-500 mt-1 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </>
+          )}
+
+          <div className="mb-16">
+            <p className="text-sm font-semibold uppercase tracking-wider text-orange-600 mb-3">
+              Industry × service guides
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Explore every restored guide for {c.hero.eyebrow.replace('Malta — ', '')}
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              Choose an industry, then the service you need. These guides combine the local
+              market conditions above with sector-specific commercial priorities and delivery.
+            </p>
+            <div className="space-y-5">
+              {matrixCatalog.map((industry) => (
+                <section
+                  key={industry.slug}
+                  className="rounded-xl border border-zinc-200 dark:border-zinc-800 p-5"
+                >
+                  <h3 className="font-bold text-lg mb-3">{industry.name}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {industry.services.map((service) => (
+                      <Link
+                        key={service.slug}
+                        href={`/malta/${location}/${industry.slug}/${service.slug}`}
+                        className="rounded-full border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-orange-500/60 hover:text-foreground"
+                      >
+                        {service.name}
+                      </Link>
+                    ))}
                   </div>
-                  <ArrowRight className="w-4 h-4 text-orange-500 mt-1 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-                </div>
-              </Link>
-            ))}
+                </section>
+              ))}
+            </div>
           </div>
 
           <div className="bg-zinc-900 text-white rounded-2xl p-8 text-center">

@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import { HISTORICAL_RESTORATION_LASTMOD } from "../shared/historicalProgrammaticInventory";
 /**
  * Sitemap honesty regression audit.
  *
@@ -41,14 +42,20 @@ const MIN_URLS_FOR_AUDIT = 5;
 
 const TODAY_UTC = new Date().toISOString().slice(0, 10);
 const TODAY_DATES = new Set([TODAY_UTC]);
+const APPROVED_BULK_RESTORATIONS: Readonly<Record<string, { date: string; count: number }>> = {
+  "sitemap-malta.xml": { date: HISTORICAL_RESTORATION_LASTMOD, count: 340 },
+  "sitemap-malta-matrix.xml": { date: HISTORICAL_RESTORATION_LASTMOD, count: 7350 },
+};
 
 const MODE: "static" | "http" = process.argv.includes("--http") ? "http" : "static";
 
 const SITEMAPS = [
   "sitemap.xml",            // index: must show varied dates across children
   "sitemap-core.xml",
+  "sitemap-h360.xml",
   "sitemap-services.xml",
   "sitemap-malta.xml",
+  "sitemap-malta-matrix.xml",
   "sitemap-industries.xml",
   "sitemap-case-studies.xml",
   "sitemap-aeo.xml",
@@ -79,8 +86,10 @@ type RouteGetter = () => Promise<Response>;
 const STATIC_GETTERS: Record<string, () => Promise<RouteGetter>> = {
   "sitemap.xml": async () => (await import("../app/sitemap.xml/route")).GET,
   "sitemap-core.xml": async () => (await import("../app/sitemap-core.xml/route")).GET,
+  "sitemap-h360.xml": async () => (await import("../app/sitemap-h360.xml/route")).GET,
   "sitemap-services.xml": async () => (await import("../app/sitemap-services.xml/route")).GET,
   "sitemap-malta.xml": async () => (await import("../app/sitemap-malta.xml/route")).GET,
+  "sitemap-malta-matrix.xml": async () => (await import("../app/sitemap-malta-matrix.xml/route")).GET,
   "sitemap-industries.xml": async () => (await import("../app/sitemap-industries.xml/route")).GET,
   "sitemap-case-studies.xml": async () => (await import("../app/sitemap-case-studies.xml/route")).GET,
   "sitemap-aeo.xml": async () => (await import("../app/sitemap-aeo.xml/route")).GET,
@@ -122,7 +131,13 @@ function audit(name: string, lastmods: string[]): Result {
   const dominantPct = (dominantCount / total) * 100;
   const overThreshold = dominantPct > MAX_DOMINANT_PCT;
   const dominantIsToday = TODAY_DATES.has(dominantDate);
-  const status: Result["status"] = overThreshold && dominantIsToday ? "FAIL" : "PASS";
+  const approvedBulk = APPROVED_BULK_RESTORATIONS[name];
+  const approvedToday =
+    approvedBulk?.date === dominantDate &&
+    approvedBulk.count === total &&
+    dominantCount === total;
+  const status: Result["status"] =
+    overThreshold && dominantIsToday && !approvedToday ? "FAIL" : "PASS";
   return {
     name,
     total,

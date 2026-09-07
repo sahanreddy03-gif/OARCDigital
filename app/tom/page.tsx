@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
 import Layout from "@/components/layout/Layout";
 import RouteSchema from "@/components/RouteSchema";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 import TomExperience from "./TomExperience";
 
+const title = "OARC Operator System — work moves while the call is happening";
+const description = "A managed operating layer that receives work, understands business rules, acts inside your systems, proves the result, and keeps people in control.";
+
 export const metadata: Metadata = {
-  title: "OARC Operator System — work moves while the call is happening",
-  description: "A managed operating layer that receives work, understands business rules, acts inside your systems, proves the result, and keeps people in control.",
+  title,
+  description,
   alternates: { canonical: "https://oarcdigital.com/tom" },
-  openGraph: { title: "OARC Operator System — work moves while the call is happening", description: "A managed operating layer that receives work, understands business rules, acts inside your systems, proves the result, and keeps people in control.", url: "https://oarcdigital.com/tom", type: "website" },
-  twitter: { card: "summary_large_image", title: "OARC Operator System", description: "One operating layer. Every permitted action visible." },
+  openGraph: { title, description, url: "https://oarcdigital.com/tom", type: "website", images: ogImageEntry({ title, subtitle: description }) },
+  twitter: { card: "summary_large_image", title: "OARC Operator System", description: "One operating layer. Every permitted action visible.", images: [ogImageUrl({ title, subtitle: description })] },
 };
 
 export default function TomPage() {

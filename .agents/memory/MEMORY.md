@@ -13,3 +13,4 @@
 - [Tom WebGL fallback](tom-webgl-fallback.md) — probe for usable WebGL and keep a designed CSS/CAD fallback so preview browsers never blank the industry page
 - [Tom product positioning](tom-product-positioning.md) — Tom is shorthand; lead with the OARC Operator System and prove the workflow, actions, evidence, and handoff
 - [OARC AI service architecture](oarc-ai-service-architecture.md) — organise AI services around revenue, customer/field, employee/business, and commerce/custom operators
+- [Programmatic SEO tuple gates](programmatic-seo-tuple-gates.md) — admit restored Malta URLs by exact ledger tuples; segment allowlists create accidental indexable products

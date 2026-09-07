@@ -2,9 +2,15 @@ import {
   maltaLocations,
   maltaIndustries,
   industryHubSlugs,
-  locationServices,
   allServiceSlugs,
 } from "../../shared/seoConfig";
+import {
+  currentAdditionalLocationServiceLocations,
+  currentAdditionalLocationServices,
+  historicalParentLocations,
+  historicalServices,
+  restoredLocationServices,
+} from "../../shared/historicalProgrammaticInventory";
 
 export const KEPT_LOCATIONS: ReadonlySet<string> = new Set(maltaLocations);
 // `KEPT_INDUSTRIES` gates the location-paired routes only
@@ -12,8 +18,38 @@ export const KEPT_LOCATIONS: ReadonlySet<string> = new Set(maltaLocations);
 // /industries/{slug} hubs use the broader `KEPT_INDUSTRY_HUBS` below.
 export const KEPT_INDUSTRIES: ReadonlySet<string> = new Set(maltaIndustries);
 export const KEPT_INDUSTRY_HUBS: ReadonlySet<string> = new Set(industryHubSlugs);
-export const KEPT_LOCATION_SERVICES: ReadonlySet<string> = new Set(locationServices);
+export const KEPT_LOCATION_SERVICES: ReadonlySet<string> = new Set(restoredLocationServices);
 export const ALL_SERVICES: ReadonlySet<string> = new Set(allServiceSlugs);
+
+const HISTORICAL_PARENT_LOCATIONS: ReadonlySet<string> = new Set(historicalParentLocations);
+const HISTORICAL_LOCATION_SERVICES: ReadonlySet<string> = new Set(historicalServices);
+const CURRENT_ADDITIONAL_LOCATION_SERVICE_LOCATIONS: ReadonlySet<string> = new Set(
+  currentAdditionalLocationServiceLocations,
+);
+const CURRENT_ADDITIONAL_LOCATION_SERVICES: ReadonlySet<string> = new Set(
+  currentAdditionalLocationServices,
+);
+
+export function isKeptLocationServicePath(location: string, service: string): boolean {
+  return (
+    (HISTORICAL_PARENT_LOCATIONS.has(location) &&
+      HISTORICAL_LOCATION_SERVICES.has(service)) ||
+    (CURRENT_ADDITIONAL_LOCATION_SERVICE_LOCATIONS.has(location) &&
+      CURRENT_ADDITIONAL_LOCATION_SERVICES.has(service))
+  );
+}
+
+export function isKeptLocationIndustryServicePath(
+  location: string,
+  industry: string,
+  service: string,
+): boolean {
+  return (
+    KEPT_LOCATIONS.has(location) &&
+    KEPT_INDUSTRIES.has(industry) &&
+    HISTORICAL_LOCATION_SERVICES.has(service)
+  );
+}
 
 export const HARD_410_PATHS: ReadonlySet<string> = new Set([
   "/case-studies/gym-group",
@@ -58,16 +94,11 @@ export const SERVICE_ALIASES: Record<string, string> = {
  * has been merged we 308 to /malta/{loc}/{newSlug} so Google moves the
  * locality-page ranking to the new canonical slug rather than dropping it.
  *
- * Task #116:
- *   digital-marketing → seo-services    (new locationServices member)
- *
- * Other consolidated services (ai-copywriting, media-buying, etc.) were
- * never in `locationServices` so no /malta/{loc}/{slug} pages existed for
- * them — no alias needed.
+ * Historical Malta service URLs are intentionally self-canonical again. Keep
+ * this map available for future locality-only aliases, but never add an exact
+ * historical slug here without an explicit URL-ledger decision.
  */
-export const LOCATION_SERVICE_ALIASES: Record<string, string> = {
-  "digital-marketing": "seo-services",
-};
+export const LOCATION_SERVICE_ALIASES: Record<string, string> = {};
 
 /**
  * Cross-section 308 redirects whose TARGET is NOT under `/services/<slug>/`.
@@ -161,28 +192,17 @@ export const NOINDEX_INDUSTRY_HUB_SLUGS: ReadonlySet<string> = new Set<string>([
  * Task #221 (Programmatic cluster cull) — NOINDEX control for
  * /malta/{loc}/{ind}/{svc} triple-combination pages.
  *
- * All 150 loc×ind×svc pages are thin (≈300–500 user-visible words).
- * They are excluded from the sitemap and marked noindex to protect
- * domain authority. Pages can be selectively promoted to indexed
- * status — without a template rewrite — by adding their key here:
+ * The exact historical 49×15×10 publication is restored from the checked-in
+ * URL ledger. Content depth, sitemap parity, and route-profile coverage are
+ * enforced by the historical manifest gate before every build.
  *
  *   Format: "{location}/{industry}/{service}"
  *   Example: "valletta/restaurant/social-media-creative-management"
  *
- * To promote ALL pages at once, set LOCATION_IND_SVC_GLOBAL_KEEP = true.
- * To promote individual pages: add their key to KEEP_LOCATION_IND_SVC_COMBOS.
- *
- * Promotion checklist (per page):
- *   1. Expand to ≥800 user-visible words with unique industry narrative.
- *   2. Add the "{loc}/{ind}/{svc}" key to KEEP_LOCATION_IND_SVC_COMBOS.
- *   3. Add its sitemap entry to app/sitemap-malta.xml/route.ts.
- *   4. Ship in one commit; run gate:fast before deploy.
- *
- * Drip-feed rule: max 10 new pages per 7-day window.
- * Rollout calendar: .local/seo-rollout-calendar.md
- * Audit verdicts: .local/seo/programmatic-audit.md §4
+ * KEEP_LOCATION_IND_SVC_COMBOS remains available for future non-historical
+ * exceptions; the historical corpus uses the global keep flag.
  */
-export const LOCATION_IND_SVC_GLOBAL_KEEP = false;
+export const LOCATION_IND_SVC_GLOBAL_KEEP = true;
 export const KEEP_LOCATION_IND_SVC_COMBOS: ReadonlySet<string> = new Set<string>([
   // Add promoted combos here, e.g.:
   // "valletta/restaurant/social-media-creative-management",

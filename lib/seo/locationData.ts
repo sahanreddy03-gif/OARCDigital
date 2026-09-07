@@ -1,4 +1,4 @@
-// Rich, location-specific data for ALL 50 Malta localities.
+// Rich, location-specific data for all 49 historical Malta localities.
 //
 // Used by lib/seo/generateUniquePageContent.ts so every Malta page reads
 // like a different page — not a slot-filled template — and so future
@@ -902,6 +902,66 @@ export const locationProfiles: Record<string, LocationProfile> = {
     opportunities: ['short-let listings optimisation for a quieter eastern-shore alternative to Sliema', 'Smart City worker targeting for nearby food-and-beverage', 'east-coast cluster SEO with Żabbar and Kalkara'],
     audienceProfile: 'A small Maltese resident base plus seasonal holiday-let visitors and Smart City spillover.',
     geo: { lat: 35.8861, lng: 14.5511 },
+  },
+
+  // Source: https://en.wikipedia.org/wiki/Bu%C4%A1ibba
+  'bugibba': {
+    slug: 'bugibba', name: 'Buġibba',
+    shortDescription: 'the northern seafront resort and year-round entertainment centre',
+    longIntro: 'Buġibba is the liveliest part of the St Paul’s Bay resort area, combining a dense resident population with hotels, restaurants, bars, and a busy seafront promenade. Its businesses serve a different mix by season: international visitors in the warmer months and local families and long-stay residents through the rest of the year.',
+    populationDensity: 7600, businessDensity: 'high',
+    primaryIndustries: ['hospitality', 'restaurants and bars', 'tourism services', 'retail', 'short-let property'],
+    landmarks: ['Buġibba Square', 'Buġibba promenade', 'Malta National Aquarium', 'Kennedy Grove', 'Dawret il-Gżejjer'],
+    nearestLocations: ['San Pawl il-Baħar', 'Qawra', 'Mellieħa'],
+    challenges: ['seasonal demand that changes the customer mix and language needs', 'dense promenade competition where visitors compare reviews before walking in', 'a resort-area reputation that can be shaped quickly by recent online feedback'],
+    opportunities: ['multilingual search and Maps content for visitor planning queries', 'short-form video that connects offers with the promenade and aquarium catchment', 'retention campaigns for local residents and long-stay winter customers'],
+    audienceProfile: 'International holidaymakers in season, alongside Maltese families, expats, and long-stay residents looking for accessible leisure and dining.',
+    geo: { lat: 35.9506, lng: 14.4156 },
+  },
+
+  // Source: https://en.wikipedia.org/wiki/Cospicua
+  'cospicua': {
+    slug: 'cospicua', name: 'Cospicua',
+    shortDescription: 'the regenerated harbour city at the centre of the Three Cities',
+    longIntro: 'Cospicua is a historic harbour city in the Three Cities, with a residential core, dockyard heritage, and renewed waterfront interest around the marina and ferry connections. It sits between Vittoriosa and Senglea, making it a practical base for businesses serving residents, harbour visitors, and the wider southern catchment.',
+    populationDensity: 7400, businessDensity: 'medium',
+    primaryIndustries: ['restaurants', 'small hospitality', 'family retail', 'professional services', 'beauty and wellness'],
+    landmarks: ['Cospicua waterfront', 'Dock No. 1', 'Immaculate Conception Parish', 'Bormla waterfront', 'Bormla Bridge'],
+    nearestLocations: ['Birgu', 'Isla', 'Paola'],
+    challenges: ['being overlooked by visitors who search specifically for Birgu or Senglea', 'a local market split between traditional residents and regeneration-led visitor demand', 'competition for attention with Valletta across the harbour'],
+    opportunities: ['Three Cities search pages that make Cospicua discoverable alongside nearby landmarks', 'harbour-focused visual content for hospitality and retail', 'local review and Maps programmes that capture ferry and waterfront searches'],
+    audienceProfile: 'Long-established Maltese households alongside harbour visitors, commuters, and a growing audience exploring the regenerated waterfront.',
+    geo: { lat: 35.8806, lng: 14.5256 },
+  },
+
+  // Source: https://en.wikipedia.org/wiki/Kirkop
+  'kirkop': {
+    slug: 'kirkop', name: 'Kirkop',
+    shortDescription: 'the compact southern village in the airport catchment',
+    longIntro: 'Kirkop is a small southern village close to Malta International Airport and the Safi, Luqa, and Mqabba corridor. Its commercial life is primarily resident-serving, while proximity to airport, logistics, and industrial employment creates a useful weekday audience for practical local services.',
+    populationDensity: 3300, businessDensity: 'low',
+    primaryIndustries: ['home services', 'airport and logistics support', 'restaurants', 'auto services', 'professional services'],
+    landmarks: ['Kirkop Parish Church', 'Ħal Kirkop village core', 'St Leonard Chapel', 'airport catchment', 'Triq l-Imqabba'],
+    nearestLocations: ['Luqa', 'Mqabba', 'Safi'],
+    challenges: ['a small local population that makes broad campaign targeting inefficient', 'commercial demand that follows airport and industrial work patterns', 'nearby larger towns absorbing generic searches for services'],
+    opportunities: ['precise radius targeting around the airport and southern-village corridor', 'local SEO for high-intent home, auto, and professional services', 'Maltese-language content that earns trust with resident households'],
+    audienceProfile: 'Maltese families and homeowners, supplemented by workers moving through the airport and southern industrial corridor.',
+    geo: { lat: 35.8422, lng: 14.4850 },
+  },
+
+  // Source: https://en.wikipedia.org/wiki/Marsa,_Malta
+  'marsa': {
+    slug: 'marsa', name: 'Marsa',
+    shortDescription: 'the central harbour, logistics, and industrial gateway',
+    longIntro: 'Marsa is a strategically connected harbour-side locality between Valletta, Qormi, and Paola, shaped by industrial estates, transport links, sporting facilities, and a diverse working population. It is a practical B2B and trade-services market where visibility, trust, and clear enquiry routes matter more than lifestyle positioning.',
+    populationDensity: 5500, businessDensity: 'high',
+    primaryIndustries: ['logistics', 'light industry', 'automotive', 'wholesale', 'trade services'],
+    landmarks: ['Marsa Industrial Estate', 'Marsa Sports Ground', 'Marsa Junction', 'Grand Harbour approach', 'Albert Town'],
+    nearestLocations: ['Qormi', 'Ħamrun', 'Paola'],
+    challenges: ['industrial buyers who need fast answers, specifications, and quote routes', 'a varied working population that requires clear, accessible communication', 'strong competition from established central-Malta suppliers'],
+    opportunities: ['B2B search campaigns around trade, logistics, and supplier intent', 'lead-routing automation for quote and WhatsApp enquiries', 'location pages that connect Marsa with the Qormi and harbour business corridor'],
+    audienceProfile: 'Trade and logistics workers, business owners, and a diverse resident community travelling through one of Malta’s main transport gateways.',
+    geo: { lat: 35.8794, lng: 14.4950 },
   },
 };
 

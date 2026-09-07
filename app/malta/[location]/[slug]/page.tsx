@@ -1,6 +1,5 @@
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
-// /malta/[location]/[service] — kept services only.
-// Archived service slugs are 410'd by middleware before reaching this route.
+// /malta/[location]/[service] — current and historically published services.
 
 import { ArrowRight, MapPin, Phone, Mail } from 'lucide-react';
 import Link from 'next/link';
@@ -9,12 +8,22 @@ import JsonLd from '@/components/JsonLd';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
-import { buildLocationServiceContent } from '@/lib/seo/generateUniquePageContent';
+import {
+  buildLocationServiceContent,
+  getIndustryProfile,
+} from '@/lib/seo/generateUniquePageContent';
 import { getLocationProfile } from '@/lib/seo/locationData';
 import restore from '@/lib/seo/restore.json';
 import { NAP } from "@/lib/seo/nap";
+import {
+  historicalIndustries,
+  historicalServices,
+} from "@/shared/historicalProgrammaticInventory";
 
 type LocationServiceParams = { location: string; slug: string };
+
+export const dynamicParams = true;
+export const revalidate = 604800;
 
 export async function generateStaticParams() {
   return (restore as { kept: { locationServices: { location: string; service: string }[] } }).kept
@@ -40,6 +49,12 @@ export default async function LocationServicePage({ params }: { params: Promise<
   if (!c) notFound();
 
   const loc = getLocationProfile(location)!;
+  const relatedIndustries = historicalServices.includes(slug)
+    ? historicalIndustries.map((industry) => ({
+        slug: industry,
+        name: getIndustryProfile(industry)?.name ?? industry,
+      }))
+    : [];
 
   return (
     <Layout>
@@ -103,6 +118,54 @@ export default async function LocationServicePage({ params }: { params: Promise<
           </div>
         </section>
 
+        <section className="py-20 bg-muted/30 border-y">
+          <div className="max-w-5xl mx-auto px-6 md:px-8">
+            <p className="text-sm font-semibold uppercase tracking-wider text-green-600 mb-3">
+              Local market context
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-5">
+              Planning for the {loc.name} audience
+            </h2>
+            <div className="space-y-4 text-muted-foreground leading-relaxed mb-10">
+              <p>{loc.longIntro}</p>
+              <p>
+                The practical audience is {loc.audienceProfile.toLowerCase()} We use that
+                context to shape channel priorities, messages, proof, and response journeys
+                rather than treating the locality as a keyword added to a generic campaign.
+              </p>
+              <p>
+                We also plan for seasonality, nearby-locality spillover, language and device
+                preferences, and the time between first discovery and a serious enquiry. Those
+                variables are documented during discovery so creative and media decisions can
+                be tested against an agreed commercial baseline rather than judged by surface
+                engagement alone.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="rounded-xl border bg-card p-6">
+                <h3 className="text-lg font-bold mb-4">Pressures to plan around</h3>
+                <ul className="space-y-3">
+                  {loc.challenges.map((challenge) => (
+                    <li key={challenge} className="text-sm text-muted-foreground leading-relaxed">
+                      <span className="text-green-600 mr-2">•</span>{challenge}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-xl border bg-card p-6">
+                <h3 className="text-lg font-bold mb-4">Opportunities to use</h3>
+                <ul className="space-y-3">
+                  {loc.opportunities.map((opportunity) => (
+                    <li key={opportunity} className="text-sm text-muted-foreground leading-relaxed">
+                      <span className="text-green-600 mr-2">•</span>{opportunity}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Benefits Section */}
         <section className="py-20 bg-muted/30">
           <div className="max-w-7xl mx-auto px-6 md:px-8">
@@ -147,6 +210,35 @@ export default async function LocationServicePage({ params }: { params: Promise<
             </div>
           </div>
         </section>
+
+        {relatedIndustries.length > 0 && (
+          <section className="py-20 bg-muted/30 border-y">
+            <div className="max-w-5xl mx-auto px-6 md:px-8">
+              <p className="text-sm font-semibold uppercase tracking-wider text-green-600 mb-3">
+                Industry-specific guidance
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Apply this service to your {loc.name} sector
+              </h2>
+              <p className="text-muted-foreground leading-relaxed max-w-3xl mb-8">
+                Each guide combines this delivery model with the commercial pressures,
+                customer journey, and local opportunities of a specific industry.
+              </p>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {relatedIndustries.map((industry) => (
+                  <Link
+                    key={industry.slug}
+                    href={`/malta/${location}/${industry.slug}/${slug}`}
+                    className="group flex items-center justify-between gap-3 rounded-xl border bg-card p-4 transition-colors hover:border-green-500/60"
+                  >
+                    <span className="font-medium">{industry.name}</span>
+                    <ArrowRight className="w-4 h-4 text-green-600 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Local CTA Section */}
         <section className="py-20 bg-gradient-to-br from-green-600 to-green-700 text-white">

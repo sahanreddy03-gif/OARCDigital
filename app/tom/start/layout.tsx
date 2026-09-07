@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { getHreflangAlternates } from "@/lib/seo/discoveryTags";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 const title = "Start Tom's First Mission | OARC Digital Malta";
 const description =
@@ -16,11 +17,13 @@ export const metadata: Metadata = {
     description,
     type: "website",
     url: "https://oarcdigital.com/tom/start",
+    images: ogImageEntry({ title, subtitle: description }),
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
+    images: [ogImageUrl({ title, subtitle: description })],
   },
 };
 

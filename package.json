@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev --turbopack",
-    "prebuild": "tsx scripts/verify-redirects.ts --static && tsx scripts/generate-llms-txt-facts.ts && tsx scripts/generate-llms-full-txt.ts",
+    "prebuild": "tsx scripts/verify-redirects.ts --static && tsx scripts/validate-historical-programmatic.ts && tsx scripts/generate-llms-txt-facts.ts && tsx scripts/generate-llms-full-txt.ts",
     "build": "next build --turbopack",
     "start": "next start",
     "check": "tsc",
@@ -15,7 +15,9 @@
     "prepare": "husky",
     "gate": "bash scripts/seo-gate.sh gate",
     "gate:fast": "bash scripts/seo-gate.sh gate:fast",
-    "gate:full": "bash scripts/seo-gate.sh gate:full"
+    "gate:full": "bash scripts/seo-gate.sh gate:full",
+    "gate:historical": "tsx scripts/validate-historical-programmatic.ts",
+    "crawl:historical": "tsx scripts/crawl-historical-programmatic.ts"
   },
   "dependencies": {
     "@ffmpeg/ffmpeg": "^0.12.15",

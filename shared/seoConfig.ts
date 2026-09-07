@@ -1,62 +1,32 @@
 // Centralized SEO configuration - single source of truth for all URLs
 // This ensures sitemap, routes, and components stay in sync
 
-// Malta locations for programmatic SEO
-// REDUCED for Next.js migration: 50 -> 10 (top traffic locations only).
-// Archived locations are preserved here in a comment block for reference.
-//
-// ARCHIVED (40): naxxar, attard, mdina, rabat, marsaskala, marsaxlokk,
-// birgu, msida, swieqi, mellieha, bugibba, san-pawl-il-bahar, zejtun,
-// zurrieq, paola, tarxien, fgura, balzan, floriana, marsa, luqa, gudja,
-// birzebbuga, kirkop, siggiewi, mqabba, lija, iklin, san-lawrenz,
-// santa-venera, pieta, pembroke, swatar, ghaxaq, xghajra, kalkara,
-// isla, bormla, cospicua
-export const maltaLocations = [
-  'valletta',
-  'sliema',
-  'st-julians',
-  'birkirkara',
-  'mosta',
-  'qormi',
-  'zabbar',
-  'san-gwann',
-  'gzira',
-  'hamrun',
-] as const;
+import {
+  historicalIndustries,
+  historicalMatrixLocations,
+} from "./historicalProgrammaticInventory";
 
-// Full canonical 50-locality Malta map. The Tier-1 `maltaLocations` set above
-// is what we statically render today (10 KEPT). The remaining 40 are warm-bench
-// localities with full LocationProfile entries in `lib/seo/locationData.ts`,
-// ready to promote into the Tier-1 list and `restore.json` without further
-// research. Matches `Object.keys(locationProfiles)` 1:1.
-export const maltaLocationsAll = [
-  'valletta', 'sliema', 'st-julians', 'birkirkara', 'mosta', 'qormi',
-  'zabbar', 'san-gwann', 'gzira', 'hamrun',
-  'attard', 'balzan', 'lija', 'naxxar', 'mellieha', 'rabat', 'mdina',
-  'msida', 'pieta', 'ta-xbiex', 'swieqi', 'pembroke', 'gharghur',
-  'mgarr', 'dingli', 'siggiewi', 'qrendi', 'mqabba', 'zurrieq', 'luqa',
-  'gudja', 'tarxien', 'paola', 'fgura', 'birzebbuga', 'marsaxlokk',
-  'marsaskala', 'zejtun', 'floriana', 'san-pawl-il-bahar', 'birgu',
-  'isla', 'bormla', 'kalkara', 'iklin', 'san-lawrenz', 'santa-venera',
-  'swatar', 'ghaxaq', 'xghajra',
-] as const;
+// Exact 49-location set published in the historical 7,350-URL sitemap.
+// The checked-in manifest is the authority; do not infer this list from
+// comments or the broader modern locality-profile catalogue.
+export const maltaLocations = historicalMatrixLocations;
+
+// Broader modern profile catalogue. These five localities were researched
+// after the historical sitemap and remain available for content work, but are
+// not silently added to the restored published matrix.
+export const maltaLocationsAll = Array.from(new Set([
+  ...historicalMatrixLocations,
+  'ta-xbiex',
+  'qrendi',
+  'dingli',
+  'gharghur',
+  'mgarr',
+]));
 
 export type MaltaLocationAll = typeof maltaLocationsAll[number];
 
-// REDUCED for Next.js migration: 15 -> 3 (top vertical industries only).
-// This list gates the /malta/{loc}/{ind} programmatic routes and the
-// /services/{svc}/{ind} pairing pages. It is INTENTIONALLY narrower than
-// `industryHubSlugs` below — location-paired pages multiply combinatorially
-// so we keep that surface tight, while the standalone `/industries/{slug}`
-// hubs can grow independently.
-//
-// ARCHIVED (12): cafe, bar, spa-wellness, gym-fitness, retail, igaming,
-// fintech, healthcare, law-firm, car-dealership, construction, ecommerce
-export const maltaIndustries = [
-  'restaurant',
-  'hotel',
-  'real-estate',
-] as const;
+// Exact 15-industry set published in the historical Malta matrix.
+export const maltaIndustries = historicalIndustries;
 
 export type MaltaIndustry = typeof maltaIndustries[number];
 

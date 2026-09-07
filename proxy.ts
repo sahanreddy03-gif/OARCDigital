@@ -9,6 +9,8 @@ import {
   SERVICE_ALIASES,
   CROSS_SECTION_ALIASES,
   LOCATION_SERVICE_ALIASES,
+  isKeptLocationIndustryServicePath,
+  isKeptLocationServicePath,
   INDUSTRY_HUBS_PENDING_CONTENT,
   NOINDEX_AEO_SLUGS,
 } from "./lib/seo/seoSets";
@@ -120,7 +122,7 @@ export function proxy(req: NextRequest): NextResponse | undefined {
   }
 
   if (pathname === "/malta" || pathname === "/malta/") {
-    return permanentRedirect(req, "/services");
+    return undefined;
   }
 
   if (pathname.startsWith("/malta/")) {
@@ -146,7 +148,11 @@ export function proxy(req: NextRequest): NextResponse | undefined {
 
     if (parts.length === 3) {
       const slug = parts[2];
-      if (KEPT_LOCATION_SERVICES.has(slug)) return undefined;
+      if (isKeptLocationServicePath(loc, slug)) return undefined;
+      // A valid service slug paired with a locality outside the exact
+      // historical/current ledger is not a page and must not render through
+      // the permissive dynamic route.
+      if (KEPT_LOCATION_SERVICES.has(slug)) return gone();
       // Task #116: consolidated location-paired service slug → 308 to the
       // new locality page (preserves locality equity) instead of bouncing to
       // /services/{slug} (which would itself 308 again, losing the locality).
@@ -171,9 +177,11 @@ export function proxy(req: NextRequest): NextResponse | undefined {
       const svc = parts[3];
       const indKept = KEPT_INDUSTRIES.has(ind);
       const svcKept = KEPT_LOCATION_SERVICES.has(svc);
-      if (indKept && svcKept) return undefined;
+      if (isKeptLocationIndustryServicePath(loc, ind, svc)) return undefined;
       if (svcKept) {
-        return permanentRedirect(req, `/malta/${loc}/${svc}`);
+        return isKeptLocationServicePath(loc, svc)
+          ? permanentRedirect(req, `/malta/${loc}/${svc}`)
+          : gone();
       }
       if (ALL_SERVICES.has(svc)) {
         return permanentRedirect(req, `/services/${svc}`);

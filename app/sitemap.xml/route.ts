@@ -9,6 +9,7 @@ const CHILD_SITEMAPS = [
   "sitemap-h360.xml",
   "sitemap-services.xml",
   "sitemap-malta.xml",
+  "sitemap-malta-matrix.xml",
   "sitemap-industries.xml",
   "sitemap-case-studies.xml",
   "sitemap-aeo.xml",

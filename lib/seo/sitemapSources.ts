@@ -17,6 +17,8 @@ const ENTRIES_BUILDERS: Record<string, () => Promise<EntriesBuilder>> = {
     (await import("@/app/sitemap-services.xml/route")).buildEntries,
   "sitemap-malta.xml": async () =>
     (await import("@/app/sitemap-malta.xml/route")).buildEntries,
+  "sitemap-malta-matrix.xml": async () =>
+    (await import("@/app/sitemap-malta-matrix.xml/route")).buildEntries,
   "sitemap-industries.xml": async () =>
     (await import("@/app/sitemap-industries.xml/route")).buildEntries,
   "sitemap-case-studies.xml": async () =>

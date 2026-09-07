@@ -42,6 +42,23 @@ function locationPricing(base: number, loc: LocationProfile): number {
   return Math.round((base * PRICING_MULTIPLIER[loc.businessDensity]) / 50) * 50;
 }
 
+function restoredServiceProfile(
+  slug: string, name: string, description: string, benefits: string[],
+  process: { step: string; description: string }[], pricingFromEUR: number, cta: string,
+  localFocus: (loc: LocationProfile) => string,
+): ServiceProfile {
+  return {
+    slug, name, shortName: name, description, benefits, process, pricingFromEUR, cta,
+    bestForLocationDensity: 'any',
+    whyHere: localFocus,
+    serviceFaq: (loc) => [
+      { q: `What does ${name.toLowerCase()} include for a ${loc.name} business?`, a: `${description} Scope is agreed around the offer, audience, existing systems, and the way customers in ${loc.name} make decisions.` },
+      { q: `How do you adapt ${name.toLowerCase()} to ${loc.name}?`, a: `${localFocus(loc)} We use that local context to prioritise the work, not as a generic location label.` },
+      { q: `How is ${name.toLowerCase()} delivered?`, a: `We begin with an agreed brief and success measures, share work for review at each material stage, and leave the team with documented assets or operating guidance.` },
+    ],
+  };
+}
+
 export const serviceProfiles: Record<string, ServiceProfile> = {
   'social-media-creative-management': {
     slug: 'social-media-creative-management',
@@ -84,39 +101,39 @@ export const serviceProfiles: Record<string, ServiceProfile> = {
 
   'seo-services': {
     slug: 'seo-services',
-    name: 'Digital Marketing',
-    shortName: 'Digital Marketing',
-    description: 'Multi-channel digital marketing — SEO, paid search, social, email, and analytics — orchestrated as one revenue system rather than disconnected tactics.',
+    name: 'SEO Services',
+    shortName: 'SEO',
+    description: 'Search engine optimisation for Malta businesses: technical foundations, intent-led content, local visibility, and measurement built to earn qualified organic demand.',
     benefits: [
-      'A single integrated strategy across SEO, paid, social, and email',
-      'Local Malta SEO with on-page, technical, and Google Business Profile work',
-      'Quarterly strategy reviews with the senior team',
-      'Transparent performance dashboard you own — no agency lock-in',
-      'Built-in compliance for regulated sectors (iGaming, finance, healthcare)',
+      'Technical, on-page, and local SEO prioritised against commercial search intent',
+      'Keyword and content planning for discovery, comparison, and enquiry searches',
+      'Google Business Profile, structured-data, and local landing-page improvements where relevant',
+      'Clear reporting on visibility, qualified organic traffic, and conversion paths',
+      'Editorial and compliance review suitable for regulated sectors',
     ],
     process: [
-      { step: 'Audit', description: 'Channel-by-channel audit with quantified opportunity per lever' },
-      { step: 'Plan', description: 'A 12-month roadmap with quarterly milestones and a budget split by channel' },
-      { step: 'Build', description: 'Site, content, ads, automation, and tracking — all built and integrated' },
-      { step: 'Iterate', description: 'Monthly reporting and quarterly strategy reviews — channels rebalanced based on what is converting' },
+      { step: 'Diagnose', description: 'We audit crawlability, pages, search intent, competitors, and local visibility to find constraints' },
+      { step: 'Prioritise', description: 'We sequence technical fixes, content, authority, and local search improvements' },
+      { step: 'Implement', description: 'We improve templates and pages, publish useful content, and strengthen local signals' },
+      { step: 'Learn', description: 'Monthly search and conversion reporting guides the next priorities' },
     ],
     pricingFromEUR: 2497,
-    cta: 'Get a Digital Marketing Audit',
+    cta: 'Get an SEO Audit',
     bestForLocationDensity: 'any',
     whyHere: (loc) =>
-      `Digital marketing in ${loc.name} demands a different mix than the rest of Malta. With ${loc.primaryIndustries.slice(0, 2).join(' and ')} dominating the local economy, search intent and ad targeting both look very different here than they do in Sliema or Valletta.`,
+      `SEO in ${loc.name} starts with how people search for ${loc.primaryIndustries.slice(0, 2).join(' and ')}. We connect local terms, nearby-town comparisons, and service-specific questions rather than treating ${loc.name} as a keyword to repeat.`,
     serviceFaq: (loc) => [
       {
         q: `How do you approach SEO for a business based in ${loc.name}?`,
         a: `We start from local intent: "${loc.primaryIndustries[0]} ${loc.name}", "${loc.primaryIndustries[0]} near me", and the long-tail variations that surrounding towns like ${loc.nearestLocations.slice(0, 2).join(' and ')} use to find businesses in ${loc.name}. From there we build out on-page, technical, and Google Business Profile.`,
       },
       {
-        q: `Which channels work best for a ${loc.name} business?`,
-        a: `It depends on the offer, but for ${loc.name} we typically see ${loc.businessDensity === 'high' ? 'paid search and Meta retargeting' : 'Facebook organic and Google Business Profile'} produce the strongest near-term ROI, with SEO compounding over 6–12 months.`,
+        q: `When should a ${loc.name} business expect SEO progress?`,
+        a: `Technical improvements can be actioned quickly, while meaningful organic visibility usually develops over several months. The timeline depends on the current site, search competition, and whether ${loc.name} customers search locally, island-wide, or internationally.`,
       },
       {
-        q: `Do you handle Google Ads as well as Meta Ads for ${loc.name}?`,
-        a: `Yes — both, plus LinkedIn for B2B and TikTok for under-35 audiences. We always start with the channel where intent is highest for the offer, then expand based on performance.`,
+        q: `Do you optimise Google Business Profiles in ${loc.name}?`,
+        a: `Where a business serves customers locally, yes. We review category relevance, service information, location consistency, review workflows, and supporting pages — especially for searches spanning ${loc.name} and ${loc.nearestLocations.slice(0, 2).join(' and ')}.`,
       },
     ],
   },
@@ -237,15 +254,59 @@ export const serviceProfiles: Record<string, ServiceProfile> = {
       },
     ],
   },
+
+  'digital-marketing': restoredServiceProfile(
+    'digital-marketing', 'Digital Marketing',
+    'Connected digital marketing across search, paid media, social content, email, and analytics — planned around the journey from first attention to retained customer.',
+    ['One joined-up plan rather than disconnected channel activity', 'Channel choices based on commercial intent and audience behaviour', 'Creative, landing pages, measurement, and nurture journeys designed together', 'Reporting that turns learning into next-month decisions'],
+    [{ step: 'Map', description: 'We map audiences, offers, channels, and the path to enquiry or purchase' }, { step: 'Design', description: 'We create an integrated plan for messages, assets, budgets, and measures' }, { step: 'Activate', description: 'We launch priority content, media, search, and conversion work' }, { step: 'Improve', description: 'We refine the programme using performance evidence' }],
+    2497, 'Plan Your Digital Marketing',
+    (loc) => `In ${loc.name}, digital marketing needs to reflect ${loc.audienceProfile.toLowerCase()} We connect the channels that introduce, reassure, and convert that audience.`,
+  ),
+  'branding-services': restoredServiceProfile(
+    'branding-services', 'Branding Services',
+    'Brand strategy and identity systems that make a Malta business recognisable, coherent, and easier to choose across customer touchpoints.',
+    ['Clear positioning and audience message architecture', 'Distinct verbal and visual identity systems', 'Practical guidelines for teams and suppliers', 'Campaign and digital applications that preserve consistency'],
+    [{ step: 'Understand', description: 'We study the offer, audience, category, and decision signals' }, { step: 'Position', description: 'We define the story, message hierarchy, and credible territory' }, { step: 'Create', description: 'We develop identity, voice, and applications with client review' }, { step: 'Embed', description: 'We deliver guidelines and rollout priorities for daily use' }],
+    3500, 'Start a Brand Project',
+    (loc) => `${loc.name} businesses compete for recognition as well as attention. A considered brand gives customers a reason to remember an offer amid ${loc.challenges[0]}.`,
+  ),
+  'video-production': restoredServiceProfile(
+    'video-production', 'Video Production',
+    'Strategy-led video production for brand stories, campaigns, social channels, products, and services, with edits planned for each format’s use.',
+    ['Concepts rooted in audience and distribution', 'On-location filming, interviews, product, and brand-story production', 'Vertical, landscape, and cutdown edits', 'Captions, thumbnails, and organised delivery for publishing'],
+    [{ step: 'Plan', description: 'We agree the audience, message, formats, locations, and asset use' }, { step: 'Pre-produce', description: 'We script, schedule, and prepare a focused shoot plan' }, { step: 'Film', description: 'We capture the footage needed for the story and cutdowns' }, { step: 'Finish', description: 'We edit, caption, review, and supply channel-ready versions' }],
+    2200, 'Plan a Video Shoot',
+    (loc) => `${loc.name} offers a real setting for video, from ${loc.landmarks.slice(0, 2).join(' to ')}. We use place where it makes the story more recognisable and useful.`,
+  ),
+  'ai-copywriting': restoredServiceProfile(
+    'ai-copywriting', 'AI Copywriting',
+    'AI-enabled copy systems combining human editorial judgement, brand voice, and structured workflows for websites, campaigns, email, and product content.',
+    ['Documented voice and message framework', 'Faster creation of on-brand copy variations', 'Human editing for clarity, accuracy, and approval', 'Reusable prompts and workflows for internal teams'],
+    [{ step: 'Extract', description: 'We capture brand voice, audience questions, sources, and approvals' }, { step: 'Systemise', description: 'We create message frameworks, prompts, and templates' }, { step: 'Draft', description: 'We produce and edit priority copy with human review' }, { step: 'Enable', description: 'We document the workflow and train the team' }],
+    1800, 'Build a Copy System',
+    (loc) => `For ${loc.name} teams, AI copywriting is useful when it makes recurring communication faster without flattening the local knowledge and trust their audience expects.`,
+  ),
+  'hire-ai-employees': restoredServiceProfile(
+    'hire-ai-employees', 'AI Employees',
+    'Purpose-built AI agents for repeatable customer, sales, research, and administration work, connected to approved business systems.',
+    ['A defined role, boundaries, and escalation path for each agent', 'Integration planning around existing tools and data', 'Routine-work and first-response support', 'Human oversight for exceptions and sensitive decisions'],
+    [{ step: 'Select', description: 'We identify a repeatable workflow where an agent can help safely' }, { step: 'Design', description: 'We define inputs, permissions, outputs, and handovers' }, { step: 'Deploy', description: 'We build, test, and connect the approved agent' }, { step: 'Supervise', description: 'We monitor behaviour and refine instructions with the team' }],
+    3500, 'Scope an AI Employee',
+    (loc) => `${loc.name} businesses can use AI employees to make routine enquiries and follow-up more dependable while keeping people focused on work that needs judgement.`,
+  ),
+  'revenue-automation': restoredServiceProfile(
+    'revenue-automation', 'Revenue Automation',
+    'Connected revenue operations that route leads, automate follow-up, improve CRM discipline, and make the path from enquiry to customer easier to manage.',
+    ['Lead capture and routing designed around response speed', 'CRM stages and data rules that clarify pipeline status', 'Automated follow-up with explicit human handoffs', 'Conversion-path reporting that supports improvement'],
+    [{ step: 'Trace', description: 'We trace the current path from enquiry to sale and find dropped handoffs' }, { step: 'Architect', description: 'We design stages, routing, messages, and reporting' }, { step: 'Connect', description: 'We configure approved CRM and tools and test scenarios' }, { step: 'Refine', description: 'We use response and progression evidence to improve the system' }],
+    4000, 'Map Your Revenue System',
+    (loc) => `In ${loc.name}, where ${loc.challenges[0]}, revenue automation makes legitimate enquiries easier to acknowledge, route, and follow up consistently.`,
+  ),
 };
 
 export function getServiceProfile(slug: string): ServiceProfile | undefined {
-  // The historical restore ledger still names this offer
-  // "digital-marketing". Its current canonical URL is "seo-services";
-  // resolve the legacy data key to the canonical profile so both restored
-  // static params and live canonical requests render the same content.
-  const canonicalSlug = slug === 'digital-marketing' ? 'seo-services' : slug;
-  return serviceProfiles[canonicalSlug];
+  return serviceProfiles[slug];
 }
 
 // ---------------------------------------------------------------------------
@@ -264,6 +325,20 @@ export type IndustryProfile = {
   // 2 industry-specific extra FAQs that get fused with service FAQs
   industryFaq: (loc: LocationProfile, svcName: string) => { q: string; a: string }[];
 };
+
+function restoredIndustryProfile(
+  slug: string, name: string, plural: string, context: string, pain: string, playbook: string,
+): IndustryProfile {
+  return {
+    slug, name, plural, context,
+    painPoint: (loc) => `${pain} in ${loc.name}, where ${loc.challenges[0]}`,
+    opportunity: (loc) => `${playbook} In ${loc.name}, that work should reflect ${loc.audienceProfile.toLowerCase()} and the nearby ${loc.nearestLocations.slice(0, 2).join(' and ')} catchment.`,
+    industryFaq: (loc, svc) => [
+      { q: `What should ${svc.toLowerCase()} prioritise for ${plural} in ${loc.name}?`, a: `We start with the decision point behind ${pain}: the audience, proof required, enquiry route, and the local market around ${loc.name}. The priority plan follows that evidence rather than a fixed sector checklist.` },
+      { q: `How do you make a ${name.toLowerCase()} strategy locally relevant in ${loc.name}?`, a: `We use the local audience, search behaviour, surrounding catchment, and ${loc.opportunities[0]} to choose messages and channels. The resulting work remains useful to customers beyond ${loc.name} where the business serves a wider market.` },
+    ],
+  };
+}
 
 export const industryProfiles: Record<string, IndustryProfile> = {
   restaurant: {
@@ -330,6 +405,18 @@ export const industryProfiles: Record<string, IndustryProfile> = {
       },
     ],
   },
+  cafe: restoredIndustryProfile('cafe', 'Cafe', 'cafes', 'cafe and coffee culture', 'building a loyal local following and driving consistent daily footfall', 'A useful cafe programme combines discoverable location information, timely social content, reviews, and offers that give regulars a reason to return.'),
+  bar: restoredIndustryProfile('bar', 'Bar', 'bars', 'bar and nightlife', 'building a loyal customer base and promoting events and offers at the right time', 'A useful bar programme connects event calendars, short-form content, local search, and clear booking or enquiry paths without losing the venue’s personality.'),
+  'spa-wellness': restoredIndustryProfile('spa-wellness', 'Spa & Wellness', 'spa and wellness businesses', 'wellness and beauty', 'consistently filling appointment books and retaining clients long-term', 'A useful wellness programme makes treatment information, practitioner trust, booking journeys, and considered follow-up easy for customers to navigate.'),
+  'gym-fitness': restoredIndustryProfile('gym-fitness', 'Gym & Fitness', 'gyms and fitness studios', 'fitness and health', 'reducing member churn and driving new membership sign-ups consistently', 'A useful fitness programme turns the real member experience into clear proof, while supporting trial enquiries, onboarding, and retention communication.'),
+  retail: restoredIndustryProfile('retail', 'Retail', 'retail businesses', 'retail and shopping', 'competing with online shopping and driving consistent foot traffic and sales', 'A useful retail programme connects product discovery, local availability, compelling creative, and a straightforward route to visit or buy.'),
+  igaming: restoredIndustryProfile('igaming', 'iGaming', 'iGaming companies', 'iGaming and online gaming', 'standing out in a heavily regulated market while building brand authority and attracting top talent', 'A useful iGaming programme balances employer and corporate storytelling with documented review processes appropriate to a regulated sector.'),
+  fintech: restoredIndustryProfile('fintech', 'Fintech', 'fintech companies', 'financial technology', 'building credibility and trust in a regulated industry while driving qualified B2B leads', 'A useful fintech programme explains complex value clearly, uses credible educational content, and creates conversion journeys that respect compliance review.'),
+  healthcare: restoredIndustryProfile('healthcare', 'Healthcare', 'healthcare providers', 'healthcare and medical services', 'attracting new patients consistently and building trust and authority in the local community', 'A useful healthcare programme makes services, practitioner information, access, and patient communications clear while respecting appropriate clinical and advertising governance.'),
+  'law-firm': restoredIndustryProfile('law-firm', 'Law Firm', 'law firms', 'legal services', 'generating qualified enquiries from the right type of clients and building a credible professional profile', 'A useful legal programme builds professional authority through clear practice information, useful insight, and a considered first-contact route.'),
+  'car-dealership': restoredIndustryProfile('car-dealership', 'Car Dealership', 'car dealerships', 'automotive and vehicle sales', 'generating qualified test drive bookings and maintaining a strong presence in a high-consideration purchase market', 'A useful automotive programme connects stock, finance or ownership questions, visual proof, and an easy route to a test-drive conversation.'),
+  construction: restoredIndustryProfile('construction', 'Construction', 'construction companies', 'construction and property development', 'winning tenders and building a strong reputation for quality and reliability in Malta', 'A useful construction programme documents capability, process, project evidence, and the practical information prospective clients need before making contact.'),
+  ecommerce: restoredIndustryProfile('ecommerce', 'E-commerce', 'e-commerce businesses', 'online retail and e-commerce', 'driving qualified traffic, reducing cart abandonment, and building repeat purchase behaviour', 'A useful e-commerce programme aligns acquisition creative, product content, checkout clarity, lifecycle messaging, and measurement around the customer journey.'),
 };
 
 export function getIndustryProfile(slug: string): IndustryProfile | undefined {
@@ -511,6 +598,11 @@ export type LocationIndustryServiceContent = {
   opportunity: string;
   serviceDescription: string;
   serviceDeliverable: string;
+  serviceBenefits: string[];
+  process: { step: string; description: string }[];
+  locationIntro: string;
+  localChallenges: string[];
+  localOpportunities: string[];
   pricingFromEUR: number;
   faqs: { q: string; a: string }[];
   caseStudyHook: CaseStudyHook;
@@ -711,6 +803,11 @@ export function buildLocationIndustryServiceContent(
     opportunity: ind.opportunity(loc),
     serviceDescription: svc.description,
     serviceDeliverable: svc.benefits.slice(0, 3).join(' · '),
+    serviceBenefits: svc.benefits,
+    process: svc.process,
+    locationIntro: `${loc.longIntro} For ${ind.plural} in particular, the local market is shaped by ${loc.primaryIndustries.slice(0, 2).join(' and ')}.`,
+    localChallenges: loc.challenges,
+    localOpportunities: loc.opportunities,
     pricingFromEUR: locationPricing(svc.pricingFromEUR, loc),
     faqs,
     caseStudyHook: buildCaseStudyHook(loc, svc, ind),

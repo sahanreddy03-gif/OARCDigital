@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Layout from "@/components/layout/Layout";
 import RouteSchema from "@/components/RouteSchema";
 import { getHreflangAlternates } from "@/lib/seo/discoveryTags";
+import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 import TomDigitalTwin from "./TomDigitalTwin";
 import { tomBriefPages, type TomBriefPage } from "./tom-v2-data";
 
@@ -81,11 +82,13 @@ export async function generateMetadata({
       description: page.metaDescription,
       url: `https://oarcdigital.com/tom/${page.slug}`,
       type: "website",
+      images: ogImageEntry({ title: page.metaTitle, subtitle: page.metaDescription }),
     },
     twitter: {
       card: "summary_large_image",
       title: page.metaTitle,
       description: page.metaDescription,
+      images: [ogImageUrl({ title: page.metaTitle, subtitle: page.metaDescription })],
     },
   };
 }
