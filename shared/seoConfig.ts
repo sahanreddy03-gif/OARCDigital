@@ -147,7 +147,7 @@ export const allServiceSlugs = [
   'mobile-apps-development',
   'custom-software-development',
   'web-apps-development',
-  'api-integration-services',
+  'api-integration',
   'mvp-development',
   // AI Employees Hub
   // Task #116: removed ai-virtual-talent-hub — 308 → hire-ai-employees.
@@ -156,7 +156,6 @@ export const allServiceSlugs = [
   'ai-support-specialist',
   'ai-data-analyst',
   'ai-admin-agent',
-  'ai-content-strategist',
   'ai-compliance-auditor',
   'ai-appointment-booker',
   'ai-restaurant-voice-host',

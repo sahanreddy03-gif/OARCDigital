@@ -6,7 +6,7 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 export const metadata: Metadata = {
   title: "Privacy Policy | OARC Digital - Data Protection & GDPR Compliance",
   description: "Learn how OARC Digital collects, uses, and protects your personal data in compliance with GDPR and Malta's Data Protection Act. Your privacy rights explained.",
-  alternates: { canonical: "https://oarcdigital.com/privacy-policy" },
+  alternates: { canonical: "https://oarcdigital.com/legal/privacy-policy" },
   openGraph: {
     images: ogImageEntry({ title: "Privacy Policy | OARC Digital - Data Protection & GDPR Compliance", subtitle: "Learn how OARC Digital collects, uses, and protects your personal data in compliance with GDPR and Malta's Data Protection Act. Your privacy rights explained." }),
     title: "Privacy Policy | OARC Digital - Data Protection & GDPR Compliance",

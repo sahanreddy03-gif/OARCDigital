@@ -13,6 +13,12 @@ import restore from '@/lib/seo/restore.json';
 import { NAP } from '@/lib/seo/nap';
 import { LOCATION_IND_SVC_GLOBAL_KEEP, KEEP_LOCATION_IND_SVC_COMBOS } from '@/lib/seo/seoSets';
 
+type LocationIndustryServiceParams = {
+  location: string;
+  slug: string;
+  service: string;
+};
+
 export async function generateStaticParams() {
   return (restore as { kept: { locationIndustryServices: { location: string; industry: string; service: string }[] } })
     .kept.locationIndustryServices.map(({ location, industry, service }) => ({ location, slug: industry, service }));
@@ -21,11 +27,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { location: string; slug: string; service: string };
+  params: Promise<LocationIndustryServiceParams>;
 }): Promise<Metadata> {
-  const c = buildLocationIndustryServiceContent(params.location, params.slug, params.service);
+  const { location, slug, service } = await params;
+  const c = buildLocationIndustryServiceContent(location, slug, service);
   if (!c) return { title: 'Not Found | OARC Digital' };
-  const comboKey = `${params.location}/${params.slug}/${params.service}`;
+  const comboKey = `${location}/${slug}/${service}`;
   const shouldIndex =
     LOCATION_IND_SVC_GLOBAL_KEEP ||
     KEEP_LOCATION_IND_SVC_COMBOS.has(comboKey);
@@ -39,20 +46,21 @@ export async function generateMetadata({
   };
 }
 
-export default function IndustryLocationServicePage({
+export default async function IndustryLocationServicePage({
   params,
 }: {
-  params: { location: string; slug: string; service: string };
+  params: Promise<LocationIndustryServiceParams>;
 }) {
-  const c = buildLocationIndustryServiceContent(params.location, params.slug, params.service);
+  const { location, slug, service } = await params;
+  const c = buildLocationIndustryServiceContent(location, slug, service);
   if (!c) notFound();
 
-  const loc = getLocationProfile(params.location)!;
+  const loc = getLocationProfile(location)!;
 
   return (
     <Layout>
       <JsonLd
-        id={`malta-${params.location}-${params.slug}-${params.service}`}
+        id={`malta-${location}-${slug}-${service}`}
         data={c.schema}
       />
       <main className="min-h-screen bg-background">
@@ -62,7 +70,7 @@ export default function IndustryLocationServicePage({
             <div className="flex items-center gap-2 mb-6 text-sm text-zinc-400">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
-              <Link href={`/malta/${params.location}`} className="hover:text-white transition-colors">{loc.name}</Link>
+              <Link href={`/malta/${location}`} className="hover:text-white transition-colors">{loc.name}</Link>
               <span>/</span>
               <span className="text-white">{c.hero.eyebrow.split(' · ')[1]}</span>
             </div>

@@ -40,7 +40,6 @@ export const CORE: CoreEntry[] = [
   { path: "/creative", priority: 0.9, changefreq: "weekly" },
   { path: "/ai-agents", priority: 0.9, changefreq: "weekly" },
   { path: "/automation", priority: 0.9, changefreq: "weekly" },
-  { path: "/solutions", priority: 0.8, changefreq: "monthly" },
   { path: "/why-us", priority: 0.8, changefreq: "monthly" },
   { path: "/why-oarc", priority: 0.7, changefreq: "monthly" },
   { path: "/comparison", priority: 0.7, changefreq: "monthly" },
@@ -50,7 +49,6 @@ export const CORE: CoreEntry[] = [
   // Task #116: /diagnostic 308 → /diagnostics; /roadmap 308 → /roadmap-2026.
   // Removed from sitemap so we never advertise the redirecting URL.
   { path: "/industries", priority: 0.8, changefreq: "monthly" },
-  { path: "/enterprise", priority: 0.7, changefreq: "monthly" },
   { path: "/roadmap-2026", priority: 0.6, changefreq: "monthly" },
   { path: "/resources", priority: 0.6, changefreq: "monthly" },
   { path: "/pdf-hub", priority: 0.6, changefreq: "monthly" },

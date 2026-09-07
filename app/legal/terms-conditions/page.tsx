@@ -6,7 +6,7 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 export const metadata: Metadata = {
   title: "Terms & Conditions | OARC Digital - Service Agreement",
   description: "Read the Terms & Conditions governing the use of OARC Digital's website and services. Includes service scope, payments, intellectual property, and liability.",
-  alternates: { canonical: "https://oarcdigital.com/terms-conditions" },
+  alternates: { canonical: "https://oarcdigital.com/legal/terms-conditions" },
   openGraph: {
     images: ogImageEntry({ title: "Terms & Conditions | OARC Digital - Service Agreement", subtitle: "Read the Terms & Conditions governing the use of OARC Digital's website and services. Includes service scope, payments, intellectual property, and liability." }),
     title: "Terms & Conditions | OARC Digital - Service Agreement",
