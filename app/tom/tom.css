@@ -294,8 +294,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1) contrast(1.15);
-  opacity: 0.18;
+  filter: saturate(0.82) contrast(1.08);
+  opacity: 0.38;
   pointer-events: none;
 }
 
@@ -305,11 +305,11 @@
   inset: 0;
   content: "";
   background-color: #0b0c0d;
-  background-image: url("/media/hero/hero-customers-poster-v2.jpg");
-  background-position: 68% center;
+  background-image: url("/media/hero/oarc-operator-campaign-still.jpg");
+  background-position: 62% center;
   background-size: cover;
   mix-blend-mode: screen;
-  opacity: 0.16;
+  opacity: 0.08;
 }
 
 .tom-hero::after {
@@ -599,6 +599,159 @@
   font: 700 0.75rem/1.4 var(--font-space-mono), "Space Mono", monospace;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.tom-campaign-scene {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(5rem, 10vw, 10rem) 0;
+  background: #161718;
+  color: var(--white);
+}
+
+.tom-campaign-scene::before {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(245, 245, 243, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(245, 245, 243, 0.08) 1px, transparent 1px);
+  background-size: 5rem 5rem;
+  content: "";
+  opacity: 0.28;
+  mask-image: linear-gradient(90deg, black, transparent 82%);
+}
+
+.tom-campaign-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(25rem, 1.25fr);
+  gap: clamp(2rem, 8vw, 9rem);
+  align-items: center;
+}
+
+.tom-campaign-copy h2 {
+  max-width: 10ch;
+  margin: 1.2rem 0 2rem;
+  font-size: clamp(3.5rem, 8vw, 8rem);
+}
+
+.tom-campaign-copy .tom-copy {
+  max-width: 27rem;
+  color: rgba(245, 245, 243, 0.7);
+}
+
+.tom-still-life {
+  position: relative;
+  min-height: clamp(25rem, 42vw, 42rem);
+  isolation: isolate;
+}
+
+.tom-still-life__halo {
+  position: absolute;
+  top: 5%;
+  left: 15%;
+  width: 70%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(143, 214, 174, 0.28);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4rem rgba(143, 214, 174, 0.025), 0 0 0 9rem rgba(143, 214, 174, 0.018);
+}
+
+.tom-still-life__plinth {
+  position: absolute;
+  right: 2%;
+  bottom: 7%;
+  left: 8%;
+  height: 24%;
+  transform: skewY(-7deg);
+  background: linear-gradient(140deg, #d7d2c7, #8f8a80);
+  box-shadow: 0 2.5rem 3.5rem rgba(0, 0, 0, 0.32);
+}
+
+.tom-still-life__console {
+  position: absolute;
+  z-index: 2;
+  top: 21%;
+  left: 26%;
+  display: grid;
+  width: 42%;
+  aspect-ratio: 1.1;
+  align-content: space-between;
+  padding: 1.5rem;
+  transform: rotate(-8deg) skewY(2deg);
+  border: 1px solid rgba(245, 245, 243, 0.5);
+  border-radius: 24% 24% 16% 16%;
+  background: linear-gradient(135deg, #25282a, #080909 65%);
+  box-shadow: 1rem 2rem 0 rgba(0, 0, 0, 0.35), inset 0 0 0 1.2rem rgba(245, 245, 243, 0.035);
+}
+
+.tom-still-life__console::after {
+  width: 32%;
+  height: 32%;
+  align-self: center;
+  justify-self: center;
+  border: 1px solid rgba(245, 245, 243, 0.7);
+  border-radius: 50%;
+  background: radial-gradient(circle at 42% 35%, #e9e8df 0 4%, #8fd6ae 5% 8%, #17191a 9% 100%);
+  box-shadow: 0 0 2.5rem rgba(143, 214, 174, 0.2);
+  content: "";
+}
+
+.tom-still-life__console span,
+.tom-still-life__console b {
+  color: var(--mint);
+  font: 700 0.65rem/1 var(--font-space-mono), "Space Mono", monospace;
+  letter-spacing: 0.14em;
+}
+
+.tom-still-life__console b {
+  justify-self: end;
+  color: rgba(245, 245, 243, 0.55);
+}
+
+.tom-still-life__signal {
+  position: absolute;
+  z-index: 3;
+  top: 51%;
+  left: 48%;
+  width: 46%;
+  height: 1px;
+  transform: rotate(22deg);
+  transform-origin: left center;
+  background: var(--signal);
+  box-shadow: 0 0 1.2rem rgba(200, 16, 46, 0.8);
+}
+
+.tom-still-life__block {
+  position: absolute;
+  z-index: 1;
+  bottom: 29%;
+  width: 4.5rem;
+  height: 4.5rem;
+  border: 1px solid rgba(143, 214, 174, 0.68);
+  background: rgba(143, 214, 174, 0.2);
+  box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.24), inset 0 0 2rem rgba(143, 214, 174, 0.1);
+  backdrop-filter: blur(0.4rem);
+}
+
+.tom-still-life__block--one {
+  right: 12%;
+  transform: rotate(12deg) skewY(-8deg);
+}
+
+.tom-still-life__block--two {
+  right: 28%;
+  bottom: 23%;
+  width: 3.4rem;
+  height: 3.4rem;
+  transform: rotate(-9deg) skewY(-8deg);
+}
+
+.tom-still-life__block--three {
+  right: 42%;
+  bottom: 19%;
+  width: 2.4rem;
+  height: 2.4rem;
+  transform: rotate(18deg) skewY(-8deg);
 }
 
 .tom-light {
@@ -1248,7 +1401,8 @@
 
 @media (max-width: 900px) {
   .tom-hero-grid,
-  .tom-form-grid {
+  .tom-form-grid,
+  .tom-campaign-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1285,6 +1439,14 @@
 
   .tom-split {
     grid-template-columns: 1fr;
+  }
+
+  .tom-campaign-grid {
+    gap: 2rem;
+  }
+
+  .tom-still-life {
+    min-height: 28rem;
   }
 }
 
@@ -1332,6 +1494,33 @@
 
   .tom-orbit {
     min-height: 20rem;
+  }
+
+  .tom-still-life {
+    min-height: 20rem;
+  }
+
+  .tom-campaign-copy h2 {
+    max-width: 8ch;
+  }
+
+  .tom-still-life__console {
+    padding: 1rem;
+  }
+
+  .tom-still-life__block {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  .tom-still-life__block--two {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .tom-still-life__block--three {
+    width: 1.8rem;
+    height: 1.8rem;
   }
 
   .tom-industry-hero-art {
