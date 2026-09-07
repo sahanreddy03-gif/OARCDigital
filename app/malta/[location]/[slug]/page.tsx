@@ -14,13 +14,16 @@ import { getLocationProfile } from '@/lib/seo/locationData';
 import restore from '@/lib/seo/restore.json';
 import { NAP } from "@/lib/seo/nap";
 
+type LocationServiceParams = { location: string; slug: string };
+
 export async function generateStaticParams() {
   return (restore as { kept: { locationServices: { location: string; service: string }[] } }).kept
     .locationServices.map(({ location, service }) => ({ location, slug: service }));
 }
 
-export async function generateMetadata({ params }: { params: { location: string; slug: string } }): Promise<Metadata> {
-  const c = buildLocationServiceContent(params.location, params.slug);
+export async function generateMetadata({ params }: { params: Promise<LocationServiceParams> }): Promise<Metadata> {
+  const { location, slug } = await params;
+  const c = buildLocationServiceContent(location, slug);
   if (!c) return { title: 'Service Not Found | OARC Digital' };
   return {
     title: c.title,
@@ -31,15 +34,16 @@ export async function generateMetadata({ params }: { params: { location: string;
   };
 }
 
-export default function LocationServicePage({ params }: { params: { location: string; slug: string } }) {
-  const c = buildLocationServiceContent(params.location, params.slug);
+export default async function LocationServicePage({ params }: { params: Promise<LocationServiceParams> }) {
+  const { location, slug } = await params;
+  const c = buildLocationServiceContent(location, slug);
   if (!c) notFound();
 
-  const loc = getLocationProfile(params.location)!;
+  const loc = getLocationProfile(location)!;
 
   return (
     <Layout>
-      <JsonLd id={`location-${params.location}-${params.slug}`} data={c.schema} />
+      <JsonLd id={`location-${location}-${slug}`} data={c.schema} />
 
       <main className="min-h-screen">
         {/* Hero */}
@@ -52,7 +56,7 @@ export default function LocationServicePage({ params }: { params: { location: st
               <span>/</span>
               <Link href="/services" className="hover:text-white transition-colors">Services</Link>
               <span>/</span>
-              <Link href={`/malta/${params.location}`} className="hover:text-white transition-colors">{loc.name}</Link>
+              <Link href={`/malta/${location}`} className="hover:text-white transition-colors">{loc.name}</Link>
             </div>
 
             <div className="max-w-3xl">

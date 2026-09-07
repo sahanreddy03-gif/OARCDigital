@@ -19,12 +19,15 @@ const serviceCatalog = locationServices.map((slug) => {
   };
 });
 
+type LocationParams = { location: string };
+
 export async function generateStaticParams() {
   return (restore as { kept: { locationHubs: { location: string }[] } }).kept.locationHubs;
 }
 
-export async function generateMetadata({ params }: { params: { location: string } }): Promise<Metadata> {
-  const c = buildLocationHubContent(params.location, serviceCatalog);
+export async function generateMetadata({ params }: { params: Promise<LocationParams> }): Promise<Metadata> {
+  const { location } = await params;
+  const c = buildLocationHubContent(location, serviceCatalog);
   if (!c) return { title: 'Location Not Found | OARC Digital' };
   return {
     title: c.title,
@@ -35,13 +38,14 @@ export async function generateMetadata({ params }: { params: { location: string 
   };
 }
 
-export default function LocationHubPage({ params }: { params: { location: string } }) {
-  const c = buildLocationHubContent(params.location, serviceCatalog);
+export default async function LocationHubPage({ params }: { params: Promise<LocationParams> }) {
+  const { location } = await params;
+  const c = buildLocationHubContent(location, serviceCatalog);
   if (!c) notFound();
 
   return (
     <Layout>
-      <JsonLd id={`malta-${params.location}-hub`} data={c.schema} />
+      <JsonLd id={`malta-${location}-hub`} data={c.schema} />
       <main className="min-h-screen bg-background">
         <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
@@ -90,7 +94,7 @@ export default function LocationHubPage({ params }: { params: { location: string
             {c.services.map((service) => (
               <Link
                 key={service.slug}
-                href={`/malta/${params.location}/${service.slug}`}
+                href={`/malta/${location}/${service.slug}`}
                 className="group p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/50 transition-all"
                 data-testid={`link-service-${service.slug}`}
               >

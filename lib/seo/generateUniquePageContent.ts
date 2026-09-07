@@ -82,8 +82,8 @@ export const serviceProfiles: Record<string, ServiceProfile> = {
     ],
   },
 
-  'digital-marketing': {
-    slug: 'digital-marketing',
+  'seo-services': {
+    slug: 'seo-services',
     name: 'Digital Marketing',
     shortName: 'Digital Marketing',
     description: 'Multi-channel digital marketing — SEO, paid search, social, email, and analytics — orchestrated as one revenue system rather than disconnected tactics.',
@@ -240,7 +240,12 @@ export const serviceProfiles: Record<string, ServiceProfile> = {
 };
 
 export function getServiceProfile(slug: string): ServiceProfile | undefined {
-  return serviceProfiles[slug];
+  // The historical restore ledger still names this offer
+  // "digital-marketing". Its current canonical URL is "seo-services";
+  // resolve the legacy data key to the canonical profile so both restored
+  // static params and live canonical requests render the same content.
+  const canonicalSlug = slug === 'digital-marketing' ? 'seo-services' : slug;
+  return serviceProfiles[canonicalSlug];
 }
 
 // ---------------------------------------------------------------------------
@@ -375,7 +380,7 @@ export function buildCaseStudyHook(
       metric: '+312% organic reach · 6 months',
       outcome: 'tripled their organic reach and grew direct enquiries by 47% in six months',
     },
-    'digital-marketing': {
+    'seo-services': {
       metric: '+184% qualified leads · 12 weeks',
       outcome: 'nearly tripled their qualified-lead volume in twelve weeks at a 38% lower cost-per-lead',
     },
@@ -392,7 +397,7 @@ export function buildCaseStudyHook(
       outcome: 'cut their average customer-support handle time by 68% in the first 90 days of automation',
     },
   };
-  const m = metricBySvc[svc.slug] ?? metricBySvc['digital-marketing'];
+  const m = metricBySvc[svc.slug] ?? metricBySvc['seo-services'];
 
   // Industry-specific subject — defaults to the location\'s top primary industry
   // when no explicit industry is supplied.
@@ -446,7 +451,7 @@ export function buildTestimonial(
   const quoteBySvc: Record<string, string> = {
     'social-media-creative-management':
       `OARC turned our social into our biggest source of new customers. Within three months we were getting more bookings from Instagram than from any other channel — and the production quality finally matches the rest of the brand.`,
-    'digital-marketing':
+    'seo-services':
       `For the first time, every channel we run feels like it\'s pulling in the same direction. Our pipeline is up, our cost-per-lead is down, and we actually understand which campaigns are doing the work.`,
     'paid-advertising':
       `We had been burning money on ads for two years before OARC took over. Within eight weeks our cost-per-acquisition dropped by more than a third and we started seeing real ROAS — not vanity metrics.`,
@@ -457,7 +462,7 @@ export function buildTestimonial(
   };
 
   return {
-    quote: quoteBySvc[svc.slug] ?? quoteBySvc['digital-marketing'],
+    quote: quoteBySvc[svc.slug] ?? quoteBySvc['seo-services'],
     author: `${first} ${last}`,
     role,
     business: `${business}, ${loc.name}`,
@@ -570,7 +575,7 @@ export function buildLocationHubContent(
 
   // Hub uses the location\'s top primary-industry as the case-study subject and
   // anchors the testimonial on the highest-converting service.
-  const flagshipSvc = getServiceProfile('digital-marketing')!;
+  const flagshipSvc = getServiceProfile('seo-services')!;
   const caseStudyHook = buildCaseStudyHook(loc, flagshipSvc);
   const testimonial = buildTestimonial(loc, flagshipSvc);
 

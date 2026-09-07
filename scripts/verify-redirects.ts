@@ -17,6 +17,8 @@ import {
   ARCHIVED_LOCATION_REDIRECTS,
   INDUSTRY_REDIRECTS,
   ARCHIVED_SERVICE_REDIRECTS,
+  TASK_116_RETIRED_URLS,
+  TASK_227_RETIRED_URLS,
 } from "../lib/seo/redirectMap";
 import { SERVICE_ALIASES, CROSS_SECTION_ALIASES } from "../lib/seo/seoSets";
 
@@ -118,6 +120,30 @@ function verifyRedirectMapsStructurallyOrExit(): void {
       }
     }
   }
+
+  // Human-facing retirement registries must exactly match the runtime alias
+  // maps. This used to run while middleware initialized, where one stale
+  // reporting entry could 500 every matched production route. Keep it in the
+  // build gate so drift blocks a deployment without taking the live site down.
+  const runtimeAliases: Readonly<Record<string, string>> = {
+    ...SERVICE_ALIASES,
+    ...CROSS_SECTION_ALIASES,
+  };
+  const retirementGroups: Array<[string, Readonly<Record<string, string>>]> = [
+    ["TASK_116_RETIRED_URLS", TASK_116_RETIRED_URLS],
+    ["TASK_227_RETIRED_URLS", TASK_227_RETIRED_URLS],
+  ];
+  for (const [name, registry] of retirementGroups) {
+    for (const [from, to] of Object.entries(registry)) {
+      const runtimeTarget = runtimeAliases[from];
+      if (runtimeTarget !== to) {
+        errors.push(
+          `${name}: ${from} -> ${to} (runtime middleware sends to ${runtimeTarget ?? "<no alias>"})`,
+        );
+      }
+    }
+  }
+
   if (errors.length) {
     // eslint-disable-next-line no-console
     console.error("[verify-redirects] structural failures:\n  " + errors.join("\n  "));

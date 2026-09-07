@@ -594,17 +594,20 @@ const topServiceSlugs = [
   'paid-advertising',
 ];
 
+type IndustryParams = { industry: string };
+
 export async function generateStaticParams() {
   return INDUSTRY_HUB_SLUGS.map((industry) => ({ industry }));
 }
 
-export async function generateMetadata({ params }: { params: { industry: string } }): Promise<Metadata> {
-  const data = industries[resolveIndustryKey(params.industry)];
+export async function generateMetadata({ params }: { params: Promise<IndustryParams> }): Promise<Metadata> {
+  const { industry } = await params;
+  const data = industries[resolveIndustryKey(industry)];
   if (!data) return { title: 'Industry Not Found | OARC Digital' };
   const title = `${data.name} Marketing Agency Malta | OARC Digital`;
   const description = `Malta's leading marketing agency for ${data.plural.toLowerCase()}. We help ${data.plural.toLowerCase()} grow with social media, video, AI, and automation. Results guaranteed. Contact OARC Digital today.`;
-  const canonical = `https://oarcdigital.com/industries/${params.industry}`;
-  const shouldNoindex = NOINDEX_INDUSTRY_HUB_SLUGS.has(params.industry);
+  const canonical = `https://oarcdigital.com/industries/${industry}`;
+  const shouldNoindex = NOINDEX_INDUSTRY_HUB_SLUGS.has(industry);
   return {
     title,
     description,
@@ -615,8 +618,8 @@ export async function generateMetadata({ params }: { params: { industry: string 
   };
 }
 
-export default function IndustryHubPage({ params }: { params: { industry: string } }) {
-  const industry = params.industry;
+export default async function IndustryHubPage({ params }: { params: Promise<IndustryParams> }) {
+  const { industry } = await params;
   const dataKey = resolveIndustryKey(industry);
 
   if (!industries[dataKey]) {

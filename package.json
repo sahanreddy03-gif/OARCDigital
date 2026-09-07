@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev --turbopack",
-    "prebuild": "tsx scripts/generate-llms-txt-facts.ts && tsx scripts/generate-llms-full-txt.ts",
+    "prebuild": "tsx scripts/verify-redirects.ts --static && tsx scripts/generate-llms-txt-facts.ts && tsx scripts/generate-llms-full-txt.ts",
     "build": "next build --turbopack",
     "start": "next start",
     "check": "tsc",
