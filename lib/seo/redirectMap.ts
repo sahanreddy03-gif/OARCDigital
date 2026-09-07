@@ -111,7 +111,6 @@ export const TASK_116_RETIRED_URLS: Readonly<Record<string, string>> = Object.fr
   "/services/media-buying":               "/services/paid-advertising",
   "/services/ai-copywriting":             "/services/content-marketing",
   "/services/digital-marketing":          "/services",
-  "/services/creative":                   "/creative",
   "/diagnostic":                          "/diagnostics",
   "/roadmap":                             "/roadmap-2026",
 });
@@ -152,25 +151,10 @@ export const TASK_227_RETIRED_URLS: Readonly<Record<string, string>> = Object.fr
       errors.push(`ARCHIVED_SERVICE_REDIRECTS: ${from} -> ${to} (target not in allServiceSlugs)`);
     }
   }
-  // Drift guard: every entry in TASK_116_RETIRED_URLS must resolve through
-  // the runtime alias maps in seoSets.ts (lazy-imported to avoid a circular
-  // dep at module-load on Edge). Done synchronously via require so it runs
-  // inside this validator IIFE.
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const { SERVICE_ALIASES, CROSS_SECTION_ALIASES } = require("./seoSets");
-    for (const [from, to] of Object.entries(TASK_116_RETIRED_URLS)) {
-      const runtimeTarget =
-        SERVICE_ALIASES?.[from] ?? CROSS_SECTION_ALIASES?.[from];
-      if (runtimeTarget !== to) {
-        errors.push(
-          `TASK_116_RETIRED_URLS: ${from} -> ${to} (runtime middleware sends to ${runtimeTarget ?? "<no alias>"})`,
-        );
-      }
-    }
-  } catch {
-    // Edge build edge case: skip cross-check rather than false-fail.
-  }
+  // Cross-module registry drift is checked by scripts/verify-redirects.ts
+  // during prebuild. It must not run here: this module is imported by the
+  // request proxy, so a reporting-registry mismatch must never take every
+  // matched production route down at middleware initialization time.
   if (errors.length > 0) {
     // eslint-disable-next-line no-console
     console.error("[redirectMap] Invalid redirect targets:\n  " + errors.join("\n  "));
