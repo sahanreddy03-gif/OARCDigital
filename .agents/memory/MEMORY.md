@@ -14,4 +14,5 @@
 - [Tom product positioning](tom-product-positioning.md) — Tom is shorthand; lead with the OARC Operator System and prove the workflow, actions, evidence, and handoff
 - [Tom industry content fidelity](tom-industry-content-fidelity.md) — industry-page copy follows the v2 brief exactly; domain research and visual-production notes stay internal
 - [OARC AI service architecture](oarc-ai-service-architecture.md) — organise AI services around revenue, customer/field, employee/business, and commerce/custom operators
+- [Search-first service content](search-first-service-content.md) — lead pages with buyer search language and verifiable proof; brand terminology supports rather than replaces demand
 - [Programmatic SEO tuple gates](programmatic-seo-tuple-gates.md) — admit restored Malta URLs by exact ledger tuples; segment allowlists create accidental indexable products
