@@ -18,6 +18,7 @@ const developmentImg = "/attached_assets/pexels-googledeepmind-18069696_17657441
 const categoryImages: Record<string, string> = {
   'creativeDesign': creativeImg,
   'aiAgents': aiImg,
+  'specialistAi': aiImg,
   'growthAutomation': automationImg,
   'development': developmentImg,
 };
@@ -25,6 +26,7 @@ const categoryImages: Record<string, string> = {
 const categoryIcons: Record<string, any> = {
   'creativeDesign': Palette,
   'aiAgents': Bot,
+  'specialistAi': Sparkles,
   'growthAutomation': TrendingUp,
   'development': Code2,
 };
@@ -208,11 +210,11 @@ export default function PageContent() {
             className="text-display font-black mb-8 tracking-tight"
           >
             <span className="text-white">
-              Where Strategy Meets
+              Choose What You
             </span>
             <br />
             <span className="text-white">
-              Creative Excellence
+              Need Help With
             </span>
           </m.h1>
 
@@ -222,7 +224,7 @@ export default function PageContent() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            We blend AI-powered innovation with world-class creative to deliver measurable results for ambitious brands.
+            Creative and growth services, AI agents, software development, and three specialist AI services—organised by the job you need done.
           </m.p>
 
           <m.div
@@ -256,6 +258,16 @@ export default function PageContent() {
             >
               Explore Services
             </m.button>
+          </m.div>
+
+          <m.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-white/70"
+          >
+            <Link href="/tom" className="hover:text-[#c4ff4d]">Tom: one AI operator for 10 industries →</Link>
+            <a href="#specialist-ai" className="hover:text-white">3 standalone specialist AI services ↓</a>
           </m.div>
         </m.div>
 
@@ -333,9 +345,15 @@ export default function PageContent() {
             <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
               Services Designed for Growth
             </h2>
-            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
-              Four core competencies that drive measurable business results
+            <p className="text-lg text-zinc-400 max-w-3xl mx-auto">
+              Choose the type of help you need. Tom is one managed AI operator configured for ten industries; our specialist AI services solve three specific business, shopping, and employee-support needs.
             </p>
+            <div id="specialist-ai" className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
+              <Link href="/tom" className="text-white hover:text-[#c4ff4d]">Tom: one AI operator, 10 industries →</Link>
+              <Link href="/services/custom-ai-agents" className="text-zinc-400 hover:text-white">Custom AI Agents</Link>
+              <Link href="/services/conversational-commerce" className="text-zinc-400 hover:text-white">Conversational Commerce</Link>
+              <Link href="/services/ai-employee-service-desk" className="text-zinc-400 hover:text-white">AI Employee Service Desk</Link>
+            </div>
           </m.div>
 
           <div className="flex flex-wrap justify-center gap-4 mb-16">

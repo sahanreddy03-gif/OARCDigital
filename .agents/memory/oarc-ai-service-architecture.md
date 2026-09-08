@@ -16,3 +16,9 @@ Use completed outcomes and workflow demonstrations instead of generic AI capabil
 **Why:** Combining the three reference-led services with Tom obscures what each buyer is purchasing and creates generic product language. The user explicitly requires them to remain separate services.
 
 **How to apply:** Give each independent page one clear search category and buyer outcome. Tom may link to them where relevant, but its industry pages and product positioning are a separate architecture decision.
+
+Information architecture must state the relationship in plain language at the main entry points: Tom is one AI operator with ten industry configurations; the three specialist AI services are standalone offers.
+
+**Why:** The user prioritises immediate visitor understanding over internal product terminology.
+
+**How to apply:** Use literal navigation groups, descriptive labels, industry directories, and cross-links. Do not make visitors infer the architecture from route names or branded language.

@@ -36,6 +36,7 @@ export const servicesConfig = {
   previewLimits: {
     creativeDesign: 10,
     aiAgents: 6,
+    specialistAi: 3,
     growthAutomation: 6,
     development: 4
   }
@@ -173,13 +174,29 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         icon: Cpu,
         description: 'AI readiness assessment, tool recommendations, implementation roadmap, training'
       },
+    ]
+  },
+
+  specialistAi: {
+    id: 'specialistAi',
+    title: 'Specialist AI Services',
+    description: 'Three standalone services for custom business workflows, shopping experiences, and employee support',
+    featured: {
+      title: 'Custom AI Agents',
+      slug: 'custom-ai-agents',
+      badge: 'New',
+      icon: Bot,
+      route: '/services/custom-ai-agents',
+      description: 'Outcome-focused agents for sales, operations, research, finance and back-office work'
+    },
+    items: [
       {
         title: 'Custom AI Agents',
         slug: 'custom-ai-agents',
         badge: 'New',
         icon: Bot,
         route: '/services/custom-ai-agents',
-        description: 'Outcome-focused agents for sales, operations, research, finance and back-office work'
+        description: 'Custom agents that complete defined business workflows with clear permissions and evidence'
       },
       {
         title: 'Conversational Commerce',
@@ -187,7 +204,7 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         badge: 'New',
         icon: ShoppingCart,
         route: '/services/conversational-commerce',
-        description: 'Natural-language product discovery, recommendations and basket support'
+        description: 'AI-assisted product discovery, recommendations, questions, baskets and checkout support'
       },
       {
         title: 'AI Employee Service Desk',
@@ -195,7 +212,7 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         badge: 'New',
         icon: HeadphonesIcon,
         route: '/services/ai-employee-service-desk',
-        description: 'Employee answers and permitted IT, HR and finance actions with evidence'
+        description: 'Employee answers and permitted IT, HR and finance actions with human escalation'
       },
     ]
   },

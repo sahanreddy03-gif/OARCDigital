@@ -17,7 +17,7 @@ const PRIMARY = [
   { href: "/solutions", label: "Automation" },
   { href: "/our-work",  label: "Our Work" },
   { href: "/new-work",  label: "New Work" },
-  { href: "/tom",       label: "Tom" },
+  { href: "/tom",       label: "Tom AI Operator" },
   { href: "/pricing",   label: "Pricing" },
 ];
 
@@ -56,9 +56,16 @@ const SERVICE_GROUPS: { title: string; href: string; accent: string; items: { na
       { name: "AI Appointment Booker", href: "/services/ai-appointment-booker" },
       { name: "AI Consulting",         href: "/services/ai-consulting" },
       { name: "Revenue Automation",    href: "/services/revenue-automation" },
-      { name: "Custom AI Agents",      href: "/services/custom-ai-agents" },
+    ],
+  },
+  {
+    title: "Specialist AI Services",
+    href: "/services#specialist-ai",
+    accent: "#c4ff4d",
+    items: [
+      { name: "Custom AI Agents", href: "/services/custom-ai-agents" },
       { name: "Conversational Commerce", href: "/services/conversational-commerce" },
-      { name: "Employee Service Desk", href: "/services/ai-employee-service-desk" },
+      { name: "AI Employee Service Desk", href: "/services/ai-employee-service-desk" },
     ],
   },
   {
