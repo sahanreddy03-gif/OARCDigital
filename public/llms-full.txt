@@ -200,6 +200,47 @@ A: Yes. Common migrations are Mailchimp / ActiveCampaign / Klaviyo to a HubSpot-
 
 ## Service pages
 
+### AI Employee Service Desk | IT, HR & Finance Support | OARC Digital
+Canonical: https://oarcdigital.com/services/ai-employee-service-desk
+
+**Description**
+OARC creates AI employee service desks for organisations in Malta and beyond, using approved knowledge and permitted actions to resolve everyday IT, HR, and finance requests or hand them to people with context.
+
+**Features**
+
+- Answers grounded in approved company knowledge
+- Defined IT service requests and status checks
+- HR onboarding, leave, benefits, and policy guidance
+- Finance, expense, invoice, and purchasing guidance
+- Explainable answers, actions, and approval boundaries
+- Human escalation with conversation and evidence attached
+
+**Value proposition**
+One employee-support front door that answers from approved knowledge, completes permitted requests, and gives human teams the context behind every escalation.
+
+**Entity focus**: AI employee service desk for IT, HR, and finance (Malta)
+**Primary intent**: commercial
+**Conversion goal**: Map the first employee-support workflow
+
+**Cite-able facts**
+
+- OARC AI employee service desks use approved company knowledge and explicitly defined permissions for each type of IT, HR, or finance request. (source: https://oarcdigital.com/services/ai-employee-service-desk)
+- Requests requiring judgment remain with the appropriate person, and the hand-off includes the relevant conversation and evidence. (source: https://oarcdigital.com/services/ai-employee-service-desk)
+- An OARC employee service desk can act as a conversational front door to existing knowledge and service workflows rather than replacing every existing system. (source: https://oarcdigital.com/services/ai-employee-service-desk)
+
+**FAQs**
+
+Q: What does an AI employee service desk do?
+A: It answers employee questions from approved company knowledge, performs permitted actions, and routes complex cases to people with context.
+
+Q: Can an AI service desk help with IT, HR, and finance requests?
+A: Yes, when each service has approved knowledge, connected workflows, and explicit permissions. The boundaries are defined separately for every type of request.
+
+Q: What happens when the AI cannot answer?
+A: The service desk explains that it needs help and hands the case to a person with the relevant conversation and evidence.
+
+---
+
 ### Sales Development Rep Agent | AI-Powered Lead Qualification | OARC Digital
 Canonical: https://oarcdigital.com/services/ai-sdr-agent
 
@@ -358,6 +399,88 @@ A: Compounding usually starts at month three on a low-volume programme and month
 
 Q: Do you handle distribution, not just production?
 A: Yes. Every piece ships with a paired email send, LinkedIn post, two short-form video cuts, and a sales-enablement summary. Distribution is where most Malta brands' content programmes break — we close that gap.
+
+---
+
+### Conversational Commerce AI Shopping Experiences | OARC Digital
+Canonical: https://oarcdigital.com/services/conversational-commerce
+
+**Description**
+OARC creates conversational commerce for retailers in Malta and beyond, connecting natural-language product discovery, explained recommendations, product questions, basket support, and checkout guidance.
+
+**Features**
+
+- Natural-language product discovery
+- Product recommendations with reasons
+- Contextual answers from approved catalogue information
+- Search and merchandising-rule integration
+- Basket and checkout guidance
+- Insight into shopper questions and hesitation
+
+**Value proposition**
+Conversational shopping experiences that translate a customer's own words into suitable products, explained choices, and a supported route to purchase.
+
+**Entity focus**: Conversational commerce and AI shopping assistants (Malta)
+**Primary intent**: commercial
+**Conversion goal**: Talk through the shopping journey
+
+**Cite-able facts**
+
+- OARC conversational commerce lets shoppers describe an occasion, budget, fit, material, or combined need rather than requiring an exact product name. (source: https://oarcdigital.com/services/conversational-commerce)
+- Recommendations are designed to explain the product fit or trade-off and are grounded in approved catalogue information and merchandising rules. (source: https://oarcdigital.com/services/conversational-commerce)
+- Conversation is an additional route into discovery and support; shoppers can continue to browse the catalogue normally. (source: https://oarcdigital.com/services/conversational-commerce)
+
+**FAQs**
+
+Q: What is conversational commerce?
+A: Conversational commerce is a shopping experience where people use natural language to discover products, ask questions, compare options, and get basket or checkout guidance.
+
+Q: How can AI help customers find the right product?
+A: It can interpret the need a shopper describes, search approved catalogue information, and explain why particular products fit that request.
+
+Q: Does conversational commerce replace the product catalogue?
+A: No. It gives the catalogue an additional front door and works from the product information and merchandising rules the retailer approves.
+
+---
+
+### Custom AI Agents for Business | OARC Digital
+Canonical: https://oarcdigital.com/services/custom-ai-agents
+
+**Description**
+OARC builds custom AI agents for businesses in Malta and beyond. They complete defined sales, operations, research, finance, recruiting, and back-office workflows with clear permissions and reviewable evidence.
+
+**Features**
+
+- Sales research, qualification, and CRM follow-through
+- Operations workflows across existing business systems
+- Research with sources and assumptions attached
+- Finance, recruiting, and back-office assistance
+- Explicit tool permissions and human approval points
+- Reviewable records of actions, exceptions, and hand-offs
+
+**Value proposition**
+Custom AI agents built around one recognisable business outcome, with explicit permissions, human review points, and evidence showing what the agent used and did.
+
+**Entity focus**: Custom AI agents for business workflows (Malta)
+**Primary intent**: commercial
+**Conversion goal**: Talk through one business workflow
+
+**Cite-able facts**
+
+- OARC custom AI agents are designed around a defined workflow and recognisable completed outcome rather than an open-ended chatbot. (source: https://oarcdigital.com/services/custom-ai-agents)
+- Each custom-agent workflow defines the information it may use, the systems it may touch, the actions it may take, and the moments that require human approval. (source: https://oarcdigital.com/services/custom-ai-agents)
+- OARC designs agent workflows to retain a reviewable record of the request, relevant context, action, exception, and human hand-off. (source: https://oarcdigital.com/services/custom-ai-agents)
+
+**FAQs**
+
+Q: What is a custom AI agent?
+A: A custom AI agent is an AI system designed around a defined business workflow. It can read approved context, use permitted tools, complete steps, and show the evidence behind its work.
+
+Q: What work should a business automate first?
+A: Start with work that repeats, has a recognisable outcome, and currently loses time between people or systems. OARC maps the workflow before recommending a build.
+
+Q: Can an AI agent change records or send messages?
+A: Only where the workflow allows it. OARC defines permissions and human review points before an agent performs an action.
 
 ---
 

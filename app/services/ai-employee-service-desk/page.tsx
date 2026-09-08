@@ -1,0 +1,8 @@
+import type { Metadata } from "next";
+import OarcEditorialServicePage from "@/components/services/OarcEditorialServicePage";
+import { editorialServices } from "../editorial-services";
+import RouteSchema from "@/components/RouteSchema";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+const service = editorialServices["ai-employee-service-desk"];
+export const metadata: Metadata = { title: "AI Employee Service Desk | IT, HR & Finance Support | OARC Digital", description: service.intro, alternates: getHreflangAlternates("/services/ai-employee-service-desk"), openGraph: { title: service.title, description: service.intro, url: "https://oarcdigital.com/services/ai-employee-service-desk", images: [{ url: "https://oarcdigital.com/images/services/ai-employee-service-desk-hero.jpg", alt: service.imageAlt }] }, twitter: { card: "summary_large_image", title: service.title, description: service.intro, images: [service.image] } };
+export default function Page() { return <><SpeakableJsonLd path="/services/ai-employee-service-desk" /><RouteSchema type="service" path="/services/ai-employee-service-desk" title={service.title} description={service.intro} features={service.capabilities.map(x => ({ name: x.title, description: x.copy }))} faqs={service.faqs.map(x => ({ question: x.q, answer: x.a }))} includeLocalBusiness={false} audience={["Employees", "IT teams", "HR teams", "Finance teams"]} /><OarcEditorialServicePage service={service} /></>; }

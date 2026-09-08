@@ -3,17 +3,16 @@ name: OARC AI service architecture
 description: Durable positioning direction for OARC's AI services and operator-led sales model.
 ---
 
-OARC should present its AI work through one umbrella: the OARC Operator System. The operator receives work, understands context and permissions, acts inside existing tools, records evidence, and escalates decisions safely.
+Tom is a separate, broad OARC product with industry-specific configurations. Do not force every OARC AI service underneath Tom or rename independent services as Tom features.
 
-The commercial service families are:
+Three reference-led offers must remain independent, customer-facing service pages:
 
-- Revenue operators: sales, lead qualification, booking, follow-up, win-back, and customer acquisition.
-- Customer and field operators: HOST, FRONT, LINE, ROUTE, and related customer-facing or dispatch workflows.
-- Employee and business operators: internal IT, HR, Finance, admin, onboarding, knowledge, and service-desk workflows.
-- AI commerce and custom systems: product discovery, recommendation, checkout, post-purchase, integrations, data, documents, and vision.
+- Custom AI agents for defined sales, operations, research, finance, recruiting, and back-office work.
+- Conversational commerce from natural-language discovery and explained recommendations through basket and checkout support.
+- AI employee service desks for approved IT, HR, and finance knowledge, actions, evidence, and human escalation.
 
-Use completed outcomes and workflow demonstrations instead of generic AI capability claims. The main conversion offer should be a First Workflow Assessment that returns an Operator Map covering inputs, rules, systems, permissions, evidence, escalation, and success metrics.
+Use completed outcomes and workflow demonstrations instead of generic AI capability claims. Keep OARC’s offer names distinct from the reference companies’ trademarks while preserving the actual capability scope.
 
-**Why:** The reference research showed that outcome-led packaging, completed work, governed actions, and a contained first workflow are more persuasive than a large undifferentiated AI-service catalogue.
+**Why:** Combining the three reference-led services with Tom obscures what each buyer is purchasing and creates generic product language. The user explicitly requires them to remain separate services.
 
-**How to apply:** Consolidate overlapping service pages into canonical operator products, give each page one buyer and one job, and use implementation plus managed operation pricing with performance components only where outcomes can be measured reliably.
+**How to apply:** Give each independent page one clear search category and buyer outcome. Tom may link to them where relevant, but its industry pages and product positioning are a separate architecture decision.

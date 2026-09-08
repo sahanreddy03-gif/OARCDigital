@@ -173,6 +173,30 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         icon: Cpu,
         description: 'AI readiness assessment, tool recommendations, implementation roadmap, training'
       },
+      {
+        title: 'Custom AI Agents',
+        slug: 'custom-ai-agents',
+        badge: 'New',
+        icon: Bot,
+        route: '/services/custom-ai-agents',
+        description: 'Outcome-focused agents for sales, operations, research, finance and back-office work'
+      },
+      {
+        title: 'Conversational Commerce',
+        slug: 'conversational-commerce',
+        badge: 'New',
+        icon: ShoppingCart,
+        route: '/services/conversational-commerce',
+        description: 'Natural-language product discovery, recommendations and basket support'
+      },
+      {
+        title: 'AI Employee Service Desk',
+        slug: 'ai-employee-service-desk',
+        badge: 'New',
+        icon: HeadphonesIcon,
+        route: '/services/ai-employee-service-desk',
+        description: 'Employee answers and permitted IT, HR and finance actions with evidence'
+      },
     ]
   },
   

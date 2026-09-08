@@ -52,6 +52,9 @@ export const TOP_PAGES: readonly TopPage[] = [
   { path: "/services/ai-support-specialist",                     kind: "service", tier: "service" },
   { path: "/services/ai-appointment-booker",                     kind: "service", tier: "service" },
   { path: "/services/ai-data-analyst",                           kind: "service", tier: "service" },
+  { path: "/services/custom-ai-agents",                         kind: "service", tier: "service" },
+  { path: "/services/conversational-commerce",                  kind: "service", tier: "service" },
+  { path: "/services/ai-employee-service-desk",                 kind: "service", tier: "service" },
 
   // ── Tier 2: software services (5) ──────────────────────────────────────
   { path: "/services/custom-software-development",               kind: "service", tier: "service" },

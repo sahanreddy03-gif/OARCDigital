@@ -1,0 +1,8 @@
+import type { Metadata } from "next";
+import OarcEditorialServicePage from "@/components/services/OarcEditorialServicePage";
+import { editorialServices } from "../editorial-services";
+import RouteSchema from "@/components/RouteSchema";
+import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+const service = editorialServices["conversational-commerce"];
+export const metadata: Metadata = { title: "Conversational Commerce AI Shopping Experiences | OARC Digital", description: service.intro, alternates: getHreflangAlternates("/services/conversational-commerce"), openGraph: { title: service.title, description: service.intro, url: "https://oarcdigital.com/services/conversational-commerce", images: [{ url: "https://oarcdigital.com/images/services/conversational-commerce-hero.jpg", alt: service.imageAlt }] }, twitter: { card: "summary_large_image", title: service.title, description: service.intro, images: [service.image] } };
+export default function Page() { return <><SpeakableJsonLd path="/services/conversational-commerce" /><RouteSchema type="service" path="/services/conversational-commerce" title={service.title} description={service.intro} features={service.capabilities.map(x => ({ name: x.title, description: x.copy }))} faqs={service.faqs.map(x => ({ question: x.q, answer: x.a }))} includeLocalBusiness={false} audience={["Retailers", "Ecommerce teams", "Merchants"]} /><OarcEditorialServicePage service={service} /></>; }

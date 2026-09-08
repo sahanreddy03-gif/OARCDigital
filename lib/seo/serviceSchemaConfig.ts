@@ -1939,4 +1939,199 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       conversionGoal: "Book a database architecture review",
     },
   },
+  "custom-ai-agents": {
+    title: "Custom AI Agents for Business | OARC Digital",
+    description:
+      "OARC builds custom AI agents for businesses in Malta and beyond. They complete defined sales, operations, research, finance, recruiting, and back-office workflows with clear permissions and reviewable evidence.",
+    offers: [],
+    features: [
+      { name: "Sales research, qualification, and CRM follow-through" },
+      { name: "Operations workflows across existing business systems" },
+      { name: "Research with sources and assumptions attached" },
+      { name: "Finance, recruiting, and back-office assistance" },
+      { name: "Explicit tool permissions and human approval points" },
+      { name: "Reviewable records of actions, exceptions, and hand-offs" },
+    ],
+    faqs: [
+      {
+        question: "What is a custom AI agent?",
+        answer:
+          "A custom AI agent is an AI system designed around a defined business workflow. It can read approved context, use permitted tools, complete steps, and show the evidence behind its work.",
+      },
+      {
+        question: "What work should a business automate first?",
+        answer:
+          "Start with work that repeats, has a recognisable outcome, and currently loses time between people or systems. OARC maps the workflow before recommending a build.",
+      },
+      {
+        question: "Can an AI agent change records or send messages?",
+        answer:
+          "Only where the workflow allows it. OARC defines permissions and human review points before an agent performs an action.",
+      },
+    ],
+    serviceType: "Custom AI Agent Development",
+    audience: ["Sales teams", "Operations teams", "Finance teams", "Recruiting teams"],
+    areaServed: "Malta",
+    framework: {
+      uniqueValueProp:
+        "Custom AI agents built around one recognisable business outcome, with explicit permissions, human review points, and evidence showing what the agent used and did.",
+      entityFocus: "Custom AI agents for business workflows (Malta)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "custom ai agents",
+        "ai agents for business",
+        "business ai automation malta",
+        "ai workflow agents",
+        "ai agent development malta",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC custom AI agents are designed around a defined workflow and recognisable completed outcome rather than an open-ended chatbot.",
+          source: "https://oarcdigital.com/services/custom-ai-agents",
+        },
+        {
+          claim:
+            "Each custom-agent workflow defines the information it may use, the systems it may touch, the actions it may take, and the moments that require human approval.",
+          source: "https://oarcdigital.com/services/custom-ai-agents",
+        },
+        {
+          claim:
+            "OARC designs agent workflows to retain a reviewable record of the request, relevant context, action, exception, and human hand-off.",
+          source: "https://oarcdigital.com/services/custom-ai-agents",
+        },
+      ],
+      conversionGoal: "Talk through one business workflow",
+    },
+  },
+  "conversational-commerce": {
+    title: "Conversational Commerce AI Shopping Experiences | OARC Digital",
+    description:
+      "OARC creates conversational commerce for retailers in Malta and beyond, connecting natural-language product discovery, explained recommendations, product questions, basket support, and checkout guidance.",
+    offers: [],
+    features: [
+      { name: "Natural-language product discovery" },
+      { name: "Product recommendations with reasons" },
+      { name: "Contextual answers from approved catalogue information" },
+      { name: "Search and merchandising-rule integration" },
+      { name: "Basket and checkout guidance" },
+      { name: "Insight into shopper questions and hesitation" },
+    ],
+    faqs: [
+      {
+        question: "What is conversational commerce?",
+        answer:
+          "Conversational commerce is a shopping experience where people use natural language to discover products, ask questions, compare options, and get basket or checkout guidance.",
+      },
+      {
+        question: "How can AI help customers find the right product?",
+        answer:
+          "It can interpret the need a shopper describes, search approved catalogue information, and explain why particular products fit that request.",
+      },
+      {
+        question: "Does conversational commerce replace the product catalogue?",
+        answer:
+          "No. It gives the catalogue an additional front door and works from the product information and merchandising rules the retailer approves.",
+      },
+    ],
+    serviceType: "Conversational Commerce Development",
+    audience: ["Retailers", "Ecommerce teams", "Merchants"],
+    areaServed: "Malta",
+    framework: {
+      uniqueValueProp:
+        "Conversational shopping experiences that translate a customer's own words into suitable products, explained choices, and a supported route to purchase.",
+      entityFocus: "Conversational commerce and AI shopping assistants (Malta)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "conversational commerce",
+        "ai shopping assistant",
+        "ai product search",
+        "ecommerce ai malta",
+        "ai product recommendations",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC conversational commerce lets shoppers describe an occasion, budget, fit, material, or combined need rather than requiring an exact product name.",
+          source: "https://oarcdigital.com/services/conversational-commerce",
+        },
+        {
+          claim:
+            "Recommendations are designed to explain the product fit or trade-off and are grounded in approved catalogue information and merchandising rules.",
+          source: "https://oarcdigital.com/services/conversational-commerce",
+        },
+        {
+          claim:
+            "Conversation is an additional route into discovery and support; shoppers can continue to browse the catalogue normally.",
+          source: "https://oarcdigital.com/services/conversational-commerce",
+        },
+      ],
+      conversionGoal: "Talk through the shopping journey",
+    },
+  },
+  "ai-employee-service-desk": {
+    title: "AI Employee Service Desk | IT, HR & Finance Support | OARC Digital",
+    description:
+      "OARC creates AI employee service desks for organisations in Malta and beyond, using approved knowledge and permitted actions to resolve everyday IT, HR, and finance requests or hand them to people with context.",
+    offers: [],
+    features: [
+      { name: "Answers grounded in approved company knowledge" },
+      { name: "Defined IT service requests and status checks" },
+      { name: "HR onboarding, leave, benefits, and policy guidance" },
+      { name: "Finance, expense, invoice, and purchasing guidance" },
+      { name: "Explainable answers, actions, and approval boundaries" },
+      { name: "Human escalation with conversation and evidence attached" },
+    ],
+    faqs: [
+      {
+        question: "What does an AI employee service desk do?",
+        answer:
+          "It answers employee questions from approved company knowledge, performs permitted actions, and routes complex cases to people with context.",
+      },
+      {
+        question: "Can an AI service desk help with IT, HR, and finance requests?",
+        answer:
+          "Yes, when each service has approved knowledge, connected workflows, and explicit permissions. The boundaries are defined separately for every type of request.",
+      },
+      {
+        question: "What happens when the AI cannot answer?",
+        answer:
+          "The service desk explains that it needs help and hands the case to a person with the relevant conversation and evidence.",
+      },
+    ],
+    serviceType: "AI Employee Service Desk",
+    audience: ["Employees", "IT teams", "HR teams", "Finance teams"],
+    areaServed: "Malta",
+    framework: {
+      uniqueValueProp:
+        "One employee-support front door that answers from approved knowledge, completes permitted requests, and gives human teams the context behind every escalation.",
+      entityFocus: "AI employee service desk for IT, HR, and finance (Malta)",
+      primaryIntent: "commercial",
+      generalizationKeywords: [
+        "ai employee service desk",
+        "ai service desk",
+        "employee support ai",
+        "it helpdesk automation",
+        "hr helpdesk ai",
+      ],
+      llmCitableFacts: [
+        {
+          claim:
+            "OARC AI employee service desks use approved company knowledge and explicitly defined permissions for each type of IT, HR, or finance request.",
+          source: "https://oarcdigital.com/services/ai-employee-service-desk",
+        },
+        {
+          claim:
+            "Requests requiring judgment remain with the appropriate person, and the hand-off includes the relevant conversation and evidence.",
+          source: "https://oarcdigital.com/services/ai-employee-service-desk",
+        },
+        {
+          claim:
+            "An OARC employee service desk can act as a conversational front door to existing knowledge and service workflows rather than replacing every existing system.",
+          source: "https://oarcdigital.com/services/ai-employee-service-desk",
+        },
+      ],
+      conversionGoal: "Map the first employee-support workflow",
+    },
+  },
 };
