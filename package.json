@@ -17,7 +17,8 @@
     "gate:fast": "bash scripts/seo-gate.sh gate:fast",
     "gate:full": "bash scripts/seo-gate.sh gate:full",
     "gate:historical": "tsx scripts/validate-historical-programmatic.ts",
-    "crawl:historical": "tsx scripts/crawl-historical-programmatic.ts"
+    "crawl:historical": "tsx scripts/crawl-historical-programmatic.ts",
+    "validate:tom-content": "tsx scripts/validate-tom-industry-content.ts"
   },
   "dependencies": {
     "@ffmpeg/ffmpeg": "^0.12.15",

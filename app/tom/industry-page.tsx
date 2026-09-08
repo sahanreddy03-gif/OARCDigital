@@ -11,7 +11,6 @@ import { tomBriefPages, type TomBriefPage } from "./tom-v2-data";
 const pageBySlug = Object.fromEntries(tomBriefPages.map((page) => [page.slug, page]));
 
 type TomBlock = TomBriefPage["blocks"][number];
-type TomVisual = { readonly label: string; readonly brief: string };
 
 function getBlock(page: TomBriefPage, number: number) {
   return page.blocks.find((block) => block.number === number);
@@ -44,23 +43,6 @@ function parseSimulation(caption: string) {
     work: right.split(/\s+>\s+/).map((line) => line.trim()).filter(Boolean),
     note: caption.slice(0, leftMarker).replace(/[. ]+$/, "").trim(),
   };
-}
-
-function SceneBrief({ visual }: { visual: TomVisual | null | undefined }) {
-  if (!visual) return null;
-  return (
-    <aside className="tom-scene-brief">
-      <div className="tom-scene-orbit" aria-hidden="true">
-        <span />
-        <span />
-        <b>●</b>
-      </div>
-      <div>
-        <p className="tom-kicker">{visual.label}</p>
-        <p>{visual.brief}</p>
-      </div>
-    </aside>
-  );
 }
 
 export function generateStaticParams() {
@@ -132,11 +114,11 @@ export default async function IndustryPage({
             <TomDigitalTwin
               room={page.name}
               stations={agentStations}
-              focus={hero?.visual?.label ?? "THE ROOM"}
+              focus="LIVE WORKFLOW"
             />
           </div>
           <div className="tom-wrap">
-            <p className="tom-kicker" style={{ color: "#8fd6ae" }}>{getField(hero, "kicker").replace(/^TOM\b/, "OARC OPERATOR")}</p>
+            <p className="tom-kicker" style={{ color: "#8fd6ae" }}>{getField(hero, "kicker")}</p>
             <h1 className="tom-display">{getField(hero, "headline")}</h1>
             <p className="tom-lead">{getField(hero, "lead")}</p>
             <div className="tom-actions">
@@ -147,37 +129,6 @@ export default async function IndustryPage({
                 {heroButtons[1] ?? "See him work"} ↓
               </a>
             </div>
-            <div className="tom-value-strip" aria-label="How Tom creates value">
-              <div><span>01</span><strong>The problem arrives</strong><small>call · lead · request · exception</small></div>
-              <div><span>02</span><strong>He does the work</strong><small>speaks · books · updates · follows through</small></div>
-              <div><span>03</span><strong>Your team gets the result</strong><small>briefed · prepared · still in control</small></div>
-            </div>
-          </div>
-        </section>
-
-        <section className="tom-section tom-context">
-          <div className="tom-wrap">
-            <p className="tom-kicker">DOMAIN FIRST / {page.name}</p>
-            <h2 className="tom-display">This is the room he is built for.</h2>
-            <div className="tom-context-grid">
-              {page.domainBrief.slice(0, 3).map((item) => (
-                <article key={item.label}>
-                  <p className="tom-kicker">{item.label}</p>
-                  <p>{item.text}</p>
-                </article>
-              ))}
-            </div>
-            <details className="tom-context-more">
-              <summary>See the full operating brief</summary>
-              <div className="tom-context-grid">
-                {page.domainBrief.slice(3).map((item) => (
-                  <article key={item.label}>
-                    <p className="tom-kicker">{item.label}</p>
-                    <p>{item.text}</p>
-                  </article>
-                ))}
-              </div>
-            </details>
           </div>
         </section>
 
@@ -185,12 +136,12 @@ export default async function IndustryPage({
           <div className="tom-wrap">
             <p className="tom-kicker" style={{ color: "#f5f5f3" }}>{getField(missed, "kicker")}</p>
             <p>{getField(missed, "statement (display type)") || getField(missed, "body")}</p>
+            <p className="tom-value-line">{getField(missed, "sub-line (mono)")}</p>
           </div>
         </section>
 
         <section className="tom-section">
           <div className="tom-wrap">
-            <p className="tom-kicker">WHAT HE HANDLES / THE WORK, NOT THE PITCH</p>
             <h2 className="tom-display">{getField(handles, "headline")}</h2>
             <p className="tom-copy">{getField(handles, "lead")}</p>
             <div className="tom-value-list">
@@ -201,13 +152,11 @@ export default async function IndustryPage({
                 </article>
               ))}
             </div>
-            <SceneBrief visual={handles?.visual} />
           </div>
         </section>
 
         <section className="tom-section tom-light" id="moment">
           <div className="tom-wrap">
-            <p className="tom-kicker">BLOCK 4 / ONE REAL MOMENT FROM HIS SHIFT</p>
             <h2 className="tom-display">{getField(moment, "headline")}</h2>
             <div className="tom-split">
               <div className="tom-panel">
@@ -224,34 +173,28 @@ export default async function IndustryPage({
               </div>
             </div>
             <p className="tom-simulation-note">{getField(moment, "caption below") || simulation.note}</p>
-            <SceneBrief visual={moment?.visual} />
           </div>
         </section>
 
         <section className="tom-section">
           <div className="tom-wrap">
-            <p className="tom-kicker">BLOCK 5 / WHAT HE DID WHILE HE WAS TALKING</p>
             <h2 className="tom-display">{getField(trace, "headline")}</h2>
             <p className="tom-copy tom-copy--large">{getField(trace, "body")}</p>
             <p className="tom-value-line">{getField(trace, "value line (mono)")}</p>
-            <SceneBrief visual={trace?.visual} />
           </div>
         </section>
 
         <section className="tom-section tom-light">
           <div className="tom-wrap">
-            <p className="tom-kicker">BLOCK 6 / WHAT YOUR TEAM GETS</p>
             <h2 className="tom-display">{getField(team, "headline")}</h2>
             <p className="tom-copy">{getField(team, "body")}</p>
             <p className="tom-copy" style={{ marginTop: "2rem" }}>{getField(team, "body 2")}</p>
             <p className="tom-value-line">{getField(team, "value line (mono)")}</p>
-            <SceneBrief visual={team?.visual} />
           </div>
         </section>
 
         <section className="tom-section tom-limits">
           <div className="tom-wrap">
-            <p className="tom-kicker">BLOCK 7 / HUMAN CONTROL</p>
             <h2 className="tom-display">{getField(limits, "headline")}</h2>
             <p className="tom-copy">{getField(limits, "lead")}</p>
             <ul className="tom-list">
@@ -274,7 +217,6 @@ export default async function IndustryPage({
                 </article>
               ))}
             </div>
-            <SceneBrief visual={force?.visual} />
           </div>
         </section>
 
@@ -292,18 +234,6 @@ export default async function IndustryPage({
               <Link className="tom-button" href="/tom">
                 {closeButtons[1] ?? "See him in another industry"} ↓
               </Link>
-            </div>
-            <SceneBrief visual={close?.visual} />
-          </div>
-        </section>
-
-        <section className="tom-cta">
-          <div className="tom-wrap">
-            <p className="tom-kicker">ONE PERSON AT THE FRONT. A SPECIALIST TEAM BEHIND HIM.</p>
-            <h2 className="tom-display">Start with the one thing that keeps falling through the cracks.</h2>
-            <div className="tom-actions">
-              <Link className="tom-button tom-button--red" href="/tom/start">Start with one problem ↗</Link>
-              <Link className="tom-button" href="/tom">See the other rooms ↓</Link>
             </div>
           </div>
         </section>

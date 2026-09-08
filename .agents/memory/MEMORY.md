@@ -12,5 +12,6 @@
 - [Vercel lockfile portability](vercel-lockfile-portability.md) — root npm lockfiles deployed outside Replit must not retain package-firewall.replit.local resolved URLs
 - [Tom WebGL fallback](tom-webgl-fallback.md) — probe for usable WebGL and keep a designed CSS/CAD fallback so preview browsers never blank the industry page
 - [Tom product positioning](tom-product-positioning.md) — Tom is shorthand; lead with the OARC Operator System and prove the workflow, actions, evidence, and handoff
+- [Tom industry content fidelity](tom-industry-content-fidelity.md) — industry-page copy follows the v2 brief exactly; domain research and visual-production notes stay internal
 - [OARC AI service architecture](oarc-ai-service-architecture.md) — organise AI services around revenue, customer/field, employee/business, and commerce/custom operators
 - [Programmatic SEO tuple gates](programmatic-seo-tuple-gates.md) — admit restored Malta URLs by exact ledger tuples; segment allowlists create accidental indexable products
