@@ -22,3 +22,9 @@ Information architecture must state the relationship in plain language at the ma
 **Why:** The user prioritises immediate visitor understanding over internal product terminology.
 
 **How to apply:** Use literal navigation groups, descriptive labels, industry directories, and cross-links. Do not make visitors infer the architecture from route names or branded language.
+
+The customer-facing service label is exactly **Voice AI Worker**. Do not prefix that label with “Tom” in navigation or the Services catalogue.
+
+**Why:** The user explicitly rejected “Tom — Voice AI Worker” and wants visitors to see only the service category name.
+
+**How to apply:** Tom may remain part of the product-page narrative, but service menus, catalogue links, and cross-service labels must display “Voice AI Worker.”
