@@ -6,7 +6,7 @@ export const tomBriefPages = [
     "slug": "hospitality",
     "name": "HOSPITALITY & TRAVEL",
     "metaTitle": "Tom for Hospitality — every call answered during service | OARC Digital",
-    "metaDescription": "Reservations taken mid-service, no-shows rebooked, German guests answered in German, the floor briefed before doors. One AI operator for Malta restaurants and hotels, built in person by OARC.",
+    "metaDescription": "Reservations taken mid-service, no-shows rebooked, German guests answered in German, the floor briefed before doors. One Voice AI Worker for Malta restaurants and hotels, built in person by OARC.",
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -257,7 +257,7 @@ export const tomBriefPages = [
     "slug": "sales",
     "name": "SALES TEAMS",
     "metaTitle": "Tom for Sales — the lead called in 40 seconds, the quote chased until it answers | OARC Digital",
-    "metaDescription": "Every enquiry called within a minute, quotes sent mid-call, seven follow-ups that never sound like the seventh, a CRM that is finally true. One AI operator for Malta B2B and B2C sales teams.",
+    "metaDescription": "Every enquiry called within a minute, quotes sent mid-call, seven follow-ups that never sound like the seventh, a CRM that is finally true. One Voice AI Worker for Malta B2B and B2C sales teams.",
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -504,7 +504,7 @@ export const tomBriefPages = [
     "slug": "healthcare",
     "name": "HEALTHCARE & CLINICS",
     "metaTitle": "Tom for Clinics — the 08:00 phone queue, gone | OARC Digital",
-    "metaDescription": "Every appointment call answered, cancelled slots refilled from the waitlist within minutes, six-month recalls actually called, anxious patients handled with care and handed to a nurse when it matters. One AI operator for Malta private clinics.",
+    "metaDescription": "Every appointment call answered, cancelled slots refilled from the waitlist within minutes, six-month recalls actually called, anxious patients handled with care and handed to a nurse when it matters. One Voice AI Worker for Malta private clinics.",
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -751,7 +751,7 @@ export const tomBriefPages = [
     "slug": "finance-insurance",
     "name": "FINANCE & INSURANCE",
     "metaTitle": "Tom for Brokers, Accountants & CSPs — the renewal called, the documents in | OARC Digital",
-    "metaDescription": "Renewals called before they lapse, claims taken at first notification, KYC and VAT documents chased until they arrive, every call within the compliance line. One AI operator for Malta insurance brokers, accountancy practices and corporate-service providers.",
+    "metaDescription": "Renewals called before they lapse, claims taken at first notification, KYC and VAT documents chased until they arrive, every call within the compliance line. One Voice AI Worker for Malta insurance brokers, accountancy practices and corporate-service providers.",
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -998,7 +998,7 @@ export const tomBriefPages = [
     "slug": "real-estate",
     "name": "REAL ESTATE",
     "metaTitle": "Tom for Real Estate — 40 enquiries on the Gżira flat, all answered in 60 seconds | OARC Digital",
-    "metaDescription": "Every portal enquiry answered in a minute, viewings booked and confirmed, no-shows chased, landlords updated before they ask, tenant documents collected. One AI operator for Malta letting and sales agencies.",
+    "metaDescription": "Every portal enquiry answered in a minute, viewings booked and confirmed, no-shows chased, landlords updated before they ask, tenant documents collected. One Voice AI Worker for Malta letting and sales agencies.",
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -1245,7 +1245,7 @@ export const tomBriefPages = [
     "slug": "legal",
     "name": "LEGAL",
     "metaTitle": "Tom for Law Firms & Notaries — \"any update?\" answered without a lawyer | OARC Digital",
-    "metaDescription": "Intake taken in full, conflict pre-check run, client status updates answered from the file, documents chased, konvenju and court dates watched. One AI operator for Malta law firms and notarial practices — never legal advice.",
+    "metaDescription": "Intake taken in full, conflict pre-check run, client status updates answered from the file, documents chased, konvenju and court dates watched. One Voice AI Worker for Malta law firms and notarial practices — never legal advice.",
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -1492,7 +1492,7 @@ export const tomBriefPages = [
     "slug": "logistics",
     "name": "LOGISTICS",
     "metaTitle": "Tom for Freight & Logistics — the ferry was cancelled; your clients heard it from you first | OARC Digital",
-    "metaDescription": "Every \"where is my shipment?\" answered from the system, exceptions pushed to clients before they ring, customs documents chased, quotes out in minutes, drivers briefed in Italian. One AI operator for Malta forwarders, customs brokers and couriers.",
+    "metaDescription": "Every \"where is my shipment?\" answered from the system, exceptions pushed to clients before they ring, customs documents chased, quotes out in minutes, drivers briefed in Italian. One Voice AI Worker for Malta forwarders, customs brokers and couriers.",
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -1739,7 +1739,7 @@ export const tomBriefPages = [
     "slug": "home-services",
     "name": "HOME SERVICES",
     "metaTitle": "Tom for Trades — the phone rang six times while you were under the sink; he answered all six | OARC Digital",
-    "metaDescription": "Every call answered while you're on the tools, the WhatsApp photo read and priced, the quote sent tonight, the job booked and confirmed, the review asked for. One AI operator for Malta plumbers, electricians, AC and solar installers, cleaners and maintenance firms.",
+    "metaDescription": "Every call answered while you're on the tools, the WhatsApp photo read and priced, the quote sent tonight, the job booked and confirmed, the review asked for. One Voice AI Worker for Malta plumbers, electricians, AC and solar installers, cleaners and maintenance firms.",
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -1991,7 +1991,7 @@ export const tomBriefPages = [
     "slug": "education",
     "name": "EDUCATION",
     "metaTitle": "Tom for Schools & Training — Sunday arrivals, agents in six countries, parents at 23:00 | OARC Digital",
-    "metaDescription": "Every enquiry from a parent or agent answered in their language and time zone, enrolments completed, accommodation and transfers coordinated, attendance and payments followed up, extensions offered at the right week. One AI operator for Malta English-language schools, private schools, academies and training providers.",
+    "metaDescription": "Every enquiry from a parent or agent answered in their language and time zone, enrolments completed, accommodation and transfers coordinated, attendance and payments followed up, extensions offered at the right week. One Voice AI Worker for Malta English-language schools, private schools, academies and training providers.",
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -2243,7 +2243,7 @@ export const tomBriefPages = [
     "slug": "government",
     "name": "GOVERNMENT & PUBLIC SERVICES",
     "metaTitle": "Tom for Local Councils & Public Bodies — the same five questions, answered in Maltese and English, at 19:00 | OARC Digital",
-    "metaDescription": "Every resident call answered in Maltese or English, the five most common questions handled instantly, every complaint given a reference and a status, every case followed up until closed, an audit trail on everything. One AI operator for Malta local councils, agencies and public-facing bodies.",
+    "metaDescription": "Every resident call answered in Maltese or English, the five most common questions handled instantly, every complaint given a reference and a status, every case followed up until closed, an audit trail on everything. One Voice AI Worker for Malta local councils, agencies and public-facing bodies.",
     "domainBrief": [
       {
         "label": "Who is reading",
