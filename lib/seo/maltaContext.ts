@@ -219,8 +219,22 @@ export const MALTA_CONTEXT: Record<string, MaltaContextEntry> = {
     paragraph:
       "Paola — Rahal Gdid in Maltese — anchors a high-density residential catchment that flows out to Tarxien, Fgura, Marsa, and the Three Cities of Cospicua, Senglea, and Vittoriosa. Total addressable population in that catchment runs to over 60,000 people, comparable to Sliema and St Julian's combined, but most marketing attention in Malta still concentrates on the central tourist corridor, leaving Paola visibly underserved. The local-SEO opportunity here is exceptional — incumbents are mostly under-optimised, paid-search competition is thin, and a properly run Google Business Profile holds the local pack inside a single quarter.",
   },
+  "custom-ai-agents": {
+    towns: ["Sliema", "Valletta"],
+    anchor: "Malta Enterprise",
+    paragraph: "Custom AI agents for Malta businesses need to fit the way work already moves between people, systems, and approvals. A Sliema professional-services firm may need a different agent boundary from a Valletta public-facing organisation, but both benefit from clear permissions, EU-aware data handling, and a human owner for exceptions. We map the real workflow first, then connect the agent to approved tools so it can complete useful work without pretending to replace accountable people. For Malta Enterprise-supported growth, that means a practical system with a documented owner and measurable first mission.",
+  },
+  "conversational-commerce": {
+    towns: ["St Julian's", "Mosta"],
+    anchor: "Malta tourism",
+    paragraph: "Conversational commerce in Malta has to support both the St Julian's visitor economy and the everyday family decisions made around Mosta. A guest comparing restaurants, experiences, or services needs a fast answer on mobile, while a local buyer wants confidence that the recommendation, price, availability, and next step are real. We design the conversational layer around approved catalogue data, booking or basket systems, and a clear handoff when a person should take over. Malta tourism businesses get a faster path from intent to a useful reservation or purchase.",
+  },
+  "ai-employee-service-desk": {
+    towns: ["Birkirkara", "Valletta"],
+    anchor: "GDPR",
+    paragraph: "An AI Concierge for Malta organisations should make everyday support easier without turning sensitive decisions into an opaque automation. Whether the team is distributed from Birkirkara or serves the public from Valletta, the system needs approved knowledge, clear permissions, and a visible escalation path for HR, finance, IT, and customer-facing questions. We design the concierge around the organisation's policies and GDPR responsibilities, so people get a useful next step while accountable teams keep control of the decisions that matter.",
+  },
 };
-
 /** Returns the entry for a slug or null if none defined. Pure helper for the component. */
 export function getMaltaContext(slug: string): MaltaContextEntry | null {
   return MALTA_CONTEXT[slug] ?? null;

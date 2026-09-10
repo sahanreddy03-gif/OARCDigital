@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, type CSSProperties } from "react";
 import { ArrowUpRight, Check, ChevronDown, CircleArrowRight } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 
 export type EditorialService = {
   slug: string;
@@ -107,6 +108,7 @@ export default function OarcEditorialServicePage({ service }: { service: Editori
           </div>
         </section>
 
+        <section className="oe-malta-context section-pad"><MaltaContextBlock slug={service.slug} /></section>
         <section className="oe-faq section-pad">
           <div className="oe-section-label">05 / Plain answers</div>
           <div className="oe-faq-grid"><h2>Questions buyers<br /><em>actually ask.</em></h2><div>

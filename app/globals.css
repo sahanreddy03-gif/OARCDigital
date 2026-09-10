@@ -1446,3 +1446,17 @@
     }
   }
 }
+
+/* OARC specialist AI services / editorial product treatment */
+.oe-hero { background:radial-gradient(circle at 76% 18%,rgba(196,255,77,.13),transparent 30%),linear-gradient(135deg,#0d0f0f,#1a211d); }
+.oe-hero-art { box-shadow:0 1.5rem 5rem rgba(0,0,0,.22); overflow:hidden; }
+.oe-hero-art img { filter:saturate(.9) contrast(1.05); transform:scale(1.03); transition:transform 1.2s cubic-bezier(.2,.75,.2,1),filter 1.2s; }
+.oe-hero-art:hover img { transform:scale(1.08); filter:saturate(1.15) contrast(1.08); }
+.oe-marquee { background:#c4ff4d; color:#0d0f0f; }
+.oe-proof { transition:transform .35s,background .35s; }
+.oe-proof:hover { transform:translateY(-5px); background:rgba(196,255,77,.1); }
+.oe-capability { transition:transform .35s,border-color .35s; }
+.oe-capability:hover { transform:translateX(8px); border-color:#c4ff4d; }
+.oe-related-card { transition:transform .35s,background .35s; }
+.oe-related-card:hover { transform:translateY(-7px); background:rgba(196,255,77,.12); }
+@media (prefers-reduced-motion: reduce) { .oe-hero-art img,.oe-proof,.oe-capability,.oe-related-card { transition:none; } }

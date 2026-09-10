@@ -105,7 +105,7 @@ export default async function IndustryPage({
         path={`/tom/${page.slug}`}
         title={page.metaTitle}
         description={page.metaDescription}
-        serviceType="Tom Voice AI Worker industry configuration"
+        serviceType="Voice AI Worker industry configuration"
         audience={[page.name]}
       />
       <main className="tom-page">
@@ -118,7 +118,7 @@ export default async function IndustryPage({
             />
           </div>
           <div className="tom-wrap">
-            <p className="tom-kicker" style={{ color: "#f5f5f3" }}>TOM / VOICE AI WORKER / CONFIGURED FOR {page.name.toUpperCase()}</p>
+            <p className="tom-kicker" style={{ color: "#f5f5f3" }}>VOICE AI WORKER / CONFIGURED FOR {page.name.toUpperCase()}</p>
             <p className="tom-kicker" style={{ color: "#8fd6ae" }}>{getField(hero, "kicker")}</p>
             <h1 className="tom-display">{getField(hero, "headline")}</h1>
             <p className="tom-lead">{getField(hero, "lead")}</p>
@@ -233,7 +233,7 @@ export default async function IndustryPage({
                 {closeButtons[0] ?? "Start with one problem"} ↗
               </Link>
               <Link className="tom-button" href="/tom#industries">
-                See Tom in another industry ↓
+                See Voice AI Worker in another industry ↓
               </Link>
             </div>
           </div>

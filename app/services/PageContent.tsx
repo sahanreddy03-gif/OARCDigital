@@ -352,7 +352,7 @@ export default function PageContent() {
               <Link href="/tom" className="text-white hover:text-[#c4ff4d]">Voice AI Worker →</Link>
               <Link href="/services/custom-ai-agents" className="text-zinc-400 hover:text-white">Custom AI Agents</Link>
               <Link href="/services/conversational-commerce" className="text-zinc-400 hover:text-white">Conversational Commerce</Link>
-              <Link href="/services/ai-employee-service-desk" className="text-zinc-400 hover:text-white">AI Employee Service Desk</Link>
+              <Link href="/services/ai-employee-service-desk" className="text-zinc-400 hover:text-white">AI Concierge</Link>
             </div>
           </m.div>
 

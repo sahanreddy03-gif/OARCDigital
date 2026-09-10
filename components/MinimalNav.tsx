@@ -65,7 +65,7 @@ const SERVICE_GROUPS: { title: string; href: string; accent: string; items: { na
     items: [
       { name: "Custom AI Agents", href: "/services/custom-ai-agents" },
       { name: "Conversational Commerce", href: "/services/conversational-commerce" },
-      { name: "AI Employee Service Desk", href: "/services/ai-employee-service-desk" },
+      { name: "AI Concierge", href: "/services/ai-employee-service-desk" },
     ],
   },
   {

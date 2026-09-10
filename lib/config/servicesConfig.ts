@@ -207,7 +207,7 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         description: 'AI-assisted product discovery, recommendations, questions, baskets and checkout support'
       },
       {
-        title: 'AI Employee Service Desk',
+        title: 'AI Concierge',
         slug: 'ai-employee-service-desk',
         badge: 'New',
         icon: HeadphonesIcon,

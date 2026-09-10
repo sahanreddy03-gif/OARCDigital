@@ -2070,7 +2070,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
     },
   },
   "ai-employee-service-desk": {
-    title: "AI Employee Service Desk | IT, HR & Finance Support | OARC Digital",
+    title: "AI Concierge for Every Industry | OARC Digital",
     description:
       "OARC creates AI employee service desks for organisations in Malta and beyond, using approved knowledge and permitted actions to resolve everyday IT, HR, and finance requests or hand them to people with context.",
     offers: [],
@@ -2099,7 +2099,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
           "The service desk explains that it needs help and hands the case to a person with the relevant conversation and evidence.",
       },
     ],
-    serviceType: "AI Employee Service Desk",
+    serviceType: "AI Concierge",
     audience: ["Employees", "IT teams", "HR teams", "Finance teams"],
     areaServed: "Malta",
     framework: {

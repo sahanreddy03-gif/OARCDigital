@@ -297,7 +297,7 @@ Auto-generated from lib/seo/topPages.ts + lib/seo/llmsTxtGenerator.ts. The singl
 12. [Data Insights Analyst | AI-Powered Business Intelligence](https://oarcdigital.com/services/ai-data-analyst) — tier service
 13. [Custom AI Agents for Business](https://oarcdigital.com/services/custom-ai-agents) — tier service
 14. [Conversational Commerce AI Shopping Experiences](https://oarcdigital.com/services/conversational-commerce) — tier service
-15. [AI Employee Service Desk | IT, HR & Finance Support](https://oarcdigital.com/services/ai-employee-service-desk) — tier service
+15. [AI Concierge for Every Industry](https://oarcdigital.com/services/ai-employee-service-desk) — tier service
 16. [Custom Software Development | Web Apps & Enterprise Solutions](https://oarcdigital.com/services/custom-software-development) — tier service
 17. [SaaS Product Development & MVPs for Malta Startups](https://oarcdigital.com/services/saas-development) — tier service
 18. [Mobile App Development | iOS & Android](https://oarcdigital.com/services/mobile-apps-development) — tier service
@@ -496,7 +496,7 @@ Value: Conversational shopping experiences that translate a customer's own words
 - Recommendations are designed to explain the product fit or trade-off and are grounded in approved catalogue information and merchandising rules.
 - Conversation is an additional route into discovery and support; shoppers can continue to browse the catalogue normally.
 
-### AI Employee Service Desk
+### AI Concierge for Every Industry
 Canonical: https://oarcdigital.com/services/ai-employee-service-desk
 Value: One employee-support front door that answers from approved knowledge, completes permitted requests, and gives human teams the context behind every escalation.
 - OARC AI employee service desks use approved company knowledge and explicitly defined permissions for each type of IT, HR, or finance request.

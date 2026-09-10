@@ -3,9 +3,9 @@ import type { ReactNode } from "react";
 import { getHreflangAlternates } from "@/lib/seo/discoveryTags";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
-const title = "Start Tom's First Mission | OARC Digital Malta";
+const title = "Start the Voice AI Worker's First Mission | OARC Digital Malta";
 const description =
-  "Tell OARC what keeps falling through the cracks. We will identify Tom's first useful mission and show how he would handle it, in person, in Malta.";
+  "Tell OARC what keeps falling through the cracks. We will identify the Voice AI Worker's first useful mission and show how he would handle it, in person, in Malta.";
 
 export const metadata: Metadata = {
   title,

@@ -5,7 +5,7 @@ export const tomBriefPages = [
   {
     "slug": "hospitality",
     "name": "HOSPITALITY & TRAVEL",
-    "metaTitle": "Tom for Hospitality — every call answered during service | OARC Digital",
+    "metaTitle": "Voice AI Worker for Hospitality — every call answered during service | OARC Digital",
     "metaDescription": "Reservations taken mid-service, no-shows rebooked, German guests answered in German, the floor briefed before doors. One Voice AI Worker for Malta restaurants and hotels, built in person by OARC.",
     "domainBrief": [
       {
@@ -46,7 +46,7 @@ export const tomBriefPages = [
         "number": 1,
         "title": "HERO",
         "fields": {
-          "kicker": "TOM · HOSPITALITY & TRAVEL",
+          "kicker": "VOICE AI WORKER · HOSPITALITY & TRAVEL",
           "headline": "The phone rings at 20:15. Now someone answers it.",
           "lead": "He takes the reservation while your team is mid-service, offers the window table because he remembers they asked for it last time, answers the German guest in German, rebooks Friday's no-show for Tuesday — and leaves the floor a briefing before doors. Every call. Every hour. Every language your guests arrive in.",
           "buttons": "[Give him one job] [Hear him take a booking]"
@@ -131,7 +131,7 @@ export const tomBriefPages = [
         "title": "ONE REAL MOMENT FROM HIS SHIFT",
         "fields": {
           "headline": "One call, mid-service, in German.",
-          "caption above": "Labelled simulation. This is the demo we run on your diary during the first visit. Left panel — THE VOICE · WHAT THE GUEST HEARS > 22:41 — Incoming · +49 ··· · service still running > \"Guten Abend, Trattoria — Sie sprechen mit Tom.\" > Guest: \"Ein Tisch für vier am Freitag — geht das noch?\" > \"Zwanzig Uhr ist frei. Fensterplatz wie beim letzten Mal, Herr Weber?\" > Guest: \"Ja, perfekt.\" > \"Gebucht. Sie bekommen gleich eine Bestätigung. Bis Freitag.\" Right panel — THE WORK · SAME SECOND · BEHIND > 22:41:08 RESDIARY ▸ Fri 20:00 · table 12 · 4 · Weber · CONFIRMED > 22:41:09 SMS ▸ confirmation sent · DE > 22:41:11 GUEST NOTE ▸ Weber — 4th visit · window · anniversary 14 Oct — flagged for offer > 22:41:12 KITCHEN ▸ Fri covers 62 → 66 · brief updated > 22:41:14 QUEUE ▸ Tue no-show (Camilleri, 6) → rebooking call 10:00 tomorrow > 22:41:15 OWNER ▸ morning call, item 3: Friday now 66 covers — call in extra runner?",
+          "caption above": "Labelled simulation. This is the demo we run on your diary during the first visit. Left panel — THE VOICE · WHAT THE GUEST HEARS > 22:41 — Incoming · +49 ··· · service still running > \"Guten Abend, Trattoria — Sie sprechen mit Voice AI Worker.\" > Guest: \"Ein Tisch für vier am Freitag — geht das noch?\" > \"Zwanzig Uhr ist frei. Fensterplatz wie beim letzten Mal, Herr Weber?\" > Guest: \"Ja, perfekt.\" > \"Gebucht. Sie bekommen gleich eine Bestätigung. Bis Freitag.\" Right panel — THE WORK · SAME SECOND · BEHIND > 22:41:08 RESDIARY ▸ Fri 20:00 · table 12 · 4 · Weber · CONFIRMED > 22:41:09 SMS ▸ confirmation sent · DE > 22:41:11 GUEST NOTE ▸ Weber — 4th visit · window · anniversary 14 Oct — flagged for offer > 22:41:12 KITCHEN ▸ Fri covers 62 → 66 · brief updated > 22:41:14 QUEUE ▸ Tue no-show (Camilleri, 6) → rebooking call 10:00 tomorrow > 22:41:15 OWNER ▸ morning call, item 3: Friday now 66 covers — call in extra runner?",
           "caption below": "Twenty-four seconds. The guest heard a host who remembered him. The diary, the kitchen, the anniversary list and tomorrow's call list were all updated before he hung up."
         },
         "list": [],
@@ -256,7 +256,7 @@ export const tomBriefPages = [
   {
     "slug": "sales",
     "name": "SALES TEAMS",
-    "metaTitle": "Tom for Sales — the lead called in 40 seconds, the quote chased until it answers | OARC Digital",
+    "metaTitle": "Voice AI Worker for Sales — the lead called in 40 seconds, the quote chased until it answers | OARC Digital",
     "metaDescription": "Every enquiry called within a minute, quotes sent mid-call, seven follow-ups that never sound like the seventh, a CRM that is finally true. One Voice AI Worker for Malta B2B and B2C sales teams.",
     "domainBrief": [
       {
@@ -293,7 +293,7 @@ export const tomBriefPages = [
         "number": 1,
         "title": "HERO",
         "fields": {
-          "kicker": "TOM · SALES TEAMS",
+          "kicker": "VOICE AI WORKER · SALES TEAMS",
           "headline": "The form was submitted at 19:42. The phone rang at 19:42.",
           "lead": "Speed-to-lead is the whole game, and it is lost overnight. He calls the new enquiry while your competitor's is still in an inbox, qualifies it like a good rep would — budget, timeline, who decides — sends the quote during the call, books your closer's diary, and then follows up seven times without ever sounding like the seventh time. Your CRM becomes true because he is the one writing it.",
           "buttons": "[Give him one job] [Watch the 40-second call]"
@@ -503,7 +503,7 @@ export const tomBriefPages = [
   {
     "slug": "healthcare",
     "name": "HEALTHCARE & CLINICS",
-    "metaTitle": "Tom for Clinics — the 08:00 phone queue, gone | OARC Digital",
+    "metaTitle": "Voice AI Worker for Clinics — the 08:00 phone queue, gone | OARC Digital",
     "metaDescription": "Every appointment call answered, cancelled slots refilled from the waitlist within minutes, six-month recalls actually called, anxious patients handled with care and handed to a nurse when it matters. One Voice AI Worker for Malta private clinics.",
     "domainBrief": [
       {
@@ -540,7 +540,7 @@ export const tomBriefPages = [
         "number": 1,
         "title": "HERO",
         "fields": {
-          "kicker": "TOM · HEALTHCARE & CLINICS",
+          "kicker": "VOICE AI WORKER · HEALTHCARE & CLINICS",
           "headline": "The 08:00 phone queue is gone. The 15:00 chair is full.",
           "lead": "He answers every call the second it rings — books, moves, reminds, explains what the insurance covers — and when a slot opens he is already ringing the waitlist. The recall list gets called, not texted. The frightened 07:58 caller gets calm, and then gets a nurse. Your reception team looks up from the phone and sees the patient standing in front of them.",
           "buttons": "[Give him one job] [Hear him refill a slot]"
@@ -750,7 +750,7 @@ export const tomBriefPages = [
   {
     "slug": "finance-insurance",
     "name": "FINANCE & INSURANCE",
-    "metaTitle": "Tom for Brokers, Accountants & CSPs — the renewal called, the documents in | OARC Digital",
+    "metaTitle": "Voice AI Worker for Brokers, Accountants & CSPs — the renewal called, the documents in | OARC Digital",
     "metaDescription": "Renewals called before they lapse, claims taken at first notification, KYC and VAT documents chased until they arrive, every call within the compliance line. One Voice AI Worker for Malta insurance brokers, accountancy practices and corporate-service providers.",
     "domainBrief": [
       {
@@ -787,7 +787,7 @@ export const tomBriefPages = [
         "number": 1,
         "title": "HERO",
         "fields": {
-          "kicker": "TOM · FINANCE & INSURANCE",
+          "kicker": "VOICE AI WORKER · FINANCE & INSURANCE",
           "headline": "The renewal was called before it lapsed. The documents arrived before the deadline.",
           "lead": "He rings every renewal that hasn't answered, takes the claim at 18:20 on a Friday with every detail the handler needs, and chases the certified passport copy, the utility bill, and the Q3 invoices until they are in your DMS — politely, repeatedly, in the client's language — without ever stepping over the line your licence draws. Your team stops chasing and starts advising.",
           "buttons": "[Give him one job] [Hear him take an FNOL call]"
@@ -997,7 +997,7 @@ export const tomBriefPages = [
   {
     "slug": "real-estate",
     "name": "REAL ESTATE",
-    "metaTitle": "Tom for Real Estate — 40 enquiries on the Gżira flat, all answered in 60 seconds | OARC Digital",
+    "metaTitle": "Voice AI Worker for Real Estate — 40 enquiries on the Gżira flat, all answered in 60 seconds | OARC Digital",
     "metaDescription": "Every portal enquiry answered in a minute, viewings booked and confirmed, no-shows chased, landlords updated before they ask, tenant documents collected. One Voice AI Worker for Malta letting and sales agencies.",
     "domainBrief": [
       {
@@ -1034,7 +1034,7 @@ export const tomBriefPages = [
         "number": 1,
         "title": "HERO",
         "fields": {
-          "kicker": "TOM · REAL ESTATE",
+          "kicker": "VOICE AI WORKER · REAL ESTATE",
           "headline": "Forty enquiries on the Gżira flat. Forty answered. Twelve viewings booked. Landlord already told.",
           "lead": "He answers every portal enquiry, WhatsApp and voice note within a minute — in the tenant's language — asks the three questions that separate a real tenant from a tourist, books the viewing into the right agent's diary, confirms it by voice the morning of, chases the no-show, collects the documents, and updates the landlord before the landlord rings you. Your agents spend their day at viewings, not on their phones.",
           "buttons": "[Give him one job] [Hear him book a viewing in Italian]"
@@ -1244,7 +1244,7 @@ export const tomBriefPages = [
   {
     "slug": "legal",
     "name": "LEGAL",
-    "metaTitle": "Tom for Law Firms & Notaries — \"any update?\" answered without a lawyer | OARC Digital",
+    "metaTitle": "Voice AI Worker for Law Firms & Notaries — \"any update?\" answered without a lawyer | OARC Digital",
     "metaDescription": "Intake taken in full, conflict pre-check run, client status updates answered from the file, documents chased, konvenju and court dates watched. One Voice AI Worker for Malta law firms and notarial practices — never legal advice.",
     "domainBrief": [
       {
@@ -1281,7 +1281,7 @@ export const tomBriefPages = [
         "number": 1,
         "title": "HERO",
         "fields": {
-          "kicker": "TOM · LEGAL",
+          "kicker": "VOICE AI WORKER · LEGAL",
           "headline": "\"Any update on my case?\" — answered from the file, not from a lawyer's afternoon.",
           "lead": "He takes the new enquiry in full and runs the conflict pre-check before a lawyer spends a minute on it. He answers every \"any update?\" from the matter file — what's happened, what's next, what the client still owes you — and chases the bank, the other notary, the police-conduct certificate and the client's documents until the deadline is safe. He never gives legal advice. He gives your lawyers their hours back.",
           "buttons": "[Give him one job] [Hear him take an intake call]"
@@ -1491,7 +1491,7 @@ export const tomBriefPages = [
   {
     "slug": "logistics",
     "name": "LOGISTICS",
-    "metaTitle": "Tom for Freight & Logistics — the ferry was cancelled; your clients heard it from you first | OARC Digital",
+    "metaTitle": "Voice AI Worker for Freight & Logistics — the ferry was cancelled; your clients heard it from you first | OARC Digital",
     "metaDescription": "Every \"where is my shipment?\" answered from the system, exceptions pushed to clients before they ring, customs documents chased, quotes out in minutes, drivers briefed in Italian. One Voice AI Worker for Malta forwarders, customs brokers and couriers.",
     "domainBrief": [
       {
@@ -1528,7 +1528,7 @@ export const tomBriefPages = [
         "number": 1,
         "title": "HERO",
         "fields": {
-          "kicker": "TOM · LOGISTICS",
+          "kicker": "VOICE AI WORKER · LOGISTICS",
           "headline": "The ferry was cancelled at 06:10. Thirty clients knew by 06:25 — from you.",
           "lead": "He reads the exception the moment it happens — the ferry, the customs hold, the missing invoice line — and tells every affected client what it means for their shipment before they ring. He answers \"where is it?\" from the TMS in seconds, chases the document that's holding the container, quotes from your tariff in minutes, and briefs the Sicilian haulier in Italian. Your ops team gets its mornings back for the quay.",
           "buttons": "[Give him one job] [Hear him handle a ferry cancellation]"
@@ -1738,7 +1738,7 @@ export const tomBriefPages = [
   {
     "slug": "home-services",
     "name": "HOME SERVICES",
-    "metaTitle": "Tom for Trades — the phone rang six times while you were under the sink; he answered all six | OARC Digital",
+    "metaTitle": "Voice AI Worker for Trades — the phone rang six times while you were under the sink; he answered all six | OARC Digital",
     "metaDescription": "Every call answered while you're on the tools, the WhatsApp photo read and priced, the quote sent tonight, the job booked and confirmed, the review asked for. One Voice AI Worker for Malta plumbers, electricians, AC and solar installers, cleaners and maintenance firms.",
     "domainBrief": [
       {
@@ -1775,7 +1775,7 @@ export const tomBriefPages = [
         "number": 1,
         "title": "HERO",
         "fields": {
-          "kicker": "TOM · HOME SERVICES",
+          "kicker": "VOICE AI WORKER · HOME SERVICES",
           "headline": "You were under the sink. The phone rang six times. He answered all six.",
           "lead": "He answers every call while you're on the tools — reads the WhatsApp photo of the leaking joint, tells the customer what's likely and what it usually costs from your price list, books the visit into a gap in your diary with the drive time in, sends the quote tonight, confirms the customer is home tomorrow, orders the part, and asks for the review after. You finish the job. He finds the next three.",
           "buttons": "[Give him one job] [Hear him price a WhatsApp photo]"
@@ -1990,7 +1990,7 @@ export const tomBriefPages = [
   {
     "slug": "education",
     "name": "EDUCATION",
-    "metaTitle": "Tom for Schools & Training — Sunday arrivals, agents in six countries, parents at 23:00 | OARC Digital",
+    "metaTitle": "Voice AI Worker for Schools & Training — Sunday arrivals, agents in six countries, parents at 23:00 | OARC Digital",
     "metaDescription": "Every enquiry from a parent or agent answered in their language and time zone, enrolments completed, accommodation and transfers coordinated, attendance and payments followed up, extensions offered at the right week. One Voice AI Worker for Malta English-language schools, private schools, academies and training providers.",
     "domainBrief": [
       {
@@ -2027,7 +2027,7 @@ export const tomBriefPages = [
         "number": 1,
         "title": "HERO",
         "fields": {
-          "kicker": "TOM · EDUCATION",
+          "kicker": "VOICE AI WORKER · EDUCATION",
           "headline": "Forty students landing on a Sunday. Every transfer confirmed. Every parent answered. The host family replaced by 16:20.",
           "lead": "He answers the agent in Milan and the parent in Lyon in their language and their time zone, completes the enrolment, issues the visa letter, confirms the transfer with the driver, replaces the host family before the flight lands, and tells the mother her daughter is in the taxi. Then, on Wednesday, he asks the students finishing Friday whether they'd like two more weeks. Your Sunday becomes a Sunday.",
           "buttons": "[Give him one job] [Hear him handle a Sunday arrival]"
@@ -2242,7 +2242,7 @@ export const tomBriefPages = [
   {
     "slug": "government",
     "name": "GOVERNMENT & PUBLIC SERVICES",
-    "metaTitle": "Tom for Local Councils & Public Bodies — the same five questions, answered in Maltese and English, at 19:00 | OARC Digital",
+    "metaTitle": "Voice AI Worker for Local Councils & Public Bodies — the same five questions, answered in Maltese and English, at 19:00 | OARC Digital",
     "metaDescription": "Every resident call answered in Maltese or English, the five most common questions handled instantly, every complaint given a reference and a status, every case followed up until closed, an audit trail on everything. One Voice AI Worker for Malta local councils, agencies and public-facing bodies.",
     "domainBrief": [
       {
@@ -2279,7 +2279,7 @@ export const tomBriefPages = [
         "number": 1,
         "title": "HERO",
         "fields": {
-          "kicker": "TOM · GOVERNMENT & PUBLIC SERVICES",
+          "kicker": "VOICE AI WORKER · GOVERNMENT & PUBLIC SERVICES",
           "headline": "The same five questions, answered in Maltese and English, at 19:00 — with a reference number every time.",
           "lead": "He answers every resident who calls — which bag tonight, when is bulky collection, is the road closed, how to book the hall, how to get the permit — in their language, at any hour. He takes every complaint, gives it a reference, tells the resident what happens next, follows the contractor until it's fixed, and calls the resident back to say so. Your clerks do the case work. The Facebook thread never starts.",
           "buttons": "[Give him one job] [Hear him take a complaint in Maltese]"
