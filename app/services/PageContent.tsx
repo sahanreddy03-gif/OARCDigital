@@ -266,7 +266,7 @@ export default function PageContent() {
             transition={{ duration: 0.8, delay: 1 }}
             className="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-white/70"
           >
-            <Link href="/tom" className="hover:text-[#c4ff4d]">Voice AI Worker →</Link>
+            <Link href="/voice-ai-worker" className="hover:text-[#c4ff4d]">Voice AI Worker →</Link>
             <a href="#specialist-ai" className="hover:text-white">3 standalone specialist AI services ↓</a>
           </m.div>
         </m.div>
@@ -349,7 +349,7 @@ export default function PageContent() {
               Choose the type of help you need. Voice AI Worker is configured for ten industries; our specialist AI services solve three specific business, shopping, and employee-support needs.
             </p>
             <div id="specialist-ai" className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
-              <Link href="/tom" className="text-white hover:text-[#c4ff4d]">Voice AI Worker →</Link>
+              <Link href="/voice-ai-worker" className="text-white hover:text-[#c4ff4d]">Voice AI Worker →</Link>
               <Link href="/services/custom-ai-agents" className="text-zinc-400 hover:text-white">Custom AI Agents</Link>
               <Link href="/services/conversational-commerce" className="text-zinc-400 hover:text-white">Conversational Commerce</Link>
               <Link href="/services/ai-employee-service-desk" className="text-zinc-400 hover:text-white">AI Concierge</Link>

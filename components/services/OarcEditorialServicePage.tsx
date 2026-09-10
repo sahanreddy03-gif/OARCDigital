@@ -43,7 +43,7 @@ export default function OarcEditorialServicePage({ service }: { service: Editori
               <a href="#how-it-works" className="oe-text-link">See what it changes <CircleArrowRight size={18} /></a>
             </div>
             <p className="oe-note">Built around your existing tools, permissions and review process.</p>
-            <p className="oe-note">A standalone OARC service. Looking for a managed Voice AI Worker configured for your industry? <Link href="/tom">Voice AI Worker →</Link></p>
+            <p className="oe-note">A standalone OARC service. Looking for a managed Voice AI Worker configured for your industry? <Link href="/voice-ai-worker">Voice AI Worker →</Link></p>
           </div>
           <div className="oe-hero-art">
             <Image src={service.image} alt={service.imageAlt} fill priority sizes="(max-width: 767px) 100vw, 48vw" />
