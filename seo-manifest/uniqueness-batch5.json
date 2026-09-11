@@ -1,0 +1,2720 @@
+{
+  "schemaVersion": 1,
+  "batch": 5,
+  "lockedAt": "2026-09-11",
+  "goal": "Owner Hero Gates uniqueness batch5 — final 50 remaining Malta×AI matrix paths after batch1–4 (viaOverlay→250)",
+  "count": 50,
+  "paths": [
+    "/malta/gzira/real-estate/ai-consulting",
+    "/malta/gzira/fintech/ai-consulting",
+    "/malta/swieqi/restaurant/ai-consulting",
+    "/malta/swieqi/hotel/ai-consulting",
+    "/malta/swieqi/cafe/ai-consulting",
+    "/malta/swieqi/bar/ai-consulting",
+    "/malta/swieqi/spa-wellness/ai-consulting",
+    "/malta/swieqi/gym-fitness/ai-consulting",
+    "/malta/swieqi/retail/ai-consulting",
+    "/malta/swieqi/real-estate/ai-consulting",
+    "/malta/swieqi/fintech/ai-consulting",
+    "/malta/mellieha/restaurant/ai-consulting",
+    "/malta/mellieha/hotel/ai-consulting",
+    "/malta/mellieha/cafe/ai-consulting",
+    "/malta/mellieha/bar/ai-consulting",
+    "/malta/mellieha/spa-wellness/ai-consulting",
+    "/malta/mellieha/gym-fitness/ai-consulting",
+    "/malta/mellieha/retail/ai-consulting",
+    "/malta/mellieha/real-estate/ai-consulting",
+    "/malta/mellieha/fintech/ai-consulting",
+    "/malta/mosta/healthcare/ai-consulting",
+    "/malta/mosta/ecommerce/ai-consulting",
+    "/malta/mosta/law-firm/ai-consulting",
+    "/malta/mosta/car-dealership/ai-consulting",
+    "/malta/mosta/construction/ai-consulting",
+    "/malta/qormi/healthcare/ai-consulting",
+    "/malta/qormi/ecommerce/ai-consulting",
+    "/malta/qormi/law-firm/ai-consulting",
+    "/malta/qormi/car-dealership/ai-consulting",
+    "/malta/qormi/construction/ai-consulting",
+    "/malta/msida/healthcare/ai-consulting",
+    "/malta/msida/ecommerce/ai-consulting",
+    "/malta/msida/law-firm/ai-consulting",
+    "/malta/msida/car-dealership/ai-consulting",
+    "/malta/msida/construction/ai-consulting",
+    "/malta/gzira/healthcare/ai-consulting",
+    "/malta/gzira/ecommerce/ai-consulting",
+    "/malta/gzira/law-firm/ai-consulting",
+    "/malta/gzira/car-dealership/ai-consulting",
+    "/malta/gzira/construction/ai-consulting",
+    "/malta/swieqi/healthcare/ai-consulting",
+    "/malta/swieqi/ecommerce/ai-consulting",
+    "/malta/swieqi/law-firm/ai-consulting",
+    "/malta/swieqi/car-dealership/ai-consulting",
+    "/malta/swieqi/construction/ai-consulting",
+    "/malta/zabbar/healthcare/ai-consulting",
+    "/malta/zabbar/ecommerce/ai-consulting",
+    "/malta/zabbar/law-firm/ai-consulting",
+    "/malta/zabbar/car-dealership/ai-consulting",
+    "/malta/zabbar/construction/ai-consulting"
+  ],
+  "entries": {
+    "/malta/gzira/real-estate/ai-consulting": {
+      "title": "AI Consulting for Gżira Real Estate | Manoel Viewing Triage | OARC Digital",
+      "description": "AI consulting for Gżira real estate — qualify viewing requests without losing serious buyers around Gżira Promenade and Manoel Island. No invented performance stats.",
+      "h1": "AI consulting for Gżira real estate that qualify viewing requests without losing serious buyers",
+      "hero1Intro": "Gżira real estate operate in the seafront expat-density strip between Sliema and Ta' Xbiex, beside Manoel Island, anchored by Gżira Promenade and Manoel Island. AI should make or save money via viewing triage and listing FAQ that protects agent time — not by stuffing \"Gżira real-estate\" keywords into generic EU copy. Serve Sliema and Ta' Xbiex walkers with logistics you actually support.",
+      "hero2": {
+        "heading": "Buyers and tenants who return when a matching listing appears",
+        "body": "Alert when a buyer's saved brief matches a new listing you publish — agent approval before send."
+      },
+      "challenge": "High enquiry volume includes many tire-kickers; invented yields destroy trust. Around Gżira Promenade and Manoel Island, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Qualify budget, timeline, and area first; pricing stays human.",
+      "regulationNote": "Property advertising rules and accurate listing facts apply. AI must not invent square metres, permits, or prices.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a estate agency in Gżira?",
+          "a": "Typical first builds: viewing triage and listing FAQ that protects agent time, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Gżira-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Gżira teams?",
+          "a": "On-site in Gżira when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for real-estate work connected to gzira?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/gzira",
+          "label": "Gżira hub"
+        }
+      ]
+    },
+    "/malta/gzira/fintech/ai-consulting": {
+      "title": "AI Consulting for Gżira Fintech Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for fintech professionals and satellite teams connected to Gżira — careful internal AI with OARC in Birkirkara. Honest geography: seafront residential with iGaming-adjacent offices — still no invented HQ claims.",
+      "h1": "AI consulting for fintech work tied to Gżira — without inventing a local payments campus",
+      "hero1Intro": "Gżira is the seafront expat-density strip between Sliema and Ta' Xbiex, beside Manoel Island. Licensed fintech floors denser around Sliema, St Julian's, and Birkirkara CBD. Real connections here are professionals living locally, small satellite pods, and vendors near Gżira Promenade and Manoel Island. AI should cut analyst busywork without inventing ROI claims — never a fake \"Gżira fintech district\" pitch.",
+      "hero2": {
+        "heading": "Return loops on long B2B evaluations",
+        "body": "Evaluation cycles stall across weeks. We log touchpoints into CRM you already use and draft follow-ups from approved fact sheets — human send only."
+      },
+      "challenge": "Keyword pages that invent a local fintech campus get ignored by serious buyers. Seafront residential with iGaming-adjacent offices — still no invented HQ claims.",
+      "opportunity": "Scope for professionals, satellite pods, and vendors who are actually present — say which.",
+      "regulationNote": "MFSA and IDPC constraints apply. Lawful basis and retention must be explicit before any customer-data feature. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "Is Gżira an MFSA fintech campus?",
+          "a": "No. Gżira is seafront residential with iGaming-adjacent offices — still no invented HQ claims. We scope for professionals, satellite teams, and vendors who actually work from here — not a fictional HQ district."
+        },
+        {
+          "q": "Do you invent Gżira-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Gżira teams?",
+          "a": "On-site in Gżira when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for fintech work connected to gzira?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/gzira",
+          "label": "Gżira hub"
+        }
+      ]
+    },
+    "/malta/swieqi/restaurant/ai-consulting": {
+      "title": "AI Consulting for Swieqi Restaurants | Ibraġ Cover Ops | OARC Digital",
+      "description": "AI consulting for Swieqi restaurant — protect covers and cut no-show waste around Triq is-Swieqi and the Tal-Ibraġ residential belt. No invented performance stats.",
+      "h1": "AI consulting for Swieqi restaurant that protect covers and cut no-show waste",
+      "hero1Intro": "Swieqi restaurant operate in a quieter upmarket residential town next to St Julian's, including Tal-Ibraġ, anchored by Triq is-Swieqi and the Tal-Ibraġ residential belt. AI should make or save money via booking DM clearance and no-show reminders you approve — not by stuffing \"Swieqi restaurant\" keywords into generic EU copy. Serve St Julian's and Pembroke neighbours with logistics you actually support.",
+      "hero2": {
+        "heading": "How regulars return after feast week and quiet midweeks",
+        "body": "Permission-based notes for feast-day hours and weekday specials you already run — no fake scarcity timers."
+      },
+      "challenge": "Feast surges and quiet midweeks need different seating rules. Around Triq is-Swieqi and the Tal-Ibraġ residential belt, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Honest seating states; human host for large tables and VIPs.",
+      "regulationNote": "Allergen accuracy and published opening hours remain mandatory in any automated reply. Do not invent wait times.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a restaurant in Swieqi?",
+          "a": "Typical first builds: booking DM clearance and no-show reminders you approve, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Swieqi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Swieqi teams?",
+          "a": "On-site in Swieqi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for restaurant work connected to swieqi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/swieqi",
+          "label": "Swieqi hub"
+        }
+      ]
+    },
+    "/malta/swieqi/hotel/ai-consulting": {
+      "title": "AI Consulting for Swieqi Hotels | Ibraġ Direct Enquiry Ops | OARC Digital",
+      "description": "AI consulting for Swieqi hotels and guesthouses — catch direct enquiries before they bounce to OTAs around Triq is-Swieqi and the Tal-Ibraġ residential belt. No invented occupancy stats.",
+      "h1": "AI consulting for Swieqi hotel that describe location accurately",
+      "hero1Intro": "Swieqi stays sit in a quieter upmarket residential town next to St Julian's, including Tal-Ibraġ. Guests comparing options near Triq is-Swieqi and the Tal-Ibraġ residential belt punish inaccurate copy. AI should catch direct enquiries and answer arrival logistics from your approved house FAQ — not invent amenities for limited boutique and short-stay stock serving St Julian's overflow. Serve St Julian's and Pembroke neighbours with logistics you actually support.",
+      "hero2": {
+        "heading": "Return stays after the first night in town",
+        "body": "Post-stay sequences you approve that point to your direct rate page — house FAQ only, no invented shuttle partnerships."
+      },
+      "challenge": "Unsupervised bots that invent transfer times create chargebacks. Inventing amenities you do not offer destroys trust. Inventing seafront or capital claims that do not match Swieqi destroys trust.",
+      "opportunity": "Connect AI to your approved FAQ; human path for rate exceptions. Be precise about Swieqi.",
+      "regulationNote": "Tourism and consumer-protection rules apply to automated hotel answers. Rates and cancellation terms must match your booking engine.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a hotel in Swieqi?",
+          "a": "Typical first builds: direct-enquiry handling and house FAQ automation, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Swieqi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Swieqi teams?",
+          "a": "On-site in Swieqi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for hotel work connected to swieqi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/swieqi",
+          "label": "Swieqi hub"
+        }
+      ]
+    },
+    "/malta/swieqi/cafe/ai-consulting": {
+      "title": "AI Consulting for Swieqi Cafés | Ibraġ Rush Ops | OARC Digital",
+      "description": "AI consulting for Swieqi café — keep the rush moving without lost takeaway orders around Triq is-Swieqi and the Tal-Ibraġ residential belt. No invented performance stats.",
+      "h1": "AI consulting for Swieqi café that keep the rush moving without lost takeaway orders",
+      "hero1Intro": "Swieqi café operate in a quieter upmarket residential town next to St Julian's, including Tal-Ibraġ, anchored by Triq is-Swieqi and the Tal-Ibraġ residential belt. AI should make or save money via takeaway intake and allergen FAQ that calm the counter — not by stuffing \"Swieqi cafe\" keywords into generic EU copy. Serve St Julian's and Pembroke neighbours with logistics you actually support.",
+      "hero2": {
+        "heading": "Weekday regulars who return for the same order",
+        "body": "Saved-order shortcuts for weekday regulars who opt in — never purchased spam lists."
+      },
+      "challenge": "Sold-out cases and tourist questions collide with regulars' usuals. Around Triq is-Swieqi and the Tal-Ibraġ residential belt, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Sold-out toggles your team controls; human catering quotes.",
+      "regulationNote": "Allergen and opening-hour accuracy still apply to café automation.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a café in Swieqi?",
+          "a": "Typical first builds: takeaway intake and allergen FAQ that calm the counter, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Swieqi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Swieqi teams?",
+          "a": "On-site in Swieqi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for cafe work connected to swieqi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/swieqi",
+          "label": "Swieqi hub"
+        }
+      ]
+    },
+    "/malta/swieqi/bar/ai-consulting": {
+      "title": "AI Consulting for Swieqi Bars | Ibraġ Hire Ops | OARC Digital",
+      "description": "AI consulting for Swieqi bar — fill midweek tables without spammy guest lists around Triq is-Swieqi and the Tal-Ibraġ residential belt. No invented performance stats.",
+      "h1": "AI consulting for Swieqi bar that fill midweek tables without spammy guest lists",
+      "hero1Intro": "Swieqi bar operate in a quieter upmarket residential town next to St Julian's, including Tal-Ibraġ, anchored by Triq is-Swieqi and the Tal-Ibraġ residential belt. AI should make or save money via event RSVP intake and private-hire FAQ — not by stuffing \"Swieqi bar\" keywords into generic EU copy. Serve St Julian's and Pembroke neighbours with logistics you actually support.",
+      "hero2": {
+        "heading": "Guests who come back for the next live night",
+        "body": "Opt-in reminders for the next live night or feast-week hours. No scraped guest lists."
+      },
+      "challenge": "Paceville-style club automation tone fails local regulars. Around Triq is-Swieqi and the Tal-Ibraġ residential belt, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Keep door and age decisions human; automate logistics only.",
+      "regulationNote": "Responsible-service messaging and age checks stay human-owned. Automated promos must match what you actually run.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a bar in Swieqi?",
+          "a": "Typical first builds: event RSVP intake and private-hire FAQ, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Swieqi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Swieqi teams?",
+          "a": "On-site in Swieqi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for bar work connected to swieqi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/swieqi",
+          "label": "Swieqi hub"
+        }
+      ]
+    },
+    "/malta/swieqi/spa-wellness/ai-consulting": {
+      "title": "AI Consulting for Swieqi Spa & Wellness | Ibraġ Chair Ops | OARC Digital",
+      "description": "AI consulting for Swieqi spa & wellness — fill treatment chairs and cut no-show gaps around Triq is-Swieqi and the Tal-Ibraġ residential belt. No invented performance stats.",
+      "h1": "AI consulting for Swieqi spa & wellness that fill treatment chairs and cut no-show gaps",
+      "hero1Intro": "Swieqi spa & wellness operate in a quieter upmarket residential town next to St Julian's, including Tal-Ibraġ, anchored by Triq is-Swieqi and the Tal-Ibraġ residential belt. AI should make or save money via booking recovery and treatment FAQ automation — not by stuffing \"Swieqi spa\" keywords into generic EU copy. Serve St Julian's and Pembroke neighbours with logistics you actually support.",
+      "hero2": {
+        "heading": "How clients rebook the next treatment",
+        "body": "Rebook nudges timed to your real treatment cycles, with easy human handoff for first-time clients."
+      },
+      "challenge": "Inboxes fill with duration and price loops while therapists are with clients. Around Triq is-Swieqi and the Tal-Ibraġ residential belt, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Lock FAQ to your current menu; escalate medical-adjacent questions every time.",
+      "regulationNote": "Health and wellness claims in automated copy must stay within what your therapists are licensed to say.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a spa or wellness studio in Swieqi?",
+          "a": "Typical first builds: booking recovery and treatment FAQ automation, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Swieqi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Swieqi teams?",
+          "a": "On-site in Swieqi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for spa work connected to swieqi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/swieqi",
+          "label": "Swieqi hub"
+        }
+      ]
+    },
+    "/malta/swieqi/gym-fitness/ai-consulting": {
+      "title": "AI Consulting for Swieqi Gyms & Fitness | Ibraġ Trial Ops | OARC Digital",
+      "description": "AI consulting for Swieqi gyms & fitness — convert trial enquiries and reduce membership admin around Triq is-Swieqi and the Tal-Ibraġ residential belt. No invented performance stats.",
+      "h1": "AI consulting for Swieqi gyms & fitness that convert trial enquiries and reduce membership admin",
+      "hero1Intro": "Swieqi gyms & fitness operate in a quieter upmarket residential town next to St Julian's, including Tal-Ibraġ, anchored by Triq is-Swieqi and the Tal-Ibraġ residential belt. AI should make or save money via trial-class intake and membership FAQ that frees the desk — not by stuffing \"Swieqi gym\" keywords into generic EU copy. Serve St Julian's and Pembroke neighbours with logistics you actually support.",
+      "hero2": {
+        "heading": "Lapsed members who return for a restart offer you already approve",
+        "body": "Restart offers you already approve for lapsed members who opt in — no invented transformation stories."
+      },
+      "challenge": "Local competition means spammy automation burns reputation fast. Around Triq is-Swieqi and the Tal-Ibraġ residential belt, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "AI for logistics; humans for coaching package sales.",
+      "regulationNote": "Fitness marketing claims must stay honest. Do not invent transformation percentages.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a gym or fitness studio in Swieqi?",
+          "a": "Typical first builds: trial-class intake and membership FAQ that frees the desk, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Swieqi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Swieqi teams?",
+          "a": "On-site in Swieqi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for gym work connected to swieqi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/swieqi",
+          "label": "Swieqi hub"
+        }
+      ]
+    },
+    "/malta/swieqi/retail/ai-consulting": {
+      "title": "AI Consulting for Swieqi Retail | Ibraġ FAQ Ops | OARC Digital",
+      "description": "AI consulting for Swieqi retail — answer stock questions without burning counter staff around Triq is-Swieqi and the Tal-Ibraġ residential belt. No invented performance stats.",
+      "h1": "AI consulting for Swieqi retail that answer stock questions without burning counter staff",
+      "hero1Intro": "Swieqi retail operate in a quieter upmarket residential town next to St Julian's, including Tal-Ibraġ, anchored by Triq is-Swieqi and the Tal-Ibraġ residential belt. AI should make or save money via stock and opening FAQ plus click-and-collect intake — not by stuffing \"Swieqi retail\" keywords into generic EU copy. Serve St Julian's and Pembroke neighbours with logistics you actually support.",
+      "hero2": {
+        "heading": "Shoppers who return when the item is back in stock",
+        "body": "Back-in-stock notes for shoppers who asked — never purchased remarketing lists dressed as AI."
+      },
+      "challenge": "Hours change for feast weeks and events; stale bots create angry walk-ins. Around Triq is-Swieqi and the Tal-Ibraġ residential belt, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Single source of truth for hours; human path for special orders.",
+      "regulationNote": "Price and availability answers must match your till or e-commerce — never invent stock.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a retail shop in Swieqi?",
+          "a": "Typical first builds: stock and opening FAQ plus click-and-collect intake, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Swieqi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Swieqi teams?",
+          "a": "On-site in Swieqi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for retail work connected to swieqi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/swieqi",
+          "label": "Swieqi hub"
+        }
+      ]
+    },
+    "/malta/swieqi/real-estate/ai-consulting": {
+      "title": "AI Consulting for Swieqi Real Estate | Ibraġ Viewing Triage | OARC Digital",
+      "description": "AI consulting for Swieqi real estate — qualify viewing requests without losing serious buyers around Triq is-Swieqi and the Tal-Ibraġ residential belt. No invented performance stats.",
+      "h1": "AI consulting for Swieqi real estate that qualify viewing requests without losing serious buyers",
+      "hero1Intro": "Swieqi real estate operate in a quieter upmarket residential town next to St Julian's, including Tal-Ibraġ, anchored by Triq is-Swieqi and the Tal-Ibraġ residential belt. AI should make or save money via viewing triage and listing FAQ that protects agent time — not by stuffing \"Swieqi real-estate\" keywords into generic EU copy. Serve St Julian's and Pembroke neighbours with logistics you actually support.",
+      "hero2": {
+        "heading": "Buyers and tenants who return when a matching listing appears",
+        "body": "Alert when a buyer's saved brief matches a new listing you publish — agent approval before send."
+      },
+      "challenge": "High enquiry volume includes many tire-kickers; invented yields destroy trust. Around Triq is-Swieqi and the Tal-Ibraġ residential belt, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Qualify budget, timeline, and area first; pricing stays human.",
+      "regulationNote": "Property advertising rules and accurate listing facts apply. AI must not invent square metres, permits, or prices.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a estate agency in Swieqi?",
+          "a": "Typical first builds: viewing triage and listing FAQ that protects agent time, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Swieqi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Swieqi teams?",
+          "a": "On-site in Swieqi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for real-estate work connected to swieqi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/swieqi",
+          "label": "Swieqi hub"
+        }
+      ]
+    },
+    "/malta/swieqi/fintech/ai-consulting": {
+      "title": "AI Consulting for Swieqi Fintech Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for fintech professionals and satellite teams connected to Swieqi — careful internal AI with OARC in Birkirkara. Honest geography: upmarket residential next to St Julian's — not an MFSA campus.",
+      "h1": "AI consulting for fintech work tied to Swieqi — without inventing a local payments campus",
+      "hero1Intro": "Swieqi is a quieter upmarket residential town next to St Julian's, including Tal-Ibraġ. Licensed fintech floors denser around Sliema, St Julian's, and Birkirkara CBD. Real connections here are professionals living locally, small satellite pods, and vendors near Triq is-Swieqi and the Tal-Ibraġ residential belt. AI should cut analyst busywork without inventing ROI claims — never a fake \"Swieqi fintech district\" pitch.",
+      "hero2": {
+        "heading": "Return loops on long B2B evaluations",
+        "body": "Evaluation cycles stall across weeks. We log touchpoints into CRM you already use and draft follow-ups from approved fact sheets — human send only."
+      },
+      "challenge": "Keyword pages that invent a local fintech campus get ignored by serious buyers. Upmarket residential next to St Julian's — not an MFSA campus.",
+      "opportunity": "Scope for professionals, satellite pods, and vendors who are actually present — say which.",
+      "regulationNote": "MFSA and IDPC constraints apply. Lawful basis and retention must be explicit before any customer-data feature. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "Is Swieqi an MFSA fintech campus?",
+          "a": "No. Swieqi is upmarket residential next to St Julian's — not an MFSA campus. We scope for professionals, satellite teams, and vendors who actually work from here — not a fictional HQ district."
+        },
+        {
+          "q": "Do you invent Swieqi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Swieqi teams?",
+          "a": "On-site in Swieqi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for fintech work connected to swieqi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/swieqi",
+          "label": "Swieqi hub"
+        }
+      ]
+    },
+    "/malta/mellieha/restaurant/ai-consulting": {
+      "title": "AI Consulting for Mellieħa Restaurants | Għadira Cover Ops | OARC Digital",
+      "description": "AI consulting for Mellieħa restaurant — protect covers and cut no-show waste around Għadira Bay and Mellieħa parish ridge. No invented performance stats.",
+      "h1": "AI consulting for Mellieħa restaurant that protect covers and cut no-show waste",
+      "hero1Intro": "Mellieħa restaurant operate in a northern resort town anchored by Għadira Bay hospitality and seasonal visitors, anchored by Għadira Bay and Mellieħa parish ridge. AI should make or save money via booking DM clearance and no-show reminders you approve — not by stuffing \"Mellieħa restaurant\" keywords into generic EU copy. Serve Ċirkewwa ferry visitors and northern day-trippers with logistics you actually support.",
+      "hero2": {
+        "heading": "How regulars return after feast week and quiet midweeks",
+        "body": "Permission-based notes for feast-day hours and weekday specials you already run — no fake scarcity timers."
+      },
+      "challenge": "Feast surges and quiet midweeks need different seating rules. Around Għadira Bay and Mellieħa parish ridge, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Honest seating states; human host for large tables and VIPs.",
+      "regulationNote": "Allergen accuracy and published opening hours remain mandatory in any automated reply. Do not invent wait times.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a restaurant in Mellieħa?",
+          "a": "Typical first builds: booking DM clearance and no-show reminders you approve, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Mellieħa-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Mellieħa teams?",
+          "a": "On-site in Mellieħa when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for restaurant work connected to mellieha?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mellieha",
+          "label": "Mellieħa hub"
+        }
+      ]
+    },
+    "/malta/mellieha/hotel/ai-consulting": {
+      "title": "AI Consulting for Mellieħa Hotels | Għadira Direct Enquiry Ops | OARC Digital",
+      "description": "AI consulting for Mellieħa hotels and guesthouses — catch direct enquiries before they bounce to OTAs around Għadira Bay and Mellieħa parish ridge. No invented occupancy stats.",
+      "h1": "AI consulting for Mellieħa hotel that describe location accurately",
+      "hero1Intro": "Mellieħa stays sit in a northern resort town anchored by Għadira Bay hospitality and seasonal visitors. Guests comparing options near Għadira Bay and Mellieħa parish ridge punish inaccurate copy. AI should catch direct enquiries and answer arrival logistics from your approved house FAQ — not invent amenities for bayfront hotels and self-catering competing for summer demand. Serve Ċirkewwa ferry visitors and northern day-trippers with logistics you actually support.",
+      "hero2": {
+        "heading": "Return stays after the first night in town",
+        "body": "Post-stay sequences you approve that point to your direct rate page — house FAQ only, no invented shuttle partnerships."
+      },
+      "challenge": "Unsupervised bots that invent transfer times create chargebacks. Inventing amenities you do not offer destroys trust. Inventing seafront or capital claims that do not match Mellieħa destroys trust.",
+      "opportunity": "Connect AI to your approved FAQ; human path for rate exceptions. Be precise about Mellieħa.",
+      "regulationNote": "Tourism and consumer-protection rules apply to automated hotel answers. Rates and cancellation terms must match your booking engine.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a hotel in Mellieħa?",
+          "a": "Typical first builds: direct-enquiry handling and house FAQ automation, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Mellieħa-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Mellieħa teams?",
+          "a": "On-site in Mellieħa when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for hotel work connected to mellieha?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mellieha",
+          "label": "Mellieħa hub"
+        }
+      ]
+    },
+    "/malta/mellieha/cafe/ai-consulting": {
+      "title": "AI Consulting for Mellieħa Cafés | Għadira Rush Ops | OARC Digital",
+      "description": "AI consulting for Mellieħa café — keep the rush moving without lost takeaway orders around Għadira Bay and Mellieħa parish ridge. No invented performance stats.",
+      "h1": "AI consulting for Mellieħa café that keep the rush moving without lost takeaway orders",
+      "hero1Intro": "Mellieħa café operate in a northern resort town anchored by Għadira Bay hospitality and seasonal visitors, anchored by Għadira Bay and Mellieħa parish ridge. AI should make or save money via takeaway intake and allergen FAQ that calm the counter — not by stuffing \"Mellieħa cafe\" keywords into generic EU copy. Serve Ċirkewwa ferry visitors and northern day-trippers with logistics you actually support.",
+      "hero2": {
+        "heading": "Weekday regulars who return for the same order",
+        "body": "Saved-order shortcuts for weekday regulars who opt in — never purchased spam lists."
+      },
+      "challenge": "Sold-out cases and tourist questions collide with regulars' usuals. Around Għadira Bay and Mellieħa parish ridge, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Sold-out toggles your team controls; human catering quotes.",
+      "regulationNote": "Allergen and opening-hour accuracy still apply to café automation.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a café in Mellieħa?",
+          "a": "Typical first builds: takeaway intake and allergen FAQ that calm the counter, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Mellieħa-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Mellieħa teams?",
+          "a": "On-site in Mellieħa when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for cafe work connected to mellieha?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mellieha",
+          "label": "Mellieħa hub"
+        }
+      ]
+    },
+    "/malta/mellieha/bar/ai-consulting": {
+      "title": "AI Consulting for Mellieħa Bars | Għadira Hire Ops | OARC Digital",
+      "description": "AI consulting for Mellieħa bar — fill midweek tables without spammy guest lists around Għadira Bay and Mellieħa parish ridge. No invented performance stats.",
+      "h1": "AI consulting for Mellieħa bar that fill midweek tables without spammy guest lists",
+      "hero1Intro": "Mellieħa bar operate in a northern resort town anchored by Għadira Bay hospitality and seasonal visitors, anchored by Għadira Bay and Mellieħa parish ridge. AI should make or save money via event RSVP intake and private-hire FAQ — not by stuffing \"Mellieħa bar\" keywords into generic EU copy. Serve Ċirkewwa ferry visitors and northern day-trippers with logistics you actually support.",
+      "hero2": {
+        "heading": "Guests who come back for the next live night",
+        "body": "Opt-in reminders for the next live night or feast-week hours. No scraped guest lists."
+      },
+      "challenge": "Paceville-style club automation tone fails local regulars. Around Għadira Bay and Mellieħa parish ridge, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Keep door and age decisions human; automate logistics only.",
+      "regulationNote": "Responsible-service messaging and age checks stay human-owned. Automated promos must match what you actually run.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a bar in Mellieħa?",
+          "a": "Typical first builds: event RSVP intake and private-hire FAQ, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Mellieħa-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Mellieħa teams?",
+          "a": "On-site in Mellieħa when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for bar work connected to mellieha?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mellieha",
+          "label": "Mellieħa hub"
+        }
+      ]
+    },
+    "/malta/mellieha/spa-wellness/ai-consulting": {
+      "title": "AI Consulting for Mellieħa Spa & Wellness | Għadira Chair Ops | OARC Digital",
+      "description": "AI consulting for Mellieħa spa & wellness — fill treatment chairs and cut no-show gaps around Għadira Bay and Mellieħa parish ridge. No invented performance stats.",
+      "h1": "AI consulting for Mellieħa spa & wellness that fill treatment chairs and cut no-show gaps",
+      "hero1Intro": "Mellieħa spa & wellness operate in a northern resort town anchored by Għadira Bay hospitality and seasonal visitors, anchored by Għadira Bay and Mellieħa parish ridge. AI should make or save money via booking recovery and treatment FAQ automation — not by stuffing \"Mellieħa spa\" keywords into generic EU copy. Serve Ċirkewwa ferry visitors and northern day-trippers with logistics you actually support.",
+      "hero2": {
+        "heading": "How clients rebook the next treatment",
+        "body": "Rebook nudges timed to your real treatment cycles, with easy human handoff for first-time clients."
+      },
+      "challenge": "Inboxes fill with duration and price loops while therapists are with clients. Around Għadira Bay and Mellieħa parish ridge, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Lock FAQ to your current menu; escalate medical-adjacent questions every time.",
+      "regulationNote": "Health and wellness claims in automated copy must stay within what your therapists are licensed to say.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a spa or wellness studio in Mellieħa?",
+          "a": "Typical first builds: booking recovery and treatment FAQ automation, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Mellieħa-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Mellieħa teams?",
+          "a": "On-site in Mellieħa when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for spa work connected to mellieha?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mellieha",
+          "label": "Mellieħa hub"
+        }
+      ]
+    },
+    "/malta/mellieha/gym-fitness/ai-consulting": {
+      "title": "AI Consulting for Mellieħa Gyms & Fitness | Għadira Trial Ops | OARC Digital",
+      "description": "AI consulting for Mellieħa gyms & fitness — convert trial enquiries and reduce membership admin around Għadira Bay and Mellieħa parish ridge. No invented performance stats.",
+      "h1": "AI consulting for Mellieħa gyms & fitness that convert trial enquiries and reduce membership admin",
+      "hero1Intro": "Mellieħa gyms & fitness operate in a northern resort town anchored by Għadira Bay hospitality and seasonal visitors, anchored by Għadira Bay and Mellieħa parish ridge. AI should make or save money via trial-class intake and membership FAQ that frees the desk — not by stuffing \"Mellieħa gym\" keywords into generic EU copy. Serve Ċirkewwa ferry visitors and northern day-trippers with logistics you actually support.",
+      "hero2": {
+        "heading": "Lapsed members who return for a restart offer you already approve",
+        "body": "Restart offers you already approve for lapsed members who opt in — no invented transformation stories."
+      },
+      "challenge": "Local competition means spammy automation burns reputation fast. Around Għadira Bay and Mellieħa parish ridge, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "AI for logistics; humans for coaching package sales.",
+      "regulationNote": "Fitness marketing claims must stay honest. Do not invent transformation percentages.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a gym or fitness studio in Mellieħa?",
+          "a": "Typical first builds: trial-class intake and membership FAQ that frees the desk, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Mellieħa-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Mellieħa teams?",
+          "a": "On-site in Mellieħa when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for gym work connected to mellieha?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mellieha",
+          "label": "Mellieħa hub"
+        }
+      ]
+    },
+    "/malta/mellieha/retail/ai-consulting": {
+      "title": "AI Consulting for Mellieħa Retail | Għadira FAQ Ops | OARC Digital",
+      "description": "AI consulting for Mellieħa retail — answer stock questions without burning counter staff around Għadira Bay and Mellieħa parish ridge. No invented performance stats.",
+      "h1": "AI consulting for Mellieħa retail that answer stock questions without burning counter staff",
+      "hero1Intro": "Mellieħa retail operate in a northern resort town anchored by Għadira Bay hospitality and seasonal visitors, anchored by Għadira Bay and Mellieħa parish ridge. AI should make or save money via stock and opening FAQ plus click-and-collect intake — not by stuffing \"Mellieħa retail\" keywords into generic EU copy. Serve Ċirkewwa ferry visitors and northern day-trippers with logistics you actually support.",
+      "hero2": {
+        "heading": "Shoppers who return when the item is back in stock",
+        "body": "Back-in-stock notes for shoppers who asked — never purchased remarketing lists dressed as AI."
+      },
+      "challenge": "Hours change for feast weeks and events; stale bots create angry walk-ins. Around Għadira Bay and Mellieħa parish ridge, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Single source of truth for hours; human path for special orders.",
+      "regulationNote": "Price and availability answers must match your till or e-commerce — never invent stock.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a retail shop in Mellieħa?",
+          "a": "Typical first builds: stock and opening FAQ plus click-and-collect intake, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Mellieħa-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Mellieħa teams?",
+          "a": "On-site in Mellieħa when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for retail work connected to mellieha?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mellieha",
+          "label": "Mellieħa hub"
+        }
+      ]
+    },
+    "/malta/mellieha/real-estate/ai-consulting": {
+      "title": "AI Consulting for Mellieħa Real Estate | Għadira Viewing Triage | OARC Digital",
+      "description": "AI consulting for Mellieħa real estate — qualify viewing requests without losing serious buyers around Għadira Bay and Mellieħa parish ridge. No invented performance stats.",
+      "h1": "AI consulting for Mellieħa real estate that qualify viewing requests without losing serious buyers",
+      "hero1Intro": "Mellieħa real estate operate in a northern resort town anchored by Għadira Bay hospitality and seasonal visitors, anchored by Għadira Bay and Mellieħa parish ridge. AI should make or save money via viewing triage and listing FAQ that protects agent time — not by stuffing \"Mellieħa real-estate\" keywords into generic EU copy. Serve Ċirkewwa ferry visitors and northern day-trippers with logistics you actually support.",
+      "hero2": {
+        "heading": "Buyers and tenants who return when a matching listing appears",
+        "body": "Alert when a buyer's saved brief matches a new listing you publish — agent approval before send."
+      },
+      "challenge": "High enquiry volume includes many tire-kickers; invented yields destroy trust. Around Għadira Bay and Mellieħa parish ridge, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Qualify budget, timeline, and area first; pricing stays human.",
+      "regulationNote": "Property advertising rules and accurate listing facts apply. AI must not invent square metres, permits, or prices.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a estate agency in Mellieħa?",
+          "a": "Typical first builds: viewing triage and listing FAQ that protects agent time, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Mellieħa-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Mellieħa teams?",
+          "a": "On-site in Mellieħa when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for real-estate work connected to mellieha?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mellieha",
+          "label": "Mellieħa hub"
+        }
+      ]
+    },
+    "/malta/mellieha/fintech/ai-consulting": {
+      "title": "AI Consulting for Mellieħa Fintech Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for fintech professionals and satellite teams connected to Mellieħa — careful internal AI with OARC in Birkirkara. Honest geography: northern resort hospitality — not a payments campus.",
+      "h1": "AI consulting for fintech work tied to Mellieħa — without inventing a local payments campus",
+      "hero1Intro": "Mellieħa is a northern resort town anchored by Għadira Bay hospitality and seasonal visitors. Licensed fintech floors denser around Sliema, St Julian's, and Birkirkara CBD. Real connections here are professionals living locally, small satellite pods, and vendors near Għadira Bay and Mellieħa parish ridge. AI should cut analyst busywork without inventing ROI claims — never a fake \"Mellieħa fintech district\" pitch.",
+      "hero2": {
+        "heading": "Return loops on long B2B evaluations",
+        "body": "Evaluation cycles stall across weeks. We log touchpoints into CRM you already use and draft follow-ups from approved fact sheets — human send only."
+      },
+      "challenge": "Keyword pages that invent a local fintech campus get ignored by serious buyers. Northern resort hospitality — not a payments campus.",
+      "opportunity": "Scope for professionals, satellite pods, and vendors who are actually present — say which.",
+      "regulationNote": "MFSA and IDPC constraints apply. Lawful basis and retention must be explicit before any customer-data feature. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "Is Mellieħa an MFSA fintech campus?",
+          "a": "No. Mellieħa is northern resort hospitality — not a payments campus. We scope for professionals, satellite teams, and vendors who actually work from here — not a fictional HQ district."
+        },
+        {
+          "q": "Do you invent Mellieħa-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Mellieħa teams?",
+          "a": "On-site in Mellieħa when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for fintech work connected to mellieha?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mellieha",
+          "label": "Mellieħa hub"
+        }
+      ]
+    },
+    "/malta/mosta/healthcare/ai-consulting": {
+      "title": "AI Consulting for Mosta Healthcare | Rotunda Patient Ops | OARC Digital",
+      "description": "AI consulting for Mosta healthcare — clear appointment intake and published-service FAQs around the Rotunda and Independence Avenue. No invented performance stats.",
+      "h1": "AI consulting for Mosta healthcare that clear appointment intake without inventing clinical claims",
+      "hero1Intro": "Mosta healthcare operate in a large inland town with parish feast surges and a busy commercial spine, anchored by the Rotunda and Independence Avenue. AI should clear appointment intake and published-service FAQs you approve — never clinical advice — not by stuffing \"Mosta healthcare\" keywords into generic EU copy. Serve Naxxar and St Paul's Bay families with logistics you actually support.",
+      "hero2": {
+        "heading": "Patients who return for the next booked review",
+        "body": "Reminder sequences for appointments you already confirmed — no fabricated wait-list scarcity or outcome claims."
+      },
+      "challenge": "Inboxes fill with hours, parking, and insurance loops while clinicians are with patients. Around the Rotunda and Independence Avenue, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Automate logistics from approved copy; every clinical question escalates to a human.",
+      "regulationNote": "Healthcare advertising and professional rules apply. AI must not invent diagnoses, outcomes, or practitioner availability.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a healthcare clinic in Mosta?",
+          "a": "Typical first builds: appointment intake and published-service FAQ with human escalation for clinical questions, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Mosta-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Mosta teams?",
+          "a": "On-site in Mosta when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for healthcare work connected to mosta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mosta",
+          "label": "Mosta hub"
+        }
+      ]
+    },
+    "/malta/mosta/ecommerce/ai-consulting": {
+      "title": "AI Consulting for Mosta E-commerce | Rotunda Lifecycle Ops | OARC Digital",
+      "description": "AI consulting for Mosta e-commerce — recover abandoned carts and answer post-purchase FAQs you approve around the Rotunda and Independence Avenue. No invented performance stats.",
+      "h1": "AI consulting for Mosta e-commerce that recover abandoned carts without inventing delivery SLAs",
+      "hero1Intro": "Mosta e-commerce operate in a large inland town with parish feast surges and a busy commercial spine, anchored by the Rotunda and Independence Avenue. AI should recover abandoned carts and answer post-purchase FAQs from policies you publish — not by stuffing \"Mosta ecommerce\" keywords into generic EU copy. Serve Naxxar and St Paul's Bay families with logistics you actually support.",
+      "hero2": {
+        "heading": "Buyers who return for the next replenishment",
+        "body": "Permission-based replenishment notes tied to products they already bought — no purchased lookalike spam."
+      },
+      "challenge": "Bots that invent courier times or stock create chargebacks and trust damage. Around the Rotunda and Independence Avenue, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Wire AI to published shipping/returns copy; exceptions escalate to support.",
+      "regulationNote": "Consumer protection and distance-selling expectations apply. Pricing, stock, and delivery claims must match the storefront.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for an e-commerce business in Mosta?",
+          "a": "Typical first builds: cart-recovery drafts and post-purchase FAQ from your published policies, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Mosta-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Mosta teams?",
+          "a": "On-site in Mosta when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for ecommerce work connected to mosta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mosta",
+          "label": "Mosta hub"
+        }
+      ]
+    },
+    "/malta/mosta/law-firm/ai-consulting": {
+      "title": "AI Consulting for Mosta Law Firms | Rotunda Enquiry Triage | OARC Digital",
+      "description": "AI consulting for Mosta law firm — triage first-contact enquiries without overstating practice scope around the Rotunda and Independence Avenue. No invented performance stats.",
+      "h1": "AI consulting for Mosta law firm that triage first-contact enquiries without overstating practice scope",
+      "hero1Intro": "Mosta law firm operate in a large inland town with parish feast surges and a busy commercial spine, anchored by the Rotunda and Independence Avenue. AI should triage first-contact enquiries and answer practice-area FAQs from approved copy only — not by stuffing \"Mosta law-firm\" keywords into generic EU copy. Serve Naxxar and St Paul's Bay families with logistics you actually support.",
+      "hero2": {
+        "heading": "Prospective clients who return when you have capacity",
+        "body": "Permission-based follow-ups when a practice area reopens intake — no purchased lead lists or invented success rates."
+      },
+      "challenge": "Generic legal chatbots that invent jurisdictional advice create professional risk. Around the Rotunda and Independence Avenue, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Route by practice area and urgency; fee quotes and advice stay with solicitors.",
+      "regulationNote": "Professional conduct and advertising rules for advocates/solicitors apply. AI must not invent legal advice or success statistics.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a law firm in Mosta?",
+          "a": "Typical first builds: enquiry triage and practice-area FAQ from your approved website copy, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Mosta-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Mosta teams?",
+          "a": "On-site in Mosta when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for law-firm work connected to mosta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mosta",
+          "label": "Mosta hub"
+        }
+      ]
+    },
+    "/malta/mosta/car-dealership/ai-consulting": {
+      "title": "AI Consulting for Mosta Car Dealerships | Rotunda Test-Drive Ops | OARC Digital",
+      "description": "AI consulting for Mosta car dealership — qualify test-drive requests without inventing stock or finance terms around the Rotunda and Independence Avenue. No invented performance stats.",
+      "h1": "AI consulting for Mosta car dealership that qualify test-drive requests without inventing stock or finance terms",
+      "hero1Intro": "Mosta car dealership operate in a large inland town with parish feast surges and a busy commercial spine, anchored by the Rotunda and Independence Avenue. AI should qualify test-drive requests and answer stock/hours FAQs from inventory notes you approve — not by stuffing \"Mosta car-dealership\" keywords into generic EU copy. Serve Naxxar and St Paul's Bay families with logistics you actually support.",
+      "hero2": {
+        "heading": "Shoppers who return when a matching vehicle lands",
+        "body": "Alerts when a saved brief matches a unit you list — sales approval before send. No fake scarcity timers."
+      },
+      "challenge": "High-consideration buyers punish invented finance rates or phantom stock within minutes. Around the Rotunda and Independence Avenue, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Read-only stock flags where APIs allow; finance and trade-in stay human.",
+      "regulationNote": "Consumer and finance advertising rules apply. AI must not invent APR, residual values, or availability.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a car dealership in Mosta?",
+          "a": "Typical first builds: test-drive booking intake and stock/hours FAQ from your approved inventory notes, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Mosta-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Mosta teams?",
+          "a": "On-site in Mosta when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for car-dealership work connected to mosta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mosta",
+          "label": "Mosta hub"
+        }
+      ]
+    },
+    "/malta/mosta/construction/ai-consulting": {
+      "title": "AI Consulting for Mosta Construction | Rotunda Tender Ops | OARC Digital",
+      "description": "AI consulting for Mosta construction — capture project enquiries and package capability facts you approve around the Rotunda and Independence Avenue. No invented performance stats.",
+      "h1": "AI consulting for Mosta construction that capture project enquiries without inventing project portfolios",
+      "hero1Intro": "Mosta construction operate in a large inland town with parish feast surges and a busy commercial spine, anchored by the Rotunda and Independence Avenue. AI should capture project enquiries and package capability facts from materials you approve — not by stuffing \"Mosta construction\" keywords into generic EU copy. Serve Naxxar and St Paul's Bay families with logistics you actually support.",
+      "hero2": {
+        "heading": "Prospects who return when a matching project brief appears",
+        "body": "CRM notes and approved follow-ups when a prospect reopens a tender pack — human send only."
+      },
+      "challenge": "Generic construction AI pages that invent completed projects fail due diligence fast. Around the Rotunda and Independence Avenue, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Document process, permits awareness, and coverage areas you actually serve; quotes stay human.",
+      "regulationNote": "Building and advertising accuracy rules apply. AI must not invent permits, timelines, or project photos.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a construction company in Mosta?",
+          "a": "Typical first builds: project-enquiry intake and capability FAQ from your approved case materials, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Mosta-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Mosta teams?",
+          "a": "On-site in Mosta when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for construction work connected to mosta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mosta",
+          "label": "Mosta hub"
+        }
+      ]
+    },
+    "/malta/qormi/healthcare/ai-consulting": {
+      "title": "AI Consulting for Qormi Healthcare | Bakery-Town Patient Ops | OARC Digital",
+      "description": "AI consulting for Qormi healthcare — clear appointment intake and published-service FAQs around the bakery belt and Mrieħel industrial edge. No invented performance stats.",
+      "h1": "AI consulting for Qormi healthcare that clear appointment intake without inventing clinical claims",
+      "hero1Intro": "Qormi healthcare operate in bakeries, light manufacturing, and trades workshops, anchored by the bakery belt and Mrieħel industrial edge. AI should clear appointment intake and published-service FAQs you approve — never clinical advice — not by stuffing \"Qormi healthcare\" keywords into generic EU copy. Serve Marsa and Ħamrun workers with logistics you actually support.",
+      "hero2": {
+        "heading": "Patients who return for the next booked review",
+        "body": "Reminder sequences for appointments you already confirmed — no fabricated wait-list scarcity or outcome claims."
+      },
+      "challenge": "Inboxes fill with hours, parking, and insurance loops while clinicians are with patients. Around the bakery belt and Mrieħel industrial edge, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Automate logistics from approved copy; every clinical question escalates to a human.",
+      "regulationNote": "Healthcare advertising and professional rules apply. AI must not invent diagnoses, outcomes, or practitioner availability.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a healthcare clinic in Qormi?",
+          "a": "Typical first builds: appointment intake and published-service FAQ with human escalation for clinical questions, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Qormi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Qormi teams?",
+          "a": "On-site in Qormi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for healthcare work connected to qormi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/qormi",
+          "label": "Qormi hub"
+        }
+      ]
+    },
+    "/malta/qormi/ecommerce/ai-consulting": {
+      "title": "AI Consulting for Qormi E-commerce | Bakery-Town Lifecycle Ops | OARC Digital",
+      "description": "AI consulting for Qormi e-commerce — recover abandoned carts and answer post-purchase FAQs you approve around the bakery belt and Mrieħel industrial edge. No invented performance stats.",
+      "h1": "AI consulting for Qormi e-commerce that recover abandoned carts without inventing delivery SLAs",
+      "hero1Intro": "Qormi e-commerce operate in bakeries, light manufacturing, and trades workshops, anchored by the bakery belt and Mrieħel industrial edge. AI should recover abandoned carts and answer post-purchase FAQs from policies you publish — not by stuffing \"Qormi ecommerce\" keywords into generic EU copy. Serve Marsa and Ħamrun workers with logistics you actually support.",
+      "hero2": {
+        "heading": "Buyers who return for the next replenishment",
+        "body": "Permission-based replenishment notes tied to products they already bought — no purchased lookalike spam."
+      },
+      "challenge": "Bots that invent courier times or stock create chargebacks and trust damage. Around the bakery belt and Mrieħel industrial edge, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Wire AI to published shipping/returns copy; exceptions escalate to support.",
+      "regulationNote": "Consumer protection and distance-selling expectations apply. Pricing, stock, and delivery claims must match the storefront.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for an e-commerce business in Qormi?",
+          "a": "Typical first builds: cart-recovery drafts and post-purchase FAQ from your published policies, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Qormi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Qormi teams?",
+          "a": "On-site in Qormi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for ecommerce work connected to qormi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/qormi",
+          "label": "Qormi hub"
+        }
+      ]
+    },
+    "/malta/qormi/law-firm/ai-consulting": {
+      "title": "AI Consulting for Qormi Law Firms | Bakery-Town Enquiry Triage | OARC Digital",
+      "description": "AI consulting for Qormi law firm — triage first-contact enquiries without overstating practice scope around the bakery belt and Mrieħel industrial edge. No invented performance stats.",
+      "h1": "AI consulting for Qormi law firm that triage first-contact enquiries without overstating practice scope",
+      "hero1Intro": "Qormi law firm operate in bakeries, light manufacturing, and trades workshops, anchored by the bakery belt and Mrieħel industrial edge. AI should triage first-contact enquiries and answer practice-area FAQs from approved copy only — not by stuffing \"Qormi law-firm\" keywords into generic EU copy. Serve Marsa and Ħamrun workers with logistics you actually support.",
+      "hero2": {
+        "heading": "Prospective clients who return when you have capacity",
+        "body": "Permission-based follow-ups when a practice area reopens intake — no purchased lead lists or invented success rates."
+      },
+      "challenge": "Generic legal chatbots that invent jurisdictional advice create professional risk. Around the bakery belt and Mrieħel industrial edge, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Route by practice area and urgency; fee quotes and advice stay with solicitors.",
+      "regulationNote": "Professional conduct and advertising rules for advocates/solicitors apply. AI must not invent legal advice or success statistics.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a law firm in Qormi?",
+          "a": "Typical first builds: enquiry triage and practice-area FAQ from your approved website copy, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Qormi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Qormi teams?",
+          "a": "On-site in Qormi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for law-firm work connected to qormi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/qormi",
+          "label": "Qormi hub"
+        }
+      ]
+    },
+    "/malta/qormi/car-dealership/ai-consulting": {
+      "title": "AI Consulting for Qormi Car Dealerships | Bakery-Town Test-Drive Ops | OARC Digital",
+      "description": "AI consulting for Qormi car dealership — qualify test-drive requests without inventing stock or finance terms around the bakery belt and Mrieħel industrial edge. No invented performance stats.",
+      "h1": "AI consulting for Qormi car dealership that qualify test-drive requests without inventing stock or finance terms",
+      "hero1Intro": "Qormi car dealership operate in bakeries, light manufacturing, and trades workshops, anchored by the bakery belt and Mrieħel industrial edge. AI should qualify test-drive requests and answer stock/hours FAQs from inventory notes you approve — not by stuffing \"Qormi car-dealership\" keywords into generic EU copy. Serve Marsa and Ħamrun workers with logistics you actually support.",
+      "hero2": {
+        "heading": "Shoppers who return when a matching vehicle lands",
+        "body": "Alerts when a saved brief matches a unit you list — sales approval before send. No fake scarcity timers."
+      },
+      "challenge": "High-consideration buyers punish invented finance rates or phantom stock within minutes. Around the bakery belt and Mrieħel industrial edge, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Read-only stock flags where APIs allow; finance and trade-in stay human.",
+      "regulationNote": "Consumer and finance advertising rules apply. AI must not invent APR, residual values, or availability.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a car dealership in Qormi?",
+          "a": "Typical first builds: test-drive booking intake and stock/hours FAQ from your approved inventory notes, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Qormi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Qormi teams?",
+          "a": "On-site in Qormi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for car-dealership work connected to qormi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/qormi",
+          "label": "Qormi hub"
+        }
+      ]
+    },
+    "/malta/qormi/construction/ai-consulting": {
+      "title": "AI Consulting for Qormi Construction | Bakery-Town Tender Ops | OARC Digital",
+      "description": "AI consulting for Qormi construction — capture project enquiries and package capability facts you approve around the bakery belt and Mrieħel industrial edge. No invented performance stats.",
+      "h1": "AI consulting for Qormi construction that capture project enquiries without inventing project portfolios",
+      "hero1Intro": "Qormi construction operate in bakeries, light manufacturing, and trades workshops, anchored by the bakery belt and Mrieħel industrial edge. AI should capture project enquiries and package capability facts from materials you approve — not by stuffing \"Qormi construction\" keywords into generic EU copy. Serve Marsa and Ħamrun workers with logistics you actually support.",
+      "hero2": {
+        "heading": "Prospects who return when a matching project brief appears",
+        "body": "CRM notes and approved follow-ups when a prospect reopens a tender pack — human send only."
+      },
+      "challenge": "Generic construction AI pages that invent completed projects fail due diligence fast. Around the bakery belt and Mrieħel industrial edge, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Document process, permits awareness, and coverage areas you actually serve; quotes stay human.",
+      "regulationNote": "Building and advertising accuracy rules apply. AI must not invent permits, timelines, or project photos.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a construction company in Qormi?",
+          "a": "Typical first builds: project-enquiry intake and capability FAQ from your approved case materials, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Qormi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Qormi teams?",
+          "a": "On-site in Qormi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for construction work connected to qormi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/qormi",
+          "label": "Qormi hub"
+        }
+      ]
+    },
+    "/malta/msida/healthcare/ai-consulting": {
+      "title": "AI Consulting for Msida Healthcare | Marina Patient Ops | OARC Digital",
+      "description": "AI consulting for Msida healthcare — clear appointment intake and published-service FAQs around University of Malta campus and Msida Marina. No invented performance stats.",
+      "h1": "AI consulting for Msida healthcare that clear appointment intake without inventing clinical claims",
+      "hero1Intro": "Msida healthcare operate in the harbour-front university town anchored by the University of Malta and Msida Marina, anchored by University of Malta campus and Msida Marina. AI should clear appointment intake and published-service FAQs you approve — never clinical advice — not by stuffing \"Msida healthcare\" keywords into generic EU copy. Serve Gżira and Ta' Xbiex students and commuters with logistics you actually support.",
+      "hero2": {
+        "heading": "Patients who return for the next booked review",
+        "body": "Reminder sequences for appointments you already confirmed — no fabricated wait-list scarcity or outcome claims."
+      },
+      "challenge": "Inboxes fill with hours, parking, and insurance loops while clinicians are with patients. Around University of Malta campus and Msida Marina, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Automate logistics from approved copy; every clinical question escalates to a human.",
+      "regulationNote": "Healthcare advertising and professional rules apply. AI must not invent diagnoses, outcomes, or practitioner availability.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a healthcare clinic in Msida?",
+          "a": "Typical first builds: appointment intake and published-service FAQ with human escalation for clinical questions, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Msida-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Msida teams?",
+          "a": "On-site in Msida when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for healthcare work connected to msida?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/msida",
+          "label": "Msida hub"
+        }
+      ]
+    },
+    "/malta/msida/ecommerce/ai-consulting": {
+      "title": "AI Consulting for Msida E-commerce | Marina Lifecycle Ops | OARC Digital",
+      "description": "AI consulting for Msida e-commerce — recover abandoned carts and answer post-purchase FAQs you approve around University of Malta campus and Msida Marina. No invented performance stats.",
+      "h1": "AI consulting for Msida e-commerce that recover abandoned carts without inventing delivery SLAs",
+      "hero1Intro": "Msida e-commerce operate in the harbour-front university town anchored by the University of Malta and Msida Marina, anchored by University of Malta campus and Msida Marina. AI should recover abandoned carts and answer post-purchase FAQs from policies you publish — not by stuffing \"Msida ecommerce\" keywords into generic EU copy. Serve Gżira and Ta' Xbiex students and commuters with logistics you actually support.",
+      "hero2": {
+        "heading": "Buyers who return for the next replenishment",
+        "body": "Permission-based replenishment notes tied to products they already bought — no purchased lookalike spam."
+      },
+      "challenge": "Bots that invent courier times or stock create chargebacks and trust damage. Around University of Malta campus and Msida Marina, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Wire AI to published shipping/returns copy; exceptions escalate to support.",
+      "regulationNote": "Consumer protection and distance-selling expectations apply. Pricing, stock, and delivery claims must match the storefront.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for an e-commerce business in Msida?",
+          "a": "Typical first builds: cart-recovery drafts and post-purchase FAQ from your published policies, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Msida-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Msida teams?",
+          "a": "On-site in Msida when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for ecommerce work connected to msida?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/msida",
+          "label": "Msida hub"
+        }
+      ]
+    },
+    "/malta/msida/law-firm/ai-consulting": {
+      "title": "AI Consulting for Msida Law Firms | Marina Enquiry Triage | OARC Digital",
+      "description": "AI consulting for Msida law firm — triage first-contact enquiries without overstating practice scope around University of Malta campus and Msida Marina. No invented performance stats.",
+      "h1": "AI consulting for Msida law firm that triage first-contact enquiries without overstating practice scope",
+      "hero1Intro": "Msida law firm operate in the harbour-front university town anchored by the University of Malta and Msida Marina, anchored by University of Malta campus and Msida Marina. AI should triage first-contact enquiries and answer practice-area FAQs from approved copy only — not by stuffing \"Msida law-firm\" keywords into generic EU copy. Serve Gżira and Ta' Xbiex students and commuters with logistics you actually support.",
+      "hero2": {
+        "heading": "Prospective clients who return when you have capacity",
+        "body": "Permission-based follow-ups when a practice area reopens intake — no purchased lead lists or invented success rates."
+      },
+      "challenge": "Generic legal chatbots that invent jurisdictional advice create professional risk. Around University of Malta campus and Msida Marina, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Route by practice area and urgency; fee quotes and advice stay with solicitors.",
+      "regulationNote": "Professional conduct and advertising rules for advocates/solicitors apply. AI must not invent legal advice or success statistics.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a law firm in Msida?",
+          "a": "Typical first builds: enquiry triage and practice-area FAQ from your approved website copy, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Msida-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Msida teams?",
+          "a": "On-site in Msida when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for law-firm work connected to msida?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/msida",
+          "label": "Msida hub"
+        }
+      ]
+    },
+    "/malta/msida/car-dealership/ai-consulting": {
+      "title": "AI Consulting for Msida Car Dealerships | Marina Test-Drive Ops | OARC Digital",
+      "description": "AI consulting for Msida car dealership — qualify test-drive requests without inventing stock or finance terms around University of Malta campus and Msida Marina. No invented performance stats.",
+      "h1": "AI consulting for Msida car dealership that qualify test-drive requests without inventing stock or finance terms",
+      "hero1Intro": "Msida car dealership operate in the harbour-front university town anchored by the University of Malta and Msida Marina, anchored by University of Malta campus and Msida Marina. AI should qualify test-drive requests and answer stock/hours FAQs from inventory notes you approve — not by stuffing \"Msida car-dealership\" keywords into generic EU copy. Serve Gżira and Ta' Xbiex students and commuters with logistics you actually support.",
+      "hero2": {
+        "heading": "Shoppers who return when a matching vehicle lands",
+        "body": "Alerts when a saved brief matches a unit you list — sales approval before send. No fake scarcity timers."
+      },
+      "challenge": "High-consideration buyers punish invented finance rates or phantom stock within minutes. Around University of Malta campus and Msida Marina, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Read-only stock flags where APIs allow; finance and trade-in stay human.",
+      "regulationNote": "Consumer and finance advertising rules apply. AI must not invent APR, residual values, or availability.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a car dealership in Msida?",
+          "a": "Typical first builds: test-drive booking intake and stock/hours FAQ from your approved inventory notes, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Msida-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Msida teams?",
+          "a": "On-site in Msida when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for car-dealership work connected to msida?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/msida",
+          "label": "Msida hub"
+        }
+      ]
+    },
+    "/malta/msida/construction/ai-consulting": {
+      "title": "AI Consulting for Msida Construction | Marina Tender Ops | OARC Digital",
+      "description": "AI consulting for Msida construction — capture project enquiries and package capability facts you approve around University of Malta campus and Msida Marina. No invented performance stats.",
+      "h1": "AI consulting for Msida construction that capture project enquiries without inventing project portfolios",
+      "hero1Intro": "Msida construction operate in the harbour-front university town anchored by the University of Malta and Msida Marina, anchored by University of Malta campus and Msida Marina. AI should capture project enquiries and package capability facts from materials you approve — not by stuffing \"Msida construction\" keywords into generic EU copy. Serve Gżira and Ta' Xbiex students and commuters with logistics you actually support.",
+      "hero2": {
+        "heading": "Prospects who return when a matching project brief appears",
+        "body": "CRM notes and approved follow-ups when a prospect reopens a tender pack — human send only."
+      },
+      "challenge": "Generic construction AI pages that invent completed projects fail due diligence fast. Around University of Malta campus and Msida Marina, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Document process, permits awareness, and coverage areas you actually serve; quotes stay human.",
+      "regulationNote": "Building and advertising accuracy rules apply. AI must not invent permits, timelines, or project photos.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a construction company in Msida?",
+          "a": "Typical first builds: project-enquiry intake and capability FAQ from your approved case materials, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Msida-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Msida teams?",
+          "a": "On-site in Msida when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for construction work connected to msida?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/msida",
+          "label": "Msida hub"
+        }
+      ]
+    },
+    "/malta/gzira/healthcare/ai-consulting": {
+      "title": "AI Consulting for Gżira Healthcare | Manoel Patient Ops | OARC Digital",
+      "description": "AI consulting for Gżira healthcare — clear appointment intake and published-service FAQs around Gżira Promenade and Manoel Island. No invented performance stats.",
+      "h1": "AI consulting for Gżira healthcare that clear appointment intake without inventing clinical claims",
+      "hero1Intro": "Gżira healthcare operate in the seafront expat-density strip between Sliema and Ta' Xbiex, beside Manoel Island, anchored by Gżira Promenade and Manoel Island. AI should clear appointment intake and published-service FAQs you approve — never clinical advice — not by stuffing \"Gżira healthcare\" keywords into generic EU copy. Serve Sliema and Ta' Xbiex walkers with logistics you actually support.",
+      "hero2": {
+        "heading": "Patients who return for the next booked review",
+        "body": "Reminder sequences for appointments you already confirmed — no fabricated wait-list scarcity or outcome claims."
+      },
+      "challenge": "Inboxes fill with hours, parking, and insurance loops while clinicians are with patients. Around Gżira Promenade and Manoel Island, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Automate logistics from approved copy; every clinical question escalates to a human.",
+      "regulationNote": "Healthcare advertising and professional rules apply. AI must not invent diagnoses, outcomes, or practitioner availability.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a healthcare clinic in Gżira?",
+          "a": "Typical first builds: appointment intake and published-service FAQ with human escalation for clinical questions, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Gżira-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Gżira teams?",
+          "a": "On-site in Gżira when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for healthcare work connected to gzira?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/gzira",
+          "label": "Gżira hub"
+        }
+      ]
+    },
+    "/malta/gzira/ecommerce/ai-consulting": {
+      "title": "AI Consulting for Gżira E-commerce | Manoel Lifecycle Ops | OARC Digital",
+      "description": "AI consulting for Gżira e-commerce — recover abandoned carts and answer post-purchase FAQs you approve around Gżira Promenade and Manoel Island. No invented performance stats.",
+      "h1": "AI consulting for Gżira e-commerce that recover abandoned carts without inventing delivery SLAs",
+      "hero1Intro": "Gżira e-commerce operate in the seafront expat-density strip between Sliema and Ta' Xbiex, beside Manoel Island, anchored by Gżira Promenade and Manoel Island. AI should recover abandoned carts and answer post-purchase FAQs from policies you publish — not by stuffing \"Gżira ecommerce\" keywords into generic EU copy. Serve Sliema and Ta' Xbiex walkers with logistics you actually support.",
+      "hero2": {
+        "heading": "Buyers who return for the next replenishment",
+        "body": "Permission-based replenishment notes tied to products they already bought — no purchased lookalike spam."
+      },
+      "challenge": "Bots that invent courier times or stock create chargebacks and trust damage. Around Gżira Promenade and Manoel Island, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Wire AI to published shipping/returns copy; exceptions escalate to support.",
+      "regulationNote": "Consumer protection and distance-selling expectations apply. Pricing, stock, and delivery claims must match the storefront.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for an e-commerce business in Gżira?",
+          "a": "Typical first builds: cart-recovery drafts and post-purchase FAQ from your published policies, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Gżira-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Gżira teams?",
+          "a": "On-site in Gżira when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for ecommerce work connected to gzira?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/gzira",
+          "label": "Gżira hub"
+        }
+      ]
+    },
+    "/malta/gzira/law-firm/ai-consulting": {
+      "title": "AI Consulting for Gżira Law Firms | Manoel Enquiry Triage | OARC Digital",
+      "description": "AI consulting for Gżira law firm — triage first-contact enquiries without overstating practice scope around Gżira Promenade and Manoel Island. No invented performance stats.",
+      "h1": "AI consulting for Gżira law firm that triage first-contact enquiries without overstating practice scope",
+      "hero1Intro": "Gżira law firm operate in the seafront expat-density strip between Sliema and Ta' Xbiex, beside Manoel Island, anchored by Gżira Promenade and Manoel Island. AI should triage first-contact enquiries and answer practice-area FAQs from approved copy only — not by stuffing \"Gżira law-firm\" keywords into generic EU copy. Serve Sliema and Ta' Xbiex walkers with logistics you actually support.",
+      "hero2": {
+        "heading": "Prospective clients who return when you have capacity",
+        "body": "Permission-based follow-ups when a practice area reopens intake — no purchased lead lists or invented success rates."
+      },
+      "challenge": "Generic legal chatbots that invent jurisdictional advice create professional risk. Around Gżira Promenade and Manoel Island, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Route by practice area and urgency; fee quotes and advice stay with solicitors.",
+      "regulationNote": "Professional conduct and advertising rules for advocates/solicitors apply. AI must not invent legal advice or success statistics.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a law firm in Gżira?",
+          "a": "Typical first builds: enquiry triage and practice-area FAQ from your approved website copy, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Gżira-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Gżira teams?",
+          "a": "On-site in Gżira when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for law-firm work connected to gzira?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/gzira",
+          "label": "Gżira hub"
+        }
+      ]
+    },
+    "/malta/gzira/car-dealership/ai-consulting": {
+      "title": "AI Consulting for Gżira Car Dealerships | Manoel Test-Drive Ops | OARC Digital",
+      "description": "AI consulting for Gżira car dealership — qualify test-drive requests without inventing stock or finance terms around Gżira Promenade and Manoel Island. No invented performance stats.",
+      "h1": "AI consulting for Gżira car dealership that qualify test-drive requests without inventing stock or finance terms",
+      "hero1Intro": "Gżira car dealership operate in the seafront expat-density strip between Sliema and Ta' Xbiex, beside Manoel Island, anchored by Gżira Promenade and Manoel Island. AI should qualify test-drive requests and answer stock/hours FAQs from inventory notes you approve — not by stuffing \"Gżira car-dealership\" keywords into generic EU copy. Serve Sliema and Ta' Xbiex walkers with logistics you actually support.",
+      "hero2": {
+        "heading": "Shoppers who return when a matching vehicle lands",
+        "body": "Alerts when a saved brief matches a unit you list — sales approval before send. No fake scarcity timers."
+      },
+      "challenge": "High-consideration buyers punish invented finance rates or phantom stock within minutes. Around Gżira Promenade and Manoel Island, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Read-only stock flags where APIs allow; finance and trade-in stay human.",
+      "regulationNote": "Consumer and finance advertising rules apply. AI must not invent APR, residual values, or availability.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a car dealership in Gżira?",
+          "a": "Typical first builds: test-drive booking intake and stock/hours FAQ from your approved inventory notes, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Gżira-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Gżira teams?",
+          "a": "On-site in Gżira when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for car-dealership work connected to gzira?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/gzira",
+          "label": "Gżira hub"
+        }
+      ]
+    },
+    "/malta/gzira/construction/ai-consulting": {
+      "title": "AI Consulting for Gżira Construction | Manoel Tender Ops | OARC Digital",
+      "description": "AI consulting for Gżira construction — capture project enquiries and package capability facts you approve around Gżira Promenade and Manoel Island. No invented performance stats.",
+      "h1": "AI consulting for Gżira construction that capture project enquiries without inventing project portfolios",
+      "hero1Intro": "Gżira construction operate in the seafront expat-density strip between Sliema and Ta' Xbiex, beside Manoel Island, anchored by Gżira Promenade and Manoel Island. AI should capture project enquiries and package capability facts from materials you approve — not by stuffing \"Gżira construction\" keywords into generic EU copy. Serve Sliema and Ta' Xbiex walkers with logistics you actually support.",
+      "hero2": {
+        "heading": "Prospects who return when a matching project brief appears",
+        "body": "CRM notes and approved follow-ups when a prospect reopens a tender pack — human send only."
+      },
+      "challenge": "Generic construction AI pages that invent completed projects fail due diligence fast. Around Gżira Promenade and Manoel Island, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Document process, permits awareness, and coverage areas you actually serve; quotes stay human.",
+      "regulationNote": "Building and advertising accuracy rules apply. AI must not invent permits, timelines, or project photos.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a construction company in Gżira?",
+          "a": "Typical first builds: project-enquiry intake and capability FAQ from your approved case materials, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Gżira-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Gżira teams?",
+          "a": "On-site in Gżira when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for construction work connected to gzira?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/gzira",
+          "label": "Gżira hub"
+        }
+      ]
+    },
+    "/malta/swieqi/healthcare/ai-consulting": {
+      "title": "AI Consulting for Swieqi Healthcare | Ibraġ Patient Ops | OARC Digital",
+      "description": "AI consulting for Swieqi healthcare — clear appointment intake and published-service FAQs around Triq is-Swieqi and the Tal-Ibraġ residential belt. No invented performance stats.",
+      "h1": "AI consulting for Swieqi healthcare that clear appointment intake without inventing clinical claims",
+      "hero1Intro": "Swieqi healthcare operate in a quieter upmarket residential town next to St Julian's, including Tal-Ibraġ, anchored by Triq is-Swieqi and the Tal-Ibraġ residential belt. AI should clear appointment intake and published-service FAQs you approve — never clinical advice — not by stuffing \"Swieqi healthcare\" keywords into generic EU copy. Serve St Julian's and Pembroke neighbours with logistics you actually support.",
+      "hero2": {
+        "heading": "Patients who return for the next booked review",
+        "body": "Reminder sequences for appointments you already confirmed — no fabricated wait-list scarcity or outcome claims."
+      },
+      "challenge": "Inboxes fill with hours, parking, and insurance loops while clinicians are with patients. Around Triq is-Swieqi and the Tal-Ibraġ residential belt, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Automate logistics from approved copy; every clinical question escalates to a human.",
+      "regulationNote": "Healthcare advertising and professional rules apply. AI must not invent diagnoses, outcomes, or practitioner availability.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a healthcare clinic in Swieqi?",
+          "a": "Typical first builds: appointment intake and published-service FAQ with human escalation for clinical questions, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Swieqi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Swieqi teams?",
+          "a": "On-site in Swieqi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for healthcare work connected to swieqi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/swieqi",
+          "label": "Swieqi hub"
+        }
+      ]
+    },
+    "/malta/swieqi/ecommerce/ai-consulting": {
+      "title": "AI Consulting for Swieqi E-commerce | Ibraġ Lifecycle Ops | OARC Digital",
+      "description": "AI consulting for Swieqi e-commerce — recover abandoned carts and answer post-purchase FAQs you approve around Triq is-Swieqi and the Tal-Ibraġ residential belt. No invented performance stats.",
+      "h1": "AI consulting for Swieqi e-commerce that recover abandoned carts without inventing delivery SLAs",
+      "hero1Intro": "Swieqi e-commerce operate in a quieter upmarket residential town next to St Julian's, including Tal-Ibraġ, anchored by Triq is-Swieqi and the Tal-Ibraġ residential belt. AI should recover abandoned carts and answer post-purchase FAQs from policies you publish — not by stuffing \"Swieqi ecommerce\" keywords into generic EU copy. Serve St Julian's and Pembroke neighbours with logistics you actually support.",
+      "hero2": {
+        "heading": "Buyers who return for the next replenishment",
+        "body": "Permission-based replenishment notes tied to products they already bought — no purchased lookalike spam."
+      },
+      "challenge": "Bots that invent courier times or stock create chargebacks and trust damage. Around Triq is-Swieqi and the Tal-Ibraġ residential belt, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Wire AI to published shipping/returns copy; exceptions escalate to support.",
+      "regulationNote": "Consumer protection and distance-selling expectations apply. Pricing, stock, and delivery claims must match the storefront.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for an e-commerce business in Swieqi?",
+          "a": "Typical first builds: cart-recovery drafts and post-purchase FAQ from your published policies, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Swieqi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Swieqi teams?",
+          "a": "On-site in Swieqi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for ecommerce work connected to swieqi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/swieqi",
+          "label": "Swieqi hub"
+        }
+      ]
+    },
+    "/malta/swieqi/law-firm/ai-consulting": {
+      "title": "AI Consulting for Swieqi Law Firms | Ibraġ Enquiry Triage | OARC Digital",
+      "description": "AI consulting for Swieqi law firm — triage first-contact enquiries without overstating practice scope around Triq is-Swieqi and the Tal-Ibraġ residential belt. No invented performance stats.",
+      "h1": "AI consulting for Swieqi law firm that triage first-contact enquiries without overstating practice scope",
+      "hero1Intro": "Swieqi law firm operate in a quieter upmarket residential town next to St Julian's, including Tal-Ibraġ, anchored by Triq is-Swieqi and the Tal-Ibraġ residential belt. AI should triage first-contact enquiries and answer practice-area FAQs from approved copy only — not by stuffing \"Swieqi law-firm\" keywords into generic EU copy. Serve St Julian's and Pembroke neighbours with logistics you actually support.",
+      "hero2": {
+        "heading": "Prospective clients who return when you have capacity",
+        "body": "Permission-based follow-ups when a practice area reopens intake — no purchased lead lists or invented success rates."
+      },
+      "challenge": "Generic legal chatbots that invent jurisdictional advice create professional risk. Around Triq is-Swieqi and the Tal-Ibraġ residential belt, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Route by practice area and urgency; fee quotes and advice stay with solicitors.",
+      "regulationNote": "Professional conduct and advertising rules for advocates/solicitors apply. AI must not invent legal advice or success statistics.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a law firm in Swieqi?",
+          "a": "Typical first builds: enquiry triage and practice-area FAQ from your approved website copy, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Swieqi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Swieqi teams?",
+          "a": "On-site in Swieqi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for law-firm work connected to swieqi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/swieqi",
+          "label": "Swieqi hub"
+        }
+      ]
+    },
+    "/malta/swieqi/car-dealership/ai-consulting": {
+      "title": "AI Consulting for Swieqi Car Dealerships | Ibraġ Test-Drive Ops | OARC Digital",
+      "description": "AI consulting for Swieqi car dealership — qualify test-drive requests without inventing stock or finance terms around Triq is-Swieqi and the Tal-Ibraġ residential belt. No invented performance stats.",
+      "h1": "AI consulting for Swieqi car dealership that qualify test-drive requests without inventing stock or finance terms",
+      "hero1Intro": "Swieqi car dealership operate in a quieter upmarket residential town next to St Julian's, including Tal-Ibraġ, anchored by Triq is-Swieqi and the Tal-Ibraġ residential belt. AI should qualify test-drive requests and answer stock/hours FAQs from inventory notes you approve — not by stuffing \"Swieqi car-dealership\" keywords into generic EU copy. Serve St Julian's and Pembroke neighbours with logistics you actually support.",
+      "hero2": {
+        "heading": "Shoppers who return when a matching vehicle lands",
+        "body": "Alerts when a saved brief matches a unit you list — sales approval before send. No fake scarcity timers."
+      },
+      "challenge": "High-consideration buyers punish invented finance rates or phantom stock within minutes. Around Triq is-Swieqi and the Tal-Ibraġ residential belt, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Read-only stock flags where APIs allow; finance and trade-in stay human.",
+      "regulationNote": "Consumer and finance advertising rules apply. AI must not invent APR, residual values, or availability.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a car dealership in Swieqi?",
+          "a": "Typical first builds: test-drive booking intake and stock/hours FAQ from your approved inventory notes, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Swieqi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Swieqi teams?",
+          "a": "On-site in Swieqi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for car-dealership work connected to swieqi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/swieqi",
+          "label": "Swieqi hub"
+        }
+      ]
+    },
+    "/malta/swieqi/construction/ai-consulting": {
+      "title": "AI Consulting for Swieqi Construction | Ibraġ Tender Ops | OARC Digital",
+      "description": "AI consulting for Swieqi construction — capture project enquiries and package capability facts you approve around Triq is-Swieqi and the Tal-Ibraġ residential belt. No invented performance stats.",
+      "h1": "AI consulting for Swieqi construction that capture project enquiries without inventing project portfolios",
+      "hero1Intro": "Swieqi construction operate in a quieter upmarket residential town next to St Julian's, including Tal-Ibraġ, anchored by Triq is-Swieqi and the Tal-Ibraġ residential belt. AI should capture project enquiries and package capability facts from materials you approve — not by stuffing \"Swieqi construction\" keywords into generic EU copy. Serve St Julian's and Pembroke neighbours with logistics you actually support.",
+      "hero2": {
+        "heading": "Prospects who return when a matching project brief appears",
+        "body": "CRM notes and approved follow-ups when a prospect reopens a tender pack — human send only."
+      },
+      "challenge": "Generic construction AI pages that invent completed projects fail due diligence fast. Around Triq is-Swieqi and the Tal-Ibraġ residential belt, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Document process, permits awareness, and coverage areas you actually serve; quotes stay human.",
+      "regulationNote": "Building and advertising accuracy rules apply. AI must not invent permits, timelines, or project photos.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a construction company in Swieqi?",
+          "a": "Typical first builds: project-enquiry intake and capability FAQ from your approved case materials, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Swieqi-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Swieqi teams?",
+          "a": "On-site in Swieqi when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for construction work connected to swieqi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/swieqi",
+          "label": "Swieqi hub"
+        }
+      ]
+    },
+    "/malta/zabbar/healthcare/ai-consulting": {
+      "title": "AI Consulting for Żabbar Healthcare | Sanctuary-Town Patient Ops | OARC Digital",
+      "description": "AI consulting for Żabbar healthcare — clear appointment intake and published-service FAQs around the Sanctuary basilica and Cottonera-edge streets. No invented performance stats.",
+      "h1": "AI consulting for Żabbar healthcare that clear appointment intake without inventing clinical claims",
+      "hero1Intro": "Żabbar healthcare operate in a large Cottonera-region family town centred on the Żabbar Sanctuary, anchored by the Sanctuary basilica and Cottonera-edge streets. AI should clear appointment intake and published-service FAQs you approve — never clinical advice — not by stuffing \"Żabbar healthcare\" keywords into generic EU copy. Serve Fgura and Three Cities families with logistics you actually support.",
+      "hero2": {
+        "heading": "Patients who return for the next booked review",
+        "body": "Reminder sequences for appointments you already confirmed — no fabricated wait-list scarcity or outcome claims."
+      },
+      "challenge": "Inboxes fill with hours, parking, and insurance loops while clinicians are with patients. Around the Sanctuary basilica and Cottonera-edge streets, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Automate logistics from approved copy; every clinical question escalates to a human.",
+      "regulationNote": "Healthcare advertising and professional rules apply. AI must not invent diagnoses, outcomes, or practitioner availability.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a healthcare clinic in Żabbar?",
+          "a": "Typical first builds: appointment intake and published-service FAQ with human escalation for clinical questions, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Żabbar-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Żabbar teams?",
+          "a": "On-site in Żabbar when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for healthcare work connected to zabbar?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/zabbar",
+          "label": "Żabbar hub"
+        }
+      ]
+    },
+    "/malta/zabbar/ecommerce/ai-consulting": {
+      "title": "AI Consulting for Żabbar E-commerce | Sanctuary-Town Lifecycle Ops | OARC Digital",
+      "description": "AI consulting for Żabbar e-commerce — recover abandoned carts and answer post-purchase FAQs you approve around the Sanctuary basilica and Cottonera-edge streets. No invented performance stats.",
+      "h1": "AI consulting for Żabbar e-commerce that recover abandoned carts without inventing delivery SLAs",
+      "hero1Intro": "Żabbar e-commerce operate in a large Cottonera-region family town centred on the Żabbar Sanctuary, anchored by the Sanctuary basilica and Cottonera-edge streets. AI should recover abandoned carts and answer post-purchase FAQs from policies you publish — not by stuffing \"Żabbar ecommerce\" keywords into generic EU copy. Serve Fgura and Three Cities families with logistics you actually support.",
+      "hero2": {
+        "heading": "Buyers who return for the next replenishment",
+        "body": "Permission-based replenishment notes tied to products they already bought — no purchased lookalike spam."
+      },
+      "challenge": "Bots that invent courier times or stock create chargebacks and trust damage. Around the Sanctuary basilica and Cottonera-edge streets, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Wire AI to published shipping/returns copy; exceptions escalate to support.",
+      "regulationNote": "Consumer protection and distance-selling expectations apply. Pricing, stock, and delivery claims must match the storefront.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for an e-commerce business in Żabbar?",
+          "a": "Typical first builds: cart-recovery drafts and post-purchase FAQ from your published policies, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Żabbar-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Żabbar teams?",
+          "a": "On-site in Żabbar when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for ecommerce work connected to zabbar?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/zabbar",
+          "label": "Żabbar hub"
+        }
+      ]
+    },
+    "/malta/zabbar/law-firm/ai-consulting": {
+      "title": "AI Consulting for Żabbar Law Firms | Sanctuary-Town Enquiry Triage | OARC Digital",
+      "description": "AI consulting for Żabbar law firm — triage first-contact enquiries without overstating practice scope around the Sanctuary basilica and Cottonera-edge streets. No invented performance stats.",
+      "h1": "AI consulting for Żabbar law firm that triage first-contact enquiries without overstating practice scope",
+      "hero1Intro": "Żabbar law firm operate in a large Cottonera-region family town centred on the Żabbar Sanctuary, anchored by the Sanctuary basilica and Cottonera-edge streets. AI should triage first-contact enquiries and answer practice-area FAQs from approved copy only — not by stuffing \"Żabbar law-firm\" keywords into generic EU copy. Serve Fgura and Three Cities families with logistics you actually support.",
+      "hero2": {
+        "heading": "Prospective clients who return when you have capacity",
+        "body": "Permission-based follow-ups when a practice area reopens intake — no purchased lead lists or invented success rates."
+      },
+      "challenge": "Generic legal chatbots that invent jurisdictional advice create professional risk. Around the Sanctuary basilica and Cottonera-edge streets, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Route by practice area and urgency; fee quotes and advice stay with solicitors.",
+      "regulationNote": "Professional conduct and advertising rules for advocates/solicitors apply. AI must not invent legal advice or success statistics.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a law firm in Żabbar?",
+          "a": "Typical first builds: enquiry triage and practice-area FAQ from your approved website copy, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Żabbar-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Żabbar teams?",
+          "a": "On-site in Żabbar when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for law-firm work connected to zabbar?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/zabbar",
+          "label": "Żabbar hub"
+        }
+      ]
+    },
+    "/malta/zabbar/car-dealership/ai-consulting": {
+      "title": "AI Consulting for Żabbar Car Dealerships | Sanctuary-Town Test-Drive Ops | OARC Digital",
+      "description": "AI consulting for Żabbar car dealership — qualify test-drive requests without inventing stock or finance terms around the Sanctuary basilica and Cottonera-edge streets. No invented performance stats.",
+      "h1": "AI consulting for Żabbar car dealership that qualify test-drive requests without inventing stock or finance terms",
+      "hero1Intro": "Żabbar car dealership operate in a large Cottonera-region family town centred on the Żabbar Sanctuary, anchored by the Sanctuary basilica and Cottonera-edge streets. AI should qualify test-drive requests and answer stock/hours FAQs from inventory notes you approve — not by stuffing \"Żabbar car-dealership\" keywords into generic EU copy. Serve Fgura and Three Cities families with logistics you actually support.",
+      "hero2": {
+        "heading": "Shoppers who return when a matching vehicle lands",
+        "body": "Alerts when a saved brief matches a unit you list — sales approval before send. No fake scarcity timers."
+      },
+      "challenge": "High-consideration buyers punish invented finance rates or phantom stock within minutes. Around the Sanctuary basilica and Cottonera-edge streets, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Read-only stock flags where APIs allow; finance and trade-in stay human.",
+      "regulationNote": "Consumer and finance advertising rules apply. AI must not invent APR, residual values, or availability.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a car dealership in Żabbar?",
+          "a": "Typical first builds: test-drive booking intake and stock/hours FAQ from your approved inventory notes, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Żabbar-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Żabbar teams?",
+          "a": "On-site in Żabbar when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for car-dealership work connected to zabbar?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/zabbar",
+          "label": "Żabbar hub"
+        }
+      ]
+    },
+    "/malta/zabbar/construction/ai-consulting": {
+      "title": "AI Consulting for Żabbar Construction | Sanctuary-Town Tender Ops | OARC Digital",
+      "description": "AI consulting for Żabbar construction — capture project enquiries and package capability facts you approve around the Sanctuary basilica and Cottonera-edge streets. No invented performance stats.",
+      "h1": "AI consulting for Żabbar construction that capture project enquiries without inventing project portfolios",
+      "hero1Intro": "Żabbar construction operate in a large Cottonera-region family town centred on the Żabbar Sanctuary, anchored by the Sanctuary basilica and Cottonera-edge streets. AI should capture project enquiries and package capability facts from materials you approve — not by stuffing \"Żabbar construction\" keywords into generic EU copy. Serve Fgura and Three Cities families with logistics you actually support.",
+      "hero2": {
+        "heading": "Prospects who return when a matching project brief appears",
+        "body": "CRM notes and approved follow-ups when a prospect reopens a tender pack — human send only."
+      },
+      "challenge": "Generic construction AI pages that invent completed projects fail due diligence fast. Around the Sanctuary basilica and Cottonera-edge streets, inaccurate automation is corrected by locals quickly.",
+      "opportunity": "Document process, permits awareness, and coverage areas you actually serve; quotes stay human.",
+      "regulationNote": "Building and advertising accuracy rules apply. AI must not invent permits, timelines, or project photos.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for a construction company in Żabbar?",
+          "a": "Typical first builds: project-enquiry intake and capability FAQ from your approved case materials, using only facts you approve, plus a human escalation path. We do not invent performance figures or client logos."
+        },
+        {
+          "q": "Do you invent Żabbar-specific case studies?",
+          "a": "No. We use verified public Malta context and your approved materials only — never fabricated reviews, AggregateRating, or ROI claims."
+        },
+        {
+          "q": "Where do workshops happen for Żabbar teams?",
+          "a": "On-site in Żabbar when useful, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for construction work connected to zabbar?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/zabbar",
+          "label": "Żabbar hub"
+        }
+      ]
+    }
+  },
+  "notes": [
+    "No invented clients, reviews, AggregateRating, or performance percentages",
+    "Verified public Malta context + approved OARC NAP only",
+    "LOCATION_IND_SVC_GLOBAL_KEEP remains true; all 50 paths already in malta-priority-matrix",
+    "Secondary-town fintech copy is honest (talent/satellite) — no fake HQs",
+    "All remaining ai-consulting priority-matrix paths after batch1–4 (exactly 50)",
+    "Highest Sahan rank remaining: Gżira leftovers, Swieqi, Mellieħa, then secondary-industry leftovers (Mosta/Qormi/Msida/Gżira/Swieqi/Żabbar)",
+    "Batch1–4 paths excluded"
+  ]
+}
