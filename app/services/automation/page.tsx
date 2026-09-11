@@ -64,6 +64,22 @@ const LD = {
         },
       ],
     },
+    {
+      "@type": "ItemList",
+      "name": "Priority Malta markets for automation",
+      "numberOfItems": 8,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Valletta digital services", "url": "https://oarcdigital.com/malta/valletta" },
+        { "@type": "ListItem", "position": 2, "name": "Sliema digital services", "url": "https://oarcdigital.com/malta/sliema" },
+        { "@type": "ListItem", "position": 3, "name": "St Julian's digital services", "url": "https://oarcdigital.com/malta/st-julians" },
+        { "@type": "ListItem", "position": 4, "name": "Mosta digital services", "url": "https://oarcdigital.com/malta/mosta" },
+        { "@type": "ListItem", "position": 5, "name": "Birkirkara digital services", "url": "https://oarcdigital.com/malta/birkirkara" },
+        { "@type": "ListItem", "position": 6, "name": "Qormi digital services", "url": "https://oarcdigital.com/malta/qormi" },
+        { "@type": "ListItem", "position": 7, "name": "Hamrun digital services", "url": "https://oarcdigital.com/malta/hamrun" },
+        { "@type": "ListItem", "position": 8, "name": "Naxxar digital services", "url": "https://oarcdigital.com/malta/naxxar" }
+      ]
+    },
   ],
 };
 
@@ -94,13 +110,26 @@ export default function AutomationPage() {
       <p data-speakable data-testid="dept-entity-sentence" style={{background:"#0E0D0C",color:"rgba(242,239,233,.75)",margin:0,padding:"1.5rem 22px 0",fontSize:13,lineHeight:1.75,maxWidth:"58ch"}}>
         OARC Digital is a Birkirkara automation partner for Malta owners who need workflows that replace manual loops—connected to AI agents, creative, and Voice AI Worker under one team.
       </p>
-      <p className="px-6 pb-10 text-sm text-muted-foreground" data-testid="dept-money-links" style={{background:"#0E0D0C",color:"rgba(242,239,233,.55)",margin:0,padding:"1.25rem 22px 2.5rem"}}>
+      <p className="px-6 pb-10 text-sm text-muted-foreground" data-testid="dept-money-links" style={{background:"#0E0D0C",color:"rgba(242,239,233,.55)",margin:0,padding:"1.25rem 22px 1rem"}}>
         Explore: <a href="/" style={{color:"#F2EFE9"}}>Home</a>
         {" · "}<a href="/creative" style={{color:"#F2EFE9"}}>Creative</a>
         {" · "}<a href="/ai-agents" style={{color:"#F2EFE9"}}>AI agents</a>
         {" · "}<a href="/solutions" style={{color:"#F2EFE9"}}>Solutions</a>
+        {" · "}<a href="/services/ai-staff" style={{color:"#F2EFE9"}}>AI staff</a>
+        {" · "}<a href="/services/seo-services" style={{color:"#F2EFE9"}}>SEO</a>
         {" · "}<a href="/voice-ai-worker" style={{color:"#F2EFE9"}}>Voice AI Worker</a>
         {" · "}<a href="/h360" style={{color:"#F2EFE9"}}>H360</a>
+        {" · "}<a href="/malta" style={{color:"#F2EFE9"}}>Malta hubs</a>
+      </p>
+      <p className="px-6 pb-10 text-sm" data-testid="dept-malta-location-links" style={{background:"#0E0D0C",color:"rgba(242,239,233,.45)",margin:0,padding:"0 22px 2.5rem"}}>
+        Malta markets: <a href="/malta/valletta" style={{color:"#F2EFE9"}}>Valletta</a>
+        {" · "}<a href="/malta/sliema" style={{color:"#F2EFE9"}}>Sliema</a>
+        {" · "}<a href="/malta/st-julians" style={{color:"#F2EFE9"}}>St Julian&apos;s</a>
+        {" · "}<a href="/malta/mosta" style={{color:"#F2EFE9"}}>Mosta</a>
+        {" · "}<a href="/malta/birkirkara" style={{color:"#F2EFE9"}}>Birkirkara</a>
+        {" · "}<a href="/malta/qormi" style={{color:"#F2EFE9"}}>Qormi</a>
+        {" · "}<a href="/malta/hamrun" style={{color:"#F2EFE9"}}>Ħamrun</a>
+        {" · "}<a href="/malta/naxxar" style={{color:"#F2EFE9"}}>Naxxar</a>
       </p>
     </>
   );

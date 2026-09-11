@@ -750,7 +750,31 @@ export default function PageContent() {
               {" · "}
               <Link href="/services/ai-staff" className="text-white/80 underline-offset-2 hover:underline">AI staff</Link>
               {" · "}
+              <Link href="/services/automation" className="text-white/80 underline-offset-2 hover:underline">Automation</Link>
+              {" · "}
+              <Link href="/services/seo-services" className="text-white/80 underline-offset-2 hover:underline">SEO</Link>
+              {" · "}
               <Link href="/h360" className="text-white/80 underline-offset-2 hover:underline">H360</Link>
+              {" · "}
+              <Link href="/malta" className="text-white/80 underline-offset-2 hover:underline">Malta hubs</Link>
+            </p>
+            <p className="mt-3 text-sm text-white/45" data-testid="ai-agents-malta-location-links">
+              Malta markets:{" "}
+              <Link href="/malta/valletta" className="text-white/75 underline-offset-2 hover:underline">Valletta</Link>
+              {" · "}
+              <Link href="/malta/sliema" className="text-white/75 underline-offset-2 hover:underline">Sliema</Link>
+              {" · "}
+              <Link href="/malta/st-julians" className="text-white/75 underline-offset-2 hover:underline">St Julian&apos;s</Link>
+              {" · "}
+              <Link href="/malta/mosta" className="text-white/75 underline-offset-2 hover:underline">Mosta</Link>
+              {" · "}
+              <Link href="/malta/birkirkara" className="text-white/75 underline-offset-2 hover:underline">Birkirkara</Link>
+              {" · "}
+              <Link href="/malta/qormi" className="text-white/75 underline-offset-2 hover:underline">Qormi</Link>
+              {" · "}
+              <Link href="/malta/hamrun" className="text-white/75 underline-offset-2 hover:underline">Ħamrun</Link>
+              {" · "}
+              <Link href="/malta/naxxar" className="text-white/75 underline-offset-2 hover:underline">Naxxar</Link>
             </p>
           </div>
         </section>
@@ -1015,6 +1039,30 @@ export default function PageContent() {
 
           </div>
 
+          {/* ItemList JSON-LD — priority Malta locality hubs */}
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Priority Malta markets for AI agents",
+            "description": "Locality hubs where Malta businesses deploy OARC AI agents and Voice AI Worker.",
+            "numberOfItems": 8,
+            "itemListOrder": "https://schema.org/ItemListOrderAscending",
+            "itemListElement": [
+              ["valletta", "Valletta"],
+              ["sliema", "Sliema"],
+              ["st-julians", "St Julian's"],
+              ["mosta", "Mosta"],
+              ["birkirkara", "Birkirkara"],
+              ["qormi", "Qormi"],
+              ["hamrun", "Hamrun"],
+              ["naxxar", "Naxxar"],
+            ].map(([slug, name], i) => ({
+              "@type": "ListItem",
+              "position": i + 1,
+              "url": `https://oarcdigital.com/malta/${slug}`,
+              "name": `${name} digital services`,
+            })),
+          }) }} />
           {/* ItemList JSON-LD — the 7 OARC AI Agent service pages */}
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",

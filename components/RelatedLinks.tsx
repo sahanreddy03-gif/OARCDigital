@@ -24,6 +24,8 @@ const HUB_LABELS: Record<string, string> = {
   "aeo-service": "Service · Malta",
   "aeo-city": "City",
   "aeo-vertical": "Industry",
+  "malta-hub": "Malta",
+  "malta-location": "Locality",
 };
 
 export default function RelatedLinks({

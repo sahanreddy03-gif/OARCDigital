@@ -21,6 +21,8 @@ export type Hub =
   | "aeo-city"
   | "aeo-vertical"
   | "industry-hub"
+  | "malta-hub"
+  | "malta-location"
   | "blog";
 
 export type LinkNode = {
@@ -58,7 +60,11 @@ const NODES: LinkNode[] = [
       "/services",
       "/our-work",
       "/new-work",
-      "/contact"
+      "/contact",
+      "/malta",
+      "/services/seo-services",
+      "/services/ai-staff",
+      "/services/automation",
     ],
   },
   {
@@ -83,7 +89,15 @@ const NODES: LinkNode[] = [
       "/services/marketing-automation-suite",
       "/services/custom-software-development",
       "/aeo/ai-agency-malta",
-      "/aeo/ai-agents-business-malta"
+      "/aeo/ai-agents-business-malta",
+      "/malta",
+      "/malta/valletta",
+      "/malta/sliema",
+      "/malta/st-julians",
+      "/malta/birkirkara",
+      "/services/seo-services",
+      "/services/automation",
+      "/solutions",
     ],
   },
   {
@@ -109,7 +123,13 @@ const NODES: LinkNode[] = [
       "/aeo/instagram-marketing-malta",
       "/aeo/tiktok-marketing-malta",
       "/aeo/content-creation-malta",
-      "/aeo/video-production-malta"
+      "/aeo/video-production-malta",
+      "/malta",
+      "/malta/valletta",
+      "/malta/sliema",
+      "/malta/st-julians",
+      "/malta/birkirkara",
+      "/solutions",
     ],
   },
   {
@@ -151,7 +171,13 @@ const NODES: LinkNode[] = [
       "/automation",
       "/services/hire-ai-employees",
       "/services/ai-consulting",
-      "/contact"
+      "/contact",
+      "/malta",
+      "/malta/valletta",
+      "/malta/sliema",
+      "/malta/birkirkara",
+      "/services/seo-services",
+      "/solutions",
     ],
   },
   {
@@ -166,7 +192,13 @@ const NODES: LinkNode[] = [
       "/solutions",
       "/creative",
       "/voice-ai-worker",
-      "/contact"
+      "/contact",
+      "/malta",
+      "/malta/valletta",
+      "/malta/sliema",
+      "/malta/birkirkara",
+      "/services/ai-staff",
+      "/services/seo-services",
     ],
   },
   {
@@ -241,8 +273,97 @@ const NODES: LinkNode[] = [
       "/automation",
       "/voice-ai-worker",
       "/h360",
+      "/contact",
+      "/malta",
+      "/malta/valletta",
+      "/malta/sliema",
+      "/malta/st-julians",
+      "/malta/birkirkara",
+      "/services/ai-staff",
+      "/services/automation",
+      "/services/seo-services",
+    ],
+  },
+
+  // ── Malta hub + priority locality hubs (discovery brief 7–8) ────────────
+  {
+    path: "/malta",
+    title: "Digital Marketing & AI Services Across Malta",
+    shortLabel: "Malta",
+    hub: "malta-hub",
+    spokes: [
+      "/malta/valletta",
+      "/malta/sliema",
+      "/malta/st-julians",
+      "/malta/mosta",
+      "/malta/birkirkara",
+      "/malta/qormi",
+      "/malta/hamrun",
+      "/malta/naxxar",
+      "/ai-agents",
+      "/services/automation",
+      "/services/ai-staff",
+      "/solutions",
+      "/creative",
+      "/services/seo-services",
       "/contact"
     ],
+  },
+  {
+    path: "/malta/valletta",
+    title: "Valletta Digital Services",
+    shortLabel: "Valletta",
+    hub: "malta-location",
+    spokes: ["/malta", "/ai-agents", "/creative", "/solutions", "/services/seo-services", "/contact"],
+  },
+  {
+    path: "/malta/sliema",
+    title: "Sliema Digital Services",
+    shortLabel: "Sliema",
+    hub: "malta-location",
+    spokes: ["/malta", "/ai-agents", "/creative", "/solutions", "/services/seo-services", "/contact"],
+  },
+  {
+    path: "/malta/st-julians",
+    title: "St Julian's Digital Services",
+    shortLabel: "St Julian's",
+    hub: "malta-location",
+    spokes: ["/malta", "/ai-agents", "/creative", "/solutions", "/services/seo-services", "/contact"],
+  },
+  {
+    path: "/malta/mosta",
+    title: "Mosta Digital Services",
+    shortLabel: "Mosta",
+    hub: "malta-location",
+    spokes: ["/malta", "/ai-agents", "/creative", "/solutions", "/services/seo-services", "/contact"],
+  },
+  {
+    path: "/malta/birkirkara",
+    title: "Birkirkara Digital Services",
+    shortLabel: "Birkirkara",
+    hub: "malta-location",
+    spokes: ["/malta", "/ai-agents", "/creative", "/solutions", "/services/seo-services", "/contact"],
+  },
+  {
+    path: "/malta/qormi",
+    title: "Qormi Digital Services",
+    shortLabel: "Qormi",
+    hub: "malta-location",
+    spokes: ["/malta", "/ai-agents", "/creative", "/solutions", "/services/seo-services", "/contact"],
+  },
+  {
+    path: "/malta/hamrun",
+    title: "Hamrun Digital Services",
+    shortLabel: "Hamrun",
+    hub: "malta-location",
+    spokes: ["/malta", "/ai-agents", "/creative", "/solutions", "/services/seo-services", "/contact"],
+  },
+  {
+    path: "/malta/naxxar",
+    title: "Naxxar Digital Services",
+    shortLabel: "Naxxar",
+    hub: "malta-location",
+    spokes: ["/malta", "/ai-agents", "/creative", "/solutions", "/services/seo-services", "/contact"],
   },
   {
     path: "/services",
@@ -1655,6 +1776,16 @@ const NODES: LinkNode[] = [
       "/services/web-design",
       "/blog/seo-malta-complete-guide",
       "/aeo/best-marketing-agency-malta",
+      "/creative",
+      "/ai-agents",
+      "/solutions",
+      "/services/automation",
+      "/malta",
+      "/malta/valletta",
+      "/malta/sliema",
+      "/malta/st-julians",
+      "/malta/birkirkara",
+      "/contact",
     ],
   },
   {
