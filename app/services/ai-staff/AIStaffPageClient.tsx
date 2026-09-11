@@ -93,14 +93,18 @@ const METRICS = [
 ];
 
 const FAQS = [
+  { q:"What is AI staff from OARC Digital?",
+    a:"Role-based AI employees for Malta businesses—sales, support, booking, admin—that complete defined jobs with human handoff. Built in Birkirkara by the same team as creative and Voice AI Worker." },
   { q:"Will it sound like a robot?",
-    a:"It's trained on your tone, your phrases, your menu. Most guests never ask — and when they do, it answers honestly." },
+    a:"It's trained on your tone, phrases, and menu. Most guests never ask — and when they do, it answers honestly." },
   { q:"What if it doesn't know the answer?",
-    a:"It says so, takes a message, and hands off to a human — instead of inventing one. That rule is not optional." },
-  { q:"How fast is it live?",
-    a:"Days. We connect your existing WhatsApp, phone and inboxes — no new systems for your staff to learn." },
+    a:"It says so, takes a message, and hands off to a human with full context — it never invents answers. That rule is not optional." },
+  { q:"How fast is AI staff live?",
+    a:"Days for standard roles. We connect your existing WhatsApp, phone and inboxes — no new systems for your staff to learn." },
+  { q:"How do AI staff relate to Voice AI Worker and creative?",
+    a:"Voice covers the phone. AI staff covers chat, CRM, and admin workflows. Creative creates demand those agents catch. One Birkirkara team owns the stack — see /ai-agents, /voice-ai-worker, /creative." },
   { q:"Are you an AI company?",
-    a:"No. We're the team that makes businesses grow — AI staff is one of the ways we do it, delivered by people you can call." },
+    a:"No. OARC Digital is a Malta marketing and AI studio that makes businesses grow — AI staff is one service, delivered by people you can call on +356 7971 1799." },
 ];
 
 const SEC: React.CSSProperties = {
@@ -273,6 +277,21 @@ export default function AIStaffPageClient() {
           </div>
         </section>
       </Reveal>
+
+      {/* Entity + money siblings */}
+      <section style={{background:C.bg, color:C.fg, padding:"2rem 22px 0"}} data-testid="ai-staff-entity-block">
+        <p style={{maxWidth:"58ch", fontSize:14, lineHeight:1.75, color:C.dim}} data-speakable>
+          OARC Digital is a Birkirkara AI staff partner for Malta owners who need sales, support, booking, and admin covered by AI employees—with human handoff—and the same team for creative and Voice AI Worker.
+        </p>
+        <p style={{marginTop:"1rem", fontSize:12, color:C.low}} data-testid="ai-staff-money-links">
+          Explore: <Link href="/" style={{color:C.fg}}>Home</Link>
+          {" · "}<Link href="/ai-agents" style={{color:C.fg}}>AI agents</Link>
+          {" · "}<Link href="/voice-ai-worker" style={{color:C.fg}}>Voice AI Worker</Link>
+          {" · "}<Link href="/creative" style={{color:C.fg}}>Creative</Link>
+          {" · "}<Link href="/solutions" style={{color:C.fg}}>Solutions</Link>
+          {" · "}<Link href="/services/automation" style={{color:C.fg}}>Automation</Link>
+        </p>
+      </section>
 
       {/* ── FAQs ─────────────────────────────────────────────────────────────── */}
       <Reveal>

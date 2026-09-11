@@ -72,6 +72,7 @@ const NODES: LinkNode[] = [
       "/creative",
       "/automation",
       "/voice-ai-worker",
+      "/services/ai-staff",
       "/h360",
       "/services/ai-consulting",
       "/services/ai-sdr-agent",
@@ -138,6 +139,51 @@ const NODES: LinkNode[] = [
     ],
   },
   {
+    path: "/services/ai-staff",
+    title: "AI Staff Malta — Hire AI Employees",
+    shortLabel: "AI Staff",
+    hub: "ai",
+    spokes: [
+      "/",
+      "/ai-agents",
+      "/voice-ai-worker",
+      "/creative",
+      "/automation",
+      "/services/hire-ai-employees",
+      "/services/ai-consulting",
+      "/contact"
+    ],
+  },
+  {
+    path: "/services/automation",
+    title: "Automation Malta — Workflow + CRM",
+    shortLabel: "Automation",
+    hub: "automation",
+    spokes: [
+      "/",
+      "/automation",
+      "/ai-agents",
+      "/solutions",
+      "/creative",
+      "/voice-ai-worker",
+      "/contact"
+    ],
+  },
+  {
+    path: "/services/reputation",
+    title: "Reputation Marketing Malta",
+    shortLabel: "Reputation",
+    hub: "service",
+    spokes: [
+      "/",
+      "/h360",
+      "/creative",
+      "/ai-agents",
+      "/voice-ai-worker",
+      "/contact"
+    ],
+  },
+  {
     path: "/voice-ai-worker",
     title: "Voice AI Worker — AI Phone Receptionist Malta",
     shortLabel: "Voice AI",
@@ -145,6 +191,7 @@ const NODES: LinkNode[] = [
     spokes: [
       "/",
       "/ai-agents",
+      "/services/ai-staff",
       "/creative",
       "/automation",
       "/h360",
@@ -162,6 +209,7 @@ const NODES: LinkNode[] = [
       "/creative",
       "/ai-agents",
       "/voice-ai-worker",
+      "/services/reputation",
       "/automation",
       "/contact"
     ],
