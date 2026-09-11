@@ -137,12 +137,8 @@ export default function AutomationPageClient() {
       <section style={{ position:"relative", zIndex:1, padding:"3.6rem 22px 2.4rem", borderBottom:`1px solid ${C.line}` }}>
         <Kicker label="AI and automation" />
         <h1 style={{ fontFamily:C.sg, fontWeight:700, fontSize:"clamp(2.8rem,12vw,4.6rem)", lineHeight:.94, letterSpacing:"-.035em", marginTop:"1.1rem", maxWidth:"12ch" }}>
-          The business that<br />
-          <span style={{ position:"relative", display:"inline-block" }}>
-            runs itself.
-            <span style={{ position:"absolute", inset:"-.05em -.12em", border:`1px solid ${C.line}`, borderRadius:4, pointerEvents:"none" }} />
-          </span>
-        </h1>
+        Business automation Malta — remove the loops that steal your week
+      </h1>
         <p style={{ fontFamily:C.jb, fontSize:"11.5px", lineHeight:1.85, color:C.dim, marginTop:"1.3rem", maxWidth:"40ch" }}>
           Everything connected, the busywork triggering itself, the smart calls handled — running 24/7 while you watch it work.{" "}
           <strong style={{ color:C.fg, fontWeight:700 }}>Not more staff. A business that needs fewer hands to run.</strong>

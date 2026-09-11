@@ -50,7 +50,7 @@ export default function PageContent() {
       <section className="py-16 md:py-24 bg-background">
         <div className="max-w-4xl mx-auto px-6 md:px-8">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
-            The marketing automation layer your stack actually needs
+            Marketing automation Malta — campaigns that run on rails
           </h1>
 
           <div>

@@ -137,9 +137,8 @@ export default function BrandPageClient() {
           <Kicker label="Creative and brand — brand strategy Malta" />
           <h1 style={{ fontFamily:C.fr, fontWeight:900, fontSize:"clamp(2.5rem,10vw,3.7rem)",
             lineHeight:.98, letterSpacing:"-.02em", marginBottom:"1.1rem" }}>
-            Everything they see,<br />
-            <em style={{ fontStyle:"italic", fontWeight:600, color:C.ox }}>hear and feel.</em>
-          </h1>
+        Brand strategy Malta — everything they see, hear, and feel
+      </h1>
           <p style={{ fontSize:".98rem", color:C.dim, lineHeight:1.6, maxWidth:"44ch", marginBottom:"1.7rem" }}>
             Every image, film, word, screen, sign and space that makes someone feel something about your
             business — and choose you. Strategy, identity, content, campaigns, the lot.{" "}

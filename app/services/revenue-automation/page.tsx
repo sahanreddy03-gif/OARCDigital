@@ -8,21 +8,21 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
-  title: "Revenue Automation Malta | AI Revenue Engine | OARC Digital",
-  description: `AI-powered revenue automation for Malta businesses. OARC Digital builds systems that generate and convert leads automatically. Contact ${NAP.email}.`,
+  title: "Revenue Automation Malta | AI Revenue Engine | OARC",
+  description: "Revenue automation for Malta businesses—connect acquisition, qualification, and follow-up so revenue motions run with less heroics.",
   alternates: getHreflangAlternates("/services/revenue-automation"),
   openGraph: {
-    images: ogImageEntry({ title: "Revenue Automation Malta | AI Revenue Engine | OARC Digital", subtitle: `AI-powered revenue automation for Malta businesses. OARC Digital builds systems that generate and convert leads automatically. Contact ${NAP.email}.` }),
-    title: "Revenue Automation Malta | AI Revenue Engine | OARC Digital",
-    description: `AI-powered revenue automation for Malta businesses. OARC Digital builds systems that generate and convert leads automatically. Contact ${NAP.email}.`,
+    images: ogImageEntry({ title: "Revenue Automation Malta | AI Revenue Engine | OARC", subtitle: "Revenue automation for Malta businesses—connect acquisition, qualification, and follow-up so revenue motions run with less heroics." }),
+    title: "Revenue Automation Malta | AI Revenue Engine | OARC",
+    description: "Revenue automation for Malta businesses—connect acquisition, qualification, and follow-up so revenue motions run with less heroics.",
     url: "https://oarcdigital.com/services/revenue-automation",
     type: "website",
   },
   twitter: {
-    images: [ogImageUrl({ title: "Revenue Automation Malta | AI Revenue Engine | OARC Digital", subtitle: `AI-powered revenue automation for Malta businesses. OARC Digital builds systems that generate and convert leads automatically. Contact ${NAP.email}.` })],
+    images: [ogImageUrl({ title: "Revenue Automation Malta | AI Revenue Engine | OARC", subtitle: "Revenue automation for Malta businesses—connect acquisition, qualification, and follow-up so revenue motions run with less heroics." })],
     card: "summary_large_image",
-    title: "Revenue Automation Malta | AI Revenue Engine | OARC Digital",
-    description: `AI-powered revenue automation for Malta businesses. OARC Digital builds systems that generate and convert leads automatically. Contact ${NAP.email}.`,
+    title: "Revenue Automation Malta | AI Revenue Engine | OARC",
+    description: "Revenue automation for Malta businesses—connect acquisition, qualification, and follow-up so revenue motions run with less heroics.",
   },
 };
 

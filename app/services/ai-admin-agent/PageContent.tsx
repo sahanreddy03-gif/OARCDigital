@@ -106,7 +106,7 @@ export default function PageContent() {
             data-speakable
             data-testid="heading-hero"
           >
-            Stop Drowning in Admin.<br className="hidden md:block" /> Your AI Employee Has It Covered.
+            AI admin agent — inbox and calendar without the grind
           </h1>
           <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-2xl" data-speakable>
             Inbox triaged before 8:30am. Meetings scheduled automatically. Documents filed the moment they arrive. Follow-ups chased on schedule — without you touching any of it.

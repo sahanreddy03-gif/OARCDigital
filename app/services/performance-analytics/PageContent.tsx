@@ -42,7 +42,7 @@ export default function PerformanceAnalytics() {
             <span className="text-sm text-cyan-300 font-medium">Data-Driven Growth</span>
           </div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-            Insights that <span className="italic bg-gradient-to-r from-cyan-400 to-blue-400 text-transparent bg-clip-text">drive decisions</span>
+            Performance analytics — insights that drive decisions
           </h1>
           <p className="text-lg md:text-xl text-white/70 mb-8 max-w-3xl mx-auto">
             Stop guessing, start knowing. Custom analytics dashboards, attribution modeling, and performance reporting that transform raw data into actionable growth strategies.

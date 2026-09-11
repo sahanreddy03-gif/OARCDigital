@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
-const TITLE = "Paid Media Malta — Ad Spend That Pays | OARC";
+const TITLE = "Paid Media Malta | Ad Spend That Pays | OARC";
 const DESCRIPTION =
-  "OARC manages paid media for Malta businesses on Meta, Google, TikTok and YouTube — flighted testing, 100% spend to platforms, and every euro tracked back to revenue.";
+  "Paid media for Malta businesses—Meta/Google and beyond—with creative and landing paths that aim for revenue, not just cheap clicks.";
 const CANONICAL = "https://oarcdigital.com/services/media";
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function MediaPage() {
         Media — dept 03
       </div>
       <h1 style={{ fontWeight:700, fontSize:"clamp(2.8rem,12vw,4.6rem)", lineHeight:.94, letterSpacing:"-.035em", maxWidth:"12ch" }}>
-        Ad spend that<br /><span style={{ color:"#E02B20" }}>pays.</span>
+        Paid media Malta — make ad spend pay for customers
       </h1>
       <p style={{ fontFamily:"var(--font-space-mono,'Space Mono',monospace)", fontSize:"11.5px", lineHeight:1.85, color:"rgba(242,239,233,.6)", marginTop:"1.4rem", maxWidth:"38ch" }}>
         Meta, Google, TikTok, YouTube and out-of-home — flighted testing, 100% spend straight to platforms, every euro traced to revenue. Full page coming soon.

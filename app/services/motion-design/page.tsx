@@ -7,21 +7,21 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
-  title: "Motion Design | Animation & Motion Graphics | OARC Digital",
-  description: "Elite motion design and animation services. OARC Digital creates stunning motion graphics, explainer videos, and animated content that captivates audiences.",
+  title: "Motion Design Malta | Animation That Moves | OARC",
+  description: "Motion design and animation for Malta brands—ads, explainers, and social motion that earn attention without empty spectacle.",
   alternates: getHreflangAlternates("/services/motion-design"),
   openGraph: {
-    images: ogImageEntry({ title: "Motion Design | Animation & Motion Graphics | OARC Digital", subtitle: "Elite motion design and animation services. OARC Digital creates stunning motion graphics, explainer videos, and animated content that captivates audiences." }),
-    title: "Motion Design | Animation & Motion Graphics | OARC Digital",
-    description: "Elite motion design and animation services. OARC Digital creates stunning motion graphics, explainer videos, and animated content that captivates audiences.",
+    images: ogImageEntry({ title: "Motion Design Malta | Animation That Moves | OARC", subtitle: "Motion design and animation for Malta brands—ads, explainers, and social motion that earn attention without empty spectacle." }),
+    title: "Motion Design Malta | Animation That Moves | OARC",
+    description: "Motion design and animation for Malta brands—ads, explainers, and social motion that earn attention without empty spectacle.",
     url: "https://oarcdigital.com/services/motion-design",
     type: "article",
   },
   twitter: {
-    images: [ogImageUrl({ title: "Motion Design | Animation & Motion Graphics | OARC Digital", subtitle: "Elite motion design and animation services. OARC Digital creates stunning motion graphics, explainer videos, and animated content that captivates audiences." })],
+    images: [ogImageUrl({ title: "Motion Design Malta | Animation That Moves | OARC", subtitle: "Motion design and animation for Malta brands—ads, explainers, and social motion that earn attention without empty spectacle." })],
     card: "summary_large_image",
-    title: "Motion Design | Animation & Motion Graphics | OARC Digital",
-    description: "Elite motion design and animation services. OARC Digital creates stunning motion graphics, explainer videos, and animated content that captivates audiences.",
+    title: "Motion Design Malta | Animation That Moves | OARC",
+    description: "Motion design and animation for Malta brands—ads, explainers, and social motion that earn attention without empty spectacle.",
   },
 };
 

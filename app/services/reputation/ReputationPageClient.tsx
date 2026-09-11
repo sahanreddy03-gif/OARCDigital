@@ -128,11 +128,8 @@ export default function ReputationPageClient() {
           <h1 style={{ fontFamily:C.fr, fontWeight:900,
             fontSize:"clamp(3rem,13.5vw,6.6rem)", lineHeight:.9,
             letterSpacing:"-.04em", marginBottom:"1.3rem" }}>
-            Make me<br />
-            <span style={{ background:C.ox, color:C.bg,
-              padding:".02em .16em", borderRadius:5,
-              display:"inline-block" }}>famous.</span>
-          </h1>
+        Reputation Malta — earn trust where customers check
+      </h1>
           <p style={{ fontSize:"clamp(1.08rem,2vw,1.32rem)", color:C.dim, lineHeight:1.55,
             maxWidth:"45ch", marginBottom:"2.2rem" }}>
             Famous means people know you before you say a word — and pick you because of it.

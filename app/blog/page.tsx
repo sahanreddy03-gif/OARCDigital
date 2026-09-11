@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies",
-  description: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices.",
+  title: "Blog | AI Marketing & Growth | OARC Digital",
+  description: "OARC Digital’s blog on AI marketing, creative, and growth—written to answer real questions, not doorways.",
   alternates: getHreflangAlternates("/blog"),
   openGraph: {
-    images: ogImageEntry({ title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies", subtitle: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices." }),
-    title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies",
-    description: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices.",
+    images: ogImageEntry({ title: "Blog | AI Marketing & Growth | OARC Digital", subtitle: "OARC Digital’s blog on AI marketing, creative, and growth—written to answer real questions, not doorways." }),
+    title: "Blog | AI Marketing & Growth | OARC Digital",
+    description: "OARC Digital’s blog on AI marketing, creative, and growth—written to answer real questions, not doorways.",
     url: "https://oarcdigital.com/blog",
   },
   twitter: {
-    images: [ogImageUrl({ title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies", subtitle: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices." })],
+    images: [ogImageUrl({ title: "Blog | AI Marketing & Growth | OARC Digital", subtitle: "OARC Digital’s blog on AI marketing, creative, and growth—written to answer real questions, not doorways." })],
     card: "summary_large_image",
-    title: "OARC Digital Blog | AI Marketing, Creative Services & Growth Strategies",
-    description: "Expert insights on AI marketing, creative services, and revenue growth. Learn from real case studies, how-to guides, and industry best practices.",
+    title: "Blog | AI Marketing & Growth | OARC Digital",
+    description: "OARC Digital’s blog on AI marketing, creative, and growth—written to answer real questions, not doorways.",
   },
 };
 
@@ -341,7 +341,7 @@ export default function Page() {
           <div className="max-w-7xl mx-auto px-6 md:px-8">
             <div className="max-w-3xl">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                <span style={{ fontFamily: 'var(--font-heatrobox)' }}>OARC Digital</span> <span className="text-green-500">Blog</span>
+                OARC Digital blog — practical AI marketing and growth
               </h1>
               <p className="text-xl text-zinc-300">
                 Expert insights on AI marketing, creative excellence, and revenue growth strategies

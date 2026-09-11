@@ -9,26 +9,26 @@ const SLUG = "api-integration";
 const URL = `https://oarcdigital.com/services/${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "API Integration Malta | Connect Any System | OARC Digital",
-  description: "Custom API development and third-party integration for Malta businesses. Stripe, Salesforce, Twilio, and 500+ platforms. REST, GraphQL, webhooks — enterprise-grade reliability.",
+  title: "API Integration Malta | Connect Your Systems | OARC",
+  description: "API integration services in Malta—connect CRM, booking, payments, and AI agents so data moves without copy-paste.",
   alternates: getHreflangAlternates(`/services/${SLUG}`),
   openGraph: {
     images: ogImageEntry({
-      title: "API Integration Malta | Connect Any System | OARC Digital",
+      title: "API Integration Malta | Connect Your Systems | OARC",
       subtitle: "Custom REST and GraphQL APIs, third-party integration, and data synchronisation. 500+ platforms. Enterprise-grade reliability.",
     }),
-    title: "API Integration Malta | Connect Any System | OARC Digital",
+    title: "API Integration Malta | Connect Your Systems | OARC",
     description: "Custom API development and third-party integration for Malta businesses. 500+ platforms, REST, GraphQL, webhooks.",
     url: URL,
     type: "article",
   },
   twitter: {
     images: [ogImageUrl({
-      title: "API Integration Malta | Connect Any System | OARC Digital",
+      title: "API Integration Malta | Connect Your Systems | OARC",
       subtitle: "Custom REST and GraphQL APIs for Malta businesses. 500+ platforms, enterprise-grade reliability.",
     })],
     card: "summary_large_image",
-    title: "API Integration Malta | Connect Any System | OARC Digital",
+    title: "API Integration Malta | Connect Your Systems | OARC",
     description: "Custom API development and third-party integration for Malta businesses. 500+ platforms.",
   },
 };

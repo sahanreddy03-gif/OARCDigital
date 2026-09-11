@@ -540,8 +540,7 @@ export default function PageContent() {
             <Rocket className="w-3 h-3 text-lime-400" /> Breaking the Old Agency Model
           </div>
           <h1 className="text-5xl md:text-7xl font-serif font-medium tracking-tight mb-6 text-slate-900">
-            Pay for <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-lime-500 to-green-600">outcomes</span>,<br />
-            not outputs
+            Pricing — pay for outcomes, not outputs
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Every package custom-tailored to your business. More value, faster delivery, measurable results.

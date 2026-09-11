@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import OperationsPageClient from "./OperationsPageClient";
 import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
-const TITLE = "Operations Management Malta — Get Your Week Back | OARC";
+const TITLE = "Operations Help Malta | Get Your Week Back | OARC";
 const DESCRIPTION =
-  "OARC takes the boring work off your plate: we audit where your time goes, systematise the jobs that shouldn't need you, and run them on autopilot. Malta business owners gain back ≈13 hours every week.";
+  "Operations and admin relief for Malta owners—automation and AI admin agents that take boring loops off your week.";
 const CANONICAL = "https://oarcdigital.com/services/operations";
 
 const LD = {

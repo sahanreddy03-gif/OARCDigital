@@ -167,8 +167,7 @@ export default function EmailMarketingContent() {
             <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Automation &amp; Lifecycle</span>
           </div>
           <h1 data-speakable className="text-3xl md:text-5xl font-bold mb-6 leading-tight" data-testid="heading-email-marketing">
-            Email That Works While You Sleep<br />
-            <span className="text-orange-400 italic">Built on Automation.</span>
+            Email marketing Malta — automation that works while you sleep
           </h1>
           <p data-speakable className="text-xl text-zinc-300 leading-relaxed mb-8 max-w-2xl">
             The full email channel under management — Klaviyo, Mailchimp, ActiveCampaign, HubSpot, and Customer.io built, monitored, and reported on monthly by a Birkirkara team that owns deliverability, segmentation, and triggered revenue end-to-end.

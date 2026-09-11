@@ -7,24 +7,24 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
-  title: "Social Media Strategy & Audit | OARC Digital Malta",
+  title: "Social Media Strategy Malta | Audit + Plan | OARC",
   description:
-    "A one-time social media strategy and audit for Malta brands. Forensic teardown of your channels, competitor matrix, content pillars, and a 90-day execution plan.",
+    "Social strategy and audits for Malta brands—clarify platforms, offers, and creative system before you waste another month posting blind.",
   alternates: getHreflangAlternates("/services/social"),
   openGraph: {
-    images: ogImageEntry({ title: "Social Media Strategy & Audit | OARC Digital Malta", subtitle: "A one-time social media strategy and audit for Malta brands. Forensic teardown of your channels, competitor matrix, content pillars, and a 90-day execution plan." }),
-    title: "Social Media Strategy & Audit | OARC Digital Malta",
+    images: ogImageEntry({ title: "Social Media Strategy Malta | Audit + Plan | OARC", subtitle: "Social strategy and audits for Malta brands—clarify platforms, offers, and creative system before you waste another month posting blind." }),
+    title: "Social Media Strategy Malta | Audit + Plan | OARC",
     description:
-      "A one-time social media strategy and audit for Malta brands. Forensic teardown of your channels, competitor matrix, content pillars, and a 90-day execution plan.",
+      "Social strategy and audits for Malta brands—clarify platforms, offers, and creative system before you waste another month posting blind.",
     url: "https://oarcdigital.com/services/social",
     type: "article",
   },
   twitter: {
-    images: [ogImageUrl({ title: "Social Media Strategy & Audit | OARC Digital Malta", subtitle: "A one-time social media strategy and audit for Malta brands. Forensic teardown of your channels, competitor matrix, content pillars, and a 90-day execution plan." })],
+    images: [ogImageUrl({ title: "Social Media Strategy Malta | Audit + Plan | OARC", subtitle: "Social strategy and audits for Malta brands—clarify platforms, offers, and creative system before you waste another month posting blind." })],
     card: "summary_large_image",
-    title: "Social Media Strategy & Audit | OARC Digital Malta",
+    title: "Social Media Strategy Malta | Audit + Plan | OARC",
     description:
-      "A one-time social media strategy and audit for Malta brands. Forensic teardown of your channels, competitor matrix, content pillars, and a 90-day execution plan.",
+      "Social strategy and audits for Malta brands—clarify platforms, offers, and creative system before you waste another month posting blind.",
   },
 };
 

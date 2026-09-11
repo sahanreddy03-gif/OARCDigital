@@ -33,8 +33,8 @@ export default function Page() {
         <RouteSchema
           type="pillar"
           path="/services"
-          title="All Services — Creative, AI Agents, Revenue Automation | OARC Digital"
-          description="OARC Digital's full Malta-based service catalogue: brand and creative, AI agents and employees, paid media, SEO, and revenue automation under one team."
+          title="Marketing & AI Services Malta | OARC Digital"
+          description="Browse OARC services: creative, AI employees, SEO, automation, H360 hospitality, and more—one Birkirkara team for revenue outcomes."
           faqs={SUPPORTING_PAGE_SCHEMAS["/services"].faqs}
         />
       <PageContent />

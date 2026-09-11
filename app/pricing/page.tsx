@@ -9,20 +9,20 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 export const metadata: Metadata = {
   alternates: getHreflangAlternates("/pricing"),
-  title: "Pricing Plans | OARC Digital",
-  description: "Flexible plans built for growth. Pay for outcomes, not outputs. 10x faster than traditional agencies.",
+  title: "Pricing | OARC Digital Malta",
+  description: "OARC pricing is scoped to outcomes—creative, AI employees, H360, growth—not mystery retainers. Book a call for a clear commercial fit.",
   openGraph: {
-    images: ogImageEntry({ title: "Pricing Plans | OARC Digital", subtitle: "Flexible plans built for growth. Pay for outcomes, not outputs. 10x faster than traditional agencies." }),
-    title: "Pricing Plans | OARC Digital",
-    description: "Flexible plans built for growth. Pay for outcomes, not outputs. 10x faster than traditional agencies.",
+    images: ogImageEntry({ title: "Pricing | OARC Digital Malta", subtitle: "OARC pricing is scoped to outcomes—creative, AI employees, H360, growth—not mystery retainers. Book a call for a clear commercial fit." }),
+    title: "Pricing | OARC Digital Malta",
+    description: "OARC pricing is scoped to outcomes—creative, AI employees, H360, growth—not mystery retainers. Book a call for a clear commercial fit.",
     url: `https://oarcdigital.com${supportingPagesSEO.pricing.path}`,
     type: supportingPagesSEO.pricing.ogType ?? "website",
   },
   twitter: {
-    images: [ogImageUrl({ title: "Pricing Plans | OARC Digital", subtitle: "Flexible plans built for growth. Pay for outcomes, not outputs. 10x faster than traditional agencies." })],
+    images: [ogImageUrl({ title: "Pricing | OARC Digital Malta", subtitle: "OARC pricing is scoped to outcomes—creative, AI employees, H360, growth—not mystery retainers. Book a call for a clear commercial fit." })],
     card: "summary_large_image",
-    title: "Pricing Plans | OARC Digital",
-    description: "Flexible plans built for growth. Pay for outcomes, not outputs. 10x faster than traditional agencies.",
+    title: "Pricing | OARC Digital Malta",
+    description: "OARC pricing is scoped to outcomes—creative, AI employees, H360, growth—not mystery retainers. Book a call for a clear commercial fit.",
   },
 };
 
@@ -33,7 +33,7 @@ export default function Page() {
         <RouteSchema
           type="pillar"
           path="/pricing"
-          title="Pricing — Creative, AI Agents & Automation | OARC Digital Malta"
+          title="Pricing | OARC Digital Malta"
           description="Transparent pricing for OARC Digital's services. Project-scoped, outcome-led: brand sprints, social retainers, AI agents, automation suites, and bespoke engagements."
           faqs={SUPPORTING_PAGE_SCHEMAS["/pricing"].faqs}
         />

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import AutomationPageClient from "./AutomationPageClient";
 import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
-const TITLE = "Business Automation Malta — The Business That Runs Itself | OARC";
+const TITLE = "Business Automation Malta | Workflows | OARC";
 const DESCRIPTION =
-  "OARC connects your tools into one system and makes the busywork run itself — triggered workflows, AI handling the small decisions, 24/7, while you watch it work. Not more staff; a business that needs fewer hands to run.";
+  "Automate follow-ups, bookings, and handoffs for Malta businesses—wired to your CRM and AI agents so work finishes without copy-paste.";
 const CANONICAL = "https://oarcdigital.com/services/automation";
 
 const LD = {

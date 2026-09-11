@@ -210,11 +210,7 @@ export default function PageContent() {
             className="text-display font-black mb-8 tracking-tight"
           >
             <span className="text-white">
-              Choose What You
-            </span>
-            <br />
-            <span className="text-white">
-              Need Help With
+              Digital marketing &amp; AI services Malta — pick the job to fix
             </span>
           </m.h1>
 

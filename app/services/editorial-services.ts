@@ -37,7 +37,7 @@ export const editorialServices: Record<string, EditorialService> = {
   },
   "conversational-commerce": {
     slug: "conversational-commerce", eyebrow: "CONVERSATIONAL COMMERCE",
-    title: "Conversational commerce that starts with a question.",
+    title: "Conversational commerce — start with a question, end with a next step",
     intro: "OARC creates conversational commerce and AI shopping experiences for retailers in Malta and beyond. Shoppers can search in natural language, compare suitable products, ask questions and get help from discovery through the basket and checkout.",
     image: "/images/services/conversational-commerce-hero.jpg", imageAlt: "Colourful products arranged around a conversational shopping interface", accent: "#ff6d55", accentSoft: "#ffe3d7",
     ownerTitle: "More of the right products make it into the basket.",
@@ -71,7 +71,7 @@ export const editorialServices: Record<string, EditorialService> = {
   },
   "ai-employee-service-desk": {
     slug: "ai-employee-service-desk", eyebrow: "AI CONCIERGE",
-    title: "An AI concierge that gives every person a useful next step.",
+    title: "AI concierge — every person gets a useful next step",
     intro: "OARC creates AI concierge systems for organisations in Malta and beyond. Employees ask in plain language; the concierge answers from approved company knowledge, performs permitted IT, HR and finance actions, logs evidence and hands complex cases to people with context.",
     image: "/images/services/ai-employee-service-desk-hero.jpg", imageAlt: "An employee using a friendly digital service desk", accent: "#b9ead9", accentSoft: "#e2f5ef",
     ownerTitle: "Fewer avoidable tickets. Better context when a person is needed.",

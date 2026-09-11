@@ -300,9 +300,7 @@ export default function PageContent() {
             data-speakable
             data-testid="heading-hero"
           >
-            Born in<br />
-            the Advanced<br />
-            Era
+            Who we are — born in the advanced era, built for operators
           </h1>
           <p
             className="text-xl md:text-2xl text-white/35 max-w-lg leading-relaxed mb-16 font-light"

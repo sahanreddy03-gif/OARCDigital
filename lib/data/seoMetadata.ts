@@ -7,20 +7,20 @@ export interface PageSEO {
 
 export const supportingPagesSEO: Record<string, PageSEO> = {
   whyUs: {
-    title: 'Why OARC Digital | Elite AI-Powered Agency in Malta & Beyond',
-    description: 'Discover why tier-1 brands choose OARC Digital for AI-powered creative services, AI employees, and revenue automation. Premium marketing solutions across Malta, Europe, Middle East, and Asia with a dedicated team approach.',
+    title: 'About OARC Digital | Who We Are | Malta',
+    description: 'OARC Digital’s story and team posture—AI-native creative and automation from Birkirkara. Pair with /why-oarc for comparison intent.',
     path: '/why-us',
     ogType: 'website'
   },
   services: {
-    title: 'Our Services | AI Creative, AI Employees & Revenue Automation',
-    description: 'Explore OARC Digital\'s comprehensive suite of AI-powered services: creative production, AI employees for hire, and revenue automation solutions. Elite marketing services designed for ambitious brands in Malta and globally.',
+    title: 'Marketing & AI Services Malta | OARC Digital',
+    description: 'Browse OARC services: creative, AI employees, SEO, automation, H360 hospitality, and more—one Birkirkara team for revenue outcomes.',
     path: '/services',
     ogType: 'website'
   },
   ourWork: {
-    title: 'Our Work | Evidence-Led PJAZZA Product Story | OARC Digital',
-    description: 'Explore OARC Digital\'s evidence-led work. The first project story follows PJAZZA, OARC Digital\'s own live shopping marketplace for Malta.',
+    title: 'Our Work | OARC Digital Proof',
+    description: 'Selected OARC work and product stories—evidence-led, no invented metrics. See also case studies.',
     path: '/our-work',
     ogType: 'website'
   },
@@ -43,8 +43,8 @@ export const supportingPagesSEO: Record<string, PageSEO> = {
     ogType: 'website'
   },
   pricing: {
-    title: 'Pricing | OARC Digital Services & Packages',
-    description: 'Transparent pricing for OARC Digital\'s AI-powered creative services, AI employees, and revenue automation solutions. Premium quality, flexible packages, dedicated support across Malta and global markets.',
+    title: 'Pricing | OARC Digital Malta',
+    description: 'OARC pricing is scoped to outcomes—creative, AI employees, H360, growth—not mystery retainers. Book a call for a clear commercial fit.',
     path: '/pricing',
     ogType: 'website'
   },

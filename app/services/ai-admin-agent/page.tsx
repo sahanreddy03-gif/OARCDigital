@@ -7,9 +7,9 @@ import { SERVICE_SCHEMA_EXTRAS } from "@/lib/seo/serviceSchemaExtras";
 
 const SLUG = "ai-admin-agent";
 const URL = `https://oarcdigital.com/services/${SLUG}`;
-const TITLE = "AI Admin Agent | Inbox & Calendar Automation Malta";
+const TITLE = "AI Admin Agent Malta | Inbox + Calendar | OARC";
 const DESCRIPTION =
-  "Reclaim 15+ hours weekly. AI admin agent triages inbox, books and reschedules meetings, files docs, and runs SOPs across your team — Malta-built.";
+  "AI admin agents that triage inbox and calendar busywork for Malta operators—so humans keep judgement calls.";
 const HERO_OG = "https://oarcdigital.com/attached_assets/ai-admin-agent-optimized.webp";
 const AUDIENCE = [
   "Small Business",

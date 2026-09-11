@@ -1186,7 +1186,7 @@ export default function PageContent() {
           </Badge>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">AI-Powered</span> Tech Stack
+            Our AI-powered tech stack — means, not the strategy
           </h1>
           
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10">

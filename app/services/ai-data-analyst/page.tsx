@@ -8,21 +8,21 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
-  title: "Data Insights Analyst | AI-Powered Business Intelligence | OARC Digital",
-  description: "Turn data chaos into strategic dashboards. Our AI Data Analyst transforms raw data into actionable insights with machine learning and real-time analytics.",
+  title: "AI Data Analyst Malta | Insights Assistant | OARC",
+  description: "AI data analysts that help Malta teams pull decision-ready insights from approved datasets—with human verification on critical calls.",
   alternates: getHreflangAlternates("/services/ai-data-analyst"),
   openGraph: {
-    images: ogImageEntry({ title: "Data Insights Analyst | AI-Powered Business Intelligence | OARC Digital", subtitle: "Turn data chaos into strategic dashboards. Our AI Data Analyst transforms raw data into actionable insights with machine learning and real-time analytics." }),
-    title: "Data Insights Analyst | AI-Powered Business Intelligence | OARC Digital",
-    description: "Turn data chaos into strategic dashboards. Our AI Data Analyst transforms raw data into actionable insights with machine learning and real-time analytics.",
+    images: ogImageEntry({ title: "AI Data Analyst Malta | Insights Assistant | OARC", subtitle: "AI data analysts that help Malta teams pull decision-ready insights from approved datasets—with human verification on critical calls." }),
+    title: "AI Data Analyst Malta | Insights Assistant | OARC",
+    description: "AI data analysts that help Malta teams pull decision-ready insights from approved datasets—with human verification on critical calls.",
     url: "https://oarcdigital.com/services/ai-data-analyst",
     type: "article",
   },
   twitter: {
-    images: [ogImageUrl({ title: "Data Insights Analyst | AI-Powered Business Intelligence | OARC Digital", subtitle: "Turn data chaos into strategic dashboards. Our AI Data Analyst transforms raw data into actionable insights with machine learning and real-time analytics." })],
+    images: [ogImageUrl({ title: "AI Data Analyst Malta | Insights Assistant | OARC", subtitle: "AI data analysts that help Malta teams pull decision-ready insights from approved datasets—with human verification on critical calls." })],
     card: "summary_large_image",
-    title: "Data Insights Analyst | AI-Powered Business Intelligence | OARC Digital",
-    description: "Turn data chaos into strategic dashboards. Our AI Data Analyst transforms raw data into actionable insights with machine learning and real-time analytics.",
+    title: "AI Data Analyst Malta | Insights Assistant | OARC",
+    description: "AI data analysts that help Malta teams pull decision-ready insights from approved datasets—with human verification on critical calls.",
   },
 };
 

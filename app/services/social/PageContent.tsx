@@ -181,8 +181,8 @@ export default function SocialStrategyAudit() {
                 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6"
                 data-testid="heading-social-strategy-audit"
               >
-                Social Media Strategy &amp; Audit
-              </h1>
+            Social media strategy Malta — know what to post and why
+          </h1>
 
               <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-black mb-5">
                 A plan before you hire an agency. Or an honest second opinion on the one you already have.

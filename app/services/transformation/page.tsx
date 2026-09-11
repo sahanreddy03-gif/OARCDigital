@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import TransformationPageClient from "./TransformationPageClient";
 import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
-const TITLE = "Digital Transformation Malta — Change How the Business Runs | OARC";
+const TITLE = "Digital Transformation Malta | Change How It Runs | OARC";
 const DESCRIPTION =
-  "Production-ready transformation for Malta businesses: the full guest lifecycle automated on OARC-built platforms — QR ordering, kitchen display, kiosk, dashboards, reviews and loyalty — shipped in weeks and owned by you.";
+  "Practical digital transformation for Malta SMBs—creative, AI employees, and automation that change how demand is captured and fulfilled.";
 const CANONICAL = "https://oarcdigital.com/services/transformation";
 
 const LD = {
