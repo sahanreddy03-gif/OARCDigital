@@ -72,7 +72,6 @@ const NODES: LinkNode[] = [
       "/creative",
       "/automation",
       "/voice-ai-worker",
-      "/services/ai-staff",
       "/h360",
       "/services/ai-consulting",
       "/services/ai-sdr-agent",
@@ -149,7 +148,6 @@ const NODES: LinkNode[] = [
       "/creative",
       "/automation",
       "/h360",
-      "/services/ai-staff",
       "/why-oarc",
       "/contact"
     ],
@@ -165,7 +163,6 @@ const NODES: LinkNode[] = [
       "/ai-agents",
       "/voice-ai-worker",
       "/automation",
-      "/services/reputation",
       "/contact"
     ],
   },
