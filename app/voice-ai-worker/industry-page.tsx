@@ -123,6 +123,17 @@ export default async function IndustryPage({
             <p className="tom-kicker" style={{ color: "#8fd6ae" }}>{getField(hero, "kicker")}</p>
             <h1 className="tom-display">{getField(hero, "headline")}</h1>
             <p className="tom-lead">{getField(hero, "lead")}</p>
+            <p className="tom-copy" data-speakable data-testid="voice-industry-entity">
+              OARC Digital in Birkirkara builds Voice AI Worker for {page.name} — the same Malta team behind AI agents, creative, and automation.
+            </p>
+            <p className="tom-copy" data-testid="voice-industry-money-links">
+              Explore: <Link href="/voice-ai-worker">Voice AI Worker</Link>
+              {" · "}<Link href="/ai-agents">AI agents</Link>
+              {" · "}<Link href="/creative">Creative</Link>
+              {" · "}<Link href="/solutions">Solutions</Link>
+              {" · "}<Link href="/h360">H360</Link>
+              {" · "}<Link href="/">Home</Link>
+            </p>
             <div className="tom-actions">
               <Link className="tom-button tom-button--red" href="/voice-ai-worker/start">
                 {heroButtons[0] ?? "Give him one job"} ↗

@@ -374,38 +374,39 @@ const processSteps = [
 
 const faqItems = [
   {
-    q: 'Is OARC a creative agency or a social media agency in Malta?',
-    a: 'OARC is a creative agency in Malta focused on performance-driven content. While many social media agencies focus only on posting schedules, we design creative systems that combine content, design, video, optimisation, and platform-specific strategy — all under one roof.',
+    q: 'What does a creative agency in Malta actually deliver for an SMB?',
+    a: 'Brand identity and guidelines, social creative systems, short-form video and Reels, photography direction, web visual systems, and paid-media creative. OARC measures that work against enquiries and revenue—not just aesthetics—and production is AI-augmented with human creative direction.',
   },
   {
-    q: 'Do you work with Malta-based businesses?',
-    a: 'Yes. We work extensively with Malta-based brands, startups, and growing companies across multiple industries. Our creative strategies are built with the Maltese market in mind, local audience behaviour, and platform performance data relevant to Malta. We also support international brands targeting Malta.',
-  },
-  {
-    q: 'What social media platforms do you manage?',
-    a: 'We manage creative and content across all major platforms including Instagram, Facebook, TikTok, and LinkedIn. Platform selection depends on your industry, audience location, and business goals. We don\'t push platforms that don\'t make sense for your brand.',
+    q: 'Is OARC only a social media agency?',
+    a: 'No. Social is one spoke. The creative practice also covers brand strategy, video production, web design, and ad creative, and it sits next to AI agents, Voice AI Worker, and automation when owners need demand answered after the creative creates it.',
   },
   {
     q: 'How is OARC different from other creative agencies in Malta?',
-    a: 'Most agencies focus on volume — more posts, more designs. We focus on outcomes. Our creative is strategy-led, performance-tracked, and continuously optimised. This is why brands work with us long-term instead of hopping between agencies.',
+    a: 'Most agencies focus on volume — more posts, more designs. We focus on outcomes. Creative is strategy-led, performance-tracked, and continuously optimised, and the same Birkirkara team can connect assets to AI agents and phone coverage so leads do not die in the inbox.',
+  },
+  {
+    q: 'Do you produce video in-house?',
+    a: 'Yes — full in-house video production from concept to delivery. Studio shoots, on-location, and AI-augmented post. Common formats include brand films, social-cut packs, product demos, and case studies.',
+  },
+  {
+    q: 'Can creative work connect to AI agents and voice?',
+    a: 'Yes. Creative that drives enquiries pairs with AI agents and Voice AI Worker so leads and callers get a next step instead of voicemail. One team owns the brief from asset to answer.',
   },
   {
     q: 'Do you use AI in your creative work?',
-    a: 'Yes — but carefully and strategically. AI is used to analyse competitors, improve content performance, optimise captions and timing, and support faster response and engagement. Human creativity always leads. AI simply enhances performance.',
+    a: 'Yes — carefully. AI speeds production, competitor scans, and iteration; human creative direction always leads so the work does not look like generic AI sludge.',
   },
   {
     q: 'How long does it take to see results from creative services?',
-    a: 'Most Malta-based clients see improvements in consistency and quality within the first few weeks, and engagement and brand response within 30-60 days. Creative results compound over time when done properly.',
-  },
-  {
-    q: 'Do you offer flexible packages?',
-    a: 'Yes. Our packages are customised based on platforms used, content volume, creative complexity, and business objectives. Contact us for a tailored quote.',
+    a: 'Most Malta clients see consistency and quality lift within the first few weeks, and stronger enquiry response within 30–60 days when creative is paired with clear offers and follow-up. Results compound when creative stays on strategy.',
   },
   {
     q: 'Do I need a long-term contract?',
-    a: 'No. There are no long-term lock-ins. Clients stay because the creative works — not because they\'re forced to.',
+    a: 'No long-term lock-ins. Clients stay because the creative and the systems behind it work — not because they are forced to.',
   },
 ];
+
 
 function AnimatedSection({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const ref = useRef(null);
@@ -1939,6 +1940,29 @@ export default function PageContent() {
 
         {/* ========== WHATSAPP CTA - VAYNER STYLE ========== */}
         <WhatsAppCTASection />
+
+        {/* ========== ENTITY + MONEY SIBLINGS (AEO/GEO) ========== */}
+        <section className="py-12 md:py-16 bg-white border-t border-zinc-100" data-testid="creative-entity-block">
+          <div className="container mx-auto px-6 max-w-3xl text-center">
+            <p className="text-base md:text-lg text-zinc-700 leading-relaxed" data-speakable>
+              OARC Digital is a Birkirkara creative agency for Malta owners who need brand, social, and video that sell—and the same team can connect that creative to AI agents, Voice AI Worker, and automation so demand gets answered.
+            </p>
+            <p className="mt-6 text-sm text-zinc-500" data-testid="creative-money-links">
+              Explore:{" "}
+              <Link href="/" className="text-zinc-900 underline-offset-2 hover:underline">Home</Link>
+              {" · "}
+              <Link href="/ai-agents" className="text-zinc-900 underline-offset-2 hover:underline">AI agents</Link>
+              {" · "}
+              <Link href="/solutions" className="text-zinc-900 underline-offset-2 hover:underline">Solutions</Link>
+              {" · "}
+              <Link href="/voice-ai-worker" className="text-zinc-900 underline-offset-2 hover:underline">Voice AI Worker</Link>
+              {" · "}
+              <Link href="/services/branding" className="text-zinc-900 underline-offset-2 hover:underline">Branding</Link>
+              {" · "}
+              <Link href="/services/video-production" className="text-zinc-900 underline-offset-2 hover:underline">Video</Link>
+            </p>
+          </div>
+        </section>
 
         {/* ========== FAQ SECTION - SUPERSIDE STYLE ========== */}
         <AnimatedSection className="py-20 md:py-28 bg-white">

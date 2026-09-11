@@ -173,38 +173,39 @@ const testimonials = [
 
 const faqItems: FAQItem[] = [
   {
+    question: "What business automation solutions does OARC offer in Malta?",
+    answer: "OARC combines creative, AI agents, Voice AI Worker, and workflow automation so Malta businesses capture more demand and run fewer manual loops under one Birkirkara team."
+  },
+  {
     question: "Do you only do automation, or can you build custom software too?",
-    answer: "We do both - and often together. Many clients start with automation to solve immediate operational pain, then expand into custom software for unique competitive advantages. Having one team handle both means faster delivery and fewer integration gaps."
+    answer: "We do both—and often together. Many clients start with automation to solve immediate operational pain, then expand into custom software for unique advantages. One team means fewer integration gaps."
+  },
+  {
+    question: "Where should I start: AI, creative, or SEO?",
+    answer: "Start where money leaks: missed calls (Voice AI Worker), weak brand (Creative), invisible search (SEO), or manual follow-up (automation / AI agents). OARC sequences from that leak on the first call."
   },
   {
     question: "What types of businesses in Malta do you work with?",
-    answer: "We work across all sectors including real estate, legal, finance, healthcare, hospitality, iGaming, retail, and professional services. Our solutions are customized for each industry's specific workflows and challenges."
+    answer: "Hospitality, iGaming and fintech, healthcare and clinics, professional services, retail, and high-growth SaaS. Solutions are customised for each industry's workflows."
   },
   {
     question: "How long does a typical project take?",
-    answer: "Automation projects typically go live in 2-4 weeks. Custom software MVPs take 6-8 weeks. Full enterprise platforms may take 3-6 months. We prioritize quick wins that deliver immediate ROI."
+    answer: "Single workflow automations often ship in 1–2 weeks. Marketing-automation suites typically take 4–8 weeks. Custom software MVPs are scoped per engagement."
   },
   {
-    question: "What technologies do you use?",
-    answer: "We use modern, proven technologies: React, Node.js, Python for development. PostgreSQL, MongoDB for databases. AWS, Docker, Kubernetes for infrastructure. Make, n8n, Zapier for automation. Always choosing the right tool for your specific needs."
-  },
-  {
-    question: "Do I need technical knowledge to use what you build?",
-    answer: "Absolutely not. We design everything to be user-friendly. You get training, documentation, and ongoing support. Your team can confidently manage day-to-day operations without any technical background."
-  },
-  {
-    question: "How do you price your services?",
-    answer: "We offer project-based pricing with clear milestones, or retainer packages for ongoing work. Every engagement starts with a discovery phase so we can provide accurate, no-surprise quotes."
+    question: "Will the automation work with my existing tools?",
+    answer: "Yes. We work with HubSpot, Salesforce, Pipedrive, Zoho, Monday, Airtable, Notion, Stripe, WhatsApp Business API, Meta, Google, and systems with a REST or webhook API."
   },
   {
     question: "What makes OARC different from other agencies?",
-    answer: "We're based in Malta and understand the local business landscape. We combine automation AND custom software under one roof. We focus on revenue-driving solutions, not just technical implementations. And we maintain everything we build."
+    answer: "We are based in Birkirkara and combine creative, AI agents, voice, and automation under one roof—focused on revenue-driving systems, not slide theatre. We maintain what we build."
   },
   {
-    question: "What does ongoing support look like?",
-    answer: "All projects include dedicated support. We monitor systems, handle updates, and are available via WhatsApp for quick questions. Growth clients get priority support with faster response times and proactive optimization."
+    question: "Who is OARC Digital?",
+    answer: "OARC Digital is Malta's AI-native creative and automation agency at The Brewhouse, Birkirkara CBD. Phone +356 7971 1799. Same team for creative, AI workforce, and solutions."
   },
 ];
+
 
 export default function PageContent() {
   const [showModal, setShowModal] = useState(false);
@@ -1022,6 +1023,28 @@ export default function PageContent() {
               "name": s.name,
             })),
           }) }} />
+        </section>
+
+        <section className="py-12 px-6 border-t border-white/5 bg-black" data-testid="solutions-entity-block">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-base md:text-lg text-white/80 leading-relaxed" data-speakable>
+              OARC Digital is a Birkirkara solutions partner for Malta owners who need creative, AI agents, Voice AI Worker, and automation wired together—so more demand becomes booked work with fewer manual loops.
+            </p>
+            <p className="mt-6 text-sm text-white/50" data-testid="solutions-money-links">
+              Explore:{" "}
+              <Link href="/" className="text-white/80 underline-offset-2 hover:underline">Home</Link>
+              {" · "}
+              <Link href="/creative" className="text-white/80 underline-offset-2 hover:underline">Creative</Link>
+              {" · "}
+              <Link href="/ai-agents" className="text-white/80 underline-offset-2 hover:underline">AI agents</Link>
+              {" · "}
+              <Link href="/voice-ai-worker" className="text-white/80 underline-offset-2 hover:underline">Voice AI Worker</Link>
+              {" · "}
+              <Link href="/services/automation" className="text-white/80 underline-offset-2 hover:underline">Automation</Link>
+              {" · "}
+              <Link href="/h360" className="text-white/80 underline-offset-2 hover:underline">H360</Link>
+            </p>
+          </div>
         </section>
 
         {/* ========== FAQ SECTION ========== */}

@@ -34,7 +34,7 @@ const LD = {
           name: "How does creative make a business worth more?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Creative is the biggest single lever in marketing ROI — around half of the return comes from the work itself, not the targeting. A stronger idea, a distinctive brand and content people remember make a business look bigger, feel more trusted, and able to charge more for the same product.",
+            text: "Creative is often the lever owners underfund. A stronger idea, a distinctive brand, and content people remember make a business look bigger, feel more trusted, and able to charge more for the same product—without inventing vanity ROI percentages.",
           },
         },
         {
@@ -98,6 +98,17 @@ export default function CreativeServicePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(LD) }}
       />
       <CreativePageClient />
+      <p data-speakable data-testid="dept-entity-sentence" style={{background:"#0E0D0C",color:"rgba(242,239,233,.75)",margin:0,padding:"1.5rem 22px 0",fontSize:13,lineHeight:1.75,maxWidth:"58ch"}}>
+        OARC Digital is a Birkirkara creative and AI studio for Malta owners who need brand, social, film, and an on-brand creative system—paired with AI agents and automation when demand needs answering.
+      </p>
+      <p className="px-6 pb-10 text-sm text-muted-foreground" data-testid="dept-money-links" style={{background:"#0E0D0C",color:"rgba(242,239,233,.55)",margin:0,padding:"1.25rem 22px 2.5rem"}}>
+        Explore: <a href="/" style={{color:"#F2EFE9"}}>Home</a>
+        {" · "}<a href="/creative" style={{color:"#F2EFE9"}}>Creative</a>
+        {" · "}<a href="/ai-agents" style={{color:"#F2EFE9"}}>AI agents</a>
+        {" · "}<a href="/solutions" style={{color:"#F2EFE9"}}>Solutions</a>
+        {" · "}<a href="/voice-ai-worker" style={{color:"#F2EFE9"}}>Voice AI Worker</a>
+        {" · "}<a href="/h360" style={{color:"#F2EFE9"}}>H360</a>
+      </p>
     </>
   );
 }

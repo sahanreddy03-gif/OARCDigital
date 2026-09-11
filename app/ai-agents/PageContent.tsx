@@ -108,15 +108,18 @@ const processSteps = [
 ];
 
 const aiAgentsFAQs: FAQItem[] = [
-  { question: "How is this different from a chatbot?", answer: "A chatbot follows a script and breaks the moment a customer goes off it. An AI employee is trained on your business — your prices, rules, tone and data — plugged directly into your CRM, calendar and phone line, and it gets smarter every week from real conversations. Chatbots answer questions. Employees do the work." },
-  { question: "Will it sound like a robot?", answer: "No. It's trained on your tone, your phrases, your menu or script. Most customers never ask — and when they do, it answers honestly. You approve everything before it goes live." },
-  { question: "What if the agent doesn't know the answer?", answer: "It says so, takes a message, and hands the conversation to a human with full context attached — it never invents answers. That rule is not optional, and you set where and how it escalates." },
-  { question: "Will this replace our staff?", answer: "It removes repetitive work and lets your team focus on higher-value tasks. The AI handles tier-1 volume — bookings, queries, follow-ups — so humans handle the cases that need real judgement." },
+  { question: "What is an AI agent and how is it different from a chatbot?", answer: "An AI agent completes multi-step workflows—qualify a lead, book the meeting, update your CRM, follow up—without a human for the predictable steps. A chatbot answers single questions. OARC agents are trained on your tone and data with direct stack integrations." },
+  { question: "Do you offer voice phone agents as well as chat?", answer: "Yes. OARC builds chat, WhatsApp, and Voice AI Worker phone agents so callers and chatters both get a next step instead of voicemail—especially useful for Malta hospitality, clinics, and service businesses." },
+  { question: "Will it sound like a robot?", answer: "No. It is trained on your tone, phrases, menu or script. Most customers never ask—and when they do, it answers honestly. You approve everything before it goes live." },
+  { question: "What if the agent doesn't know the answer?", answer: "It says so, takes a message, and hands the conversation to a human with full context—it never invents answers. That rule is not optional, and you set where and how it escalates." },
+  { question: "Will this replace our staff?", answer: "It removes repetitive work and lets your team focus on higher-value tasks. The AI handles tier-1 volume—bookings, queries, follow-ups—so humans handle the cases that need real judgement." },
   { question: "Is my data safe?", answer: "Data remains yours, processed on EU-resident infrastructure under GDPR. We provide a data processing agreement and no data is used to train external models. For MGA/MFSA operators, additional documentation is available on request." },
-  { question: "How quickly can you deploy?", answer: "Most AI employees are live in 7–14 days. We handle the integration, training and handover — you don't need to learn anything new." },
+  { question: "How quickly can you deploy?", answer: "Most standard AI employees are live in 14–21 days from signed scope. We handle integration, training and handover—you do not need to learn a new platform to start." },
   { question: "Which tools do you integrate?", answer: "CRMs (Salesforce, HubSpot), booking systems (Calendly, Cal.com), payment gateways (Stripe), email, Slack/Teams, WhatsApp Business, and most hospitality and booking platforms used by Malta operators." },
-  { question: "What if it makes a mistake?", answer: "Anything sensitive, unusual or high-value hands off to you or your team instantly — with the full conversation attached. Guardrails are set by you, in writing, and no AI agent at OARC operates without a human escalation path. It never invents answers: if it doesn't know, it says so and escalates." },
+  { question: "Can creative and AI agents work together?", answer: "Yes. Creative drives demand; AI agents and Voice AI Worker catch and qualify it. One Birkirkara team owns the brief from asset to answer—see also /creative and /solutions." },
+  { question: "Who builds OARC AI agents?", answer: "OARC Digital in Birkirkara builds and supports the agents—the same Malta team as creative and automation. Not an offshore chatbot reseller bolted onto a media retainer." },
 ];
+
 
 function AnimatedCounter({ value, suffix = '', prefix = '' }: { value: string; suffix?: string; prefix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -726,6 +729,29 @@ export default function PageContent() {
                 Typically respond within 2 hours during business hours
               </p>
             </m.div>
+          </div>
+        </section>
+
+        {/* Entity + money siblings for AEO/GEO */}
+        <section className="relative z-10 py-12 sm:py-16 px-4 sm:px-6 bg-black border-t border-white/5" data-testid="ai-agents-entity-block">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-base sm:text-lg text-white/80 leading-relaxed" data-speakable>
+              OARC Digital is a Birkirkara AI workforce studio for Malta businesses that need agents for sales, support, booking, and ops—plus Voice AI Worker on the phone—built by the same team that runs creative and automation.
+            </p>
+            <p className="mt-6 text-sm text-white/50" data-testid="ai-agents-money-links">
+              Explore:{" "}
+              <Link href="/" className="text-white/80 underline-offset-2 hover:underline">Home</Link>
+              {" · "}
+              <Link href="/creative" className="text-white/80 underline-offset-2 hover:underline">Creative</Link>
+              {" · "}
+              <Link href="/solutions" className="text-white/80 underline-offset-2 hover:underline">Solutions</Link>
+              {" · "}
+              <Link href="/voice-ai-worker" className="text-white/80 underline-offset-2 hover:underline">Voice AI Worker</Link>
+              {" · "}
+              <Link href="/services/ai-staff" className="text-white/80 underline-offset-2 hover:underline">AI staff</Link>
+              {" · "}
+              <Link href="/h360" className="text-white/80 underline-offset-2 hover:underline">H360</Link>
+            </p>
           </div>
         </section>
 

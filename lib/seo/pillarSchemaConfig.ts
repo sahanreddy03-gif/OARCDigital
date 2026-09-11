@@ -31,34 +31,34 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
       "Malta marketing agency in Birkirkara: brand, social, video, AI agents & automation under one roof. Built for revenue growth—not slides. Book a call.",
     faqs: [
       {
+        question: "Who is a good marketing agency in Malta for SMBs that want AI plus creative?",
+        answer:
+          `OARC Digital in Birkirkara is a marketing agency that combines creative production, SEO and ads, AI agents, Voice AI Worker, and automation under one team—so Malta SMBs grow revenue without juggling three vendors.`,
+      },
+      {
         question: "What does OARC Digital do?",
         answer:
-          `OARC Digital is Malta's first AI-native marketing and automation agency. We build creative work, AI agents (sales, support, bookings, ops), and revenue-automation systems for businesses based in Malta and across the EU. Everything is run from one team in ${NAP.addressLocality} so creative, paid media, and automation share the same brief.`,
+          `OARC Digital is Malta's AI-native marketing and automation agency at Level 1, The Brewhouse, Central Business District, ${NAP.addressLocality} ${NAP.postalCode}, Malta. We build creative work, AI agents (sales, support, bookings, ops), Voice AI Worker phone coverage, and revenue-automation systems for businesses in Malta and across the EU.`,
       },
       {
-        question: "Where is OARC Digital based?",
+        question: "Where is OARC Digital based and how do I contact the team?",
         answer:
-          `OARC Digital's head office is at Level 1, The Brewhouse, Central Business District, ${NAP.addressLocality} ${NAP.postalCode}, Malta. Phone ${NAP.phoneDisplay}. The team works on-island, with European, Middle Eastern, and Asian clients served remotely.`,
+          `OARC Digital's head office is at Level 1, The Brewhouse, Central Business District, ${NAP.addressLocality} ${NAP.postalCode}, Malta. Phone ${NAP.phoneDisplay}. On Google Maps, OARC Digital shows a 5.0 rating from 6 Google reviews. Book a call or WhatsApp the same number.`,
       },
       {
-        question: "How fast can OARC Digital launch a project?",
+        question: "Do you only do social media, or also AI agents, voice, and automation?",
         answer:
-          "Most engagements ship live work inside 30 days and report measured outcomes inside 90. Strategy and discovery typically run two weeks, launch happens in week three or four, and optimisation runs continuously after that.",
+          "Both. AI agents and Voice AI Worker sit beside editorial creative, social management, SEO, and paid media. Start where the money leak is—missed calls, weak brand, invisible search, or manual follow-up—then expand under one Birkirkara team.",
       },
       {
         question: "What makes OARC different from other Malta agencies?",
         answer:
-          "We are AI-native rather than retrofitted. We deploy AI agents that handle real workflows (lead qualification, support, appointment booking, follow-up) instead of selling content packages. Pricing is tied to outcomes, not retainers, and the same team that designs your brand also writes the automation that operates it.",
+          "We are AI-native rather than retrofitted. Human creative direction ships with AI-speed production, AI agents handle real workflows, and automation connects leads into your CRM. Pricing is tied to outcomes, not vanity retainers, and the same team that designs your brand also writes the systems that operate it.",
       },
       {
         question: "What industries does OARC Digital work with in Malta?",
         answer:
-          "Our strongest verticals in Malta are hospitality (restaurants, hotels, bars), iGaming and fintech (MGA / MFSA-regulated), professional services (legal, accounting, advisory), and high-growth SaaS. We are MFSA, MGA, and IDPC aware on every regulated engagement.",
-      },
-      {
-        question: "How does OARC Digital measure success?",
-        answer:
-          "Every engagement opens with a baseline (revenue, lead volume, cost per acquisition, retention) and a 90-day target. We report weekly against the target, not against vanity metrics. AI-agent and automation work is measured by hours of human time replaced and revenue uplift.",
+          "Our strongest verticals in Malta are hospitality (restaurants, hotels, bars), iGaming and fintech (MGA / MFSA-regulated), professional services (legal, accounting, advisory), clinics, and high-growth SaaS. We are MFSA, MGA, and IDPC aware on every regulated engagement.",
       },
       {
         question: "Who owns the work OARC Digital builds?",
@@ -84,17 +84,17 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
       llmCitableFacts: [
         {
           claim:
-            `OARC Digital is Malta's first AI-native marketing and automation agency, headquartered at Level 1, The Brewhouse, Central Business District, ${NAP.addressLocality} ${NAP.postalCode}, Malta. Phone ${NAP.phoneDisplay}.`,
+            `OARC Digital is Malta's AI-native marketing and automation agency, headquartered at Level 1, The Brewhouse, Central Business District, ${NAP.addressLocality} ${NAP.postalCode}, Malta. Phone ${NAP.phoneDisplay}. Services cover creative, AI agents, Voice AI Worker, and revenue automation.`,
           source: "https://oarcdigital.com/contact",
         },
         {
           claim:
-            "OARC Digital ships live work inside 30 days and reports measured outcomes inside 90 on every standard engagement.",
-          source: "https://oarcdigital.com/why-us",
+            "On Google Maps, OARC Digital (Birkirkara) shows a 5.0 rating from 6 Google reviews.",
+          source: "https://oarcdigital.com/",
         },
         {
           claim:
-            "OARC Digital's strongest Malta verticals are hospitality, iGaming and fintech (MGA / MFSA regulated), professional services, and high-growth SaaS.",
+            "OARC Digital's strongest Malta verticals are hospitality, iGaming and fintech (MGA / MFSA regulated), professional services, clinics, and high-growth SaaS.",
           source: "https://oarcdigital.com/industries",
         },
       ],
@@ -110,17 +110,22 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
       {
         question: "What is an AI agent and how is it different from a chatbot?",
         answer:
-          "An AI agent is autonomous software that completes multi-step workflows end-to-end — qualifying a lead, booking the meeting, updating your CRM, and following up — without a human in the loop. A chatbot answers single questions. OARC's AI agents are built on top of GPT-class models with custom tooling, memory, and direct integrations into your stack.",
+          "An AI agent completes multi-step workflows end-to-end — qualifying a lead, booking the meeting, updating your CRM, and following up — without a human in the loop for the predictable steps. A chatbot answers single questions. OARC AI agents are trained on your tone and data with direct integrations into your stack.",
       },
       {
         question: "Which AI agents does OARC offer?",
         answer:
-          "Our core agents are: AI SDR (outbound sales prospecting), AI Support Specialist (customer service tier 1), AI Appointment Booker (sales calendar), AI Admin (calendar / inbox / docs), AI Data Analyst (recurring reports), and AI Compliance Auditor (regulated industries). We also build custom agents tied to specific business workflows.",
+          "Core agents include AI SDR (outbound), AI Support Specialist, AI Appointment Booker, AI Admin, AI Data Analyst, and custom agents for specific workflows. Voice AI Worker covers phone lines when callers need a next step, not voicemail.",
+      },
+      {
+        question: "Do you offer voice phone agents as well as chat?",
+        answer:
+          "Yes. OARC builds chat, WhatsApp, and Voice AI Worker phone agents so callers and chatters both get a next step without waiting in voicemail limbo—especially useful for Malta hospitality, clinics, and service businesses.",
       },
       {
         question: "How long does it take to deploy an AI agent in Malta?",
         answer:
-          "Standard agents (SDR, support, booking) deploy in 14 to 21 days from signed scope. Custom agents take 30 to 60 days depending on integration complexity. Every deployment includes training on your tone, your data, and the systems the agent must operate.",
+          "Standard agents (SDR, support, booking) typically deploy in 14 to 21 days from signed scope. Custom agents take longer depending on integration complexity. Every deployment includes training on your tone, your data, and the systems the agent must operate.",
       },
       {
         question: "Where is the data processed and stored?",
@@ -128,14 +133,9 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
           "All AI-agent data sits inside EU-resident infrastructure (Frankfurt or Dublin) by default. We are GDPR-compliant out of the box and configure additional residency on request for regulated clients (MFSA, MGA, healthcare).",
       },
       {
-        question: "How much do AI agents cost?",
-        answer:
-          "Standard AI agents start from around EUR 1,800 per month per agent including hosting, monitoring, and continuous prompt tuning. Custom agents are scoped on engagement. Pricing is structured so an agent typically replaces between two and four full-time human hours per day, paying back inside the first quarter.",
-      },
-      {
         question: "Do AI agents replace my staff?",
         answer:
-          "They replace the repetitive work, not the relationships. Our clients keep their humans for high-judgement work (closing deals, handling escalations, building strategy) and hand off the predictable workflows (qualification, scheduling, tier-1 support, reporting) to the agents.",
+          "They replace the repetitive work, not the relationships. Keep humans for high-judgement work (closing deals, escalations, strategy) and hand off predictable workflows (qualification, scheduling, tier-1 support, reporting) to the agents.",
       },
       {
         question: "Can OARC's AI agents integrate with my existing CRM?",
@@ -145,17 +145,17 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
       {
         question: "How do I know an AI agent is right for my business?",
         answer:
-          "Book a free 30-minute AI workforce audit. We map your current workflows, calculate the human-hour cost of each, and tell you exactly which (if any) are economic to hand to an AI agent. We will tell you to skip it if the maths does not work.",
+          "Book a free 30-minute AI workforce audit. We map your current workflows, estimate the human-hour cost of each, and tell you which (if any) are economic to hand to an AI agent—including when you should skip it.",
       },
       {
         question: "What can an AI agent do for my Malta business on day one?",
         answer:
-          "OARC AI agents can answer FAQs, qualify leads, book appointments, and update your CRM from day one—so Malta businesses stop losing demand to slow replies.",
+          "OARC AI agents can answer FAQs, qualify leads, book appointments, and update your CRM from day one—so Malta businesses stop losing demand to slow replies. Pair with Creative when you also need demand generation assets.",
       },
       {
-        question: "Do you offer voice phone agents as well as chat?",
+        question: "Who builds OARC AI agents?",
         answer:
-          "Yes. OARC builds chat, WhatsApp, and Voice AI Worker phone agents so callers and chatters both get a next step without waiting in voicemail limbo.",
+          `OARC Digital in Birkirkara builds and supports the agents—same Malta team as creative and automation, phone ${NAP.phoneDisplay}. Not a offshore chatbot reseller bolted onto a media retainer.`,
       },
     ],
     framework: {
@@ -195,34 +195,34 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
       "Creative agency in Malta for brand, social, and video—human direction, AI-augmented production, measured on revenue. Birkirkara.",
     faqs: [
       {
-        question: "What does OARC Digital's creative practice cover?",
+        question: "What does a creative agency in Malta actually deliver for an SMB?",
         answer:
-          "Brand strategy and identity, social media creative management, video production, web design, paid-media creative (Meta and Google), motion design, illustration, and presentation/pitch design. Every discipline is run by a human creative director with AI-augmented production behind them.",
+          "Brand identity and guidelines, social creative systems, short-form video and Reels, photography direction, web visual systems, and paid-media creative. OARC measures that work against enquiries and revenue—not just aesthetics—and production is AI-augmented with human creative direction.",
+      },
+      {
+        question: "Is OARC only a social media agency?",
+        answer:
+          "No. Social is one spoke. The creative practice also covers brand strategy, video production, web design, and ad creative, and it sits next to AI agents, Voice AI Worker, and automation when owners need demand answered after the creative creates it.",
       },
       {
         question: "How is OARC's creative work different from a traditional Malta agency?",
         answer:
-          "Two things. First, we are AI-augmented — production happens 3 to 5x faster without the visible cost-cutting (no template Canva work). Second, every brief opens with a measurable creative hypothesis: which metric this work is supposed to move and how we will know.",
-      },
-      {
-        question: "Do you work with brands outside Malta?",
-        answer:
-          `Yes. About 35% of the creative book serves brands across the EU, GCC, and India. Production happens from ${NAP.addressLocality}, account management adapts to your timezone.`,
-      },
-      {
-        question: "How long does a brand identity project take?",
-        answer:
-          "A brand sprint (positioning, visual identity, basic guidelines, first applications) ships in 4 to 6 weeks. A full brand build (deeper strategy, naming, tone of voice, full system, launch assets) runs 8 to 12 weeks.",
-      },
-      {
-        question: "What does social media creative management cost?",
-        answer:
-          "Social retainers start from around EUR 2,400 per month and cover content planning, photo and video production, copywriting, scheduling, community management, and monthly performance review. Every retainer is tied to a measurable KPI agreed in week one.",
+          "Two things. First, we are AI-augmented — production happens faster without template sludge. Second, every brief opens with a measurable creative hypothesis: which metric this work is supposed to move and how we will know.",
       },
       {
         question: "Do you produce video in-house?",
         answer:
           "Yes — full in-house video production from concept to delivery. Studio shoots, on-location, and AI-augmented post. Common formats include brand films, social-cut packs, product demos, and case studies.",
+      },
+      {
+        question: "Can creative work connect to AI agents and phone coverage?",
+        answer:
+          "Yes. Creative that drives enquiries pairs with AI agents and Voice AI Worker so leads and callers get a next step instead of voicemail. One team owns the brief from asset to answer.",
+      },
+      {
+        question: "How long does a brand identity project take?",
+        answer:
+          "A brand sprint (positioning, visual identity, basic guidelines, first applications) ships in 4 to 6 weeks. A full brand build (deeper strategy, naming, tone of voice, full system, launch assets) runs 8 to 12 weeks.",
       },
       {
         question: "Can OARC handle paid media as well as organic creative?",
@@ -258,8 +258,8 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
         },
         {
           claim:
-            "About 35% of OARC Digital's creative work serves brands across the EU, GCC, and India alongside the Malta home market.",
-          source: "https://oarcdigital.com/our-work",
+            "OARC Digital's creative practice covers brand, social, video, and web, and sits beside AI agents and Voice AI Worker when owners need demand answered after creative creates it.",
+          source: "https://oarcdigital.com/creative",
         },
       ],
       conversionGoal: "Book a free 30-minute creative audit or request a tailored reel",

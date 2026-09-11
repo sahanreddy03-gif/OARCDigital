@@ -45,16 +45,20 @@ const NODES: LinkNode[] = [
     shortLabel: "Home",
     hub: "homepage",
     spokes: [
+      "/creative",
+      "/ai-agents",
+      "/automation",
+      "/voice-ai-worker",
+      "/h360",
+      "/why-oarc",
+      "/solutions",
       "/aeo/digital-marketing-agency-malta",
       "/aeo/best-marketing-agency-malta",
       "/aeo/digital-transformation-malta",
-      "/ai-agents",
-      "/creative",
-      "/automation",
       "/services",
       "/our-work",
       "/new-work",
-      "/contact",
+      "/contact"
     ],
   },
   {
@@ -64,6 +68,12 @@ const NODES: LinkNode[] = [
     hub: "ai",
     // Layer 5 (SEO framework): pillars MUST link to >= 8 Tier-A service pages.
     spokes: [
+      "/",
+      "/creative",
+      "/automation",
+      "/voice-ai-worker",
+      "/services/ai-staff",
+      "/h360",
       "/services/ai-consulting",
       "/services/ai-sdr-agent",
       "/services/ai-support-specialist",
@@ -73,7 +83,7 @@ const NODES: LinkNode[] = [
       "/services/marketing-automation-suite",
       "/services/custom-software-development",
       "/aeo/ai-agency-malta",
-      "/aeo/ai-agents-business-malta",
+      "/aeo/ai-agents-business-malta"
     ],
   },
   {
@@ -83,10 +93,14 @@ const NODES: LinkNode[] = [
     hub: "creative",
     // Layer 5: 8+ Tier-A service spokes from this pillar.
     spokes: [
-      "/services/social-media-creative-management",
-      "/services/video-production",
-      "/services/web-design",
+      "/",
+      "/ai-agents",
+      "/automation",
+      "/voice-ai-worker",
       "/services/branding",
+      "/services/video-production",
+      "/services/social-media-creative-management",
+      "/services/web-design",
       "/services/paid-advertising",
       "/services/content-marketing",
       "/services/seo-services",
@@ -95,7 +109,7 @@ const NODES: LinkNode[] = [
       "/aeo/instagram-marketing-malta",
       "/aeo/tiktok-marketing-malta",
       "/aeo/content-creation-malta",
-      "/aeo/video-production-malta",
+      "/aeo/video-production-malta"
     ],
   },
   {
@@ -105,6 +119,11 @@ const NODES: LinkNode[] = [
     hub: "automation",
     // Layer 5: 8+ Tier-A service spokes from this pillar.
     spokes: [
+      "/",
+      "/creative",
+      "/ai-agents",
+      "/voice-ai-worker",
+      "/h360",
       "/services/marketing-automation-suite",
       "/services/ai-sdr-agent",
       "/services/ai-appointment-booker",
@@ -116,7 +135,68 @@ const NODES: LinkNode[] = [
       "/aeo/marketing-automation-malta",
       "/aeo/crm-automation-malta",
       "/aeo/whatsapp-automation-malta",
-      "/aeo/digital-transformation-malta",
+      "/aeo/digital-transformation-malta"
+    ],
+  },
+  {
+    path: "/voice-ai-worker",
+    title: "Voice AI Worker — AI Phone Receptionist Malta",
+    shortLabel: "Voice AI",
+    hub: "ai",
+    spokes: [
+      "/",
+      "/ai-agents",
+      "/creative",
+      "/automation",
+      "/h360",
+      "/services/ai-staff",
+      "/why-oarc",
+      "/contact"
+    ],
+  },
+  {
+    path: "/h360",
+    title: "H360 — Restaurant Marketing Malta",
+    shortLabel: "H360",
+    hub: "industry-hub",
+    spokes: [
+      "/",
+      "/creative",
+      "/ai-agents",
+      "/voice-ai-worker",
+      "/automation",
+      "/services/reputation",
+      "/contact"
+    ],
+  },
+  {
+    path: "/why-oarc",
+    title: "Why Choose OARC Digital",
+    shortLabel: "Why OARC",
+    hub: "service",
+    spokes: [
+      "/",
+      "/creative",
+      "/ai-agents",
+      "/automation",
+      "/voice-ai-worker",
+      "/h360",
+      "/contact"
+    ],
+  },
+  {
+    path: "/solutions",
+    title: "Business Solutions Malta — Creative + AI + Automation",
+    shortLabel: "Solutions",
+    hub: "automation",
+    spokes: [
+      "/",
+      "/creative",
+      "/ai-agents",
+      "/automation",
+      "/voice-ai-worker",
+      "/h360",
+      "/contact"
     ],
   },
   {

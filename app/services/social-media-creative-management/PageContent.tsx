@@ -10,14 +10,14 @@ import Link from 'next/link';
 import { m, useReducedMotion, useInView, useSpring, useMotionValue, AnimatePresence } from "framer-motion";
 
 const socialCreativeManagementFAQs: FAQItem[] = [
-  { question: "What is social media creative management?", answer: "End-to-end management of your social content: strategy, creative production, scheduling, and performance optimization. Complete social presence." },
-  { question: "What platforms do you manage?", answer: "Instagram, LinkedIn, TikTok, Facebook, X/Twitter, and emerging platforms. Strategic presence where your audience lives." },
-  { question: "How much content do you create?", answer: "Monthly packages include 20-60+ pieces depending on platforms and posting frequency. Quality and consistency guaranteed." },
-  { question: "What makes OARC's social management different?", answer: "Performance-driven creative. Every piece is designed for engagement, not just aesthetics. We track what works." },
-  { question: "Do you handle community management?", answer: "Yes, engagement and response management available. We maintain your brand voice in every interaction." },
-  { question: "How do you measure success?", answer: "Engagement rates, reach growth, profile visits, and business conversions. Monthly reporting with actionable insights." },
-  { question: "What is the investment for social management?", answer: "Our social management packages are tailored to your specific needs and goals. Contact us for a custom quote." },
-  { question: "Can we approve content before posting?", answer: "Yes, full approval workflows available. Review and approve everything or trust our team—your choice." }
+  { question: "What is social media creative management at OARC?", answer: "Weekly creative and management for Instagram, Meta, TikTok, and LinkedIn—planning, production, copy, scheduling, and review—measured on leads and bookings, not vanity likes." },
+  { question: "Is this only social, or part of a bigger stack?", answer: "Social is one spoke. OARC also runs branding, video, AI agents, Voice AI Worker, and automation so posts that create demand get answered. Not a social-only ceiling." },
+  { question: "What platforms do you manage?", answer: "Instagram, Facebook, TikTok, LinkedIn, and others when the audience lives there. We do not push platforms that waste spend for your industry." },
+  { question: "How do you measure success?", answer: "Profile visits, enquiries, booked calls/tables, and qualified pipeline—agreed up front. Engagement is a diagnostic, not the finish line." },
+  { question: "Do you handle community management?", answer: "Yes when scoped. Brand voice stays consistent, and high-intent messages can hand to AI agents or humans." },
+  { question: "Can we approve content before posting?", answer: "Yes. Full approval workflows or trusted retainer cadence—your choice." },
+  { question: "Who is OARC Digital?", answer: "OARC Digital is a Birkirkara creative and AI studio at The Brewhouse. Social creative management sits beside brand, video, AI agents, and Voice AI Worker. Phone +356 7971 1799." },
+  { question: "Where should owners go if phones or follow-up are the leak?", answer: "Voice AI Worker for missed calls, AI agents for chat/CRM follow-up, Solutions for automation—see /voice-ai-worker, /ai-agents, and /solutions." }
 ];
 import { 
   ArrowRight, CheckCircle2, Zap, BarChart3, Wand2, Network,
@@ -1362,6 +1362,14 @@ export default function SocialMediaCreativeManagement() {
       {/* FAQ Section */}
           <MaltaContextBlock slug="social-media-creative-management" />
 
+      <section className="max-w-3xl mx-auto px-6 py-10" data-testid="social-entity-block">
+        <p className="text-base leading-relaxed text-muted-foreground" data-speakable>
+          OARC Digital is a Birkirkara social creative management partner for Malta brands that need weekly content measured on bookings—backed by branding, video, AI agents, and Voice AI Worker when demand needs answering.
+        </p>
+        <p className="mt-4 text-sm text-muted-foreground" data-testid="social-money-links">
+          Explore: <Link href="/">Home</Link> · <Link href="/creative">Creative</Link> · <Link href="/ai-agents">AI agents</Link> · <Link href="/solutions">Solutions</Link> · <Link href="/voice-ai-worker">Voice AI Worker</Link> · <Link href="/services/branding">Branding</Link>
+        </p>
+      </section>
       <FAQSection
         faqs={socialCreativeManagementFAQs}
         title="Social Media Creative Management FAQ"

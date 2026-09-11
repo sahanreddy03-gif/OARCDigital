@@ -19,14 +19,14 @@ const graphicDesignImg = "/attached_assets/stock_images/graphic_design_creat_297
 
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 const brandingFAQs: FAQItem[] = [
-  { question: "What's included in a complete brand identity package?", answer: "Logo design, color palette, typography, brand guidelines, business cards, social templates, and brand voice guidelines. A complete system for consistent brand expression." },
-  { question: "How long does the branding process take?", answer: "Full brand identity projects take 6-8 weeks. This includes discovery, strategy, design exploration, refinement, and final delivery with comprehensive guidelines." },
-  { question: "What makes OARC Digital's branding approach different?", answer: "We build brands strategically—starting with market research and positioning before any design. Our brands are built to scale and adapt." },
-  { question: "Do you offer rebranding services for existing businesses?", answer: "Yes, we specialize in brand evolution. We can refresh your existing identity or create a complete rebrand while respecting your brand equity." },
-  { question: "Can you help with brand naming and taglines?", answer: "Absolutely. Our strategy phase includes naming exploration, tagline development, and brand messaging frameworks that resonate with your audience." },
-  { question: "What file formats do we receive?", answer: "You receive all source files (AI, PSD), web-ready formats (SVG, PNG, JPG), and print-ready files (PDF, EPS). Full ownership of all assets." },
-  { question: "What is the investment for brand identity design?", answer: "Our brand identity packages are tailored to your business needs and growth stage. Contact us for a custom quote." },
-  { question: "Do you work with startups and small businesses?", answer: "Yes, we work with businesses at all stages. We have starter packages designed for early-stage companies with scaling needs." }
+  { question: "What does branding from OARC Digital include?", answer: "Logo, colour, typography, guidelines, social templates, and brand voice—built so Malta customers recognise you and choose you. Identity is scored on whether it sells, not just aesthetics." },
+  { question: "How long does a branding project take?", answer: "Brand sprints typically ship in 4–6 weeks. Fuller brand builds run 8–12 weeks covering strategy, naming where needed, tone of voice, system, and launch assets." },
+  { question: "How is OARC branding different from a logo shop?", answer: "We start with positioning and the owner money outcome—more booked work, clearer premium—then design. The same Birkirkara team can connect identity into creative production, AI agents, and Voice AI Worker." },
+  { question: "Do you offer rebranding for existing Malta businesses?", answer: "Yes. We evolve or replace identity while respecting equity customers already trust—especially important for hospitality, clinics, and professional services." },
+  { question: "Can branding connect to social, video, and AI?", answer: "Yes. Branding is the system; Creative, video, social management, and AI agents apply it so the feed, site, and phone answers feel like the same business." },
+  { question: "Who owns the brand files?", answer: "You do. Source and delivery files transfer on engagement close. OARC does not lock your identity behind a retainer." },
+  { question: "Who is OARC Digital?", answer: "OARC Digital is a Birkirkara marketing and AI studio at The Brewhouse—creative, AI agents, Voice AI Worker, and automation under one team. Phone +356 7971 1799." },
+  { question: "Where should I go next after branding?", answer: "Usually Creative for ongoing assets, or AI agents / Voice AI Worker if missed enquiries are the leak. See also /creative, /ai-agents, and /solutions." }
 ];
 
 export default function Branding() {
@@ -346,6 +346,14 @@ export default function Branding() {
 
           <MaltaContextBlock slug="branding" />
 
+      <section className="max-w-3xl mx-auto px-6 py-10" data-testid="branding-entity-block">
+        <p className="text-base leading-relaxed text-muted-foreground" data-speakable>
+          OARC Digital is a Birkirkara branding agency for Malta owners who need identity customers recognise and trust—connected to creative, AI agents, and Voice AI Worker when demand needs answering.
+        </p>
+        <p className="mt-4 text-sm text-muted-foreground" data-testid="branding-money-links">
+          Explore: <Link href="/">Home</Link> · <Link href="/creative">Creative</Link> · <Link href="/ai-agents">AI agents</Link> · <Link href="/solutions">Solutions</Link> · <Link href="/voice-ai-worker">Voice AI Worker</Link> · <Link href="/services/video-production">Video</Link>
+        </p>
+      </section>
       <FAQSection faqs={brandingFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our branding services" schemaId="faq-branding"
         emitJsonLd={false} />
 

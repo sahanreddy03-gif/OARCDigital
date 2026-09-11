@@ -18,14 +18,14 @@ const creativeTeamImg = "/attached_assets/stock_images/creative_team_workin_7988
 
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 const videoProductionFAQs: FAQItem[] = [
-  { question: "What types of videos does OARC Digital produce?", answer: "We produce explainer videos, brand films, social ads, testimonials, product demos, and corporate videos. From 15-second ads to full documentary-style brand films." },
-  { question: "How long does video production take from concept to delivery?", answer: "Typical projects take 3-6 weeks depending on complexity. Simple social ads can be delivered in 1-2 weeks. Large productions may take 8-12 weeks." },
-  { question: "What makes OARC's video production different from other agencies?", answer: "We handle everything in-house—concept, scripting, filming, editing, and distribution strategy. Plus our AI tools accelerate editing by 50%." },
-  { question: "Do you handle video distribution and advertising?", answer: "Yes, we offer full distribution services including YouTube optimization, social media posting, and paid video advertising on Meta and TikTok." },
-  { question: "What equipment and technology do you use?", answer: "We use cinema-grade cameras, professional lighting, and industry-standard editing software. Our AI-powered tools enhance efficiency without sacrificing quality." },
-  { question: "Can you work with existing brand guidelines?", answer: "Absolutely. We follow your brand guidelines precisely while bringing creative vision. We can also help develop video-specific brand standards." },
-  { question: "What is the typical investment for video production?", answer: "Our video production packages are tailored to your project scope and creative requirements. Contact us for a custom quote." },
-  { question: "Do you offer video packages or retainer options?", answer: "Yes, we offer monthly video packages for consistent content needs. Retainer clients enjoy priority scheduling and discounted rates." }
+  { question: "What types of videos does OARC Digital produce?", answer: "Brand films, social-cut packs, product demos, testimonials, explainers, and paid social ads—from short-form Reels to longer brand pieces. Concept to delivery stays in-house in Birkirkara." },
+  { question: "How long does video production take?", answer: "Simple social ads often ship in 1–2 weeks. Typical brand or campaign packs take 3–6 weeks. Larger productions are scoped per engagement." },
+  { question: "What makes OARC video different from a freelancers-only setup?", answer: "One team owns concept, scripting, shoot, edit, and distribution strategy—and can connect video into Creative retainers, AI agents, and Voice AI Worker so demand the film creates gets answered." },
+  { question: "Do you use AI in video production?", answer: "Yes for speed in post and variants—human direction always leads so the work does not look like generic AI sludge. We do not claim fake percentage speed-ups." },
+  { question: "Do you handle distribution and paid video?", answer: "Yes. Organic posting plus paid on Meta, TikTok, and YouTube when the brief needs it—creative and media share the same hypothesis." },
+  { question: "Can you work with existing brand guidelines?", answer: "Yes. We follow your system precisely and can extend video-specific standards when branding is thin." },
+  { question: "Who is OARC Digital?", answer: "OARC Digital is a Birkirkara creative and AI studio at The Brewhouse—video sits beside branding, social creative, AI agents, and automation. Phone +356 7971 1799." },
+  { question: "Where should I go next after video?", answer: "Creative for always-on assets, Branding if identity is unclear, or AI agents / Voice AI Worker if enquiries and calls are the leak." }
 ];
 
 export default function VideoProduction() {
@@ -325,6 +325,14 @@ export default function VideoProduction() {
 
           <MaltaContextBlock slug="video-production" />
 
+      <section className="max-w-3xl mx-auto px-6 py-10" data-testid="video-entity-block">
+        <p className="text-base leading-relaxed text-muted-foreground" data-speakable>
+          OARC Digital is a Birkirkara video production partner for Malta owners who need film and short-form that sell—connected to branding, creative management, AI agents, and Voice AI Worker.
+        </p>
+        <p className="mt-4 text-sm text-muted-foreground" data-testid="video-money-links">
+          Explore: <Link href="/">Home</Link> · <Link href="/creative">Creative</Link> · <Link href="/ai-agents">AI agents</Link> · <Link href="/solutions">Solutions</Link> · <Link href="/services/branding">Branding</Link> · <Link href="/voice-ai-worker">Voice AI Worker</Link>
+        </p>
+      </section>
       <FAQSection faqs={videoProductionFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our video production services" schemaId="faq-video-production"
         emitJsonLd={false} />
 

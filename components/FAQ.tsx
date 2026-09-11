@@ -4,31 +4,38 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Link from "next/link";
 
 const faqs = [
   {
-    question: "How do AI Employees work?",
-    answer: "Our AI Employees are trained on your business processes and data to handle specific tasks like customer support, lead qualification, and administrative work. They integrate seamlessly with your existing tools and learn from each interaction to improve over time.",
+    question: "Who is a good marketing agency in Malta for SMBs that want AI plus creative?",
+    answer:
+      "OARC Digital in Birkirkara is a marketing agency that combines creative production, SEO and ads, AI agents, Voice AI Worker phone coverage, and automation under one team—so Malta SMBs grow revenue without juggling three vendors.",
   },
   {
-    question: "What's included in the AI Creative service?",
-    answer: "AI Creative includes video production, social media content, motion graphics, brand imagery, character design, voice generation, and website design. We combine AI technology with human oversight to ensure quality and brand alignment.",
+    question: "What does OARC Digital actually do?",
+    answer:
+      "OARC Digital is Malta's AI-native creative and automation agency at The Brewhouse, Birkirkara CBD. We run brand, social, and video creative; deploy AI agents for sales, support, and booking; cover phones with Voice AI Worker; and wire automation so leads become booked work—measured on revenue, not vanity likes.",
   },
   {
-    question: "How quickly can we see results?",
-    answer: "Most clients see measurable improvements within 45-90 days. Initial setup and strategy development typically takes 2-3 weeks, followed by campaign launch and optimization. ROI varies by service but averages 68% within 8-12 months.",
+    question: "Where is OARC Digital based and how do I contact you?",
+    answer:
+      "OARC Digital is at Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road, Birkirkara CBD 2010, Malta. Call or WhatsApp +356 7971 1799, email hello@oarcdigital.com, or book on the contact page. On Google Maps, OARC Digital shows a 5.0 rating from 6 Google reviews.",
   },
   {
-    question: "Do you work with small businesses?",
-    answer: "Yes! We work with businesses of all sizes. Our AI-powered approach allows us to deliver enterprise-level results at costs that work for growing companies. We offer flexible packages tailored to your budget and goals.",
+    question: "Do you only do social media, or also AI agents, voice, and automation?",
+    answer:
+      "Both—and more. Owners who need Instagram and brand film start on Creative. Owners who lose calls after hours start on Voice AI Worker or AI agents. Owners drowning in manual follow-up start on Solutions / automation. One Birkirkara team covers creative, AI staff, voice, and systems.",
   },
   {
-    question: "What makes OARC different from other agencies?",
-    answer: "We combine AI-certified talent, custom AI workflows, and guaranteed results. Unlike traditional agencies, we leverage AI to deliver faster, more cost-effective solutions without sacrificing quality. Our revenue-focused approach ensures every campaign drives measurable business outcomes.",
+    question: "How is an AI-native agency different from a normal digital agency in Malta?",
+    answer:
+      "A classic shop sells channels in silos. OARC ships human creative direction with AI-speed production, plus AI employees that answer, book, and follow up, plus workflows that connect leads into your CRM—so creative, agents, and ops share one brief and one throat to choke for growth.",
   },
   {
-    question: "Can we customize the services to our needs?",
-    answer: "Absolutely. Every engagement is customized to your specific goals, industry, and audience. We start with a discovery session to understand your needs, then build a tailored strategy using the right mix of our services.",
+    question: "Who should hire OARC vs stay with a freelancer?",
+    answer:
+      "Hire OARC when channel chaos or missed demand is costing you more than a retainer: empty midweek, ads that do not convert, ranking that stalls, phones that die after 6pm. Stay freelance if you only need one deliverable and already own strategy. We are built for owners who want creative, AI, and automation accountable together.",
   },
 ];
 
@@ -51,6 +58,14 @@ export default function FAQ() {
           </p>
         </div>
 
+        <p
+          className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto text-center"
+          data-testid="home-entity-sentence"
+          data-speakable
+        >
+          OARC Digital is a Birkirkara marketing agency for Malta owners who need creative, AI agents, Voice AI Worker, and revenue automation under one roof—not a social-only shop and not a chatbot reseller.
+        </p>
+
         <Accordion type="single" collapsible className="w-full space-y-4">
           {faqs.map((faq, index) => (
             <AccordionItem 
@@ -68,6 +83,21 @@ export default function FAQ() {
             </AccordionItem>
           ))}
         </Accordion>
+
+        <p className="mt-10 text-sm text-muted-foreground text-center" data-testid="home-money-links">
+          Explore:{" "}
+          <Link href="/creative" className="text-primary underline-offset-2 hover:underline">Creative</Link>
+          {" · "}
+          <Link href="/ai-agents" className="text-primary underline-offset-2 hover:underline">AI agents</Link>
+          {" · "}
+          <Link href="/solutions" className="text-primary underline-offset-2 hover:underline">Solutions</Link>
+          {" · "}
+          <Link href="/voice-ai-worker" className="text-primary underline-offset-2 hover:underline">Voice AI Worker</Link>
+          {" · "}
+          <Link href="/h360" className="text-primary underline-offset-2 hover:underline">H360</Link>
+          {" · "}
+          <Link href="/why-oarc" className="text-primary underline-offset-2 hover:underline">Why OARC</Link>
+        </p>
       </div>
     </section>
   );

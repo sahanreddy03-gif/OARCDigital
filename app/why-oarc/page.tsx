@@ -179,6 +179,18 @@ export default function Page() {
               >
                 Why Choose <span className="text-green-500" style={{ fontFamily: "var(--font-heatrobox)" }}>OARC</span> Over Other Marketing Agencies in Malta
               </h1>
+              <p className="mt-6 text-base text-zinc-300 max-w-3xl" data-speakable data-testid="why-oarc-entity-sentence">
+                OARC Digital is a Birkirkara creative + AI systems agency—one team for brand and video, AI agents, Voice AI Worker, and automation—so Malta owners stop juggling vendors.
+              </p>
+              <p className="mt-4 text-sm text-zinc-400" data-testid="why-oarc-money-links">
+                Explore: <Link href="/" className="underline-offset-2 hover:underline">Home</Link>
+                {" · "}<Link href="/creative" className="underline-offset-2 hover:underline">Creative</Link>
+                {" · "}<Link href="/ai-agents" className="underline-offset-2 hover:underline">AI agents</Link>
+                {" · "}<Link href="/solutions" className="underline-offset-2 hover:underline">Solutions</Link>
+                {" · "}<Link href="/voice-ai-worker" className="underline-offset-2 hover:underline">Voice AI Worker</Link>
+                {" · "}<Link href="/h360" className="underline-offset-2 hover:underline">H360</Link>
+              </p>
+
               <p className="text-xl text-zinc-300 mb-8" data-speakable data-testid="text-hero-description">
                 Built for businesses that need weekly output, weekly reporting, and month-to-month flexibility — not a six-month retainer with a quarterly review.
               </p>
