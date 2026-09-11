@@ -39,6 +39,7 @@ export const TOP_PAGES: readonly TopPage[] = [
   { path: "/",                                                   kind: "pillar",  tier: "core" },
   { path: "/creative",                                           kind: "pillar",  tier: "core" },
   { path: "/ai-agents",                                          kind: "pillar",  tier: "core" },
+  { path: "/agent-economy",                                      kind: "service", tier: "service" },
   { path: "/solutions",                                          kind: "pillar",  tier: "core" },
 
   // ── Tier 2: main creative services (3) ─────────────────────────────────

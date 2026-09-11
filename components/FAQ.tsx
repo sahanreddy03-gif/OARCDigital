@@ -90,6 +90,8 @@ export default function FAQ() {
           {" · "}
           <Link href="/ai-agents" className="text-primary underline-offset-2 hover:underline">AI agents</Link>
           {" · "}
+          <Link href="/agent-economy" className="text-primary underline-offset-2 hover:underline">Agent economy</Link>
+          {" · "}
           <Link href="/solutions" className="text-primary underline-offset-2 hover:underline">Solutions</Link>
           {" · "}
           <Link href="/voice-ai-worker" className="text-primary underline-offset-2 hover:underline">Voice AI Worker</Link>
