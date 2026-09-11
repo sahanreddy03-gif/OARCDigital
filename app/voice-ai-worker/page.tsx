@@ -3,8 +3,8 @@ import Layout from "@/components/layout/Layout";
 import RouteSchema from "@/components/RouteSchema";
 import VoiceAIExperience from "./VoiceAIExperience";
 
-const title = "Voice AI Worker — calls become completed work | OARC Digital";
-const description = "A managed Voice AI Worker that answers, understands, acts inside your systems, and hands off the decisions that need a person.";
+const title = "AI Phone Receptionist Malta | Voice AI Worker | OARC";
+const description = "Voice AI Worker for Malta businesses: answers calls, acts in your systems, books work, and hands off decisions that need a person. Birkirkara.";
 
 export const metadata: Metadata = {
   title,

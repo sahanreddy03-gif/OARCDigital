@@ -218,7 +218,7 @@ export default function H360Hero() {
               marginRight: isMobile ? 0 : 'auto',
             }}
           >
-            Malta restaurants on the road to #1.{' '}
+            Restaurant marketing Malta — fill more tables.{' '}
             <span
               style={{
                 display: 'inline-block',

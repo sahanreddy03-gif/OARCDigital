@@ -836,9 +836,9 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "seo-services": {
-    title: "SEO Services Malta | Technical, Content & Local SEO | OARC Digital",
+    title: "SEO Services Malta | Local + AI Search | OARC",
     description:
-      `SEO services for Malta businesses — technical audits, on-page optimisation, local SEO, and content programmes that compound. Track-record case studies from ${NAP.addressLocality} HQ.`,
+      `SEO services in Malta: technical fixes, local SEO, content, and AI Overview eligibility. Birkirkara team. Rank for the searches that bring customers.`,
     offers: [
       {
         name: "SEO Audit & Roadmap",

@@ -109,8 +109,8 @@ export default function SeoServicesContent() {
             <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Search Visibility</span>
           </div>
           <h1 data-speakable className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            Own Page One.<br />
-            <span className="text-orange-400 italic">Stop Renting It.</span>
+            SEO services Malta — own the searches<br />
+            <span className="text-orange-400 italic">that bring customers.</span>
           </h1>
           <p data-speakable className="text-xl text-zinc-300 leading-relaxed mb-8 max-w-2xl">
             Six-month organic growth programmes built specifically for the Malta market — its mixed-language search behaviour, its tight competitive set, and its outsized reliance on tourism and iGaming demand cycles.
