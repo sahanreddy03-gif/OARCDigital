@@ -107,7 +107,7 @@ export default async function IndustryPage({
         description={page.metaDescription}
         serviceType="Voice AI Worker industry configuration"
         audience={[page.name]}
-        faqs={page.faqs}
+        faqs={[...page.faqs]}
       />
       <main className="tom-page">
         <section className="tom-industry-hero">
