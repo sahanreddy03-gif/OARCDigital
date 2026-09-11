@@ -15,6 +15,9 @@ export const revalidate = false;
  * Strongest ≤2000 location×industry×service combinations for indexing.
  * Seeded from Sahan malta-priority-1000; filled with high-demand AI /
  * automation / hospitality / healthcare / iGaming combos.
+ *
+ * This is a priority *cohort*, not the full inventory — expanded matrix
+ * partitions must also be listed in /sitemap.xml.
  */
 export function buildEntries(): UrlEntry[] {
   const lastmod = HISTORICAL_ORIGINAL_MATRIX_LASTMOD;

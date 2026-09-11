@@ -4,6 +4,7 @@
 
 import type { UrlEntry } from "./sitemapHelpers";
 import { DEPLOY_BASELINE } from "./sitemapHelpers";
+import { MATRIX_SITEMAP_PARTITIONS } from "./sitemapIndexConfig";
 
 type EntriesBuilder = () => Promise<UrlEntry[]> | UrlEntry[];
 
@@ -21,12 +22,12 @@ const ENTRIES_BUILDERS: Record<string, () => Promise<EntriesBuilder>> = {
     (await import("@/app/sitemap-malta-location-services.xml/route")).buildEntries,
   "sitemap-malta-priority-matrix.xml": async () =>
     (await import("@/app/sitemap-malta-priority-matrix.xml/route")).buildEntries,
-  // Built for parity/guards; not listed in sitemap index until quality gate.
   "sitemap-malta-expanded-matrix.xml": async () =>
     (await import("@/app/sitemap-malta-expanded-matrix.xml/route")).buildEntries,
-  // Legacy aliases (not in index): combined malta discovery + priority matrix.
+  // Legacy aliases (not in primary index): combined malta discovery + matrix index helper.
   "sitemap-malta.xml": async () =>
     (await import("@/app/sitemap-malta.xml/route")).buildEntries,
+  // buildEntries = priority∪expanded for guards; GET serves a sitemap index.
   "sitemap-malta-matrix.xml": async () =>
     (await import("@/app/sitemap-malta-matrix.xml/route")).buildEntries,
   "sitemap-industries.xml": async () =>
@@ -51,6 +52,13 @@ export async function getSitemapLastmod(name: string): Promise<string> {
   if (name === "image-sitemap.xml") {
     const { buildLastmod } = await import("@/app/image-sitemap.xml/route");
     return buildLastmod() || DEPLOY_BASELINE;
+  }
+  // Avoid recursion when legacy matrix index asks for partition lastmods.
+  if (name === "sitemap-malta-matrix.xml") {
+    const dates = await Promise.all(
+      MATRIX_SITEMAP_PARTITIONS.map((part) => getSitemapLastmod(part)),
+    );
+    return dates.reduce((a, b) => (a > b ? a : b), DEPLOY_BASELINE);
   }
   const loader = ENTRIES_BUILDERS[name];
   if (!loader) return DEPLOY_BASELINE;

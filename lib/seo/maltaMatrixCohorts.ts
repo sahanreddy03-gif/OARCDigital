@@ -11,8 +11,9 @@ import {
  *
  * Priority ≤2000: Sahan ranked malta-priority-1000 seed + high-demand fill
  * (AI / automation / hospitality / healthcare / iGaming preferred).
- * Expanded: remaining historical 49×15×10 triples (live via GLOBAL_KEEP,
- * omitted from sitemap index until quality gate).
+ * Expanded: remaining historical 49×15×10 triples (live via GLOBAL_KEEP).
+ * Both cohorts are advertised from /sitemap.xml — priority does not replace
+ * the full inventory.
  */
 
 const prioritySet = new Set(priorityManifest.paths as readonly string[]);

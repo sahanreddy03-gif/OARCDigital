@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "description": "Explicit matrix path exclusions from sitemap coverage validation. Empty = full 7350 must be advertised via MATRIX_SITEMAP_PARTITIONS. Add pathname strings only with an intentional deindex decision.",
+  "paths": []
+}
