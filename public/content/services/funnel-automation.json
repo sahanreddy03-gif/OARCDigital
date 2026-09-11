@@ -1,0 +1,91 @@
+{
+  "title": "Funnel Automation",
+  "subtitle": "Conversion paths that don't die mid-journey",
+  "description": "Funnel automation for Malta businesses \u2014 form-to-CRM piping, AI qualification, calendar booking with no-show recovery, lifecycle email, CRM hygiene, and dashboards so clicks become customers.",
+  "heroImage": "funnel-automation",
+  "benefits": [
+    {
+      "title": "35\u201360% conversion lift",
+      "description": "Median lift within 90 days after a Funnel Build \u2014 every stage measurable."
+    },
+    {
+      "title": "25\u201340% no-show recovery",
+      "description": "Automated rebooking sequences reclaim meetings that would otherwise vanish."
+    },
+    {
+      "title": "Closer calendars protected",
+      "description": "AI qualification means sales only sees intent-confirmed, meeting-ready leads."
+    },
+    {
+      "title": "Pipeline data you can trust",
+      "description": "Stage hygiene and dashboards so board forecasts actually hold."
+    }
+  ],
+  "features": [
+    {
+      "icon": "Database",
+      "title": "Form-to-CRM piping",
+      "description": "Enrichment, dedup, and routing so leads land with the right owner in seconds."
+    },
+    {
+      "icon": "Brain",
+      "title": "AI qualification",
+      "description": "Decide who earns a meeting vs long-cycle nurture before a human touches it."
+    },
+    {
+      "icon": "Calendar",
+      "title": "Calendar booking",
+      "description": "Qualified prospects book directly; no-show recovery runs automatically."
+    },
+    {
+      "icon": "Mail",
+      "title": "Lifecycle email",
+      "description": "Behaviour-keyed cadences \u2014 not arbitrary day-counts."
+    },
+    {
+      "icon": "Shield",
+      "title": "CRM stage hygiene",
+      "description": "Consistent stages across reps; stall rules fire automatically."
+    },
+    {
+      "icon": "BarChart3",
+      "title": "Funnel dashboards",
+      "description": "Weekly conversion rates with curated definitions and commentary."
+    }
+  ],
+  "useCases": [
+    {
+      "title": "B2B lead funnels",
+      "description": "From inbound form to booked demo without Slack bottlenecks."
+    },
+    {
+      "title": "SaaS trial-to-paid",
+      "description": "Nurture and qualification that protect AE calendars."
+    },
+    {
+      "title": "Ecommerce checkout recovery",
+      "description": "Lifecycle email and CRM hygiene for abandoned journeys."
+    }
+  ],
+  "integrations": [
+    "HubSpot",
+    "Salesforce",
+    "Pipedrive",
+    "Close",
+    "Attio",
+    "Klaviyo",
+    "Customer.io",
+    "Iterable",
+    "Calendly",
+    "Cal.com",
+    "Chili Piper",
+    "n8n",
+    "Make",
+    "Workato"
+  ],
+  "metrics": {
+    "efficiency": "35\u201360% funnel conversion lift",
+    "speed": "2\u20133 weeks to first layer live",
+    "cost": "From \u20ac1,800 Funnel Audit"
+  }
+}
