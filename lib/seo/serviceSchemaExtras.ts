@@ -153,7 +153,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Solo Operator goes live in 5 working days. Team Admin Agent ships in 2 weeks once SOPs are documented. The Operations Pod is a 4-6 week rollout with phased SOP migration.",
       },
-    ,
       {
         question: "What does an AI admin agent do?",
         answer:
@@ -242,7 +241,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Yes. We script and tune the agent on Maltese-English code-switching common in Malta hospitality, and bilingual reminder cadences are configured per client during onboarding.",
       },
-    ,
       {
         question: "Can AI book appointments for my Malta business?",
         answer:
@@ -400,7 +398,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Most Malta SMEs start with the €4,500 AI Readiness Sprint, then approve a €14,500-€38,000 Implementation Engagement once the ROI is signed off internally. Fractional AI Lead retainers are €5,800/mo for 2 days/week of senior time.",
       },
-    ,
       {
         question: "Do you offer AI consulting in Malta?",
         answer:
@@ -558,7 +555,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "No. EU-region inference is the default — model calls hit Azure OpenAI in West Europe or AWS Bedrock in eu-central-1. Customer data never leaves the EU unless your SOW explicitly requires it.",
       },
-    ,
       {
         question: "What does an AI data analyst agent do?",
         answer:
@@ -785,7 +781,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Yes — for read-only lookups by default, write-actions (refund, address change, subscription pause) gated behind policy rules and human approval until trust is established.",
       },
-    ,
       {
         question: "Can AI handle customer support for my Malta business?",
         answer:
@@ -943,7 +938,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "You do — full source on your GitHub or GitLab from day one, with a written handover doc and an optional 6-month support retainer for tuning.",
       },
-    ,
       {
         question: "Do you provide API integration services in Malta?",
         answer:
@@ -1032,7 +1026,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Birkirkara, Malta. We work CET hours and partner with Malta-based ISVs and EU SaaS scaleups.",
       },
-    ,
       {
         question: "Do you provide API integration services in Malta?",
         answer:
@@ -1190,7 +1183,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "All senior engineers are EU-based, with the lead team in Malta and a vetted bench in Spain, Portugal, and Poland. CET working hours, English-first communication, no offshore handoffs.",
       },
-    ,
       {
         question: "Do you build custom software in Malta?",
         answer:
@@ -1279,7 +1271,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Yes — built in Looker Studio, Hex, or your existing BI tool. Weekly commentary is included; we explain what changed, not just what the number is.",
       },
-    ,
       {
         question: "What is OARC’s customer acquisition accelerator?",
         answer:
@@ -1368,7 +1359,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Attribution model, top creative angles, top hooks, top landing pages, lifecycle email cadence, audience exclusion lists, and a written run-book your team can execute alone after the sprint.",
       },
-    ,
       {
         question: "What is OARC’s customer acquisition accelerator?",
         answer:
@@ -1664,7 +1654,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "6-8 weeks end-to-end, with the first instrumentation and quick-wins (forms, routing, immediate AI qualification) live in week 2-3. Full lifecycle email and dashboards land in week 6-8.",
       },
-    ,
       {
         question: "What is funnel automation with OARC?",
         answer:
@@ -2194,7 +2183,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Each contract spells it out. The default for the Always-On pod and Ambassador programmes is 90-day to 12-month paid usage rights for the brand on Meta and TikTok, plus permanent organic re-share rights with the original credit. Single-campaign contracts default to 30-day paid usage and can be extended for an additional fee per creator.",
       },
-    ,
       {
         question: "Do you run influencer marketing in Malta?",
         answer:
@@ -2635,7 +2623,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Maintenance Retainer (€3,900/mo) handles OS updates, App Store review responses, crash triage, and small feature iterations. Larger feature work is scoped as a follow-on project.",
       },
-    ,
       {
         question: "Do you build iOS and Android apps in Malta?",
         answer:
@@ -2724,7 +2711,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "You do — After Effects projects, Cinema 4D scenes, and Lottie JSON are all handed over on payment. No vendor lock-in.",
       },
-    ,
       {
         question: "Do you offer motion design in Malta?",
         answer:
@@ -2978,7 +2964,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "EU-region by default — BigQuery EU, Snowflake EU regions, AWS eu-central-1 for self-hosted Postgres. Customer data does not leave the EU unless your SOW specifically requires it.",
       },
-    ,
       {
         question: "What performance analytics does OARC provide?",
         answer:
@@ -3067,7 +3052,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "You do — master template handed over on payment, with re-use guidance for your in-house team.",
       },
-    ,
       {
         question: "Who designs pitch decks in Malta at OARC?",
         answer:
@@ -3294,7 +3278,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "EU-region CRM tenants by default — HubSpot EU, Salesforce EU, etc. Custom builds host on Vercel + Postgres in EU regions for GDPR compliance.",
       },
-    ,
       {
         question: "What is revenue automation at OARC?",
         answer:
@@ -3384,7 +3367,6 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Yes. The methodology is the same. Malta clients get a competitor matrix weighted toward local players (and our knowledge of Birkirkara, Sliema, and Gozo media buying), while overseas clients get a benchmark against their primary geographic market.",
       },
-    ,
       {
         question: "What is a social media audit with OARC?",
         answer:
