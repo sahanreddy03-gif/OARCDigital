@@ -48,7 +48,7 @@
     },
     {
       "source": "/services/ai-content-strategist",
-      "destination": "/services",
+      "destination": "/services/content-marketing",
       "permanent": true
     },
     {
@@ -89,6 +89,31 @@
     {
       "source": "/case-studies/streamflow-automation",
       "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/oarc-digital",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/oarc-digital/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/social-media-agency-malta",
+      "destination": "/aeo/social-media-agency-malta",
+      "permanent": true
+    },
+    {
+      "source": "/social-media-agency-malta/",
+      "destination": "/aeo/social-media-agency-malta",
+      "permanent": true
+    },
+    {
+      "source": "/services/ai-business-development",
+      "destination": "/services/lead-generation",
       "permanent": true
     }
   ],

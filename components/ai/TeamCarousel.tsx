@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { m } from 'framer-motion';
 import Link from "next/link";
-import { aiTeamMembers, agentRatings } from './aiAgentsData';
+import { aiTeamMembers } from './aiAgentsData';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export function TeamCarousel() {
@@ -124,17 +124,7 @@ export function TeamCarousel() {
                     </p>
 
                     {/* Star Rating */}
-                    {agentRatings[agent.id] && (
-                      <div className="flex items-center gap-1.5 mt-3" data-testid={`rating-${agent.id}`}>
-                        <span className="text-[#c4ff4d] text-sm font-semibold">
-                          {agentRatings[agent.id].ratingValue.toFixed(1)}
-                        </span>
-                        <span className="text-[#c4ff4d] text-sm" aria-hidden="true">★</span>
-                        <span className="text-white/40 text-xs">
-                          {agentRatings[agent.id].reviewCount} reviews
-                        </span>
-                      </div>
-                    )}
+                    {/* Star rating hidden: synthetic scores are not permissioned reviews */}
                   </div>
                 </Link>
               </m.div>

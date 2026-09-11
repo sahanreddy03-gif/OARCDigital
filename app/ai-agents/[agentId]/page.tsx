@@ -6,14 +6,17 @@ import { createServiceSchema } from '@/utils/structuredData';
 import { createBreadcrumbSchema } from '@/utils/advancedSchema';
 import AIAgentDetailClient from './AIAgentDetailClient';
 
+type AgentParams = { agentId: string };
+
 const agentOgImageUrl = (agentId: string) => `https://oarcdigital.com/agents/${agentId}.webp`;
 
 export async function generateStaticParams() {
   return aiTeamMembers.map((agent) => ({ agentId: agent.id }));
 }
 
-export async function generateMetadata({ params }: { params: { agentId: string } }): Promise<Metadata> {
-  const agent = aiTeamMembers.find((a) => a.id === params.agentId);
+export async function generateMetadata({ params }: { params: Promise<AgentParams> }): Promise<Metadata> {
+  const { agentId } = await params;
+  const agent = aiTeamMembers.find((a) => a.id === agentId);
   if (!agent) return { title: 'Agent Not Found | OARC Digital' };
 
   // Sahan lock: never invent stars/% in titles.
@@ -51,8 +54,9 @@ export async function generateMetadata({ params }: { params: { agentId: string }
   };
 }
 
-export default function AIAgentDetailPage({ params }: { params: { agentId: string } }) {
-  const agent = aiTeamMembers.find((a) => a.id === params.agentId);
+export default async function AIAgentDetailPage({ params }: { params: Promise<AgentParams> }) {
+  const { agentId } = await params;
+  const agent = aiTeamMembers.find((a) => a.id === agentId);
   if (!agent) notFound();
 
   const serviceSchema = createServiceSchema(

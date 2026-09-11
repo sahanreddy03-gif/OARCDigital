@@ -146,7 +146,7 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
       },
       { 
         title: 'AI Marketing Assistant', 
-        slug: 'ai-content-strategist', 
+        slug: 'content-marketing', 
         icon: Megaphone,
         description: 'Content scheduling, social posting, campaign tracking, reporting'
       },

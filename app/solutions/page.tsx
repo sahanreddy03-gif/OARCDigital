@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Business Automation Malta | Revenue Solutions | OARC",
   description: "One Malta team for creative, AI agents, and automation—so owners get more customers and fewer manual loops. Birkirkara. Book a call.",
   keywords: "business automation Malta, workflow automation Malta, CRM Malta, custom software Malta, digital transformation Malta, API integration Malta, lead generation Malta, email marketing Malta, marketing automation Malta, process automation Malta, Zapier Malta, HubSpot Malta, sales automation Malta",
-  alternates: getHreflangAlternates("/solutions", { canonical: "https://oarcdigital.com/automation" }),
+  alternates: getHreflangAlternates("/solutions"),
   openGraph: {
     title: "Business Automation Malta | Revenue Solutions | OARC",
     description: "One Malta team for creative, AI agents, and automation—so owners get more customers and fewer manual loops. Birkirkara. Book a call.",
-    url: "https://oarcdigital.com/automation",
+    url: "https://oarcdigital.com/solutions",
     type: "website",
     images: [{ url: "https://oarcdigital.com/attached_assets/marketing-automation-optimized.webp", width: 1200, height: 630, alt: "OARC Digital Malta — revenue automation and marketing solutions for SMBs" }],
   },

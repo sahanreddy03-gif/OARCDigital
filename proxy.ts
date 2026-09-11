@@ -236,5 +236,8 @@ export const config = {
     // Task #116: cross-section 308s (CROSS_SECTION_ALIASES).
     "/diagnostic",
     "/roadmap",
+    // Soft-404 legacy paths (Site Perfection Pass)
+    "/oarc-digital",
+    "/social-media-agency-malta",
   ],
 };
