@@ -33,3 +33,19 @@
 @media (max-width:900px) { .va-wrap,.va-navline { width:min(100% - 2rem,1440px); }.va-hero-grid { grid-template-columns:1fr; padding-top:3rem; }.va-hero-art { min-height:28rem; }.va-hero h1 { font-size:clamp(4rem,18vw,7rem); }.va-intro-grid { grid-template-columns:1fr; gap:3rem; margin:0; }.va-step-grid,.va-proof-grid,.va-trust-grid { grid-template-columns:repeat(2,1fr); }.va-media-grid { grid-template-columns:1fr; }.va-media-1 { grid-row:auto; min-height:28rem; }.va-media-2,.va-media-3 { min-height:20rem; } }
 @media (max-width:560px) { .va-navline span:last-child { display:none; }.va-hero-foot { font-size:.54rem; }.va-hero-foot span:last-child { text-align:right; }.va-hero-art { min-height:23rem; }.va-step-grid,.va-proof-grid,.va-trust-grid { grid-template-columns:1fr; }.va-steps,.va-gallery,.va-trust,.va-faq,.va-intro,.va-proof { padding:6rem 0; }.va-section-head h2,.va-intro h2,.va-end h2 { font-size:clamp(3.5rem,16vw,6rem); }.va-film-caption { inset:auto 1rem 1rem; font-size:.53rem; }.va-film-caption span:nth-child(2),.va-film-caption span:nth-child(4) { display:none; } }
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none !important; scroll-behavior:auto !important; transition:none !important; } }
+
+/* Explicit hero product demonstration */
+.va-hero-art { background:#f7f5ef; color:var(--ink); border:1px solid var(--ink); padding:1.2rem; display:flex; flex-direction:column; min-height:38rem; box-shadow:1rem 1rem 0 var(--signal); }
+.va-hero-art::before,.va-orb,.va-hero-screen { display:none; }
+.va-demo-head,.va-demo-footer { display:flex; justify-content:space-between; gap:1rem; font:500 .66rem/1.2 'DM Mono',monospace; letter-spacing:.08em; border-bottom:1px solid var(--line); padding-bottom:.8rem; }
+.va-demo-head b,.va-demo-footer b { color:var(--signal); font-weight:500; }
+.va-demo-request { margin:1.2rem 0; padding:1.2rem; background:var(--ink); color:var(--paper); }
+.va-demo-request span,.va-demo-path span { display:block; color:var(--signal); font:500 .62rem/1.2 'DM Mono',monospace; letter-spacing:.08em; }
+.va-demo-request strong { display:block; font-size:clamp(1.35rem,2.3vw,2.4rem); line-height:1; letter-spacing:-.05em; margin:.8rem 0; }
+.va-demo-request small,.va-demo-path small { color:#92958a; font:400 .72rem/1.35 'DM Mono',monospace; }
+.va-demo-path { display:grid; gap:.6rem; flex:1; }
+.va-demo-path > div { border:1px solid var(--line); padding:.85rem 1rem; background:#ebe9e1; }
+.va-demo-path strong { display:block; font-size:1.12rem; letter-spacing:-.03em; margin:.35rem 0; }
+.va-demo-path i { color:var(--signal); font-style:normal; font:500 1.2rem/1 'DM Mono',monospace; text-align:center; }
+.va-demo-footer { border-top:1px solid var(--line); border-bottom:0; padding-top:.8rem; margin-top:1rem; }
+@media (max-width:900px) { .va-hero-art { min-height:31rem; box-shadow:.55rem .55rem 0 var(--signal); } }
