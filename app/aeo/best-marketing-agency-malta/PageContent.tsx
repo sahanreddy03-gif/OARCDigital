@@ -45,9 +45,7 @@ export default function BestMarketingAgencyMalta({ faqs, offers }: Props) {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
               <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">2026 Buyer&apos;s Guide</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              Best Marketing Agency Malta 2026: How to Choose, and Why OARC Digital Wins
-            </h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">Best marketing agency Malta — choose on work, not pitch decks</h1>
             <p className="text-xl text-zinc-300 leading-relaxed mb-8">
               An honest, practical guide to choosing the best marketing agency in Malta — the criteria that actually matter, the agencies you&apos;ll be choosing between, and where OARC Digital fits.
             </p>
@@ -62,6 +60,18 @@ export default function BestMarketingAgencyMalta({ faqs, offers }: Props) {
                   <Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button>
               </a>
             </div>
+            <p className="mt-8 text-sm text-zinc-400" data-testid="aeo-money-links">
+              Explore: 
+                <Link href="/" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Home</Link>
+                {" · "}
+                <Link href="/creative" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Creative</Link>
+                {" · "}
+                <Link href="/ai-agents" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">AI agents</Link>
+                {" · "}
+                <Link href="/services/branding" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Branding</Link>
+                {" · "}
+                <Link href="/services/seo-services" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">SEO services</Link>
+            </p>
           </div>
         </section>
 

@@ -5,9 +5,9 @@ import RouteSchema from "@/components/RouteSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
-const TITLE = "Digital Transformation Malta | OARC Digital";
+const TITLE = "Digital Transformation Malta | Automate the Busywork | OARC";
 const DESCRIPTION =
-  "Digital transformation for Malta businesses — AI agents, workflow automation, CRM, and custom software in one Birkirkara team. ROI-first, 90-day pilots from €1,500.";
+  "Digital transformation for Malta businesses — AI agents, workflows, CRM and custom software in one Birkirkara team. 90-day pilots from €1,500.";
 const URL = "https://oarcdigital.com/aeo/digital-transformation-malta";
 
 export const metadata: Metadata = {

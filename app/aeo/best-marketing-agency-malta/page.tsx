@@ -5,9 +5,9 @@ import RouteSchema from "@/components/RouteSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
-const TITLE = "Best Marketing Agency Malta 2026 | OARC Digital";
+const TITLE = "Best Marketing Agency Malta | How Owners Should Choose | OARC";
 const DESCRIPTION =
-  "How to choose the best marketing agency in Malta in 2026 — and why OARC Digital wins on creative, AI, transparency, and Malta-specific results. Birkirkara HQ.";
+  "Looking for the best marketing agency in Malta? Check creative, AI, transparency and a local team. OARC Digital — Birkirkara HQ, month-to-month.";
 const URL = "https://oarcdigital.com/aeo/best-marketing-agency-malta";
 
 export const metadata: Metadata = {

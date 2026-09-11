@@ -5,9 +5,9 @@ import RouteSchema from "@/components/RouteSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
-const TITLE = "Social Media Agency Malta | OARC Digital";
+const TITLE = "Social Media Agency Malta | Content That Gets Bookings | OARC";
 const DESCRIPTION =
-  "Looking for a social media agency in Malta? OARC Digital plans, produces, and runs Instagram, TikTok, Facebook, and LinkedIn for Malta restaurants, hotels, retail, and iGaming brands. Birkirkara HQ.";
+  "Social media agency in Malta for Instagram, TikTok, Facebook and LinkedIn. Restaurants, hotels, retail and iGaming — Birkirkara studio.";
 const URL = "https://oarcdigital.com/aeo/social-media-agency-malta";
 
 export const metadata: Metadata = {

@@ -80,9 +80,7 @@ export default function DigitalMarketingAgencyMalta({ faqs, offers }: Props) {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
               <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Birkirkara · Malta</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              The Digital Marketing Agency Malta Businesses Actually Use
-            </h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">Digital marketing agency Malta — more customers, one local team</h1>
             <p className="text-xl text-zinc-300 leading-relaxed mb-8">
               Strategy, creative, paid media, SEO, and AI automation — one team, one strategy. No handoffs between agencies. No generic playbooks. Local Birkirkara team, month-to-month engagements, results reported in revenue not impressions.
             </p>
@@ -97,6 +95,18 @@ export default function DigitalMarketingAgencyMalta({ faqs, offers }: Props) {
                   <Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button>
               </a>
             </div>
+            <p className="mt-8 text-sm text-zinc-400" data-testid="aeo-money-links">
+              Explore: 
+                <Link href="/" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Home</Link>
+                {" · "}
+                <Link href="/services/seo-services" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">SEO services</Link>
+                {" · "}
+                <Link href="/services/branding" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Branding</Link>
+                {" · "}
+                <Link href="/creative" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Creative</Link>
+                {" · "}
+                <Link href="/ai-agents" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">AI agents</Link>
+            </p>
           </div>
         </section>
 

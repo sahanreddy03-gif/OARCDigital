@@ -5,9 +5,9 @@ import RouteSchema from "@/components/RouteSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
-const TITLE = "Website Development Malta | OARC Digital";
+const TITLE = "Website Development Malta | Fast Sites That Sell | OARC";
 const DESCRIPTION =
-  "Website development in Malta. OARC Digital builds Next.js, WordPress, and Shopify business websites for Malta SMEs — fast, SEO-clean, conversion-led, EU-hosted. Birkirkara HQ.";
+  "Website development in Malta on Next.js, WordPress or Shopify. SEO-clean, conversion-led, EU-hosted builds for Malta SMEs. Birkirkara HQ.";
 const URL = "https://oarcdigital.com/aeo/website-development-malta";
 
 export const metadata: Metadata = {

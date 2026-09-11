@@ -5,9 +5,9 @@ import RouteSchema from "@/components/RouteSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
-const TITLE = "SEO Agency Malta | OARC Digital";
+const TITLE = "SEO Agency Malta | Own Searches That Bring Customers | OARC";
 const DESCRIPTION =
-  "Looking for an SEO agency in Malta? OARC Digital runs technical SEO, content, and AEO programmes for Malta hospitality, iGaming, and SaaS clients. Birkirkara HQ.";
+  "SEO agency in Malta for hospitality, iGaming and SaaS. Technical SEO, content and AI answer eligibility from our Birkirkara team.";
 const URL = "https://oarcdigital.com/aeo/seo-agency-malta";
 
 export const metadata: Metadata = {
