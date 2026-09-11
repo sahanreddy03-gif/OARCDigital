@@ -15,6 +15,16 @@ const ENTRIES_BUILDERS: Record<string, () => Promise<EntriesBuilder>> = {
     (await import("@/app/sitemap-h360.xml/route")).buildEntries,
   "sitemap-services.xml": async () =>
     (await import("@/app/sitemap-services.xml/route")).buildEntries,
+  "sitemap-malta-locations.xml": async () =>
+    (await import("@/app/sitemap-malta-locations.xml/route")).buildEntries,
+  "sitemap-malta-location-services.xml": async () =>
+    (await import("@/app/sitemap-malta-location-services.xml/route")).buildEntries,
+  "sitemap-malta-priority-matrix.xml": async () =>
+    (await import("@/app/sitemap-malta-priority-matrix.xml/route")).buildEntries,
+  // Built for parity/guards; not listed in sitemap index until quality gate.
+  "sitemap-malta-expanded-matrix.xml": async () =>
+    (await import("@/app/sitemap-malta-expanded-matrix.xml/route")).buildEntries,
+  // Legacy aliases (not in index): combined malta discovery + priority matrix.
   "sitemap-malta.xml": async () =>
     (await import("@/app/sitemap-malta.xml/route")).buildEntries,
   "sitemap-malta-matrix.xml": async () =>

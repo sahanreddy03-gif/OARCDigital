@@ -54,14 +54,11 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "DataForSeoBot", disallow: "/" },
       { userAgent: "BarkrowlerBot", disallow: "/" },
     ],
+    // XML sitemaps only. llms.txt / llms-full.txt remain publicly linked
+    // elsewhere for AI discovery — they are not Sitemap: directives.
     sitemap: [
       "https://oarcdigital.com/sitemap.xml",
       "https://oarcdigital.com/image-sitemap.xml",
-      // AI answer-engine discovery — GPTBot, PerplexityBot, ClaudeBot, Gemini
-      // all parse Sitemap: directives and follow the URL. llms.txt is the
-      // standard AI-readable index and llms-full.txt is the detailed reference.
-      "https://oarcdigital.com/llms.txt",
-      "https://oarcdigital.com/llms-full.txt",
     ],
     host: "https://oarcdigital.com",
   };

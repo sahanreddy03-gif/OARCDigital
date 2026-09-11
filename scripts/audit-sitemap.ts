@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { HISTORICAL_RESTORATION_LASTMOD } from "../shared/historicalProgrammaticInventory";
+import { HISTORICAL_ORIGINAL_MATRIX_LASTMOD } from "../shared/historicalProgrammaticInventory";
 /**
  * Sitemap honesty regression audit.
  *
@@ -43,8 +43,10 @@ const MIN_URLS_FOR_AUDIT = 5;
 const TODAY_UTC = new Date().toISOString().slice(0, 10);
 const TODAY_DATES = new Set([TODAY_UTC]);
 const APPROVED_BULK_RESTORATIONS: Readonly<Record<string, { date: string; count: number }>> = {
-  "sitemap-malta.xml": { date: HISTORICAL_RESTORATION_LASTMOD, count: 340 },
-  "sitemap-malta-matrix.xml": { date: HISTORICAL_RESTORATION_LASTMOD, count: 7350 },
+  // Cohort sitemaps may share one stable content date (not TODAY).
+  "sitemap-malta-locations.xml": { date: HISTORICAL_ORIGINAL_MATRIX_LASTMOD, count: 50 },
+  "sitemap-malta-priority-matrix.xml": { date: HISTORICAL_ORIGINAL_MATRIX_LASTMOD, count: 2000 },
+  "sitemap-malta-expanded-matrix.xml": { date: HISTORICAL_ORIGINAL_MATRIX_LASTMOD, count: 5350 },
 };
 
 const MODE: "static" | "http" = process.argv.includes("--http") ? "http" : "static";
@@ -54,8 +56,11 @@ const SITEMAPS = [
   "sitemap-core.xml",
   "sitemap-h360.xml",
   "sitemap-services.xml",
-  "sitemap-malta.xml",
-  "sitemap-malta-matrix.xml",
+  "sitemap-malta-locations.xml",
+  "sitemap-malta-location-services.xml",
+  "sitemap-malta-priority-matrix.xml",
+  // expanded is buildable but omitted from index — still audit lastmod honesty
+  "sitemap-malta-expanded-matrix.xml",
   "sitemap-industries.xml",
   "sitemap-case-studies.xml",
   "sitemap-aeo.xml",
@@ -88,6 +93,10 @@ const STATIC_GETTERS: Record<string, () => Promise<RouteGetter>> = {
   "sitemap-core.xml": async () => (await import("../app/sitemap-core.xml/route")).GET,
   "sitemap-h360.xml": async () => (await import("../app/sitemap-h360.xml/route")).GET,
   "sitemap-services.xml": async () => (await import("../app/sitemap-services.xml/route")).GET,
+  "sitemap-malta-locations.xml": async () => (await import("../app/sitemap-malta-locations.xml/route")).GET,
+  "sitemap-malta-location-services.xml": async () => (await import("../app/sitemap-malta-location-services.xml/route")).GET,
+  "sitemap-malta-priority-matrix.xml": async () => (await import("../app/sitemap-malta-priority-matrix.xml/route")).GET,
+  "sitemap-malta-expanded-matrix.xml": async () => (await import("../app/sitemap-malta-expanded-matrix.xml/route")).GET,
   "sitemap-malta.xml": async () => (await import("../app/sitemap-malta.xml/route")).GET,
   "sitemap-malta-matrix.xml": async () => (await import("../app/sitemap-malta-matrix.xml/route")).GET,
   "sitemap-industries.xml": async () => (await import("../app/sitemap-industries.xml/route")).GET,

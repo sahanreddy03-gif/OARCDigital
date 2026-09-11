@@ -3,6 +3,17 @@ import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
 import { buildEntries as buildMaltaEntries } from "../app/sitemap-malta.xml/route";
 import { buildEntries as buildMatrixEntries } from "../app/sitemap-malta-matrix.xml/route";
+import { buildEntries as buildLocationEntries } from "../app/sitemap-malta-locations.xml/route";
+import { buildEntries as buildLocationServiceEntries } from "../app/sitemap-malta-location-services.xml/route";
+import { buildEntries as buildPriorityMatrixEntries } from "../app/sitemap-malta-priority-matrix.xml/route";
+import { buildEntries as buildExpandedMatrixEntries } from "../app/sitemap-malta-expanded-matrix.xml/route";
+import {
+  assertMatrixCohortPartition,
+  MALTA_PRIORITY_MATRIX_PATHS,
+  MALTA_PRIORITY_MATRIX_SHA256,
+} from "../lib/seo/maltaMatrixCohorts";
+import approvedLedger from "../seo-manifest/approved-historical-urls.json";
+import { filterSitemapEntries, isSitemapEligible } from "../lib/seo/sitemapHygiene";
 import { getLocationProfile } from "../lib/seo/locationData";
 import {
   buildLocationIndustryServiceContent,
@@ -23,7 +34,9 @@ import { SITE_BASE } from "../lib/seo/sitemapHelpers";
 import {
   currentAdditionalLocationServices,
   currentAdditionalLocationServiceLocations,
-  HISTORICAL_RESTORATION_LASTMOD,
+  HISTORICAL_ORIGINAL_MATRIX_LASTMOD,
+  HISTORICAL_PARENT_EXPANDED_LASTMOD,
+  HISTORICAL_PARENT_ORIGINAL_LASTMOD,
   historicalIndustries,
   historicalMatrixLocations,
   historicalMatrixPaths,
@@ -234,45 +247,138 @@ function main(): void {
 
   const matrixExpected = unique(matrixPaths, "generated matrix paths");
   const parentExpected = unique(parentPaths, "generated parent paths");
-  const matrixSitemap = sitemapPaths(buildMatrixEntries());
-  const maltaSitemap = sitemapPaths(buildMaltaEntries());
-  const matrixSitemapEntries = buildMatrixEntries();
-  const maltaSitemapEntries = buildMaltaEntries();
-  const matrixSitemapSet = unique(matrixSitemap, "matrix sitemap");
-  const maltaSitemapSet = unique(maltaSitemap, "Malta sitemap");
 
-  setEqual(matrixSitemapSet, matrixExpected, "matrix sitemap parity");
-  invariant(matrixSitemap.length === 7350, `matrix sitemap count is ${matrixSitemap.length}`);
-  invariant(maltaSitemap.length === 340, `Malta sitemap count is ${maltaSitemap.length}`);
+  // --- Cohort sitemaps (indexing strategy) ---
+  const cohort = assertMatrixCohortPartition();
+  invariant(cohort.priority === 2000, `priority cohort size ${cohort.priority} != 2000`);
+  invariant(cohort.expanded === 5350, `expanded cohort size ${cohort.expanded} != 5350`);
   invariant(
-    matrixSitemapEntries.every(({ lastmod }) => lastmod === HISTORICAL_RESTORATION_LASTMOD),
-    "matrix sitemap contains a stale or mixed lastmod",
+    hashPaths([...MALTA_PRIORITY_MATRIX_PATHS]) === MALTA_PRIORITY_MATRIX_SHA256,
+    "priority matrix fingerprint differs from seo-manifest/malta-priority-matrix.json",
   );
   invariant(
-    maltaSitemapEntries.every(({ lastmod }) => lastmod === HISTORICAL_RESTORATION_LASTMOD),
-    "Malta sitemap contains a stale or mixed lastmod",
+    hashPaths([...MALTA_PRIORITY_MATRIX_PATHS]) === approvedLedger.fingerprints.priorityMatrixSha256,
+    "priority matrix fingerprint differs from approved-historical-urls ledger",
   );
-  for (const path of parentExpected) {
-    invariant(maltaSitemapSet.has(path), `historical parent path missing from sitemap: ${path}`);
+  for (const path of approvedLedger.sahanMaltaPriorityPaths as string[]) {
+    invariant(
+      MALTA_PRIORITY_MATRIX_PATHS.includes(path),
+      `Sahan malta priority URL missing from priority sitemap cohort: ${path}`,
+    );
   }
-  invariant(maltaSitemapSet.has("/malta"), "Malta collection page missing from sitemap");
+  invariant(
+    approvedLedger.locationIndSvcGlobalKeepRequired === true,
+    "approved ledger must require LOCATION_IND_SVC_GLOBAL_KEEP",
+  );
+
+  const locationSitemap = sitemapPaths(buildLocationEntries());
+  const locationServiceSitemap = sitemapPaths(buildLocationServiceEntries());
+  const prioritySitemap = sitemapPaths(buildPriorityMatrixEntries());
+  const expandedSitemap = sitemapPaths(buildExpandedMatrixEntries());
+  const matrixSitemap = sitemapPaths(buildMatrixEntries()); // legacy alias = priority
+  const maltaSitemap = sitemapPaths(buildMaltaEntries()); // legacy alias = locations+services
+
+  invariant(locationSitemap.length === 50, `locations sitemap count is ${locationSitemap.length}`);
+  invariant(
+    locationServiceSitemap.length ===
+      historicalProgrammaticExpected.parentLocationServiceUrlCount +
+        currentAdditionalLocationServiceLocations.length *
+          currentAdditionalLocationServices.length,
+    `location-services sitemap count is ${locationServiceSitemap.length}`,
+  );
+  invariant(prioritySitemap.length === 2000, `priority matrix sitemap count is ${prioritySitemap.length}`);
+  invariant(expandedSitemap.length === 5350, `expanded matrix sitemap count is ${expandedSitemap.length}`);
+  invariant(matrixSitemap.length === 2000, `legacy matrix sitemap count is ${matrixSitemap.length}`);
+  invariant(maltaSitemap.length === 340, `legacy Malta sitemap count is ${maltaSitemap.length}`);
+
+  setEqual(new Set(prioritySitemap), new Set(MALTA_PRIORITY_MATRIX_PATHS), "priority sitemap parity");
+  setEqual(
+    new Set([...prioritySitemap, ...expandedSitemap]),
+    matrixExpected,
+    "priority∪expanded must equal full historical matrix",
+  );
+  for (const path of prioritySitemap) {
+    invariant(!new Set(expandedSitemap).has(path), `path in both matrix cohorts: ${path}`);
+  }
+  setEqual(new Set(matrixSitemap), new Set(prioritySitemap), "legacy matrix alias must equal priority");
+
+  const locationSitemapEntries = buildLocationEntries();
+  const prioritySitemapEntries = buildPriorityMatrixEntries();
+  const expandedSitemapEntries = buildExpandedMatrixEntries();
+  invariant(
+    locationSitemapEntries.every(({ lastmod }) => lastmod === HISTORICAL_ORIGINAL_MATRIX_LASTMOD),
+    "locations sitemap lastmod must use stable matrix content date",
+  );
+  invariant(
+    prioritySitemapEntries.every(({ lastmod }) => lastmod === HISTORICAL_ORIGINAL_MATRIX_LASTMOD),
+    "priority matrix lastmod must use stable matrix content date",
+  );
+  invariant(
+    expandedSitemapEntries.every(({ lastmod }) => lastmod === HISTORICAL_ORIGINAL_MATRIX_LASTMOD),
+    "expanded matrix lastmod must use stable matrix content date",
+  );
+
+  const locationServiceEntries = buildLocationServiceEntries();
+  const additionalServiceSet = new Set<string>(currentAdditionalLocationServices);
+  for (const entry of locationServiceEntries) {
+    const path = new URL(entry.loc).pathname;
+    const service = path.split("/").filter(Boolean)[2] ?? "";
+    if (additionalServiceSet.has(service)) {
+      invariant(
+        entry.lastmod === HISTORICAL_PARENT_EXPANDED_LASTMOD,
+        `expanded parent lastmod wrong for ${path}`,
+      );
+    } else {
+      invariant(
+        entry.lastmod === HISTORICAL_PARENT_ORIGINAL_LASTMOD,
+        `original parent lastmod wrong for ${path}`,
+      );
+    }
+  }
+
+  for (const path of parentExpected) {
+    invariant(
+      locationServiceSitemap.includes(path),
+      `historical parent path missing from location-services sitemap: ${path}`,
+    );
+  }
+  invariant(locationSitemap.includes("/malta"), "Malta collection page missing from locations sitemap");
   for (const location of historicalMatrixLocations) {
     invariant(
-      maltaSitemapSet.has(`/malta/${location}`),
-      `historical locality hub missing from sitemap: ${location}`,
+      locationSitemap.includes(`/malta/${location}`),
+      `historical locality hub missing from locations sitemap: ${location}`,
     );
   }
   for (const location of currentAdditionalLocationServiceLocations) {
     for (const service of currentAdditionalLocationServices) {
       invariant(
-        maltaSitemapSet.has(`/malta/${location}/${service}`),
-        `retained current path missing from sitemap: ${location}/${service}`,
+        locationServiceSitemap.includes(`/malta/${location}/${service}`),
+        `retained current path missing from location-services sitemap: ${location}/${service}`,
       );
     }
   }
-  for (const path of matrixSitemapSet) {
-    invariant(!maltaSitemapSet.has(path), `path appears in two Malta sitemaps: ${path}`);
+
+  // No overlap across indexing cohorts
+  const indexingPaths = new Set([
+    ...locationSitemap,
+    ...locationServiceSitemap,
+    ...prioritySitemap,
+  ]);
+  invariant(indexingPaths.size === locationSitemap.length + locationServiceSitemap.length + prioritySitemap.length,
+    "duplicate paths across malta indexing cohort sitemaps");
+
+  // Hygiene: every indexing sitemap entry must be eligible
+  for (const entry of [
+    ...locationSitemapEntries,
+    ...locationServiceEntries,
+    ...prioritySitemapEntries,
+  ]) {
+    invariant(isSitemapEligible(entry.loc), `hygiene rejected indexing sitemap URL: ${entry.loc}`);
   }
+  invariant(
+    filterSitemapEntries(prioritySitemapEntries).length === prioritySitemapEntries.length,
+    "priority sitemap contains hygiene-rejected URLs",
+  );
 
   assertContentCoverage(matrixPaths);
 
@@ -286,7 +392,7 @@ function main(): void {
     )} / ${historicalProgrammaticExpected.parentLocationServicePathSha256.slice(0, 12)}`,
   );
   console.log(
-    `historical-programmatic: sitemaps ${matrixSitemap.length} matrix + ${maltaSitemap.length} Malta discovery URLs`,
+    `historical-programmatic: sitemaps locations=${locationSitemap.length} location-services=${locationServiceSitemap.length} priority-matrix=${prioritySitemap.length} expanded-matrix=${expandedSitemap.length} (expanded omitted from index)`,
   );
 }
 
