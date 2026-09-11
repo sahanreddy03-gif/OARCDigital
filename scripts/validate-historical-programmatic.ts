@@ -12,7 +12,12 @@ import {
   MALTA_PRIORITY_MATRIX_PATHS,
   MALTA_PRIORITY_MATRIX_SHA256,
 } from "../lib/seo/maltaMatrixCohorts";
+import {
+  CHILD_SITEMAPS,
+  MATRIX_SITEMAP_PARTITIONS,
+} from "../lib/seo/sitemapIndexConfig";
 import approvedLedger from "../seo-manifest/approved-historical-urls.json";
+import matrixExclusions from "../seo-manifest/sitemap-matrix-exclusions.json";
 import { filterSitemapEntries, isSitemapEligible } from "../lib/seo/sitemapHygiene";
 import { getLocationProfile } from "../lib/seo/locationData";
 import {
@@ -275,7 +280,7 @@ function main(): void {
   const locationServiceSitemap = sitemapPaths(buildLocationServiceEntries());
   const prioritySitemap = sitemapPaths(buildPriorityMatrixEntries());
   const expandedSitemap = sitemapPaths(buildExpandedMatrixEntries());
-  const matrixSitemap = sitemapPaths(buildMatrixEntries()); // legacy alias = priority
+  const matrixCoverageSitemap = sitemapPaths(buildMatrixEntries()); // priority ∪ expanded (guard helper)
   const maltaSitemap = sitemapPaths(buildMaltaEntries()); // legacy alias = locations+services
 
   invariant(locationSitemap.length === 50, `locations sitemap count is ${locationSitemap.length}`);
@@ -288,7 +293,10 @@ function main(): void {
   );
   invariant(prioritySitemap.length === 2000, `priority matrix sitemap count is ${prioritySitemap.length}`);
   invariant(expandedSitemap.length === 5350, `expanded matrix sitemap count is ${expandedSitemap.length}`);
-  invariant(matrixSitemap.length === 2000, `legacy matrix sitemap count is ${matrixSitemap.length}`);
+  invariant(
+    matrixCoverageSitemap.length === historicalProgrammaticExpected.matrixUrlCount,
+    `legacy matrix coverage helper count is ${matrixCoverageSitemap.length}`,
+  );
   invariant(maltaSitemap.length === 340, `legacy Malta sitemap count is ${maltaSitemap.length}`);
 
   setEqual(new Set(prioritySitemap), new Set(MALTA_PRIORITY_MATRIX_PATHS), "priority sitemap parity");
@@ -300,7 +308,53 @@ function main(): void {
   for (const path of prioritySitemap) {
     invariant(!new Set(expandedSitemap).has(path), `path in both matrix cohorts: ${path}`);
   }
-  setEqual(new Set(matrixSitemap), new Set(prioritySitemap), "legacy matrix alias must equal priority");
+  setEqual(
+    new Set(matrixCoverageSitemap),
+    matrixExpected,
+    "legacy matrix coverage helper must equal full historical matrix",
+  );
+
+  // /sitemap.xml must advertise every matrix partition (priority must not replace inventory)
+  for (const part of MATRIX_SITEMAP_PARTITIONS) {
+    invariant(
+      (CHILD_SITEMAPS as readonly string[]).includes(part),
+      `matrix partition missing from CHILD_SITEMAPS index: ${part}`,
+    );
+  }
+  invariant(
+    (CHILD_SITEMAPS as readonly string[]).includes("sitemap-malta-priority-matrix.xml"),
+    "priority matrix cohort missing from sitemap index",
+  );
+  invariant(
+    (CHILD_SITEMAPS as readonly string[]).includes("sitemap-malta-expanded-matrix.xml"),
+    "expanded matrix cohort missing from sitemap index",
+  );
+
+  // Indexed matrix coverage must match inventory tuples unless explicitly excluded
+  const exclusionPaths = new Set<string>(
+    ((matrixExclusions as { paths?: string[] }).paths ?? []).map(String),
+  );
+  for (const path of exclusionPaths) {
+    invariant(matrixExpected.has(path), `exclusion path not in historical matrix ledger: ${path}`);
+  }
+  const requiredIndexed = new Set(
+    [...matrixExpected].filter((path) => !exclusionPaths.has(path)),
+  );
+  const indexedMatrix = new Set([...prioritySitemap, ...expandedSitemap]);
+  const missingFromIndex = [...requiredIndexed].filter((path) => !indexedMatrix.has(path));
+  invariant(
+    missingFromIndex.length === 0,
+    `sitemap matrix coverage below inventory: missing ${missingFromIndex.length} of ${requiredIndexed.size} required paths (expected ${historicalProgrammaticExpected.matrixUrlCount} matrix; exclusions=${exclusionPaths.size}). sample=${missingFromIndex.slice(0, 10).join(",")}`,
+  );
+  invariant(
+    indexedMatrix.size === prioritySitemap.length + expandedSitemap.length,
+    "duplicate paths across priority and expanded matrix sitemaps",
+  );
+  invariant(
+    indexedMatrix.size - exclusionPaths.size >=
+      historicalProgrammaticExpected.matrixUrlCount - exclusionPaths.size,
+    `indexed matrix coverage ${indexedMatrix.size} < expected ${historicalProgrammaticExpected.matrixUrlCount} after exclusions`,
+  );
 
   const locationSitemapEntries = buildLocationEntries();
   const prioritySitemapEntries = buildPriorityMatrixEntries();
@@ -358,26 +412,38 @@ function main(): void {
     }
   }
 
-  // No overlap across indexing cohorts
+  // No overlap across malta indexing cohorts (locations / parents / full matrix)
   const indexingPaths = new Set([
     ...locationSitemap,
     ...locationServiceSitemap,
     ...prioritySitemap,
+    ...expandedSitemap,
   ]);
-  invariant(indexingPaths.size === locationSitemap.length + locationServiceSitemap.length + prioritySitemap.length,
-    "duplicate paths across malta indexing cohort sitemaps");
+  invariant(
+    indexingPaths.size ===
+      locationSitemap.length +
+        locationServiceSitemap.length +
+        prioritySitemap.length +
+        expandedSitemap.length,
+    "duplicate paths across malta indexing cohort sitemaps",
+  );
 
   // Hygiene: every indexing sitemap entry must be eligible
   for (const entry of [
     ...locationSitemapEntries,
     ...locationServiceEntries,
     ...prioritySitemapEntries,
+    ...expandedSitemapEntries,
   ]) {
     invariant(isSitemapEligible(entry.loc), `hygiene rejected indexing sitemap URL: ${entry.loc}`);
   }
   invariant(
     filterSitemapEntries(prioritySitemapEntries).length === prioritySitemapEntries.length,
     "priority sitemap contains hygiene-rejected URLs",
+  );
+  invariant(
+    filterSitemapEntries(expandedSitemapEntries).length === expandedSitemapEntries.length,
+    "expanded sitemap contains hygiene-rejected URLs",
   );
 
   assertContentCoverage(matrixPaths);
@@ -392,7 +458,7 @@ function main(): void {
     )} / ${historicalProgrammaticExpected.parentLocationServicePathSha256.slice(0, 12)}`,
   );
   console.log(
-    `historical-programmatic: sitemaps locations=${locationSitemap.length} location-services=${locationServiceSitemap.length} priority-matrix=${prioritySitemap.length} expanded-matrix=${expandedSitemap.length} (expanded omitted from index)`,
+    `historical-programmatic: sitemaps locations=${locationSitemap.length} location-services=${locationServiceSitemap.length} priority-matrix=${prioritySitemap.length} expanded-matrix=${expandedSitemap.length} indexed-matrix=${indexedMatrix.size} exclusions=${exclusionPaths.size}`,
   );
 }
 

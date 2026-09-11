@@ -12,9 +12,9 @@ export const dynamic = "force-static";
 export const revalidate = false;
 
 /**
- * Remaining historical matrix triples (live via LOCATION_IND_SVC_GLOBAL_KEEP).
- * Route exists for parity/guards; omitted from sitemap index / robots until
- * quality gate — do not advertise all thin combinations equally.
+ * Remaining historical matrix triples after the priority ≤2000 cohort.
+ * Live via LOCATION_IND_SVC_GLOBAL_KEEP; advertised from /sitemap.xml so
+ * Google can rediscover the full 7350 inventory (priority must not replace it).
  */
 export function buildEntries(): UrlEntry[] {
   const lastmod = HISTORICAL_ORIGINAL_MATRIX_LASTMOD;
