@@ -17,10 +17,10 @@ const proof = [
   ["EU Tech Startup", "-35%", "documented sales-cycle reduction", "/case-studies"],
 ];
 const faqs = [
-  ["What is a Voice AI Worker?", "A managed operating layer that receives requests, follows your rules, takes permitted actions inside your systems, and returns a visible result."],
-  ["Is it only for phone calls?", "No. Voice is one front door. The same worker can handle WhatsApp, forms, email, and internal requests."],
-  ["What can it actually do?", "It can support customers, qualify sales, book appointments, route reception, follow up, update systems, and create a clear record of what happened."],
-  ["What happens when it cannot decide?", "It stops, explains what is missing, and hands the full context to a person you choose."],
+  ["Can AI answer my business phone in Malta after hours?", "Yes. OARC's Voice AI Worker answers Malta business calls after hours, follows your rules, and books or routes work so you miss fewer revenue calls."],
+  ["Does the voice agent book appointments into my calendar?", "When scoped, yes—it books into your calendar or CRM and hands off exceptions that need a human decision."],
+  ["How is a Voice AI Worker different from a basic IVR menu?", "IVR is button trees. A Voice AI Worker understands speech, completes tasks in your systems, and escalates judgment calls to people."],
+  ["Is voice AI suitable for restaurants in Malta?", "Yes. Restaurants use voice for bookings and FAQs; see also H360 hospitality phone AI for venue-specific packaging."],
 ];
 
 export default function VoiceAIExperience() {

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import JsonLd from '@/components/JsonLd';
-import { aiTeamMembers, agentRatings } from '@/components/ai/aiAgentsData';
+import { aiTeamMembers } from '@/components/ai/aiAgentsData';
 import { createServiceSchema } from '@/utils/structuredData';
-import { createBreadcrumbSchema, createAggregateRatingSchema } from '@/utils/advancedSchema';
+import { createBreadcrumbSchema } from '@/utils/advancedSchema';
 import AIAgentDetailClient from './AIAgentDetailClient';
 
 const agentOgImageUrl = (agentId: string) => `https://oarcdigital.com/agents/${agentId}.webp`;
@@ -16,9 +16,8 @@ export async function generateMetadata({ params }: { params: { agentId: string }
   const agent = aiTeamMembers.find((a) => a.id === params.agentId);
   if (!agent) return { title: 'Agent Not Found | OARC Digital' };
 
-  const rating = agentRatings[agent.id];
-  const titlePrefix = rating ? `${rating.ratingValue}\u2605 (${rating.reviewCount} reviews) \u2014 ` : '';
-  const title = `${titlePrefix}${agent.name} AI ${agent.role} | OARC Digital Malta`;
+  // Sahan lock: never invent stars/% in titles.
+  const title = `${agent.name} AI ${agent.role} | OARC Digital Malta`;
   const description = `Deploy ${agent.name}, OARC Digital's AI ${agent.role} for Malta businesses. ${agent.description}`;
   const canonical = `https://oarcdigital.com/ai-agents/${agent.id}`;
   const ogTitle = `${agent.name} — ${agent.role} | OARC Digital AI Agents Malta`;
@@ -68,19 +67,8 @@ export default function AIAgentDetailPage({ params }: { params: { agentId: strin
     { name: `${agent.name} — ${agent.role}`, url: `/ai-agents/${agent.id}` },
   ]);
 
-  const rating = agentRatings[agent.id];
-  const ratingSchema = rating
-    ? createAggregateRatingSchema(
-        `${agent.name} — AI ${agent.role}`,
-        rating.ratingValue,
-        rating.reviewCount,
-        5,
-        'Product'
-      )
-    : null;
-
+  // AggregateRating stripped — synthetic per-agent scores were not permissioned reviews.
   const schemas: object[] = [serviceSchema, breadcrumbSchema];
-  if (ratingSchema) schemas.push(ratingSchema);
 
   return (
     <>
