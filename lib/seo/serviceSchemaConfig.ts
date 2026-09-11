@@ -143,7 +143,6 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           `We're at ${ADDRESS_ONE_LINE}. Most discovery calls happen on Google Meet but we're happy to meet in person across the islands.`,
       },
-    ,
       {
         question: "Who does conversion-focused web design in Malta?",
         answer:
@@ -391,7 +390,6 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           "A single half-day shoot for short-form social. We won't take on €300 'one-day-three-edits' jobs because the work doesn't have time to be good — and we'd rather refer you elsewhere than ship something we wouldn't put our name on.",
       },
-    ,
       {
         question: "What video production services does OARC offer in Malta?",
         answer:
@@ -753,7 +751,6 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           "Not when set up correctly. We use opt-in flows compliant with the EU's WhatsApp Business policies and Malta's data protection authority guidance, with documented consent records.",
       },
-    ,
       {
         question: "What is OARC’s marketing automation suite?",
         answer:
@@ -882,7 +879,6 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           "We report lead-to-meeting conversion and time-to-first-touch against your baseline—no invented lift guarantees.",
       },
-    ,
       {
         question: "What does an AI SDR agent do?",
         answer:
@@ -1343,7 +1339,6 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           "Yes. Every piece ships with a paired email send, LinkedIn post, two short-form video cuts, and a sales-enablement summary. Distribution is where most Malta brands' content programmes break — we close that gap.",
       },
-    ,
       {
         question: "What content marketing does OARC do in Malta?",
         answer:
@@ -1468,7 +1463,6 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           "Revenue per recipient (more durable than open rate after Apple Mail Privacy Protection), per-flow attributed revenue, placed-order rate, list growth net of unsubscribes and suppressions, deliverability metrics (inbox placement, complaint rate, bounce rate), and lifetime-value lift on subscribers who entered each flow versus those who did not. Monthly reports include written commentary and the raw export.",
       },
-    ,
       {
         question: "Do you set up email marketing automation in Malta?",
         answer:
@@ -2183,7 +2177,6 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           "No. It gives the catalogue an additional front door and works from the product information and merchandising rules the retailer approves.",
       },
-    ,
       {
         question: "What is conversational commerce with OARC?",
         answer:
@@ -2268,7 +2261,6 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           "The service desk explains that it needs help and hands the case to a person with the relevant conversation and evidence.",
       },
-    ,
       {
         question: "What is an AI concierge from OARC?",
         answer:
