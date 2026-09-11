@@ -93,12 +93,12 @@
     },
     {
       "source": "/oarc-digital",
-      "destination": "/why-oarc",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/oarc-digital/",
-      "destination": "/why-oarc",
+      "destination": "/",
       "permanent": true
     },
     {
