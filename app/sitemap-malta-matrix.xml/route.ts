@@ -1,11 +1,5 @@
+import { buildEntries as buildPriorityEntries } from "@/app/sitemap-malta-priority-matrix.xml/route";
 import {
-  HISTORICAL_RESTORATION_LASTMOD,
-  historicalIndustries,
-  historicalMatrixLocations,
-  historicalServices,
-} from "@/shared/historicalProgrammaticInventory";
-import {
-  SITE_BASE,
   urlsetXml,
   xmlResponse,
   type UrlEntry,
@@ -14,21 +8,13 @@ import {
 export const dynamic = "force-static";
 export const revalidate = false;
 
+/**
+ * Legacy matrix sitemap URL. Now serves the priority cohort only (≤2000).
+ * Full historical corpus remains live via GLOBAL_KEEP; expanded cohort is
+ * available at /sitemap-malta-expanded-matrix.xml but omitted from the index.
+ */
 export function buildEntries(): UrlEntry[] {
-  const entries: UrlEntry[] = [];
-  for (const location of historicalMatrixLocations) {
-    for (const industry of historicalIndustries) {
-      for (const service of historicalServices) {
-        entries.push({
-          loc: `${SITE_BASE}/malta/${location}/${industry}/${service}`,
-          lastmod: HISTORICAL_RESTORATION_LASTMOD,
-          changefreq: "monthly",
-          priority: 0.7,
-        });
-      }
-    }
-  }
-  return entries;
+  return buildPriorityEntries();
 }
 
 export async function GET() {
