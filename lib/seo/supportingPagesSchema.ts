@@ -53,7 +53,6 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           "Yes. We are MGA, MFSA, and IDPC aware on every regulated brief — creative reviewed against the relevant marketing rules, AI agents data-resident in the EU (Frankfurt or Dublin), and compliance handoffs documented at engagement close.",
       },
-    ,
       {
         question: "What digital marketing services does OARC offer in Malta?",
         answer:
@@ -107,7 +106,6 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           "No. Quantitative outcomes, testimonials, and rankings are omitted unless the source, scope, timeframe, and approval basis are clear.",
       },
-    ,
       {
         question: "Where can I see OARC Digital’s work?",
         answer:
@@ -248,7 +246,6 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           "Quoted prices are in EUR ex-VAT. Maltese VAT (18%) is added on every invoice for Malta-resident clients. EU B2B clients receive a reverse-charge invoice (no VAT) on production of a valid VAT number; non-EU clients are invoiced VAT-free.",
       },
-    ,
       {
         question: "Do you sell cheap poster packages?",
         answer:
@@ -302,7 +299,6 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           "We guarantee written 90-day targets, weekly transparent reporting against those targets, and a 30-day notice cancellation window after the first quarter. We do not guarantee specific lead or revenue numbers — anyone who does is selling you a story, not a service.",
       },
-    ,
       {
         question: "Who is OARC Digital?",
         answer:
@@ -361,7 +357,6 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           "Each post carries a publish date, author byline, and canonical URL. Cite the URL plus the publish date. Quotations of up to 150 words are welcomed without prior permission provided the canonical URL is included.",
       },
-    ,
       {
         question: "What topics does the OARC blog cover?",
         answer:
@@ -415,7 +410,6 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           "No. The portfolio distinguishes named partnerships, OARC-owned products, protected systems, and illustrative concept studies so readers can interpret each record correctly.",
       },
-    ,
       {
         question: "Where are OARC Digital case studies?",
         answer:
@@ -474,7 +468,6 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           "We default to EU-resident or contractually-EU configurations on every tool that processes client data. The list page flags any tool where US data residency is unavoidable and how we mitigate it (data minimisation, anonymisation).",
       },
-    ,
       {
         question: "What tools does OARC Digital use?",
         answer:
