@@ -104,6 +104,17 @@ export default async function IndustryLocationServicePage({
             <p className="text-xl text-zinc-300 leading-relaxed">
               {c.hero.intro}
             </p>
+            {c.hero2 ? (
+              <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6 md:p-7">
+                <p className="text-xs font-semibold uppercase tracking-wider text-orange-400 mb-2">
+                  Guest &amp; return
+                </p>
+                <h2 className="text-xl md:text-2xl font-bold mb-3 text-white">
+                  {c.hero2.heading}
+                </h2>
+                <p className="text-zinc-300 leading-relaxed">{c.hero2.body}</p>
+              </div>
+            ) : null}
           </div>
         </section>
 
@@ -151,6 +162,15 @@ export default async function IndustryLocationServicePage({
             </h2>
             <p className="text-foreground leading-relaxed">{c.challenge}</p>
           </div>
+
+          {c.regulationNote ? (
+            <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 p-6 mb-12">
+              <p className="text-sm font-semibold uppercase tracking-wider text-orange-600 mb-2">
+                Local / regulatory note
+              </p>
+              <p className="text-muted-foreground leading-relaxed">{c.regulationNote}</p>
+            </div>
+          ) : null}
 
           <h2 className="text-2xl md:text-3xl font-bold mb-6">What We Deliver</h2>
           <div className="grid md:grid-cols-2 gap-6 mb-12">
@@ -288,6 +308,29 @@ export default async function IndustryLocationServicePage({
               ))}
             </div>
           </div>
+
+          {c.discoveryLinks && c.discoveryLinks.length > 0 ? (
+            <div className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                Related OARC paths
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Continue to the AI Agents catalogue, AI consulting service page,
+                Solutions hub, or the parent {loc.name} locality guide.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {c.discoveryLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="rounded-full border px-4 py-2 text-sm font-medium transition-colors hover:border-orange-500/60"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ) : null}
 
           {/* CTA */}
           <div className="bg-zinc-900 text-white rounded-2xl p-8 text-center">

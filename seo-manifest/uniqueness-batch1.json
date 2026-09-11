@@ -1,0 +1,2716 @@
+{
+  "schemaVersion": 1,
+  "batch": 1,
+  "lockedAt": "2026-09-11",
+  "goal": "Owner Hero Gates uniqueness for strongest Malta×AI matrix pages",
+  "count": 50,
+  "paths": [
+    "/malta/valletta/igaming/ai-consulting",
+    "/malta/sliema/igaming/ai-consulting",
+    "/malta/st-julians/igaming/ai-consulting",
+    "/malta/valletta/restaurant/ai-consulting",
+    "/malta/valletta/hotel/ai-consulting",
+    "/malta/valletta/fintech/ai-consulting",
+    "/malta/sliema/restaurant/ai-consulting",
+    "/malta/sliema/hotel/ai-consulting",
+    "/malta/sliema/fintech/ai-consulting",
+    "/malta/st-julians/restaurant/ai-consulting",
+    "/malta/st-julians/hotel/ai-consulting",
+    "/malta/st-julians/fintech/ai-consulting",
+    "/malta/birkirkara/igaming/ai-consulting",
+    "/malta/birkirkara/restaurant/ai-consulting",
+    "/malta/birkirkara/hotel/ai-consulting",
+    "/malta/birkirkara/fintech/ai-consulting",
+    "/malta/valletta/cafe/ai-consulting",
+    "/malta/valletta/bar/ai-consulting",
+    "/malta/valletta/spa-wellness/ai-consulting",
+    "/malta/valletta/gym-fitness/ai-consulting",
+    "/malta/valletta/retail/ai-consulting",
+    "/malta/valletta/real-estate/ai-consulting",
+    "/malta/sliema/cafe/ai-consulting",
+    "/malta/sliema/bar/ai-consulting",
+    "/malta/sliema/spa-wellness/ai-consulting",
+    "/malta/sliema/gym-fitness/ai-consulting",
+    "/malta/sliema/retail/ai-consulting",
+    "/malta/sliema/real-estate/ai-consulting",
+    "/malta/st-julians/cafe/ai-consulting",
+    "/malta/st-julians/bar/ai-consulting",
+    "/malta/st-julians/spa-wellness/ai-consulting",
+    "/malta/st-julians/gym-fitness/ai-consulting",
+    "/malta/st-julians/retail/ai-consulting",
+    "/malta/st-julians/real-estate/ai-consulting",
+    "/malta/mosta/igaming/ai-consulting",
+    "/malta/qormi/igaming/ai-consulting",
+    "/malta/hamrun/igaming/ai-consulting",
+    "/malta/naxxar/igaming/ai-consulting",
+    "/malta/zabbar/igaming/ai-consulting",
+    "/malta/attard/igaming/ai-consulting",
+    "/malta/mdina/igaming/ai-consulting",
+    "/malta/rabat/igaming/ai-consulting",
+    "/malta/marsaskala/igaming/ai-consulting",
+    "/malta/marsaxlokk/igaming/ai-consulting",
+    "/malta/birgu/igaming/ai-consulting",
+    "/malta/san-gwann/igaming/ai-consulting",
+    "/malta/msida/igaming/ai-consulting",
+    "/malta/gzira/igaming/ai-consulting",
+    "/malta/swieqi/igaming/ai-consulting",
+    "/malta/mellieha/igaming/ai-consulting"
+  ],
+  "entries": {
+    "/malta/valletta/igaming/ai-consulting": {
+      "title": "AI Consulting for Valletta iGaming Teams | MGA-Aware Systems | OARC Digital",
+      "description": "AI consulting for iGaming operators and service providers with Valletta offices — MGA-aware workflows, not slide decks. OARC Digital, Birkirkara.",
+      "h1": "AI consulting that keeps Valletta iGaming teams audit-ready",
+      "hero1Intro": "Valletta hosts government, regulators, and professional services within walking distance of Republic Street. For an iGaming company with a capital-city office, AI should save review cycles on partner outreach, talent screening, and internal knowledge — while keeping a human in the loop for anything that could touch Malta Gaming Authority (MGA) marketing or licence conditions.",
+      "hero2": {
+        "heading": "How demand returns after a licence milestone",
+        "body": "When a Valletta iGaming team freezes campaigns between licence changes or market launches, warm intros go cold. We design guest and return mechanisms around CRM notes, approved FAQ libraries, and AI agents that qualify inbound partner or career interest against your published compliance rules — so the next approved window does not restart from a blank inbox."
+      },
+      "challenge": "Most capital-city iGaming offices still paste the same EU playbook into Malta. That ignores how quickly a Valletta professional-services neighbour notices tone-deaf outreach, and how strictly MGA advertising and player-protection rules constrain what automation is allowed to say.",
+      "opportunity": "Use Valletta's density of law firms, auditors, and public institutions as a constraint, not a slogan: build AI that drafts inside approved templates, logs review, and frees specialists for work that actually needs a Valletta meeting.",
+      "regulationNote": "Malta Gaming Authority (MGA) rules govern remote gaming advertising, responsible gaming messaging, and what can be automated without human approval. OARC does not replace your compliance officer; we design AI workflows that respect documented review gates.",
+      "faqs": [
+        {
+          "q": "What AI work is realistic for an iGaming office in Valletta?",
+          "a": "Typical first builds: internal knowledge assistants on approved policies, meeting-note structuring for licence projects, and inbound qualification for careers or B2B partners — always with a human approver before anything regulated leaves the building."
+        },
+        {
+          "q": "How do you handle MGA marketing constraints in AI drafts?",
+          "a": "We keep generative output inside templates your compliance team has already approved, require human sign-off for public copy, and avoid inventing claims about odds, bonuses, or returns."
+        },
+        {
+          "q": "Do you need us on-site in Valletta?",
+          "a": "Kick-offs can be in Valletta or at our Birkirkara studio (Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010). Delivery is hybrid; regulated reviews stay with your nominated approvers."
+        },
+        {
+          "q": "Who do we contact at OARC?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Mention Valletta iGaming AI consulting so we route to the right pod."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to valletta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/valletta",
+          "label": "Valletta hub"
+        }
+      ]
+    },
+    "/malta/sliema/igaming/ai-consulting": {
+      "title": "AI Consulting for Sliema iGaming | Seafront Ops Teams | OARC Digital",
+      "description": "AI consulting for iGaming teams in Sliema — talent ops, partner triage, MGA-aware assistants. OARC Digital, Birkirkara CBD.",
+      "h1": "AI consulting for Sliema iGaming teams between The Strand and Tigne",
+      "hero1Intro": "Sliema packs iGaming, services, and residential towers along The Strand and toward Tigne Point. AI should save recruiting and office-ops teams from repeating visa, relocation, and benefits answers, and make partner-marketing drafts start from MGA-safe templates instead of a blank chat box.",
+      "hero2": {
+        "heading": "Return mechanism when hiring pauses",
+        "body": "When a Sliema studio pauses hiring, candidate communities go quiet. We keep an approved careers FAQ agent and CRM tagging so warm applicants can re-enter when roles reopen — without cold-spamming the island's tight talent graph."
+      },
+      "challenge": "Open-plan seafront offices amplify bad outbound. One careless AI email is discussed over coffee on The Strand by afternoon.",
+      "opportunity": "Build internal-first assistants and gated outbound. Use Gzira and St Julian's catchment only as commuting context, not keyword spam.",
+      "regulationNote": "MGA marketing and player-protection rules still apply to Sliema offices. Human approval stays on regulated public copy.",
+      "faqs": [
+        {
+          "q": "We share a building with other operators — is that a problem?",
+          "a": "It raises the cost of sloppy outreach. We tune tone and suppression lists so you do not pitch competitors' landlords by accident."
+        },
+        {
+          "q": "Relocation FAQ for hires landing in Sliema?",
+          "a": "Yes from your approved pack (neighbourhoods, ferry, buses) — not invented legal immigration advice."
+        },
+        {
+          "q": "On-site workshops?",
+          "a": "Available in Sliema or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to sliema?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/sliema",
+          "label": "Sliema hub"
+        }
+      ]
+    },
+    "/malta/st-julians/igaming/ai-consulting": {
+      "title": "AI Consulting for St Julian's iGaming | Portomaso to Paceville | OARC Digital",
+      "description": "AI consulting for St Julian's iGaming operators — MGA-aware assistants for Malta's densest gaming district.",
+      "h1": "AI consulting for St Julian's iGaming — where neighbours are also competitors",
+      "hero1Intro": "St Julian's concentrates operators around Spinola Bay, Portomaso Marina, and the Paceville fringe. AI should save compliance and marketing coordinators from rewriting the same MGA-safe answers, and make talent and affiliate triage faster — without spraying the district's shared cafes with careless automation.",
+      "hero2": {
+        "heading": "Return after campaign freezes and licence updates",
+        "body": "When creative freezes for compliance review, keep warm affiliate and career pipelines inside approved FAQ agents and CRM stages so relaunch week is not a cold start."
+      },
+      "challenge": "District density means one bad outbound wave is visible to three operators before lunch. Suppression and tone matter more than volume.",
+      "opportunity": "Internal knowledge + gated public drafts. Human sign-off on anything player-facing.",
+      "regulationNote": "MGA advertising, responsible gaming, and affiliate disclosure rules apply. OARC designs review gates; we are not your MLRO or compliance officer.",
+      "faqs": [
+        {
+          "q": "Affiliate FAQ automation?",
+          "a": "Yes inside your published terms; commission exceptions stay human."
+        },
+        {
+          "q": "Paceville office vs Portomaso HQ differences?",
+          "a": "We can separate knowledge bases per brand/entity you operate."
+        },
+        {
+          "q": "On-site in St Julian's?",
+          "a": "Yes, or at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to st julians?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/st-julians",
+          "label": "St Julian's hub"
+        }
+      ]
+    },
+    "/malta/valletta/restaurant/ai-consulting": {
+      "title": "AI Consulting for Valletta Restaurants | Covers Protected | OARC Digital",
+      "description": "AI consulting for Valletta restaurants — reservation recovery, menu Q&A, and review triage near Republic Street and the Barrakka. No invented cover counts.",
+      "h1": "AI that protects covers for Valletta restaurants",
+      "hero1Intro": "Valletta dining competes for residents, office lunches, and cruise-day visitors who decide in minutes near Upper Barrakka Gardens and Republic Street. AI consulting here should save covers you already almost won: missed calls during service, unanswered Instagram DMs, and no-shows that never got a reminder — not invent a tourist-growth figure.",
+      "hero2": {
+        "heading": "Guest return without fake loyalty maths",
+        "body": "Return mechanisms for a Valletta restaurant are practical: WhatsApp or SMS reminders tied to your booking tool, a menu FAQ agent that answers allergen and terrace questions from your approved copy, and a review-reply draft queue your manager edits before publish."
+      },
+      "challenge": "Service peaks collide with cruise arrivals and cultural events. Staff cannot answer every channel while plating. Generic chatbots that invent opening hours or terrace availability create worse reviews than silence.",
+      "opportunity": "Wire AI to the systems you already trust — booking diary, Google Business Profile hours, and a short approved FAQ — so automation only answers what the kitchen and floor have signed off.",
+      "regulationNote": "Food information and allergen rules still apply to automated answers. Anything about ingredients, alcohol service, or opening hours must mirror what you publish.",
+      "faqs": [
+        {
+          "q": "Can AI take Valletta restaurant reservations end-to-end?",
+          "a": "Only if it is connected to your live diary and you approve the scripts. Otherwise we keep AI as a qualifier and hand off to your host or booking link."
+        },
+        {
+          "q": "What about cruise-day surges near the Barrakka?",
+          "a": "We design overflow messaging that sets expectations (waitlist, walk-in windows) from your approved copy, instead of over-promising tables the floor cannot honour."
+        },
+        {
+          "q": "Will this replace our social media team?",
+          "a": "No. AI consulting here is operational — inbox, FAQ, reminders. Creative stays separate unless you add a creative retainer."
+        },
+        {
+          "q": "How do we start?",
+          "a": "Scope via hello@oarcdigital.com or +356 7971 1799. Bring your booking tool name and questions guests already ask."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for restaurant work connected to valletta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/valletta",
+          "label": "Valletta hub"
+        }
+      ]
+    },
+    "/malta/valletta/hotel/ai-consulting": {
+      "title": "AI Consulting for Valletta Hotels | Direct Enquiry Ops | OARC Digital",
+      "description": "AI consulting for Valletta hotels — direct enquiry handling and house FAQ automation around heritage stays. No invented occupancy stats.",
+      "h1": "AI consulting for Valletta hotels that prefer direct guests",
+      "hero1Intro": "Valletta hotels sell place: harbour views from the Barrakka side, walkability to St John's Co-Cathedral, and short stays tied to events. AI should make or save margin by catching direct enquiries before they bounce to an OTA chat, and by answering arrival logistics your front desk repeats daily.",
+      "hero2": {
+        "heading": "Return stays after the first Valletta night",
+        "body": "Guest return often means second visits for festivals or conference annexes. We set up post-stay sequences you approve that point to your direct rate page, plus an AI concierge trained only on your house FAQ — ferry tips, luggage storage, late check-in."
+      },
+      "challenge": "OTA messages arrive around the clock while night cover is thin. Unsupervised bots that invent shuttle times or rooftop access create chargebacks and review damage.",
+      "opportunity": "Connect AI to your PMS FAQ pack and a human escalation path for rate exceptions. Treat Floriana and Sliema catchment questions as real guest needs, not keyword stuffing.",
+      "regulationNote": "Tourism and consumer-protection expectations apply to automated hotel answers. Rates, deposits, and cancellation terms must match your booking engine.",
+      "faqs": [
+        {
+          "q": "Can you connect to our hotel PMS?",
+          "a": "Usually yes for FAQ and enquiry routing; live rate writing depends on vendor APIs and is scoped in the audit. We never invent rates."
+        },
+        {
+          "q": "Do you write guest copy about Valletta attractions?",
+          "a": "Only from sources you approve. We do not fabricate museum or restaurant partnerships."
+        },
+        {
+          "q": "Is this the same as Hospitality 360?",
+          "a": "Related but different scope. This page is AI consulting for Valletta hotels; Hospitality 360 is the broader operating system."
+        },
+        {
+          "q": "Contact?",
+          "a": "hello@oarcdigital.com · +356 7971 1799 · Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for hotel work connected to valletta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/valletta",
+          "label": "Valletta hub"
+        }
+      ]
+    },
+    "/malta/valletta/fintech/ai-consulting": {
+      "title": "AI Consulting for Valletta Fintech | MFSA-Aware Delivery | OARC Digital",
+      "description": "AI consulting for Valletta fintech teams — MFSA-aware internal assistants and B2B qualification. No invented pipeline percentages.",
+      "h1": "AI consulting for Valletta fintech teams under MFSA scrutiny",
+      "hero1Intro": "Valletta concentrates legal, advisory, and regulated financial activity. For fintech and adjacent licence holders, AI should save specialist time on first-pass document structuring, internal policy Q&A, and inbound B2B triage — without inventing performance claims that would fail an MFSA or IDPC review.",
+      "hero2": {
+        "heading": "Return mechanism for long B2B cycles",
+        "body": "Fintech sales in the capital are relationship-heavy. We build CRM meeting summaries, approved nurture drafts that only restate published product facts, and alerts when a prospect re-opens documentation — so your team re-enters with context."
+      },
+      "challenge": "Global AI-SDR playbooks that spam Maltese professional networks burn trust across shared Valletta office floors.",
+      "opportunity": "Prioritise internal copilots and tightly scoped outbound that mirrors compliance-approved website claims. Keep a human approver on anything client-facing.",
+      "regulationNote": "MFSA expectations and IDPC data-protection rules constrain personal data use and marketing claims. Automated outreach must respect lawful basis and existing permissions.",
+      "faqs": [
+        {
+          "q": "Will you train models on our client data?",
+          "a": "Only under a written DPA, with residency and retention you approve. Defaults start on public product docs and non-sensitive SOPs."
+        },
+        {
+          "q": "Can AI draft MFSA-facing materials?",
+          "a": "It can assist formatting and checklists; final regulated filings stay with your authorised people. OARC is not a licensed advisor."
+        },
+        {
+          "q": "Where is OARC based?",
+          "a": "Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010. We meet Valletta clients on-site or at The Brewhouse."
+        },
+        {
+          "q": "First step?",
+          "a": "Email hello@oarcdigital.com with your licence category and the workflow you want to shorten."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for fintech work connected to valletta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/valletta",
+          "label": "Valletta hub"
+        }
+      ]
+    },
+    "/malta/sliema/restaurant/ai-consulting": {
+      "title": "AI Consulting for Sliema Restaurants | Promenade Demand Ops | OARC Digital",
+      "description": "AI consulting for Sliema restaurants — cover recovery along The Strand and Balluta. No invented reservation growth stats.",
+      "h1": "AI that saves Sliema restaurant covers on The Strand",
+      "hero1Intro": "Sliema restaurants fight for promenade walk-ins, residential regulars, and hotel overflow from Tigne and Balluta Bay. AI consulting should make the pass calmer by clearing reservation DMs, and save no-shows with reminders tied to your live book — especially on windy nights when terrace plans change.",
+      "hero2": {
+        "heading": "Regulars return between tourist weeks",
+        "body": "Return: weekday resident offers you already run, permission-based, plus an agent that knows indoor vs terrace rules you publish when the gregale blows."
+      },
+      "challenge": "Promenade noise and seasonal staffing mean phones slip. Bots that invent wait times create confrontations at the host stand.",
+      "opportunity": "Connect to the diary; state uncertainty honestly; escalate VIPs to humans.",
+      "regulationNote": "Allergen and opening-hour accuracy remain mandatory in automated replies.",
+      "faqs": [
+        {
+          "q": "Terrace vs indoor automation?",
+          "a": "We encode your weather/terrace policy as explicit states the agent can cite — never guess wind conditions."
+        },
+        {
+          "q": "Hotel guest walk-ins from Tigne?",
+          "a": "FAQ can explain walk-in windows; exclusive hotel deals only if you document them."
+        },
+        {
+          "q": "Languages?",
+          "a": "English default; other languages from your approved translations."
+        },
+        {
+          "q": "Start",
+          "a": "hello@oarcdigital.com or +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for restaurant work connected to sliema?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/sliema",
+          "label": "Sliema hub"
+        }
+      ]
+    },
+    "/malta/sliema/hotel/ai-consulting": {
+      "title": "AI Consulting for Sliema Hotels | Seafront Direct Enquiries | OARC Digital",
+      "description": "AI consulting for Sliema hotels — direct enquiry handling along the seafront. No invented occupancy claims.",
+      "h1": "AI consulting for Sliema seafront hotels drowning in the same FAQs",
+      "hero1Intro": "Sliema hotels answer endless questions about ferries to Valletta, parking near The Strand, and room vs view categories. AI should make front-office capacity by owning those repeats from your house manual, and save direct bookings that abandon when chat sits unanswered overnight.",
+      "hero2": {
+        "heading": "Guest return for long-stay and shoulder seasons",
+        "body": "Return sequences you approve for remote workers and repeat UK/EU guests, pointing to direct rates and your published long-stay rules — not invented discounts."
+      },
+      "challenge": "Seafront properties get multi-channel noise (OTA, WhatsApp, Instagram). Unsynced answers about renovation works destroy trust.",
+      "opportunity": "One FAQ source of truth; human escalation for compensations and special rates.",
+      "regulationNote": "Published rates and cancellation terms must match the booking engine in every automated channel.",
+      "faqs": [
+        {
+          "q": "Ferry and bus advice?",
+          "a": "We can structure public-transport FAQ from sources you approve; we do not invent timetables."
+        },
+        {
+          "q": "Renovation messaging?",
+          "a": "Agent reads your dated notice; when the notice expires, answers stop — no stale promises."
+        },
+        {
+          "q": "Group enquiries?",
+          "a": "Structured intake then sales manager handoff."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799 · Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for hotel work connected to sliema?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/sliema",
+          "label": "Sliema hub"
+        }
+      ]
+    },
+    "/malta/sliema/fintech/ai-consulting": {
+      "title": "AI Consulting for Sliema Fintech | Trust-First AI Ops | OARC Digital",
+      "description": "AI consulting for Sliema fintech and payments teams — internal copilots and careful B2B triage near the seafront commercial strip.",
+      "h1": "AI consulting for Sliema fintech teams who cannot afford careless outreach",
+      "hero1Intro": "Sliema's commercial strip hosts fintech, gaming-services, and professional firms in close quarters. AI should save analysts from formatting the same RFP answers, and make BD teams faster at qualifying inbound — while refusing to invent ROI claims that would embarrass you in an MFSA conversation.",
+      "hero2": {
+        "heading": "Return loops on long evaluations",
+        "body": "Evaluation cycles stall. We log touchpoints into CRM, draft follow-ups from approved fact sheets, and alert when a prospect returns to your docs."
+      },
+      "challenge": "Expat-dense Sliema means English-first buyers who still expect EU-grade data care. Sloppy AI processing of cardholder or KYC data is unacceptable.",
+      "opportunity": "Default to EU-resident tooling choices you approve; minimise personal data in prompts.",
+      "regulationNote": "MFSA and IDPC constraints apply. Lawful basis and retention must be explicit before any customer-data feature.",
+      "faqs": [
+        {
+          "q": "Can we use AI on KYC documents?",
+          "a": "Only with a scoped DPA, access controls, and your compliance sign-off. Many first projects avoid raw KYC entirely."
+        },
+        {
+          "q": "Sales automation to other Malta fintechs?",
+          "a": "Tight suppression and human review — the Sliema network is small."
+        },
+        {
+          "q": "Workshop location?",
+          "a": "Sliema offices or Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com / +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for fintech work connected to sliema?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/sliema",
+          "label": "Sliema hub"
+        }
+      ]
+    },
+    "/malta/st-julians/restaurant/ai-consulting": {
+      "title": "AI Consulting for St Julian's Restaurants | Bay & Nightlife Covers | OARC Digital",
+      "description": "AI consulting for St Julian's restaurants — Spinola and Portomaso cover recovery without invented growth stats.",
+      "h1": "AI that protects St Julian's restaurant covers on busy bay nights",
+      "hero1Intro": "St Julian's restaurants swing between Spinola Bay promenade diners and late Paceville spillover. AI should make hosts effective by clearing reservation chats, and save tables lost to no-shows with reminders that match your real seating plan — indoor, terrace, and marina-side rules included.",
+      "hero2": {
+        "heading": "Guests return for the next celebration night",
+        "body": "Permission-based event and tasting notes; private-dining intake that does not double-book the back room."
+      },
+      "challenge": "Nightlife noise and staggered kitchen hours confuse bots trained on lunch menus only.",
+      "opportunity": "Encode service periods explicitly; escalate large bookings.",
+      "regulationNote": "Allergen and alcohol service facts must stay accurate after midnight too.",
+      "faqs": [
+        {
+          "q": "Late-night kitchen cut-off?",
+          "a": "Agent cites your published cut-off; no inventing chef specials still available."
+        },
+        {
+          "q": "Yacht or marina guest bookings?",
+          "a": "Only processes you document with Portomaso or marina partners."
+        },
+        {
+          "q": "Walk-in waitlists?",
+          "a": "SMS/WhatsApp waitlist if you want it — honest ETAs only."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for restaurant work connected to st julians?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/st-julians",
+          "label": "St Julian's hub"
+        }
+      ]
+    },
+    "/malta/st-julians/hotel/ai-consulting": {
+      "title": "AI Consulting for St Julian's Hotels | Bayfront Direct Ops | OARC Digital",
+      "description": "AI consulting for St Julian's hotels — direct enquiry and concierge FAQ around Spinola and Portomaso.",
+      "h1": "AI consulting for St Julian's hotels tired of repeating bay logistics",
+      "hero1Intro": "St Julian's hotels field constant questions about Paceville noise, Spinola dining, and airport transfers. AI should make night teams saner by owning those FAQs from your house manual, and save direct bookers who message at 01:00 when OTAs feel easier.",
+      "hero2": {
+        "heading": "Return stays for events and corporate annexes",
+        "body": "Approved sequences for conference returners and festival weeks, linking to direct rates and your published event calendars."
+      },
+      "challenge": "Noise expectations around Paceville must be honest. AI that oversells quiet-room guarantees creates chargebacks.",
+      "opportunity": "State room categories and noise notes exactly as your booking engine describes them.",
+      "regulationNote": "Rate parity and cancellation terms in chat must match the engine of record.",
+      "faqs": [
+        {
+          "q": "Transfer booking via AI?",
+          "a": "Link to your approved provider or collect details for concierge — no invented driver ETAs."
+        },
+        {
+          "q": "Group blocks?",
+          "a": "Structured intake to sales; no automatic group rate inventing."
+        },
+        {
+          "q": "Renovation weeks?",
+          "a": "Dated notices only."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com / +356 7971 1799 · Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for hotel work connected to st julians?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/st-julians",
+          "label": "St Julian's hub"
+        }
+      ]
+    },
+    "/malta/st-julians/fintech/ai-consulting": {
+      "title": "AI Consulting for St Julian's Fintech | Gaming-Adjacent Care | OARC Digital",
+      "description": "AI consulting for St Julian's fintech and payments firms operating beside iGaming — careful data and claims discipline.",
+      "h1": "AI consulting for St Julian's fintech beside the iGaming cluster",
+      "hero1Intro": "St Julian's fintech often sits next door to gaming operators and shared service providers. AI should save solution engineers from reformatting the same security questionnaires, and make inbound BD qualification clearer — without inventing uptime or ROI figures.",
+      "hero2": {
+        "heading": "Return on stalled enterprise evaluations",
+        "body": "CRM hygiene, approved security FAQ packs, and alerts when prospects revisit docs — so follow-ups are contextual."
+      },
+      "challenge": "Shared buildings with gaming firms raise data-boundary sensitivity. Prompt hygiene matters.",
+      "opportunity": "Separate customer environments; minimise PII in model context.",
+      "regulationNote": "MFSA/IDPC constraints apply; gaming-adjacent clients may also impose contractual security riders we help you operationalise — not replace.",
+      "faqs": [
+        {
+          "q": "Security questionnaire automation?",
+          "a": "Draft assistance from your approved answers; final sign-off stays with your security owner."
+        },
+        {
+          "q": "Outbound into Portomaso offices?",
+          "a": "Low volume, high relevance, human review — density is high."
+        },
+        {
+          "q": "Workshops?",
+          "a": "St Julian's or Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for fintech work connected to st julians?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/st-julians",
+          "label": "St Julian's hub"
+        }
+      ]
+    },
+    "/malta/birkirkara/igaming/ai-consulting": {
+      "title": "AI Consulting for Birkirkara iGaming | CBD & Brewhouse Corridor | OARC Digital",
+      "description": "AI consulting for iGaming teams in Birkirkara and the CBD — next to OARC at The Brewhouse. MGA-aware delivery.",
+      "h1": "AI consulting for Birkirkara iGaming teams in the CBD corridor",
+      "hero1Intro": "Birkirkara's CBD and Mdina Road corridor host operators, vendors, and shared services — including OARC at The Brewhouse. AI should save local teams commute time to Valletta meetings by improving internal knowledge access, and make recruiting coordinators faster on Malta-relocation FAQs without careless outbound into a tight vendor graph.",
+      "hero2": {
+        "heading": "Return when projects restart after audit season",
+        "body": "Keep CRM stages and approved FAQ agents warm so vendor and talent conversations resume with context after audit freezes."
+      },
+      "challenge": "Proximity to industrial Mriehel and San Gwann vendors means your AI tone is overheard across suppliers. Discipline beats volume.",
+      "opportunity": "Internal-first builds; gated external drafts; human approval on MGA-facing copy.",
+      "regulationNote": "MGA rules apply regardless of Birkirkara vs St Julian's office location.",
+      "faqs": [
+        {
+          "q": "Can we workshop at The Brewhouse?",
+          "a": "Yes — Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010. Useful for CBD-based teams."
+        },
+        {
+          "q": "Vendor onboarding FAQ?",
+          "a": "From your approved security and commercial pack only."
+        },
+        {
+          "q": "Shared-office data risks?",
+          "a": "We design access patterns; your policies still govern."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to birkirkara?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/birkirkara",
+          "label": "Birkirkara hub"
+        }
+      ]
+    },
+    "/malta/birkirkara/restaurant/ai-consulting": {
+      "title": "AI Consulting for Birkirkara Restaurants | Local Cover Ops | OARC Digital",
+      "description": "AI consulting for Birkirkara restaurants — resident and CBD lunch cover recovery. No invented stats.",
+      "h1": "AI that protects Birkirkara restaurant covers for CBD lunches and family dinners",
+      "hero1Intro": "Birkirkara dining serves residents, CBD workers near The Brewhouse strip, and families around parish life. AI should make phone-busy services calmer by clearing booking DMs, and save no-shows on Sunday family bookings with reminders you approve.",
+      "hero2": {
+        "heading": "Regulars return around parish and school rhythms",
+        "body": "Permission-based notes for feast-day hours and weekday lunch specials you already run — no fake scarcity timers."
+      },
+      "challenge": "Bypass traffic makes on-my-way ETAs unreliable. Bots should not invent wait times.",
+      "opportunity": "Honest seating states; human host for VIPs and large tables.",
+      "regulationNote": "Allergen accuracy remains mandatory.",
+      "faqs": [
+        {
+          "q": "CBD lunch rush automation?",
+          "a": "Pre-order intake if you offer it; otherwise FAQ + walk-in expectations."
+        },
+        {
+          "q": "Delivery zones across San Gwann?",
+          "a": "Only zones you actually serve."
+        },
+        {
+          "q": "Maltese-language replies?",
+          "a": "From your approved phrases."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799 · we are local at The Brewhouse."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for restaurant work connected to birkirkara?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/birkirkara",
+          "label": "Birkirkara hub"
+        }
+      ]
+    },
+    "/malta/birkirkara/hotel/ai-consulting": {
+      "title": "AI Consulting for Birkirkara Hotels | Business-Stay Ops | OARC Digital",
+      "description": "AI consulting for Birkirkara hotels and guesthouses — business-traveller FAQ and direct enquiry handling.",
+      "h1": "AI consulting for Birkirkara hotels serving CBD and hospital catchments",
+      "hero1Intro": "Birkirkara stays often serve business travellers, medical visitors, and longer contractors — not only leisure. AI should make night reception lighter with parking, bus, and check-in FAQs from your manual, and save direct enquiries that otherwise bounce to OTAs.",
+      "hero2": {
+        "heading": "Return stays for multi-week contractors",
+        "body": "Approved long-stay FAQ and rebooking prompts pointing to direct rates you publish."
+      },
+      "challenge": "Business guests ask invoice and Wi-Fi questions tourists never ask. Generic leisure bots fail here.",
+      "opportunity": "Encode invoicing and corporate rate request flows with human confirmation.",
+      "regulationNote": "Rate and invoice facts must match your finance process.",
+      "faqs": [
+        {
+          "q": "Corporate billing via AI?",
+          "a": "Collect details; finance confirmation stays human."
+        },
+        {
+          "q": "Parking for CBD meetings?",
+          "a": "Approved directions only."
+        },
+        {
+          "q": "Hospital visitor stays?",
+          "a": "Sensitive — keep scripts factual and kind; no medical claims."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com / +356 7971 1799 · Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for hotel work connected to birkirkara?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/birkirkara",
+          "label": "Birkirkara hub"
+        }
+      ]
+    },
+    "/malta/birkirkara/fintech/ai-consulting": {
+      "title": "AI Consulting for Birkirkara Fintech | CBD Delivery Partner | OARC Digital",
+      "description": "AI consulting for Birkirkara and CBD fintech teams — practical internal AI with MFSA/IDPC care, delivered from The Brewhouse.",
+      "h1": "AI consulting for Birkirkara fintech teams who want builders next door",
+      "hero1Intro": "Fintech and professional services in the Birkirkara CBD can walk to workshops at The Brewhouse. AI should save operations teams from repetitive reporting packs, and make first-line inbound clearer — without inventing regulatory outcomes.",
+      "hero2": {
+        "heading": "Return on multi-stakeholder deals",
+        "body": "Meeting summaries into CRM, approved nurture from fact sheets, and doc-revisit alerts."
+      },
+      "challenge": "CBD density includes auditors and advisors as neighbours. Claims discipline is cultural, not optional.",
+      "opportunity": "Internal copilots first; external copy gated.",
+      "regulationNote": "MFSA and IDPC rules apply; we operationalise your constraints, we do not licence you.",
+      "faqs": [
+        {
+          "q": "Same-building delivery?",
+          "a": "Often yes — Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "Data residency defaults?",
+          "a": "EU options you approve; documented in the build."
+        },
+        {
+          "q": "Board-deck automation?",
+          "a": "Formatting aid from your numbers — we do not invent KPIs."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for fintech work connected to birkirkara?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/birkirkara",
+          "label": "Birkirkara hub"
+        }
+      ]
+    },
+    "/malta/valletta/cafe/ai-consulting": {
+      "title": "AI Consulting for Valletta Cafes | Queue & Repeat Visits | OARC Digital",
+      "description": "AI consulting for Valletta cafes — order FAQs, event replies, and quiet-hour coverage near Republic Street. No invented footfall stats.",
+      "h1": "AI that saves Valletta cafe teams from repeating the same answers",
+      "hero1Intro": "A Valletta cafe lives on office coffee runs, gallery crowds, and visitors who ask the same questions about Wi-Fi, sockets, and whether the terrace is open when wind hits from the Grand Harbour. AI consulting should make staff time by answering those repeats from an approved card, and save lost afternoon trade when nobody can leave the machine.",
+      "hero2": {
+        "heading": "How regulars return between cruise peaks",
+        "body": "Return is local: weekday office regulars and residents in Floriana. We wire simple revisit prompts you approve — new pastry drops, shortened hours on feast days — through channels you already use, plus an inbox agent that does not invent seasonal menus."
+      },
+      "challenge": "Tourist questions spike while the bar is three deep. A generic bot that invents opening hours creates one-star reviews faster than an unanswered DM.",
+      "opportunity": "Anchor automation to your Google hours, allergen notes, and a short house FAQ. Keep payment and table decisions with humans.",
+      "regulationNote": "Allergen and consumer information rules apply to automated menu answers. Do not let a model invent ingredients.",
+      "faqs": [
+        {
+          "q": "Do Valletta cafes need a full AI roadmap?",
+          "a": "Often no — start with FAQ + DM triage + feast-day hour notices. Expand only if volume justifies it."
+        },
+        {
+          "q": "Can AI handle catering enquiries from nearby offices?",
+          "a": "Yes as a qualifier collecting date, headcount, and dietary notes, then handing to your manager with a structured brief."
+        },
+        {
+          "q": "Maltese language?",
+          "a": "If you already serve bilingual guests, we can mirror your approved Maltese phrases; we do not invent translations of regulated claims."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com or +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for cafe work connected to valletta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/valletta",
+          "label": "Valletta hub"
+        }
+      ]
+    },
+    "/malta/valletta/bar/ai-consulting": {
+      "title": "AI Consulting for Valletta Bars | Event & Guest Ops | OARC Digital",
+      "description": "AI consulting for Valletta bars — event RSVPs, private-hire triage, and after-hours replies. No invented nightlife stats.",
+      "h1": "AI consulting for Valletta bars that run on events, not guesswork",
+      "hero1Intro": "Valletta bars lean on after-work crowds, exhibition evenings, and private hires near Republic Street and Strait Street. AI should make bookings clearer and save the owner from answering the same private-hire questions at midnight — capacity, corkage, DJ rules — from an approved pack.",
+      "hero2": {
+        "heading": "Guest return after one good night",
+        "body": "Return mechanisms are event calendars and warm lists you already have permission to message. We help you run reminder flows for ticketed nights and a qualifier for private hire that collects date and headcount before a human confirms."
+      },
+      "challenge": "Noise, licensing, and neighbour sensitivity in the capital mean automation must not invent late licences or outdoor service that the police permit does not cover.",
+      "opportunity": "Train AI only on your published event rules and licence constraints. Escalate anything about extensions or outdoor service to a human.",
+      "regulationNote": "Alcohol service and entertainment licensing remain human responsibilities. Automated answers must not invent permit hours.",
+      "faqs": [
+        {
+          "q": "Can AI sell tickets for Valletta bar events?",
+          "a": "It can route to your ticketing link and answer FAQ; payment stays on your existing provider."
+        },
+        {
+          "q": "Private hire for corporate groups from Floriana offices?",
+          "a": "We build a structured intake (date, size, AV, food) and hand off — no automatic confirmation that overbooks the room."
+        },
+        {
+          "q": "Will AI post on Instagram for us?",
+          "a": "Not on this consulting track unless you add creative. Here we focus on replies and operations."
+        },
+        {
+          "q": "Talk to us",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for bar work connected to valletta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/valletta",
+          "label": "Valletta hub"
+        }
+      ]
+    },
+    "/malta/valletta/spa-wellness/ai-consulting": {
+      "title": "AI Consulting for Valletta Spa & Wellness | Booking Recovery | OARC Digital",
+      "description": "AI consulting for Valletta spa and wellness studios — appointment recovery and treatment FAQs. No invented booking rates.",
+      "h1": "AI that recovers Valletta spa appointments you already earned",
+      "hero1Intro": "Wellness studios in and around Valletta serve residents, hotel guests, and professionals who book between meetings. AI consulting should save no-shows with reminders you approve, and make therapists' evenings shorter by answering treatment-duration and contraindications questions from your signed clinical FAQ.",
+      "hero2": {
+        "heading": "Return visits after the first treatment",
+        "body": "Return is a booked follow-up, not a points fantasy. We connect reminder and rebook prompts to your diary tool, with quiet hours so guests are not messaged at midnight after a late Valletta dinner."
+      },
+      "challenge": "Hotel-guest walk-ins ask questions your team answered yesterday. Unsupervised medical claims in a chatbot are a liability.",
+      "opportunity": "Limit AI to scheduling, pricing packages you publish, and non-diagnostic FAQ. Anything clinical stays with practitioners.",
+      "regulationNote": "Health and advertising rules discourage unverified medical claims. Automated copy must not diagnose or promise clinical outcomes.",
+      "faqs": [
+        {
+          "q": "Which booking tools do you integrate?",
+          "a": "Common diary and spa systems used in Malta; we confirm during audit. No live booking write without your approval."
+        },
+        {
+          "q": "Can AI give treatment advice?",
+          "a": "No diagnoses. It can share your published treatment descriptions and ask guests to confirm contraindications with your team."
+        },
+        {
+          "q": "Hotel partnerships in Valletta?",
+          "a": "We can help you present packages clearly; we do not invent commission deals with hotels."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com / +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for spa wellness work connected to valletta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/valletta",
+          "label": "Valletta hub"
+        }
+      ]
+    },
+    "/malta/valletta/gym-fitness/ai-consulting": {
+      "title": "AI Consulting for Valletta Gyms | Trial & Retention Ops | OARC Digital",
+      "description": "AI consulting for Valletta gyms and studios — trial qualification and class FAQs. No invented member-count stats.",
+      "h1": "AI consulting that keeps Valletta gym trials from going cold",
+      "hero1Intro": "Fitness operators near the capital compete with hotel gyms and Sliema waterfront clubs. AI should make membership coordinators' mornings by qualifying trial enquiries (goals, preferred hours, parking needs near Valletta), and save churn risk by answering timetable questions accurately from your live schedule feed.",
+      "hero2": {
+        "heading": "Members return when the next class is easy to book",
+        "body": "Return mechanism: class reminders, waitlist pings, and a freeze/FAQ agent that explains your published pause policy — not invented discount ladders."
+      },
+      "challenge": "Tourist day-passes and resident memberships need different answers. A bot that mixes them creates front-desk arguments.",
+      "opportunity": "Separate visitor vs member flows. Connect to your timetable source of truth.",
+      "regulationNote": "Consumer contract clarity still applies to membership freezes and cancellations described by automation.",
+      "faqs": [
+        {
+          "q": "Can AI sell memberships without staff?",
+          "a": "It can qualify and book a tour or trial; contract signature and payment verification stay with your process."
+        },
+        {
+          "q": "Timetable changes on feast days?",
+          "a": "We design a notice workflow so the agent reads updated hours you publish, not yesterday's PDF."
+        },
+        {
+          "q": "PT upsell automation?",
+          "a": "Only with scripts you approve and clear opt-in. No pressure patterns."
+        },
+        {
+          "q": "Start",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for gym fitness work connected to valletta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/valletta",
+          "label": "Valletta hub"
+        }
+      ]
+    },
+    "/malta/valletta/retail/ai-consulting": {
+      "title": "AI Consulting for Valletta Retail | Stock Questions Answered | OARC Digital",
+      "description": "AI consulting for Valletta retail — stock and visiting-hour FAQs for capital-city shops. No invented sales percentages.",
+      "h1": "AI that answers Valletta retail stock questions before the sale walks on",
+      "hero1Intro": "Republic Street and surrounding Valletta retail live on visitors who ask size, stock, and whether they can collect before a ferry. AI consulting should make sales associates available for people in the shop by clearing those DMs from an approved inventory note — and save after-hours enquiries that would otherwise wake nobody.",
+      "hero2": {
+        "heading": "Return shoppers between cruise calls",
+        "body": "Return flows: back-in-stock alerts you control, and event-evening opening notes for gallery nights — permission-based, no purchased lists."
+      },
+      "challenge": "Inventory lies kill trust faster in a walkable capital where the customer can arrive in ten minutes. AI must not invent stock.",
+      "opportunity": "Integrate read-only stock flags where possible; otherwise AI only states 'ask the team to confirm' for scarce items.",
+      "regulationNote": "Pricing and promotions stated by bots must match shelf and till. Consumer rules still apply.",
+      "faqs": [
+        {
+          "q": "Do you connect to our EPOS?",
+          "a": "When APIs allow read-only stock or hours; otherwise we use a merchant-maintained FAQ sheet."
+        },
+        {
+          "q": "Multi-language visitors?",
+          "a": "English first; additional languages only from translations you approve."
+        },
+        {
+          "q": "Click-and-collect in Valletta?",
+          "a": "We can script collection windows you define; we do not invent courier SLAs."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for retail work connected to valletta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/valletta",
+          "label": "Valletta hub"
+        }
+      ]
+    },
+    "/malta/valletta/real-estate/ai-consulting": {
+      "title": "AI Consulting for Valletta Real Estate | Viewing Qualification | OARC Digital",
+      "description": "AI consulting for Valletta estate agencies — viewing qualification and listing FAQs. No invented deal volumes.",
+      "h1": "AI consulting that qualifies Valletta property viewings before you leave the office",
+      "hero1Intro": "Valletta property — residential conversions, office floors, rare prestige stock — draws international buyers and local upsizers. AI should save agent road time by qualifying budget, timeline, and residency questions against your listing pack, and make follow-up consistent after viewings near the bastions.",
+      "hero2": {
+        "heading": "How serious buyers return after the first viewing",
+        "body": "Return mechanism: structured post-viewing notes into your CRM, approved document checklists (not legal advice), and reminder sequences for buyers who asked for a second visit — always permission-based."
+      },
+      "challenge": "Portal leads are noisy. Unsupervised AI that invents yields, permit status, or sea-view claims creates regulatory and reputational risk.",
+      "opportunity": "Ground answers in your published listing facts. Escalate planning, permit, and contract questions to licensed agents or lawyers.",
+      "regulationNote": "Estate agency communications must not misrepresent property. Planning and contract matters need authorised professionals — not a model.",
+      "faqs": [
+        {
+          "q": "Can AI book viewings on our calendar?",
+          "a": "Yes when connected to your diary with buffer rules you set for Valletta traffic and key collection."
+        },
+        {
+          "q": "International buyer time zones?",
+          "a": "We can run multilingual FAQ from approved copy and hand off video-viewing slots to agents."
+        },
+        {
+          "q": "Do you invent rental yields?",
+          "a": "Never. We only restate figures you supply with sourcing notes."
+        },
+        {
+          "q": "Talk",
+          "a": "hello@oarcdigital.com / +356 7971 1799 · Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for real estate work connected to valletta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/valletta",
+          "label": "Valletta hub"
+        }
+      ]
+    },
+    "/malta/sliema/cafe/ai-consulting": {
+      "title": "AI Consulting for Sliema Cafes | Promenade Inbox Ops | OARC Digital",
+      "description": "AI consulting for Sliema cafes — DM triage and catering intake along The Strand and Balluta. Practical AI consulting from OARC Digital in Birkirkara — no invented metrics.",
+      "h1": "AI that clears Sliema cafe DMs before the flat white queue gets longer",
+      "hero1Intro": "Sliema cafes run on remote workers, parents after school runs, and promenade traffic. AI should make baristas available for the counter by answering laptop-friendly hours, socket myths, and cake-by-the-slice questions from an approved card.",
+      "hero2": {
+        "heading": "Return of weekday remote workers",
+        "body": "Permission-based notes when you change morning hours or add a pastry drop — quiet, useful, no spammy flash-sale theatre."
+      },
+      "challenge": "Instagram comments asking 'are you open now?' spike when weather flips. Wrong answers hurt more than delayed answers.",
+      "opportunity": "Sync to Google hours; admit when a human must confirm seating.",
+      "regulationNote": "Allergen accuracy remains mandatory for automated menu replies.",
+      "faqs": [
+        {
+          "q": "Laptop policy FAQ?",
+          "a": "Yes if you publish one — peak-hour limits included."
+        },
+        {
+          "q": "Catering for Gzira offices?",
+          "a": "Structured intake + human confirm."
+        },
+        {
+          "q": "Do you invent busy-level widgets?",
+          "a": "No live crowd claims unless you supply a real feed."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for cafe work connected to sliema?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/sliema",
+          "label": "Sliema hub"
+        }
+      ]
+    },
+    "/malta/sliema/bar/ai-consulting": {
+      "title": "AI Consulting for Sliema Bars | Sport & Event Ops | OARC Digital",
+      "description": "AI consulting for Sliema bars — screening match nights, private hire, and after-hours questions along the seafront.",
+      "h1": "AI consulting for Sliema bars ahead of match nights and private hires",
+      "hero1Intro": "Sliema bars swing between quiet early evenings and packed sport or DJ nights near The Strand. AI should save owners from repeating table-booking rules and make private-hire intake consistent before anyone promises the upstairs room twice.",
+      "hero2": {
+        "heading": "Guests return for the next fixture",
+        "body": "Fixture reminder flows you approve, plus waitlist logic that does not invent tables that do not exist."
+      },
+      "challenge": "Noise complaints and licensing mean automation must not invent closing hours.",
+      "opportunity": "Encode licence hours and kitchen cut-offs as hard rules.",
+      "regulationNote": "Alcohol licensing and permitted hours remain human-owned facts.",
+      "faqs": [
+        {
+          "q": "Sport ticketed events?",
+          "a": "Route to your ticket link; FAQ for door times from your brief."
+        },
+        {
+          "q": "Birthday packages?",
+          "a": "Intake form + manager confirmation only."
+        },
+        {
+          "q": "Paceville overflow nights?",
+          "a": "We can state capacity honestly; we do not invent shuttle deals."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for bar work connected to sliema?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/sliema",
+          "label": "Sliema hub"
+        }
+      ]
+    },
+    "/malta/sliema/spa-wellness/ai-consulting": {
+      "title": "AI Consulting for Sliema Spa & Wellness | Diary Recovery | OARC Digital",
+      "description": "AI consulting for Sliema spa and wellness — appointment recovery for seafront and side-street studios.",
+      "h1": "AI that recovers Sliema spa diary gaps without clinical overclaim",
+      "hero1Intro": "Sliema wellness studios serve residents and hotel guests who bounce between The Strand and side streets. AI should save empty slots with reminders and make therapists finish on time by answering duration and preparation questions from your approved treatment list.",
+      "hero2": {
+        "heading": "Return bookings after the first facial or massage",
+        "body": "Rebook prompts tied to your diary intervals; quiet hours respected for evening treatments."
+      },
+      "challenge": "Hotel partners ask for menus you have not agreed. Bots must not invent rack rates for partner hotels.",
+      "opportunity": "Separate retail guest vs partner rates in the knowledge pack.",
+      "regulationNote": "No diagnostic or guaranteed clinical outcomes in automated copy.",
+      "faqs": [
+        {
+          "q": "Same-day bookings?",
+          "a": "Allowed only within rules you set for therapist travel and room turns."
+        },
+        {
+          "q": "Gift vouchers?",
+          "a": "FAQ + link to your purchase page; redemption verification stays human if needed."
+        },
+        {
+          "q": "Parking FAQ near Tigne?",
+          "a": "From your approved directions only."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com / +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for spa wellness work connected to sliema?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/sliema",
+          "label": "Sliema hub"
+        }
+      ]
+    },
+    "/malta/sliema/gym-fitness/ai-consulting": {
+      "title": "AI Consulting for Sliema Gyms | Trial-to-Member Ops | OARC Digital",
+      "description": "AI consulting for Sliema gyms and boutique studios — trial qualification along the seafront fitness belt.",
+      "h1": "AI consulting for Sliema gyms competing with every seafront studio",
+      "hero1Intro": "Sliema's fitness belt is dense: hotel gyms, boutiques, and full clubs within a short walk of Balluta and Tigne. AI should make membership teams faster at qualifying trials (experience level, preferred class types), and save front-desk time on timetable and freeze-policy questions.",
+      "hero2": {
+        "heading": "Members return when the next session is one tap away",
+        "body": "Class reminders and waitlists connected to your schedule; freeze FAQ from your published contract language only."
+      },
+      "challenge": "Day-pass tourists and annual members need different answers. Mixing them creates refund disputes.",
+      "opportunity": "Separate visitor and member intents in the dialog design.",
+      "regulationNote": "Membership contract terms stated by AI must match the signed agreement.",
+      "faqs": [
+        {
+          "q": "PT packaging?",
+          "a": "Only approved packages; no invented transformation guarantees."
+        },
+        {
+          "q": "App vs WhatsApp?",
+          "a": "We meet members where you already operate; we do not force a new app."
+        },
+        {
+          "q": "Corporate memberships from nearby offices?",
+          "a": "Structured B2B intake + human commercial approval."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for gym fitness work connected to sliema?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/sliema",
+          "label": "Sliema hub"
+        }
+      ]
+    },
+    "/malta/sliema/retail/ai-consulting": {
+      "title": "AI Consulting for Sliema Retail | Size & Stock Triage | OARC Digital",
+      "description": "AI consulting for Sliema retail — size, stock, and collection FAQs for promenade and mall-adjacent shops.",
+      "h1": "AI that stops Sliema retail teams answering the same size question twenty times",
+      "hero1Intro": "Sliema retail — from The Strand independents to Plaza-adjacent destinations — gets relentless size, colour, and still-in-stock messages. AI should make floor staff free for people in-store by clearing those threads from a merchant-maintained stock note.",
+      "hero2": {
+        "heading": "Return shoppers for new drops",
+        "body": "Back-in-stock and drop alerts with explicit opt-in; no scraped contact lists."
+      },
+      "challenge": "Promenade customers can arrive fast. Invented stock is an instant trust failure.",
+      "opportunity": "Prefer read-only inventory signals; otherwise force human confirm on scarce SKUs.",
+      "regulationNote": "Promotional prices in chat must match till and shelf labels.",
+      "faqs": [
+        {
+          "q": "Click and collect from Sliema?",
+          "a": "Script collection windows you define; courier claims only if you operate them."
+        },
+        {
+          "q": "Tourist tax-free questions?",
+          "a": "Point to your official process; we do not invent customs advice."
+        },
+        {
+          "q": "Multi-brand stock?",
+          "a": "Separate brand FAQs to avoid cross-brand promises."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for retail work connected to sliema?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/sliema",
+          "label": "Sliema hub"
+        }
+      ]
+    },
+    "/malta/sliema/real-estate/ai-consulting": {
+      "title": "AI Consulting for Sliema Real Estate | Seafront Viewing Ops | OARC Digital",
+      "description": "AI consulting for Sliema estate agencies — qualification for seafront and residential stock. No invented sales volumes.",
+      "h1": "AI consulting that qualifies Sliema property leads before the seafront viewing",
+      "hero1Intro": "Sliema property ranges from seafront apartments to inland residential streets toward Gzira and Ta' Xbiex. AI should save agents from unqualified portal leads by collecting budget, furnishing needs, and pet rules against your listing facts — then make post-viewing follow-up consistent.",
+      "hero2": {
+        "heading": "Buyers and tenants return after comparing three flats",
+        "body": "CRM notes after each viewing, approved comparison checklists, and reminder sequences for second visits — permission-based only."
+      },
+      "challenge": "Sea-view and outdoor-space claims are litigated in reviews and complaints. AI must not embellish listings.",
+      "opportunity": "Ground every answer in the listing pack; escalate permit and contract questions.",
+      "regulationNote": "Property misrepresentation risk applies to automated channels the same as human ones.",
+      "faqs": [
+        {
+          "q": "Short-let investor leads?",
+          "a": "Qualify only; licensing and tourism rules need human specialists."
+        },
+        {
+          "q": "Video viewings for overseas buyers?",
+          "a": "Scheduling + FAQ; agents still run the tour narrative."
+        },
+        {
+          "q": "Rental yield claims?",
+          "a": "Never invented — only figures you supply with context."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com / +356 7971 1799 · Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for real estate work connected to sliema?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/sliema",
+          "label": "Sliema hub"
+        }
+      ]
+    },
+    "/malta/st-julians/cafe/ai-consulting": {
+      "title": "AI Consulting for St Julian's Cafes | Bay Laptop & Hire Ops | OARC Digital",
+      "description": "AI consulting for St Julian's cafes — laptop-hour FAQs and small-hire intake around Spinola. Practical AI consulting from OARC Digital in Birkirkara — no invented metrics.",
+      "h1": "AI that keeps St Julian's cafe teams serving instead of typing",
+      "hero1Intro": "Cafes around Spinola and the residential climb toward Swieqi mix remote workers with weekend visitors. AI should make bar staff faster by answering laptop policies and cake orders from an approved card, and save owners from after-hours hire questions.",
+      "hero2": {
+        "heading": "Remote workers return on weekdays",
+        "body": "Quiet updates on hour changes and table limits you already enforce at peak — permission-based."
+      },
+      "challenge": "Tourist weekends break weekday rules. Bots must know which day policy applies.",
+      "opportunity": "Daypart policies encoded explicitly.",
+      "regulationNote": "Allergen accuracy still required.",
+      "faqs": [
+        {
+          "q": "Meeting-room corner hire?",
+          "a": "Intake + human confirm; no automatic double booking."
+        },
+        {
+          "q": "Dog-friendly FAQ?",
+          "a": "Only if you publish a policy."
+        },
+        {
+          "q": "Delivery apps vs direct?",
+          "a": "Agent can prefer your direct link if you want; we do not invent delivery ETAs."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for cafe work connected to st julians?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/st-julians",
+          "label": "St Julian's hub"
+        }
+      ]
+    },
+    "/malta/st-julians/bar/ai-consulting": {
+      "title": "AI Consulting for St Julian's Bars | Paceville-Edge Ops | OARC Digital",
+      "description": "AI consulting for St Julian's bars — guest list, door FAQ, and private hire on the Paceville edge. Practical AI consulting from OARC Digital in Birkirkara — no invented metrics.",
+      "h1": "AI consulting for St Julian's bars that live on guest lists and door rules",
+      "hero1Intro": "St Julian's bars near Paceville and Spinola depend on guest lists, door policies, and private hires. AI should make promoters and managers saner by collecting names against your rules, and save 03:00 DMs that ask the same dress-code question.",
+      "hero2": {
+        "heading": "Guests return for the next promoter night",
+        "body": "Opt-in night reminders; never message people who only asked a one-off FAQ."
+      },
+      "challenge": "Door policies change. Stale AI answers cause arguments with security.",
+      "opportunity": "Versioned policy notes with dates; escalate disputes to humans immediately.",
+      "regulationNote": "Licensing and security decisions remain human. AI must not invent entry exceptions.",
+      "faqs": [
+        {
+          "q": "Guest list collection via WhatsApp?",
+          "a": "Yes with your template and retention rules."
+        },
+        {
+          "q": "Table service booking?",
+          "a": "Deposit rules from your published policy only."
+        },
+        {
+          "q": "Brand partnerships?",
+          "a": "We do not invent sponsor deals in FAQ answers."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for bar work connected to st julians?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/st-julians",
+          "label": "St Julian's hub"
+        }
+      ]
+    },
+    "/malta/st-julians/spa-wellness/ai-consulting": {
+      "title": "AI Consulting for St Julian's Spa & Wellness | Hotel-Guest Aware | OARC Digital",
+      "description": "AI consulting for St Julian's spa and wellness — diary recovery for bay and hotel-adjacent studios. Practical AI consulting from OARC Digital in Birkirkara — no invented metrics.",
+      "h1": "AI that fills St Julian's spa diaries without overclaiming results",
+      "hero1Intro": "Wellness around St Julian's serves residents, Portomaso guests, and staycation visitors. AI should save empty afternoon slots with reminders, and make therapists' admin lighter via approved treatment FAQs — never clinical guarantees.",
+      "hero2": {
+        "heading": "Return visits scheduled before the guest leaves the area",
+        "body": "Rebook prompts with travel-time realism for Spinola traffic; quiet hours after late dinners."
+      },
+      "challenge": "Hotel rack rates differ from public rates. Mixing them in a bot creates billing disputes.",
+      "opportunity": "Separate rate cards in the knowledge base.",
+      "regulationNote": "No diagnostic automated advice.",
+      "faqs": [
+        {
+          "q": "Partner hotel menus?",
+          "a": "Only documented partner rates."
+        },
+        {
+          "q": "Couples bookings?",
+          "a": "Room-capacity rules you define."
+        },
+        {
+          "q": "Parking near Spinola?",
+          "a": "Approved directions only."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com / +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for spa wellness work connected to st julians?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/st-julians",
+          "label": "St Julian's hub"
+        }
+      ]
+    },
+    "/malta/st-julians/gym-fitness/ai-consulting": {
+      "title": "AI Consulting for St Julian's Gyms | Night-Owl Class Ops | OARC Digital",
+      "description": "AI consulting for St Julian's gyms — trial qualification for a nightlife-adjacent fitness market. Practical AI consulting from OARC Digital in Birkirkara — no invented metrics.",
+      "h1": "AI consulting for St Julian's gyms whose members keep unusual hours",
+      "hero1Intro": "Fitness in St Julian's competes with hotel gyms and serves members who work iGaming shifts. AI should make membership teams better at matching trials to real schedules, and save front desk from repeating freeze and class-pack rules.",
+      "hero2": {
+        "heading": "Members return for off-peak classes that fit shift work",
+        "body": "Reminders and waitlists tuned to your timetable; no invented AI-coach transformation promises."
+      },
+      "challenge": "Day-pass visitors from hotels need different liability waivers and prices.",
+      "opportunity": "Separate visitor flows; link waivers you already use.",
+      "regulationNote": "Contract terms in automation must match membership agreements.",
+      "faqs": [
+        {
+          "q": "Shift-worker memberships?",
+          "a": "Explain published flexible options only — do not invent new contract types in chat."
+        },
+        {
+          "q": "Rooftop or outdoor classes?",
+          "a": "Weather cancellation rules from your policy."
+        },
+        {
+          "q": "Corporate iGaming accounts?",
+          "a": "B2B intake + human commercial approval."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for gym fitness work connected to st julians?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/st-julians",
+          "label": "St Julian's hub"
+        }
+      ]
+    },
+    "/malta/st-julians/retail/ai-consulting": {
+      "title": "AI Consulting for St Julian's Retail | Visitor & Resident Mix | OARC Digital",
+      "description": "AI consulting for St Julian's retail — stock and visiting FAQs for bay and Paceville-adjacent shops.",
+      "h1": "AI that answers St Julian's retail stock questions before the bay walk continues",
+      "hero1Intro": "Retail in St Julian's mixes resident convenience with visitor impulse near Spinola. AI should make shop-floor teams available in person by clearing size/stock DMs from a maintained note, and save late enquiries after promenade hours.",
+      "hero2": {
+        "heading": "Residents return for restocks; visitors need honest collection windows",
+        "body": "Opt-in restock alerts for residents; collection rules that match when staff are actually present."
+      },
+      "challenge": "Nightlife hours differ from retail hours. Bots must not inherit bar closing times.",
+      "opportunity": "Hard-code retail hours separate from neighbouring venues.",
+      "regulationNote": "Price integrity across channels still applies.",
+      "faqs": [
+        {
+          "q": "Same-day collection after 20:00?",
+          "a": "Only if your staffing rules allow — agent must not invent late collection."
+        },
+        {
+          "q": "Tourist shipping?",
+          "a": "Only couriers you actually use."
+        },
+        {
+          "q": "Multi-location stock (Sliema + St Julian's)?",
+          "a": "Say which store — never promise transfer without process."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for retail work connected to st julians?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/st-julians",
+          "label": "St Julian's hub"
+        }
+      ]
+    },
+    "/malta/st-julians/real-estate/ai-consulting": {
+      "title": "AI Consulting for St Julian's Real Estate | Short-Let & Long-Let Care | OARC Digital",
+      "description": "AI consulting for St Julian's estate agencies — qualification across long-let and short-let interest. No invented volumes.",
+      "h1": "AI consulting for St Julian's property teams navigating short-let questions carefully",
+      "hero1Intro": "St Julian's property demand mixes long-let professionals, investors eyeing short-lets, and overseas buyers near Portomaso. AI should save agents from circular portal chats by qualifying intent and budget against listing facts — and never invent tourism-licensing outcomes.",
+      "hero2": {
+        "heading": "Serious parties return after comparing seafront vs side-street stock",
+        "body": "Structured CRM notes, second-viewing reminders, and document checklists that are not legal advice."
+      },
+      "challenge": "Short-let licensing and building rules are sensitive. Automation that implies easy short-let approval creates legal exposure.",
+      "opportunity": "Escalate licensing to humans; AI only restates publicly documented listing facts.",
+      "regulationNote": "Misrepresentation and tourism accommodation rules apply to automated answers.",
+      "faqs": [
+        {
+          "q": "Short-let licence FAQ?",
+          "a": "Point to official requirements and your disclaimers; no guaranteed approval language."
+        },
+        {
+          "q": "Investor yield sheets?",
+          "a": "Only figures you supply with assumptions stated."
+        },
+        {
+          "q": "Viewings around Paceville noise?",
+          "a": "Honest notes from your listing pack."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com / +356 7971 1799 · Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for real estate work connected to st julians?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/st-julians",
+          "label": "St Julian's hub"
+        }
+      ]
+    },
+    "/malta/mosta/igaming/ai-consulting": {
+      "title": "AI Consulting for Mosta iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to Mosta — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to Mosta",
+      "hero1Intro": "Mosta is a residential and family hub around the Rotunda, not a seafront operator strip. iGaming work here is usually talent living locally while commuting toward St Julian's/Sliema, plus vendors supporting those firms. AI consulting should save those teams evening hours on internal knowledge and recruiting FAQ — not invent a Mosta casino district.",
+      "hero2": {
+        "heading": "How pipelines return when HQ is in St Julian's or Sliema",
+        "body": "When HQ freezes hiring, Mosta-based candidates still need a clean way to re-enter. Approved careers agents and CRM tags keep return paths open without spamming parish-scale social graphs."
+      },
+      "challenge": "Treating Mosta like Paceville in copy destroys credibility. Locals know what the town is.",
+      "opportunity": "Use Mosta's central location as commuting context: reliable internal tools matter when people travel to coastal offices daily.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "Can AI help a Mosta-based iGaming contractor?",
+          "a": "Yes — personal productivity, documentation, and client-approved workflows. Regulated player-facing systems stay with the licensed operator's controls."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gzira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers Mosta."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to mosta?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mosta",
+          "label": "Mosta hub"
+        }
+      ]
+    },
+    "/malta/qormi/igaming/ai-consulting": {
+      "title": "AI Consulting for Qormi iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to Qormi — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to Qormi",
+      "hero1Intro": "Qormi's industrial estate and trades belt supply logistics, print, facilities, and technical vendors that iGaming operators buy from. AI consulting here should make vendor teams faster at RFQ responses and SLA reporting — saving hours on formatting — while understanding the buyer sits under MGA-influenced security questionnaires.",
+      "hero2": {
+        "heading": "How pipelines return when HQ is in St Julian's or Sliema",
+        "body": "After a security review pauses vendor onboarding, structured CRM and FAQ packs let Qormi suppliers re-engage with the same evidence pack instead of rewriting from scratch."
+      },
+      "challenge": "Operators will not accept invented ISO claims in a chatbot. Evidence packs must be real.",
+      "opportunity": "Map AI to document retrieval over your approved policies and certificates — not generative bragging.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "What is a sensible first AI project for a Qormi vendor to iGaming?",
+          "a": "An internal assistant over your security questionnaire answers and SLA docs, with human review before anything leaves to a licensed operator."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gzira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers Qormi."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to qormi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/qormi",
+          "label": "Qormi hub"
+        }
+      ]
+    },
+    "/malta/hamrun/igaming/ai-consulting": {
+      "title": "AI Consulting for Ħamrun iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to Ħamrun — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to Ħamrun",
+      "hero1Intro": "Ħamrun's High Street economy and multi-lingual community sit on the corridor toward Floriana and Valletta. iGaming exposure here is mostly residents working in the industry and service businesses that sell into it. AI should save those SMEs time on bilingual customer FAQ and careful B2B outreach — not fabricate a Ħamrun gaming HQ story.",
+      "hero2": {
+        "heading": "How pipelines return when HQ is in St Julian's or Sliema",
+        "body": "Return paths matter for shift workers: approved shift-friendly recruiting FAQ and CRM reminders when roles reopen at coastal offices."
+      },
+      "challenge": "Multi-lingual outreach done badly feels spammy on a tight High Street. Suppression lists and tone checks are required.",
+      "opportunity": "Start with internal or customer-service assistants that respect IDPC consent you already hold.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "Can we run Maltese + English AI replies from Ħamrun?",
+          "a": "Yes when you supply approved translations. We do not invent regulated claims in either language."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gzira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers Ħamrun."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to hamrun?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/hamrun",
+          "label": "Ħamrun hub"
+        }
+      ]
+    },
+    "/malta/naxxar/igaming/ai-consulting": {
+      "title": "AI Consulting for Naxxar iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to Naxxar — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to Naxxar",
+      "hero1Intro": "Naxxar hosts the Trade Fair grounds and a growing residential base feeding northern Malta's commute into iGaming offices. AI consulting should help event vendors, hospitality pop-ups around fair weeks, and resident professionals with practical assistants — saving admin during peak fair calendars.",
+      "hero2": {
+        "heading": "How pipelines return when HQ is in St Julian's or Sliema",
+        "body": "Fair-week contacts go cold afterward. Permission-based CRM and FAQ agents keep legitimate follow-ups organised for the next edition without purchased lists."
+      },
+      "challenge": "Implying Naxxar is Portomaso confuses buyers. Be precise about who you serve.",
+      "opportunity": "Use Trade Fair seasonality as an operational constraint for staffing AI coverage windows.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "Do you support exhibitors selling into iGaming conferences?",
+          "a": "We can help with enquiry triage and follow-up packs you approve — not invent sponsorship results."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gzira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers Naxxar."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to naxxar?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/naxxar",
+          "label": "Naxxar hub"
+        }
+      ]
+    },
+    "/malta/zabbar/igaming/ai-consulting": {
+      "title": "AI Consulting for Żabbar iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to Żabbar — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to Żabbar",
+      "hero1Intro": "Żabbar is a Cottonera-region residential town. iGaming links are typically residents commuting toward harbour or coastal offices, plus local services. AI consulting should save those professionals time with personal and small-team workflows, and help local suppliers answer B2B questions without fake Żabbar gaming cluster positioning.",
+      "hero2": {
+        "heading": "How pipelines return when HQ is in St Julian's or Sliema",
+        "body": "When coastal HQs pause vendors, Żabbar suppliers need organised evidence returns — CRM notes and approved FAQ — not cold blasts."
+      },
+      "challenge": "Southern residential graphs punish spam. Keep outreach scarce and relevant.",
+      "opportunity": "Focus on documentation assistants and careful qualification forms.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "Is on-site delivery in Żabbar available?",
+          "a": "Yes when needed; many sessions run at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010 for convenience to the CBD."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gzira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers Żabbar."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to zabbar?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/zabbar",
+          "label": "Żabbar hub"
+        }
+      ]
+    },
+    "/malta/attard/igaming/ai-consulting": {
+      "title": "AI Consulting for Attard iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to Attard — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to Attard",
+      "hero1Intro": "Attard's garden-town character around San Anton Palace attracts professionals who want quieter home bases while working in regulated industries including iGaming. AI consulting should make/save evening capacity for those remote-capable roles — documentation, meeting notes, approved recruiting FAQ — without pretending Attard is a gaming district.",
+      "hero2": {
+        "heading": "How pipelines return when HQ is in St Julian's or Sliema",
+        "body": "Return mechanism: when hybrid policies change, keep knowledge assistants current so home-based staff do not rely on stale Confluence screenshots."
+      },
+      "challenge": "Upscale residential norms mean aggressive automation is socially expensive. Prefer opt-in and quiet utility.",
+      "opportunity": "Prioritise secure internal tools and clear data boundaries for home networks.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "Can you help an Attard-based compliance contractor?",
+          "a": "With workflow tooling around their client's approved materials — we do not replace the operator's compliance ownership."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gzira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers Attard."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to attard?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/attard",
+          "label": "Attard hub"
+        }
+      ]
+    },
+    "/malta/mdina/igaming/ai-consulting": {
+      "title": "AI Consulting for Mdina iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to Mdina — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to Mdina",
+      "hero1Intro": "Mdina is a silent walled city built for heritage hospitality and cultural visits — not operator floors. Any iGaming connection is almost always professionals living nearby in Rabat/Mdina outskirts or hosting private dinners for visiting executives. AI consulting should serve those real use cases: discreet guest ops for venues, and personal productivity for residents — never a fake Mdina gaming pitch.",
+      "hero2": {
+        "heading": "How pipelines return when HQ is in St Julian's or Sliema",
+        "body": "Executive guest visits are rare and high-stakes. Return is a well-kept private-hire FAQ and CRM note for the next board dinner — not marketing automation theatre."
+      },
+      "challenge": "Tourism copy that bolts iGaming onto Mdina Gate photographs will be ignored by serious buyers.",
+      "opportunity": "If you are a venue, we scope hospitality AI; if you are a professional, we scope personal/team assistants. We say which.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "We run private dinners for gaming executives in Mdina — can AI help?",
+          "a": "Yes for private-hire intake and dietary FAQ from your approved pack. No public gaming promotion that would conflict with venue tone or MGA advertising rules."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gzira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers Mdina."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to mdina?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mdina",
+          "label": "Mdina hub"
+        }
+      ]
+    },
+    "/malta/rabat/igaming/ai-consulting": {
+      "title": "AI Consulting for Rabat (Malta) iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to Rabat (Malta) — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to Rabat (Malta)",
+      "hero1Intro": "Rabat (Malta) supports Mdina tourism and residential life. iGaming relevance is residential talent and occasional corporate hospitality — not operator HQs. AI consulting should save tourism-adjacent businesses time if they serve visiting industry events, and help resident professionals with practical assistants.",
+      "hero2": {
+        "heading": "How pipelines return when HQ is in St Julian's or Sliema",
+        "body": "Seasonal tourism calendars create feast-or-famine inboxes. Approved FAQ agents keep replies consistent when staff are on-site at catacombs-area peaks."
+      },
+      "challenge": "Do not position Rabat as a substitute for St Julian's in SEO fiction. Serious operators notice.",
+      "opportunity": "Separate hospitality AI scopes from corporate talent scopes clearly on the page engagement.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "Can a Rabat hotel use AI for industry conference guests?",
+          "a": "Yes for logistics FAQ and direct enquiry handling from your house manual — no invented conference partnerships."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gzira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers Rabat (Malta)."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to rabat?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/rabat",
+          "label": "Rabat hub"
+        }
+      ]
+    },
+    "/malta/marsaskala/igaming/ai-consulting": {
+      "title": "AI Consulting for Marsaskala iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to Marsaskala — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to Marsaskala",
+      "hero1Intro": "Marsaskala is a growing seaside residential town. iGaming links are mainly residents commuting west toward offices, plus local hospitality. AI consulting should make/save time for remote-capable staff living by the bay, and help local venues handle enquiry spikes without inventing a south-east gaming hub.",
+      "hero2": {
+        "heading": "How pipelines return when HQ is in St Julian's or Sliema",
+        "body": "Longer commutes make reliable internal knowledge assistants more valuable — return to work after interruptions without hunting Slack threads."
+      },
+      "challenge": "Seafront SEO spam that lists Marsaskala beside Portomaso reads false to locals.",
+      "opportunity": "Be explicit: talent and local services, not operator clustering.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "Remote iGaming employee in Marsaskala — what can you build?",
+          "a": "Personal knowledge assistants and meeting-note workflows within employer policy. Employer security rules win if they conflict."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gżira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers Marsaskala."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to marsaskala?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/marsaskala",
+          "label": "Marsaskala hub"
+        }
+      ]
+    },
+    "/malta/marsaxlokk/igaming/ai-consulting": {
+      "title": "AI Consulting for Marsaxlokk iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to Marsaxlokk — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to Marsaxlokk",
+      "hero1Intro": "Marsaxlokk is famous for luzzu boats and the Sunday market — a tourism and fishing economy. iGaming presence is incidental (visitors, residents). AI consulting should help hospitality and market-adjacent businesses with real guest FAQ, and only discuss iGaming when a client actually serves that audience — never as a forced keyword layer on the harbour.",
+      "hero2": {
+        "heading": "How weekend guest intent returns on Tuesday",
+        "body": "Sunday peaks create Monday admin debt. Return mechanism: structured enquiry logs from weekend guests so follow-ups happen Tuesday with context."
+      },
+      "challenge": "Forcing iGaming keywords onto a fish-restaurant story without operational truth hurts trust with locals and visitors alike.",
+      "opportunity": "If your brief is hospitality, we scope hospitality. If you truly host industry visitors, we say how — privately hosted dinners, not fabricated clusters.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "We host visiting operator dinners on the waterfront — useful AI?",
+          "a": "Private-hire and dietary intake from your approved menu — yes. Public gaming promotion only if compliant and on-brand for your venue."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gżira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers Marsaxlokk."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to marsaxlokk?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/marsaxlokk",
+          "label": "Marsaxlokk hub"
+        }
+      ]
+    },
+    "/malta/birgu/igaming/ai-consulting": {
+      "title": "AI Consulting for Birgu (Vittoriosa) iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to Birgu (Vittoriosa) — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to Birgu (Vittoriosa)",
+      "hero1Intro": "Birgu (Vittoriosa) combines heritage waterfront dining, marina life, and residential streets under Fort St Angelo. iGaming ties are usually marina hospitality for visiting executives and residents who work in the industry. AI consulting should save waterfront venues time on private-hire ops, and help professionals with practical tools — without inventing a Cottonera gaming HQ.",
+      "hero2": {
+        "heading": "How harbour guest details return for the next call",
+        "body": "Superyacht and harbour guest calendars are bursty. Return is a kept CRM of dietary preferences and launch windows you already have permission to store."
+      },
+      "challenge": "Grand Harbour tourism copy that randomly inserts iGaming reads inauthentic next to the Maritime Museum.",
+      "opportunity": "Scope venue AI and talent AI separately; name the real user.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "Marina-side private dining for industry guests — AI role?",
+          "a": "Intake, timing, and allergen FAQ from your pack; human confirmation for berth-related logistics you do not control."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gżira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers Birgu (Vittoriosa)."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to birgu?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/birgu",
+          "label": "Birgu hub"
+        }
+      ]
+    },
+    "/malta/san-gwann/igaming/ai-consulting": {
+      "title": "AI Consulting for San Ġwann iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to San Ġwann — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to San Ġwann",
+      "hero1Intro": "San Ġwann's industrial estate and SME corridor supply software, services, and facilities to coastal iGaming HQs. AI consulting should make these vendors faster at security questionnaires and support desks — saving engineer time — while speaking MGA-aware buyer language honestly.",
+      "hero2": {
+        "heading": "How pipelines return when HQ is in St Julian's or Sliema",
+        "body": "After a failed security review, organised answer packs let San Ġwann vendors return to the same operator with corrections instead of starting a new novel."
+      },
+      "challenge": "Overclaiming certifications in AI chat is a fast way to lose a coastal procurement process.",
+      "opportunity": "Retrieval over real policies beats generative swagger.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "First build for a San Ġwann B2B vendor?",
+          "a": "Internal assistant on your completed security questionnaires and product limitations — human gate on outbound."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gżira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers San Ġwann."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to san gwann?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/san-gwann",
+          "label": "San Ġwann hub"
+        }
+      ]
+    },
+    "/malta/msida/igaming/ai-consulting": {
+      "title": "AI Consulting for Msida iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to Msida — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to Msida",
+      "hero1Intro": "Msida's university and marina mix students, startups, and professionals — including early-career talent entering iGaming and gaming-services firms. AI consulting should help student-facing services and junior teams with learning copilots and careful recruiting FAQ — saving mentorship time — without inventing campus operator HQs.",
+      "hero2": {
+        "heading": "How internship pipelines return each intake",
+        "body": "Internship cycles create seasonal return: keep approved candidate FAQ warm between intake windows."
+      },
+      "challenge": "Student data needs IDPC care. Do not scrape university lists.",
+      "opportunity": "Opt-in only; educational assistants with clear academic-integrity boundaries.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "Can AI help a Msida student society sponsoring industry talks?",
+          "a": "Event FAQ and registration triage yes; we do not invent sponsor attendance figures."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gżira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers Msida."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to msida?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/msida",
+          "label": "Msida hub"
+        }
+      ]
+    },
+    "/malta/gzira/igaming/ai-consulting": {
+      "title": "AI Consulting for Gżira iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to Gżira — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to Gżira",
+      "hero1Intro": "Gżira sits between Sliema and Msida with high expat density and real iGaming/service-company presence along the seafront toward Manoel Island. AI consulting here can address genuine operator and vendor teams — saving recruiting and office-ops repeats — with the same MGA discipline as St Julian's, adjusted for Gżira's residential-tower mix.",
+      "hero2": {
+        "heading": "How demand returns after a compliance freeze",
+        "body": "When a Gżira studio pauses a brand campaign for compliance, keep affiliate and careers pipelines structured so relaunch week has context."
+      },
+      "challenge": "Expat networks move fast on WhatsApp. One tone-deaf blast damages multiple employers in the same block.",
+      "opportunity": "Suppression, human review, internal-first assistants.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "How is Gżira different from Sliema for AI rollout?",
+          "a": "Similar stack; more short-let and tower residential constraints for on-site filming or device logistics if those appear in scope."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gżira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers Gżira."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to gzira?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/gzira",
+          "label": "Gżira hub"
+        }
+      ]
+    },
+    "/malta/swieqi/igaming/ai-consulting": {
+      "title": "AI Consulting for Swieqi iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to Swieqi — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to Swieqi",
+      "hero1Intro": "Swieqi is a quieter upmarket residential town next to St Julian's — home to many professionals who work in the coastal iGaming cluster. AI consulting should make/save evening capacity for hybrid staff (documentation, meeting notes, approved FAQ), not invent Swieqi operator campuses.",
+      "hero2": {
+        "heading": "How hybrid staff return to current SOPs",
+        "body": "Hybrid policy changes need fresh internal assistants so home-based staff are not stuck on outdated SOPs after a St Julian's process update."
+      },
+      "challenge": "Residential WhatsApp groups punish spam. Keep automation opt-in and useful.",
+      "opportunity": "Secure home-office workflows and clear data boundaries.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "Attard vs Swieqi — same approach?",
+          "a": "Similar residential-talent framing; Swieqi's proximity to St Julian's means shorter physical access for on-site workshops when needed."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gżira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers Swieqi."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to swieqi?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/swieqi",
+          "label": "Swieqi hub"
+        }
+      ]
+    },
+    "/malta/mellieha/igaming/ai-consulting": {
+      "title": "AI Consulting for Mellieħa iGaming Talent & Satellite Teams | OARC Digital",
+      "description": "AI consulting for iGaming professionals and satellite teams connected to Mellieħa — MGA-aware workflows with OARC in Birkirkara. Honest about where operators cluster.",
+      "h1": "AI consulting for iGaming work tied to Mellieħa",
+      "hero1Intro": "Mellieħa is a northern resort town anchored by Għadira Bay hospitality — not an iGaming HQ belt. Connections are residents commuting south, seasonal visitors from the industry, and hotels that occasionally host corporate groups. AI consulting should serve those real hospitality and talent cases without fabricating a northern gaming district.",
+      "hero2": {
+        "heading": "How corporate group notes return next shoulder season",
+        "body": "Summer peaks bury winter admin. Structured enquiry logs let Mellieħa venues return to corporate groups next shoulder season with notes intact."
+      },
+      "challenge": "Pairing Għadira beach photography with forced iGaming keywords reads inauthentic.",
+      "opportunity": "Say hospitality when hospitality; say talent when talent.",
+      "regulationNote": "MGA marketing and player-protection rules apply to remote and satellite setups the same as seafront HQs. Human approval remains on regulated public copy. OARC is not a substitute compliance function.",
+      "faqs": [
+        {
+          "q": "Corporate group stays from gaming firms — AI help?",
+          "a": "Group intake, rooming FAQ, and transfer questions from your house manual — human rates confirmation."
+        },
+        {
+          "q": "Do you pretend every town is an iGaming hub?",
+          "a": "No. Malta's densest operator cluster sits around St Julian's, Sliema, and Gżira. For other towns we focus on talent, satellite ops, vendors, and remote workflows that are actually present."
+        },
+        {
+          "q": "Where do workshops happen?",
+          "a": "Often at Level 1, The Brewhouse, Mdina Road, Birkirkara CBD 2010, or on-site if your team prefers Mellieħa."
+        },
+        {
+          "q": "Contact",
+          "a": "hello@oarcdigital.com · +356 7971 1799."
+        },
+        {
+          "q": "How do we start an AI consulting engagement for igaming work connected to mellieha?",
+          "a": "Email hello@oarcdigital.com or call +356 7971 1799. Bring the systems you already use and the single workflow that costs the most time — we agree scope before build."
+        }
+      ],
+      "links": [
+        {
+          "href": "/ai-agents",
+          "label": "AI Agents"
+        },
+        {
+          "href": "/services/ai-consulting",
+          "label": "AI Consulting"
+        },
+        {
+          "href": "/solutions",
+          "label": "Solutions"
+        },
+        {
+          "href": "/malta/mellieha",
+          "label": "Mellieħa hub"
+        }
+      ]
+    }
+  },
+  "notes": [
+    "No invented clients, reviews, AggregateRating, or performance percentages",
+    "Verified public Malta context + approved OARC NAP only",
+    "LOCATION_IND_SVC_GLOBAL_KEEP remains true; all 50 paths already in malta-priority-matrix (quality sitemap cohort)"
+  ]
+}

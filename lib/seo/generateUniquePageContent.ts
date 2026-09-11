@@ -12,6 +12,10 @@ import {
   type LocationProfile,
 } from './locationData';
 import {
+  getUniquenessContent,
+  matrixContentPath,
+} from './uniquenessContent';
+import {
   localBusinessSchema,
   createServiceSchema,
 } from '@/utils/structuredData';
@@ -609,6 +613,13 @@ export type LocationIndustryServiceContent = {
   testimonial: Testimonial;
   schema: Record<string, unknown>[];
   canonical: string;
+  /** Owner Hero Gate 2 — guest/return mechanism (uniqueness overlay). */
+  hero2?: { heading: string; body: string };
+  /** Real local / Maltese regulation note when applicable. */
+  regulationNote?: string;
+  /** Money + parent hub discovery links from uniqueness overlay. */
+  discoveryLinks?: { href: string; label: string }[];
+  uniquenessEnriched?: boolean;
 };
 
 const SITE = 'https://oarcdigital.com';
@@ -777,30 +788,80 @@ export function buildLocationIndustryServiceContent(
   if (!loc || !ind || !svc) return null;
 
   const canonical = `${SITE}/malta/${loc.slug}/${ind.slug}/${svc.slug}`;
-  const title = `${svc.name} for ${ind.plural} in ${loc.name}, Malta | OARC Digital`;
-  const description = `${svc.name} built specifically for ${ind.plural} in ${loc.name}. ${ind.painPoint(loc).charAt(0).toUpperCase() + ind.painPoint(loc).slice(1)} — we solve it.`;
+  const overlay = getUniquenessContent(matrixContentPath(loc.slug, ind.slug, svc.slug));
 
-  // 3 service-FAQs + 2 industry-FAQs + 1 pricing-FAQ = 6 total,
-  // every one of them parameterised on the (location, service, industry) tuple.
-  const faqs = [
-    ...svc.serviceFaq(loc),
-    ...ind.industryFaq(loc, svc.shortName),
-    {
-      q: `What does ${svc.shortName.toLowerCase()} cost for a ${ind.name.toLowerCase()} in ${loc.name}?`,
-      a: `Packages for ${ind.plural} in ${loc.name} start from €${locationPricing(svc.pricingFromEUR, loc).toLocaleString()} per month. The exact scope depends on the size of your operation and the competitive landscape in ${loc.name}. Contact hello@oarcdigital.com or call +356 7971 1799 to scope a project.`,
-    },
+  const title =
+    overlay?.title ??
+    `${svc.name} for ${ind.plural} in ${loc.name}, Malta | OARC Digital`;
+  const description =
+    overlay?.description ??
+    `${svc.name} built specifically for ${ind.plural} in ${loc.name}. ${ind.painPoint(loc).charAt(0).toUpperCase() + ind.painPoint(loc).slice(1)} — we solve it.`;
+
+  // Overlay FAQs replace templated ones so enriched pages drop invented ROI/client claims.
+  const faqs = overlay?.faqs?.length
+    ? overlay.faqs
+    : [
+        ...svc.serviceFaq(loc),
+        ...ind.industryFaq(loc, svc.shortName),
+        {
+          q: `What does ${svc.shortName.toLowerCase()} cost for a ${ind.name.toLowerCase()} in ${loc.name}?`,
+          a: `Packages for ${ind.plural} in ${loc.name} start from €${locationPricing(svc.pricingFromEUR, loc).toLocaleString()} per month. The exact scope depends on the size of your operation and the competitive landscape in ${loc.name}. Contact hello@oarcdigital.com or call +356 7971 1799 to scope a project.`,
+        },
+      ];
+
+  const heroH1 =
+    overlay?.h1 ??
+    `${svc.name} for ${ind.plural.charAt(0).toUpperCase() + ind.plural.slice(1)} in ${loc.name}`;
+  const heroIntro =
+    overlay?.hero1Intro ??
+    `${ind.opportunity(loc)} OARC Digital builds ${svc.shortName.toLowerCase()} systems for ${ind.context} businesses in ${loc.name} that are ready to grow beyond word-of-mouth.`;
+  const challenge =
+    overlay?.challenge ??
+    `Most ${ind.plural} in ${loc.name} are stuck ${ind.painPoint(loc)}. ${svc.whyHere(loc)}`;
+  const opportunity = overlay?.opportunity ?? ind.opportunity(loc);
+
+  const schema: Record<string, unknown>[] = [
+    localBusinessForLocation(loc),
+    createBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: 'Malta', url: '/malta' },
+      { name: loc.name, url: `/malta/${loc.slug}` },
+      // /malta/{loc}/{industry} 308-redirects to /industries/{industry};
+      // breadcrumbs must reference canonical, non-redirecting URLs.
+      { name: ind.name, url: `/industries/${ind.slug}` },
+      { name: svc.name, url: `/malta/${loc.slug}/${ind.slug}/${svc.slug}` },
+    ]),
+    createServiceSchema(
+      `${svc.name} for ${ind.plural} in ${loc.name}`,
+      `${svc.description} Built for ${ind.context} in ${loc.name}.`,
+      svc.name,
+    ),
+    faqSchema(faqs),
   ];
+
+  // Skip invented Review testimonials on uniqueness-enriched pages.
+  if (!overlay) {
+    const t = buildTestimonial(loc, svc, ind);
+    schema.push({
+      '@context': 'https://schema.org',
+      '@type': 'Review',
+      itemReviewed: { '@id': `${SITE}/malta/${loc.slug}#localbusiness` },
+      author: { '@type': 'Person', name: t.author },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: t.quote,
+    });
+  }
 
   return {
     title,
     description,
     hero: {
       eyebrow: `${loc.name} · ${ind.name}`,
-      h1: `${svc.name} for ${ind.plural.charAt(0).toUpperCase() + ind.plural.slice(1)} in ${loc.name}`,
-      intro: `${ind.opportunity(loc)} OARC Digital builds ${svc.shortName.toLowerCase()} systems for ${ind.context} businesses in ${loc.name} that are ready to grow beyond word-of-mouth.`,
+      h1: heroH1,
+      intro: heroIntro,
     },
-    challenge: `Most ${ind.plural} in ${loc.name} are stuck ${ind.painPoint(loc)}. ${svc.whyHere(loc)}`,
-    opportunity: ind.opportunity(loc),
+    challenge,
+    opportunity,
     serviceDescription: svc.description,
     serviceDeliverable: svc.benefits.slice(0, 3).join(' · '),
     serviceBenefits: svc.benefits,
@@ -813,35 +874,10 @@ export function buildLocationIndustryServiceContent(
     caseStudyHook: buildCaseStudyHook(loc, svc, ind),
     testimonial: buildTestimonial(loc, svc, ind),
     canonical,
-    schema: [
-      localBusinessForLocation(loc),
-      createBreadcrumbSchema([
-        { name: 'Home', url: '/' },
-        { name: 'Malta', url: '/malta' },
-        { name: loc.name, url: `/malta/${loc.slug}` },
-        // /malta/{loc}/{industry} 308-redirects to /industries/{industry};
-        // breadcrumbs must reference canonical, non-redirecting URLs.
-        { name: ind.name, url: `/industries/${ind.slug}` },
-        { name: svc.name, url: `/malta/${loc.slug}/${ind.slug}/${svc.slug}` },
-      ]),
-      createServiceSchema(
-        `${svc.name} for ${ind.plural} in ${loc.name}`,
-        `${svc.description} Built for ${ind.context} in ${loc.name}.`,
-        svc.name,
-      ),
-      faqSchema(faqs),
-      // Industry-anchored Review schema for the deepest route.
-      (() => {
-        const t = buildTestimonial(loc, svc, ind);
-        return {
-          '@context': 'https://schema.org',
-          '@type': 'Review',
-          itemReviewed: { '@id': `${SITE}/malta/${loc.slug}#localbusiness` },
-          author: { '@type': 'Person', name: t.author },
-          reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-          reviewBody: t.quote,
-        };
-      })(),
-    ],
+    schema,
+    hero2: overlay?.hero2,
+    regulationNote: overlay?.regulationNote,
+    discoveryLinks: overlay?.links,
+    uniquenessEnriched: Boolean(overlay),
   };
 }
