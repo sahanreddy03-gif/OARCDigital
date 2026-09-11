@@ -1,0 +1,817 @@
+{
+  "version": 1,
+  "batch": "batch2-50",
+  "generatedAt": "2026-09-11",
+  "minDistinctFields": 6,
+  "requiredFields": [
+    "title",
+    "description",
+    "hero.h1",
+    "hero.intro",
+    "challenge",
+    "faqs"
+  ],
+  "note": "Batch2 Owner Hero overlay. Merged with batch1 in uniquenessOverlay.ts. Does not flip LOCATION_IND_SVC_GLOBAL_KEEP.",
+  "entries": [
+    {
+      "path": "/malta/mosta/restaurant/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/mosta/hotel/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/mosta/cafe/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/mosta/bar/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/mosta/spa-wellness/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/mosta/gym-fitness/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/mosta/retail/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/mosta/real-estate/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/mosta/fintech/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/birkirkara/cafe/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/birkirkara/bar/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/birkirkara/spa-wellness/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/birkirkara/gym-fitness/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/birkirkara/retail/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/birkirkara/real-estate/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/qormi/restaurant/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/qormi/hotel/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/qormi/cafe/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/qormi/bar/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/qormi/spa-wellness/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/qormi/gym-fitness/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/qormi/retail/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/qormi/real-estate/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/qormi/fintech/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/hamrun/restaurant/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/hamrun/hotel/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/hamrun/cafe/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/hamrun/bar/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/hamrun/spa-wellness/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/hamrun/gym-fitness/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/hamrun/retail/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/hamrun/real-estate/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/hamrun/fintech/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/naxxar/restaurant/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/naxxar/hotel/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/naxxar/cafe/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/naxxar/bar/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/naxxar/spa-wellness/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/naxxar/gym-fitness/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/naxxar/retail/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/naxxar/real-estate/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/naxxar/fintech/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/zabbar/restaurant/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/zabbar/hotel/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/zabbar/cafe/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/zabbar/bar/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/zabbar/spa-wellness/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/zabbar/gym-fitness/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/zabbar/retail/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    },
+    {
+      "path": "/malta/zabbar/real-estate/ai-consulting",
+      "ownerHero": true,
+      "distinctFields": [
+        "title",
+        "description",
+        "hero.h1",
+        "hero.intro",
+        "challenge",
+        "faqs",
+        "locationIntro",
+        "localChallenges",
+        "opportunity"
+      ],
+      "source": "batch2-50"
+    }
+  ]
+}
