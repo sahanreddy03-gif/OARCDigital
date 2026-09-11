@@ -51,7 +51,7 @@ const agents = [
     title: "Content Strategist",
     metric: "10x content velocity",
     image: followupAgentAvatar,
-    slug: "ai-content-strategist",
+    slug: "content-marketing",
     objectPosition: "center",
     alt: "AI Content Strategist - OARC Digital Malta AI agency content creation"
   },
@@ -75,7 +75,7 @@ const agents = [
     title: "Business Development",
     metric: "50+ leads/month",
     image: businessDevAvatar,
-    slug: "ai-business-development",
+    slug: "lead-generation",
     objectPosition: "center",
     alt: "AI Business Development Agent - OARC Digital Malta AI agency growth strategies"
   },
