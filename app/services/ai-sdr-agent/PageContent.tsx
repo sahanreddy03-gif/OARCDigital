@@ -104,7 +104,7 @@ export default function PageContent() {
             data-speakable
             data-testid="heading-hero"
           >
-            Your AI SDR Works 24/7.<br className="hidden md:block" /> Your Human Team Closes the Deals.
+            AI SDR Agent Malta — qualify leads and book the meeting
           </h1>
           <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-2xl" data-speakable>
             Outbound prospecting, cold email and LinkedIn sequences, qualification conversations, and calendar booking — all handled by AI while your closers focus on what only humans can do.

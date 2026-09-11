@@ -164,9 +164,8 @@ export default function PageContent() {
               <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Revenue Operations</span>
             </div>
             <h1 data-speakable className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
-              Build a Revenue Machine<br />
-              <span className="text-orange-400 italic">That Runs Without You.</span>
-            </h1>
+            Revenue automation Malta — a revenue machine that does not need heroics
+          </h1>
             <p data-speakable className="text-xl text-white/80 max-w-2xl mb-8 leading-relaxed">
               Revenue Automation wires your CRM, AI agents, lifecycle email, and billing into one compounding system — so pipeline grows, deals close, and customers renew without a human touching every step.
             </p>

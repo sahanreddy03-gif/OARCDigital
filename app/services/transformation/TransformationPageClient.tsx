@@ -138,12 +138,8 @@ export default function TransformationPageClient() {
       <section style={{ position:"relative", zIndex:1, padding:"3.6rem 22px 2.8rem" }}>
         <Kicker label="Transformation — dept 09" />
         <h1 style={{ fontFamily:C.sg, fontWeight:700, fontSize:"clamp(2.8rem,12vw,4.6rem)", lineHeight:.94, letterSpacing:"-.035em", marginTop:"1.1rem", maxWidth:"11ch" }}>
-          Change how it{" "}
-          <span style={{ position:"relative", display:"inline-block" }}>
-            runs.
-            <span style={{ position:"absolute", inset:"-.05em -.12em", border:`1px solid ${C.line}`, borderRadius:4, pointerEvents:"none" }} />
-          </span>
-        </h1>
+        Digital transformation Malta — change how the business runs
+      </h1>
         <p style={{ fontFamily:C.jb, fontSize:"11.5px", lineHeight:1.85, color:C.dim, marginTop:"1.3rem", maxWidth:"38ch" }}>
           Production-ready transformation,{" "}
           <strong style={{ color:C.fg, fontWeight:700 }}>not decks.</strong>{" "}

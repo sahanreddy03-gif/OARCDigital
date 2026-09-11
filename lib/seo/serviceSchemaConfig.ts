@@ -73,9 +73,9 @@ export type ServiceSchemaEntry = {
 
 export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   "web-design": {
-    title: "Web Design | Conversion-Focused Sites | OARC Digital",
+    title: "Web Design Malta | Sites That Convert | OARC",
     description:
-      "Websites engineered for conversion. Performance-optimized, mobile-first, A/B tested. See real metrics from sites we've built for Malta businesses.",
+      "Conversion-focused web design for Malta businesses—clear offers, fast pages, and paths into booking or contact—not decorative brochure sites.",
     offers: [
       {
         name: "Landing Page Sprint",
@@ -143,7 +143,27 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           `We're at ${ADDRESS_ONE_LINE}. Most discovery calls happen on Google Meet but we're happy to meet in person across the islands.`,
       },
-    ],
+    ,
+      {
+        question: "Who does conversion-focused web design in Malta?",
+        answer:
+          "OARC designs sites aimed at enquiries and bookings, not just aesthetics.",
+      },
+      {
+        question: "Do you also do SEO on new sites?",
+        answer:
+          "Yes—structure and content planning with SEO services.",
+      },
+      {
+        question: "Mobile?",
+        answer:
+          "Default.",
+      },
+      {
+        question: "Redesign vs iterate?",
+        answer:
+          "We recommend based on leak diagnosis.",
+      }],
   
     framework: {
       uniqueValueProp:
@@ -301,9 +321,9 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "video-production": {
-    title: "Video Production | Full-Service Studio | OARC Digital",
+    title: "Video Production Malta | Short-Form + Brand | OARC",
     description:
-      `Full-service video production studio in Malta. From concept to distribution. Brand films, explainers, social ads, testimonials, and reels shot in-house at our ${NAP.addressLocality} studio.`,
+      "Video production in Malta for brand films, Reels, and social—human direction, fast turnaround, measured on enquiries not views alone.",
     offers: [
       {
         name: "Single Shoot Day",
@@ -371,7 +391,27 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           "A single half-day shoot for short-form social. We won't take on €300 'one-day-three-edits' jobs because the work doesn't have time to be good — and we'd rather refer you elsewhere than ship something we wouldn't put our name on.",
       },
-    ],
+    ,
+      {
+        question: "What video production services does OARC offer in Malta?",
+        answer:
+          "Brand, social short-form, and hospitality video with human direction and AI-assisted production speed.",
+      },
+      {
+        question: "Do you make Instagram Reels for restaurants?",
+        answer:
+          "Yes—often with H360 and social management.",
+      },
+      {
+        question: "Can you edit only if we already shot?",
+        answer:
+          "Yes—edit packages are available.",
+      },
+      {
+        question: "How fast can short-form turn around?",
+        answer:
+          "Scoped per batch; weekly engines need a system, not one-off heroics.",
+      }],
   
     framework: {
       uniqueValueProp:
@@ -643,9 +683,9 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "marketing-automation-suite": {
-    title: "Marketing Automation Suite | Campaign Orchestration | OARC Digital",
+    title: "Marketing Automation Malta | Campaign Orchestration | OARC",
     description:
-      "Kill manual marketing tasks forever. OARC Digital builds email, SMS, WhatsApp, and CRM workflows that scale your Malta business without extra headcount.",
+      "Marketing automation suites that orchestrate campaigns, nurture, and handoffs for Malta teams—connected to CRM and AI follow-up.",
     offers: [
       {
         name: "Workflow Sprint",
@@ -713,7 +753,27 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           "Not when set up correctly. We use opt-in flows compliant with the EU's WhatsApp Business policies and Malta's data protection authority guidance, with documented consent records.",
       },
-    ],
+    ,
+      {
+        question: "What is OARC’s marketing automation suite?",
+        answer:
+          "Campaign orchestration and nurture systems tied to your CRM.",
+      },
+      {
+        question: "Do you build on Klaviyo/Mailchimp/ActiveCampaign?",
+        answer:
+          "See email page—yes where fit.",
+      },
+      {
+        question: "Is this the same as business automation?",
+        answer:
+          "Marketing journeys vs broader ops—cross-link both.",
+      },
+      {
+        question: "How do we avoid spammy automation?",
+        answer:
+          "Permission, relevance, frequency caps.",
+      }],
   
     framework: {
       uniqueValueProp:
@@ -752,9 +812,9 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "ai-sdr-agent": {
-    title: "Sales Development Rep Agent | AI-Powered Lead Qualification | OARC Digital",
+    title: "AI SDR Agent Malta | Qualify + Book | OARC",
     description:
-      "Precision lead qualification with 3x conversion lift. The OARC AI SDR Agent qualifies prospects, books meetings, and nurtures leads — so your Malta sales team only talks to buyers ready to convert.",
+      "AI SDR agents that qualify leads and book meetings for Malta teams—speed-to-lead without cloning your best closer’s brain overnight.",
     offers: [
       {
         name: "AI SDR Pilot",
@@ -820,9 +880,24 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "What kind of conversion lift should we expect?",
         answer:
-          "Pilot clients typically see a 2-4x lift in lead-to-meeting conversion within the first 60 days, and a 30-60% reduction in time-to-first-touch on inbound leads.",
+          "We report lead-to-meeting conversion and time-to-first-touch against your baseline—no invented lift guarantees.",
       },
-    ],
+    ,
+      {
+        question: "What does an AI SDR agent do?",
+        answer:
+          "Qualifies inbound/outbound leads and books meetings per your rules.",
+      },
+      {
+        question: "Will it spam?",
+        answer:
+          "Cadences are permissioned and scoped—no reckless blasting.",
+      },
+      {
+        question: "Human takeover?",
+        answer:
+          "Hot leads escalate.",
+      }],
   
     framework: {
       uniqueValueProp:
@@ -844,7 +919,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         },
         {
           claim:
-            "Average client benchmark: 3x lift in qualified meetings booked in the first 90 days.",
+            "We measure success by qualified meetings booked and show-up rate—not vanity lead volume.",
         },
         {
           claim:
@@ -1198,9 +1273,9 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "content-marketing": {
-    title: "Content Marketing Malta | Strategy, Production, Distribution | OARC Digital",
+    title: "Content Marketing Malta | Trust + Search Demand | OARC",
     description:
-      "Content marketing for Malta brands — editorial strategy, long-form writing, video, repurposing pipelines, and distribution. Built to compound search and pipeline together.",
+      "Content marketing for Malta brands—strategy, production, distribution aimed at trust and qualified demand, not content mills.",
     offers: [
       {
         name: "Editorial Sprint",
@@ -1268,7 +1343,27 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           "Yes. Every piece ships with a paired email send, LinkedIn post, two short-form video cuts, and a sales-enablement summary. Distribution is where most Malta brands' content programmes break — we close that gap.",
       },
-    ],
+    ,
+      {
+        question: "What content marketing does OARC do in Malta?",
+        answer:
+          "Strategy, production, and distribution for trust and demand.",
+      },
+      {
+        question: "Do you write AI-only content farms?",
+        answer:
+          "No—expert-led, useful pages.",
+      },
+      {
+        question: "Blog vs service pages?",
+        answer:
+          "Both have jobs; we avoid cannibalisation.",
+      },
+      {
+        question: "Measure how?",
+        answer:
+          "Search demand, assisted enquiries, engagement quality.",
+      }],
     framework: {
       uniqueValueProp:
         "Long-form Malta content programmes built around topic clusters and internal-link maps — every article ships with a keyword, a buying-stage tag, and a conversion goal.",
@@ -1303,9 +1398,9 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "email-marketing": {
-    title: "Email Marketing Automation Malta | Klaviyo, Mailchimp, ActiveCampaign | OARC Digital",
+    title: "Email Marketing Malta | Automation That Works | OARC",
     description:
-      "Email marketing automation built on Klaviyo, Mailchimp, ActiveCampaign, and HubSpot — lifecycle flows, triggered campaigns, deliverability, segmentation, and revenue reporting for Malta brands.",
+      "Email marketing automation in Malta—Klaviyo, Mailchimp, ActiveCampaign and more—flows that earn revenue while you sleep, without burning the list.",
     offers: [
       {
         name: "Automation Starter",
@@ -1373,7 +1468,27 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           "Revenue per recipient (more durable than open rate after Apple Mail Privacy Protection), per-flow attributed revenue, placed-order rate, list growth net of unsubscribes and suppressions, deliverability metrics (inbox placement, complaint rate, bounce rate), and lifetime-value lift on subscribers who entered each flow versus those who did not. Monthly reports include written commentary and the raw export.",
       },
-    ],
+    ,
+      {
+        question: "Do you set up email marketing automation in Malta?",
+        answer:
+          "Yes—flows and campaigns on major ESPs.",
+      },
+      {
+        question: "Which ESP?",
+        answer:
+          "Whatever you have or what fits—no religion.",
+      },
+      {
+        question: "List buying?",
+        answer:
+          "No.",
+      },
+      {
+        question: "Ecom vs services?",
+        answer:
+          "Both—different flow maps.",
+      }],
     framework: {
       uniqueValueProp:
         "Email automation for Malta brands on Klaviyo, Mailchimp, ActiveCampaign, and HubSpot — lifecycle flows, SPF/DKIM/DMARC alignment, and revenue-attributed reporting.",
@@ -2040,9 +2155,9 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
     },
   },
   "conversational-commerce": {
-    title: "Conversational Commerce AI Shopping Experiences | OARC Digital",
+    title: "Conversational Commerce | Chat That Sells | OARC",
     description:
-      "OARC creates conversational commerce for retailers in Malta and beyond, connecting natural-language product discovery, explained recommendations, product questions, basket support, and checkout guidance.",
+      "Conversational commerce experiences—chat and messaging that answer, recommend, and move to booking or checkout without losing the shopper.",
     offers: [],
     features: [
       { name: "Natural-language product discovery" },
@@ -2068,7 +2183,27 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           "No. It gives the catalogue an additional front door and works from the product information and merchandising rules the retailer approves.",
       },
-    ],
+    ,
+      {
+        question: "What is conversational commerce with OARC?",
+        answer:
+          "Messaging experiences that answer shopper questions and drive booking or checkout.",
+      },
+      {
+        question: "Do you support WhatsApp?",
+        answer:
+          "When in scope for the brand.",
+      },
+      {
+        question: "Retail only?",
+        answer:
+          "Retail, hospitality booking, and service businesses.",
+      },
+      {
+        question: "Human handoff?",
+        answer:
+          "Yes for edge cases and high value.",
+      }],
     serviceType: "Conversational Commerce Development",
     audience: ["Retailers", "Ecommerce teams", "Merchants"],
     areaServed: "Malta",
@@ -2105,9 +2240,9 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
     },
   },
   "ai-employee-service-desk": {
-    title: "AI Concierge for Every Industry | OARC Digital",
+    title: "AI Concierge Malta | Useful Next Step | OARC",
     description:
-      "OARC creates AI employee service desks for organisations in Malta and beyond, using approved knowledge and permitted actions to resolve everyday IT, HR, and finance requests or hand them to people with context.",
+      "An AI concierge/service desk that greets, routes, and gives every person a useful next step across industries.",
     offers: [],
     features: [
       { name: "Answers grounded in approved company knowledge" },
@@ -2133,7 +2268,27 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           "The service desk explains that it needs help and hands the case to a person with the relevant conversation and evidence.",
       },
-    ],
+    ,
+      {
+        question: "What is an AI concierge from OARC?",
+        answer:
+          "A multi-channel greeter/router that answers FAQs and hands off cleanly.",
+      },
+      {
+        question: "Is it industry-specific?",
+        answer:
+          "Scripts and knowledge are tailored per industry.",
+      },
+      {
+        question: "Does it replace support teams?",
+        answer:
+          "It covers volume; humans take complexity.",
+      },
+      {
+        question: "Can it issue tickets/reference numbers?",
+        answer:
+          "Yes when connected to your desk tools.",
+      }],
     serviceType: "AI Concierge",
     audience: ["Employees", "IT teams", "HR teams", "Finance teams"],
     areaServed: "Malta",

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ClarityPageClient from "./ClarityPageClient";
 import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
-const TITLE = "Marketing Analytics Malta — We Tell You What's Working | OARC";
+const TITLE = "Marketing Analytics Malta | Know What's Working | OARC";
 const DESCRIPTION =
-  "OARC cuts through the noise to tell you what's actually driving revenue, what's wasting budget, and the one move that will move the needle most. Straight answers on your Malta marketing spend — no vanity metrics.";
+  "Analytics and reporting for Malta businesses—clear answers on what drives enquiries, not vanity dashboards.";
 const CANONICAL = "https://oarcdigital.com/services/clarity";
 
 const LD = {

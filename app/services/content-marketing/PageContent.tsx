@@ -100,8 +100,7 @@ export default function ContentMarketingContent() {
             <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Editorial &amp; Authority</span>
           </div>
           <h1 data-speakable className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            Become the Most Trusted<br />
-            <span className="text-orange-400 italic">Voice in Your Industry.</span>
+            Content marketing Malta — become a trusted voice that gets found
           </h1>
           <p data-speakable className="text-xl text-zinc-300 leading-relaxed mb-8 max-w-2xl">
             Editorial programmes that compound — pillar pages, supporting articles, and Malta case studies that earn rankings on Google and citations from ChatGPT, Perplexity, and Gemini.

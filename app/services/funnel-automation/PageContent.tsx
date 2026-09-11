@@ -207,9 +207,8 @@ export default function PageContent() {
               <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Six Layers, Each Shipped Independently</span>
             </div>
             <h1 data-speakable className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
-              Build a Funnel That<br />
-              <span className="text-orange-400 italic">Works While You Sleep.</span>
-            </h1>
+            Funnel automation — stop leaks between click and close
+          </h1>
             <p data-speakable className="text-zinc-300 text-lg leading-relaxed mb-4 max-w-2xl">
               Wire the funnel from ad-click to closed deal — instrumented and self-tuning. Every stage automated, every bottleneck visible.
             </p>

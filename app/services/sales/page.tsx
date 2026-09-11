@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
-const TITLE = "Sales Systems Malta — Close More Sales | OARC";
+const TITLE = "Sales Systems Malta | Follow-Up That Closes | OARC";
 const DESCRIPTION =
-  "OARC builds sales systems for Malta businesses: speed-to-lead flows, pipeline strategy, offer design, trust signals, and instant booking — so you close more, faster.";
+  "Sales systems for Malta teams—speed-to-lead, CRM hygiene, and AI-assisted follow-up so enquiries become revenue.";
 const CANONICAL = "https://oarcdigital.com/services/sales";
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function SalesPage() {
         Sales — dept 02
       </div>
       <h1 style={{ fontWeight:700, fontSize:"clamp(2.8rem,12vw,4.6rem)", lineHeight:.94, letterSpacing:"-.035em", maxWidth:"12ch" }}>
-        Close more<br /><span style={{ color:"#E02B20" }}>sales.</span>
+        Sales systems Malta — close more of what you already earn
       </h1>
       <p style={{ fontFamily:"var(--font-space-mono,'Space Mono',monospace)", fontSize:"11.5px", lineHeight:1.85, color:"rgba(242,239,233,.6)", marginTop:"1.4rem", maxWidth:"38ch" }}>
         Speed-to-lead, pipeline and offer strategy, founder story and sales reels, trust and proof, instant qualify and book — and the team training to make it stick. Full page coming soon.

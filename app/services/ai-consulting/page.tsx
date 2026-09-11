@@ -7,21 +7,21 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
-  title: "AI Consulting | AI Strategy & Implementation | OARC Digital Malta",
-  description: "Strategic AI consulting from OARC Digital. Transform your marketing and operations with expert AI strategy, implementation, and optimization services.",
+  title: "AI Consulting Malta | Strategy + Implementation | OARC",
+  description: "AI consulting without the hype—strategy tied to implementation for Malta businesses that need a first useful agent or automation, not a whitepaper.",
   alternates: getHreflangAlternates("/services/ai-consulting"),
   openGraph: {
-    images: ogImageEntry({ title: "AI Consulting | AI Strategy & Implementation | OARC Digital Malta", subtitle: "Strategic AI consulting from OARC Digital. Transform your marketing and operations with expert AI strategy, implementation, and optimization services." }),
-    title: "AI Consulting | AI Strategy & Implementation | OARC Digital Malta",
-    description: "Strategic AI consulting from OARC Digital. Transform your marketing and operations with expert AI strategy, implementation, and optimization services.",
+    images: ogImageEntry({ title: "AI Consulting Malta | Strategy + Implementation | OARC", subtitle: "AI consulting without the hype—strategy tied to implementation for Malta businesses that need a first useful agent or automation, not a whitepaper." }),
+    title: "AI Consulting Malta | Strategy + Implementation | OARC",
+    description: "AI consulting without the hype—strategy tied to implementation for Malta businesses that need a first useful agent or automation, not a whitepaper.",
     url: "https://oarcdigital.com/services/ai-consulting",
     type: "article",
   },
   twitter: {
-    images: [ogImageUrl({ title: "AI Consulting | AI Strategy & Implementation | OARC Digital Malta", subtitle: "Strategic AI consulting from OARC Digital. Transform your marketing and operations with expert AI strategy, implementation, and optimization services." })],
+    images: [ogImageUrl({ title: "AI Consulting Malta | Strategy + Implementation | OARC", subtitle: "AI consulting without the hype—strategy tied to implementation for Malta businesses that need a first useful agent or automation, not a whitepaper." })],
     card: "summary_large_image",
-    title: "AI Consulting | AI Strategy & Implementation | OARC Digital Malta",
-    description: "Strategic AI consulting from OARC Digital. Transform your marketing and operations with expert AI strategy, implementation, and optimization services.",
+    title: "AI Consulting Malta | Strategy + Implementation | OARC",
+    description: "AI consulting without the hype—strategy tied to implementation for Malta businesses that need a first useful agent or automation, not a whitepaper.",
   },
 };
 

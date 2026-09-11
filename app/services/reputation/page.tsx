@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ReputationPageClient from "./ReputationPageClient";
 import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
-const TITLE = "Reputation Management Malta — Make Me Famous | OARC";
+const TITLE = "Reputation Management Malta | Reviews + Presence | OARC";
 const DESCRIPTION =
-  "OARC makes a Malta business or founder famous with videos and reels that get you seen, press coverage that makes you legit, and the right people talking about you — until you are the name everyone knows. PR agency Malta.";
+  "Reputation work for Malta businesses—review systems, response patterns, and proof content so trust shows where buyers look.";
 const CANONICAL = "https://oarcdigital.com/services/reputation";
 
 const LD = {

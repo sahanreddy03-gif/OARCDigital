@@ -322,10 +322,8 @@ export default function AIConsulting() {
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight" data-testid="heading-ai-consulting">
-                AI Consulting
-                <br />
-                <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">Without the Hype</span>
-              </h1>
+            AI consulting Malta — strategy that ships
+          </h1>
 
               <p className="text-xl text-white/80 mb-8 max-w-xl">
                 We analyze your business, identify high-impact AI opportunities, and execute the entire transformation. 

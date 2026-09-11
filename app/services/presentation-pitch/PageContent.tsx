@@ -31,7 +31,7 @@ export default function PresentationPitch() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            Pitch decks that <span className="italic bg-gradient-to-r from-[#23AACA] via-[#23AACA] to-orange-500 text-transparent bg-clip-text">close deals</span>
+            Pitch decks Malta — presentations built to close
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
             From seed rounds to IPO roadshows, from cold outreach to boardroom keynotes—we craft presentations that command attention and drive action. Every slide tells your story with clarity, impact, and persuasive power.

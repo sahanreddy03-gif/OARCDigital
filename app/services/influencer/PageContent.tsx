@@ -154,10 +154,7 @@ export default function Influencer() {
             data-testid="heading-influencer"
             className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
           >
-            Maltese creators,{" "}
-            <span className="italic" style={{ color: "#c4ff4d" }}>
-              briefed for bookings
-            </span>
+            Influencer marketing Malta — creators briefed for bookings
           </h1>
           <p
             data-speakable

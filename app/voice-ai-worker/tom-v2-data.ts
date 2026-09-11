@@ -5,8 +5,26 @@ export const tomBriefPages = [
   {
     "slug": "hospitality",
     "name": "HOSPITALITY & TRAVEL",
-    "metaTitle": "Voice AI Worker for Hospitality — every call answered during service | OARC Digital",
-    "metaDescription": "Reservations taken mid-service, no-shows rebooked, German guests answered in German, the floor briefed before doors. One Voice AI Worker for Malta restaurants and hotels, built in person by OARC.",
+    "metaTitle": "Voice AI for Hospitality Malta | OARC Digital",
+    "metaDescription": "Voice AI Worker for hospitality in Malta—answers, qualifies, and completes the next step so you stop losing work to missed calls. Book a demo.",
+    "faqs": [
+      {
+        "question": "Can AI answer my restaurant phone in Malta during dinner service?",
+        "answer": "Yes. OARC Voice AI Worker for hospitality answers booking and FAQ calls when staff are on the floor."
+      },
+      {
+        "question": "Does Voice AI book tables automatically?",
+        "answer": "It captures booking details and follows your rules\u2014auto-book when integrated, or structured handoff when you prefer human confirm."
+      },
+      {
+        "question": "Is this only for fine dining?",
+        "answer": "No\u2014casual, bars, caf\u00e9s, and hotels F&B use the same worker with tone matched to the venue."
+      },
+      {
+        "question": "How is this different from a call centre?",
+        "answer": "It is your brand\u2019s worker on your numbers, trained on your FAQs\u2014not a shared offshore script farm."
+      }
+    ],
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -256,8 +274,26 @@ export const tomBriefPages = [
   {
     "slug": "sales",
     "name": "SALES TEAMS",
-    "metaTitle": "Voice AI Worker for Sales — the lead called in 40 seconds, the quote chased until it answers | OARC Digital",
-    "metaDescription": "Every enquiry called within a minute, quotes sent mid-call, seven follow-ups that never sound like the seventh, a CRM that is finally true. One Voice AI Worker for Malta B2B and B2C sales teams.",
+    "metaTitle": "Voice AI for Sales Malta | OARC Digital",
+    "metaDescription": "Voice AI Worker for sales in Malta—answers, qualifies, and completes the next step so you stop losing work to missed calls. Book a demo.",
+    "faqs": [
+      {
+        "question": "Can AI call leads the second they submit a form in Malta?",
+        "answer": "Yes. OARC Voice AI Worker for sales is built for speed-to-lead callbacks and qualification."
+      },
+      {
+        "question": "Does it update my CRM?",
+        "answer": "Yes when connected\u2014fields and dispositions agreed in setup."
+      },
+      {
+        "question": "Can it book demos on my calendar?",
+        "answer": "Yes, with your availability rules and buffers."
+      },
+      {
+        "question": "How do humans take over?",
+        "answer": "Hot-lead rules transfer or schedule with transcript context."
+      }
+    ],
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -503,8 +539,26 @@ export const tomBriefPages = [
   {
     "slug": "healthcare",
     "name": "HEALTHCARE & CLINICS",
-    "metaTitle": "Voice AI Worker for Clinics — the 08:00 phone queue, gone | OARC Digital",
-    "metaDescription": "Every appointment call answered, cancelled slots refilled from the waitlist within minutes, six-month recalls actually called, anxious patients handled with care and handed to a nurse when it matters. One Voice AI Worker for Malta private clinics.",
+    "metaTitle": "Voice AI for Healthcare / Clinics Malta | OARC Digital",
+    "metaDescription": "Voice AI Worker for healthcare / clinics in Malta—answers, qualifies, and completes the next step so you stop losing work to missed calls. Book a demo.",
+    "faqs": [
+      {
+        "question": "Can AI answer my clinic\u2019s phone and book appointments in Malta?",
+        "answer": "Yes. OARC Voice AI Worker for healthcare handles booking and admin FAQs; clinical advice stays with your team."
+      },
+      {
+        "question": "Does the AI give medical advice?",
+        "answer": "No. It is scripted for admin/booking; medical questions escalate."
+      },
+      {
+        "question": "Is patient data protected?",
+        "answer": "Deployments follow agreed privacy processes and least data needed to book."
+      },
+      {
+        "question": "Does it work for dental clinics?",
+        "answer": "Yes\u2014appointment and reminder flows tuned for dental schedules."
+      }
+    ],
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -750,8 +804,26 @@ export const tomBriefPages = [
   {
     "slug": "finance-insurance",
     "name": "FINANCE & INSURANCE",
-    "metaTitle": "Voice AI Worker for Brokers, Accountants & CSPs — the renewal called, the documents in | OARC Digital",
-    "metaDescription": "Renewals called before they lapse, claims taken at first notification, KYC and VAT documents chased until they arrive, every call within the compliance line. One Voice AI Worker for Malta insurance brokers, accountancy practices and corporate-service providers.",
+    "metaTitle": "Voice AI for Finance / Insurance / CSP Malta | OARC Digital",
+    "metaDescription": "Voice AI Worker for finance / insurance / csp in Malta—answers, qualifies, and completes the next step so you stop losing work to missed calls. Book a demo.",
+    "faqs": [
+      {
+        "question": "Can AI help insurance brokers in Malta with renewal calls?",
+        "answer": "Yes\u2014OARC Voice AI Worker can run reminder and booking calls inside approved admin scripts."
+      },
+      {
+        "question": "Does the AI give financial advice?",
+        "answer": "No. Advice stays with licensed professionals; the worker handles admin and scheduling."
+      },
+      {
+        "question": "Can accountants use it for document collection?",
+        "answer": "Yes\u2014checklist prompts and appointment setting are common scopes."
+      },
+      {
+        "question": "How do you handle sensitive client data?",
+        "answer": "Least-data scripts and agreed process\u2014with escalation for sensitive requests."
+      }
+    ],
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -997,8 +1069,26 @@ export const tomBriefPages = [
   {
     "slug": "real-estate",
     "name": "REAL ESTATE",
-    "metaTitle": "Voice AI Worker for Real Estate — 40 enquiries on the Gżira flat, all answered in 60 seconds | OARC Digital",
-    "metaDescription": "Every portal enquiry answered in a minute, viewings booked and confirmed, no-shows chased, landlords updated before they ask, tenant documents collected. One Voice AI Worker for Malta letting and sales agencies.",
+    "metaTitle": "Voice AI for Real Estate Malta | OARC Digital",
+    "metaDescription": "Voice AI Worker for real estate in Malta—answers, qualifies, and completes the next step so you stop losing work to missed calls. Book a demo.",
+    "faqs": [
+      {
+        "question": "Can AI answer property enquiries for Malta estate agents?",
+        "answer": "Yes. OARC Voice AI Worker qualifies callers and books viewings against your rules."
+      },
+      {
+        "question": "Does it know listing details?",
+        "answer": "It uses approved listing facts you supply\u2014no inventing prices or amenities."
+      },
+      {
+        "question": "Can it book viewings on agent calendars?",
+        "answer": "Yes with calendar integration and buffers."
+      },
+      {
+        "question": "Does it replace agents?",
+        "answer": "No\u2014it covers overflow so agents negotiate and show."
+      }
+    ],
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -1244,8 +1334,26 @@ export const tomBriefPages = [
   {
     "slug": "legal",
     "name": "LEGAL",
-    "metaTitle": "Voice AI Worker for Law Firms & Notaries — \"any update?\" answered without a lawyer | OARC Digital",
-    "metaDescription": "Intake taken in full, conflict pre-check run, client status updates answered from the file, documents chased, konvenju and court dates watched. One Voice AI Worker for Malta law firms and notarial practices — never legal advice.",
+    "metaTitle": "Voice AI for Legal / Notaries Malta | OARC Digital",
+    "metaDescription": "Voice AI Worker for legal / notaries in Malta—answers, qualifies, and completes the next step so you stop losing work to missed calls. Book a demo.",
+    "faqs": [
+      {
+        "question": "Can AI answer law firm phone lines in Malta for status updates?",
+        "answer": "Yes\u2014within approved administrative scripts; legal advice stays with lawyers."
+      },
+      {
+        "question": "Does Voice AI give legal advice?",
+        "answer": "No. It handles scheduling, intake, and authorised status only."
+      },
+      {
+        "question": "Can notaries use it for appointments?",
+        "answer": "Yes\u2014booking and document checklist prompts."
+      },
+      {
+        "question": "How do you avoid confidentiality issues?",
+        "answer": "Least-detail scripts and firm-approved processes."
+      }
+    ],
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -1491,8 +1599,26 @@ export const tomBriefPages = [
   {
     "slug": "logistics",
     "name": "LOGISTICS",
-    "metaTitle": "Voice AI Worker for Freight & Logistics — the ferry was cancelled; your clients heard it from you first | OARC Digital",
-    "metaDescription": "Every \"where is my shipment?\" answered from the system, exceptions pushed to clients before they ring, customs documents chased, quotes out in minutes, drivers briefed in Italian. One Voice AI Worker for Malta forwarders, customs brokers and couriers.",
+    "metaTitle": "Voice AI for Logistics / Freight Malta | OARC Digital",
+    "metaDescription": "Voice AI Worker for logistics / freight in Malta—answers, qualifies, and completes the next step so you stop losing work to missed calls. Book a demo.",
+    "faqs": [
+      {
+        "question": "Can AI handle shipment status calls for Malta logistics firms?",
+        "answer": "Yes\u2014OARC Voice AI Worker answers from approved status data and can help notify on disruptions."
+      },
+      {
+        "question": "Will it invent ETAs?",
+        "answer": "No. It only speaks approved fields; unknowns escalate."
+      },
+      {
+        "question": "Can it notify clients about ferry or route cancellations?",
+        "answer": "Yes when outbound notification is in scope."
+      },
+      {
+        "question": "Does it replace ops staff?",
+        "answer": "No\u2014it absorbs repetitive status volume during incidents."
+      }
+    ],
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -1738,8 +1864,26 @@ export const tomBriefPages = [
   {
     "slug": "home-services",
     "name": "HOME SERVICES",
-    "metaTitle": "Voice AI Worker for Trades — the phone rang six times while you were under the sink; he answered all six | OARC Digital",
-    "metaDescription": "Every call answered while you're on the tools, the WhatsApp photo read and priced, the quote sent tonight, the job booked and confirmed, the review asked for. One Voice AI Worker for Malta plumbers, electricians, AC and solar installers, cleaners and maintenance firms.",
+    "metaTitle": "Voice AI for Home services / Trades Malta | OARC Digital",
+    "metaDescription": "Voice AI Worker for home services / trades in Malta—answers, qualifies, and completes the next step so you stop losing work to missed calls. Book a demo.",
+    "faqs": [
+      {
+        "question": "Can AI answer my trade business phone in Malta while I\u2019m on a job?",
+        "answer": "Yes. OARC Voice AI Worker takes the enquiry and books or escalates per your rules."
+      },
+      {
+        "question": "Does it send missed-call texts?",
+        "answer": "Flows can include SMS/WhatsApp follow-up when connected."
+      },
+      {
+        "question": "Will it give prices?",
+        "answer": "Only approved ranges; otherwise it books an assessment."
+      },
+      {
+        "question": "Is it useful for plumbers and electricians?",
+        "answer": "Yes\u2014classic missed-call verticals."
+      }
+    ],
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -1990,8 +2134,26 @@ export const tomBriefPages = [
   {
     "slug": "education",
     "name": "EDUCATION",
-    "metaTitle": "Voice AI Worker for Schools & Training — Sunday arrivals, agents in six countries, parents at 23:00 | OARC Digital",
-    "metaDescription": "Every enquiry from a parent or agent answered in their language and time zone, enrolments completed, accommodation and transfers coordinated, attendance and payments followed up, extensions offered at the right week. One Voice AI Worker for Malta English-language schools, private schools, academies and training providers.",
+    "metaTitle": "Voice AI for Education / Training Malta | OARC Digital",
+    "metaDescription": "Voice AI Worker for education / training in Malta—answers, qualifies, and completes the next step so you stop losing work to missed calls. Book a demo.",
+    "faqs": [
+      {
+        "question": "Can AI help schools and training centres in Malta with phone volume?",
+        "answer": "Yes\u2014OARC Voice AI Worker handles logistics FAQs and booking confirmations with human escalation."
+      },
+      {
+        "question": "Does it handle safeguarding issues?",
+        "answer": "Those escalate immediately to humans\u2014no AI counselling."
+      },
+      {
+        "question": "Can it confirm student transfers?",
+        "answer": "Yes using approved lists/status fields."
+      },
+      {
+        "question": "Multilingual parents?",
+        "answer": "Possible when scoped (e.g. EN/MT and other packs)."
+      }
+    ],
     "domainBrief": [
       {
         "label": "Who is reading",
@@ -2242,8 +2404,26 @@ export const tomBriefPages = [
   {
     "slug": "government",
     "name": "GOVERNMENT & PUBLIC SERVICES",
-    "metaTitle": "Voice AI Worker for Local Councils & Public Bodies — the same five questions, answered in Maltese and English, at 19:00 | OARC Digital",
-    "metaDescription": "Every resident call answered in Maltese or English, the five most common questions handled instantly, every complaint given a reference and a status, every case followed up until closed, an audit trail on everything. One Voice AI Worker for Malta local councils, agencies and public-facing bodies.",
+    "metaTitle": "Voice AI for Government / Local councils Malta | OARC Digital",
+    "metaDescription": "Voice AI Worker for government / local councils in Malta—answers, qualifies, and completes the next step so you stop losing work to missed calls. Book a demo.",
+    "faqs": [
+      {
+        "question": "Can AI answer local council phone lines in Malta?",
+        "answer": "Yes\u2014OARC Voice AI Worker can cover approved FAQs and log cases with reference numbers."
+      },
+      {
+        "question": "Does it speak Maltese?",
+        "answer": "Maltese and English packs are available when scoped and tested."
+      },
+      {
+        "question": "Will it invent policy answers?",
+        "answer": "No. Only approved content; else escalate."
+      },
+      {
+        "question": "Is there an audit trail?",
+        "answer": "Calls/transcripts can be logged for oversight."
+      }
+    ],
     "domainBrief": [
       {
         "label": "Who is reading",

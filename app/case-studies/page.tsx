@@ -14,9 +14,9 @@ import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import { caseStudiesArray } from "@/data/caseStudies";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
-const TITLE = "Case Studies | Evidence-Led PJAZZA Product Story | OARC Digital";
+const TITLE = "Case Studies | OARC Digital Evidence";
 const DESCRIPTION =
-  "Evidence-led project stories from OARC Digital. The first published case study follows PJAZZA, OARC's own live shopping marketplace for Malta.";
+  "OARC case studies—evidence-led stories with permissioned metrics only. No invented ROI.";
 const URL = "https://oarcdigital.com/case-studies";
 
 export const metadata: Metadata = {
@@ -59,7 +59,7 @@ export default function Page() {
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
               data-testid="text-case-studies-h1"
             >
-              Case Studies
+              Case studies — evidence, not fiction
             </h1>
             <p
               data-speakable

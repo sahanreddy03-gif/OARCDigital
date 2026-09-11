@@ -39,11 +39,7 @@ export default function PageContent() {
 
         <section className="oarc-work-intro" aria-labelledby="work-page-title">
           <h1 id="work-page-title">
-            We make clear, useful work
-            <br />
-            that gives ambitious brands
-            <br />
-            a real reason to be chosen.
+            Our work — clear, useful proof ambitious brands can trust
           </h1>
           <p className="oarc-work-intro-copy">
             Our first evidence-led project story. Every visible fact comes from approved project

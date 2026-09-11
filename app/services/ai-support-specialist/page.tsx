@@ -7,21 +7,21 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
-  title: "AI Customer Support Agent | 24/7 Automated Support | OARC Digital",
-  description: "Deploy an AI support agent that handles customer inquiries 24/7. Instant responses, ticket resolution, and seamless escalation to human agents when needed.",
+  title: "AI Customer Support Malta | 24/7 Answers | OARC",
+  description: "AI support specialists that answer FAQs, log tickets, and escalate—so Malta customers get help without waiting on a slow queue.",
   alternates: getHreflangAlternates("/services/ai-support-specialist"),
   openGraph: {
-    images: ogImageEntry({ title: "AI Customer Support Agent | 24/7 Automated Support | OARC Digital", subtitle: "Deploy an AI support agent that handles customer inquiries 24/7. Instant responses, ticket resolution, and seamless escalation to human agents when needed." }),
-    title: "AI Customer Support Agent | 24/7 Automated Support | OARC Digital",
-    description: "Deploy an AI support agent that handles customer inquiries 24/7. Instant responses, ticket resolution, and seamless escalation to human agents when needed.",
+    images: ogImageEntry({ title: "AI Customer Support Malta | 24/7 Answers | OARC", subtitle: "AI support specialists that answer FAQs, log tickets, and escalate—so Malta customers get help without waiting on a slow queue." }),
+    title: "AI Customer Support Malta | 24/7 Answers | OARC",
+    description: "AI support specialists that answer FAQs, log tickets, and escalate—so Malta customers get help without waiting on a slow queue.",
     url: "https://oarcdigital.com/services/ai-support-specialist",
     type: "article",
   },
   twitter: {
-    images: [ogImageUrl({ title: "AI Customer Support Agent | 24/7 Automated Support | OARC Digital", subtitle: "Deploy an AI support agent that handles customer inquiries 24/7. Instant responses, ticket resolution, and seamless escalation to human agents when needed." })],
+    images: [ogImageUrl({ title: "AI Customer Support Malta | 24/7 Answers | OARC", subtitle: "AI support specialists that answer FAQs, log tickets, and escalate—so Malta customers get help without waiting on a slow queue." })],
     card: "summary_large_image",
-    title: "AI Customer Support Agent | 24/7 Automated Support | OARC Digital",
-    description: "Deploy an AI support agent that handles customer inquiries 24/7. Instant responses, ticket resolution, and seamless escalation to human agents when needed.",
+    title: "AI Customer Support Malta | 24/7 Answers | OARC",
+    description: "AI support specialists that answer FAQs, log tickets, and escalate—so Malta customers get help without waiting on a slow queue.",
   },
 };
 

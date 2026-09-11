@@ -7,21 +7,21 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
-  title: "Custom Software Development | Web Apps & Enterprise Solutions | OARC Digital",
-  description: "Build powerful custom software solutions tailored to your business. Full-stack development with React, Node.js, Python. From MVPs to enterprise platforms.",
+  title: "Custom Software Development Malta | Web Apps | OARC",
+  description: "Custom software and web apps for Malta teams—scoped products that fit real workflows instead of forcing broken processes into generic tools.",
   alternates: getHreflangAlternates("/services/custom-software-development"),
   openGraph: {
-    images: ogImageEntry({ title: "Custom Software Development | Web Apps & Enterprise Solutions | OARC Digital", subtitle: "Build powerful custom software solutions tailored to your business. Full-stack development with React, Node.js, Python. From MVPs to enterprise platforms." }),
-    title: "Custom Software Development | Web Apps & Enterprise Solutions | OARC Digital",
-    description: "Build powerful custom software solutions tailored to your business. Full-stack development with React, Node.js, Python. From MVPs to enterprise platforms.",
+    images: ogImageEntry({ title: "Custom Software Development Malta | Web Apps | OARC", subtitle: "Custom software and web apps for Malta teams—scoped products that fit real workflows instead of forcing broken processes into generic tools." }),
+    title: "Custom Software Development Malta | Web Apps | OARC",
+    description: "Custom software and web apps for Malta teams—scoped products that fit real workflows instead of forcing broken processes into generic tools.",
     url: "https://oarcdigital.com/services/custom-software-development",
     type: "article",
   },
   twitter: {
-    images: [ogImageUrl({ title: "Custom Software Development | Web Apps & Enterprise Solutions | OARC Digital", subtitle: "Build powerful custom software solutions tailored to your business. Full-stack development with React, Node.js, Python. From MVPs to enterprise platforms." })],
+    images: [ogImageUrl({ title: "Custom Software Development Malta | Web Apps | OARC", subtitle: "Custom software and web apps for Malta teams—scoped products that fit real workflows instead of forcing broken processes into generic tools." })],
     card: "summary_large_image",
-    title: "Custom Software Development | Web Apps & Enterprise Solutions | OARC Digital",
-    description: "Build powerful custom software solutions tailored to your business. Full-stack development with React, Node.js, Python. From MVPs to enterprise platforms.",
+    title: "Custom Software Development Malta | Web Apps | OARC",
+    description: "Custom software and web apps for Malta teams—scoped products that fit real workflows instead of forcing broken processes into generic tools.",
   },
 };
 

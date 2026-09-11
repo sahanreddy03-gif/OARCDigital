@@ -166,8 +166,8 @@ export default function AICustomerSupport() {
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-ai-support">
-                Your 24/7 <span className="text-[#23AACA]">Support Team</span>
-              </h1>
+            AI customer support — answers that resolve, not deflect
+          </h1>
               
               <p className="text-xl text-white/70 mb-8 leading-relaxed">
                 Deploy an AI agent that resolves customer issues instantly. No wait times, no off-hours, no language barriers.

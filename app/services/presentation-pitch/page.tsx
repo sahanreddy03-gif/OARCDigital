@@ -7,21 +7,21 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
-  title: "Presentation Design | Pitch Decks | OARC Digital Malta",
-  description: "Elite presentation and pitch deck design from OARC Digital. Create compelling visual narratives that win deals and inspire action.",
+  title: "Pitch Deck Design Malta | Presentations That Close | OARC",
+  description: "Presentation and pitch deck design for Malta teams—clear narrative and visuals that help close rooms, not decorate slides.",
   alternates: getHreflangAlternates("/services/presentation-pitch"),
   openGraph: {
-    images: ogImageEntry({ title: "Presentation Design | Pitch Decks | OARC Digital Malta", subtitle: "Elite presentation and pitch deck design from OARC Digital. Create compelling visual narratives that win deals and inspire action." }),
-    title: "Presentation Design | Pitch Decks | OARC Digital Malta",
-    description: "Elite presentation and pitch deck design from OARC Digital. Create compelling visual narratives that win deals and inspire action.",
+    images: ogImageEntry({ title: "Pitch Deck Design Malta | Presentations That Close | OARC", subtitle: "Presentation and pitch deck design for Malta teams—clear narrative and visuals that help close rooms, not decorate slides." }),
+    title: "Pitch Deck Design Malta | Presentations That Close | OARC",
+    description: "Presentation and pitch deck design for Malta teams—clear narrative and visuals that help close rooms, not decorate slides.",
     url: "https://oarcdigital.com/services/presentation-pitch",
     type: "article",
   },
   twitter: {
-    images: [ogImageUrl({ title: "Presentation Design | Pitch Decks | OARC Digital Malta", subtitle: "Elite presentation and pitch deck design from OARC Digital. Create compelling visual narratives that win deals and inspire action." })],
+    images: [ogImageUrl({ title: "Pitch Deck Design Malta | Presentations That Close | OARC", subtitle: "Presentation and pitch deck design for Malta teams—clear narrative and visuals that help close rooms, not decorate slides." })],
     card: "summary_large_image",
-    title: "Presentation Design | Pitch Decks | OARC Digital Malta",
-    description: "Elite presentation and pitch deck design from OARC Digital. Create compelling visual narratives that win deals and inspire action.",
+    title: "Pitch Deck Design Malta | Presentations That Close | OARC",
+    description: "Presentation and pitch deck design for Malta teams—clear narrative and visuals that help close rooms, not decorate slides.",
   },
 };
 

@@ -45,7 +45,7 @@ export default function MotionDesign() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            Motion that <span className="italic text-[#c4ff4d]">moves people</span>
+            Motion design Malta — animation that moves people to act
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
             Motion graphics that command attention and drive engagement. From logo reveals to complex explainer videos—we make your brand impossible to ignore in a scroll-obsessed world.

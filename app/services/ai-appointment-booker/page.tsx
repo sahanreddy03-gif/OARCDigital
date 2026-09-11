@@ -8,21 +8,21 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
-  title: "Appointment Booker Agent | AI Scheduling Assistant | OARC Digital",
-  description: "Reduce no-shows by 20% with intelligent scheduling. Our AI Appointment Booker handles availability, reminders, and rescheduling automatically.",
+  title: "AI Appointment Booker Malta | Scheduling Agent | OARC",
+  description: "AI scheduling assistants that book appointments on your calendar rules—less email tennis, fewer no-shows with reminders.",
   alternates: getHreflangAlternates("/services/ai-appointment-booker"),
   openGraph: {
-    images: ogImageEntry({ title: "Appointment Booker Agent | AI Scheduling Assistant | OARC Digital", subtitle: "Reduce no-shows by 20% with intelligent scheduling. Our AI Appointment Booker handles availability, reminders, and rescheduling automatically." }),
-    title: "Appointment Booker Agent | AI Scheduling Assistant | OARC Digital",
-    description: "Reduce no-shows by 20% with intelligent scheduling. Our AI Appointment Booker handles availability, reminders, and rescheduling automatically.",
+    images: ogImageEntry({ title: "AI Appointment Booker Malta | Scheduling Agent | OARC", subtitle: "AI scheduling assistants that book appointments on your calendar rules—less email tennis, fewer no-shows with reminders." }),
+    title: "AI Appointment Booker Malta | Scheduling Agent | OARC",
+    description: "AI scheduling assistants that book appointments on your calendar rules—less email tennis, fewer no-shows with reminders.",
     url: "https://oarcdigital.com/services/ai-appointment-booker",
     type: "article",
   },
   twitter: {
-    images: [ogImageUrl({ title: "Appointment Booker Agent | AI Scheduling Assistant | OARC Digital", subtitle: "Reduce no-shows by 20% with intelligent scheduling. Our AI Appointment Booker handles availability, reminders, and rescheduling automatically." })],
+    images: [ogImageUrl({ title: "AI Appointment Booker Malta | Scheduling Agent | OARC", subtitle: "AI scheduling assistants that book appointments on your calendar rules—less email tennis, fewer no-shows with reminders." })],
     card: "summary_large_image",
-    title: "Appointment Booker Agent | AI Scheduling Assistant | OARC Digital",
-    description: "Reduce no-shows by 20% with intelligent scheduling. Our AI Appointment Booker handles availability, reminders, and rescheduling automatically.",
+    title: "AI Appointment Booker Malta | Scheduling Agent | OARC",
+    description: "AI scheduling assistants that book appointments on your calendar rules—less email tennis, fewer no-shows with reminders.",
   },
 };
 

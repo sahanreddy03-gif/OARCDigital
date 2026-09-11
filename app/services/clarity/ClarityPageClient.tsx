@@ -117,12 +117,8 @@ export default function ClarityPageClient() {
       <section style={{ position:"relative", zIndex:1, padding:"3.6rem 22px 2.8rem", borderBottom:`1px solid ${C.line}` }}>
         <Kicker label="Clarity — dept 07" />
         <h1 style={{ fontFamily:C.sg, fontWeight:700, fontSize:"clamp(2.8rem,12vw,4.6rem)", lineHeight:.94, letterSpacing:"-.035em", marginTop:"1.1rem", maxWidth:"12ch" }}>
-          We tell you{" "}
-          <span style={{ position:"relative", display:"inline-block" }}>
-            what&apos;s working.
-            <span style={{ position:"absolute", inset:"-.05em -.12em", border:`1px solid ${C.line}`, borderRadius:4, pointerEvents:"none" }} />
-          </span>
-        </h1>
+        Marketing analytics Malta — we tell you what's working
+      </h1>
         <p style={{ fontFamily:C.jb, fontSize:"11.5px", lineHeight:1.85, color:C.dim, marginTop:"1.3rem", maxWidth:"38ch" }}>
           No dashboards full of metrics that mean nothing. No agency spin.{" "}
           <strong style={{ color:C.fg, fontWeight:700 }}>A straight answer on what&apos;s driving revenue and what&apos;s burning budget.</strong>

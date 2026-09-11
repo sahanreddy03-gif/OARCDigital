@@ -4,9 +4,9 @@ import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags"
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import PageContent from "./PageContent";
 
-const TITLE = "Who We Are | Our Founding Story | OARC Digital Malta";
+const TITLE = "About OARC Digital | Who We Are | Malta";
 const DESCRIPTION =
-  "The founding story of OARC Digital — why Red started a Birkirkara studio that puts creative, AI engineering, and growth automation under one roof for Maltese businesses.";
+  "OARC Digital’s story and team posture—AI-native creative and automation from Birkirkara. Pair with /why-oarc for comparison intent.";
 const URL = "https://oarcdigital.com/why-us";
 
 export const metadata: Metadata = {

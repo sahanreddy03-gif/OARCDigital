@@ -7,21 +7,21 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
-  title: "Performance Analytics & Reporting | Data-Driven Insights | OARC Digital",
-  description: "Custom analytics dashboards, ROI tracking, attribution modeling, and performance insights. Transform data into actionable growth strategies.",
+  title: "Performance Analytics Malta | Decision Reporting | OARC",
+  description: "Performance analytics and reporting that drive decisions for Malta teams—cut, keep, scale—not slide wallpaper.",
   alternates: getHreflangAlternates("/services/performance-analytics"),
   openGraph: {
-    images: ogImageEntry({ title: "Performance Analytics & Reporting | Data-Driven Insights | OARC Digital", subtitle: "Custom analytics dashboards, ROI tracking, attribution modeling, and performance insights. Transform data into actionable growth strategies." }),
-    title: "Performance Analytics & Reporting | Data-Driven Insights | OARC Digital",
-    description: "Custom analytics dashboards, ROI tracking, attribution modeling, and performance insights. Transform data into actionable growth strategies.",
+    images: ogImageEntry({ title: "Performance Analytics Malta | Decision Reporting | OARC", subtitle: "Performance analytics and reporting that drive decisions for Malta teams—cut, keep, scale—not slide wallpaper." }),
+    title: "Performance Analytics Malta | Decision Reporting | OARC",
+    description: "Performance analytics and reporting that drive decisions for Malta teams—cut, keep, scale—not slide wallpaper.",
     url: "https://oarcdigital.com/services/performance-analytics",
     type: "article",
   },
   twitter: {
-    images: [ogImageUrl({ title: "Performance Analytics & Reporting | Data-Driven Insights | OARC Digital", subtitle: "Custom analytics dashboards, ROI tracking, attribution modeling, and performance insights. Transform data into actionable growth strategies." })],
+    images: [ogImageUrl({ title: "Performance Analytics Malta | Decision Reporting | OARC", subtitle: "Performance analytics and reporting that drive decisions for Malta teams—cut, keep, scale—not slide wallpaper." })],
     card: "summary_large_image",
-    title: "Performance Analytics & Reporting | Data-Driven Insights | OARC Digital",
-    description: "Custom analytics dashboards, ROI tracking, attribution modeling, and performance insights. Transform data into actionable growth strategies.",
+    title: "Performance Analytics Malta | Decision Reporting | OARC",
+    description: "Performance analytics and reporting that drive decisions for Malta teams—cut, keep, scale—not slide wallpaper.",
   },
 };
 

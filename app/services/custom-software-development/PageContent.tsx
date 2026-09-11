@@ -220,11 +220,8 @@ export default function CustomSoftwareDevelopment() {
                 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-[1.05]"
                 data-testid="heading-custom-software"
               >
-                Build Software That{' '}
-                <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                  Just Works
-                </span>
-              </m.h1>
+              Custom software Malta — build what actually fits how you work
+            </m.h1>
               
               <m.p
                 initial={{ opacity: 0, y: 20 }}

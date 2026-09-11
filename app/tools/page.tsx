@@ -8,20 +8,20 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 export const metadata: Metadata = {
   title: "AI Tools & Tech Stack | OARC Digital",
-  description: "Discover the 80+ AI sales tools, marketing automation, and creative software we use to deliver results. From Clay and Instantly to Midjourney and Figma.",
+  description: "The AI-powered tech stack OARC uses to ship creative, agents, and automation—tools change; doctrine does not.",
   alternates: getHreflangAlternates("/tools"),
   openGraph: {
-    images: ogImageEntry({ title: "AI Tools & Tech Stack | OARC Digital", subtitle: "Discover the 80+ AI sales tools, marketing automation, and creative software we use to deliver results. From Clay and Instantly to Midjourney and Figma." }),
+    images: ogImageEntry({ title: "AI Tools & Tech Stack | OARC Digital", subtitle: "The AI-powered tech stack OARC uses to ship creative, agents, and automation—tools change; doctrine does not." }),
     title: "AI Tools & Tech Stack | OARC Digital",
-    description: "Discover the 80+ AI sales tools, marketing automation, and creative software we use to deliver results. From Clay and Instantly to Midjourney and Figma.",
+    description: "The AI-powered tech stack OARC uses to ship creative, agents, and automation—tools change; doctrine does not.",
     url: "https://oarcdigital.com/tools",
     type: "website",
   },
   twitter: {
-    images: [ogImageUrl({ title: "AI Tools & Tech Stack | OARC Digital", subtitle: "Discover the 80+ AI sales tools, marketing automation, and creative software we use to deliver results. From Clay and Instantly to Midjourney and Figma." })],
+    images: [ogImageUrl({ title: "AI Tools & Tech Stack | OARC Digital", subtitle: "The AI-powered tech stack OARC uses to ship creative, agents, and automation—tools change; doctrine does not." })],
     card: "summary_large_image",
     title: "AI Tools & Tech Stack | OARC Digital",
-    description: "Discover the 80+ AI sales tools, marketing automation, and creative software we use to deliver results. From Clay and Instantly to Midjourney and Figma.",
+    description: "The AI-powered tech stack OARC uses to ship creative, agents, and automation—tools change; doctrine does not.",
   },
 };
 

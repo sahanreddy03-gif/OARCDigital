@@ -7,21 +7,21 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
-  title: "Mobile App Development | iOS & Android | OARC Digital",
-  description: "Build apps people love. Native iOS, Android, and cross-platform development. From MVP to millions of users.",
+  title: "Mobile App Development Malta | iOS & Android | OARC",
+  description: "Mobile app development for Malta and beyond—iOS and Android products scoped to real user jobs, not feature bloat.",
   alternates: getHreflangAlternates("/services/mobile-apps-development"),
   openGraph: {
-    images: ogImageEntry({ title: "Mobile App Development | iOS & Android | OARC Digital", subtitle: "Build apps people love. Native iOS, Android, and cross-platform development. From MVP to millions of users." }),
-    title: "Mobile App Development | iOS & Android | OARC Digital",
-    description: "Build apps people love. Native iOS, Android, and cross-platform development. From MVP to millions of users.",
+    images: ogImageEntry({ title: "Mobile App Development Malta | iOS & Android | OARC", subtitle: "Mobile app development for Malta and beyond—iOS and Android products scoped to real user jobs, not feature bloat." }),
+    title: "Mobile App Development Malta | iOS & Android | OARC",
+    description: "Mobile app development for Malta and beyond—iOS and Android products scoped to real user jobs, not feature bloat.",
     url: "https://oarcdigital.com/services/mobile-apps-development",
     type: "article",
   },
   twitter: {
-    images: [ogImageUrl({ title: "Mobile App Development | iOS & Android | OARC Digital", subtitle: "Build apps people love. Native iOS, Android, and cross-platform development. From MVP to millions of users." })],
+    images: [ogImageUrl({ title: "Mobile App Development Malta | iOS & Android | OARC", subtitle: "Mobile app development for Malta and beyond—iOS and Android products scoped to real user jobs, not feature bloat." })],
     card: "summary_large_image",
-    title: "Mobile App Development | iOS & Android | OARC Digital",
-    description: "Build apps people love. Native iOS, Android, and cross-platform development. From MVP to millions of users.",
+    title: "Mobile App Development Malta | iOS & Android | OARC",
+    description: "Mobile app development for Malta and beyond—iOS and Android products scoped to real user jobs, not feature bloat.",
   },
 };
 

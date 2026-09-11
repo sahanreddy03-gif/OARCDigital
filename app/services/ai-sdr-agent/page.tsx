@@ -8,7 +8,7 @@ import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags"
 const SLUG = "ai-sdr-agent";
 const SCHEMA = SERVICE_SCHEMAS[SLUG];
 const URL = `https://oarcdigital.com/services/${SLUG}`;
-const TITLE = "AI SDR Agent Malta | Lead Qualification & Booking";
+const TITLE = "AI SDR Agent Malta | Qualify + Book | OARC";
 const DESCRIPTION = SCHEMA.description;
 const HERO_OG = "https://oarcdigital.com/attached_assets/ai-sdr-agent-optimized.webp";
 const AUDIENCE = [

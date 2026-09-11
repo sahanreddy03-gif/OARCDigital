@@ -19,9 +19,9 @@ export type SupportingPageEntry = {
 export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
   "/services": {
     path: "/services",
-    title: "All Services — Creative, AI Agents, Revenue Automation | OARC Digital",
+    title: "Marketing & AI Services Malta | OARC Digital",
     description:
-      "OARC Digital's full Malta-based service catalogue: brand and creative, AI agents and employees, paid media, SEO, and revenue automation under one team.",
+      "Browse OARC services: creative, AI employees, SEO, automation, H360 hospitality, and more—one Birkirkara team for revenue outcomes.",
     faqs: [
       {
         question: "What services does OARC Digital offer?",
@@ -53,14 +53,34 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           "Yes. We are MGA, MFSA, and IDPC aware on every regulated brief — creative reviewed against the relevant marketing rules, AI agents data-resident in the EU (Frankfurt or Dublin), and compliance handoffs documented at engagement close.",
       },
-    ],
+    ,
+      {
+        question: "What digital marketing services does OARC offer in Malta?",
+        answer:
+          "Creative, social, SEO, paid, AI employees/voice, automation, and hospitality H360—under one Birkirkara team.",
+      },
+      {
+        question: "Does OARC hire out AI employees as a service?",
+        answer:
+          "Yes—see /services/hire-ai-employees and /ai-agents for role-based AI staff.",
+      },
+      {
+        question: "Where do I start if I only know I need more customers?",
+        answer:
+          "Start with /services/growth or book /contact—we diagnose Maps, creative, ads, and response gaps.",
+      },
+      {
+        question: "Is there a full service list?",
+        answer:
+          "Yes—this page links every live service URL; use it as the index, then read the deep page before buying.",
+      }],
   },
 
   "/our-work": {
     path: "/our-work",
-    title: "Our Work | Evidence-Led PJAZZA Product Story | OARC Digital",
+    title: "Our Work | OARC Digital Proof",
     description:
-      "OARC Digital's evidence-led work collection begins with PJAZZA, OARC's own live shopping marketplace for Malta.",
+      "Selected OARC work and product stories—evidence-led, no invented metrics. See also case studies.",
     faqs: [
       {
         question: "What work does OARC Digital currently showcase?",
@@ -87,7 +107,27 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           "No. Quantitative outcomes, testimonials, and rankings are omitted unless the source, scope, timeframe, and approval basis are clear.",
       },
-    ],
+    ,
+      {
+        question: "Where can I see OARC Digital’s work?",
+        answer:
+          "On /our-work and /case-studies—with evidence-led stories.",
+      },
+      {
+        question: "Do you publish fake ROI?",
+        answer:
+          "No.",
+      },
+      {
+        question: "Hospitality examples?",
+        answer:
+          "Often tied to H360 clients when permissioned.",
+      },
+      {
+        question: "Can I request a relevant sample?",
+        answer:
+          "Yes via /contact.",
+      }],
   },
 
   "/new-work": {
@@ -174,9 +214,9 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
 
   "/pricing": {
     path: "/pricing",
-    title: "Pricing — Creative, AI Agents & Automation | OARC Digital Malta",
+    title: "Pricing | OARC Digital Malta",
     description:
-      "Transparent pricing for OARC Digital's services. Project-scoped, outcome-led: brand sprints, social retainers, AI agents, automation suites, and bespoke engagements.",
+      "OARC pricing is scoped to outcomes—creative, AI employees, H360, growth—not mystery retainers. Book a call for a clear commercial fit.",
     faqs: [
       {
         question: "How much does OARC Digital cost?",
@@ -208,14 +248,29 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           "Quoted prices are in EUR ex-VAT. Maltese VAT (18%) is added on every invoice for Malta-resident clients. EU B2B clients receive a reverse-charge invoice (no VAT) on production of a valid VAT number; non-EU clients are invoiced VAT-free.",
       },
-    ],
+    ,
+      {
+        question: "Do you sell cheap poster packages?",
+        answer:
+          "Not our model.",
+      },
+      {
+        question: "Retainers vs projects?",
+        answer:
+          "Both exist depending on the system.",
+      },
+      {
+        question: "AI employees pricing?",
+        answer:
+          "Role and volume based—demo first.",
+      }],
   },
 
   "/why-us": {
     path: "/why-us",
-    title: "Why OARC Digital — Founding Story & Operating Principles | Malta",
+    title: "About OARC Digital | Who We Are | Malta",
     description:
-      "Why OARC Digital exists, who founded it, and the operating principles that put creative, AI engineering, and revenue automation under one Birkirkara roof.",
+      "OARC Digital’s story and team posture—AI-native creative and automation from Birkirkara. Pair with /why-oarc for comparison intent.",
     faqs: [
       {
         question: "Who founded OARC Digital?",
@@ -247,14 +302,34 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           "We guarantee written 90-day targets, weekly transparent reporting against those targets, and a 30-day notice cancellation window after the first quarter. We do not guarantee specific lead or revenue numbers — anyone who does is selling you a story, not a service.",
       },
-    ],
+    ,
+      {
+        question: "Who is OARC Digital?",
+        answer:
+          "An AI-native creative and automation agency based in Birkirkara, Malta.",
+      },
+      {
+        question: "Where are you based?",
+        answer:
+          "The Brewhouse, Birkirkara CBD.",
+      },
+      {
+        question: "How do you work with clients?",
+        answer:
+          "Peer-to-peer, outcome-scoped systems.",
+      },
+      {
+        question: "Where is the comparison page?",
+        answer:
+          "/why-oarc.",
+      }],
   },
 
   "/blog": {
     path: "/blog",
-    title: "OARC Digital Blog — AI Marketing, Creative & Growth in Malta",
+    title: "Blog | AI Marketing & Growth | OARC Digital",
     description:
-      "Long-form guides on AI marketing, creative production, paid media, SEO, and revenue automation in Malta. Written by the OARC Digital team.",
+      "OARC Digital’s blog on AI marketing, creative, and growth—written to answer real questions, not doorways.",
     faqs: [
       {
         question: "What does the OARC Digital blog cover?",
@@ -286,14 +361,34 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           "Each post carries a publish date, author byline, and canonical URL. Cite the URL plus the publish date. Quotations of up to 150 words are welcomed without prior permission provided the canonical URL is included.",
       },
-    ],
+    ,
+      {
+        question: "What topics does the OARC blog cover?",
+        answer:
+          "AI marketing, creative systems, SEO/AEO, and growth for Malta operators.",
+      },
+      {
+        question: "Is content AI-generated spam?",
+        answer:
+          "No—expert standards; AI may assist production.",
+      },
+      {
+        question: "How often do you publish?",
+        answer:
+          "Steady useful cadence over volume spam.",
+      },
+      {
+        question: "Can posts help local SEO?",
+        answer:
+          "Yes when genuinely useful—not doorway spam.",
+      }],
   },
 
   "/case-studies": {
     path: "/case-studies",
-    title: "Case Studies | Evidence-Led PJAZZA Product Story | OARC Digital",
+    title: "Case Studies | OARC Digital Evidence",
     description:
-      "OARC Digital's evidence-led case-study collection currently features PJAZZA, OARC's own live shopping marketplace for Malta.",
+      "OARC case studies—evidence-led stories with permissioned metrics only. No invented ROI.",
     faqs: [
       {
         question: "What case study is currently published?",
@@ -320,14 +415,34 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           "No. The portfolio distinguishes named partnerships, OARC-owned products, protected systems, and illustrative concept studies so readers can interpret each record correctly.",
       },
-    ],
+    ,
+      {
+        question: "Where are OARC Digital case studies?",
+        answer:
+          "On this page and related work stories—with honest evidence.",
+      },
+      {
+        question: "Do you invent ROI percentages?",
+        answer:
+          "No.",
+      },
+      {
+        question: "Can you share a relevant industry example on a call?",
+        answer:
+          "Yes.",
+      },
+      {
+        question: "Hospitality?",
+        answer:
+          "When permissioned via H360 work.",
+      }],
   },
 
   "/tools": {
     path: "/tools",
-    title: "AI Tools & Tech Stack — OARC Digital Malta",
+    title: "AI Tools & Tech Stack | OARC Digital",
     description:
-      "The AI sales, marketing automation, creative, and analytics tools OARC Digital deploys. Curated stack of 80+ platforms, including pricing notes and use cases.",
+      "The AI-powered tech stack OARC uses to ship creative, agents, and automation—tools change; doctrine does not.",
     faqs: [
       {
         question: "What tools does OARC Digital actually use?",
@@ -359,7 +474,27 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           "We default to EU-resident or contractually-EU configurations on every tool that processes client data. The list page flags any tool where US data residency is unavoidable and how we mitigate it (data minimisation, anonymisation).",
       },
-    ],
+    ,
+      {
+        question: "What tools does OARC Digital use?",
+        answer:
+          "An evolving AI and automation stack for creative production, agents, and integrations—chosen per job.",
+      },
+      {
+        question: "Do you lock clients into one vendor?",
+        answer:
+          "No.",
+      },
+      {
+        question: "Can you work inside our stack?",
+        answer:
+          "Often yes.",
+      },
+      {
+        question: "Is the stack the product?",
+        answer:
+          "No—the product is completed growth jobs.",
+      }],
   },
 
   "/about": {

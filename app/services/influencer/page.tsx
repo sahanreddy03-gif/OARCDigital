@@ -7,9 +7,9 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 const TITLE =
-  "Malta Influencer Marketing | Local Creator Network for Hospitality, Lifestyle & iGaming";
+  "Influencer Marketing Malta | Creators for Bookings | OARC";
 const DESCRIPTION =
-  "Malta-local creator partnerships for hospitality, lifestyle, sport, food and MGA-licensed iGaming brands. Maltese creators briefed and contracted to move bookings, deposits and footfall.";
+  "Malta creator partnerships for hospitality, lifestyle, and iGaming—briefed for bookings and clear offers, not empty tagged photos.";
 const CANONICAL = "https://oarcdigital.com/services/influencer";
 
 export const metadata: Metadata = {

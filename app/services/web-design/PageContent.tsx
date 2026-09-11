@@ -67,7 +67,7 @@ export default function WebDesign() {
             <div>
               <p className="text-[#23AACA] text-sm uppercase tracking-widest mb-4">Web Design & Development</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-web-design" data-speakable>
-                Websites that actually convert.
+                Web design Malta — websites that actually convert
               </h1>
               <p className="text-xl text-white/80 mb-8" data-speakable>
                 Not just pretty. Profitable. Every pixel optimized for performance, every interaction designed to convert.

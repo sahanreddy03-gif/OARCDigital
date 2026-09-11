@@ -107,6 +107,7 @@ export default async function IndustryPage({
         description={page.metaDescription}
         serviceType="Voice AI Worker industry configuration"
         audience={[page.name]}
+        faqs={page.faqs}
       />
       <main className="tom-page">
         <section className="tom-industry-hero">
@@ -238,6 +239,22 @@ export default async function IndustryPage({
             </div>
           </div>
         </section>
+
+        {page.faqs?.length > 0 && (
+          <section className="tom-section tom-light" id="faq" aria-labelledby="tom-industry-faq">
+            <div className="tom-wrap">
+              <h2 className="tom-display" id="tom-industry-faq">Questions owners ask</h2>
+              <div className="tom-value-list">
+                {page.faqs.map((faq) => (
+                  <article key={faq.question}>
+                    <h3 style={{ fontSize: "1.05rem", marginBottom: "0.4rem" }}>{faq.question}</h3>
+                    <p>{faq.answer}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
       </main>
     </Layout>
   );

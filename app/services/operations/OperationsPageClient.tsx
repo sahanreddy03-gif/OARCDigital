@@ -115,12 +115,8 @@ export default function OperationsPageClient() {
       <section style={{ position:"relative", zIndex:1, padding:"3.6rem 22px 2.8rem", borderBottom:`1px solid ${C.line}` }}>
         <Kicker label="Operations — dept 05" />
         <h1 style={{ fontFamily:C.sg, fontWeight:700, fontSize:"clamp(2.8rem,12vw,4.6rem)", lineHeight:.94, letterSpacing:"-.035em", marginTop:"1.1rem", maxWidth:"12ch" }}>
-          Take the boring work<br />
-          <span style={{ position:"relative", display:"inline-block" }}>
-            off your week.
-            <span style={{ position:"absolute", inset:"-.05em -.12em", border:`1px solid ${C.line}`, borderRadius:4, pointerEvents:"none" }} />
-          </span>
-        </h1>
+        Operations Malta — take the boring work off your week
+      </h1>
         <p style={{ fontFamily:C.jb, fontSize:"11.5px", lineHeight:1.85, color:C.dim, marginTop:"1.3rem", maxWidth:"38ch" }}>
           We map where your time actually goes, remove the jobs that don't need you, and run the rest automatically.{" "}
           <strong style={{ color:C.fg, fontWeight:700 }}>Malta owners get ≈13 hours back every week.</strong>

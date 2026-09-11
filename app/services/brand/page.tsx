@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import BrandPageClient from "./BrandPageClient";
 import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
-const TITLE = "Brand Strategy Malta — Creative and Brand Identity | OARC";
+const TITLE = "Brand Strategy Malta | Feel + System | OARC";
 const DESCRIPTION =
-  "OARC builds the brand foundation a Malta business is chosen and charges more for: purpose, positioning, personality, promise and a consistent brand system — the strategic layer beneath the creative.";
+  "Brand strategy for Malta businesses—positioning and systems so everything customers see, hear, and feel points to one choice.";
 const CANONICAL = "https://oarcdigital.com/services/brand";
 
 const LD = {

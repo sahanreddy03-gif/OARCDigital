@@ -8,21 +8,21 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
-  title: "Funnel Automation | Conversion Optimization | OARC Digital Malta",
-  description: "Automate your marketing funnels with OARC Digital. Build, test, and optimize conversion funnels using AI-powered automation for predictable revenue growth.",
+  title: "Funnel Automation Malta | Conversion Paths | OARC",
+  description: "Funnel automation and conversion paths for Malta businesses—fix pages, nurture, and handoffs so clicks do not die mid-journey. Live missing H1—fix.",
   alternates: getHreflangAlternates("/services/funnel-automation"),
   openGraph: {
-    images: ogImageEntry({ title: "Funnel Automation | Conversion Optimization | OARC Digital Malta", subtitle: "Automate your marketing funnels with OARC Digital. Build, test, and optimize conversion funnels using AI-powered automation for predictable revenue growth." }),
-    title: "Funnel Automation | Conversion Optimization | OARC Digital Malta",
-    description: "Automate your marketing funnels with OARC Digital. Build, test, and optimize conversion funnels using AI-powered automation for predictable revenue growth.",
+    images: ogImageEntry({ title: "Funnel Automation Malta | Conversion Paths | OARC", subtitle: "Funnel automation and conversion paths for Malta businesses—fix pages, nurture, and handoffs so clicks do not die mid-journey. Live missing H1—fix." }),
+    title: "Funnel Automation Malta | Conversion Paths | OARC",
+    description: "Funnel automation and conversion paths for Malta businesses—fix pages, nurture, and handoffs so clicks do not die mid-journey. Live missing H1—fix.",
     url: "https://oarcdigital.com/services/funnel-automation",
     type: "article",
   },
   twitter: {
-    images: [ogImageUrl({ title: "Funnel Automation | Conversion Optimization | OARC Digital Malta", subtitle: "Automate your marketing funnels with OARC Digital. Build, test, and optimize conversion funnels using AI-powered automation for predictable revenue growth." })],
+    images: [ogImageUrl({ title: "Funnel Automation Malta | Conversion Paths | OARC", subtitle: "Funnel automation and conversion paths for Malta businesses—fix pages, nurture, and handoffs so clicks do not die mid-journey. Live missing H1—fix." })],
     card: "summary_large_image",
-    title: "Funnel Automation | Conversion Optimization | OARC Digital Malta",
-    description: "Automate your marketing funnels with OARC Digital. Build, test, and optimize conversion funnels using AI-powered automation for predictable revenue growth.",
+    title: "Funnel Automation Malta | Conversion Paths | OARC",
+    description: "Funnel automation and conversion paths for Malta businesses—fix pages, nurture, and handoffs so clicks do not die mid-journey. Live missing H1—fix.",
   },
 };
 

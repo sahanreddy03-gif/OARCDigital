@@ -177,11 +177,8 @@ export default function MobileAppsDevelopment() {
                 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-[1.05]"
                 data-testid="heading-mobile-apps"
               >
-                Apps people{' '}
-                <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                  love to use
-                </span>
-              </m.h1>
+              Mobile apps Malta — products people actually use
+            </m.h1>
               
               <m.p
                 initial={{ opacity: 0, y: 20 }}

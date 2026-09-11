@@ -87,8 +87,8 @@ export default function VideoProduction() {
           <div className="max-w-7xl mx-auto w-full">
             <p className="text-white/80 text-sm uppercase tracking-widest mb-2">Our Showreel</p>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-4" data-testid="heading-video" data-speakable>
-              See what we make.
-            </h1>
+                Video production Malta — films and Reels that make people act
+              </h1>
             
             {/* Video controls */}
             <div className="flex items-center gap-4 mb-8">

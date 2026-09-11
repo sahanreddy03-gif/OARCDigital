@@ -9,8 +9,8 @@ const SLUG = "customer-acquisition";
 const URL = `https://oarcdigital.com/services/${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "Customer Acquisition Malta | Predictable CPA at Scale | OARC Digital",
-  description: "End-to-end customer acquisition engineering for Malta and EU brands. We build the attribution model, run the channels, and report one number that matters: cost-per-acquired-customer.",
+  title: "Customer Acquisition Malta | Predictable Growth | OARC",
+  description: "Customer acquisition systems for Malta businesses—tight offers, channels, and conversion paths aimed at steadier CPA discipline (no fake CPA promises).",
   alternates: getHreflangAlternates(`/services/${SLUG}`),
   openGraph: {
     images: ogImageEntry({

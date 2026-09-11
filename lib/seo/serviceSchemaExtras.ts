@@ -88,9 +88,9 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "ai-admin-agent": {
-    title: "AI Administrative Agent | Inbox, Calendar & Workflow Automation | OARC Digital",
+    title: "AI Admin Agent Malta | Inbox + Calendar | OARC",
     description:
-      "Reclaim 15+ hours a week. The OARC AI Admin Agent triages your inbox, books and reschedules meetings, files documents, and runs SOP-driven workflows so your team handles only the work humans should.",
+      "AI admin agents that triage inbox and calendar busywork for Malta operators—so humans keep judgement calls.",
     offers: [
       {
         name: "Solo Operator Pilot",
@@ -141,7 +141,7 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
       {
         question: "What about errors and hallucinations?",
         answer:
-          "Outbound replies above a confidence threshold auto-send. Below the threshold, the draft sits in a review queue with the source emails and a confidence score. Most clients reach 80%+ auto-send by week four.",
+          "Outbound replies above a confidence threshold auto-send. Below the threshold, the draft sits in a review queue with the source emails and a confidence score. Auto-send expands only after review thresholds you approve.",
       },
       {
         question: "Can it work with our Maltese and English correspondence?",
@@ -153,13 +153,33 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Solo Operator goes live in 5 working days. Team Admin Agent ships in 2 weeks once SOPs are documented. The Operations Pod is a 4-6 week rollout with phased SOP migration.",
       },
-    ],
+    ,
+      {
+        question: "What does an AI admin agent do?",
+        answer:
+          "Triage email/calendar tasks under your rules with human approval gates where needed.",
+      },
+      {
+        question: "Will it send email alone?",
+        answer:
+          "Only when you enable specific automations.",
+      },
+      {
+        question: "Who is it for?",
+        answer:
+          "Founders and lean teams drowning in coordination.",
+      },
+      {
+        question: "Security?",
+        answer:
+          "Least mailbox privilege.",
+      }],
   },
 
   "ai-appointment-booker": {
-    title: "AI Appointment Booker | 24/7 Calendar & Reminder Agent | OARC Digital",
+    title: "AI Appointment Booker Malta | Scheduling Agent | OARC",
     description:
-      "Stop losing bookings to voicemail. The OARC AI Appointment Booker books, confirms, and reschedules appointments across web chat, WhatsApp, SMS, and email — and follows up on no-shows so revenue doesn't leak overnight.",
+      "AI scheduling assistants that book appointments on your calendar rules—less email tennis, fewer no-shows with reminders.",
     offers: [
       {
         name: "Booking Agent Lite",
@@ -200,12 +220,12 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
       {
         question: "How does no-show recovery work?",
         answer:
-          "If a booking fails to check in, the agent sends a follow-up within 5 minutes asking to rebook. We typically recover 25-40% of no-shows into a future slot — measured weekly per client and reported in the dashboard.",
+          "If a booking fails to check in, the agent sends a follow-up within minutes asking to rebook. Recovery is measured weekly per client and reported in the dashboard—no blanket recovery rate claims.",
       },
       {
         question: "Can it take deposits or pre-payments?",
         answer:
-          "Yes. We integrate with Stripe, Revolut Business, and most Malta-issued PSPs to capture a configurable deposit before confirming. This alone reduces no-shows by ~30% for clinics and high-end restaurants.",
+          "Yes. We integrate with Stripe, Revolut Business, and most Malta-issued PSPs to capture a configurable deposit before confirming—deposits are one of the strongest no-show controls for clinics and hospitality.",
       },
       {
         question: "Does it handle phone calls?",
@@ -222,7 +242,27 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Yes. We script and tune the agent on Maltese-English code-switching common in Malta hospitality, and bilingual reminder cadences are configured per client during onboarding.",
       },
-    ],
+    ,
+      {
+        question: "Can AI book appointments for my Malta business?",
+        answer:
+          "Yes—OARC’s appointment booker agent works to your calendar rules.",
+      },
+      {
+        question: "Does it send reminders?",
+        answer:
+          "When configured.",
+      },
+      {
+        question: "Clinics and salons?",
+        answer:
+          "Common fits; also trades and consultants.",
+      },
+      {
+        question: "Phone bookings?",
+        answer:
+          "See Voice AI Worker + this agent together.",
+      }],
   },
 
   "ai-compliance-auditor": {
@@ -295,9 +335,9 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "ai-consulting": {
-    title: "AI Consulting Malta | Strategy, Roadmap & Hands-On Build | OARC Digital",
+    title: "AI Consulting Malta | Strategy + Implementation | OARC",
     description:
-      "AI consulting that ends with shipped systems, not slide decks. We assess, design, and build production AI for Malta SMEs — from inbox triage to full revenue agents — with weekly working demos.",
+      "AI consulting without the hype—strategy tied to implementation for Malta businesses that need a first useful agent or automation, not a whitepaper.",
     offers: [
       {
         name: "AI Readiness Sprint",
@@ -360,7 +400,27 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Most Malta SMEs start with the €4,500 AI Readiness Sprint, then approve a €14,500-€38,000 Implementation Engagement once the ROI is signed off internally. Fractional AI Lead retainers are €5,800/mo for 2 days/week of senior time.",
       },
-    ],
+    ,
+      {
+        question: "Do you offer AI consulting in Malta?",
+        answer:
+          "Yes—strategy paired with implementation options.",
+      },
+      {
+        question: "Will you only write a strategy deck?",
+        answer:
+          "Not our model—we push to a first ship.",
+      },
+      {
+        question: "Who is it for?",
+        answer:
+          "Owners ready to change a workflow, not souvenir PDFs.",
+      },
+      {
+        question: "GDPR and risk?",
+        answer:
+          "Discussed before build.",
+      }],
   },
 
   "ai-copywriting": {
@@ -433,9 +493,9 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "ai-data-analyst": {
-    title: "AI Data Analyst | Self-Serve Insights for Malta Businesses | OARC Digital",
+    title: "AI Data Analyst Malta | Insights Assistant | OARC",
     description:
-      "An AI data analyst that answers business questions in plain English — pulls from your warehouse, runs the SQL, charts the result, and explains the why. No more two-week BI ticket queues.",
+      "AI data analysts that help Malta teams pull decision-ready insights from approved datasets—with human verification on critical calls.",
     offers: [
       {
         name: "Insights Pilot",
@@ -498,7 +558,27 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "No. EU-region inference is the default — model calls hit Azure OpenAI in West Europe or AWS Bedrock in eu-central-1. Customer data never leaves the EU unless your SOW explicitly requires it.",
       },
-    ],
+    ,
+      {
+        question: "What does an AI data analyst agent do?",
+        answer:
+          "Answers business questions from approved data and drafts insights for humans to verify.",
+      },
+      {
+        question: "Can I trust the numbers blindly?",
+        answer:
+          "No—critical decisions need verification.",
+      },
+      {
+        question: "Who is it for?",
+        answer:
+          "Teams with data but slow reporting cycles.",
+      },
+      {
+        question: "Setup needs?",
+        answer:
+          "Clean access and defined metrics.",
+      }],
   },
 
   "ai-real-estate-agent": {
@@ -640,9 +720,9 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "ai-support-specialist": {
-    title: "AI Support Specialist | 24/7 Customer Service Agent | OARC Digital",
+    title: "AI Customer Support Malta | 24/7 Answers | OARC",
     description:
-      "An AI support agent that resolves 60-80% of tier-one tickets — chat, email, WhatsApp — and hands the rest to your humans with a full transcript and a suggested reply. Trained on your knowledge base.",
+      "AI support specialists that answer FAQs, log tickets, and escalate—so Malta customers get help without waiting on a slow queue.",
     offers: [
       {
         name: "Support Agent Lite",
@@ -678,7 +758,7 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
       {
         question: "What deflection rate should we realistically expect?",
         answer:
-          "60-80% of tier-one tickets resolve fully without human involvement after the first 30 days of tuning. The complex 20-40% (refunds, edge cases, angry escalations) get a draft reply, the relevant policy excerpts, and the conversation handed to your team.",
+          "Tier-one FAQs can resolve without a human once tuned; refunds, edge cases, and angry escalations get a draft reply, policy excerpts, and a handoff to your team.",
       },
       {
         question: "Will it lie or invent answers?",
@@ -705,7 +785,27 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Yes — for read-only lookups by default, write-actions (refund, address change, subscription pause) gated behind policy rules and human approval until trust is established.",
       },
-    ],
+    ,
+      {
+        question: "Can AI handle customer support for my Malta business?",
+        answer:
+          "Yes—FAQ resolution, ticket logging, and human escalation.",
+      },
+      {
+        question: "Is it really 24/7?",
+        answer:
+          "Agents can be; human backups follow your hours—be honest in UX.",
+      },
+      {
+        question: "Will it hallucinate policies?",
+        answer:
+          "Grounding + escalation reduce risk; QA required.",
+      },
+      {
+        question: "Multichannel?",
+        answer:
+          "Chat/WhatsApp/email/voice as scoped.",
+      }],
   },
 
   "ai-virtual-talent-hub": {
@@ -778,9 +878,9 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "api-integration": {
-    title: "API Integration Services Malta | Connect Your Stack | OARC Digital",
+    title: "API Integration Malta | Connect Your Systems | OARC",
     description:
-      "Engineered API integrations between your CRM, ERP, e-commerce, and finance stack — with retries, observability, and error alerting. Ship in weeks, not quarters.",
+      "API integration services in Malta—connect CRM, booking, payments, and AI agents so data moves without copy-paste.",
     offers: [
       {
         name: "Single Integration",
@@ -843,13 +943,33 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "You do — full source on your GitHub or GitLab from day one, with a written handover doc and an optional 6-month support retainer for tuning.",
       },
-    ],
+    ,
+      {
+        question: "Do you provide API integration services in Malta?",
+        answer:
+          "Yes—connecting business systems and AI agents.",
+      },
+      {
+        question: "Can you connect our CRM to an AI agent?",
+        answer:
+          "Yes—common pattern.",
+      },
+      {
+        question: "Legacy systems?",
+        answer:
+          "Often via middleware or staged adapters.",
+      },
+      {
+        question: "Who maintains integrations?",
+        answer:
+          "Scoped retainers available.",
+      }],
   },
 
   "api-integration-services": {
-    title: "API Integration Services | Production-Grade Stack Wiring | OARC Digital",
+    title: "API Integration Malta | Connect Your Systems | OARC",
     description:
-      "Production-grade API integration delivery for Malta SMEs and EU SaaS — webhooks, retries, secrets management, and observability included. Built to outlast the original engineer.",
+      "API integration services in Malta—connect CRM, booking, payments, and AI agents so data moves without copy-paste.",
     offers: [
       {
         name: "Discovery + Build",
@@ -912,7 +1032,27 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Birkirkara, Malta. We work CET hours and partner with Malta-based ISVs and EU SaaS scaleups.",
       },
-    ],
+    ,
+      {
+        question: "Do you provide API integration services in Malta?",
+        answer:
+          "Yes—connecting business systems and AI agents.",
+      },
+      {
+        question: "Can you connect our CRM to an AI agent?",
+        answer:
+          "Yes—common pattern.",
+      },
+      {
+        question: "Legacy systems?",
+        answer:
+          "Often via middleware or staged adapters.",
+      },
+      {
+        question: "Who maintains integrations?",
+        answer:
+          "Scoped retainers available.",
+      }],
   },
 
   "creative": {
@@ -985,9 +1125,9 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "custom-software-development": {
-    title: "Custom Software Development Malta | Bespoke Apps & Platforms | OARC Digital",
+    title: "Custom Software Development Malta | Web Apps | OARC",
     description:
-      "Custom software for Malta-based and EU SMEs — TypeScript, Python, and cloud-native platforms. Discovery, build, hardening, and a clean code handover. EU-hosted, GDPR-clean.",
+      "Custom software and web apps for Malta teams—scoped products that fit real workflows instead of forcing broken processes into generic tools.",
     offers: [
       {
         name: "Discovery Sprint",
@@ -1050,13 +1190,33 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "All senior engineers are EU-based, with the lead team in Malta and a vetted bench in Spain, Portugal, and Poland. CET working hours, English-first communication, no offshore handoffs.",
       },
-    ],
+    ,
+      {
+        question: "Do you build custom software in Malta?",
+        answer:
+          "Yes—web apps and tailored systems.",
+      },
+      {
+        question: "Fixed price?",
+        answer:
+          "Scoped milestones; honesty over fake certainty.",
+      },
+      {
+        question: "Can you modernise legacy?",
+        answer:
+          "Often in phases.",
+      },
+      {
+        question: "Post-launch support?",
+        answer:
+          "Available.",
+      }],
   },
 
   "customer-acquisition": {
-    title: "Customer Acquisition Services Malta | Full-Funnel Growth | OARC Digital",
+    title: "Customer Acquisition Malta | Predictable Growth | OARC",
     description:
-      "Full-funnel customer acquisition for Malta and EU brands — paid ads, SEO, lifecycle email, and AI agents — wired to a single attribution model. Reported as cost-per-acquired-customer, not vanity metrics.",
+      "Customer acquisition systems for Malta businesses—tight offers, channels, and conversion paths aimed at steadier CPA discipline (no fake CPA promises).",
     offers: [
       {
         name: "Acquisition Audit",
@@ -1119,13 +1279,33 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Yes — built in Looker Studio, Hex, or your existing BI tool. Weekly commentary is included; we explain what changed, not just what the number is.",
       },
-    ],
+    ,
+      {
+        question: "What is OARC’s customer acquisition accelerator?",
+        answer:
+          "A packaged push to improve how you attract and convert qualified customers in Malta.",
+      },
+      {
+        question: "Do you guarantee CPA?",
+        answer:
+          "No. We engineer for discipline and learning speed.",
+      },
+      {
+        question: "Includes creative and AI follow-up?",
+        answer:
+          "Usually yes.",
+      },
+      {
+        question: "Who is it for?",
+        answer:
+          "Businesses with a working offer ready to scale carefully.",
+      }],
   },
 
   "customer-acquisition-accelerator": {
-    title: "Customer Acquisition Accelerator | 90-Day CPA Sprint | OARC Digital",
+    title: "Customer Acquisition Malta | Predictable Growth | OARC",
     description:
-      "A 90-day acquisition sprint to compress CAC and unlock the next channel. Audit, rebuild, test, scale — with a written playbook handed to your team at the end.",
+      "Customer acquisition systems for Malta businesses—tight offers, channels, and conversion paths aimed at steadier CPA discipline (no fake CPA promises).",
     offers: [
       {
         name: "Acceleration Sprint",
@@ -1188,7 +1368,27 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Attribution model, top creative angles, top hooks, top landing pages, lifecycle email cadence, audience exclusion lists, and a written run-book your team can execute alone after the sprint.",
       },
-    ],
+    ,
+      {
+        question: "What is OARC’s customer acquisition accelerator?",
+        answer:
+          "A packaged push to improve how you attract and convert qualified customers in Malta.",
+      },
+      {
+        question: "Do you guarantee CPA?",
+        answer:
+          "No. We engineer for discipline and learning speed.",
+      },
+      {
+        question: "Includes creative and AI follow-up?",
+        answer:
+          "Usually yes.",
+      },
+      {
+        question: "Who is it for?",
+        answer:
+          "Businesses with a working offer ready to scale carefully.",
+      }],
   },
 
   "design-systems": {
@@ -1399,9 +1599,9 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "funnel-automation": {
-    title: "Funnel Automation Services Malta | End-to-End Conversion Engineering | OARC Digital",
+    title: "Funnel Automation Malta | Conversion Paths | OARC",
     description:
-      "Wire your funnel from ad click to closed deal — landing pages, lifecycle email, AI qualification, and CRM hand-off. Tested weekly, reported as conversion rate per stage.",
+      "Funnel automation and conversion paths for Malta businesses—fix pages, nurture, and handoffs so clicks do not die mid-journey. Live missing H1—fix.",
     offers: [
       {
         name: "Funnel Audit",
@@ -1464,7 +1664,27 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "6-8 weeks end-to-end, with the first instrumentation and quick-wins (forms, routing, immediate AI qualification) live in week 2-3. Full lifecycle email and dashboards land in week 6-8.",
       },
-    ],
+    ,
+      {
+        question: "What is funnel automation with OARC?",
+        answer:
+          "Automated paths from click to booked conversation or purchase.",
+      },
+      {
+        question: "Do you do CRO audits?",
+        answer:
+          "Yes as part of funnel work.",
+      },
+      {
+        question: "AI in funnels?",
+        answer:
+          "Chat/voice capture mid-funnel.",
+      },
+      {
+        question: "Ecom and services?",
+        answer:
+          "Both patterns.",
+      }],
   },
 
   "funnel-optimization-agent": {
@@ -1890,9 +2110,9 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
 
   "influencer": {
     title:
-      "Malta Influencer Marketing | Local Creator Network for Hospitality, Lifestyle & iGaming",
+      "Influencer Marketing Malta | Creators for Bookings | OARC",
     description:
-      "Malta-local creator partnerships for hospitality, lifestyle, sport, food and MGA-licensed iGaming brands. We source, brief and contract Maltese creators who actually move bookings, deposits and footfall.",
+      "Malta creator partnerships for hospitality, lifestyle, and iGaming—briefed for bookings and clear offers, not empty tagged photos.",
     serviceType: "Local Influencer & Creator Marketing",
     areaServed: "Malta",
     audience: [
@@ -1974,7 +2194,27 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Each contract spells it out. The default for the Always-On pod and Ambassador programmes is 90-day to 12-month paid usage rights for the brand on Meta and TikTok, plus permanent organic re-share rights with the original credit. Single-campaign contracts default to 30-day paid usage and can be extended for an additional fee per creator.",
       },
-    ],
+    ,
+      {
+        question: "Do you run influencer marketing in Malta?",
+        answer:
+          "Yes—local creator briefs aimed at bookings and enquiries.",
+      },
+      {
+        question: "Restaurants and bars?",
+        answer:
+          "Core use case with H360.",
+      },
+      {
+        question: "Do you guarantee viral?",
+        answer:
+          "No—and beware anyone who does.",
+      },
+      {
+        question: "Fake followers?",
+        answer:
+          "We screen; no purchased engagement.",
+      }],
   },
 
   "influencer-marketing": {
@@ -2330,9 +2570,9 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "mobile-apps-development": {
-    title: "Mobile Apps Development Malta | iOS, Android & Cross-Platform | OARC Digital",
+    title: "Mobile App Development Malta | iOS & Android | OARC",
     description:
-      "Production-ready mobile apps for Malta SMEs — React Native, native iOS, native Android. Discovery, build, App Store launch, and ongoing maintenance under one roof.",
+      "Mobile app development for Malta and beyond—iOS and Android products scoped to real user jobs, not feature bloat.",
     offers: [
       {
         name: "MVP App",
@@ -2395,13 +2635,33 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Maintenance Retainer (€3,900/mo) handles OS updates, App Store review responses, crash triage, and small feature iterations. Larger feature work is scoped as a follow-on project.",
       },
-    ],
+    ,
+      {
+        question: "Do you build iOS and Android apps in Malta?",
+        answer:
+          "Yes—product-scoped mobile development.",
+      },
+      {
+        question: "Can you take over an existing app?",
+        answer:
+          "Often—after a technical audit.",
+      },
+      {
+        question: "Do you also do web apps?",
+        answer:
+          "See custom software development.",
+      },
+      {
+        question: "How do you avoid app bloat?",
+        answer:
+          "Job-to-be-done scoping and phased releases.",
+      }],
   },
 
   "motion-design": {
-    title: "Motion Design Services Malta | Brand & Performance Animation | OARC Digital",
+    title: "Motion Design Malta | Animation That Moves | OARC",
     description:
-      "Motion design for Malta and EU brands — explainer videos, ad creative, brand stings, UI motion, and Lottie product animation. Concept, design, animate, deliver.",
+      "Motion design and animation for Malta brands—ads, explainers, and social motion that earn attention without empty spectacle.",
     offers: [
       {
         name: "Motion Sprint",
@@ -2464,7 +2724,27 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "You do — After Effects projects, Cinema 4D scenes, and Lottie JSON are all handed over on payment. No vendor lock-in.",
       },
-    ],
+    ,
+      {
+        question: "Do you offer motion design in Malta?",
+        answer:
+          "Yes—brand and performance motion graphics.",
+      },
+      {
+        question: "Can motion support paid ads?",
+        answer:
+          "Yes—paired with paid media.",
+      },
+      {
+        question: "Explainers for software/AI products?",
+        answer:
+          "Yes.",
+      },
+      {
+        question: "Turnaround?",
+        answer:
+          "Scoped per piece/batch.",
+      }],
   },
 
   "mvp-development": {
@@ -2633,9 +2913,9 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "performance-analytics": {
-    title: "Performance Analytics Services Malta | Marketing & Product Attribution | OARC Digital",
+    title: "Performance Analytics Malta | Decision Reporting | OARC",
     description:
-      "Performance analytics for Malta and EU brands — attribution, dashboards, incrementality testing, and warehouse builds that surface revenue-impact, not vanity metrics.",
+      "Performance analytics and reporting that drive decisions for Malta teams—cut, keep, scale—not slide wallpaper.",
     offers: [
       {
         name: "Analytics Audit",
@@ -2698,13 +2978,33 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "EU-region by default — BigQuery EU, Snowflake EU regions, AWS eu-central-1 for self-hosted Postgres. Customer data does not leave the EU unless your SOW specifically requires it.",
       },
-    ],
+    ,
+      {
+        question: "What performance analytics does OARC provide?",
+        answer:
+          "Tracking plus decision-oriented reporting for marketing and growth.",
+      },
+      {
+        question: "Do you build live dashboards?",
+        answer:
+          "Yes when useful.",
+      },
+      {
+        question: "Can reports include AI channel performance?",
+        answer:
+          "Yes—agents and campaigns together.",
+      },
+      {
+        question: "Vanity metrics?",
+        answer:
+          "We de-emphasise them.",
+      }],
   },
 
   "presentation-pitch": {
-    title: "Presentation & Pitch Design Services Malta | Investor Decks, Sales Decks | OARC Digital",
+    title: "Pitch Deck Design Malta | Presentations That Close | OARC",
     description:
-      "Designed-for-results presentations — investor decks, sales decks, board reports, and conference keynotes. Strategy, narrative, design, and rehearsal in one place.",
+      "Presentation and pitch deck design for Malta teams—clear narrative and visuals that help close rooms, not decorate slides.",
     offers: [
       {
         name: "Single Deck",
@@ -2767,7 +3067,27 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "You do — master template handed over on payment, with re-use guidance for your in-house team.",
       },
-    ],
+    ,
+      {
+        question: "Who designs pitch decks in Malta at OARC?",
+        answer:
+          "OARC’s presentation design service structures and designs decks to clarify offers.",
+      },
+      {
+        question: "Do you write the strategy too?",
+        answer:
+          "Narrative help yes; your facts stay yours.",
+      },
+      {
+        question: "Sales decks for agencies/iGaming?",
+        answer:
+          "Common.",
+      },
+      {
+        question: "Rush jobs?",
+        answer:
+          "Sometimes—scoped.",
+      }],
   },
 
   "print-packaging": {
@@ -2909,9 +3229,9 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "revenue-automation": {
-    title: "Revenue Automation Services Malta | RevOps, AI Agents, CRM Hygiene | OARC Digital",
+    title: "Revenue Automation Malta | AI Revenue Engine | OARC",
     description:
-      "Revenue automation for Malta and EU SMEs — RevOps, AI agents, CRM hygiene, lifecycle email, and billing — wired into one revenue engine that compounds.",
+      "Revenue automation for Malta businesses—connect acquisition, qualification, and follow-up so revenue motions run with less heroics.",
     offers: [
       {
         name: "RevOps Audit",
@@ -2974,13 +3294,33 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "EU-region CRM tenants by default — HubSpot EU, Salesforce EU, etc. Custom builds host on Vercel + Postgres in EU regions for GDPR compliance.",
       },
-    ],
+    ,
+      {
+        question: "What is revenue automation at OARC?",
+        answer:
+          "Systems that move buyers from interest to revenue with automation and AI agents.",
+      },
+      {
+        question: "Is it only for SaaS?",
+        answer:
+          "No—services and local businesses too.",
+      },
+      {
+        question: "Do you guarantee revenue?",
+        answer:
+          "No—and distrust anyone who does.",
+      },
+      {
+        question: "Where to start?",
+        answer:
+          "Map the biggest drop-off; automate that first.",
+      }],
   },
 
   "social": {
-    title: "Social Media Strategy & Audit | OARC Digital Malta",
+    title: "Social Media Strategy Malta | Audit + Plan | OARC",
     description:
-      "A one-time social media strategy and audit for Malta brands. Forensic teardown of your channels, competitor matrix, content pillars, and a 90-day execution plan you can run in-house or hand to any agency.",
+      "Social strategy and audits for Malta brands—clarify platforms, offers, and creative system before you waste another month posting blind.",
     serviceType: "Social Media Strategy & Audit",
     offers: [
       {
@@ -3044,7 +3384,27 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         answer:
           "Yes. The methodology is the same. Malta clients get a competitor matrix weighted toward local players (and our knowledge of Birkirkara, Sliema, and Gozo media buying), while overseas clients get a benchmark against their primary geographic market.",
       },
-    ],
+    ,
+      {
+        question: "What is a social media audit with OARC?",
+        answer:
+          "A structured review of channels, content, and conversion paths with a practical plan for Malta brands.",
+      },
+      {
+        question: "Do you also manage posting?",
+        answer:
+          "Yes—via social media creative management.",
+      },
+      {
+        question: "Restaurants?",
+        answer:
+          "Yes—ties to H360.",
+      },
+      {
+        question: "How long is an audit?",
+        answer:
+          "Scoped on the call; enough to decide next spend.",
+      }],
   },
 
   "ai-restaurant-voice-host": {
