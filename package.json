@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev --turbopack",
-    "prebuild": "tsx scripts/verify-redirects.ts --static && tsx scripts/validate-historical-programmatic.ts && tsx scripts/guard-approved-historical-urls.ts && tsx scripts/generate-llms-txt-facts.ts && tsx scripts/generate-llms-full-txt.ts",
+    "prebuild": "tsx scripts/verify-redirects.ts --static && tsx scripts/validate-historical-programmatic.ts && tsx scripts/guard-approved-historical-urls.ts && tsx scripts/guard-uniqueness-quality-gate.ts && tsx scripts/generate-llms-txt-facts.ts && tsx scripts/generate-llms-full-txt.ts",
     "build": "next build --turbopack",
     "start": "next start",
     "check": "tsc",
@@ -20,6 +20,7 @@
     "crawl:historical": "tsx scripts/crawl-historical-programmatic.ts",
     "validate:tom-content": "tsx scripts/validate-tom-industry-content.ts",
     "guard:historical": "tsx scripts/guard-approved-historical-urls.ts",
+    "guard:uniqueness": "tsx scripts/guard-uniqueness-quality-gate.ts",
     "guard:historical:live": "tsx scripts/guard-approved-historical-urls.ts --live"
   },
   "dependencies": {

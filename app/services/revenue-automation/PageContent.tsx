@@ -462,6 +462,35 @@ export default function PageContent() {
           </p>
         </section>
 
+
+          <section className="mb-12 p-6 rounded-xl bg-card border" data-testid="revenue-automation-entity-block">
+            <p className="text-foreground leading-relaxed" data-speakable>
+              OARC Digital builds revenue automation in Birkirkara for Malta businesses—wiring lead capture, CRM hygiene, follow-up, and AI qualification so pipeline moves without manual chasing, alongside AI agents and Voice AI Worker when calls and chats need answering.
+            </p>
+            <div className="mt-4 space-y-3" data-testid="revenue-automation-speakable-qa">
+              <div>
+                <p className="text-sm font-semibold" data-speakable>What is revenue automation at OARC?</p>
+                <p className="text-sm text-muted-foreground" data-speakable>Instrumented paths from enquiry to close: routing, nurture, reminders, and AI qualification tied to your CRM—so every stage is visible and owned.</p>
+              </div>
+              <div>
+                <p className="text-sm font-semibold" data-speakable>How does it relate to AI agents and solutions?</p>
+                <p className="text-sm text-muted-foreground" data-speakable>Automation is the wiring; AI agents and Voice AI Worker are the workers on chat, WhatsApp, and phone. See AI agents, solutions, and automation for the full stack.</p>
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground" data-testid="revenue-automation-money-links">
+              Explore:{" "}
+              <Link href="/ai-agents" className="text-foreground underline-offset-2 hover:underline">AI agents</Link>
+              {" · "}
+              <Link href="/solutions" className="text-foreground underline-offset-2 hover:underline">Solutions</Link>
+              {" · "}
+              <Link href="/services/automation" className="text-foreground underline-offset-2 hover:underline">Automation</Link>
+              {" · "}
+              <Link href="/voice-ai-worker" className="text-foreground underline-offset-2 hover:underline">Voice AI Worker</Link>
+              {" · "}
+              <Link href="/malta" className="text-foreground underline-offset-2 hover:underline">Malta hubs</Link>
+            </p>
+          </section>
+
         <FAQSection
           faqs={revenueAutoFAQs}
           title="Revenue Automation questions, answered directly"

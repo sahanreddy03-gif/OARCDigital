@@ -492,6 +492,35 @@ export default function PageContent() {
           <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital</h2>
           <TrustBlock variant="visit" />
         </section>
+
+          <section className="mb-12 p-6 rounded-xl bg-card border" data-testid="funnel-automation-entity-block">
+            <p className="text-foreground leading-relaxed" data-speakable>
+              OARC Digital runs funnel automation from Birkirkara for Malta businesses that lose leads between click and close—instrumented layers from form-to-CRM through AI qualification, connected to AI agents, Voice AI Worker, and solutions when human-like follow-through is required.
+            </p>
+            <div className="mt-4 space-y-3" data-testid="funnel-automation-speakable-qa">
+              <div>
+                <p className="text-sm font-semibold" data-speakable>Is Funnel Automation a real indexable service page?</p>
+                <p className="text-sm text-muted-foreground" data-speakable>Yes. It covers audit, build, and retainer scopes for conversion paths, CRM routing, lifecycle email, and AI qualification for Malta operators—not an empty shell.</p>
+              </div>
+              <div>
+                <p className="text-sm font-semibold" data-speakable>Where should visitors go next?</p>
+                <p className="text-sm text-muted-foreground" data-speakable>Start with the funnel audit, or jump to AI agents, solutions, and automation when you need the agent and workflow layer on top of the funnel.</p>
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground" data-testid="funnel-automation-money-links">
+              Explore:{" "}
+              <Link href="/ai-agents" className="text-foreground underline-offset-2 hover:underline">AI agents</Link>
+              {" · "}
+              <Link href="/solutions" className="text-foreground underline-offset-2 hover:underline">Solutions</Link>
+              {" · "}
+              <Link href="/services/automation" className="text-foreground underline-offset-2 hover:underline">Automation</Link>
+              {" · "}
+              <Link href="/voice-ai-worker" className="text-foreground underline-offset-2 hover:underline">Voice AI Worker</Link>
+              {" · "}
+              <Link href="/malta" className="text-foreground underline-offset-2 hover:underline">Malta hubs</Link>
+            </p>
+          </section>
+
         <RelatedServices slug="/services/funnel-automation" />
       </div>
     </div>

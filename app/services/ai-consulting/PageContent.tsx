@@ -1302,6 +1302,37 @@ export default function AIConsulting() {
       </section>
 
       {/* FAQ Section */}
+
+      <section className="py-12 px-6 bg-zinc-950 border-t border-white/10" data-testid="ai-consulting-entity-block">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-base text-white/80 leading-relaxed" data-speakable>
+            OARC Digital is a Birkirkara AI consulting partner for Malta owners who need a clear roadmap from opportunity to live agents, automation, and Voice AI Worker—implemented by the same team that designs creative and revenue systems.
+          </p>
+          <div className="mt-6 space-y-3 text-left max-w-xl mx-auto" data-testid="ai-consulting-speakable-qa">
+            <div>
+              <p className="text-sm font-semibold text-white/90" data-speakable>What does OARC AI consulting cover?</p>
+              <p className="text-sm text-white/60" data-speakable>Use-case selection, stack readiness, GDPR/EU hosting choices, and a build plan for AI agents, automation, or voice—scoped in Birkirkara with fixed deliverables.</p>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-white/90" data-speakable>When should consulting lead into AI agents or automation?</p>
+              <p className="text-sm text-white/60" data-speakable>When the owner outcome is clear (catch missed leads, cut no-shows, speed support) and the CRM or booking system can accept the agent. Consulting hands off into AI agents, solutions, or automation without a second agency.</p>
+            </div>
+          </div>
+          <p className="mt-6 text-sm text-white/50" data-testid="ai-consulting-money-links">
+            Explore:{" "}
+            <Link href="/ai-agents" className="text-white/80 underline-offset-2 hover:underline">AI agents</Link>
+            {" · "}
+            <Link href="/solutions" className="text-white/80 underline-offset-2 hover:underline">Solutions</Link>
+            {" · "}
+            <Link href="/services/automation" className="text-white/80 underline-offset-2 hover:underline">Automation</Link>
+            {" · "}
+            <Link href="/voice-ai-worker" className="text-white/80 underline-offset-2 hover:underline">Voice AI Worker</Link>
+            {" · "}
+            <Link href="/malta" className="text-white/80 underline-offset-2 hover:underline">Malta hubs</Link>
+          </p>
+        </div>
+      </section>
+
       <FAQSection faqs={aiConsultingFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about AI consulting" schemaId="faq-ai-consulting" darkMode={true} />
 
       {/* SECTION 6: Final CTA */}

@@ -351,7 +351,7 @@ export default function Branding() {
           OARC Digital is a Birkirkara branding agency for Malta owners who need identity customers recognise and trust—connected to creative, AI agents, and Voice AI Worker when demand needs answering.
         </p>
         <p className="mt-4 text-sm text-muted-foreground" data-testid="branding-money-links">
-          Explore: <Link href="/">Home</Link> · <Link href="/creative">Creative</Link> · <Link href="/ai-agents">AI agents</Link> · <Link href="/solutions">Solutions</Link> · <Link href="/voice-ai-worker">Voice AI Worker</Link> · <Link href="/services/video-production">Video</Link>
+          Explore: <Link href="/">Home</Link> · <Link href="/creative">Creative</Link> · <Link href="/ai-agents">AI agents</Link> · <Link href="/solutions">Solutions</Link> · <Link href="/voice-ai-worker">Voice AI Worker</Link> · <Link href="/services/automation">Automation</Link> · <Link href="/services/video-production">Video</Link>
         </p>
       </section>
       <FAQSection faqs={brandingFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our branding services" schemaId="faq-branding"

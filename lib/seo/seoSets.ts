@@ -119,7 +119,7 @@ export const CROSS_SECTION_ALIASES: Record<string, string> = {
   "/diagnostic": "/diagnostics",
   "/roadmap": "/roadmap-2026",
   // Soft-404 / legacy brand paths → precise live targets (Site Perfection Pass 2026-09-11)
-  "/oarc-digital": "/",
+  "/oarc-digital": "/why-oarc",
   "/social-media-agency-malta": "/aeo/social-media-agency-malta",
   "/services/ai-business-development": "/services/lead-generation",
 };

@@ -118,6 +118,8 @@ const aiAgentsFAQs: FAQItem[] = [
   { question: "Which tools do you integrate?", answer: "CRMs (Salesforce, HubSpot), booking systems (Calendly, Cal.com), payment gateways (Stripe), email, Slack/Teams, WhatsApp Business, and most hospitality and booking platforms used by Malta operators." },
   { question: "Can creative and AI agents work together?", answer: "Yes. Creative drives demand; AI agents and Voice AI Worker catch and qualify it. One Birkirkara team owns the brief from asset to answer—see also /creative and /solutions." },
   { question: "Who builds OARC AI agents?", answer: "OARC Digital in Birkirkara builds and supports the agents—the same Malta team as creative and automation. Not an offshore chatbot reseller bolted onto a media retainer." },
+  { question: "Who is OARC Digital and where are you based?", answer: "OARC Digital is a Birkirkara marketing and AI studio at Level 1, The Brewhouse, Central Business District. On Google Maps, OARC Digital shows a 5.0 rating from 6 Google reviews. Phone +356 7971 1799." },
+  { question: "How do AI agents connect to automation and solutions?", answer: "Agents handle conversations; automation wires CRM and follow-up; solutions packages the revenue stack. Start at /ai-agents, then /services/automation and /solutions—plus /voice-ai-worker for phone coverage and /aeo/ai-agents-business-malta for Malta-specific answers." },
 ];
 
 
