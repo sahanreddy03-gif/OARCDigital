@@ -1,4 +1,5 @@
 import overlayBatch1 from "@/seo-manifest/uniqueness-overlay-batch1.json";
+import overlayBatch2 from "@/seo-manifest/uniqueness-overlay-batch2.json";
 import { buildLocationIndustryServiceContent } from "@/lib/seo/generateUniquePageContent";
 import { MALTA_PRIORITY_MATRIX_PATHS } from "@/lib/seo/maltaMatrixCohorts";
 import { LOCATION_IND_SVC_GLOBAL_KEEP } from "@/lib/seo/seoSets";
@@ -21,9 +22,20 @@ export type UniquenessOverlayDoc = {
 };
 
 export const UNIQUENESS_OVERLAY_BATCH1 = overlayBatch1 as UniquenessOverlayDoc;
+export const UNIQUENESS_OVERLAY_BATCH2 = overlayBatch2 as UniquenessOverlayDoc;
+
+/** Merged Owner Hero overlay entries (batch1 + batch2). */
+export const UNIQUENESS_OVERLAY_ALL_ENTRIES: readonly UniquenessOverlayEntry[] = [
+  ...UNIQUENESS_OVERLAY_BATCH1.entries,
+  ...UNIQUENESS_OVERLAY_BATCH2.entries,
+];
+
+/** Gate thresholds — same across batches; read from batch1 doc. */
+const GATE_MIN = UNIQUENESS_OVERLAY_BATCH1.minDistinctFields;
+const GATE_REQUIRED = UNIQUENESS_OVERLAY_BATCH1.requiredFields;
 
 const overlayByPath = new Map(
-  UNIQUENESS_OVERLAY_BATCH1.entries.map((e) => [e.path, e] as const),
+  UNIQUENESS_OVERLAY_ALL_ENTRIES.map((e) => [e.path, e] as const),
 );
 
 export function getUniquenessOverlay(path: string): UniquenessOverlayEntry | undefined {
@@ -53,8 +65,8 @@ export function passesMinimumDistinctFields(
   location: string,
   industry: string,
   service: string,
-  minFields = UNIQUENESS_OVERLAY_BATCH1.minDistinctFields,
-  required = UNIQUENESS_OVERLAY_BATCH1.requiredFields,
+  minFields = GATE_MIN,
+  required = GATE_REQUIRED,
 ): { ok: boolean; reason?: string; present: string[] } {
   const content = buildLocationIndustryServiceContent(location, industry, service);
   if (!content) {
@@ -90,10 +102,10 @@ export function passesUniquenessOverlay(path: string): { ok: boolean; reason?: s
   const entry = getUniquenessOverlay(path);
   if (!entry) return { ok: false, reason: "not-in-overlay" };
   const fields = entry.distinctFields ?? [];
-  if (fields.length < UNIQUENESS_OVERLAY_BATCH1.minDistinctFields) {
+  if (fields.length < GATE_MIN) {
     return {
       ok: false,
-      reason: `overlay-fields ${fields.length}<${UNIQUENESS_OVERLAY_BATCH1.minDistinctFields}`,
+      reason: `overlay-fields ${fields.length}<${GATE_MIN}`,
     };
   }
   if (entry.ownerHero !== true) {
@@ -103,7 +115,7 @@ export function passesUniquenessOverlay(path: string): { ok: boolean; reason?: s
 }
 
 /**
- * Priority-matrix quality rule when batch1 overlay exists:
+ * Priority-matrix quality rule when overlays exist:
  * path passes if (in overlay AND overlay ok) OR minimum distinct fields from builder.
  * Never flips LOCATION_IND_SVC_GLOBAL_KEEP.
  */
@@ -139,8 +151,8 @@ export function assertPriorityMatrixUniquenessGate(): {
       "uniqueness gate refuses to run while LOCATION_IND_SVC_GLOBAL_KEEP is false — do not flip GLOBAL_KEEP",
     );
   }
-  if (!UNIQUENESS_OVERLAY_BATCH1?.entries?.length) {
-    throw new Error("uniqueness-overlay-batch1.json missing or empty");
+  if (!UNIQUENESS_OVERLAY_ALL_ENTRIES.length) {
+    throw new Error("uniqueness overlay batches missing or empty");
   }
 
   let overlayPass = 0;
@@ -157,8 +169,8 @@ export function assertPriorityMatrixUniquenessGate(): {
     else minDistinctPass += 1;
   }
 
-  // Batch1 overlay entries themselves must all pass overlay checks.
-  for (const entry of UNIQUENESS_OVERLAY_BATCH1.entries) {
+  // Every overlay entry itself must pass overlay checks.
+  for (const entry of UNIQUENESS_OVERLAY_ALL_ENTRIES) {
     const r = passesUniquenessOverlay(entry.path);
     if (!r.ok) failures.push(`overlay-entry ${entry.path} → ${r.reason}`);
   }

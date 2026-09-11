@@ -5,6 +5,7 @@
  */
 
 import batch1 from "@/seo-manifest/uniqueness-batch1.json";
+import batch2 from "@/seo-manifest/uniqueness-batch2.json";
 
 export type UniquenessFaq = { q: string; a: string };
 export type UniquenessLink = { href: string; label: string };
@@ -30,7 +31,10 @@ type ContentBatch = {
   entries: Record<string, UniquenessContentEntry>;
 };
 
-const BATCHES: readonly ContentBatch[] = [batch1 as ContentBatch];
+const BATCHES: readonly ContentBatch[] = [
+  batch1 as ContentBatch,
+  batch2 as ContentBatch,
+];
 
 const byPath = new Map<string, UniquenessContentEntry>();
 for (const batch of BATCHES) {
@@ -41,6 +45,10 @@ for (const batch of BATCHES) {
 
 export const UNIQUENESS_CONTENT_BATCH1_PATHS: readonly string[] = (
   batch1 as ContentBatch
+).paths;
+
+export const UNIQUENESS_CONTENT_BATCH2_PATHS: readonly string[] = (
+  batch2 as ContentBatch
 ).paths;
 
 export function getUniquenessContent(
