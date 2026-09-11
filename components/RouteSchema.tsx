@@ -15,7 +15,6 @@ import {
   buildWebSite,
   combine,
   breadcrumbFromPath,
-  DEFAULT_RATING,
   type AggregateRatingOpts,
   type OfferOpts,
 } from "@/lib/schema";
@@ -141,7 +140,8 @@ export default function RouteSchema(props: RouteSchemaProps) {
         description: props.description,
         url,
         features: props.features,
-        aggregateRating: props.aggregateRating ?? DEFAULT_RATING,
+        // Sahan lock: NEVER invent AggregateRating — opt-in only.
+        ...(props.aggregateRating ? { aggregateRating: props.aggregateRating } : {}),
         offers: props.offers,
         serviceType: props.serviceType,
         audience: props.audience,
@@ -195,14 +195,14 @@ export default function RouteSchema(props: RouteSchemaProps) {
     if (props.faqs && props.faqs.length) nodes.push(buildFAQ(props.faqs, true));
   } else if (props.type === "localBusiness") {
     const lb: Record<string, unknown> = { ...buildLocalBusiness({ locality: props.locality }) };
-    const rating = props.aggregateRating ?? DEFAULT_RATING;
-    if (rating) {
+    // Opt-in AggregateRating only — never invent scores.
+    if (props.aggregateRating) {
       lb.aggregateRating = {
         "@type": "AggregateRating",
-        ratingValue: rating.ratingValue,
-        reviewCount: rating.reviewCount,
-        bestRating: rating.bestRating ?? 5,
-        worstRating: rating.worstRating ?? 1,
+        ratingValue: props.aggregateRating.ratingValue,
+        reviewCount: props.aggregateRating.reviewCount,
+        bestRating: props.aggregateRating.bestRating ?? 5,
+        worstRating: props.aggregateRating.worstRating ?? 1,
       };
     }
     nodes.push(lb);

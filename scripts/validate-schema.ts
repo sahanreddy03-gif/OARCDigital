@@ -11,10 +11,11 @@
  *   - 1x BreadcrumbList
  *   - 1x Speakable (WebPage with SpeakableSpecification cssSelector)
  *
- * Service-tier pages additionally need an AggregateRating (Review block where
- * >=3 testimonials exist). Blog index needs a CollectionPage / pillar bundle;
- * blog posts (out of the 60) emit Article + Author elsewhere via RouteSchema
- * type="article".
+ * AggregateRating is OPT-IN ONLY (Sahan lock 2026-09-11): never invent stars/%.
+ * Do not require AggregateRating / Review nodes on money pages unless real
+ * permissioned Google/Clutch reviews are wired. Blog index needs a
+ * CollectionPage / pillar bundle; blog posts emit Article + Author via
+ * RouteSchema type="article".
  *
  * STATIC: this script does NOT spin up the dev server. It reads page.tsx,
  * resolves the linked schema config (SERVICE_SCHEMAS, SERVICE_SCHEMA_EXTRAS,
@@ -358,16 +359,22 @@ function checkBreadcrumb(_p: PageCheck): void {
 }
 
 /**
- * Service-tier pages get AggregateRating via DEFAULT_RATING in RouteSchema.
- * We assert pages do not opt out via aggregateRating={null} or similar.
+ * Sahan lock: NEVER invent AggregateRating. Opt-in only when permissioned
+ * Google/Clutch reviews are wired. RouteSchema must not auto-apply DEFAULT_RATING.
  */
-function checkReview(p: PageCheck): void {
-  if (p.expects !== "service") return;
-  if (/aggregateRating\s*=\s*\{?\s*(null|false|undefined)/.test(p.source)) {
+function checkReview(_p: PageCheck): void {
+  // Per-page AggregateRating is no longer required.
+}
+
+function checkNoInventedRatingPipeline(): void {
+  const routeSchemaPath = path.join(REPO_ROOT, "components", "RouteSchema.tsx");
+  if (!fs.existsSync(routeSchemaPath)) return;
+  const src = fs.readFileSync(routeSchemaPath, "utf8");
+  if (/props\.aggregateRating\s*\?\?\s*DEFAULT_RATING/.test(src)) {
     issues.push({
-      url: p.url,
+      url: "(pipeline)",
       type: "review",
-      message: "service page explicitly disables aggregateRating — Review/AggregateRating bundle will not emit",
+      message: "RouteSchema still auto-applies DEFAULT_RATING — invents AggregateRating; strip fallback (Sahan lock)",
     });
   }
 }
@@ -378,6 +385,7 @@ function checkReview(p: PageCheck): void {
 
 function main(): void {
   console.log(`validate-schema: walking ${CANONICAL_60.length} canonical pages`);
+  checkNoInventedRatingPipeline();
 
   for (const c of CANONICAL_60) {
     const p = loadPage(c.url, c.expects);

@@ -23,10 +23,8 @@ import { AI_AGENTS_HERO_POSTER, AI_AGENTS_HERO_VIDEO } from '@/lib/media/aiAgent
 import { 
   ArrowRight, Check,
   Zap, Shield, TrendingUp, MessageSquare, Play, Pause, RotateCcw,
-  Database, Mail, Bot, Sparkles, ChevronRight, Star
+  Database, Mail, Bot, Sparkles, ChevronRight
 } from 'lucide-react';
-import { createAggregateRatingSchema } from '@/utils/advancedSchema';
-import { agentRatings } from '@/components/ai/aiAgentsData';
 import { SiWhatsapp } from 'react-icons/si';
 const workspaceImage = "/attached_assets/not_ai_agent_1768231816421.png";
 
@@ -163,11 +161,6 @@ function AnimatedCounter({ value, suffix = '', prefix = '' }: { value: string; s
 }
 
 
-const allRatings = Object.values(agentRatings);
-const overallReviewCount = allRatings.reduce((sum, r) => sum + r.reviewCount, 0);
-const overallRatingValue = Math.round(
-  (allRatings.reduce((sum, r) => sum + r.ratingValue * r.reviewCount, 0) / overallReviewCount) * 10
-) / 10;
 
 export default function PageContent() {
   const prefersReducedMotion = useReducedMotion();
@@ -249,15 +242,6 @@ export default function PageContent() {
             ]
           })}
         </script>
-        <script type="application/ld+json">
-          {JSON.stringify(createAggregateRatingSchema(
-            "OARC Digital AI Agents",
-            overallRatingValue,
-            overallReviewCount,
-            5,
-            'Service'
-          ))}
-        </script>
 </>
       
       <MinimalNav theme="dark" />
@@ -321,16 +305,6 @@ export default function PageContent() {
                   </Button>
                 </a>
                 
-                <div className="mt-5 flex items-center gap-2" data-testid="rating-trust-badge">
-                  <div className="flex items-center gap-0.5">
-                    {[1,2,3,4,5].map((star) => (
-                      <Star key={star} className="w-3.5 h-3.5 fill-[#c4ff4d] text-[#c4ff4d]" />
-                    ))}
-                  </div>
-                  <span className="text-white/80 text-sm font-medium" data-testid="text-overall-rating">{overallRatingValue}</span>
-                  <span className="text-white/40 text-sm">·</span>
-                  <span className="text-white/50 text-sm" data-testid="text-review-count">{overallReviewCount} verified reviews</span>
-                </div>
               </m.div>
             </div>
           </div>
