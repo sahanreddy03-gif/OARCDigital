@@ -60,7 +60,7 @@ const NODES: LinkNode[] = [
       "/services",
       "/our-work",
       "/new-work",
-      "/contact"
+      "/contact",
       "/malta",
       "/services/seo-services",
       "/services/ai-staff",
@@ -89,7 +89,7 @@ const NODES: LinkNode[] = [
       "/services/marketing-automation-suite",
       "/services/custom-software-development",
       "/aeo/ai-agency-malta",
-      "/aeo/ai-agents-business-malta"
+      "/aeo/ai-agents-business-malta",
       "/malta",
       "/malta/valletta",
       "/malta/sliema",
@@ -123,7 +123,7 @@ const NODES: LinkNode[] = [
       "/aeo/instagram-marketing-malta",
       "/aeo/tiktok-marketing-malta",
       "/aeo/content-creation-malta",
-      "/aeo/video-production-malta"
+      "/aeo/video-production-malta",
       "/malta",
       "/malta/valletta",
       "/malta/sliema",
@@ -171,7 +171,7 @@ const NODES: LinkNode[] = [
       "/automation",
       "/services/hire-ai-employees",
       "/services/ai-consulting",
-      "/contact"
+      "/contact",
       "/malta",
       "/malta/valletta",
       "/malta/sliema",
@@ -192,7 +192,7 @@ const NODES: LinkNode[] = [
       "/solutions",
       "/creative",
       "/voice-ai-worker",
-      "/contact"
+      "/contact",
       "/malta",
       "/malta/valletta",
       "/malta/sliema",
@@ -273,7 +273,7 @@ const NODES: LinkNode[] = [
       "/automation",
       "/voice-ai-worker",
       "/h360",
-      "/contact"
+      "/contact",
       "/malta",
       "/malta/valletta",
       "/malta/sliema",
