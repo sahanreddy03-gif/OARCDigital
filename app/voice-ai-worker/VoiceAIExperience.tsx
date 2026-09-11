@@ -21,6 +21,9 @@ const faqs = [
   ["Does the voice agent book appointments into my calendar?", "When scoped, yes—it books into your calendar or CRM and hands off exceptions that need a human decision."],
   ["How is a Voice AI Worker different from a basic IVR menu?", "IVR is button trees. A Voice AI Worker understands speech, completes tasks in your systems, and escalates judgment calls to people."],
   ["Is voice AI suitable for restaurants in Malta?", "Yes. Restaurants use voice for bookings and FAQs; see also H360 hospitality phone AI for venue-specific packaging."],
+  ["Is Voice AI Worker only for restaurants?", "No. Hospitality is a strong fit, and the same worker covers clinics, sales teams, home services, logistics, and other Malta operators who lose calls."],
+  ["How does Voice AI Worker relate to AI agents and creative?", "Voice covers the phone. Chat and CRM agents live on /ai-agents. Creative on /creative creates demand those agents catch. One Birkirkara team owns the stack."],
+  ["Who builds Voice AI Worker?", "OARC Digital in Birkirkara—the same marketing and AI studio behind creative, AI agents, H360, and automation. Phone +356 7971 1799."],
 ];
 
 export default function VoiceAIExperience() {

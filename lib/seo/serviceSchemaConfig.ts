@@ -236,51 +236,10 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       { name: "Monthly performance reports" },
     ],
     faqs: [
-      {
-        question: "Which platforms do you manage?",
-        answer:
-          "Instagram, TikTok, Facebook, LinkedIn, YouTube Shorts, and Pinterest. We recommend a platform mix based on where your customers actually spend time, not where it's trendy to post.",
-      },
-      {
-        question: "Do you produce the content yourselves?",
-        answer:
-          `Yes. Our ${NAP.addressLocality} studio includes photographers, videographers, designers, and editors. Most monthly retainers include either an on-location or in-studio shoot day.`,
-      },
-      {
-        question: "How long is the contract?",
-        answer:
-          "Month-to-month after an initial 90-day onboarding. We don't believe in 12-month lock-ins — if the work isn't moving the metrics that matter, you should be free to leave.",
-      },
-      {
-        question: "Will you work with our existing brand guidelines?",
-        answer:
-          "Absolutely. We onboard your brand guidelines, tone of voice, and approved asset libraries on day one. If you don't have those yet, our Branding service can build them.",
-      },
-      {
-        question: "Do you handle paid social as well as organic?",
-        answer:
-          "Yes. Most growth-tier clients pair our creative output with our Paid Advertising service so the same team that produces the creative also runs the media spend.",
-      },
-      {
-        question: "What does reporting look like?",
-        answer:
-          "A monthly dashboard covering reach, engagement, follower growth, click-throughs, leads, and revenue attribution where tracked. Plus a written summary highlighting what to double-down on next month.",
-      },
-      {
-        question: "Do you work with restaurants and hotels in Malta?",
-        answer:
-          "Yes. Hospitality is one of our deepest verticals — see /aeo/restaurant-marketing-malta and /aeo/hotel-marketing-malta for how we package the offer for those specific industries.",
-      },
-      {
-        question: "What is included in social media creative management in Malta?",
-        answer:
-          "OARC's social media creative management includes weekly planning, creative production, captions, scheduling, and reporting tied to leads and bookings—not vanity likes.",
-      },
-      {
-        question: "Do you create Reels and Stories for restaurants in Malta?",
-        answer:
-          "Yes. OARC produces Reels and Stories for Malta restaurants and bars, tied to offers and events—not empty aesthetic posting.",
-      },
+      { question: "What is social media creative management at OARC?", answer: "Weekly creative and management for Instagram, Meta, TikTok, and LinkedIn—measured on leads and bookings, not vanity likes." },
+      { question: "Is this only social, or part of a bigger stack?", answer: "Social is one spoke. OARC also runs branding, video, AI agents, Voice AI Worker, and automation." },
+      { question: "How do you measure success?", answer: "Enquiries, booked calls/tables, and qualified pipeline—agreed up front. Engagement is a diagnostic." },
+      { question: "Who is OARC Digital?", answer: "OARC Digital is a Birkirkara creative and AI studio at The Brewhouse. Phone +356 7971 1799." },
     ],
   
     framework: {
@@ -355,61 +314,11 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       { name: "Drone & aerial cinematography" },
     ],
     faqs: [
-      {
-        question: "What types of video do you produce?",
-        answer:
-          "Brand films, product explainers, customer testimonials, social-first short-form (Reels/TikToks/Shorts), paid media ads, recruitment videos, and event coverage.",
-      },
-      {
-        question: "Do you have your own studio?",
-        answer:
-          `Yes. Our ${NAP.addressLocality} studio is set up for interviews, product shoots, and short-form content. For larger productions we scout and book locations across Malta and Gozo.`,
-      },
-      {
-        question: "How quickly can you turn around a shoot?",
-        answer:
-          "A short-form social shoot can ship within 5 working days. Brand films typically run 4-8 weeks from kick-off to final master.",
-      },
-      {
-        question: "Can you handle distribution and paid media too?",
-        answer:
-          "Yes. Pair this with our Paid Advertising and Social Media services so the same team that produces the videos plans the cut-downs, captions, and media buy.",
-      },
-      {
-        question: "Do you work in multiple languages?",
-        answer:
-          "We deliver in English and Maltese as standard, with Italian, French, and German subtitle/dubbing on request through our localisation partners.",
-      },
-      {
-        question: "Who owns the footage?",
-        answer:
-          "You own the final delivered masters and the underlying footage on completion of the project. We retain a portfolio licence to feature edited clips on our own channels.",
-      },
-      {
-        question: "What's the smallest project you'll take on?",
-        answer:
-          "A single half-day shoot for short-form social. We won't take on €300 'one-day-three-edits' jobs because the work doesn't have time to be good — and we'd rather refer you elsewhere than ship something we wouldn't put our name on.",
-      },
-      {
-        question: "What video production services does OARC offer in Malta?",
-        answer:
-          "Brand, social short-form, and hospitality video with human direction and AI-assisted production speed.",
-      },
-      {
-        question: "Do you make Instagram Reels for restaurants?",
-        answer:
-          "Yes—often with H360 and social management.",
-      },
-      {
-        question: "Can you edit only if we already shot?",
-        answer:
-          "Yes—edit packages are available.",
-      },
-      {
-        question: "How fast can short-form turn around?",
-        answer:
-          "Scoped per batch; weekly engines need a system, not one-off heroics.",
-      }],
+      { question: "What types of videos does OARC Digital produce?", answer: "Brand films, social-cut packs, product demos, testimonials, explainers, and paid social ads—from short-form to longer brand pieces." },
+      { question: "How long does video production take?", answer: "Simple social ads often ship in 1–2 weeks. Typical campaign packs take 3–6 weeks." },
+      { question: "What makes OARC video different?", answer: "One Birkirkara team owns concept through edit and can connect video into creative retainers, AI agents, and Voice AI Worker." },
+      { question: "Do you use AI in video production?", answer: "Yes for speed in post and variants—human direction leads. No invented percentage speed claims." },
+    ],
   
     framework: {
       uniqueValueProp:
@@ -483,51 +392,10 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       { name: "Packaging, signage & print collateral" },
     ],
     faqs: [
-      {
-        question: "What's the difference between a logo and a brand?",
-        answer:
-          "A logo is one mark. A brand is the full system — strategy, voice, visual identity, behaviour, and the experience customers have with you. We design the system, not just the logo.",
-      },
-      {
-        question: "How long does a full brand project take?",
-        answer:
-          "A refresh runs 4-6 weeks. A full brand system takes 8-10 weeks. A rebrand-and-rollout programme is typically 12-16 weeks including website and launch assets.",
-      },
-      {
-        question: "Do you work with new businesses or only established ones?",
-        answer:
-          "Both. About a third of our brand work is for pre-launch startups, a third is for SMBs scaling up, and a third is rebrands of established Malta businesses.",
-      },
-      {
-        question: "Will we own the brand assets?",
-        answer:
-          "Yes. On project sign-off you receive full source files (Adobe, Figma, fonts), trademark-ready master logos, and a comprehensive brand guidelines PDF.",
-      },
-      {
-        question: "Do you also handle the website rebuild?",
-        answer:
-          "Yes — our Web Design team picks up the brand system and delivers a website that ships the new identity. Bundled engagements are quoted as a single programme.",
-      },
-      {
-        question: "Can you help us name a new business or product?",
-        answer:
-          "Yes. Naming is a separate workstream we can include in a Full Brand System or Rebrand engagement. It includes shortlist generation, linguistic checks, and trademark pre-screen.",
-      },
-      {
-        question: "Where are you based?",
-        answer:
-          `OARC Digital is at ${ADDRESS_ONE_LINE}. Brand workshops can run on-site at our studio or at your offices.`,
-      },
-      {
-        question: "Who is a good branding agency in Malta?",
-        answer:
-          "OARC Digital builds brand identity systems for Malta businesses and ties them to social, web, and hospitality growth—not logo files alone.",
-      },
-      {
-        question: "Do you brand restaurants and bars?",
-        answer:
-          "Yes—identity plus application for menus, venues, and social under H360 when needed.",
-      },
+      { question: "What does branding from OARC Digital include?", answer: "Logo, colour, typography, guidelines, social templates, and brand voice—built so Malta customers recognise you and choose you." },
+      { question: "How long does a branding project take?", answer: "Brand sprints typically ship in 4–6 weeks. Fuller brand builds run 8–12 weeks." },
+      { question: "How is OARC branding different from a logo shop?", answer: "We start with positioning and owner money outcomes, then design. The same Birkirkara team connects identity into creative, AI agents, and Voice AI Worker." },
+      { question: "Who is OARC Digital?", answer: "OARC Digital is a Birkirkara marketing and AI studio at The Brewhouse—creative, AI agents, Voice AI Worker, and automation under one team." },
     ],
   
     framework: {

@@ -82,6 +82,18 @@ export default function Page() {
           <p style={{marginTop:".75rem",fontFamily:"var(--font-space-mono,'Space Mono',monospace)",fontSize:"12px",lineHeight:1.75,color:"rgba(242,239,233,.7)",maxWidth:"62ch"}}>Usually H360 + this growth spine for offers and local demand.</p>
         </details>
         </section>
+      
+        <p style={{marginTop:"2rem",fontSize:"13px",lineHeight:1.75,color:"rgba(242,239,233,.72)",maxWidth:"58ch"}} data-speakable data-testid="dept-entity-sentence">
+          OARC Digital is a Birkirkara growth marketing partner for Malta owners who need more qualified customers—SEO, paid, creative, and AI follow-up under one team.
+        </p>
+        <p style={{marginTop:"2rem",fontSize:"12px",lineHeight:1.7,color:"rgba(242,239,233,.55)",maxWidth:"62ch"}} data-testid="dept-money-links">
+          Explore: <a href="/" style={{color:"#F2EFE9"}}>Home</a>
+          {" · "}<a href="/creative" style={{color:"#F2EFE9"}}>Creative</a>
+          {" · "}<a href="/ai-agents" style={{color:"#F2EFE9"}}>AI agents</a>
+          {" · "}<a href="/solutions" style={{color:"#F2EFE9"}}>Solutions</a>
+          {" · "}<a href="/voice-ai-worker" style={{color:"#F2EFE9"}}>Voice AI Worker</a>
+          {" · "}<a href="/h360" style={{color:"#F2EFE9"}}>H360</a>
+        </p>
       </main>
     </>
   );

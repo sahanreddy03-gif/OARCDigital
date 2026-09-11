@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from 'next';
 import H360Hero from './_components/Hero';
 import OarcBridge from './_components/OarcBridge';
@@ -135,6 +136,18 @@ export default function H360Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <H360Hero />
+      <section className="px-6 py-8 bg-black text-white" data-testid="h360-entity-block">
+        <p className="max-w-3xl mx-auto text-center text-base text-white/80" data-speakable data-testid="h360-entity-sentence">
+          OARC Digital is a Birkirkara marketing and AI studio; H360 is its hospitality line for Malta restaurants—Maps visibility, reviews, creative, and Voice AI Worker under one team.
+        </p>
+        <p className="mt-4 text-center text-sm text-white/50" data-testid="h360-money-links">
+          Explore: <Link href="/" className="underline-offset-2 hover:underline">Home</Link>
+          {" · "}<Link href="/creative" className="underline-offset-2 hover:underline">Creative</Link>
+          {" · "}<Link href="/ai-agents" className="underline-offset-2 hover:underline">AI agents</Link>
+          {" · "}<Link href="/voice-ai-worker" className="underline-offset-2 hover:underline">Voice AI Worker</Link>
+          {" · "}<Link href="/solutions" className="underline-offset-2 hover:underline">Solutions</Link>
+        </p>
+      </section>
       <OarcBridge />
       <H360FeatureCards />
       <H360BelowHero />
