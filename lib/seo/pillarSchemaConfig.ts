@@ -25,10 +25,10 @@ export type PillarSchemaEntry = {
 
 export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automation", PillarSchemaEntry> = {
   "/": {
-    title: "OARC Digital | Malta's First AI-Native Creative + Automation Agency",
+    title: "Marketing Agency Malta | AI Creative + Agents | OARC",
     // Google-first: ~140–155 chars, key message in first ~120 (mobile SERP). Bing max 160.
     description:
-      "Malta's first AI-native agency: brand strategy, social, video, AI agents & revenue automation. Built in Birkirkara for growth in revenue, not slides.",
+      "Malta marketing agency in Birkirkara: brand, social, video, AI agents & automation under one roof. Built for revenue growth—not slides. Book a call.",
     faqs: [
       {
         question: "What does OARC Digital do?",
@@ -180,9 +180,9 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
   },
 
   "/creative": {
-    title: "Creative & Brand Agency — AI-Augmented Production | OARC Digital",
+    title: "Creative Agency Malta | Brand + Video | OARC",
     description:
-      "Editorial-grade social, video, brand, and web work for Malta's most discerning businesses. Human creative direction, AI-augmented production, measured against revenue not impressions.",
+      "Creative agency in Malta for brand, social, and video—human direction, AI-augmented production, measured on revenue. Birkirkara.",
     faqs: [
       {
         question: "What does OARC Digital's creative practice cover?",

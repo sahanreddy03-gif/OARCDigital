@@ -452,17 +452,16 @@ export default function HeroSection() {
                 className={`${heroSans.className} block font-semibold tracking-[-0.035em] leading-[1.05]`}
                 style={{ fontSize: "clamp(1.55rem, 7.6vw, 1.95rem)" }}
               >
-                AI-Native Marketing Agency
+                Marketing Agency Malta
               </span>
               <span
-                className={`${heroSerif.className} block italic tracking-[-0.03em] leading-[1.08] mt-1 whitespace-nowrap`}
-                style={{ fontSize: "clamp(1.35rem, 6.6vw, 1.7rem)" }}
+                className={`${heroSerif.className} block italic tracking-[-0.03em] leading-[1.08] mt-1`}
+                style={{ fontSize: "clamp(1.15rem, 5.4vw, 1.45rem)" }}
               >
-                Malta&apos;s One{" "}
+                One team for{" "}
                 <span className={`${heroSans.className} text-[#e8ffb0] font-semibold not-italic`}>
-                  End-to-End
-                </span>{" "}
-                Team
+                  creative, AI &amp; growth
+                </span>
               </span>
             </h1>
           </div>
@@ -524,12 +523,11 @@ export default function HeroSection() {
                       className="block tracking-tight leading-[1.05] text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)]"
                       style={{ fontFamily: "var(--font-swarsh)" }}
                     >
-                      AI-Native Marketing Agency
+                      Marketing Agency Malta
                     </span>
-                    <span className="block font-extralight italic font-serif tracking-[-0.04em] leading-[1.05] mt-2 whitespace-nowrap text-[clamp(2.2rem,4.7vw,3.85rem)] lg:text-[clamp(2.3rem,4.1vw,3.4rem)]">
-                      Malta&apos;s One{" "}
-                      <span className="text-[#e8ffb0] font-semibold not-italic">End-to-End</span>{" "}
-                      Team
+                    <span className="block font-extralight italic font-serif tracking-[-0.04em] leading-[1.05] mt-2 text-[clamp(2.2rem,4.7vw,3.85rem)] lg:text-[clamp(2.3rem,4.1vw,3.4rem)]">
+                      One team for{" "}
+                      <span className="text-[#e8ffb0] font-semibold not-italic">creative, AI &amp; growth</span>
                     </span>
                   </h1>
 

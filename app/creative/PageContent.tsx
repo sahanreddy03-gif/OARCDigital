@@ -1205,9 +1205,9 @@ export default function PageContent() {
                 data-testid="text-hero-headline"
                 data-speakable
               >
-                WE ARE THE MODERN<br />
+                CREATIVE AGENCY MALTA<br />
                 <span className="italic" style={{ fontFamily: 'Georgia, serif' }}>
-                  CREATIVE AGENCY
+                  brand, social &amp; video that sells
                 </span>
               </h1>
             </m.div>

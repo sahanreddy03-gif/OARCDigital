@@ -4,9 +4,9 @@ import OarcBridge from './_components/OarcBridge';
 import H360FeatureCards from './_components/FeatureCards';
 import H360BelowHero from './_components/BelowHero';
 
-const TITLE = 'Restaurant Marketing Malta | OARC Digital — H360 Hospitality';
+const TITLE = 'Restaurant Marketing Malta | H360 Hospitality | OARC';
 const DESCRIPTION =
-  'OARC Digital helps Malta restaurants rank on Google, collect reviews, take direct orders with zero commission, and turn guests into regulars. H360 is our hospitality product line — one platform for every margin.';
+  'H360 helps Malta restaurants and bars get found on Maps, look sharp on social, and answer every booking call—creative + local + AI under one team.';
 const URL = 'https://oarcdigital.com/h360';
 const OARC = 'https://oarcdigital.com';
 
