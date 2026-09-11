@@ -906,25 +906,24 @@ export default function SocialMediaCreativeManagement() {
                 style={{ fontFamily: 'var(--font-display)' }}
                 data-speakable
               >
-                {/* CREATIVE - Clean solid dark */}
+                {/* Spoken Malta H1 — pack Gate 4 */}
                 <span 
                   className="block font-bold text-[#1A1A1A]"
                   style={{ 
-                    fontSize: 'clamp(3.25rem, 14vw, 4.5rem)',
+                    fontSize: 'clamp(2.1rem, 8vw, 3.25rem)',
                     letterSpacing: '-0.03em'
                   }}
                 >
-                  Creative
+                  Social media management Malta —
                 </span>
-                {/* That Converts - Clean accent color */}
                 <span 
                   className="block font-bold text-[#7B2FF7]"
                   style={{ 
-                    fontSize: 'clamp(2.5rem, 11vw, 3.5rem)',
+                    fontSize: 'clamp(2rem, 7.5vw, 3rem)',
                     letterSpacing: '-0.02em'
                   }}
                 >
-                  That Converts
+                  creative that books customers
                 </span>
               </m.h1>
               

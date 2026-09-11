@@ -165,6 +165,10 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         answer:
           `Yes — Level 1, The Brewhouse, ${NAP.addressLocality} CBD between 09:00 and 18:00 on weekdays. We recommend booking ahead via ${NAP.phoneDisplay} so the right specialist is on-site for your brief.`,
       },
+      {
+        question: "What is OARC Digital's phone number?",
+        answer: "Call or WhatsApp +356 7971 1799 for creative, AI agents, hospitality H360, or SEO.",
+      },
     ],
   },
 

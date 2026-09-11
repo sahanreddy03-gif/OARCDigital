@@ -116,8 +116,8 @@ export default function LeadGeneration() {
             data-testid="heading-lead-generation"
             data-speakable
           >
-            Stop chasing cold leads.{" "}
-            <span className="italic text-[#c4ff4d]">Start closing warm ones.</span>
+            Lead generation Malta —{" "}
+            <span className="italic text-[#c4ff4d]">stop chasing cold leads, book warm meetings</span>
           </h1>
           <p className="text-xl text-white/85 mb-8 max-w-3xl mx-auto leading-relaxed" data-speakable>
             We deliver qualified meetings booked into your closer's calendar — with a pre-call brief on every prospect. Measured by cost-per-qualified-meeting. Reported weekly.

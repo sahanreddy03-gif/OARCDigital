@@ -103,9 +103,9 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
   },
 
   "/ai-agents": {
-    title: "AI Agents for Business — Malta's AI Workforce | OARC Digital",
+    title: "AI Agents for Business Malta | OARC Workforce",
     description:
-      "Deploy AI agents that handle sales outreach, support, appointment booking, admin, and ops 24/7. Malta-based, EU-data-resident, integrated with your CRM. One AI workforce that pays for itself.",
+      "Deploy AI agents for sales, support, booking, and ops—24/7, EU-data-aware, CRM-connected. Malta's AI workforce from OARC Digital.",
     faqs: [
       {
         question: "What is an AI agent and how is it different from a chatbot?",
@@ -146,6 +146,16 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
         question: "How do I know an AI agent is right for my business?",
         answer:
           "Book a free 30-minute AI workforce audit. We map your current workflows, calculate the human-hour cost of each, and tell you exactly which (if any) are economic to hand to an AI agent. We will tell you to skip it if the maths does not work.",
+      },
+      {
+        question: "What can an AI agent do for my Malta business on day one?",
+        answer:
+          "OARC AI agents can answer FAQs, qualify leads, book appointments, and update your CRM from day one—so Malta businesses stop losing demand to slow replies.",
+      },
+      {
+        question: "Do you offer voice phone agents as well as chat?",
+        answer:
+          "Yes. OARC builds chat, WhatsApp, and Voice AI Worker phone agents so callers and chatters both get a next step without waiting in voicemail limbo.",
       },
     ],
     framework: {
@@ -257,9 +267,9 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
   },
 
   "/automation": {
-    title: "Business Automation & Revenue Systems — Malta | OARC Digital",
+    title: "Business Automation Malta | Revenue Solutions | OARC",
     description:
-      "Replace manual workflows with software that pays for itself. Marketing automation, CRM ops, lead routing, WhatsApp automation, and custom internal tools for Malta businesses.",
+      "One Malta team for creative, AI agents, and automation—so owners get more customers and fewer manual loops. Birkirkara. Book a call.",
     faqs: [
       {
         question: "What does business automation mean at OARC Digital?",
@@ -300,6 +310,16 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
         question: "Can OARC migrate me off legacy automation tools like Mailchimp or ActiveCampaign?",
         answer:
           "Yes. Common migrations are Mailchimp / ActiveCampaign / Klaviyo to a HubSpot-or-similar stack with proper attribution and lifecycle automation. Migration projects ship in 4 to 8 weeks with zero downtime.",
+      },
+      {
+        question: "What business automation solutions does OARC offer in Malta?",
+        answer:
+          "OARC combines creative, AI agents, and workflow automation so Malta businesses capture more demand and run fewer manual loops under one team.",
+      },
+      {
+        question: "Where should I start: AI, creative, or SEO?",
+        answer:
+          "Start where money leaks: missed calls (voice), weak brand (creative), or invisible search (SEO). OARC sequences from that leak on the first call.",
       },
     ],
     framework: {

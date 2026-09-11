@@ -10,7 +10,7 @@ import { buildFAQ } from "@/lib/schema";
 
 const TITLE = "Why Choose OARC Over Other Marketing Agencies in Malta";
 const DESCRIPTION =
-  "A side-by-side comparison of OARC Digital and the traditional Malta agency model. Speed, cost, AI integration, scalability, and reporting — see the difference before you book a call.";
+  "Why Malta owners pick OARC: one Birkirkara team for creative, AI agents, and growth—peer voice, revenue outcomes, no vendor ping-pong.";
 const URL = "https://oarcdigital.com/why-oarc";
 
 export const metadata: Metadata = {

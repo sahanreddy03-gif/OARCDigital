@@ -182,9 +182,9 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "social-media-creative-management": {
-    title: "Social Media Management Malta | Creative Content Agency | OARC Digital",
+    title: "Social Media Management Malta | Weekly Creative | OARC",
     description:
-      "Social media management and creative content production for Malta businesses. OARC Digital manages Instagram, TikTok, and Facebook with strategy-first content that builds brands and drives customers.",
+      "Weekly social creative and management for Malta brands—Instagram, Meta, TikTok—measured on leads and bookings, not vanity likes. Birkirkara.",
     offers: [
       {
         name: "Starter Social",
@@ -251,6 +251,16 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         question: "Do you work with restaurants and hotels in Malta?",
         answer:
           "Yes. Hospitality is one of our deepest verticals — see /aeo/restaurant-marketing-malta and /aeo/hotel-marketing-malta for how we package the offer for those specific industries.",
+      },
+      {
+        question: "What is included in social media creative management in Malta?",
+        answer:
+          "OARC's social media creative management includes weekly planning, creative production, captions, scheduling, and reporting tied to leads and bookings—not vanity likes.",
+      },
+      {
+        question: "Do you create Reels and Stories for restaurants in Malta?",
+        answer:
+          "Yes. OARC produces Reels and Stories for Malta restaurants and bars, tied to offers and events—not empty aesthetic posting.",
       },
     ],
   
@@ -400,9 +410,9 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   branding: {
-    title: "Branding & Identity Design | OARC Digital",
+    title: "Branding Agency Malta | Identity That Sells | OARC",
     description:
-      "Build brands that resonate. From strategy to visual identity, OARC Digital creates complete brand systems that stand out in Malta and scale with your business.",
+      "Branding and identity for Malta businesses—logos, systems, and guidelines scored on whether customers choose you, not just aesthetics.",
     offers: [
       {
         name: "Brand Refresh",
@@ -470,6 +480,16 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         answer:
           `OARC Digital is at ${ADDRESS_ONE_LINE}. Brand workshops can run on-site at our studio or at your offices.`,
       },
+      {
+        question: "Who is a good branding agency in Malta?",
+        answer:
+          "OARC Digital builds brand identity systems for Malta businesses and ties them to social, web, and hospitality growth—not logo files alone.",
+      },
+      {
+        question: "Do you brand restaurants and bars?",
+        answer:
+          "Yes—identity plus application for menus, venues, and social under H360 when needed.",
+      },
     ],
   
     framework: {
@@ -509,9 +529,9 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
   },
 
   "paid-advertising": {
-    title: "Paid Advertising | Performance Marketing | OARC Digital",
+    title: "Paid Advertising Malta | Performance Marketing | OARC",
     description:
-      "Elite paid advertising management from OARC Digital. Drive ROI with data-driven Meta, Google, LinkedIn, and TikTok campaigns built for Malta businesses scaling profitably.",
+      "Performance paid advertising for Malta businesses—Google/Meta and more—creative-led, tracked, and tied to sales follow-up.",
     offers: [
       {
         name: "Single Channel",
@@ -578,6 +598,11 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         question: "Do you specialise in any verticals?",
         answer:
           "Hospitality, iGaming, e-commerce, real estate, and SaaS. We have playbooks for each and can speak to specific Malta-based case studies on a discovery call.",
+      },
+      {
+        question: "Who runs paid advertising in Malta at OARC?",
+        answer:
+          "OARC performance marketers run Google/Meta (and more) with creative and tracking, reported in owner language on cost per enquiry or booking where tracked.",
       },
     ],
   
@@ -1940,9 +1965,9 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
     },
   },
   "custom-ai-agents": {
-    title: "Custom AI Agents for Business | OARC Digital",
+    title: "Custom AI Agents Malta | Finish the Work | OARC",
     description:
-      "OARC builds custom AI agents for businesses in Malta and beyond. They complete defined sales, operations, research, finance, recruiting, and back-office workflows with clear permissions and reviewable evidence.",
+      "Custom AI agents built around your workflows—tools, guardrails, and human handoff—so unique jobs actually finish.",
     offers: [],
     features: [
       { name: "Sales research, qualification, and CRM follow-through" },
@@ -1967,6 +1992,16 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
         question: "Can an AI agent change records or send messages?",
         answer:
           "Only where the workflow allows it. OARC defines permissions and human review points before an agent performs an action.",
+      },
+      {
+        question: "Do you build custom AI agents in Malta?",
+        answer:
+          "Yes—workflow-specific agents with tools and guardrails so unique jobs actually finish.",
+      },
+      {
+        question: "How is this different from ChatGPT?",
+        answer:
+          "Connected to your jobs and tools with evaluation and human handoff—not a generic chat window.",
       },
     ],
     serviceType: "Custom AI Agent Development",

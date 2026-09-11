@@ -307,9 +307,9 @@ export default function PageContent() {
                 style={{ fontFamily: 'var(--font-swarsh)' }}
                 data-testid="text-hero-headline"
               >
-                One Team.<br />
-                <span className="text-[#c4ff4d]">Complete</span> Digital<br />
-                Transformation.
+                Business solutions Malta —<br />
+                <span className="text-[#c4ff4d]">creative, AI staff,</span><br />
+                and systems that run.
               </h1>
               
               <p 

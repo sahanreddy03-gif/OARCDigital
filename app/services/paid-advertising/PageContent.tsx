@@ -43,7 +43,7 @@ export default function PaidAdvertising() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700" data-speakable>
-            Paid advertising that <span className="italic text-[#c4ff4d]">actually scales</span>
+            Paid advertising Malta — <span className="italic text-[#c4ff4d]">scale what actually converts</span>
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150" data-speakable>
             We manage over $50M in annual ad spend across Google, Meta, LinkedIn, and TikTok. Our campaigns don't just drive clicks—they drive profitable growth at scale.

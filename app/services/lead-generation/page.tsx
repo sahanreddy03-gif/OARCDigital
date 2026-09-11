@@ -9,27 +9,27 @@ const SLUG = "lead-generation";
 const URL = `https://oarcdigital.com/services/${SLUG}`;
 
 export const metadata: Metadata = {
-  title: "Lead Generation Malta | Qualified Meetings, Not Form Fills | OARC Digital",
-  description: "AI-powered lead generation for Malta and EU businesses. We deliver qualified meetings booked into your closer's calendar — measured by cost-per-qualified-meeting, not impressions.",
+  title: "Lead Generation Malta | Qualified Meetings | OARC",
+  description: "Lead generation for Malta businesses focused on qualified meetings—not form-fill vanity volume.",
   alternates: getHreflangAlternates(`/services/${SLUG}`),
   openGraph: {
     images: ogImageEntry({
-      title: "Lead Generation Malta | Qualified Meetings | OARC Digital",
-      subtitle: "Stop chasing cold leads. OARC's AI-powered lead generation delivers qualified meetings with pre-call briefs — guaranteed meeting volumes in your SOW.",
+      title: "Lead Generation Malta | Qualified Meetings | OARC",
+      subtitle: "Stop chasing cold leads. OARC lead generation focuses on qualified meetings with clear measurement—not form-fill vanity volume.",
     }),
-    title: "Lead Generation Malta | Qualified Meetings | OARC Digital",
-    description: "AI-powered lead generation for Malta and EU businesses. We deliver qualified meetings booked into your closer's calendar — measured by cost-per-qualified-meeting, not impressions.",
+    title: "Lead Generation Malta | Qualified Meetings | OARC",
+    description: "Lead generation for Malta businesses focused on qualified meetings—not form-fill vanity volume.",
     url: URL,
     type: "article",
   },
   twitter: {
     images: [ogImageUrl({
-      title: "Lead Generation Malta | Qualified Meetings | OARC Digital",
-      subtitle: "Stop chasing cold leads. OARC's AI-powered lead generation delivers qualified meetings with pre-call briefs — guaranteed meeting volumes in your SOW.",
+      title: "Lead Generation Malta | Qualified Meetings | OARC",
+      subtitle: "Stop chasing cold leads. OARC lead generation focuses on qualified meetings with clear measurement—not form-fill vanity volume.",
     })],
     card: "summary_large_image",
-    title: "Lead Generation Malta | Qualified Meetings | OARC Digital",
-    description: "AI-powered lead generation for Malta and EU businesses. Qualified meetings, not form fills.",
+    title: "Lead Generation Malta | Qualified Meetings | OARC",
+    description: "Lead generation for Malta businesses focused on qualified meetings—not form-fill vanity volume.",
   },
 };
 
