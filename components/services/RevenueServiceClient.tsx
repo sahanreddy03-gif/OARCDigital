@@ -183,7 +183,12 @@ export default function RevenueService({
     }
   }, [slug, location]);
 
+  // SSR / crawler fix: never blank the page when server-provided deep content
+  // exists. Client JSON fetch still hydrates the hero after mount.
   if (loading) {
+    if (extraSeoContent) {
+      return <Layout>{extraSeoContent}</Layout>;
+    }
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
@@ -199,6 +204,9 @@ export default function RevenueService({
   }
 
   if (!content) {
+    if (extraSeoContent) {
+      return <Layout>{extraSeoContent}</Layout>;
+    }
     return (
       <Layout>
         <div className="min-h-screen bg-black pt-32 px-6 text-center">
