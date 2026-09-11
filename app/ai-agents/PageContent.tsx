@@ -734,6 +734,33 @@ export default function PageContent() {
           </div>
         </section>
 
+
+        {/* Agent Economy entry — marketplace of marketing agents */}
+        <section className="relative z-10 py-16 sm:py-20 px-4 sm:px-6 bg-zinc-950 border-t border-white/5" data-testid="section-agent-economy-entry">
+          <div className="max-w-5xl mx-auto">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-[#c4ff4d] mb-3">Agent economy</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Marketing agents that live on the internet</h2>
+            <p className="text-white/60 max-w-2xl mb-6 leading-relaxed">
+              Beyond workforce roles: the OARC agent economy is a public capability registry — SEO/AEO, creative, outreach, GBP, and voice agents that market for owners on the agentic web. Same Birkirkara company as this page, solutions, AI staff, and Hermes marketing engineer ops.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/agent-economy"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#c4ff4d] text-black text-xs font-bold uppercase tracking-[0.1em] rounded-sm"
+                data-testid="cta-ai-agents-to-economy"
+              >
+                Enter the agent economy <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/solutions"
+                className="inline-flex items-center gap-2 px-5 py-2.5 border border-white/20 text-white text-xs font-bold uppercase tracking-[0.1em] rounded-sm hover:border-[#c4ff4d]/40"
+              >
+                Solutions
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Entity + money siblings for AEO/GEO */}
         <section className="relative z-10 py-12 sm:py-16 px-4 sm:px-6 bg-black border-t border-white/5" data-testid="ai-agents-entity-block">
           <div className="max-w-3xl mx-auto text-center">
@@ -743,6 +770,8 @@ export default function PageContent() {
             <p className="mt-6 text-sm text-white/50" data-testid="ai-agents-money-links">
               Explore:{" "}
               <Link href="/" className="text-white/80 underline-offset-2 hover:underline">Home</Link>
+              {" · "}
+              <Link href="/agent-economy" className="text-white/80 underline-offset-2 hover:underline">Agent economy</Link>
               {" · "}
               <Link href="/creative" className="text-white/80 underline-offset-2 hover:underline">Creative</Link>
               {" · "}

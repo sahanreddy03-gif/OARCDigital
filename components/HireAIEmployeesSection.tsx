@@ -532,15 +532,26 @@ export default function HireAIEmployeesSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          <Link href="/services/hire-ai-employees">
-            <button 
-              className="group inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#c4ff4d] to-[#a8e636] text-black text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:shadow-lg hover:shadow-[#c4ff4d]/25 rounded-sm"
-              data-testid="button-explore-workforce"
-            >
-              <span>Meet All Agents</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link href="/agent-economy">
+              <button 
+                className="group inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#c4ff4d] to-[#a8e636] text-black text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:shadow-lg hover:shadow-[#c4ff4d]/25 rounded-sm"
+                data-testid="button-explore-agent-economy"
+              >
+                <span>Enter Agent Economy</span>
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </Link>
+            <Link href="/ai-agents">
+              <button 
+                className="group inline-flex items-center gap-3 px-6 py-3 border border-white/20 text-white text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:border-[#c4ff4d]/40 hover:text-[#c4ff4d] rounded-sm"
+                data-testid="button-explore-workforce"
+              >
+                <span>Meet AI Workforce</span>
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </Link>
+          </div>
         </m.div>
       </div>
     </section>

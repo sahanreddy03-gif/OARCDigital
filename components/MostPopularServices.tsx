@@ -30,11 +30,11 @@ const SUPPORTING: Tile[] = [
     accent: "amber",
   },
   {
-    label: "Outcomes, not slides",
-    href: "/aeo/digital-transformation-malta",
-    title: "Digital Transformation Malta",
+    label: "Agent marketplace",
+    href: "/agent-economy",
+    title: "AI Agent Economy Malta",
     blurb:
-      "AI agents and automation that ship live in 30 days, measured in 90.",
+      "Marketing agents that work for you — SEO/AEO, creative, GBP, voice, outreach.",
     accent: "amber",
   },
   {

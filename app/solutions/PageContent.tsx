@@ -1049,6 +1049,24 @@ export default function PageContent() {
           }) }} />
         </section>
 
+
+        <section className="py-16 px-6 border-t border-white/5 bg-zinc-950" data-testid="section-solutions-agent-economy">
+          <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[#c4ff4d] mb-2">Agent economy</p>
+              <h2 className="text-2xl font-bold text-white mb-2">Browse marketing agents that work for you</h2>
+              <p className="text-white/55 text-sm max-w-xl">SEO/AEO, creative, outreach, GBP, voice — public marketplace energy on the same OARC rail as solutions and AI staff.</p>
+            </div>
+            <Link
+              href="/agent-economy"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#c4ff4d] text-black text-xs font-bold uppercase tracking-[0.1em] rounded-sm shrink-0"
+              data-testid="cta-solutions-to-economy"
+            >
+              Enter agent economy
+            </Link>
+          </div>
+        </section>
+
         <section className="py-12 px-6 border-t border-white/5 bg-black" data-testid="solutions-entity-block">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-base md:text-lg text-white/80 leading-relaxed" data-speakable>
@@ -1061,6 +1079,8 @@ export default function PageContent() {
               <Link href="/creative" className="text-white/80 underline-offset-2 hover:underline">Creative</Link>
               {" · "}
               <Link href="/ai-agents" className="text-white/80 underline-offset-2 hover:underline">AI agents</Link>
+              {" · "}
+              <Link href="/agent-economy" className="text-white/80 underline-offset-2 hover:underline">Agent economy</Link>
               {" · "}
               <Link href="/voice-ai-worker" className="text-white/80 underline-offset-2 hover:underline">Voice AI Worker</Link>
               {" · "}

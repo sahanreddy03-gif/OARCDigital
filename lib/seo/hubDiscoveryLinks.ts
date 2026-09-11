@@ -26,6 +26,7 @@ export const MALTA_PRIORITY_LOCATION_LINKS: readonly HubDiscoveryLink[] = [
 /** Money + agent hubs that should cross-link for ≤3–4 click discovery. */
 export const MONEY_AGENT_HUB_LINKS: readonly HubDiscoveryLink[] = [
   { href: "/ai-agents", label: "AI agents" },
+  { href: "/agent-economy", label: "Agent economy" },
   { href: "/services/ai-staff", label: "AI staff" },
   { href: "/services/automation", label: "Automation" },
   { href: "/solutions", label: "Solutions" },
