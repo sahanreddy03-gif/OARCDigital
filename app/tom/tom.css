@@ -1692,23 +1692,3 @@
 .tom-proof-note { margin-top:2rem; color:#657069; }
 @media (max-width:900px) { .tom-proof-grid { grid-template-columns:repeat(2,1fr); } }
 @media (max-width:560px) { .tom-proof-grid { grid-template-columns:1fr; } }
-
-/* Original OARC media-first art direction */
-.tom-hero-still { position:absolute; width:min(62vw,54rem); height:min(62vw,54rem); right:-8vw; top:8%; object-fit:cover; opacity:.94; mix-blend-mode:screen; filter:saturate(1.08) contrast(1.05); border-radius:50%; animation:tom-hero-object 12s ease-in-out infinite; }
-.tom-hero-still + .tom-wrap { position:relative; }
-.tom-hero-flow { display:flex; flex-direction:column; justify-content:flex-end; min-height:32rem; padding:1.2rem; overflow:hidden; }
-.tom-workflow-image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.52; mix-blend-mode:screen; filter:saturate(.85) contrast(1.1); }
-.tom-hero-flow::after { z-index:1; }
-.tom-hero-flow__steps { position:relative; z-index:2; display:grid; gap:.55rem; }
-.tom-hero-flow__steps > div { display:grid; grid-template-columns:2.4rem 1fr; column-gap:.65rem; padding:.7rem .8rem; background:rgba(5,8,8,.72); border:1px solid rgba(143,214,174,.2); backdrop-filter:blur(10px); }
-.tom-hero-flow__steps strong { grid-row:span 2; color:#8fd6ae; font:700 .8rem/1 var(--font-space-mono),monospace; }
-.tom-hero-flow__steps span { color:#f5f5f3; font:700 .68rem/1.2 var(--font-space-mono),monospace; letter-spacing:.1em; }
-.tom-hero-flow__steps small { color:rgba(245,245,243,.63); font-size:.75rem; line-height:1.35; }
-.tom-industry-rail { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:1rem; padding:1rem 0 2rem; scrollbar-width:thin; scrollbar-color:#c8102e transparent; }
-.tom-industry-rail .tom-industry-link { flex:0 0 min(28rem,78vw); min-height:12rem; padding:1.5rem; scroll-snap-align:start; display:flex; align-items:flex-end; background:linear-gradient(145deg,rgba(143,214,174,.12),rgba(5,8,8,.9)); border:1px solid rgba(143,214,174,.22); }
-.tom-industry-rail .tom-industry-link div { width:100%; font-size:1.15rem; }
-.tom-industry-rail .tom-industry-link span { display:block; color:#8fd6ae; font:700 .65rem/1 var(--font-space-mono),monospace; margin-bottom:2.5rem; }
-.tom-industry-rail::after { content:"SWIPE / DRAG TO EXPLORE  →"; flex:0 0 auto; align-self:center; color:#c8102e; font:700 .65rem/1 var(--font-space-mono),monospace; letter-spacing:.12em; }
-@keyframes tom-hero-object { 0%,100% { transform:translate3d(0,0,0) rotate(-3deg) scale(1); } 50% { transform:translate3d(-1rem,-1rem,0) rotate(4deg) scale(1.04); } }
-@media (max-width:800px) { .tom-hero-still { width:90vw; height:90vw; right:-20vw; top:1%; opacity:.6; } .tom-hero-grid { padding-top:10rem; } .tom-hero-flow { min-height:24rem; } }
-@media (prefers-reduced-motion:reduce) { .tom-hero-still { animation:none; } }
