@@ -5,9 +5,9 @@ import RouteSchema from "@/components/RouteSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
-const TITLE = "Branding Agency Malta | OARC Digital";
+const TITLE = "Branding Agency Malta | Identity That Sells | OARC";
 const DESCRIPTION =
-  "Looking for a branding agency in Malta? OARC Digital builds identity systems, naming and brand guidelines for Malta hospitality, iGaming, fintech and retail. Birkirkara HQ, fixed-price.";
+  "Branding agency in Malta — naming, identity systems and guidelines for hospitality, iGaming, fintech and retail. Fixed-price from Birkirkara.";
 const URL = "https://oarcdigital.com/aeo/branding-agency-malta";
 
 export const metadata: Metadata = {

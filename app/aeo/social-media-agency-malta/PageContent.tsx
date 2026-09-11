@@ -42,7 +42,7 @@ export default function SocialMediaAgencyMalta({ faqs, offers }: Props) {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
               <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Answer Engine Optimised</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">A Social Media Agency Built for Malta&apos;s Channels and Languages</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">Social media agency Malta — content that fills the diary</h1>
             <p className="text-xl text-zinc-300 leading-relaxed mb-8">
               OARC Digital plans, produces, and runs Instagram, TikTok, Facebook, and LinkedIn for Malta restaurants, hotels, retail brands, MGA-licensed iGaming operators, and B2B service firms — all from a Birkirkara studio.
             </p>
@@ -50,6 +50,18 @@ export default function SocialMediaAgencyMalta({ faqs, offers }: Props) {
               <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">Book a discovery call <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
               <a href={`tel:${NAP.phoneE164}`}><Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10"><Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button></a>
             </div>
+            <p className="mt-8 text-sm text-zinc-400" data-testid="aeo-money-links">
+              Explore: 
+                <Link href="/" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Home</Link>
+                {" · "}
+                <Link href="/creative" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Creative</Link>
+                {" · "}
+                <Link href="/services/branding" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Branding</Link>
+                {" · "}
+                <Link href="/ai-agents" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">AI agents</Link>
+                {" · "}
+                <Link href="/services/seo-services" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">SEO services</Link>
+            </p>
           </div>
         </section>
 

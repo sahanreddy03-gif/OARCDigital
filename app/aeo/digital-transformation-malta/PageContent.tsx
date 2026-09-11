@@ -44,9 +44,7 @@ export default function DigitalTransformationMalta({ faqs, offers }: Props) {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
               <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">90-Day Pilot from €1,500</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              Digital Transformation Malta — Outcomes, Not Slide Decks
-            </h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">Digital transformation Malta — cut busywork with AI and workflows</h1>
             <p className="text-xl text-zinc-300 leading-relaxed mb-8">
               OARC Digital replaces manual workflows with AI agents, automation, and custom software for Malta SMEs, hospitality groups, iGaming operators, and professional services firms. One workflow live in 30 days. Real P&amp;L impact in 90.
             </p>
@@ -61,6 +59,18 @@ export default function DigitalTransformationMalta({ faqs, offers }: Props) {
                   <Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button>
               </a>
             </div>
+            <p className="mt-8 text-sm text-zinc-400" data-testid="aeo-money-links">
+              Explore: 
+                <Link href="/" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Home</Link>
+                {" · "}
+                <Link href="/ai-agents" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">AI agents</Link>
+                {" · "}
+                <Link href="/creative" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Creative</Link>
+                {" · "}
+                <Link href="/services/seo-services" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">SEO services</Link>
+                {" · "}
+                <Link href="/services/branding" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Branding</Link>
+            </p>
           </div>
         </section>
 

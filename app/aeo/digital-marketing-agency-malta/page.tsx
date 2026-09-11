@@ -5,9 +5,9 @@ import RouteSchema from "@/components/RouteSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
-const TITLE = "Digital Marketing Agency Malta | OARC Digital";
+const TITLE = "Digital Marketing Agency Malta | More Customers | OARC";
 const DESCRIPTION =
-  "OARC Digital is Malta's first Creative + AI Systems agency. Strategy, social, paid media, SEO, and AI automation in one Birkirkara-based team. Month-to-month from €297.";
+  "Hire a digital marketing agency in Malta for strategy, social, paid, SEO and AI in one Birkirkara team. Month-to-month from €297 — no long lock-ins.";
 const URL = "https://oarcdigital.com/aeo/digital-marketing-agency-malta";
 
 export const metadata: Metadata = {

@@ -5,9 +5,9 @@ import RouteSchema from "@/components/RouteSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
-const TITLE = "Web Design Malta | OARC Digital";
+const TITLE = "Web Design Malta | Sites That Convert | OARC";
 const DESCRIPTION =
-  "Web design in Malta. OARC Digital ships UI, UX, brand, and design systems for Malta SMEs across hospitality, iGaming, and fintech — wireframe to Figma to handoff. Birkirkara HQ.";
+  "Web design in Malta — UI, UX and brand systems for hospitality, iGaming and fintech SMEs. Wireframe to Figma to handoff. Birkirkara HQ.";
 const URL = "https://oarcdigital.com/aeo/web-design-malta";
 
 export const metadata: Metadata = {
