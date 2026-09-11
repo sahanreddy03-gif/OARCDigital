@@ -487,6 +487,20 @@ export default function ContentMarketingContent() {
           </div>
         </section>
 
+
+      <section className="mb-10 p-5 rounded-xl border bg-card" data-testid="content-mkt-agents-depth-inlinks">
+        <p className="text-sm text-foreground leading-relaxed" data-speakable>
+          Content that ranks still needs an answer path—route readers into AI agents, solutions, and automation so citation-worthy pages convert.
+        </p>
+        <p className="mt-3 text-sm text-muted-foreground">
+          <Link href="/ai-agents" className="text-foreground underline-offset-2 hover:underline">AI agents</Link>
+          {" · "}
+          <Link href="/solutions" className="text-foreground underline-offset-2 hover:underline">Solutions</Link>
+          {" · "}
+          <Link href="/services/automation" className="text-foreground underline-offset-2 hover:underline">Automation</Link>
+        </p>
+      </section>
+
         <RelatedServices slug="/services/content-marketing" />
 
         <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center mt-8">

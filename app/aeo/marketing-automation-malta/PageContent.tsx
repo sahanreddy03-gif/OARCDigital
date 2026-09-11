@@ -124,11 +124,40 @@ export default function MarketingAutomationMalta({ faqs, offers }: Props) {
             <div className="space-y-4">
               {faqs.map((faq, i) => (
                 <div key={i} className="p-5 rounded-xl bg-card border">
-                  <h3 className="font-bold mb-2">{faq.question}</h3>
-                  <p className="text-muted-foreground faq-answer">{faq.answer}</p>
+                  <h3 className="font-bold mb-2" data-speakable>{faq.question}</h3>
+                  <p className="text-muted-foreground faq-answer" data-speakable>{faq.answer}</p>
                 </div>
               ))}
             </div>
+          </section>
+
+
+          <section className="mb-12 p-6 rounded-xl bg-card border" data-testid="aeo-marketing-automation-entity-block">
+            <p className="text-foreground leading-relaxed" data-speakable>
+              OARC Digital runs marketing automation for Malta businesses from Birkirkara—lifecycle journeys that hand warm leads to AI agents, Voice AI Worker, and sales without dropping the thread.
+            </p>
+            <div className="mt-4 space-y-3" data-testid="aeo-marketing-automation-speakable-qa">
+              <div>
+                <p className="text-sm font-semibold" data-speakable>What does marketing automation include?</p>
+                <p className="text-sm text-muted-foreground" data-speakable>Triggered email, WhatsApp, and CRM sequences tied to real conversion events—not blast newsletters—with optional AI agents for replies.</p>
+              </div>
+              <div>
+                <p className="text-sm font-semibold" data-speakable>Where do agents and solutions fit?</p>
+                <p className="text-sm text-muted-foreground" data-speakable>Automation nurtures; AI agents and Voice AI Worker catch replies and calls; solutions packages the full revenue path.</p>
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground" data-testid="aeo-marketing-automation-money-links">
+              Explore:{" "}
+              <Link href="/ai-agents" className="text-foreground underline-offset-2 hover:underline">AI agents</Link>
+              {" · "}
+              <Link href="/solutions" className="text-foreground underline-offset-2 hover:underline">Solutions</Link>
+              {" · "}
+              <Link href="/services/automation" className="text-foreground underline-offset-2 hover:underline">Automation</Link>
+              {" · "}
+              <Link href="/voice-ai-worker" className="text-foreground underline-offset-2 hover:underline">Voice AI Worker</Link>
+              {" · "}
+              <Link href="/malta" className="text-foreground underline-offset-2 hover:underline">Malta hubs</Link>
+            </p>
           </section>
 
           <RelatedLinks slug="/aeo/marketing-automation-malta" />

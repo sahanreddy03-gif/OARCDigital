@@ -173,6 +173,7 @@ run_step "audit-core-57"              npx tsx scripts/audit-core-57.ts
 run_step "audit-images"               npx tsx scripts/audit-images.ts
 run_step "validate-historical-programmatic" npx tsx scripts/validate-historical-programmatic.ts
 run_step "guard-approved-historical-urls" npx tsx scripts/guard-approved-historical-urls.ts
+run_step "guard-uniqueness-quality-gate" npx tsx scripts/guard-uniqueness-quality-gate.ts
 run_step "audit-sitemap (static)"     npx tsx scripts/audit-sitemap.ts
 
 if [ "$MODE" = "gate" ]; then

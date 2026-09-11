@@ -123,11 +123,40 @@ export default function AIAgencyMalta({ faqs, offers }: Props) {
             <div className="space-y-4">
               {faqs.map((faq, i) => (
                 <div key={i} className="p-5 rounded-xl bg-card border">
-                  <h3 className="font-bold mb-2">{faq.question}</h3>
-                  <p className="text-muted-foreground faq-answer">{faq.answer}</p>
+                  <h3 className="font-bold mb-2" data-speakable>{faq.question}</h3>
+                  <p className="text-muted-foreground faq-answer" data-speakable>{faq.answer}</p>
                 </div>
               ))}
             </div>
+          </section>
+
+
+          <section className="mb-12 p-6 rounded-xl bg-card border" data-testid="aeo-ai-agency-entity-block">
+            <p className="text-foreground leading-relaxed" data-speakable>
+              OARC Digital is an AI agency in Birkirkara, Malta—building AI agents, automation, creative, and Voice AI Worker under one local team for owners who need make-or-save outcomes, not slide decks.
+            </p>
+            <div className="mt-4 space-y-3" data-testid="aeo-ai-agency-speakable-qa">
+              <div>
+                <p className="text-sm font-semibold" data-speakable>What does an AI agency in Malta actually ship?</p>
+                <p className="text-sm text-muted-foreground" data-speakable>Live agents, automation, and phone workers with EU hosting and CRM integrations—scoped from The Brewhouse in Birkirkara.</p>
+              </div>
+              <div>
+                <p className="text-sm font-semibold" data-speakable>Where do AI agents and automation fit?</p>
+                <p className="text-sm text-muted-foreground" data-speakable>Start at AI agents for workforce roles, automation for workflows, solutions for the revenue stack, and Voice AI Worker for inbound calls.</p>
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground" data-testid="aeo-ai-agency-money-links">
+              Explore:{" "}
+              <Link href="/ai-agents" className="text-foreground underline-offset-2 hover:underline">AI agents</Link>
+              {" · "}
+              <Link href="/solutions" className="text-foreground underline-offset-2 hover:underline">Solutions</Link>
+              {" · "}
+              <Link href="/services/automation" className="text-foreground underline-offset-2 hover:underline">Automation</Link>
+              {" · "}
+              <Link href="/voice-ai-worker" className="text-foreground underline-offset-2 hover:underline">Voice AI Worker</Link>
+              {" · "}
+              <Link href="/malta" className="text-foreground underline-offset-2 hover:underline">Malta hubs</Link>
+            </p>
           </section>
 
           <RelatedLinks slug="/aeo/ai-agency-malta" />

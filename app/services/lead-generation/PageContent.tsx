@@ -511,6 +511,22 @@ export default function LeadGeneration() {
         </div>
       </section>
 
+
+      <section className="py-10 px-6 border-t border-white/10 bg-zinc-950" data-testid="lead-gen-agents-depth-inlinks">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-sm text-white/70 leading-relaxed" data-speakable>
+            Lead generation only pays when follow-up is instant. Pair campaigns with AI agents, solutions, and automation so every enquiry gets a next step.
+          </p>
+          <p className="mt-4 text-sm text-white/50">
+            <Link href="/ai-agents" className="text-white/80 underline-offset-2 hover:underline">AI agents</Link>
+            {" · "}
+            <Link href="/solutions" className="text-white/80 underline-offset-2 hover:underline">Solutions</Link>
+            {" · "}
+            <Link href="/services/automation" className="text-white/80 underline-offset-2 hover:underline">Automation</Link>
+          </p>
+        </div>
+      </section>
+
       <RelatedServices slug="/services/lead-generation" />
     </Layout>
   );

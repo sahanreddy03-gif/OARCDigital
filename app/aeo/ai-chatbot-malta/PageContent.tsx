@@ -141,11 +141,40 @@ export default function AIChatbotMalta({ faqs, offers }: Props) {
             <div className="space-y-4">
               {faqs.map((faq, i) => (
                 <div key={i} className="p-5 rounded-xl bg-card border">
-                  <h3 className="font-bold mb-2">{faq.question}</h3>
-                  <p className="text-muted-foreground faq-answer">{faq.answer}</p>
+                  <h3 className="font-bold mb-2" data-speakable>{faq.question}</h3>
+                  <p className="text-muted-foreground faq-answer" data-speakable>{faq.answer}</p>
                 </div>
               ))}
             </div>
+          </section>
+
+
+          <section className="mb-12 p-6 rounded-xl bg-card border" data-testid="aeo-ai-chatbot-entity-block">
+            <p className="text-foreground leading-relaxed" data-speakable>
+              OARC Digital builds AI chatbots and agents for Malta businesses from Birkirkara—web, WhatsApp, and Voice AI Worker—so chatters and callers get a next step instead of a dead form.
+            </p>
+            <div className="mt-4 space-y-3" data-testid="aeo-ai-chatbot-speakable-qa">
+              <div>
+                <p className="text-sm font-semibold" data-speakable>Is an OARC chatbot just FAQ replies?</p>
+                <p className="text-sm text-muted-foreground" data-speakable>No. Chatbots escalate into role-scoped AI agents that book, qualify, and update CRM; Voice AI Worker covers the phone when chat is not enough.</p>
+              </div>
+              <div>
+                <p className="text-sm font-semibold" data-speakable>What should I read next?</p>
+                <p className="text-sm text-muted-foreground" data-speakable>See AI agents for the full workforce, solutions for packaging, and automation for the CRM wiring behind the bot.</p>
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground" data-testid="aeo-ai-chatbot-money-links">
+              Explore:{" "}
+              <Link href="/ai-agents" className="text-foreground underline-offset-2 hover:underline">AI agents</Link>
+              {" · "}
+              <Link href="/solutions" className="text-foreground underline-offset-2 hover:underline">Solutions</Link>
+              {" · "}
+              <Link href="/services/automation" className="text-foreground underline-offset-2 hover:underline">Automation</Link>
+              {" · "}
+              <Link href="/voice-ai-worker" className="text-foreground underline-offset-2 hover:underline">Voice AI Worker</Link>
+              {" · "}
+              <Link href="/malta" className="text-foreground underline-offset-2 hover:underline">Malta hubs</Link>
+            </p>
           </section>
 
           <RelatedLinks slug="/aeo/ai-chatbot-malta" />

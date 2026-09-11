@@ -131,6 +131,7 @@ export default async function IndustryPage({
               {" · "}<Link href="/ai-agents">AI agents</Link>
               {" · "}<Link href="/creative">Creative</Link>
               {" · "}<Link href="/solutions">Solutions</Link>
+              {" · "}<Link href="/services/automation">Automation</Link>
               {" · "}<Link href="/h360">H360</Link>
               {" · "}<Link href="/">Home</Link>
             </p>

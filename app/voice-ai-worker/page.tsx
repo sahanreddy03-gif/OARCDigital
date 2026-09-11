@@ -73,6 +73,9 @@ export default function VoiceAIWorkerPage() {
             {" · "}<Link href="/ai-agents" className="underline-offset-2 hover:underline">AI agents</Link>
             {" · "}<Link href="/creative" className="underline-offset-2 hover:underline">Creative</Link>
             {" · "}<Link href="/solutions" className="underline-offset-2 hover:underline">Solutions</Link>
+            {" · "}<Link href="/services/automation" className="underline-offset-2 hover:underline">Automation</Link>
+            {" · "}<Link href="/aeo/ai-agents-business-malta" className="underline-offset-2 hover:underline">AI agents Malta</Link>
+            {" · "}<Link href="/malta" className="underline-offset-2 hover:underline">Malta hubs</Link>
             {" · "}<Link href="/h360" className="underline-offset-2 hover:underline">H360</Link>
           </p>
         </section>

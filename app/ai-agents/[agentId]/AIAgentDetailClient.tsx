@@ -187,6 +187,39 @@ export default function AIAgentDetailClient({ agentId }: { agentId: string }) {
         {/* rating/testimonial UI removed — no permissioned reviews */}
 
         {/* FAQ Section */}
+{/* AEO entity + speakable Q&A + cross-links — design-neutral strip */}
+        <section className="px-4 sm:px-6 py-12 bg-black border-t border-white/5" data-testid="agent-detail-entity-block">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-base text-white/80 leading-relaxed" data-speakable>
+              {agent.name} is an OARC Digital AI {agent.role} built in Birkirkara for Malta businesses—part of the same workforce studio as automation, Voice AI Worker, and solutions. Deploy the role you need; escalate to humans when judgement matters.
+            </p>
+            <div className="mt-6 space-y-3 text-left max-w-xl mx-auto" data-testid="agent-detail-speakable-qa">
+              <div>
+                <p className="text-sm font-semibold text-white/90" data-speakable>Who builds this AI agent?</p>
+                <p className="text-sm text-white/60" data-speakable>OARC Digital in Birkirkara—the same Malta team behind AI staff, automation, and Voice AI Worker phone agents.</p>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-white/90" data-speakable>Where does this fit with automation and voice?</p>
+                <p className="text-sm text-white/60" data-speakable>Chat and workflow agents cover digital channels; Voice AI Worker covers the phone; automation wires CRM and follow-up so nothing drops between systems.</p>
+              </div>
+            </div>
+            <p className="mt-6 text-sm text-white/50" data-testid="agent-detail-money-links">
+              Explore:{" "}
+              <Link href="/ai-agents" className="text-white/80 underline-offset-2 hover:underline">All AI agents</Link>
+              {" · "}
+              <Link href="/solutions" className="text-white/80 underline-offset-2 hover:underline">Solutions</Link>
+              {" · "}
+              <Link href="/services/automation" className="text-white/80 underline-offset-2 hover:underline">Automation</Link>
+              {" · "}
+              <Link href="/voice-ai-worker" className="text-white/80 underline-offset-2 hover:underline">Voice AI Worker</Link>
+              {" · "}
+              <Link href="/services/ai-staff" className="text-white/80 underline-offset-2 hover:underline">AI staff</Link>
+              {" · "}
+              <Link href="/malta" className="text-white/80 underline-offset-2 hover:underline">Malta hubs</Link>
+            </p>
+          </div>
+        </section>
+
         <FAQSection
           faqs={agent.faqs}
           title={`${agent.name} FAQ`}
