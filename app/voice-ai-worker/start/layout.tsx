@@ -10,13 +10,13 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  alternates: getHreflangAlternates("/tom/start"),
+  alternates: getHreflangAlternates("/voice-ai-worker/start"),
   robots: { index: false, follow: true },
   openGraph: {
     title,
     description,
     type: "website",
-    url: "https://oarcdigital.com/tom/start",
+    url: "https://oarcdigital.com/voice-ai-worker/start",
     images: ogImageEntry({ title, subtitle: description }),
   },
   twitter: {

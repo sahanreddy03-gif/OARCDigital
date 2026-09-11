@@ -58,11 +58,11 @@ export async function generateMetadata({
   return {
     title: page.metaTitle,
     description: page.metaDescription,
-    alternates: getHreflangAlternates(`/tom/${page.slug}`),
+    alternates: getHreflangAlternates(`/voice-ai-worker/${page.slug}`),
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,
-      url: `https://oarcdigital.com/tom/${page.slug}`,
+      url: `https://oarcdigital.com/voice-ai-worker/${page.slug}`,
       type: "website",
       images: ogImageEntry({ title: page.metaTitle, subtitle: page.metaDescription }),
     },
@@ -102,7 +102,7 @@ export default async function IndustryPage({
     <Layout navTheme="dark" showMobileNav>
       <RouteSchema
         type="service"
-        path={`/tom/${page.slug}`}
+        path={`/voice-ai-worker/${page.slug}`}
         title={page.metaTitle}
         description={page.metaDescription}
         serviceType="Voice AI Worker industry configuration"
@@ -123,7 +123,7 @@ export default async function IndustryPage({
             <h1 className="tom-display">{getField(hero, "headline")}</h1>
             <p className="tom-lead">{getField(hero, "lead")}</p>
             <div className="tom-actions">
-              <Link className="tom-button tom-button--red" href="/tom/start">
+              <Link className="tom-button tom-button--red" href="/voice-ai-worker/start">
                 {heroButtons[0] ?? "Give him one job"} ↗
               </Link>
               <a className="tom-button" href="#moment">
@@ -229,7 +229,7 @@ export default async function IndustryPage({
             <h2 className="tom-display">{getField(close, "close headline")}</h2>
             <p className="tom-lead">{getField(close, "close lead")}</p>
             <div className="tom-actions">
-              <Link className="tom-button tom-button--red" href="/tom/start">
+              <Link className="tom-button tom-button--red" href="/voice-ai-worker/start">
                 {closeButtons[0] ?? "Start with one problem"} ↗
               </Link>
               <Link className="tom-button" href="/tom#industries">
