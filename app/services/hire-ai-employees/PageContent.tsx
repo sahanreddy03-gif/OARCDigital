@@ -178,7 +178,7 @@ export default function HireAIEmployees() {
               className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-[1.05] tracking-tight" 
               data-testid="heading-talent-hub"
             >
-              AI Virtual Talent Hub
+              Hire AI employees Malta — virtual talent that finishes jobs
             </m.h1>
             
             <m.p 

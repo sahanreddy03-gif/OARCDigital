@@ -121,12 +121,13 @@ export default function AIStaffPageClient() {
       {/* ── HERO ──────────────────────────────────────────────────────────────── */}
       <section style={{ position:"relative", zIndex:1, padding:"3.6rem 22px 2.8rem" }}>
         <Kicker label="AI Staff — dept 02" />
-        <h1 style={{ fontFamily:C.sg, fontWeight:700, fontSize:"clamp(2.8rem,12vw,4.6rem)", lineHeight:.94, letterSpacing:"-.035em", margin:"1.1rem 0 0", maxWidth:"11ch" }}>
-          Pick your<br />
+        <h1 style={{ fontFamily:C.sg, fontWeight:700, fontSize:"clamp(2.4rem,10vw,4rem)", lineHeight:.94, letterSpacing:"-.035em", margin:"1.1rem 0 0", maxWidth:"16ch" }}>
+          AI staff Malta —<br />
           <span style={{ position:"relative", display:"inline-block" }}>
-            employee.
+            hire the employee
             <span style={{ position:"absolute", inset:"-.05em -.12em", border:`1px solid ${C.line}`, borderRadius:4, pointerEvents:"none" }} />
           </span>
+          {" "}that never clocks out
         </h1>
         <p style={{ fontFamily:C.jb, fontSize:"11.5px", lineHeight:1.85, color:C.dim, marginTop:"1.3rem", maxWidth:"36ch" }}>
           AI staff that answer, book, sell and follow up for your business — while you run it. Trained on your rules. Live in days.

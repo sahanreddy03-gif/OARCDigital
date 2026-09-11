@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
-const TITLE = "Growth Marketing Malta — Bring Me More Customers | OARC";
+const TITLE = "Growth Marketing Malta | More Customers | OARC";
 const DESCRIPTION =
-  "OARC drives customer growth for Malta businesses: inbound and outbound systems that find the right people, earn their trust, and bring them back. Strategy + execution in one team.";
+  "Growth marketing for Malta owners who want more qualified customers—SEO, paid, creative, and AI follow-up under one team. No slide theatre.";
 const CANONICAL = "https://oarcdigital.com/services/growth";
 
 export const metadata: Metadata = {
@@ -23,8 +23,8 @@ export default function GrowthPage() {
         <span style={{ display:"block", width:24, height:1, background:"#E02B20", flexShrink:0 }} />
         Growth — dept 01
       </div>
-      <h1 style={{ fontWeight:700, fontSize:"clamp(2.8rem,12vw,4.6rem)", lineHeight:.94, letterSpacing:"-.035em", maxWidth:"12ch" }}>
-        Bring me more<br /><span style={{ color:"#E02B20" }}>customers.</span>
+      <h1 style={{ fontWeight:700, fontSize:"clamp(2.8rem,12vw,4.6rem)", lineHeight:.94, letterSpacing:"-.035em", maxWidth:"16ch" }}>
+        Growth marketing Malta —<br /><span style={{ color:"#E02B20" }}>bring me more customers.</span>
       </h1>
       <p style={{ fontFamily:"var(--font-space-mono,'Space Mono',monospace)", fontSize:"11.5px", lineHeight:1.85, color:"rgba(242,239,233,.6)", marginTop:"1.4rem", maxWidth:"38ch" }}>
         Full-funnel growth for Malta businesses — inbound discovery, outbound outreach, trust-building, and the systems that bring customers back. Full page coming soon.

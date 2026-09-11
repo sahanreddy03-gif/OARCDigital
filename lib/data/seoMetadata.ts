@@ -31,8 +31,8 @@ export const supportingPagesSEO: Record<string, PageSEO> = {
     ogType: 'website'
   },
   contact: {
-    title: 'Contact OARC Digital | Get in Touch with Our Team',
-    description: 'Talk to the OARC Digital team in Birkirkara CBD about AI creative, AI employees, and revenue automation. Walk in to The Brewhouse on weekdays, call +356 7971 1799, or book a slot online.',
+    title: 'Contact OARC Digital Malta | Book a Call',
+    description: 'Talk to OARC in Birkirkara: +356 7971 1799 or book a call for creative, AI agents, H360, or SEO. WhatsApp friendly.',
     path: '/contact',
     ogType: 'website'
   },

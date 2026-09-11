@@ -3,7 +3,7 @@ import type { EditorialService } from "@/components/services/OarcEditorialServic
 export const editorialServices: Record<string, EditorialService> = {
   "custom-ai-agents": {
     slug: "custom-ai-agents", eyebrow: "CUSTOM AI AGENTS",
-    title: "Custom AI agents that finish the work.",
+    title: "Custom AI agents Malta — built for your workflow, not a demo",
     intro: "OARC builds custom AI agents for businesses in Malta and beyond. They handle defined sales, operations, research, finance, recruiting and back-office work using your tools, your permissions and a reviewable record of every action.",
     image: "/images/services/custom-ai-agents-hero.jpg", imageAlt: "A team working with connected AI workflows", accent: "#e8ff55", accentSoft: "#f3f6c9",
     ownerTitle: "You do not need another chat window. You need fewer open loops.",

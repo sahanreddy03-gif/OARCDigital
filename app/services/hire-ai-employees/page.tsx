@@ -7,21 +7,21 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
 export const metadata: Metadata = {
-  title: "AI Virtual Talent Hub | Autonomous AI Agents On-Demand | OARC Digital Malta",
-  description: "Hire autonomous AI agents as on-demand team members. Our production-tested agents think, adapt, and execute 24/7 while slashing your hiring costs. Malta-based support.",
+  title: "Hire AI Employees Malta | Virtual Talent | OARC",
+  description: "Hire AI employees for sales, support, booking, and ops—Malta-based deployment with human oversight and CRM connection. Start with one role.",
   alternates: getHreflangAlternates("/services/hire-ai-employees"),
   openGraph: {
-    images: ogImageEntry({ title: "AI Virtual Talent Hub | Autonomous AI Agents On-Demand | OARC Digital Malta", subtitle: "Hire autonomous AI agents as on-demand team members. Our production-tested agents think, adapt, and execute 24/7 while slashing your hiring costs. Malta-based support." }),
-    title: "AI Virtual Talent Hub | Autonomous AI Agents On-Demand | OARC Digital Malta",
-    description: "Hire autonomous AI agents as on-demand team members. Our production-tested agents think, adapt, and execute 24/7 while slashing your hiring costs. Malta-based support.",
+    images: ogImageEntry({ title: "Hire AI Employees Malta | Virtual Talent | OARC", subtitle: "Hire AI employees for sales, support, booking, and ops—Malta-based deployment with human oversight and CRM connection. Start with one role." }),
+    title: "Hire AI Employees Malta | Virtual Talent | OARC",
+    description: "Hire AI employees for sales, support, booking, and ops—Malta-based deployment with human oversight and CRM connection. Start with one role.",
     url: "https://oarcdigital.com/services/hire-ai-employees",
     type: "article",
   },
   twitter: {
-    images: [ogImageUrl({ title: "AI Virtual Talent Hub | Autonomous AI Agents On-Demand | OARC Digital Malta", subtitle: "Hire autonomous AI agents as on-demand team members. Our production-tested agents think, adapt, and execute 24/7 while slashing your hiring costs. Malta-based support." })],
+    images: [ogImageUrl({ title: "Hire AI Employees Malta | Virtual Talent | OARC", subtitle: "Hire AI employees for sales, support, booking, and ops—Malta-based deployment with human oversight and CRM connection. Start with one role." })],
     card: "summary_large_image",
-    title: "AI Virtual Talent Hub | Autonomous AI Agents On-Demand | OARC Digital Malta",
-    description: "Hire autonomous AI agents as on-demand team members. Our production-tested agents think, adapt, and execute 24/7 while slashing your hiring costs. Malta-based support.",
+    title: "Hire AI Employees Malta | Virtual Talent | OARC",
+    description: "Hire AI employees for sales, support, booking, and ops—Malta-based deployment with human oversight and CRM connection. Start with one role.",
   },
 };
 

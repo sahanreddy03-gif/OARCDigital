@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import AIStaffPageClient from "./AIStaffPageClient";
 import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
-const TITLE = "AI Staff Malta — Hire Your AI Employee | OARC";
+const TITLE = "AI Staff Malta | Hire AI Employees | OARC";
 const DESCRIPTION =
-  "Hire AI staff for your Malta business: sales, bookings, missed-call return, reviews, support and admin across WhatsApp, phone, DMs and email. Trained in plain language, live in days, with human handoff built in.";
+  "Hire AI staff for sales, support, booking, and admin—Malta-deployed agents that finish work and hand off to humans when needed.";
 const CANONICAL = "https://oarcdigital.com/services/ai-staff";
 
 const LD = {
@@ -60,6 +60,22 @@ const LD = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "No — OARC is a Malta agency that makes businesses grow. AI staff is one of its services, delivered and supported by people.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What is AI staff from OARC Digital?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Role-based AI employees for Malta businesses—sales, support, booking, admin—that complete defined jobs with human handoff.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How do I supervise AI staff?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Transcripts, escalation rules, and a Malta team on call—agents are not set-and-forget toys.",
           },
         },
       ],

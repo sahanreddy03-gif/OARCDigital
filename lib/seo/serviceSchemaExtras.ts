@@ -1606,9 +1606,8 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "hire-ai-employees": {
-    title: "Hire AI Employees | Roster of Pre-Built AI Agents | OARC Digital",
-    description:
-      "Hire AI employees — SDR, support, admin, analyst, and more — on a single subscription. Onboarded in days, managed by us, swap-able as your priorities change.",
+    title: "Hire AI Employees Malta | Virtual Talent | OARC",
+    description: "Hire AI employees for sales, support, booking, and ops—Malta-based deployment with human oversight and CRM connection. Start with one role.",
     offers: [
       {
         name: "Single AI Hire",
@@ -1670,6 +1669,14 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         question: "Where is the data hosted?",
         answer:
           "EU-region only — Azure OpenAI West Europe or AWS Bedrock eu-central-1 by default. Workforce tier can opt for customer-held encryption keys (BYOK).",
+      },
+      {
+        question: "Can I hire AI employees in Malta from OARC?",
+        answer: "Yes. OARC deploys role-based AI employees for sales, support, booking, and admin with human oversight.",
+      },
+      {
+        question: "Are AI employees autonomous?",
+        answer: "They complete defined jobs inside guardrails; edge cases escalate. We do not sell unsupervised chaos.",
       },
     ],
   },
@@ -2040,9 +2047,8 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
   },
 
   "lead-generation": {
-    title: "Lead Generation Services Malta | Qualified B2B & B2C Leads | OARC Digital",
-    description:
-      "Lead generation that delivers qualified meetings, not raw form fills — outbound, inbound, AI qualification, and CRM hand-off. Reported as cost-per-qualified-meeting.",
+    title: "Lead Generation Malta | Qualified Meetings | OARC",
+    description: "Lead generation for Malta businesses focused on qualified meetings—not form-fill vanity volume.",
     offers: [
       {
         name: "Lead Gen Pilot",
@@ -2104,6 +2110,14 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
         question: "Where do the prospect lists come from?",
         answer:
           "Apollo, Cognism, Lusha, ZoomInfo, LinkedIn Sales Navigator, and bespoke scraping for niche EU markets. We GDPR-compliance-check every source and respect opt-outs across the entire prospect graph.",
+      },
+      {
+        question: "What lead generation services does OARC offer in Malta?",
+        answer: "Acquisition systems aimed at qualified meetings, not raw form spam—outbound, inbound, and AI qualification under one team.",
+      },
+      {
+        question: "Do you guarantee lead volumes?",
+        answer: "No fake lead-volume guarantees. We measure cost-per-qualified-meeting and agree targets in the SOW.",
       },
     ],
   },

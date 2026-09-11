@@ -7,21 +7,21 @@ import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags"
 const pillarMeta = PILLAR_SCHEMAS["/automation"];
 
 export const metadata: Metadata = {
-  title: "Business Automation & Revenue Solutions — Malta's First | OARC Digital",
-  description: "Automate your Malta business with OARC Digital. Workflow automation, CRM integration, API connections, lead funnels, email sequences & custom software development. Eliminate manual processes, reduce costs by 60%, and scale operations. Malta's premier automation partner.",
+  title: "Business Automation Malta | Revenue Solutions | OARC",
+  description: "One Malta team for creative, AI agents, and automation—so owners get more customers and fewer manual loops. Birkirkara. Book a call.",
   keywords: "business automation Malta, workflow automation Malta, CRM Malta, custom software Malta, digital transformation Malta, API integration Malta, lead generation Malta, email marketing Malta, marketing automation Malta, process automation Malta, Zapier Malta, HubSpot Malta, sales automation Malta",
   alternates: getHreflangAlternates("/solutions", { canonical: "https://oarcdigital.com/automation" }),
   openGraph: {
-    title: "Business Automation & Revenue Solutions — Malta's First | OARC Digital",
-    description: "Automate your Malta business. Workflow automation, CRM integration, lead funnels, email sequences & custom software. Reduce costs by 60%.",
+    title: "Business Automation Malta | Revenue Solutions | OARC",
+    description: "One Malta team for creative, AI agents, and automation—so owners get more customers and fewer manual loops. Birkirkara. Book a call.",
     url: "https://oarcdigital.com/automation",
     type: "website",
     images: [{ url: "https://oarcdigital.com/attached_assets/marketing-automation-optimized.webp", width: 1200, height: 630, alt: "OARC Digital Malta — revenue automation and marketing solutions for SMBs" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Business Automation Malta | OARC Digital",
-    description: "Workflow automation, CRM, lead funnels & custom software for Malta businesses. Reduce costs by 60%.",
+    title: "Business Automation Malta | Revenue Solutions | OARC",
+    description: "One Malta team for creative, AI agents, and automation—so owners get more customers and fewer manual loops.",
     images: ["https://oarcdigital.com/attached_assets/marketing-automation-optimized.webp"],
   },
 };

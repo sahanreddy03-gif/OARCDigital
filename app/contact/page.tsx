@@ -33,8 +33,8 @@ export default function Page() {
         <RouteSchema
           type="pillar"
           path="/contact"
-          title="Contact OARC Digital — Birkirkara, Malta | Book a 30-Minute Audit"
-          description="Talk to the OARC Digital team in Birkirkara CBD about creative, AI agents, and revenue automation. Walk in to The Brewhouse on weekdays, call us, or book a slot online."
+          title="Contact OARC Digital Malta | Book a Call"
+          description="Talk to OARC in Birkirkara: +356 7971 1799 or book a call for creative, AI agents, H360, or SEO. WhatsApp friendly."
           faqs={SUPPORTING_PAGE_SCHEMAS["/contact"].faqs}
         />
       <PageContent />

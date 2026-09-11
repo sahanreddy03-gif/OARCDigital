@@ -61,7 +61,7 @@ export default function Branding() {
             <div>
               <p className="text-orange-400 text-sm uppercase tracking-widest mb-4">Brand Design Studio</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-branding" data-speakable>
-                Brands people remember.
+                Branding Malta — identity customers recognise and trust
               </h1>
               <p className="text-xl text-white/80 mb-8" data-speakable>
                 More than a logo. We build complete brand systems—strategy, identity, voice, and everything in between.
