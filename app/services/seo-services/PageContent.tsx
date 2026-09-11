@@ -486,6 +486,68 @@ export default function SeoServicesContent() {
           </div>
         </section>
 
+        <section className="mb-12 p-6 rounded-xl bg-card border" data-testid="seo-entity-block">
+          <p className="text-foreground leading-relaxed mb-4" data-speakable>
+            OARC Digital is a Birkirkara SEO partner for Malta owners who need organic + AEO/GEO discovery that compounds — and the same team for creative, AI agents, and automation when ranked demand needs to convert.
+          </p>
+          <p className="text-sm text-muted-foreground mb-3" data-testid="seo-money-links">
+            Explore:{" "}
+            <Link href="/" className="text-foreground underline-offset-2 hover:underline">Home</Link>
+            {" · "}
+            <Link href="/creative" className="text-foreground underline-offset-2 hover:underline">Creative</Link>
+            {" · "}
+            <Link href="/ai-agents" className="text-foreground underline-offset-2 hover:underline">AI agents</Link>
+            {" · "}
+            <Link href="/solutions" className="text-foreground underline-offset-2 hover:underline">Solutions</Link>
+            {" · "}
+            <Link href="/services/automation" className="text-foreground underline-offset-2 hover:underline">Automation</Link>
+            {" · "}
+            <Link href="/services/ai-staff" className="text-foreground underline-offset-2 hover:underline">AI staff</Link>
+            {" · "}
+            <Link href="/malta" className="text-foreground underline-offset-2 hover:underline">Malta hubs</Link>
+          </p>
+          <p className="text-sm text-muted-foreground" data-testid="seo-malta-location-links">
+            Malta markets:{" "}
+            <Link href="/malta/valletta" className="text-foreground underline-offset-2 hover:underline">Valletta</Link>
+            {" · "}
+            <Link href="/malta/sliema" className="text-foreground underline-offset-2 hover:underline">Sliema</Link>
+            {" · "}
+            <Link href="/malta/st-julians" className="text-foreground underline-offset-2 hover:underline">St Julian&apos;s</Link>
+            {" · "}
+            <Link href="/malta/mosta" className="text-foreground underline-offset-2 hover:underline">Mosta</Link>
+            {" · "}
+            <Link href="/malta/birkirkara" className="text-foreground underline-offset-2 hover:underline">Birkirkara</Link>
+            {" · "}
+            <Link href="/malta/qormi" className="text-foreground underline-offset-2 hover:underline">Qormi</Link>
+            {" · "}
+            <Link href="/malta/hamrun" className="text-foreground underline-offset-2 hover:underline">Ħamrun</Link>
+            {" · "}
+            <Link href="/malta/naxxar" className="text-foreground underline-offset-2 hover:underline">Naxxar</Link>
+          </p>
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Priority Malta markets for SEO services",
+            "numberOfItems": 8,
+            "itemListOrder": "https://schema.org/ItemListOrderAscending",
+            "itemListElement": [
+              ["valletta", "Valletta"],
+              ["sliema", "Sliema"],
+              ["st-julians", "St Julian's"],
+              ["mosta", "Mosta"],
+              ["birkirkara", "Birkirkara"],
+              ["qormi", "Qormi"],
+              ["hamrun", "Hamrun"],
+              ["naxxar", "Naxxar"],
+            ].map(([slug, name], i) => ({
+              "@type": "ListItem",
+              "position": i + 1,
+              "url": `https://oarcdigital.com/malta/${slug}`,
+              "name": `${name} digital services`,
+            })),
+          }) }} />
+        </section>
+
         <RelatedServices slug="/services/seo-services" />
 
         <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center mt-8">
