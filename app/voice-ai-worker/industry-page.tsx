@@ -5,14 +5,14 @@ import Layout from "@/components/layout/Layout";
 import RouteSchema from "@/components/RouteSchema";
 import { getHreflangAlternates } from "@/lib/seo/discoveryTags";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
-import TomDigitalTwin from "./TomDigitalTwin";
-import { tomBriefPages, type TomBriefPage } from "./tom-v2-data";
+import VoiceWorkerDigitalTwin from "./VoiceWorkerDigitalTwin";
+import { voiceAIWorkerPages, type VoiceAIWorkerPage } from "./voice-ai-worker-data";
 
-const pageBySlug = Object.fromEntries(tomBriefPages.map((page) => [page.slug, page]));
+const pageBySlug = Object.fromEntries(voiceAIWorkerPages.map((page) => [page.slug, page]));
 
-type TomBlock = TomBriefPage["blocks"][number];
+type TomBlock = VoiceAIWorkerPage["blocks"][number];
 
-function getBlock(page: TomBriefPage, number: number) {
+function getBlock(page: VoiceAIWorkerPage, number: number) {
   return page.blocks.find((block) => block.number === number);
 }
 
@@ -46,7 +46,7 @@ function parseSimulation(caption: string) {
 }
 
 export function generateStaticParams() {
-  return tomBriefPages.map((page) => ({ slug: page.slug }));
+  return voiceAIWorkerPages.map((page) => ({ slug: page.slug }));
 }
 
 export async function generateMetadata({
@@ -54,7 +54,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const page = pageBySlug[(await params).slug] ?? tomBriefPages[0];
+  const page = pageBySlug[(await params).slug] ?? voiceAIWorkerPages[0];
   return {
     title: page.metaTitle,
     description: page.metaDescription,
@@ -112,7 +112,7 @@ export default async function IndustryPage({
       <main className="tom-page">
         <section className="tom-industry-hero">
           <div className="tom-industry-hero-art" aria-hidden="true">
-            <TomDigitalTwin
+            <VoiceWorkerDigitalTwin
               room={page.name}
               stations={agentStations}
               focus="LIVE WORKFLOW"
@@ -233,7 +233,7 @@ export default async function IndustryPage({
               <Link className="tom-button tom-button--red" href="/voice-ai-worker/start">
                 {closeButtons[0] ?? "Start with one problem"} ↗
               </Link>
-              <Link className="tom-button" href="/tom#industries">
+              <Link className="tom-button" href="/voice-ai-worker#industries">
                 See Voice AI Worker in another industry ↓
               </Link>
             </div>

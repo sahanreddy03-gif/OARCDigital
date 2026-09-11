@@ -3,13 +3,13 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-type TomDigitalTwinProps = {
+type VoiceWorkerDigitalTwinProps = {
   room: string;
   stations: string[];
   focus: string;
 };
 
-export default function TomDigitalTwin({ room, stations, focus }: TomDigitalTwinProps) {
+export default function VoiceWorkerDigitalTwin({ room, stations, focus }: VoiceWorkerDigitalTwinProps) {
   const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

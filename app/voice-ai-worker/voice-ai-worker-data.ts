@@ -1,7 +1,7 @@
 // Generated from attached_assets/tom-industry-pages-v2_1788620134603.md.
 // Keep this file data-only: the brief is the source of truth for Tom's ten industry rooms.
 
-export const tomBriefPages = [
+export const voiceAIWorkerPages = [
   {
     "slug": "hospitality",
     "name": "HOSPITALITY & TRAVEL",
@@ -2673,4 +2673,4 @@ export const tomBriefPages = [
   }
 ] as const;
 
-export type TomBriefPage = (typeof tomBriefPages)[number];
+export type VoiceAIWorkerPage = (typeof voiceAIWorkerPages)[number];
