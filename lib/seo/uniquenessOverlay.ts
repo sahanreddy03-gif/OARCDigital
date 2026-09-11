@@ -1,5 +1,6 @@
 import overlayBatch1 from "@/seo-manifest/uniqueness-overlay-batch1.json";
 import overlayBatch2 from "@/seo-manifest/uniqueness-overlay-batch2.json";
+import overlayBatch3 from "@/seo-manifest/uniqueness-overlay-batch3.json";
 import { buildLocationIndustryServiceContent } from "@/lib/seo/generateUniquePageContent";
 import { MALTA_PRIORITY_MATRIX_PATHS } from "@/lib/seo/maltaMatrixCohorts";
 import { LOCATION_IND_SVC_GLOBAL_KEEP } from "@/lib/seo/seoSets";
@@ -23,11 +24,13 @@ export type UniquenessOverlayDoc = {
 
 export const UNIQUENESS_OVERLAY_BATCH1 = overlayBatch1 as UniquenessOverlayDoc;
 export const UNIQUENESS_OVERLAY_BATCH2 = overlayBatch2 as UniquenessOverlayDoc;
+export const UNIQUENESS_OVERLAY_BATCH3 = overlayBatch3 as UniquenessOverlayDoc;
 
-/** Merged Owner Hero overlay entries (batch1 + batch2). */
+/** Merged Owner Hero overlay entries (batch1 + batch2 + batch3). */
 export const UNIQUENESS_OVERLAY_ALL_ENTRIES: readonly UniquenessOverlayEntry[] = [
   ...UNIQUENESS_OVERLAY_BATCH1.entries,
   ...UNIQUENESS_OVERLAY_BATCH2.entries,
+  ...UNIQUENESS_OVERLAY_BATCH3.entries,
 ];
 
 /** Gate thresholds — same across batches; read from batch1 doc. */

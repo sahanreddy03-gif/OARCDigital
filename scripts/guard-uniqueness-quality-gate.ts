@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /**
- * Indexing quality gate tighten (uniqueness overlays batch1+batch2).
+ * Indexing quality gate tighten (uniqueness overlays batch1+batch2+batch3).
  *
  * When seo-manifest/uniqueness-overlay-batch*.json exist, every
  * malta-priority-matrix path must pass:
@@ -14,13 +14,14 @@ import {
   assertPriorityMatrixUniquenessGate,
   UNIQUENESS_OVERLAY_BATCH1,
   UNIQUENESS_OVERLAY_BATCH2,
+  UNIQUENESS_OVERLAY_BATCH3,
   UNIQUENESS_OVERLAY_ALL_ENTRIES,
 } from "../lib/seo/uniquenessOverlay";
 import { LOCATION_IND_SVC_GLOBAL_KEEP } from "../lib/seo/seoSets";
 
 function main() {
   console.log(
-    `guard-uniqueness-quality-gate: batches=${UNIQUENESS_OVERLAY_BATCH1.batch}+${UNIQUENESS_OVERLAY_BATCH2.batch} overlayEntries=${UNIQUENESS_OVERLAY_ALL_ENTRIES.length} GLOBAL_KEEP=${LOCATION_IND_SVC_GLOBAL_KEEP}`,
+    `guard-uniqueness-quality-gate: batches=${UNIQUENESS_OVERLAY_BATCH1.batch}+${UNIQUENESS_OVERLAY_BATCH2.batch}+${UNIQUENESS_OVERLAY_BATCH3.batch} overlayEntries=${UNIQUENESS_OVERLAY_ALL_ENTRIES.length} GLOBAL_KEEP=${LOCATION_IND_SVC_GLOBAL_KEEP}`,
   );
   const result = assertPriorityMatrixUniquenessGate();
   console.log(
