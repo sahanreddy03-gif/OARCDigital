@@ -30,6 +30,14 @@ export const metadata: Metadata = {
         alt: HERO_VIDEO_OG.title,
       },
     ],
+    videos: [
+      {
+        url: HERO_CUSTOMERS_VIDEO.absoluteMp4,
+        width: HERO_VIDEO_OG.width,
+        height: HERO_VIDEO_OG.height,
+        type: "video/mp4",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -65,9 +73,24 @@ import RouteSchema from "@/components/RouteSchema";
 
 export default function Page() {
   const pillar = pillarMeta;
+  const heroVideoJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: HERO_CUSTOMERS_VIDEO.name,
+    description: HERO_CUSTOMERS_VIDEO.description,
+    thumbnailUrl: [HERO_CUSTOMERS_VIDEO.absolutePosterJpg],
+    uploadDate: HERO_CUSTOMERS_VIDEO.uploadDate,
+    duration: HERO_CUSTOMERS_VIDEO.durationIso,
+    contentUrl: HERO_CUSTOMERS_VIDEO.absoluteMp4,
+    embedUrl: "https://oarcdigital.com/",
+  };
 
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(heroVideoJsonLd) }}
+      />
       <SpeakableJsonLd path="/" />
       <RouteSchema
         type="pillar"

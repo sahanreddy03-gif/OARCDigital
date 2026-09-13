@@ -92,7 +92,10 @@ function StraightCarousel() {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden" style={{ maxWidth: "100vw" }}>
+    <div
+      className="w-full max-w-full overflow-hidden"
+      style={{ contain: "paint", isolation: "isolate" }}
+    >
       <div ref={scrollRef} className="hero-chip-track flex whitespace-nowrap gap-3">
         {tripleServices.map((service, index) => (
           <div

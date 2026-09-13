@@ -458,9 +458,9 @@ export default function HeroSection() {
                 className={`${heroSerif.className} block italic tracking-[-0.03em] leading-[1.08] mt-1`}
                 style={{ fontSize: "clamp(1.15rem, 5.4vw, 1.45rem)" }}
               >
-                One team for{" "}
+                One AI-native team for{" "}
                 <span className={`${heroSans.className} text-[#e8ffb0] font-semibold not-italic`}>
-                  creative, AI &amp; growth
+                  creative, growth &amp; automation
                 </span>
               </span>
             </h1>
@@ -526,8 +526,8 @@ export default function HeroSection() {
                       Marketing Agency Malta
                     </span>
                     <span className="block font-extralight italic font-serif tracking-[-0.04em] leading-[1.05] mt-2 text-[clamp(2.2rem,4.7vw,3.85rem)] lg:text-[clamp(2.3rem,4.1vw,3.4rem)]">
-                      One team for{" "}
-                      <span className="text-[#e8ffb0] font-semibold not-italic">creative, AI &amp; growth</span>
+                      One AI-native team for{" "}
+                      <span className="text-[#e8ffb0] font-semibold not-italic">creative, growth &amp; automation</span>
                     </span>
                   </h1>
 

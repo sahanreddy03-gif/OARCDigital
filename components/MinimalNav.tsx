@@ -12,11 +12,12 @@ import Link from "next/link";
 /* Primary nav — shown large, editorial weight */
 const PRIMARY = [
   { href: "/",          label: "Home" },
+  { href: "/services",  label: "Services" },
   { href: "/creative",  label: "Creative" },
   { href: "/ai-agents", label: "AI Agents" },
+  { href: "/tom",       label: "Voice AI Worker" },
   { href: "/solutions", label: "Automation" },
   { href: "/our-work",  label: "Our Work" },
-  { href: "/tom",       label: "Voice AI Worker" },
   { href: "/pricing",   label: "Pricing" },
 ];
 
@@ -157,8 +158,8 @@ export default function MinimalNav({
           aria-controls="oarc-menu-panel"
           aria-label="Open navigation menu"
           data-testid="button-menu-mark"
-          className={`group relative flex h-11 items-center justify-center rounded-full transition-all duration-300 ${
-            showMobileTrigger ? "w-[76px] gap-2 border border-current/30 bg-black/20 px-3 backdrop-blur-sm" : "w-11"
+          className={`group relative flex h-10 items-center justify-center rounded-full transition-all duration-300 ${
+            showMobileTrigger ? "w-[68px] gap-1.5 border border-current/30 bg-black/20 px-2.5 backdrop-blur-sm" : "w-10"
           } ${
             isLight
               ? "text-zinc-600/50 hover:text-zinc-900 hover:bg-black/5"
@@ -166,7 +167,7 @@ export default function MinimalNav({
           }`}
         >
           {showMobileTrigger && (
-            <span className="font-mono text-[9px] font-semibold tracking-[0.18em]">MENU</span>
+            <span className="font-mono text-[8px] font-semibold tracking-[0.16em]">MENU</span>
           )}
           <span aria-hidden className="flex flex-col items-end gap-[6px]">
             <span className="block h-px w-[18px] bg-current transition-all duration-300 group-hover:w-5" />
@@ -197,7 +198,8 @@ export default function MinimalNav({
             role="navigation"
             className="absolute inset-y-0 right-0 flex flex-col oarc-mn-slide overflow-y-auto"
             style={{
-              width: "min(100vw, 520px)",
+              width: "min(100%, 520px)",
+              maxWidth: "100%",
               background: "#080808",
               borderLeft: "1px solid rgba(255,255,255,0.07)",
               paddingTop: "max(0px, env(safe-area-inset-top))",
