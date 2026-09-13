@@ -9,11 +9,19 @@ const TITLE = "Best Marketing Agency Malta | How Owners Should Choose | OARC";
 const DESCRIPTION =
   "Looking for the best marketing agency in Malta? Check creative, AI, transparency and a local team. OARC Digital — Birkirkara HQ, month-to-month.";
 const URL = "https://oarcdigital.com/aeo/best-marketing-agency-malta";
+// Intent consolidation (2026-09-13, SEO lane): this page and
+// /blog/best-marketing-agencies-malta answer the same buyer question
+// ("best marketing agency Malta"). In 90 days of Search Console data they
+// split the same query set while this URL averaged position 67.9 with one
+// click in six months. The canonical now points at the buyer's guide, so
+// Google consolidates the intent on one URL instead of two. Revert this one
+// line to undo the consolidation.
+const CANONICAL = "https://oarcdigital.com/blog/best-marketing-agencies-malta";
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: URL },
+  alternates: { canonical: CANONICAL },
   openGraph: { images: ogImageEntry({ title: TITLE, subtitle: DESCRIPTION }),
  title: TITLE, description: DESCRIPTION, url: URL, type: "website" },
   twitter: { images: [ogImageUrl({ title: TITLE, subtitle: DESCRIPTION })],

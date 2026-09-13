@@ -46,6 +46,26 @@ interface BlogPost {
 // SEO-optimized blog posts targeting voice search
 const blogPosts: BlogPost[] = [
   {
+    slug: 'marketing-consultant-malta',
+    title: 'Hiring a Marketing Consultant in Malta: Cost, What They Do & When an Agency Wins',
+    excerpt: 'What a marketing consultant in Malta actually does, what advisory and operator retainers cost, the 7-question test that decides consultant vs agency — plus a copy-paste 12-question RFP.',
+    category: 'Revenue Growth',
+    readTime: '9 min',
+    publishDate: '2026-09-13',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=500&fit=crop&q=80'
+  },
+  {
+    slug: 'best-marketing-agencies-malta',
+    title: 'Best Marketing Agencies in Malta (2026): The Shortlist, Ranked by a Published Method',
+    excerpt: 'How to shortlist a marketing agency in Malta without a sales pitch: the method we used, the checks that remove an agency before you call, price structures and a 12-question RFP.',
+    category: 'Revenue Growth',
+    readTime: '12 min',
+    publishDate: '2026-09-13',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop&q=80'
+  },
+  {
     slug: 'seo-malta-complete-guide',
     title: 'How to Get Your Malta Business on Page 1 of Google',
     excerpt: 'Expert guide to SEO in Malta covering local search, Google Business Profile optimization, and strategies for Maltese businesses to dominate search results.',

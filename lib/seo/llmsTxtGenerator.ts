@@ -60,6 +60,15 @@ function canonicalFor(path: string): string {
 // check will not catch a wording drift on its own; this is a
 // content-team responsibility flagged in the module header).
 const SUPPLEMENTAL_META: Record<string, { title: string; description: string }> = {
+  // Added 2026-09-13: /agent-economy is in TOP_PAGES but had no framework or
+  // supplemental entry, so `assertCoreCoverage` threw and blocked
+  // `npm run prebuild` / the pre-commit gate. Titles mirror
+  // app/agent-economy/page.tsx at HEAD.
+  "/agent-economy": {
+    title: "AI Agent Economy Malta | Marketing Agents That Work for You | OARC",
+    description:
+      "OARC Digital's agent economy: SEO/AEO, creative, outreach, GBP, and voice agents that live on the agentic web and market for Malta owners. Capability registry, entity graph + NAP, bookable actions. Birkirkara.",
+  },
   // ── Pillar / nav supporting shells ────────────────────────────────────
   "/solutions": {
     title: "Business Automation & Revenue Solutions — Malta's First | OARC Digital",
