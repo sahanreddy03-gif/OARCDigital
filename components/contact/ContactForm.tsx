@@ -8,11 +8,24 @@ import { Loader2, Send } from "lucide-react";
 import { NAP } from "@/lib/seo/nap";
 
 type Status = "idle" | "sending" | "success" | "error";
+type ContactFormProps = {
+  funnelTheme?: string;
+  submitLabel?: string;
+  successMessage?: string;
+};
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xlgavdlp";
 
-export default function ContactForm() {
+export default function ContactForm({
+  funnelTheme,
+  submitLabel = "Send Message",
+  successMessage = "Message sent. We’ll be in touch within 24 hours.",
+}: ContactFormProps = {}) {
   const [status, setStatus] = useState<Status>("idle");
+  const isBlueprintForm = funnelTheme !== undefined;
+  const fieldClasses = isBlueprintForm
+    ? "bg-white/5 border-white/10 text-white placeholder:text-zinc-600 focus:border-[#c8102e]/60 focus:ring-1 focus:ring-[#c8102e]/30 transition-all"
+    : "bg-white/5 border-white/10 text-white placeholder:text-zinc-600 focus:border-[#ff914d]/50 focus:ring-1 focus:ring-[#ff914d]/30 transition-all";
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -49,6 +62,13 @@ export default function ContactForm() {
 
       <div className="relative z-10">
         <form onSubmit={handleSubmit} className="space-y-5" data-testid="form-contact">
+          {funnelTheme ? <input type="hidden" name="starting_theme" value={funnelTheme} /> : null}
+          {funnelTheme ? (
+            <div className="border border-[#c8102e]/35 bg-[#c8102e]/10 px-4 py-3 text-sm text-[#f2efe9]">
+              <span className="block font-mono text-[10px] uppercase tracking-[.16em] text-[#f2efe9]/50">Starting point</span>
+              <span className="mt-1 block font-semibold">{funnelTheme}</span>
+            </div>
+          ) : null}
           <div className="space-y-1.5">
             <label htmlFor="contact-name" className="text-sm font-medium text-zinc-300">
               Your name *
@@ -62,7 +82,7 @@ export default function ContactForm() {
               autoComplete="name"
               disabled={status === "sending"}
               data-testid="input-name"
-              className="bg-white/5 border-white/10 text-white placeholder:text-zinc-600 focus:border-[#ff914d]/50 focus:ring-1 focus:ring-[#ff914d]/30 transition-all"
+              className={fieldClasses}
             />
           </div>
 
@@ -79,7 +99,7 @@ export default function ContactForm() {
               autoComplete="email"
               disabled={status === "sending"}
               data-testid="input-email"
-              className="bg-white/5 border-white/10 text-white placeholder:text-zinc-600 focus:border-[#ff914d]/50 focus:ring-1 focus:ring-[#ff914d]/30 transition-all"
+              className={fieldClasses}
             />
           </div>
 
@@ -95,7 +115,7 @@ export default function ContactForm() {
               autoComplete="organization"
               disabled={status === "sending"}
               data-testid="input-company"
-              className="bg-white/5 border-white/10 text-white placeholder:text-zinc-600 focus:border-[#ff914d]/50 focus:ring-1 focus:ring-[#ff914d]/30 transition-all"
+              className={fieldClasses}
             />
           </div>
 
@@ -112,7 +132,7 @@ export default function ContactForm() {
               placeholder="What are you trying to build, fix, or grow?"
               disabled={status === "sending"}
               data-testid="input-message"
-              className="min-h-[120px] bg-white/5 border-white/10 text-white placeholder:text-zinc-600 focus:border-[#ff914d]/50 focus:ring-1 focus:ring-[#ff914d]/30 transition-all resize-none"
+              className={`min-h-[120px] resize-none ${fieldClasses}`}
             />
           </div>
 
@@ -120,7 +140,9 @@ export default function ContactForm() {
             type="submit"
             disabled={status === "sending"}
             data-testid="button-submit-contact"
-            className="w-full bg-gradient-to-r from-[#ff914d] to-orange-500 text-black font-bold py-6 rounded-xl shadow-lg shadow-[#ff914d]/20"
+            className={isBlueprintForm
+              ? "w-full bg-[#c8102e] text-[#f2efe9] font-bold py-6 rounded-xl shadow-lg shadow-[#c8102e]/20 hover:bg-[#a70d26] transition-colors"
+              : "w-full bg-gradient-to-r from-[#ff914d] to-orange-500 text-black font-bold py-6 rounded-xl shadow-lg shadow-[#ff914d]/20"}
           >
             <span className="flex items-center justify-center gap-2">
               {status === "sending" ? (
@@ -131,7 +153,7 @@ export default function ContactForm() {
               ) : (
                 <>
                   <Send className="w-5 h-5" />
-                  Send Message
+                  {submitLabel}
                 </>
               )}
             </span>
@@ -143,7 +165,7 @@ export default function ContactForm() {
               data-testid="text-form-success"
               className="text-green-400 text-center text-sm font-medium"
             >
-              Message sent. We&apos;ll be in touch within 24 hours.
+              {successMessage}
             </p>
           )}
           {status === "error" && (
