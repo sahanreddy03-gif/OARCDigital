@@ -1,5 +1,5 @@
 /**
- * Editorial order for the public New Work archive.
+ * Editorial order for the public Our Work archive.
  *
  * Named hospitality partnerships and public OARC products lead the collection.
  * Private systems and lighter concept studies remain available below them.

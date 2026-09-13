@@ -117,7 +117,7 @@ export function ARCWidget() {
   // panel still mounts when triggered.
   // H360 is its own site — no OARC floating launcher on /h360/*
   const isH360 = location.startsWith('/h360');
-  const isNewWork = location === '/new-work';
+  const isNewWork = location.startsWith('/our-work') || location.startsWith('/new-work');
   const hideFloatingButton = location === '/contact' || isH360 || isNewWork;
 
   return (

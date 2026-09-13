@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 
 const WORK = [
   {
-    href: "/new-work/tiffany",
+    href: "/our-work/tiffany",
     eyebrow: "NAMED PARTNERSHIP / HOSPITALITY",
     title: "Tiffany Champagne, Wine & Bar",
     description: "A social-first campaign system for a Portomaso hospitality venue.",
@@ -11,7 +11,7 @@ const WORK = [
     alt: "Tiffany Champagne, Wine & Bar hospitality setting",
   },
   {
-    href: "/new-work/portomaso-casino",
+    href: "/our-work/portomaso-casino",
     eyebrow: "NAMED PARTNERSHIP / VENUE",
     title: "Portomaso Casino",
     description: "Venue media shaped around atmosphere, events, and the public destination.",
@@ -19,7 +19,7 @@ const WORK = [
     alt: "Portomaso Casino entrance",
   },
   {
-    href: "/new-work/h360",
+    href: "/our-work/h360",
     eyebrow: "OARC-OWNED PRODUCT / HOSPITALITY",
     title: "H360",
     description: "A connected restaurant system for being found, booked, answered, served, and remembered.",
@@ -44,7 +44,7 @@ export default function HomepageWorkProof() {
               Named partnerships and OARC-owned products, separated from illustrative concept studies and private systems.
             </p>
           </div>
-          <Link href="/new-work" className="group inline-flex items-center gap-2 text-sm font-medium text-zinc-950 underline decoration-zinc-300 underline-offset-4 transition-colors hover:decoration-zinc-950">
+          <Link href="/our-work" className="group inline-flex items-center gap-2 text-sm font-medium text-zinc-950 underline decoration-zinc-300 underline-offset-4 transition-colors hover:decoration-zinc-950">
             Explore the full archive
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>

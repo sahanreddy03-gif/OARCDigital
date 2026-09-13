@@ -16,3 +16,5 @@
 - [OARC AI service architecture](oarc-ai-service-architecture.md) — organise AI services around revenue, customer/field, employee/business, and commerce/custom operators
 - [Search-first service content](search-first-service-content.md) — lead pages with buyer search language and verifiable proof; brand terminology supports rather than replaces demand
 - [Programmatic SEO tuple gates](programmatic-seo-tuple-gates.md) — admit restored Malta URLs by exact ledger tuples; segment allowlists create accidental indexable products
+- [Homepage brand wall](homepage-brand-wall.md) — keep the full two-row moving logo wall; remove only MCW and refine the existing concept
+- [Portfolio route consolidation](portfolio-route-consolidation.md) — the newer portfolio is Our Work at /our-work; /new-work remains only as a permanent redirect

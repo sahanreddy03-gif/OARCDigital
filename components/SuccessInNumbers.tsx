@@ -21,8 +21,8 @@ export function SuccessInNumbers() {
               Public product records, named partnerships, protected systems, and clearly labelled concept studies—each with its evidence state in view.
             </p>
           </div>
-          <Link href="/new-work" className="inline-flex items-center gap-2 text-sm underline underline-offset-4">
-            Browse New Work <ArrowUpRight className="h-4 w-4" />
+          <Link href="/our-work" className="inline-flex items-center gap-2 text-sm underline underline-offset-4">
+            Browse Our Work <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
       </div>

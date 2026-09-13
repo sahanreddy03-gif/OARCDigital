@@ -3,7 +3,6 @@
 type Logo = {
   name: string;
   src: string;
-  treatment?: "mono" | "original";
   opticalScale?: number;
 };
 
@@ -20,7 +19,6 @@ const MIXED_LOGOS: Logo[] = [
   { name: "Dishoom", src: "/brand-logos/normalized/dishoom.png" },
   { name: "BetVictor", src: "/brand-logos/recreated/betvictor.svg" },
   { name: "Festival Republic", src: "/brand-logos/normalized/festivalrepublic.png", opticalScale: 1.02 },
-  { name: "MCW", src: "/brand-logos/normalized/mcw.png", treatment: "original" },
   { name: "JA Resorts", src: "/brand-logos/normalized/jaresorts.png", opticalScale: 1.02 },
   { name: "Bolt", src: "/brand-logos/normalized/bolt.png", opticalScale: 1.05 },
   { name: "Kilimanjaro Live", src: "/brand-logos/normalized/kilimanjaro.png", opticalScale: 0.96 },
@@ -55,7 +53,7 @@ function LogoMark({ logo, logoIndex }: { logo: Logo; logoIndex: number }) {
   return (
     <span className="brand-wall-logo" key={`${logo.name}-${logoIndex}`}>
       <img
-        className={`brand-wall-mark brand-wall-mark-${logo.treatment ?? "mono"}`}
+        className="brand-wall-mark"
         src={logo.src}
         alt=""
         aria-hidden="true"
@@ -79,10 +77,7 @@ function LogoRow({
   const ticker = [...logos, ...logos];
 
   return (
-    <div
-      className={`brand-strip brand-strip-${direction}`}
-      data-testid={`logo-row-${rowIndex}`}
-    >
+    <div className="brand-strip" data-testid={`logo-row-${rowIndex}`}>
       <div className="brand-wall-viewport">
         <div
           className={`brand-wall-track brand-wall-track-${direction}`}
@@ -126,72 +121,69 @@ export default function TrustedBrandsSection() {
               max-width:100%;
               overflow-x:hidden;
               background:#0B0C0D;
-              padding:clamp(16px,2.2vw,28px) 0;
+              padding:clamp(12px,1.7vw,22px) 0;
+              border-top:1px solid rgba(245,245,243,.08);
+              border-bottom:1px solid rgba(245,245,243,.08);
             }
             .brand-wall{
               display:grid;
               gap:0;
               width:100%;
+              -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
+              mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
             }
             .brand-strip{
               position:relative;
               overflow:hidden;
               min-width:0;
               width:100%;
-              border-top:1px solid rgba(245,245,243,.18);
-              border-bottom:1px solid rgba(245,245,243,.18);
-              background:#0B0C0D;
             }
-            .brand-strip-forward{
-              background:#0B0C0D;
-            }
-            .brand-strip-reverse{
-              background:#0B0C0D;
+            .brand-strip + .brand-strip{
+              border-top:1px solid rgba(245,245,243,.07);
             }
             .brand-wall-viewport{
               position:relative;
               min-width:0;
               width:100%;
               overflow:hidden;
-              padding:clamp(16px,2.1vw,28px) 0;
+              padding:clamp(14px,1.7vw,22px) 0;
             }
             .brand-wall-track{
               display:flex;
               width:max-content;
               align-items:center;
-              gap:clamp(18px,2.6vw,42px);
+              gap:clamp(22px,3vw,46px);
               will-change:transform;
             }
             .brand-wall-track-forward{
-              animation:brand-wall-forward 50s linear infinite;
+              animation:brand-wall-forward 58s linear infinite;
             }
             .brand-wall-track-reverse{
-              animation:brand-wall-reverse 54s linear infinite;
+              animation:brand-wall-reverse 62s linear infinite;
             }
             .brand-wall-logo{
               display:flex;
-              flex:0 0 clamp(210px,18vw,270px);
-              width:clamp(210px,18vw,270px);
-              height:clamp(76px,7vw,94px);
+              flex:0 0 clamp(190px,16vw,248px);
+              width:clamp(190px,16vw,248px);
+              height:clamp(66px,6vw,82px);
               align-items:center;
               justify-content:center;
-              padding:0 clamp(16px,1.5vw,24px);
+              padding:0 clamp(16px,1.5vw,22px);
             }
             .brand-wall-mark{
               display:block;
               width:auto;
-              height:clamp(42px,3.8vw,52px);
-              max-width:clamp(158px,14vw,202px);
+              height:clamp(36px,3.25vw,46px);
+              max-width:clamp(148px,13vw,188px);
               object-fit:contain;
               transform:scale(var(--brand-optical-scale,1));
               transform-origin:center;
-              opacity:.9;
-            }
-            .brand-wall-mark-mono{
+              opacity:.72;
               filter:brightness(0) grayscale(1) invert(1);
+              transition:opacity .25s ease;
             }
-            .brand-wall-mark-original{
-              filter:none;
+            .brand-wall-logo:hover .brand-wall-mark{
+              opacity:.96;
             }
             @keyframes brand-wall-forward{
               from{transform:translate3d(-50%,0,0)}
@@ -209,22 +201,27 @@ export default function TrustedBrandsSection() {
             }
             @media(max-width:640px){
               .trusted-brands-section{
-                padding:10px 0;
+                padding:8px 0;
               }
               .brand-wall{
-                gap:0;
+                -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%);
+                mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%);
               }
               .brand-wall-viewport{
-                padding:12px 0;
+                padding:10px 0;
               }
               .brand-wall-track{
-                gap:18px;
+                gap:16px;
               }
               .brand-wall-logo{
-                flex-basis:190px;
-                width:190px;
-                height:68px;
-                padding:0 15px;
+                flex-basis:174px;
+                width:174px;
+                height:60px;
+                padding:0 14px;
+              }
+              .brand-wall-mark{
+                height:34px;
+                max-width:142px;
               }
             }
           `,

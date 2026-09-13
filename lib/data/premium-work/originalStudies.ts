@@ -112,7 +112,7 @@ export const ORIGINAL_STUDIES: Record<string, OriginalStudy> = {
     journeyTitle: { first: "Live information needs", accent: "a reading order." }, filmTitle: "The interface should keep pace without raising its voice.", filmLabel: "CONFIDENTIAL MOBILE-UX ARTEFACT / ILLUSTRATIVE", filmText: "The mobile visual is an original non-identifying experience illustration. It contains no client UI, user data, sports IP, betting feature, external link, or measured performance result.", closeTitle: "The product stays confidential. The interaction principle stays clear.", closeText: "Live Context is a restricted-disclosure OARC engagement. The case preserves the public anonymous account while withholding client identity, platform details, and results.", faq: [{ question: "What is Live Context?", answer: "It is a restricted-disclosure OARC mobile-experience case about helping a person navigate live sports information with a clearer reading order." }, { question: "Why is the client not named?", answer: "The engagement is confidential. The case does not expose the client, product, live data, external channels, or outcome figures." }, { question: "Does the case involve betting?", answer: "The public case story is limited to information hierarchy and mobile experience. It does not promote or provide betting functionality." }] },
 };
 
-/** Exact display names from the original New Work preview. */
+/** Exact display names from the original Our Work preview. */
 export const ORIGINAL_STUDY_PUBLIC_NAMES: Record<string, string> = {
   "meridian-retail-response": "MERIDIAN RETAIL RESPONSE",
   "cobalt-decision-thread": "COBALT DECISION THREAD",

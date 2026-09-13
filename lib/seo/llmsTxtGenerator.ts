@@ -76,11 +76,6 @@ const SUPPLEMENTAL_META: Record<string, { title: string; description: string }> 
     description:
       "Explore OARC Digital's portfolio of named partnerships, public OARC products, private systems, and clearly labelled concept studies across creative, digital products, and automation.",
   },
-  "/new-work": {
-    title: "New Work — OARC Digital Client Portfolio | Malta",
-    description:
-      "Explore OARC Digital work across named hospitality partnerships, public products, private systems, and clearly labelled concept studies. Each record identifies its evidence state and links to the public source or approved context available.",
-  },
   "/contact": {
     title: "Contact OARC Digital | Get in Touch with Our Team",
     description:

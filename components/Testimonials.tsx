@@ -16,7 +16,7 @@ export default function Testimonials() {
           <h2 id="evidence-led-work-title" className="max-w-2xl text-3xl font-medium tracking-[-0.055em] text-zinc-950 md:text-5xl">
             A useful case study<br />should show its source.
           </h2>
-          <Link href="/new-work" className="inline-flex items-center gap-2 text-sm text-zinc-950 underline underline-offset-4">
+          <Link href="/our-work" className="inline-flex items-center gap-2 text-sm text-zinc-950 underline underline-offset-4">
             Read the archive <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
