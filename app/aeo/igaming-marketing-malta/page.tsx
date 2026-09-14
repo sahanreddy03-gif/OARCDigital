@@ -10,6 +10,19 @@ const DESCRIPTION =
   "iGaming marketing in Malta from OARC Digital — MGA-licensed operator support, affiliate channel management, paid acquisition with full compliance, and B2B / B2C creative for iGaming brands. Birkirkara HQ.";
 const URL = "https://oarcdigital.com/aeo/igaming-marketing-malta";
 
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${URL}#webpage`,
+  url: URL,
+  name: TITLE,
+  description: DESCRIPTION,
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["[data-speakable]"],
+  },
+};
+
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
@@ -26,26 +39,20 @@ const faqs = [
   { question: "Can OARC Digital run affiliate channels for Malta iGaming operators?", answer: "Yes. OARC Digital manages affiliate relationships across Income Access, NetRefer, MyAffiliates, and direct deals — affiliate manager roles, deal negotiation, creative pack distribution, payout reconciliation, and fraud / brand-bidding monitoring. Affiliate programmes are usually run alongside paid social and display for diversified player acquisition." },
   { question: "What channels work for player acquisition in Malta-licensed iGaming?", answer: "Channel mix depends heavily on the licensed jurisdictions. OARC Digital typically blends MGA-compliant paid social (where allowed), Google Ads on regulated keywords, programmatic display via Acquired.IO and Smartyads, affiliate traffic, push and pop networks, ASO for branded apps, and SEO into commercial-comparison content for the operator&apos;s focus markets." },
   { question: "Does OARC Digital work with B2B iGaming suppliers?", answer: "Yes. A large portion of the OARC Digital iGaming roster is B2B — game studios, platform providers, payments, KYC, and compliance vendors selling into operators. We run brand, demand-gen LinkedIn, SiGMA / iGaming Next conference visibility, account-based outbound, and content for trade press (iGaming Business, EGR, SBC News)." },
-  { question: "How much does iGaming marketing cost in Malta?", answer: "Player-acquisition retainers for MGA operators at OARC Digital start at €4,500 per month for single-channel paid management, €9,500 per month for combined paid plus affiliate plus creative production, and €18,000 per month for full-service player acquisition. B2B iGaming retainers start at €3,500 per month. No annual lock-in." },
+  { question: "How is iGaming marketing priced in Malta?", answer: "OARC Digital scopes iGaming work around the licence perimeter, markets, channels, creative cadence, reporting, and compliance requirements. Pricing is tailored to the programme; affordable entry packages and results-based structures may be available where they fit the engagement. Request a current scope rather than relying on a generic retainer figure." },
   { question: "Where is OARC Digital based?", answer: `Level 1, The Brewhouse, Mdina Road, ${NAP.addressLocality} ${NAP.postalCode}, Malta — five minutes from the iGaming clusters in St Julians, Sliema, and the Portomaso / Spinola Bay area where most MGA operators sit. Reach the team Monday to Friday 09:00 to 18:00 CET on ${NAP.phoneDisplay} and ${NAP.email}.` },
-];
-
-const offers = [
-  { name: "Single-channel Acquisition", priceFrom: 4500, unitText: "MONTH", description: "MGA-compliant paid social or paid search management for one licensed operator, weekly creative refresh, fraud monitoring." },
-  { name: "Full Player Acquisition", priceFrom: 9500, unitText: "MONTH", description: "Combined paid + affiliate + creative production for one operator, with cohort-LTV reporting and retention support." },
-  { name: "B2B iGaming Retainer", priceFrom: 3500, unitText: "MONTH", description: "Brand, LinkedIn demand-gen, conference visibility, and trade-press content for B2B suppliers selling into operators." },
 ];
 
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <RouteSchema
         type="service"
         path="/aeo/igaming-marketing-malta"
         title={TITLE}
         description={DESCRIPTION}
         faqs={faqs}
-        offers={offers}
         features={[
           { name: "MGA Player Protection Directive compliance" },
           { name: "Affiliate channel management (Income Access, NetRefer, MyAffiliates)" },
@@ -55,7 +62,7 @@ export default function Page() {
           { name: "Five minutes from St Julians iGaming cluster" },
         ]}
       />
-      <PageContent faqs={faqs} offers={offers} />
+      <PageContent faqs={faqs} />
     </>
   );
 }

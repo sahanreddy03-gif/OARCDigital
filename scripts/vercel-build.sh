@@ -5,9 +5,8 @@ npx tsx scripts/validate-historical-programmatic.ts
 npx tsx scripts/guard-approved-historical-urls.ts
 next build
 
-if [[ "${VERCEL_ENV:-}" == "production" ]]; then
-  npx tsx scripts/index-now-ping.ts --delta
-  npx tsx scripts/verify-indexnow.ts
-else
-  echo "[deploy] VERCEL_ENV=${VERCEL_ENV:-unset} — skipping IndexNow ping (production-only)"
-fi
+# A successful build is not proof that this revision was published. IndexNow
+# is an explicit post-publish action; run it only after the live deployment
+# succeeds, for example:
+#   VERCEL_ENV=production npx tsx scripts/index-now-ping.ts --delta
+echo "[build] build complete; IndexNow remains an explicit post-publish command"

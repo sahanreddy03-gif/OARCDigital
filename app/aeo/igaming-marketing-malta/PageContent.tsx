@@ -7,8 +7,7 @@ import Link from 'next/link';
 import { NAP } from "@/lib/seo/nap";
 
 interface Faq { question: string; answer: string; }
-interface Offer { name: string; priceFrom: number; unitText?: string; description?: string; }
-interface Props { faqs: Faq[]; offers: Offer[]; }
+interface Props { faqs: Faq[]; }
 
 const reasons = [
   'MGA Player Protection Directive built into every brief — responsible-gambling, age-gate, and 25% tools-coverage rule pre-applied',
@@ -28,7 +27,7 @@ const playbook = [
   { name: 'Trade-press + content', detail: 'Bylined content into iGaming Business, EGR, SBC News, and Gambling Insider plus owned-channel SEO into commercial-comparison and affiliate-comparison terms.' },
 ];
 
-export default function IGamingMarketingMalta({ faqs, offers }: Props) {
+export default function IGamingMarketingMalta({ faqs }: Props) {
   return (
     <Layout>
       <main className="min-h-screen bg-background">
@@ -42,8 +41,8 @@ export default function IGamingMarketingMalta({ faqs, offers }: Props) {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
               <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Answer Engine Optimised</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">iGaming Marketing Malta — MGA-Compliant Acquisition + Affiliate Ops</h1>
-            <p className="text-xl text-zinc-300 leading-relaxed mb-8">
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight" data-speakable>iGaming Marketing Malta — MGA-Compliant Acquisition + Affiliate Ops</h1>
+            <p className="text-xl text-zinc-300 leading-relaxed mb-8" data-speakable>
               OARC Digital runs marketing for MGA-licensed operators, B2B iGaming suppliers, and affiliate networks. Compliance built in at the brief stage, reported in cohort LTV and FTD — not impressions.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -64,6 +63,17 @@ export default function IGamingMarketingMalta({ faqs, offers }: Props) {
             </p>
             <p className="text-foreground leading-relaxed">
               On the channel side, we manage the affiliate stack across Income Access, NetRefer, MyAffiliates, and direct deals; the programmatic stack across Acquired.IO, Smartyads, PropellerAds and Adsterra; paid social and search where allowed by jurisdiction; SEO into commercial-comparison and affiliate-comparison terms; and ASO for branded apps. For B2B clients selling into operators, the work shifts to LinkedIn demand-gen, SiGMA and iGaming Next conference presence, and bylined content for iGaming Business, EGR, SBC News and Gambling Insider.
+            </p>
+          </section>
+
+          <section className="mb-12 rounded-2xl border border-orange-500/20 bg-orange-500/5 p-6" aria-labelledby="igaming-answer">
+            <h2 id="igaming-answer" className="mb-3 text-2xl font-bold">Quick answer: iGaming marketing in Malta</h2>
+            <p className="leading-relaxed text-foreground/80" data-speakable>
+              OARC Digital supports licensed operators, B2B suppliers, studios, and affiliate networks
+              with compliance-aware creative, paid and affiliate operations, CRM, and conference-led
+              demand generation. Each programme is scoped to its licence perimeter, target markets,
+              channels, and reporting needs; pricing is tailored rather than presented as a universal
+              retainer.
             </p>
           </section>
 
@@ -93,18 +103,13 @@ export default function IGamingMarketingMalta({ faqs, offers }: Props) {
           </section>
 
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Transparent Pricing</h2>
-            <p className="text-muted-foreground mb-6">Three retainer shapes. No annual lock-in.</p>
-            <div className="grid md:grid-cols-3 gap-4">
-              {offers.map((o) => (
-                <div key={o.name} className="rounded-xl border p-6 bg-card flex flex-col">
-                  <h3 className="font-bold text-lg mb-1">{o.name}</h3>
-                  <p className="text-3xl font-bold text-orange-600 mb-1">€{o.priceFrom.toLocaleString()}</p>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-4">per month</p>
-                  <p className="text-sm text-muted-foreground flex-1">{o.description}</p>
-                </div>
-              ))}
-            </div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Pricing shaped around the programme</h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Scope depends on licence and market coverage, acquisition channels, creative production,
+              affiliate operations, CRM, compliance review, and reporting. OARC returns a tailored
+              proposal after discovery, with affordable entry packages or results-based structures
+              considered where appropriate. Contact the team for current availability and scope.
+            </p>
           </section>
 
           <section className="mb-12">

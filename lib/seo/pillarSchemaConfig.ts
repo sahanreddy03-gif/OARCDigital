@@ -28,7 +28,7 @@ export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automat
     title: "Marketing Agency Malta | AI Creative + Agents | OARC",
     // Google-first: ~140–155 chars, key message in first ~120 (mobile SERP). Bing max 160.
     description:
-      "Malta marketing agency in Birkirkara: brand, social, video, AI agents & automation under one roof. Built for revenue growth—not slides. Book a call.",
+      "Malta's AI-native marketing agency in Birkirkara: an in-house creative studio, AI workers and business systems built around measurable growth.",
     faqs: [
       {
         question: "Who is a good marketing agency in Malta for SMBs that want AI plus creative?",

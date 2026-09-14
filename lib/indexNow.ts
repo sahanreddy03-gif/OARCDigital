@@ -2,21 +2,16 @@
 // are crawled in minutes instead of days. Verification file is served at
 // `/<KEY>.txt` from the public/ directory.
 //
-// Key resolution: process.env.INDEXNOW_KEY (set as a Replit secret) is
-// preferred. If absent we fall back ONLY when the corresponding verification
-// file already exists in public/ — otherwise we throw so misconfiguration is
-// surfaced loudly rather than silently submitting with a stale key.
+// IndexNow keys are intentionally public verification tokens, not credentials.
+// Keep the deployed bootstrap file as the fallback; an environment override can
+// rotate it without a code change.
 
 const HOST = "oarcdigital.com";
-// The bootstrap verification file already shipped in public/. Removing or
-// replacing it requires updating this constant in lockstep.
 const BOOTSTRAP_KEY = "oarcdigital7971179946174617";
 
 export function getIndexNowKey(): string {
   const fromEnv = process.env.INDEXNOW_KEY;
   if (fromEnv && fromEnv.trim()) return fromEnv.trim();
-  // Fall back to the bootstrap key whose verification file is already
-  // deployed at /oarcdigital7971179946174617.txt — valid on all envs.
   return BOOTSTRAP_KEY;
 }
 
@@ -41,6 +36,11 @@ export type IndexNowResult = {
 export async function submitToIndexNow(
   urls: string | string[],
 ): Promise<IndexNowResult[]> {
+  // A direct local invocation must never notify search engines. The explicit
+  // post-publish script is the supported caller and runs with Vercel's
+  // production environment explicitly set.
+  if (process.env.VERCEL_ENV !== "production") return [];
+  const key = getIndexNowKey();
   const list = Array.isArray(urls) ? urls : [urls];
   if (list.length === 0) return [];
   if (list.length > 10000) {
@@ -48,7 +48,7 @@ export async function submitToIndexNow(
   }
   const body = JSON.stringify({
     host: HOST,
-    key: getIndexNowKey(),
+    key,
     keyLocation: getKeyLocation(),
     urlList: list,
   });

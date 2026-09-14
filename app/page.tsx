@@ -4,6 +4,10 @@ import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags"
 import { HERO_CUSTOMERS_VIDEO } from "@/lib/media/heroCustomersVideo";
 
 const pillarMeta = PILLAR_SCHEMAS["/"];
+const HOMEPAGE_OG_TITLE =
+  "OARC Digital — One AI-native team for creative, growth & automation";
+const HOMEPAGE_OG_DESCRIPTION =
+  "Malta's AI-native marketing agency: an in-house creative studio, AI workers and business systems built around measurable growth.";
 
 const HERO_VIDEO_OG = {
   title: HERO_CUSTOMERS_VIDEO.name,
@@ -18,8 +22,8 @@ export const metadata: Metadata = {
   description: pillarMeta.description,
   alternates: getHreflangAlternates("/"),
   openGraph: {
-    title: HERO_VIDEO_OG.title,
-    description: HERO_VIDEO_OG.description,
+    title: HOMEPAGE_OG_TITLE,
+    description: HOMEPAGE_OG_DESCRIPTION,
     url: "https://oarcdigital.com/",
     type: "website",
     images: [
@@ -27,7 +31,7 @@ export const metadata: Metadata = {
         url: HERO_VIDEO_OG.poster,
         width: HERO_VIDEO_OG.width,
         height: HERO_VIDEO_OG.height,
-        alt: HERO_VIDEO_OG.title,
+        alt: "OARC Digital, an AI-native marketing agency in Malta",
       },
     ],
     videos: [
@@ -41,8 +45,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: HERO_VIDEO_OG.title,
-    description: HERO_VIDEO_OG.description,
+    title: HOMEPAGE_OG_TITLE,
+    description: HOMEPAGE_OG_DESCRIPTION,
     images: [HERO_VIDEO_OG.poster],
   },
 };
@@ -60,7 +64,6 @@ import Section5 from "@/components/Section5";
 import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
 import TechEnabledSection from "@/components/TechEnabledSection";
 import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
-import BrandShowcaseSection from "@/components/BrandShowcaseSection";
 import HomepageWorkProof from "@/components/HomepageWorkProof";
 import ComparisonSection from "@/components/ComparisonSection";
 import GrowthSimulator from "@/components/GrowthSimulator";
@@ -135,10 +138,7 @@ export default function Page() {
         {/* Tech & Services */}
         <TechEnabledSection />
 
-        {/* Case Studies & Social Proof */}
-        <BrandShowcaseSection />
-
-        {/* Evidence-led work proof */}
+        {/* One authoritative work record */}
         <HomepageWorkProof />
 
         {/* Why OARC - Comparison */}

@@ -18,3 +18,4 @@
 - [Programmatic SEO tuple gates](programmatic-seo-tuple-gates.md) — admit restored Malta URLs by exact ledger tuples; segment allowlists create accidental indexable products
 - [Homepage brand wall](homepage-brand-wall.md) — keep the full two-row moving logo wall; remove only MCW and refine the existing concept
 - [Portfolio route consolidation](portfolio-route-consolidation.md) — the newer portfolio is Our Work at /our-work; /new-work remains only as a permanent redirect
+- [Neon atomic returning](neon-atomic-returning.md) — neon-http can drop INSERT RETURNING rows; use a write CTE with an outer SELECT for atomic counters

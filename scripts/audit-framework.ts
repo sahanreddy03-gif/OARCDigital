@@ -31,6 +31,7 @@ import { PILLAR_SCHEMAS, type PillarSchemaEntry } from "../lib/seo/pillarSchemaC
 import { findBannedPhrase } from "../lib/seo/phraseBlocklist";
 import { MALTA_CONTEXT } from "../lib/seo/maltaContext";
 import { applyLlmsFullTransform, LLMS_FULL_PATH } from "../lib/seo/llmsFullBuilder";
+import { curateDiscoveryText } from "../lib/seo/llmsTxtGenerator";
 
 type Issue = { slug: string; layer: 1 | 2 | 3 | 4 | 6; message: string };
 
@@ -158,10 +159,16 @@ function buildExpectedFactsSection(): string {
     const fw = entry.framework;
     if (!fw) continue;
     const canonical = `https://oarcdigital.com/services/${slug}`;
-    lines.push(`### ${entry.title.replace(/\s*\|.*$/, "").trim()}`);
+    lines.push(
+      `### ${curateDiscoveryText(entry.title.replace(/\s*\|.*$/, "").trim()) ?? slug.replace(/[-]/g, " ")}`,
+    );
     lines.push(`Canonical: ${canonical}`);
-    lines.push(`Value: ${fw.uniqueValueProp}`);
-    for (const f of fw.llmCitableFacts) lines.push(`- ${f.claim}`);
+    const value = curateDiscoveryText(fw.uniqueValueProp);
+    if (value) lines.push(`Value: ${value}`);
+    for (const f of fw.llmCitableFacts) {
+      const claim = curateDiscoveryText(f.claim);
+      if (claim) lines.push(`- ${claim}`);
+    }
     lines.push("");
   }
 
@@ -172,10 +179,16 @@ function buildExpectedFactsSection(): string {
     const fw = entry.framework;
     if (!fw) continue;
     const canonical = `https://oarcdigital.com${path === "/" ? "" : path}`;
-    lines.push(`### ${entry.title.replace(/\s*\|.*$/, "").trim()}`);
+    lines.push(
+      `### ${curateDiscoveryText(entry.title.replace(/\s*\|.*$/, "").trim()) ?? (path.slice(1).replace(/[-/]/g, " ") || "OARC Digital")}`,
+    );
     lines.push(`Canonical: ${canonical || "https://oarcdigital.com/"}`);
-    lines.push(`Value: ${fw.uniqueValueProp}`);
-    for (const f of fw.llmCitableFacts) lines.push(`- ${f.claim}`);
+    const value = curateDiscoveryText(fw.uniqueValueProp);
+    if (value) lines.push(`Value: ${value}`);
+    for (const f of fw.llmCitableFacts) {
+      const claim = curateDiscoveryText(f.claim);
+      if (claim) lines.push(`- ${claim}`);
+    }
     lines.push("");
   }
 

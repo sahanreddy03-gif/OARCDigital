@@ -1319,7 +1319,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       {
         question: "Which triggered campaigns do you run from Shopify, Stripe, or our CRM?",
         answer:
-          "Welcome flow on opt-in, abandoned cart and abandoned checkout, post-purchase thank-you and review request, replenishment for consumables, win-back for lapsed customers, price-drop and back-in-stock, and CRM events such as renewal-due, trial-ending, or appointment-booked. Stripe webhooks and Shopify event streams are wired into the platform during onboarding so triggers fire in seconds, not on a daily sync.",
+          "Welcome flow on opt-in, abandoned cart and abandoned checkout, post-purchase thank-you and review request, replenishment for consumables, win-back for lapsed customers, price-drop and back-in-stock, and CRM events such as renewal-due, trial-ending, or appointment-booked. Stripe webhooks and Shopify event streams are wired into the platform during onboarding so triggers are event-driven rather than dependent on a daily sync.",
       },
       {
         question: "Can you migrate us from Mailchimp to Klaviyo or ActiveCampaign without losing list reputation?",

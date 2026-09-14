@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { insertLeadSchema } from "@shared/schema";
 import { storage } from "@/lib/storage";
+import { submitLead } from "@/lib/agent-access/leadSubmission";
 
 export const runtime = "nodejs";
 
@@ -8,35 +9,6 @@ export const runtime = "nodejs";
 // Both handlers short-circuit with 503 before touching the database client.
 // This lets the static portion of the site ship while DB-backed endpoints
 // remain disabled until the env var is configured in the Vercel dashboard.
-
-async function notifyFormspree(payload: {
-  name: string;
-  contact: string;
-  service: string;
-  source?: string;
-  transcript?: string;
-}) {
-  const res = await fetch("https://formspree.io/f/xblnedyl", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify({
-      _replyto: payload.contact,
-      _subject: `New ARC lead — ${payload.name} (${payload.service})`,
-      name: payload.name,
-      contact: payload.contact,
-      service: payload.service,
-      source: payload.source ?? "ARC Chat",
-      transcript: payload.transcript ?? "",
-      message:
-        `New lead from ARC chat — ${payload.name} | ${payload.contact} | Interest: ${payload.service}` +
-        (payload.transcript ? `\n\n--- Transcript ---\n${payload.transcript}` : ""),
-    }),
-  });
-  if (!res.ok) {
-    console.error("Formspree notification returned non-2xx:", res.status);
-  }
-  return res.ok;
-}
 
 export async function POST(request: NextRequest) {
   try {
@@ -50,26 +22,20 @@ export async function POST(request: NextRequest) {
     // Email delivery to hello@oarcdigital.com is the contractual guarantee;
     // DB persistence is a best-effort secondary store.
     const transcript = (body && typeof body.transcript === "string") ? body.transcript : "";
-    const emailed = await notifyFormspree({
+    const submission = await submitLead({
       name: result.data.name,
       contact: result.data.contact,
       service: result.data.service,
       source: typeof body?.source === "string" ? body.source : "ARC Chat",
       transcript,
+      subject: `New ARC lead — ${result.data.name} (${result.data.service})`,
+      message:
+        `New lead from ARC chat — ${result.data.name} | ${result.data.contact} | Interest: ${result.data.service}` +
+        (transcript ? `\n\n--- Transcript ---\n${transcript}` : ""),
     });
-
-    let lead: unknown = null;
-    if (process.env.DATABASE_URL) {
-      try {
-        lead = await storage.createLead(result.data);
-      } catch (dbErr) {
-        console.error("Lead DB write failed (email already sent):", dbErr);
-      }
-    }
-
-    return NextResponse.json({ success: true, emailed, lead });
-  } catch (error) {
-    console.error("Lead capture error:", error);
+    return NextResponse.json({ success: true, emailed: submission.emailed, lead: submission.lead });
+  } catch {
+    console.error("Lead capture error");
     return NextResponse.json({ error: "Failed to save lead" }, { status: 500 });
   }
 }

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-// Regenerates the "Cite-Able Service Facts" section of public/llms.txt from
-// SERVICE_SCHEMAS in lib/seo/serviceSchemaConfig.ts so the AI-discovery surface
-// stays in lockstep with the typed source of truth.
+// Regenerates the "Cite-Able Service Facts" section and the generator-owned
+// Start here + Actions block of public/llms.txt from the typed SEO sources, so
+// the AI-discovery surface stays in lockstep with the source of truth.
 //
 // The section sits between the markers:
 //   <!-- AUTOGEN:CITABLE-FACTS:START -->
@@ -20,6 +20,11 @@ import {
   buildCoreIndexSection,
   CORE_INDEX_START,
   CORE_INDEX_END,
+  buildStartHereSection,
+  START_HERE_START,
+  START_HERE_END,
+  assertValidDiscoveryProse,
+  curateDiscoveryText,
 } from "../lib/seo/llmsTxtGenerator";
 import { spliceH360LlmsSection } from "../lib/seo/h360LlmsGenerator";
 
@@ -42,11 +47,15 @@ function buildSection(): string {
     const fw = entry.framework;
     if (!fw) continue;
     const canonical = `https://oarcdigital.com/services/${slug}`;
-    lines.push(`### ${entry.title.replace(/\s*\|.*$/, "").trim()}`);
+    lines.push(
+      `### ${curateDiscoveryText(entry.title.replace(/\s*\|.*$/, "").trim()) ?? slug.replace(/[-]/g, " ")}`,
+    );
     lines.push(`Canonical: ${canonical}`);
-    lines.push(`Value: ${fw.uniqueValueProp}`);
+    const value = curateDiscoveryText(fw.uniqueValueProp);
+    if (value) lines.push(`Value: ${value}`);
     for (const f of fw.llmCitableFacts) {
-      lines.push(`- ${f.claim}`);
+      const claim = curateDiscoveryText(f.claim);
+      if (claim) lines.push(`- ${claim}`);
     }
     lines.push("");
   }
@@ -58,11 +67,15 @@ function buildSection(): string {
     const fw = entry.framework;
     if (!fw) continue;
     const canonical = `https://oarcdigital.com${pPath === "/" ? "" : pPath}`;
-    lines.push(`### ${entry.title.replace(/\s*\|.*$/, "").trim()}`);
+    lines.push(
+      `### ${curateDiscoveryText(entry.title.replace(/\s*\|.*$/, "").trim()) ?? (pPath.slice(1).replace(/[-/]/g, " ") || "OARC Digital")}`,
+    );
     lines.push(`Canonical: ${canonical || "https://oarcdigital.com/"}`);
-    lines.push(`Value: ${fw.uniqueValueProp}`);
+    const value = curateDiscoveryText(fw.uniqueValueProp);
+    if (value) lines.push(`Value: ${value}`);
     for (const f of fw.llmCitableFacts) {
-      lines.push(`- ${f.claim}`);
+      const claim = curateDiscoveryText(f.claim);
+      if (claim) lines.push(`- ${claim}`);
     }
     lines.push("");
   }
@@ -115,6 +128,17 @@ function applyTransform(txt: string): string {
     }
   }
   next = spliceH360LlmsSection(next);
+  const startHere = buildStartHereSection();
+  const startHereIdx = next.indexOf(START_HERE_START);
+  const endHereIdx = next.indexOf(START_HERE_END);
+  if (startHereIdx >= 0 && endHereIdx > startHereIdx) {
+    next = next.slice(0, startHereIdx) + startHere + next.slice(endHereIdx + START_HERE_END.length);
+  } else {
+    const insertAt = next.indexOf("\n---\n");
+    next = insertAt >= 0
+      ? next.slice(0, insertAt) + "\n\n" + startHere + next.slice(insertAt)
+      : startHere + "\n\n" + next;
+  }
   return next;
 }
 
@@ -127,6 +151,7 @@ function main() {
 
   const current = fs.readFileSync(LLMS, "utf-8");
   const next = applyTransform(current);
+  assertValidDiscoveryProse(next, "public/llms.txt");
 
   if (checkOnly) {
     if (current !== next) {

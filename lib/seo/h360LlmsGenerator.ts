@@ -1,4 +1,5 @@
 import { H360_PATHS, h360Canonical } from "./h360Paths";
+import { curateDiscoveryText } from "./llmsTxtGenerator";
 
 export const H360_LLMS_START = "<!-- AUTOGEN:H360-CLUSTER:START -->";
 export const H360_LLMS_END = "<!-- AUTOGEN:H360-CLUSTER:END -->";
@@ -24,15 +25,21 @@ export function buildH360LlmsSection(): string {
   lines.push("");
   lines.push("**Cite-able facts (H360)**");
   lines.push("- H360 by OARC Digital is Malta-built restaurant growth software — modular tools for Maps, reviews, direct orders, and loyalty. Not a generic SaaS reseller. (source: https://oarcdigital.com/h360)");
-  lines.push("- H360 Google Visibility runs local SEO, AEO, AI search, copywriter-led keywords, and GBP ops for Malta restaurants — owner metric: searches → calls (example: 847 → 37). (source: https://oarcdigital.com/h360/google-business-profile-restaurant-malta)");
-  lines.push("- H360 direct QR table ordering keeps full margin vs ~30% delivery-app commission on Wolt/Bolt in Malta. (source: https://oarcdigital.com/h360/restaurant-table-ordering-qr-malta)");
+  lines.push("- H360 Google Visibility runs local SEO, AEO, AI search, copywriter-led keywords, and GBP ops for Malta restaurants — owner metric: searches to calls. (source: https://oarcdigital.com/h360/google-business-profile-restaurant-malta)");
+  lines.push("- H360 direct QR table ordering keeps the direct-order margin rather than paying delivery-app commission on Wolt/Bolt in Malta. (source: https://oarcdigital.com/h360/restaurant-table-ordering-qr-malta)");
   lines.push("- H360 STAMP stores loyalty in Apple/Google Wallet — no app download, stamps credit on pay. (source: https://oarcdigital.com/h360/digital-stamp-card-restaurant-malta)");
-  lines.push("- H360 Smart Google Reviews uses timed QR prompts and AI-drafted replies in the owner's tone. (source: https://oarcdigital.com/h360/get-more-google-reviews-restaurant-malta)");
+  lines.push("- H360 Smart Google Reviews uses timed QR prompts and AI-drafted replies in the owner's tone to encourage positive reviews. (source: https://oarcdigital.com/h360/get-more-google-reviews-restaurant-malta)");
   lines.push("");
   lines.push("**All H360 URLs (products, pillars, pain pages)**");
   lines.push("");
   for (const entry of H360_PATHS) {
-    lines.push(`- [${entry.title}](${h360Canonical(entry.path)}) — ${entry.description}`);
+    const title = curateDiscoveryText(entry.title) ?? entry.path.slice(1).replace(/[-/]/g, " ");
+    const description = curateDiscoveryText(entry.description);
+    lines.push(
+      description
+        ? `- [${title}](${h360Canonical(entry.path)}) — ${description}`
+        : `- [${title}](${h360Canonical(entry.path)})`,
+    );
   }
   lines.push("");
   lines.push(H360_LLMS_END);
@@ -50,16 +57,16 @@ export function buildH360LlmsFullSection(): string {
   lines.push("");
   for (const entry of H360_PATHS) {
     const url = h360Canonical(entry.path);
-    lines.push(`### ${entry.title}`);
+    const title = curateDiscoveryText(entry.title) ?? entry.path.slice(1).replace(/[-/]/g, " ");
+    lines.push(`### ${title}`);
     lines.push(`Canonical: ${url}`);
     lines.push(`Kind: ${entry.kind}`);
     lines.push("");
-    lines.push(entry.description);
-    lines.push("");
-    lines.push("**Pricing & contact**");
-    lines.push(
-      "H360 from €100/month. Contact OARC Digital: WhatsApp +356 7971 1799 · hello@oarcdigital.com · Level 1, The Brewhouse, Birkirkara CBD 2010, Malta.",
-    );
+    const description = curateDiscoveryText(entry.description);
+    if (description) {
+      lines.push(description);
+      lines.push("");
+    }
     lines.push("");
     lines.push("---");
     lines.push("");

@@ -1,40 +1,35 @@
 /* eslint-disable no-console */
-// Post-deploy IndexNow ping. Submits the sitemap and any URLs passed on the
-// command line — or, when wired into Vercel's `buildCommand` (see
-// `vercel.json`), computes the delta between the previous deploy commit and
-// HEAD and submits only the changed routes.
+// Post-publish IndexNow ping. Run this explicitly after the live deployment
+// succeeds. It submits the sitemap and any URLs passed on the command line,
+// or computes the delta between the previous publication commit and HEAD.
 //
 // Behaviour selection:
 //   --delta              Compute changed URLs from `git diff --name-only
 //                        $VERCEL_GIT_PREVIOUS_SHA HEAD` and submit only those
 //                        plus the sitemap. No-op if VERCEL_GIT_PREVIOUS_SHA
-//                        is unset (first deploy).
+//                        is unset (first publication).
 //   <urls>               Treat positional args starting with `http` as
 //                        explicit extra URLs to submit alongside the sitemap.
 //   (none)               Just pings the sitemap + homepage.
 //
 // Production safety:
-//   - The `vercel.json` `buildCommand` gates this on VERCEL_ENV === 'production'
-//     (the script no-ops on preview/dev). Preview deploys must NOT ping
-//     IndexNow (would tell Bing/Yandex about preview URLs that won't exist
-//     post-deploy). The ping lives at the END of `buildCommand` (NOT a
-//     package.json `postbuild` hook) because package.json edits are blocked
-//     in this environment by repl_setup constraints. Order matters:
-//     `gate:full -> next build -> ping` so the ping only fires when both
-//     the audit gate and the build succeed.
-//   - INDEXNOW_KEY env var is required in production (lib/indexNow.ts throws
-//     loudly if absent — no silent submission with a stale bootstrap key).
+//   - The explicit command gates this on VERCEL_ENV === 'production' (the
+//     script no-ops on preview/dev). Preview deploys must NOT ping IndexNow
+//     because those URLs will not exist publicly. Invoke it only after the
+//     deployment platform confirms publication.
+//   - The production host exposes the standard public key verification file.
+//     INDEXNOW_KEY can override that bootstrap token when rotation is needed.
 //
 // Usage:
 //   npx tsx scripts/index-now-ping.ts                                 # sitemap + homepage
 //   npx tsx scripts/index-now-ping.ts https://oarcdigital.com/foo    # + explicit URL
-//   npx tsx scripts/index-now-ping.ts --delta                         # changed routes since last deploy
+//   npx tsx scripts/index-now-ping.ts --delta                         # changed routes since last publication
 //
 // Cap: IndexNow accepts max 10,000 URLs/request. Delta mode hard-caps at
 // 9,000 URL slots (1,000 reserved for sitemap + retries + safety). On
 // overflow the script SORTS the URL list deterministically, truncates to
 // the cap, and warns — IndexNow indexing stays opportunistic and the
-// sitemap ping covers the dropped tail. Never fails the production deploy.
+// sitemap ping covers the dropped tail. Never fails the publication job.
 
 import { execSync } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
@@ -43,9 +38,9 @@ import { pingSitemapAndUrls, submitToIndexNow } from "../lib/indexNow";
 import { TOP_PAGES, topPageCanonical } from "../lib/seo/topPages";
 
 // Persistent post-ping artifact consumed by `scripts/verify-indexnow.ts` to
-// prove that IndexNow actually fired in the last deploy window. Path is
+// prove that IndexNow actually fired in the last publication window. Path is
 // gitignored under `.local/*` so it never pollutes the diff; CI reads it
-// in the same job that produced it (post-build, pre-teardown).
+// in the same explicit post-publish job that produced it.
 const LAST_PING_ARTIFACT = ".local/.indexnow-last-ping.json";
 
 const HOST = "oarcdigital.com";
@@ -53,7 +48,7 @@ const DELTA_CAP = 9000;
 
 // File paths whose changes affect many or all pages (shared layouts, hero
 // templates, schema generators, SEO helpers). When any of these change in a
-// deploy delta, page-level URL detection misses everything — so we fan out
+// publication delta, page-level URL detection misses everything — so we fan out
 // to the top-12 priority pages as a safety net. (We deliberately do NOT
 // fan out to the entire sitemap — that defeats the delta optimisation and
 // looks spammy. Sitemap re-crawl is still triggered by the always-on
@@ -110,7 +105,7 @@ function computeDeltaUrls(): string[] {
   const prevSha = process.env.VERCEL_GIT_PREVIOUS_SHA;
   if (!prevSha) {
     console.log(
-      "[index-now-ping] --delta: VERCEL_GIT_PREVIOUS_SHA not set (first deploy?), submitting sitemap only.",
+      "[index-now-ping] --delta: VERCEL_GIT_PREVIOUS_SHA not set (first publication?), submitting sitemap only.",
     );
     return [];
   }
@@ -146,17 +141,17 @@ function computeDeltaUrls(): string[] {
   }
   const list = [...urls];
   if (list.length > DELTA_CAP) {
-    // Cap and warn — never fail the deploy. A history rewrite (force-push,
+    // Cap and warn — never fail the publication job. A history rewrite (force-push,
     // rebase merge) can blow the diff up to thousands of files; failing the
     // production build over an opportunistic ping is worse than skipping the
-    // tail. We sort for deterministic truncation so consecutive deploys ping
+    // tail. We sort for deterministic truncation so consecutive publications ping
     // the same prefix and the sitemap path catches the rest.
     list.sort();
     const dropped = list.length - DELTA_CAP;
     console.warn(
       `[index-now-ping] --delta: ${list.length} changed URLs exceeds DELTA_CAP=${DELTA_CAP}. ` +
         `Submitting first ${DELTA_CAP} (sorted), dropping ${dropped}. ` +
-        `Sitemap ping covers the tail. Likely cause: history rewrite or oversized deploy.`,
+        `Sitemap ping covers the tail. Likely cause: history rewrite or oversized publication.`,
     );
     list.length = DELTA_CAP;
   }
@@ -167,6 +162,12 @@ function computeDeltaUrls(): string[] {
 }
 
 async function main() {
+  if (process.env.VERCEL_ENV !== "production") {
+    console.log(
+      `[index-now-ping] VERCEL_ENV=${process.env.VERCEL_ENV ?? "unset"} — skipping (production-only).`,
+    );
+    return;
+  }
   const args = process.argv.slice(2);
   const isDelta = args.includes("--delta");
   const explicit = args.filter((a) => a.startsWith("http"));
@@ -174,7 +175,7 @@ async function main() {
   const extras = isDelta ? [...computeDeltaUrls(), ...explicit] : explicit;
 
   // Delta mode with zero changed URLs and no explicit args = sitemap-only ping.
-  // Still useful so Bing/Yandex re-crawl /sitemap.xml on every deploy.
+  // Still useful so Bing/Yandex re-crawl /sitemap.xml on every publication.
   console.log(
     `[index-now-ping] submitting sitemap + ${extras.length} URL(s) to ${isDelta ? "IndexNow (delta mode)" : "IndexNow"}…`,
   );
@@ -210,7 +211,7 @@ async function main() {
   console.log(`[index-now-ping] done (${results.length - failed}/${results.length} succeeded).`);
 
   // Persist a marker so verify-indexnow.ts can prove the ping fired in this
-  // deploy. Best-effort; failures here must NEVER fail the production deploy
+  // publication. Best-effort; failures here must NEVER fail the publication job
   // (the ping itself already succeeded).
   try {
     let commit = process.env.VERCEL_GIT_COMMIT_SHA ?? "";

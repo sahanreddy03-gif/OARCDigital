@@ -15,7 +15,7 @@ export default function Section2() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
           <div>
-            <p className="kicker kicker-paper">A better starting point</p>
+            <p className="kicker kicker-paper">The OARC Growth Blueprint</p>
             <h2 className="mt-6 text-4xl font-extrabold leading-[.92] tracking-[-.065em] md:text-6xl">Don&apos;t pick<br /><em className="font-normal">a service.</em></h2>
           </div>
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">

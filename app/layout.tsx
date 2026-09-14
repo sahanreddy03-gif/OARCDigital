@@ -93,11 +93,11 @@ const fontVariables = [
 const ORGANIZATION_JSONLD = [
   {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
     name: NAP.name,
     alternateName: NAP.alternateName,
     description:
-      "Malta's first Creative + AI Systems Agency. Brand strategy, social media, photo and video production, influencer marketing, AI solutions, and Hospitality 360 — all in one growth system. Strategy + Technology + Data + Analytics.",
+      "Malta's AI-native marketing agency. One in-house team for creative, growth and automation: a creative studio, AI workers and connected business systems.",
     url: "https://oarcdigital.com",
     telephone: NAP.phoneE164,
     email: NAP.email,
@@ -108,9 +108,11 @@ const ORGANIZATION_JSONLD = [
     areaServed: [{ "@type": "Country", name: "Malta" }],
     knowsAbout: [
       "Digital Marketing",
+      "Creative Production",
       "Brand Strategy",
       "Social Media Marketing",
-      "AI Solutions",
+      "AI Workers",
+      "Voice AI",
       "Marketing Automation",
       "WhatsApp Automation",
       "Hospitality Technology",
@@ -119,7 +121,40 @@ const ORGANIZATION_JSONLD = [
       "Influencer Marketing",
       "Malta Marketing",
     ],
-    slogan: "Strategy + Technology + Data + Analytics",
+    slogan: "One AI-native team for creative, growth & automation.",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "OARC Digital departments",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Creative",
+            url: "https://oarcdigital.com/creative",
+            description: "Creative direction, brand, social, video, web and campaign production.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "AI Workers",
+            url: "https://oarcdigital.com/ai-agents",
+            description: "AI workers for sales, support, bookings, follow-up and operations.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Business Systems",
+            url: "https://oarcdigital.com/solutions",
+            description: "H360, integrations, custom applications and business automation.",
+          },
+        },
+      ],
+    },
   },
 ];
 
@@ -130,16 +165,14 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title:
-    "OARC Digital | Brand Strategy, AI Solutions & Growth Automation — Malta's First",
+  title: "OARC Digital | Malta's AI-Native Marketing Agency",
   description:
-    "OARC Digital helps Maltese businesses grow revenue through brand strategy, AI-driven automation, performance marketing, and scalable growth systems. Malta's first AI-native creative, automation & intelligent agents agency.",
+    "Malta's AI-native marketing agency. One in-house team for creative, growth and automation: creative studio, AI workers and business systems.",
   metadataBase: new URL("https://oarcdigital.com"),
   openGraph: {
-    title:
-      "OARC Digital | Brand Strategy, AI Solutions & Growth Automation — Malta's First",
+    title: "OARC Digital — One AI-native team for creative, growth & automation",
     description:
-      "OARC Digital helps Maltese businesses grow revenue fast through brand strategy, AI-driven automation, and performance marketing. Malta's first AI-native agency.",
+      "Malta's AI-native marketing agency: an in-house creative studio, AI workers and business systems built around measurable growth.",
     type: "website",
     url: "https://oarcdigital.com/",
     images: [{ url: "https://oarcdigital.com/og-image.png", width: 1200, height: 630 }],
@@ -162,9 +195,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OARC Digital | Brand Strategy, AI Solutions & Growth Automation — Malta's First",
+    title: "OARC Digital — One AI-native team for creative, growth & automation",
     description:
-      "OARC Digital helps Maltese businesses grow revenue fast through brand strategy, AI-driven automation, and performance marketing.",
+      "Malta's AI-native marketing agency: an in-house creative studio, AI workers and business systems built around measurable growth.",
     images: ["https://oarcdigital.com/og-image.png"],
   },
   icons: {

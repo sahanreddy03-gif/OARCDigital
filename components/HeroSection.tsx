@@ -454,16 +454,15 @@ export default function HeroSection() {
               >
                 Marketing Agency Malta
               </span>
+            </h1>
+            <h2 className="hero-display-type text-white">
               <span
                 className={`${heroSerif.className} block italic tracking-[-0.03em] leading-[1.08] mt-1`}
                 style={{ fontSize: "clamp(1.15rem, 5.4vw, 1.45rem)" }}
               >
-                One AI-native team for{" "}
-                <span className={`${heroSans.className} text-[#e8ffb0] font-semibold not-italic`}>
-                  creative, growth &amp; automation
-                </span>
+                One AI-native team for creative, growth &amp; automation.
               </span>
-            </h1>
+            </h2>
           </div>
 
           {/* Film band — exact 16:9 of the video so cover fills edge-to-edge with no crop */}
@@ -477,9 +476,9 @@ export default function HeroSection() {
 
           <div className="shrink-0 w-full px-3 mt-2 flex gap-2 justify-center">
             <CompactMobileGlassCard label="Creative" href="/creative" testId="button-nav-creative" />
-            <CompactMobileGlassCard label="Agentic AI" href="/ai-agents" testId="button-nav-ai" />
+            <CompactMobileGlassCard label="AI Workers" href="/ai-agents" testId="button-nav-ai" />
             <CompactMobileGlassCard
-              label={"Invention"}
+              label={"Business Systems"}
               href="/solutions"
               testId="button-nav-growth"
             />
@@ -491,15 +490,7 @@ export default function HeroSection() {
             data-testid="text-hero-inhouse-line"
             data-speakable
           >
-            <span className={`${heroSans.className} text-[#e8ffb0] font-semibold not-italic`}>
-              In-house
-            </span>{" "}
-            <span className={`${heroSerif.className} italic text-white`}>
-              Studio, Sales &amp; Tech
-            </span>{" "}
-            <span className={`${heroSans.className} text-white font-semibold`}>
-              at your disposal
-            </span>
+            In-house Studio, Sales &amp; Tech at your disposal.
           </p>
 
           {/* Carousel — fixed at the bottom of the first viewport; do not move */}
@@ -512,7 +503,7 @@ export default function HeroSection() {
         <div className="hero-type hidden md:flex relative flex-1 flex-col justify-end pt-16 lg:pt-20 pb-6">
           <div className="w-full">
             <div className="w-full pl-8 lg:pl-12 pr-0">
-              <div className="w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl text-left">
+              <div className="w-full max-w-none text-left">
                 <div className="relative">
                   <h1
                     className="hero-display-type mb-6 lg:mb-8 text-white"
@@ -520,65 +511,26 @@ export default function HeroSection() {
                     data-speakable
                   >
                     <span
-                      className="block tracking-tight leading-[1.05] text-[clamp(2.5rem,5.5vw,4.5rem)] lg:text-[clamp(2.5rem,4.8vw,4rem)]"
-                      style={{ fontFamily: "var(--font-swarsh)" }}
+                      className={`${heroSans.className} block tracking-tight leading-[1.05] text-[clamp(1.4rem,2.8vw,2.4rem)] lg:text-[clamp(1.55rem,2.5vw,2.15rem)]`}
                     >
                       Marketing Agency Malta
                     </span>
-                    <span className="block font-extralight italic font-serif tracking-[-0.04em] leading-[1.05] mt-2 text-[clamp(2.2rem,4.7vw,3.85rem)] lg:text-[clamp(2.3rem,4.1vw,3.4rem)]">
-                      One AI-native team for{" "}
-                      <span className="text-[#e8ffb0] font-semibold not-italic">creative, growth &amp; automation</span>
-                    </span>
                   </h1>
-
-                  <div className="flex justify-start mb-6">
-                    <div
-                      className="relative inline-block px-4 py-2 rounded-lg"
-                      style={{
-                        background: "rgba(255, 255, 255, 0.08)",
-                        backdropFilter: "blur(8px)",
-                        border: "1px solid rgba(255, 255, 255, 0.1)",
-                      }}
-                    >
-                      <p
-                        className="text-white tracking-wide whitespace-nowrap text-[clamp(0.9rem,1.5vw,1.25rem)] lg:text-[clamp(1rem,1.6vw,1.35rem)]"
-                        style={{
-                          fontFamily: "var(--font-halfre)",
-                          textShadow:
-                            "0 0 30px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 255, 255, 0.2)",
-                        }}
-                        data-testid="text-hero-subheadline"
-                      >
-                        For Brands That Compete on Value, Not Price
-                      </p>
-                      <div
-                        className="absolute bottom-2 left-6 right-6 h-[2px]"
-                        style={{
-                          background:
-                            "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent)",
-                        }}
-                      />
-                    </div>
-                  </div>
-
-                  <p
-                    className="max-w-2xl leading-snug mb-4 font-normal tracking-[0.08em] text-[clamp(0.9rem,1.5vw,1.2rem)]"
-                    style={{ color: "rgba(255, 255, 255, 0.85)" }}
-                    data-testid="text-value-proposition"
+                  <h2
+                    className="hero-display-type mb-6 lg:mb-8 text-white"
+                    data-testid="text-hero-subheadline"
                     data-speakable
                   >
-                    Creative AI Talent + Social-Led Marketing + Custom Workflows
-                  </p>
+                    <span className={`${heroSerif.className} block italic tracking-[-0.04em] leading-[1.05] mt-2 text-[clamp(2rem,3.1vw,2.8rem)] lg:whitespace-nowrap`}>
+                      One AI-native team for creative, growth &amp; automation.
+                    </span>
+                  </h2>
                   <p
-                    className="max-w-2xl leading-tight mb-7 lg:mb-9 text-[clamp(1.2rem,2.2vw,1.8rem)]"
-                    data-testid="text-result-line"
+                    className="max-w-2xl leading-snug mb-7 lg:mb-9 text-[clamp(1rem,1.5vw,1.2rem)] text-white/85"
+                    data-testid="text-hero-inhouse-line"
+                    data-speakable
                   >
-                    <span className="text-white/70 font-light">=</span>{" "}
-                    <span className="text-white font-bold italic">Less Waste</span>
-                    <span className="text-white/50 font-light"> + </span>
-                    <span className="text-white font-semibold">More Reach</span>
-                    <span className="text-white/50 font-light"> + </span>
-                    <span className="text-white font-bold tracking-wide">More Sales</span>
+                    In-house Studio, Sales &amp; Tech at your disposal.
                   </p>
 
                   <div className="flex flex-wrap gap-4 justify-start">
@@ -590,13 +542,13 @@ export default function HeroSection() {
                     />
                     <MobileGlassCard
                       icon={Bot}
-                      label="AI"
+                      label="AI Workers"
                       href="/ai-agents"
                       testId="button-nav-ai-desktop"
                     />
                     <MobileGlassCard
                       icon={Rocket}
-                      label="Growth"
+                      label="Business Systems"
                       href="/solutions"
                       testId="button-nav-growth-desktop"
                     />
