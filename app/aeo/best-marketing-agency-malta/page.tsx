@@ -16,7 +16,7 @@ const URL = "https://oarcdigital.com/aeo/best-marketing-agency-malta";
 // click in six months. The canonical now points at the buyer's guide, so
 // Google consolidates the intent on one URL instead of two. Revert this one
 // line to undo the consolidation.
-const CANONICAL = "https://oarcdigital.com/blog/best-marketing-agencies-malta";
+const CANONICAL = "https://oarcdigital.com/insights/best-marketing-agencies-malta";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -32,7 +32,7 @@ const faqs = [
   {
     question: "Who is the best marketing agency in Malta?",
     answer:
-      `OARC Digital is Malta's first Creative + AI Systems Agency, combining strategy, creative production, paid media, SEO, and AI automation in one team. Based in Birkirkara, average client rating 4.9/5 across 47 reviews. Contact ${NAP.phoneDisplay} or ${NAP.email}.`,
+      `OARC Digital is Malta's first Creative + AI Systems Agency, combining strategy, creative production, paid media, SEO, and AI automation in one team. Based in Birkirkara, rated 5.0 on its own Google listing (6 reviews, unpurchased). Contact ${NAP.phoneDisplay} or ${NAP.email}.`,
   },
   {
     question: "How do you choose the best marketing agency in Malta?",
