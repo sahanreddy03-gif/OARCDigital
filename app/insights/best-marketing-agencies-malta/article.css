@@ -496,12 +496,12 @@
 }
 .oi-orbit-2 {
   inset: 17%;
-  border-color: rgba(111, 229, 156, 0.4);
+  border-color: rgba(196, 255, 77, 0.4);
   animation: oi-spin 28s linear infinite reverse;
 }
 .oi-orbit-3 {
   inset: 30%;
-  border-color: rgba(111, 229, 156, 0.75);
+  border-color: rgba(196, 255, 77, 0.75);
   animation: oi-spin 19s linear infinite;
 }
 @keyframes oi-spin {
@@ -588,7 +588,7 @@
   text-transform: uppercase;
   color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px solid rgba(111, 229, 156, 0.35);
+  border-bottom: 1px solid rgba(196, 255, 77, 0.35);
   padding-bottom: 3px;
   transition: border-color 0.2s, color 0.2s;
 }
@@ -619,7 +619,7 @@
   transition: padding-left 0.3s, background 0.3s;
 }
 .oi-service:hover {
-  background: linear-gradient(90deg, rgba(111, 229, 156, 0.07), transparent 60%);
+  background: linear-gradient(90deg, rgba(196, 255, 77, 0.07), transparent 60%);
   padding-left: 12px;
 }
 .oi-service-n {
@@ -1224,7 +1224,7 @@
 .oi-article-hero {
   padding: clamp(120px, 18vh, 190px) 0 clamp(50px, 7vw, 90px);
   background:
-    radial-gradient(1100px 520px at 12% -10%, rgba(111, 229, 156, 0.16), transparent 60%),
+    radial-gradient(1100px 520px at 12% -10%, rgba(196, 255, 77, 0.16), transparent 60%),
     linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
 }
 .oi-article-hero .oi-h1 {
@@ -1303,7 +1303,7 @@
   transition: padding-left 0.3s, background 0.3s;
 }
 .oi-agency:hover {
-  background: linear-gradient(90deg, rgba(111, 229, 156, 0.06), transparent 70%);
+  background: linear-gradient(90deg, rgba(196, 255, 77, 0.06), transparent 70%);
   padding-left: 12px;
 }
 .oi-agency-pos {
@@ -1389,4 +1389,313 @@
     grid-template-columns: 56px 1fr;
     gap: 16px;
   }
+}
+
+
+/* ============================================================
+   v3 RE-SKIN — homepage language (black + acid lime + one teal band)
+   Palette taken from the live homepage: base #0a0a0a, lime #c4ff4d,
+   soft lime #e8ffb0, teal #23aaca, zinc text scale.
+   Type: Inter (display) + Instrument Serif (italic accent) + Space Mono (labels).
+   ============================================================ */
+.oi {
+  --ink: #050506;
+  --ink-2: #0a0a0a;
+  --paper: #f4f5f0;
+  --accent: #c4ff4d;
+  --accent-soft: #e8ffb0;
+  --teal: #23aaca;
+  --muted: #a1a1aa;
+  --mute-2: #71717a;
+  --hair: rgba(244, 245, 240, 0.16);
+  --hair-dark: rgba(244, 245, 240, 0.16);
+  background: var(--ink);
+}
+.oi-h1,
+.oi-h2,
+.oi-cta-h,
+.oi-answer h2,
+.oi-proof-item strong,
+.oi-rank-item strong,
+.oi-service-name,
+.oi-phase h3,
+.oi-offer h3,
+.oi-agency h3,
+.oi-check h3,
+.oi-band-line,
+.oi-faq-item button,
+.oi-orbit-core,
+.oi-agency-pos {
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+.oi em,
+.oi-service-proof,
+.oi-quote,
+.oi-agency-watch,
+.oi-answer-quote {
+  font-family: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.oi-h1 em,
+.oi-h2 em,
+.oi-cta-h em,
+.oi-band-line em {
+  color: var(--accent);
+}
+.oi-label,
+.oi-eyebrow,
+.oi-band-kicker,
+.oi-entity-title,
+.oi-visit-title,
+.oi-offer-tag,
+.oi-card-dark-title,
+.oi-foot-note,
+.oi-btn,
+.oi-inline-links a,
+.oi-service-n,
+.oi-phase-n,
+.oi-service-proof,
+.oi-check > span,
+.oi-agency h3 span,
+.oi-proof-item small {
+  font-family: var(--font-space-mono), monospace;
+}
+
+/* every band dark or teal — no bone, no mint */
+.oi-proof,
+.oi-services,
+.oi-method,
+.oi-list,
+.oi-rank,
+.oi-work,
+.oi-offers,
+.oi-local,
+.oi-first,
+.oi-faq,
+.oi-three {
+  background: var(--ink);
+  color: var(--paper);
+}
+.oi-answer,
+.oi-honest,
+.oi-cta {
+  background: var(--teal);
+  color: #04141a;
+}
+.oi-answer h2,
+.oi-answer-quote,
+.oi-honest .oi-h2,
+.oi-cta-h,
+.oi-body-ink {
+  color: #04141a;
+}
+.oi-answer .oi-fine,
+.oi-honest .oi-body,
+.oi-cta .oi-body {
+  color: rgba(4, 20, 26, 0.78);
+}
+.oi-label-dark,
+.oi-label-ink {
+  color: rgba(4, 20, 26, 0.72);
+}
+.oi-honest .oi-inline-links a,
+.oi-answer .oi-fine a {
+  color: #04141a;
+  border-color: rgba(4, 20, 26, 0.45);
+}
+.oi-quote {
+  border-left-color: #04141a;
+}
+.oi-ticker {
+  background: var(--accent);
+  color: #101400;
+}
+.oi-btn-accent,
+.oi a.oi-btn-accent {
+  background: var(--accent);
+  color: #101400;
+}
+.oi a.oi-btn-accent:hover {
+  background: var(--accent-soft);
+  color: #101400;
+}
+.oi-btn-dark,
+.oi a.oi-btn-dark {
+  background: #04141a;
+  color: var(--paper);
+}
+.oi-btn-outline,
+.oi a.oi-btn-outline {
+  border-color: rgba(4, 20, 26, 0.45);
+  color: #04141a;
+}
+.oi-btn-ghost {
+  border-color: var(--hair);
+  color: var(--paper);
+}
+.oi-btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.oi-work,
+.oi-local,
+.oi-offers,
+.oi-first {
+  border-top: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hair);
+}
+.oi-work .oi-label,
+.oi-local .oi-label,
+.oi-offers .oi-label,
+.oi-first .oi-label,
+.oi-work-foot .oi-inline-links a,
+.oi-local .oi-inline-links a,
+.oi-first .oi-inline-links a,
+.oi-chips a,
+.oi-offer a,
+.oi-offer ul li::before {
+  color: var(--accent);
+  border-color: rgba(196, 255, 77, 0.4);
+}
+.oi-chips a {
+  color: var(--paper);
+  border-color: rgba(244, 245, 240, 0.24);
+}
+.oi-chips a:hover {
+  background: var(--accent);
+  color: #101400;
+  border-color: var(--accent);
+}
+.oi-visit,
+.oi-card-dark,
+.oi-entity {
+  background: #0a0a0a;
+  color: var(--paper);
+  border: 1px solid var(--hair);
+}
+.oi-visit-line a {
+  color: var(--paper);
+  border-color: rgba(244, 245, 240, 0.32);
+}
+.oi-visit-line a:hover,
+.oi-entity-link {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.oi-visit-note {
+  color: var(--muted);
+}
+.oi-entity dt,
+.oi-entity dd {
+  color: var(--paper);
+}
+.oi-entity dd {
+  color: rgba(244, 245, 240, 0.88);
+}
+.oi-entity dl > div {
+  border-top-color: var(--hair);
+}
+.oi-offer {
+  border-color: var(--hair);
+  background: #0a0a0a;
+}
+.oi-offer:hover {
+  background: #101010;
+  box-shadow: 0 24px 60px -40px rgba(196, 255, 77, 0.5);
+}
+.oi-offer h3,
+.oi-offer p,
+.oi-offer ul li {
+  color: var(--paper);
+}
+.oi-offer p,
+.oi-offer ul li {
+  color: var(--muted);
+}
+.oi-offer ul li {
+  border-top-color: var(--hair);
+}
+.oi-faq-item button {
+  color: var(--paper);
+}
+.oi-faq-a p {
+  color: var(--muted);
+}
+.oi-proof-item span,
+.oi-rank-item span,
+.oi-service-body,
+.oi-agency-body p,
+.oi-phase p {
+  color: var(--muted);
+}
+.oi-proof-item strong,
+.oi-rank-item strong,
+.oi-orbit-tag,
+.oi-service-go,
+.oi-faq-sign {
+  color: var(--accent);
+}
+.oi-service-proof {
+  color: var(--accent-soft);
+}
+.oi-agency-seen,
+.oi-agency-watch {
+  color: var(--paper) !important;
+}
+.oi-agency-seen strong,
+.oi-agency-watch strong {
+  color: var(--accent);
+}
+.oi-check {
+  border-top-color: rgba(4, 20, 26, 0.4);
+}
+.oi-check h3 {
+  color: #04141a;
+}
+.oi-check p {
+  color: rgba(4, 20, 26, 0.78);
+}
+.oi-check > span {
+  color: rgba(4, 20, 26, 0.6);
+}
+.oi-orbit-2,
+.oi-orbit-3 {
+  border-color: rgba(196, 255, 77, 0.55);
+}
+.oi-orbit-core {
+  background: var(--accent);
+  color: #101400;
+}
+.oi-orbit-tag {
+  border-color: rgba(196, 255, 77, 0.55);
+  background: rgba(5, 5, 6, 0.75);
+}
+.oi-service:hover {
+  background: linear-gradient(90deg, rgba(196, 255, 77, 0.08), transparent 60%);
+}
+.oi-agency:hover {
+  background: linear-gradient(90deg, rgba(196, 255, 77, 0.07), transparent 70%);
+}
+
+.oi-service-proof {
+  color: var(--accent-soft);
+  opacity: 1;
+  font-size: 14px;
+}
+.oi-proof-item strong,
+.oi-rank-item strong,
+.oi-orbit-core,
+.oi-ticker,
+.oi-btn-accent {
+  text-shadow: none;
+}
+.oi-hero-scrim {
+  background: linear-gradient(180deg, rgba(5, 5, 6, 0.72) 0%, rgba(5, 5, 6, 0.45) 34%, rgba(5, 5, 6, 0.92) 88%, var(--ink) 100%);
+}
+.oi-band::after {
+  background: linear-gradient(90deg, rgba(5, 5, 6, 0.88), rgba(5, 5, 6, 0.4) 70%, rgba(5, 5, 6, 0.65));
 }
