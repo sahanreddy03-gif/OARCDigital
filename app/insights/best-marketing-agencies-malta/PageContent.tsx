@@ -125,6 +125,33 @@ export default function PageContent() {
   useReveal();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
+  /** Clean canvas: suppress the app-wide floating chat/WhatsApp bubbles while
+   *  this page is mounted (scoped to this route, nothing global is edited). */
+  useEffect(() => {
+    const FLOATING = /z-\[9{3,4}\d\]/;
+    const hide = () => {
+      document.querySelectorAll<HTMLElement>("body *").forEach((el) => {
+        const cls = typeof el.className === "string" ? el.className : "";
+        if (!cls.includes("fixed") || !FLOATING.test(cls)) return;
+        if (el.dataset.oiHidden === "1") return;
+        el.dataset.oiHidden = "1";
+        el.style.setProperty("display", "none", "important");
+      });
+    };
+    hide();
+    const mo = new MutationObserver(hide);
+    mo.observe(document.body, { childList: true, subtree: true });
+    const stop = window.setTimeout(() => mo.disconnect(), 9000);
+    return () => {
+      window.clearTimeout(stop);
+      mo.disconnect();
+      document.querySelectorAll<HTMLElement>('[data-oi-hidden="1"]').forEach((el) => {
+        el.style.removeProperty("display");
+        delete el.dataset.oiHidden;
+      });
+    };
+  }, []);
+
   return (
     <main className="oi">
       <section className="oi-article-hero">

@@ -337,7 +337,7 @@ export default function PageContent() {
               <div className="oi-rank-item" key={r.kw} data-reveal style={{ transitionDelay: `${i * 80}ms` }}>
                 <strong>{r.pos}</strong>
                 <span>{r.kw}</span>
-                <Link href={r.page}>{r.page.replace("/aeo/", "").replace("/blog/", "")} →</Link>
+                <Link href={r.page}>See the page ranking →</Link>
               </div>
             ))}
           </div>
