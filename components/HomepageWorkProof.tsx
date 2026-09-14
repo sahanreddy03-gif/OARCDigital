@@ -31,7 +31,7 @@ export default function HomepageWorkProof() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 flex flex-col gap-7 md:mb-16 md:flex-row md:items-end md:justify-between">
           <h2 id="homepage-work-proof-title" className="max-w-2xl text-[clamp(3rem,7vw,6.6rem)] font-semibold leading-[.84] tracking-[-.08em] text-[#171614]">
-            Selected work.
+            Our work.
           </h2>
           <Link href="/our-work" className="group inline-flex items-center gap-2 border-b border-[#171614]/30 pb-1 text-sm font-semibold text-[#171614] transition-colors hover:border-[#171614]">
             View all work <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />

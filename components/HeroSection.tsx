@@ -216,16 +216,18 @@ const MobileGlassCard = ({ icon: Icon, label, href, testId }: { icon: typeof Pal
  */
 const CompactMobileGlassCard = ({
   label,
+  subtitle,
   href,
   testId,
 }: {
   label: string;
+  subtitle?: string;
   href: string;
   testId: string;
 }) => (
   <Link href={href} className="block" style={{ width: "calc(118 / 390 * 100%)" }}>
     <div
-      className="flex items-center justify-center rounded-xl border backdrop-blur-md"
+      className="flex flex-col items-center justify-center rounded-xl border px-1 text-center backdrop-blur-md"
       style={{
         height: "calc(72 / 844 * 100svh)",
         background: "rgba(255,255,255,0.10)",
@@ -234,11 +236,19 @@ const CompactMobileGlassCard = ({
       data-testid={testId}
     >
       <span
-        className="font-semibold text-white text-center leading-tight whitespace-pre-line"
-        style={{ fontSize: "calc(11 / 390 * 100vw)", letterSpacing: 0 }}
+        className={`${heroSerif.className} italic leading-none text-white`}
+        style={{ fontSize: "clamp(1.05rem, 4.8vw, 1.3rem)", letterSpacing: "-0.025em" }}
       >
         {label}
       </span>
+      {subtitle ? (
+        <span
+          className={`${heroSans.className} mt-1 font-medium leading-[1.05] text-white/80`}
+          style={{ fontSize: "clamp(0.45rem, 1.9vw, 0.54rem)", letterSpacing: "-0.01em" }}
+        >
+          {subtitle}
+        </span>
+      ) : null}
     </div>
   </Link>
 );
@@ -396,7 +406,6 @@ export default function HeroSection() {
               transform: "scale(1.18)",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/55" />
         </div>
 
         {/* ========== DESKTOP LAYOUT ========== */}
@@ -455,8 +464,8 @@ export default function HeroSection() {
                 Marketing Agency Malta
               </span>
               <span
-                className={`${heroSerif.className} block italic tracking-[-0.03em] leading-[1.08] mt-1`}
-                style={{ fontSize: "clamp(1.15rem, 5.4vw, 1.45rem)" }}
+                className={`${heroSerif.className} mt-1 block whitespace-nowrap italic tracking-[-0.03em] leading-[1.08]`}
+                style={{ fontSize: "clamp(0.68rem, 2.95vw, 0.8rem)" }}
               >
                 One AI-native team for{" "}
                 <span className={`${heroSans.className} text-[#e8ffb0] font-semibold not-italic`}>
@@ -477,7 +486,12 @@ export default function HeroSection() {
 
           <div className="shrink-0 w-full px-3 mt-2 flex gap-2 justify-center">
             <CompactMobileGlassCard label="Creative" href="/creative" testId="button-nav-creative" />
-            <CompactMobileGlassCard label="Agentic AI" href="/ai-agents" testId="button-nav-ai" />
+            <CompactMobileGlassCard
+              label="Agentic"
+              subtitle="AI workers & business systems"
+              href="/ai-agents"
+              testId="button-nav-ai"
+            />
             <CompactMobileGlassCard
               label={"Invention"}
               href="/solutions"
