@@ -19,3 +19,4 @@
 - [Homepage brand wall](homepage-brand-wall.md) — keep the full two-row moving logo wall; remove only MCW and refine the existing concept
 - [Portfolio route consolidation](portfolio-route-consolidation.md) — the newer portfolio is Our Work at /our-work; /new-work remains only as a permanent redirect
 - [Neon atomic returning](neon-atomic-returning.md) — neon-http can drop INSERT RETURNING rows; use a write CTE with an outer SELECT for atomic counters
+- [GitHub connector push fallback](github-connector-push-fallback.md) — connector OAuth may work while Git CLI credentials fail; fetch anonymously and use Git Data API without force-pushing
