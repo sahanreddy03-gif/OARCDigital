@@ -33,6 +33,8 @@ export const CORE: CoreEntry[] = [
   { path: "/contact", priority: 0.9, changefreq: "monthly" },
   { path: "/about", priority: 0.7, changefreq: "monthly" },
   { path: "/blog", priority: 0.8, changefreq: "weekly" },
+  { path: "/insights/oarc-digital-malta", priority: 0.9, changefreq: "weekly" },
+  { path: "/insights/best-marketing-agencies-malta", priority: 0.8, changefreq: "weekly" },
   { path: "/research", priority: 0.7, changefreq: "weekly" },
   { path: "/tools/malta-digital-score", priority: 0.7, changefreq: "monthly" },
   { path: "/pricing", priority: 0.8, changefreq: "monthly" },
