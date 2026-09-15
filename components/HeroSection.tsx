@@ -455,7 +455,7 @@ export default function HeroSection() {
             paddingBottom: "max(0.2rem, env(safe-area-inset-bottom))",
           }}
         >
-          <div className="shrink-0 px-3 text-center">
+          <div className="shrink-0 px-1 text-center">
             <h1 className="hero-display-type text-white" data-testid="text-hero-headline" data-speakable>
               <span
                 className={`${heroSans.className} block font-semibold tracking-[-0.035em] leading-[1.05]`}
@@ -464,8 +464,8 @@ export default function HeroSection() {
                 Marketing Agency Malta
               </span>
               <span
-                className={`${heroSerif.className} mt-1 block whitespace-nowrap italic tracking-[-0.03em] leading-[1.08]`}
-                style={{ fontSize: "clamp(0.68rem, 2.95vw, 0.8rem)" }}
+                className={`${heroSerif.className} mt-1 block whitespace-nowrap italic tracking-[-0.045em] leading-[1.08]`}
+                style={{ fontSize: "clamp(1.05rem, 4.65vw, 1.2rem)" }}
               >
                 One AI-native team for{" "}
                 <span className={`${heroSans.className} text-[#e8ffb0] font-semibold not-italic`}>
