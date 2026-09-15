@@ -244,7 +244,7 @@ const CompactMobileGlassCard = ({
       {subtitle ? (
         <span
           className={`${heroSans.className} mt-1 font-medium leading-[1.05] text-white/80`}
-          style={{ fontSize: "clamp(0.45rem, 1.9vw, 0.54rem)", letterSpacing: "-0.01em" }}
+          style={{ fontSize: "clamp(0.58rem, 2.5vw, 0.68rem)", letterSpacing: "-0.01em" }}
         >
           {subtitle}
         </span>
@@ -487,7 +487,8 @@ export default function HeroSection() {
           <div className="shrink-0 w-full px-3 mt-2 flex gap-2 justify-center">
             <CompactMobileGlassCard label="Creative" href="/creative" testId="button-nav-creative" />
             <CompactMobileGlassCard
-              label="Agentic AI Workers"
+              label="Agentic"
+              subtitle="AI Workers"
               href="/ai-agents"
               testId="button-nav-ai"
             />
