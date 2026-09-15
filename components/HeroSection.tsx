@@ -487,13 +487,12 @@ export default function HeroSection() {
           <div className="shrink-0 w-full px-3 mt-2 flex gap-2 justify-center">
             <CompactMobileGlassCard label="Creative" href="/creative" testId="button-nav-creative" />
             <CompactMobileGlassCard
-              label="Agentic"
-              subtitle="AI workers & business systems"
+              label="Agentic AI Workers"
               href="/ai-agents"
               testId="button-nav-ai"
             />
             <CompactMobileGlassCard
-              label={"Invention"}
+              label="Business Systems"
               href="/solutions"
               testId="button-nav-growth"
             />
