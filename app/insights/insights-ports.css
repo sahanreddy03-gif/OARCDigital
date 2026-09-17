@@ -1,0 +1,134 @@
+/* Insights template ports (Raylabs/Crovia/Conicorn) — scoped helpers.
+   Do NOT set body/html here; pages own their surface colors. */
+
+:root {
+  /* OARC CTAs only — never identity wash */
+  --oarc-accent: #c4ff4d;
+  --oarc-accent-soft: #e8ffb0;
+  --oarc-whatsapp: #25d366;
+
+  /* Raylabs bone */
+  --ray-bg: #0f0f0f;
+  --ray-elevated: #111111;
+  --ray-card: #1c1c1c;
+  --ray-muted: #9e9e9e;
+  --ray-line: rgba(255, 255, 255, 0.08);
+  --ray-purple: #8457ff;
+
+  /* Crovia bone */
+  --crovia-bg: #090909;
+  --crovia-elevated: #151515;
+  --crovia-card: #1a1a1a;
+  --crovia-muted: #8a8a8a;
+  --crovia-orange: #ff5a1f;
+  --crovia-line: rgba(255, 255, 255, 0.09);
+
+  /* Conicorn bone (light ops) */
+  --coni-bg: #f4f4f4;
+  --coni-surface: #ffffff;
+  --coni-ink: #0a0a0a;
+  --coni-muted: #6b6b6b;
+  --coni-line: rgba(0, 0, 0, 0.08);
+  --coni-pill: #eaeaea;
+  --coni-dark: #1a1a1a;
+
+  /* FORBIDDEN: #C6FF00 #00FF88 neon void wash */
+}
+
+.font-serif-italic {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.font-display {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* CTA-only accent helpers — do not use on headlines */
+.cta-accent {
+  color: var(--oarc-accent);
+}
+.cta-accent-soft {
+  color: var(--oarc-accent-soft);
+}
+.cta-fill {
+  background: var(--oarc-accent);
+  color: #0a0a0a;
+}
+.cta-fill:hover {
+  background: var(--oarc-accent-soft);
+}
+
+.video-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.scroll-cue {
+  animation: bounce-y 2.2s ease-in-out infinite;
+}
+
+@keyframes bounce-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x 36s linear infinite;
+}
+
+.works-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #1c1c1c;
+}
+
+.works-card video,
+.works-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.coni-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  background: #e8e8e8;
+  color: #444;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.9rem;
+}
+
+.crovia-orange {
+  color: var(--crovia-orange);
+}
