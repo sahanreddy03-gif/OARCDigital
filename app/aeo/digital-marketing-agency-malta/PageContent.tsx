@@ -87,7 +87,7 @@ export default function DigitalMarketingAgencyMalta({ faqs, offers }: Props) {
             <div className="flex flex-wrap gap-3">
               <Link href="/contact">
                 <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
-                  Talk to OARC Digital <ArrowRight className="ml-2 w-4 h-4" />
+                  Get the free marketing audit <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
               <a href={`tel:${NAP.phoneE164}`}>
@@ -95,6 +95,9 @@ export default function DigitalMarketingAgencyMalta({ faqs, offers }: Props) {
                   <Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button>
               </a>
             </div>
+            <p className="mt-6 text-sm text-zinc-300">
+              Every enquiry starts with a <strong>free Malta marketing audit</strong>: we review your site, your ads and your last 90 days of analytics, then send the three highest-impact fixes — before you commit to anything.
+            </p>
             <p className="mt-8 text-sm text-zinc-400" data-testid="aeo-money-links">
               Explore: 
                 <Link href="/" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Home</Link>
@@ -230,12 +233,12 @@ export default function DigitalMarketingAgencyMalta({ faqs, offers }: Props) {
           <RelatedLinks slug="/aeo/digital-marketing-agency-malta" />
 
           <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
-            <h2 className="text-2xl font-bold mb-3">Ready to Talk Digital Marketing?</h2>
-            <p className="text-white/90 mb-6 max-w-xl mx-auto">No pitch deck. No generic proposal. A direct conversation about what your Malta business needs and what results are realistic in the next 90 days.</p>
+            <h2 className="text-2xl font-bold mb-3">Want a free Malta marketing audit?</h2>
+            <p className="text-white/90 mb-6 max-w-xl mx-auto">We review your site, your ads and your last 90 days of analytics, then send you the three highest-impact fixes and a 90-day plan. No pitch deck, no obligation.</p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link href="/contact">
                 <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50 font-bold">
-                  Start a conversation <ArrowRight className="ml-2 w-4 h-4" />
+                  Request the free audit <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
               <a href={`tel:${NAP.phoneE164}`}>
