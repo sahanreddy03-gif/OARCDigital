@@ -1,62 +1,64 @@
 "use client";
+
 import Link from "next/link";
 import { useState } from "react";
-import { voiceAIWorkerPages } from "./voice-ai-worker-data";
 
 const jobs = [
-  ["CUSTOMER SUPPORT", "Answers the question, resolves the issue, and escalates with context."],
-  ["SALES", "Qualifies the opportunity, sends the next step, and follows up."],
-  ["BOOKINGS", "Finds availability, confirms the appointment, and updates the calendar."],
-  ["RECEPTION", "Welcomes callers, routes requests, and keeps the front door open."],
-  ["OPERATIONS", "Updates records, chases missing information, and reports what changed."],
-];
-const proof = [
-  ["Mediterranean Retail Chain", "+48%", "documented ROI increase", "/case-studies"],
-  ["Premium Dental Studio", "-67%", "documented no-show reduction", "/case-studies"],
-  ["Boutique Café Brand", "+40%", "documented repeat-customer rate", "/case-studies"],
-  ["EU Tech Startup", "-35%", "documented sales-cycle reduction", "/case-studies"],
+  ["Reception", "Answer calls, understand what the caller needs, and route the next step."],
+  ["Bookings", "Find availability, confirm the details, and update the approved calendar."],
+  ["Follow-up", "Capture the request, send a consent-safe WhatsApp next step, and brief your team."],
+  ["Operations", "Take bounded actions in the systems your business already uses."],
 ];
 const faqs = [
-  ["Can AI answer my business phone in Malta after hours?", "Yes. OARC's Voice AI Worker answers Malta business calls after hours, follows your rules, and books or routes work so you miss fewer revenue calls."],
-  ["Does the voice agent book appointments into my calendar?", "When scoped, yes—it books into your calendar or CRM and hands off exceptions that need a human decision."],
-  ["How is a Voice AI Worker different from a basic IVR menu?", "IVR is button trees. A Voice AI Worker understands speech, completes tasks in your systems, and escalates judgment calls to people."],
-  ["Is voice AI suitable for restaurants in Malta?", "Yes. Restaurants use voice for bookings and FAQs; see also H360 hospitality phone AI for venue-specific packaging."],
-  ["Is Voice AI Worker only for restaurants?", "No. Hospitality is a strong fit, and the same worker covers clinics, sales teams, home services, logistics, and other Malta operators who lose calls."],
-  ["How does Voice AI Worker relate to AI agents and creative?", "Voice covers the phone. Chat and CRM agents live on /ai-agents. Creative on /creative creates demand those agents catch. One Birkirkara team owns the stack."],
-  ["Who builds Voice AI Worker?", "OARC Digital in Birkirkara—the same marketing and AI studio behind creative, AI agents, H360, and automation. Phone +356 7971 1799."],
+  ["Can AI answer my business phone in Malta after hours?", "Yes. OARC's Voice AI Worker can answer after-hours calls, follow your approved rules, and route or book work without pretending to be a person."],
+  ["Does the voice agent book appointments into my calendar?", "When scoped, it can book into your calendar or booking tools. Exceptions and decisions that need a person are handed over with context."],
+  ["What happens when the worker cannot decide?", "It stops at the boundary you define and gives your team the relevant conversation, request, and next action."],
+  ["Can callers continue on WhatsApp?", "Yes, where consent and your process allow it. The worker follows a bounded WhatsApp hand-off rather than sending unsolicited messages."],
+  ["Who builds Voice AI Worker?", "OARC Digital in Birkirkara, Malta. Call +356 7971 1799 or contact the team to map one workflow."],
 ];
 
 export default function VoiceAIExperience() {
   const [openFaq, setOpenFaq] = useState(0);
-  return <main className="va-page">
-    <section className="va-hero va-hero-blue">
-      <div className="va-navline"><span>OARC DIGITAL / VOICE AI WORKER</span><span>THE OPERATING LAYER FOR CUSTOMER WORK</span></div>
-      <div className="va-hero-grid va-wrap">
-        <div className="va-hero-copy"><p className="va-overline">OARC DIGITAL / AI AGENTS SERVICES</p><h1><i>Voice AI Worker</i><br/>for real business work.</h1><p className="va-hero-lede">A managed Voice AI Worker for customer support, sales, bookings, reception, follow-up, and operations—connected to the systems that run your business.</p><div className="va-hero-actions"><Link href="#jobs" className="va-button va-button-light">See what it handles <span>↓</span></Link><Link href="/voice-ai-worker/start" className="va-button va-button-blue-line">Map one workflow <span>↗</span></Link></div></div>
-        <div className="va-product-console" aria-label="Voice AI Worker product workflow">
-          <div className="va-console-top"><span>VOICE AI WORKER / LIVE</span><b>CONNECTED</b></div>
-          <div className="va-console-request"><small>INCOMING REQUEST</small><strong>“Can you help me book, buy, fix, or find something?”</strong><span>VOICE · WHATSAPP · FORMS · EMAIL</span></div>
-          <div className="va-console-flow"><div><b>01</b><strong>UNDERSTAND</strong><small>Intent, context, rules</small></div><i>→</i><div><b>02</b><strong>DO THE WORK</strong><small>CRM · calendar · inbox</small></div><i>→</i><div><b>03</b><strong>RETURN PROOF</strong><small>Record · handoff · next step</small></div></div>
-          <div className="va-console-result"><span>OUTCOME</span><strong>Request completed. Team briefed. Nothing lost.</strong><em>HUMAN CONTROL ALWAYS AVAILABLE</em></div>
-        </div>
-      </div>
-      <div className="va-hero-foot va-wrap"><span>ONE WORKER / MANY BUSINESS JOBS</span><span>SUPPORT · SALES · BOOKINGS · OPERATIONS</span></div>
-    </section>
+  return (
+    <main className="lighter-page">
+      <nav className="lighter-nav" aria-label="Primary navigation">
+        <Link className="lighter-logo" href="/" aria-label="OARC Digital home"><span className="logo-mark">O</span><strong>OARC</strong><em>DIGITAL</em></Link>
+        <div className="lighter-links"><Link href="#about">About</Link><Link href="#service">Services</Link><Link href="#process">Process</Link><Link href="#faq">FAQ</Link></div>
+        <Link href="/contact" className="lighter-nav-cta">Contact <span>↗</span></Link>
+        <details className="lighter-menu"><summary aria-label="Open menu">MENU</summary><div><Link href="#about">About</Link><Link href="#service">Services</Link><Link href="#process">Process</Link><Link href="/contact">Contact</Link></div></details>
+      </nav>
 
-    <section className="va-intro va-wrap"><p className="va-overline">THE SIMPLE VERSION</p><h2>Voice is the front door.<br/><i>Execution is the product.</i></h2><div className="va-intro-grid"><p>Your customers ask for something. The worker understands the request, follows your approved rules, acts inside the right systems, and gives your team a clean result.</p><div className="va-stat-stack"><span>01 / UNDERSTAND THE REQUEST</span><span>02 / COMPLETE THE WORK</span><span>03 / SHOW WHAT CHANGED</span></div></div></section>
+      <section className="lighter-hero">
+        <div className="hero-kicker"><span />OARC DIGITAL / VOICE AI WORKER</div>
+        <div className="hero-title"><div>AI <span className="hero-chip">voice</span> answers</div><div>for your <i>business</i></div></div>
+        <p className="hero-copy">A Malta voice workforce hub for calls that need an answer, a booking, a bounded action, or a clear hand-off to a person.</p>
+        <div className="hero-actions"><Link href="/contact" className="pill pill-dark">Map one workflow <span>↗</span></Link><Link href="#service" className="pill">See what it handles <span>↓</span></Link></div>
+      </section>
 
-    <section className="va-jobs" id="jobs"><div className="va-wrap"><div className="va-section-head"><p className="va-overline">WHAT IT CAN BE</p><h2>One worker.<br/><i>Many jobs.</i></h2><p className="va-section-lede">The role changes with your business. The operating layer stays consistent.</p></div><div className="va-job-grid">{jobs.map(([title,copy], i)=><article key={title} className={i===0?"va-job-card va-job-featured":"va-job-card"}><span>0{i+1}</span><h3>{title}</h3><p>{copy}</p><b>VOICE AI WORKER ↗</b></article>)}</div></div></section>
+      <section className="lighter-dashboard" aria-label="Voice AI Worker dashboard preview"><img src="/media/exact-smoke/voice/dashboard.avif" alt="Voice AI Worker workflow dashboard" /></section>
 
-    <section className="va-model va-wrap"><div className="va-section-head"><p className="va-overline">THE OPERATING MODEL</p><h2>From request<br/><i>to result.</i></h2></div><div className="va-step-grid">{[["01","RECEIVE","Voice, WhatsApp, forms, email, or a staff request enters."],["02","REASON","Domain knowledge, permissions, context, and exceptions become clear."],["03","EXECUTE","The worker books, updates, qualifies, routes, follows up, or records."],["04","PROVE","The record changes. The next person gets the context. Nothing disappears."]].map(([n,t,b])=><article className="va-step" key={n}><span>{n}</span><h3>{t}</h3><p>{b}</p></article>)}</div></section>
+      <section className="lighter-section about-section" id="about">
+        <div className="eyebrow"><span />ABOUT OARC</div>
+        <h2>Voice is the front door.<br /><i>Execution is the product.</i></h2>
+        <div className="about-grid"><div><h3>Built for real business work in Malta</h3><p>OARC connects a voice worker to the rules, calendars, inboxes, and business systems your team already relies on. It answers clearly, acts only within scope, and keeps people in control.</p><Link href="/contact" className="text-link">Talk to OARC <span>↗</span></Link></div><img src="/media/exact-smoke/voice/about.avif" alt="Abstract OARC digital workspace" /></div>
+      </section>
 
-    <section className="va-industries" id="industries"><div className="va-wrap"><div className="va-section-head"><p className="va-overline">TEN CONFIGURATIONS</p><h2>Built for the way<br/><i>your industry works.</i></h2><p className="va-section-lede">Different vocabulary, systems, permissions, and priorities. One clear operating layer.</p></div><div className="va-industry-rail">{voiceAIWorkerPages.map((item, i)=><Link href={`/voice-ai-worker/${item.slug}`} className="va-industry-card" key={item.slug}><span className="va-card-no">{String(i+1).padStart(2,"0")}</span><div><h3>{item.name}</h3><p>{item.metaDescription}</p><b>Explore configuration ↗</b></div></Link>)}</div><p className="va-swipe-note">SWIPE OR DRAG TO EXPLORE ALL TEN →</p></div></section>
+      <div className="lighter-ticker"><div>VOICE ANSWERS <b>•</b> BOUNDED ACTIONS <b>•</b> HUMAN HAND-OFFS <b>•</b> CONSENT-SAFE WHATSAPP <b>•</b> VOICE ANSWERS <b>•</b></div></div>
 
-    <section className="va-proof"><div className="va-wrap"><div className="va-section-head"><p className="va-overline">DOCUMENTED PROJECT SNAPSHOTS</p><h2>Proof over promises.</h2><p className="va-section-lede">Existing OARC records and public project studies. Figures are dated snapshots, not universal guarantees.</p></div><div className="va-proof-grid">{proof.map(([name,value,label,href])=><Link href={href} className="va-proof-card" key={name}><span>READ THE RECORD ↗</span><strong>{value}</strong><h3>{name}</h3><p>{label}</p></Link>)}</div></div></section>
+      <section className="lighter-impact"><div className="impact-card"><div><div className="eyebrow light"><span />THE WORKER IN PRACTICE</div><h2>From “hello”<br />to <i>next step.</i></h2><p>A caller should not have to repeat themselves. The worker captures intent, follows the approved path, and leaves an understandable record.</p></div><img src="/media/exact-smoke/voice/worker-poster.jpg" alt="Voice AI Worker visual" /></div></section>
 
-    <section className="va-trust va-wrap"><div className="va-section-head"><p className="va-overline">CONTROL, NOT MAGIC</p><h2>Useful because<br/><i>the limits are clear.</i></h2></div><div className="va-trust-grid">{[["Approved actions","The worker only acts inside the permissions and systems you approve."],["Human escalation","When the decision is yours, the worker stops and gives the full context."],["Visible evidence","Every completed action leaves a record your team can understand."],["Built around you","We map, build, monitor, and improve the operating layer with your team."]].map(([t,b])=><article key={t}><h3>{t}</h3><p>{b}</p></article>)}</div></section>
+      <section className="lighter-section service-section" id="service"><div className="eyebrow"><span />WHAT IT CAN DO</div><h2>One worker.<br /><i>Many jobs.</i></h2><p className="section-lede">The role changes with your business. The operating layer stays consistent.</p><div className="service-grid">{jobs.map(([title, copy], i) => <article key={title} className={i === 0 ? "service-card featured" : "service-card"}><small>0{i + 1}</small><h3>{title}</h3><p>{copy}</p><Link href="/contact">Explore the workflow ↗</Link></article>)}</div></section>
 
-    <section className="va-faq va-wrap"><div className="va-section-head"><p className="va-overline">PLAIN ANSWERS</p><h2>Ask the hard ones.</h2></div><div className="va-faq-list">{faqs.map(([q,a],i)=><div className={`va-faq-item ${openFaq===i?'is-open':''}`} key={q}><button onClick={()=>setOpenFaq(openFaq===i?-1:i)} aria-expanded={openFaq===i}><span>{q}</span><b>{openFaq===i?'−':'+'}</b></button>{openFaq===i&&<p>{a}</p>}</div>)}</div></section>
+      <section className="lighter-mission"><div className="eyebrow"><span />OUR MISSION</div><h2>Useful AI has<br /><i>clear limits.</i></h2><div className="mission-media"><video autoPlay loop muted playsInline poster="/media/exact-smoke/voice/worker-poster.jpg"><source src="/media/exact-smoke/voice/worker.mp4" type="video/mp4" /></video><div>OARC / VOICE WORKFORCE / MALTA</div></div></section>
 
-    <section className="va-end"><div className="va-wrap"><p className="va-overline">START WITH ONE IMPORTANT JOB</p><h2>Give it one workflow.<br/><i>See what moves.</i></h2><p>Bring one expensive, repetitive, or easily missed workflow. We will map what enters, what the worker can do, what must stay human, and what evidence comes back.</p><Link href="/voice-ai-worker/start" className="va-button va-button-light">Map the workflow <span>↗</span></Link></div></section>
-  </main>;
+      <section className="lighter-section process-section" id="process"><div className="eyebrow"><span />THE PROCESS</div><h2>Make the work<br /><i>visible.</i></h2><div className="process-grid">{[["01", "Listen", "Map what enters, who calls, and what a good outcome looks like."], ["02", "Bound", "Choose approved systems, actions, permissions, and escalation points."], ["03", "Launch", "Put the worker into one important workflow and monitor the hand-offs."], ["04", "Improve", "Use the record of what happened to make the next version better."]].map(([n, t, c]) => <article key={n}><span>{n}</span><h3>{t}</h3><p>{c}</p></article>)}</div></section>
+
+      <section className="lighter-industries"><div className="eyebrow light"><span />WHERE IT FITS</div><h2>For operators<br /><i>who miss calls.</i></h2><div className="industry-list"><div>Hospitality <span>Bookings, FAQs, hand-offs ↗</span></div><div>Clinics <span>Intake, reminders, routing ↗</span></div><div>Home services <span>Qualification, scheduling, dispatch ↗</span></div><div>Sales teams <span>Lead capture, follow-up, context ↗</span></div></div></section>
+
+      <section className="lighter-section faq-section" id="faq"><div className="eyebrow"><span />PLAIN ANSWERS</div><h2>Ask the<br /><i>hard ones.</i></h2><div className="faq-list">{faqs.map(([q, a], i) => <div className={`faq-item ${openFaq === i ? "open" : ""}`} key={q}><button onClick={() => setOpenFaq(openFaq === i ? -1 : i)} aria-expanded={openFaq === i}><span>{q}</span><b>{openFaq === i ? "−" : "+"}</b></button>{openFaq === i && <p>{a}</p>}</div>)}</div></section>
+
+      <section className="lighter-cta"><div className="eyebrow"><span />START WITH ONE IMPORTANT JOB</div><h2>Give it one workflow.<br /><i>See what moves.</i></h2><p>Call +356 7971 1799 or bring one workflow to OARC. We will map what the worker can do, what stays human, and what evidence comes back.</p><Link href="/contact" className="pill pill-dark">Contact OARC <span>↗</span></Link></section>
+      <footer className="lighter-footer"><Link className="lighter-logo" href="/"><span className="logo-mark">O</span><strong>OARC</strong><em>DIGITAL</em></Link><div><Link href="/">Home</Link><Link href="/contact">Contact</Link><a href="https://wa.me/35679711799">WhatsApp +356 7971 1799</a></div></footer>
+    </main>
+  );
 }

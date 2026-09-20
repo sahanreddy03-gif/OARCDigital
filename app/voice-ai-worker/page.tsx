@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Layout from "@/components/layout/Layout";
 import RouteSchema from "@/components/RouteSchema";
 import VoiceAIExperience from "./VoiceAIExperience";
 
@@ -45,7 +43,7 @@ export const metadata: Metadata = {
 
 export default function VoiceAIWorkerPage() {
   return (
-    <Layout navTheme="dark" showMobileNav>
+    <>
       <RouteSchema
         type="service"
         path="/voice-ai-worker"
@@ -63,24 +61,7 @@ export default function VoiceAIWorkerPage() {
         ]}
         faqs={FAQS}
       />
-      <>
-        <section className="px-6 py-8 bg-black text-white" data-testid="voice-entity-block">
-          <p className="max-w-3xl mx-auto text-center text-base text-white/80" data-speakable>
-            OARC Digital is a Birkirkara AI phone receptionist partner for Malta businesses that miss calls—Voice AI Worker answers, acts in your systems, and hands off decisions that need a person.
-          </p>
-          <p className="mt-4 text-center text-sm text-white/50" data-testid="voice-money-links">
-            Explore: <Link href="/" className="underline-offset-2 hover:underline">Home</Link>
-            {" · "}<Link href="/ai-agents" className="underline-offset-2 hover:underline">AI agents</Link>
-            {" · "}<Link href="/creative" className="underline-offset-2 hover:underline">Creative</Link>
-            {" · "}<Link href="/solutions" className="underline-offset-2 hover:underline">Solutions</Link>
-            {" · "}<Link href="/services/automation" className="underline-offset-2 hover:underline">Automation</Link>
-            {" · "}<Link href="/aeo/ai-agents-business-malta" className="underline-offset-2 hover:underline">AI agents Malta</Link>
-            {" · "}<Link href="/malta" className="underline-offset-2 hover:underline">Malta hubs</Link>
-            {" · "}<Link href="/h360" className="underline-offset-2 hover:underline">H360</Link>
-          </p>
-        </section>
-        <VoiceAIExperience />
-      </>
-    </Layout>
+      <VoiceAIExperience />
+    </>
   );
 }
