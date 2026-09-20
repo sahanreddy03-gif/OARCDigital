@@ -41,3 +41,8 @@ tests/visual/test-results/
 
 # Repo root scratch only — production assets live in public/attached_assets/
 /attached_assets/
+
+# Exact external template captures (reference-only; never commit)
+/oarc-templates-exact/
+/.template-archives/
+/screenshots/stage0-*.jpg
