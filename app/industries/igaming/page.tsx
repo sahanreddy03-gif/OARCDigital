@@ -47,10 +47,10 @@ export default function IGamingMaltaIndustryHub() {
   return (
     <div className="ig-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <div className="ig-preload" aria-hidden="true"><img src={`${media}/logo.svg`} alt="" /><span>OARC Digital</span></div>
+      <div className="ig-preload" aria-hidden="true"><img src="/favicon.png" alt="" /><span>OARC Digital</span></div>
       <header className="ig-nav">
         <div className="ig-nav-inner">
-          <Link href="/" className="ig-brand" aria-label="OARC Digital home"><img src={`${media}/logo.svg`} alt="" /><span>OARC<span>Digital</span></span></Link>
+          <Link href="/" className="ig-brand" aria-label="OARC Digital home"><img src="/favicon.png" alt="" /><span>OARC<span>Digital</span></span></Link>
           <nav className="ig-desktop-nav" aria-label="Homepage navigation">
             <Link href="#about">About</Link><Link href="#values">Approach</Link><Link href="#services">Services</Link><Link href="#process">Process</Link><Link href="#faq">FAQs</Link>
           </nav>
@@ -83,7 +83,7 @@ export default function IGamingMaltaIndustryHub() {
         <section className="ig-cta"><div className="ig-container"><div className="ig-label"><b>005</b><span /> Next move</div><h2>Make your next<br /><em>move deliberate.</em></h2><p>Tell us where acquisition, operations or compliance is slowing the team down.</p><Link href="/contact" className="ig-button ig-button-light">Contact OARC <ArrowUpRight size={16} /></Link><a className="ig-whatsapp" href="https://wa.me/35679711799">WhatsApp +356 7971 1799</a></div></section>
         <section id="faq" className="ig-section ig-faq ig-container"><div className="ig-label"><b>006</b><span /> FAQs</div><div className="ig-faq-grid"><h2>Useful answers,<br /><em>without the spin.</em></h2><div>{faqs.map(([q, a]) => <details key={q}><summary>{q}<ChevronDown size={17} /></summary><p>{a}</p></details>)}</div></div></section>
       </main>
-      <footer className="ig-footer"><div className="ig-container"><div className="ig-footer-top"><Link href="/" className="ig-brand"><img src={`${media}/logo.svg`} alt="" /><span>OARC<span>Digital</span></span></Link><div><p>Malta-based digital systems for ambitious, regulated teams.</p><Link href="/contact">Start a conversation <ArrowUpRight size={14} /></Link></div></div><div className="ig-footer-bottom"><span>© {new Date().getFullYear()} OARC Digital</span><Link href="/">Home</Link><Link href="/contact">Contact</Link><a href="https://wa.me/35679711799">+356 7971 1799</a></div></div></footer>
+      <footer className="ig-footer"><div className="ig-container"><div className="ig-footer-top"><Link href="/" className="ig-brand"><img src="/favicon.png" alt="" /><span>OARC<span>Digital</span></span></Link><div><p>Malta-based digital systems for ambitious, regulated teams.</p><Link href="/contact">Start a conversation <ArrowUpRight size={14} /></Link></div></div><div className="ig-footer-bottom"><span>© {new Date().getFullYear()} OARC Digital</span><Link href="/">Home</Link><Link href="/contact">Contact</Link><a href="https://wa.me/35679711799">+356 7971 1799</a></div></div></footer>
       <style>{css}</style>
     </div>
   );

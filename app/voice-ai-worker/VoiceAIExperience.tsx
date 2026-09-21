@@ -22,7 +22,7 @@ export default function VoiceAIExperience() {
   return (
     <main className="lighter-page">
       <nav className="lighter-nav" aria-label="Primary navigation">
-        <Link className="lighter-logo" href="/" aria-label="OARC Digital home"><span className="logo-mark">O</span><strong>OARC</strong><em>DIGITAL</em></Link>
+        <Link className="lighter-logo" href="/" aria-label="OARC Digital home"><img className="logo-mark" src="/favicon.png" alt="" /><strong>OARC</strong><em>DIGITAL</em></Link>
         <div className="lighter-links"><Link href="#about">About</Link><Link href="#service">Services</Link><Link href="#process">Process</Link><Link href="#faq">FAQ</Link></div>
         <Link href="/contact" className="lighter-nav-cta">Contact <span>↗</span></Link>
         <details className="lighter-menu"><summary aria-label="Open menu">MENU</summary><div><Link href="#about">About</Link><Link href="#service">Services</Link><Link href="#process">Process</Link><Link href="/contact">Contact</Link></div></details>
@@ -58,7 +58,7 @@ export default function VoiceAIExperience() {
       <section className="lighter-section faq-section" id="faq"><div className="eyebrow"><span />PLAIN ANSWERS</div><h2>Ask the<br /><i>hard ones.</i></h2><div className="faq-list">{faqs.map(([q, a], i) => <div className={`faq-item ${openFaq === i ? "open" : ""}`} key={q}><button onClick={() => setOpenFaq(openFaq === i ? -1 : i)} aria-expanded={openFaq === i}><span>{q}</span><b>{openFaq === i ? "−" : "+"}</b></button>{openFaq === i && <p>{a}</p>}</div>)}</div></section>
 
       <section className="lighter-cta"><div className="eyebrow"><span />START WITH ONE IMPORTANT JOB</div><h2>Give it one workflow.<br /><i>See what moves.</i></h2><p>Call +356 7971 1799 or bring one workflow to OARC. We will map what the worker can do, what stays human, and what evidence comes back.</p><Link href="/contact" className="pill pill-dark">Contact OARC <span>↗</span></Link></section>
-      <footer className="lighter-footer"><Link className="lighter-logo" href="/"><span className="logo-mark">O</span><strong>OARC</strong><em>DIGITAL</em></Link><div><Link href="/">Home</Link><Link href="/contact">Contact</Link><a href="https://wa.me/35679711799">WhatsApp +356 7971 1799</a></div></footer>
+      <footer className="lighter-footer"><Link className="lighter-logo" href="/"><img className="logo-mark" src="/favicon.png" alt="" /><strong>OARC</strong><em>DIGITAL</em></Link><div><Link href="/">Home</Link><Link href="/contact">Contact</Link><a href="https://wa.me/35679711799">WhatsApp +356 7971 1799</a></div></footer>
     </main>
   );
 }
