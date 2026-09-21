@@ -471,9 +471,9 @@ const SUPPLEMENTAL_META: Record<string, { title: string; description: string }> 
       "Explore OARC Digital's comprehensive suite of AI-powered services: creative production, AI employees for hire, and revenue automation solutions. Elite marketing services designed for ambitious brands in Malta and globally.",
   },
   "/our-work": {
-    title: "Our Work | Case Studies & Success Stories | OARC Digital",
+    title: "Our Work | Evidence-led project stories | OARC Digital",
     description:
-      "Explore OARC Digital's portfolio of named partnerships, public OARC products, private systems, and clearly labelled concept studies across creative, digital products, and automation.",
+      "Explore OARC Digital's public work, including the PJAZZA product and clearly labelled evidence-led project stories.",
   },
   "/contact": {
     title: "Contact OARC Digital | Get in Touch with Our Team",
@@ -504,11 +504,6 @@ const SUPPLEMENTAL_META: Record<string, { title: string; description: string }> 
     title: "About OARC Digital | Malta's AI-Native Creative & Automation Agency",
     description:
       "OARC Digital brings AI, creative, and automation under one roof for Maltese businesses. Explore the team's operating principles and capabilities.",
-  },
-  "/case-studies": {
-    title: "Case Studies — OARC Digital Malta | Detailed Engagement Write-Ups",
-    description:
-      "Detailed long-form case studies from OARC Digital across hospitality, iGaming, real estate, fintech, and SaaS. Methodology, measured outcomes, and the systems we built.",
   },
   "/industries": {
     title: "Industries We Serve in Malta | OARC Digital",

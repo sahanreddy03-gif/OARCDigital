@@ -63,7 +63,6 @@ function buildSourcePages(): string[] {
     "/why-us",
     "/why-oarc",
     "/blog",
-    "/case-studies",
     "/industries",
     "/tools",
     "/pdf-hub",

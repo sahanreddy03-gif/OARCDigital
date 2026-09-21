@@ -117,7 +117,6 @@ export const TOP_PAGES: readonly TopPage[] = [
   // walks them (Speakable + hreflang). Excluded from drip-batch fanouts so
   // pillar/service surfaces stay highest priority.
   { path: "/about",                                              kind: "pillar",  tier: "strategic" },
-  { path: "/case-studies",                                       kind: "pillar",  tier: "strategic" },
   { path: "/industries",                                         kind: "pillar",  tier: "strategic" },
   { path: "/intelligence",                                       kind: "pillar",  tier: "strategic" },
   { path: "/diagnostics",                                        kind: "pillar",  tier: "strategic" },

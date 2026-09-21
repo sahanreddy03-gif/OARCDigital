@@ -97,30 +97,13 @@ export function getLocationServiceLinks(service: string, limit: number = 3): Int
   });
 }
 
-export function getCaseStudyLinks(category: 'creative' | 'ai' | 'revenue', limit: number = 2): InternalLink[] {
-  const caseStudies = {
-    creative: [
-      { slug: 'volta-home', title: 'Volta Home Campaign' },
-      { slug: 'maison-lumiere', title: 'Maison Lumière Brand Refresh' },
-      { slug: 'naturalcare-beauty', title: 'NaturalCare Beauty Social Media' }
-    ],
-    ai: [
-      { slug: 'cloudbase-technologies', title: 'CloudBase Technologies AI Implementation' },
-      { slug: 'talentscale-solutions', title: 'TalentScale Solutions AI Team' },
-      { slug: 'sportsai-interactive', title: 'SportsAI Interactive Chatbot' }
-    ],
-    revenue: [
-      { slug: 'heritage-luxury-group', title: 'Heritage Luxury Group Automation' },
-      { slug: 'digital-finance-solutions', title: 'Digital Finance Solutions Automation' },
-      { slug: 'nexgen-retail-ai-transformation', title: 'NexGen Retail AI Transformation' }
-    ]
-  };
-  
-  return (caseStudies[category] || []).slice(0, limit).map(study => ({
-    text: study.title,
-    url: `/case-studies/${study.slug}`,
+export function getCaseStudyLinks(_category: 'creative' | 'ai' | 'revenue', limit: number = 2): InternalLink[] {
+  if (limit < 1) return [];
+  return [{
+    text: 'PJAZZA public product',
+    url: '/our-work/pjazza',
     relevance: 0.8
-  }));
+  }];
 }
 
 // Get contextual links based on page content

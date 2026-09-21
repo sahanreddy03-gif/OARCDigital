@@ -62,7 +62,6 @@ const SITEMAPS = [
   // expanded is buildable but omitted from index — still audit lastmod honesty
   "sitemap-malta-expanded-matrix.xml",
   "sitemap-industries.xml",
-  "sitemap-case-studies.xml",
   "sitemap-aeo.xml",
   "sitemap-blog.xml",
   "image-sitemap.xml",
@@ -100,7 +99,6 @@ const STATIC_GETTERS: Record<string, () => Promise<RouteGetter>> = {
   "sitemap-malta.xml": async () => (await import("../app/sitemap-malta.xml/route")).GET,
   "sitemap-malta-matrix.xml": async () => (await import("../app/sitemap-malta-matrix.xml/route")).GET,
   "sitemap-industries.xml": async () => (await import("../app/sitemap-industries.xml/route")).GET,
-  "sitemap-case-studies.xml": async () => (await import("../app/sitemap-case-studies.xml/route")).GET,
   "sitemap-aeo.xml": async () => (await import("../app/sitemap-aeo.xml/route")).GET,
   "sitemap-blog.xml": async () => (await import("../app/sitemap-blog.xml/route")).GET,
   "image-sitemap.xml": async () => (await import("../app/image-sitemap.xml/route")).GET,

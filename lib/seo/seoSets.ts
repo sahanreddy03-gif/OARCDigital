@@ -52,7 +52,6 @@ export function isKeptLocationIndustryServicePath(
 }
 
 export const HARD_410_PATHS: ReadonlySet<string> = new Set([
-  "/case-studies/gym-group",
   "/automation-test",
 ]);
 

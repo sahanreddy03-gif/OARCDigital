@@ -2,7 +2,7 @@ import { buildBreadcrumb, buildOrganization } from "@/lib/schema";
 import { workEvidenceLedger } from "@/data/workEvidence";
 
 const SITE_BASE = "https://oarcdigital.com";
-const CASE_STUDY_URL = `${SITE_BASE}/case-studies/pjazza`;
+const CASE_STUDY_URL = `${SITE_BASE}/our-work/pjazza`;
 
 export function buildPjazzaCaseStudyGraph() {
   const evidence = workEvidenceLedger.pjazza;

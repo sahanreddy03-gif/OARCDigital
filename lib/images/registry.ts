@@ -261,7 +261,7 @@ export const IMAGE_REGISTRY: readonly RegistryImage[] = [
     "category": "Testimonials",
     "assignedTo": [
       "/",
-      "/case-studies",
+      "/our-work",
       "/why-us"
     ]
   },
@@ -278,7 +278,7 @@ export const IMAGE_REGISTRY: readonly RegistryImage[] = [
     "category": "Testimonials",
     "assignedTo": [
       "/",
-      "/case-studies",
+      "/our-work",
       "/ai-agents/ai-support-specialist"
     ]
   },
@@ -295,7 +295,7 @@ export const IMAGE_REGISTRY: readonly RegistryImage[] = [
     "category": "Testimonials",
     "assignedTo": [
       "/",
-      "/case-studies",
+      "/our-work",
       "/ai-agents/ai-sdr-agent"
     ]
   },
@@ -1454,20 +1454,6 @@ export const AI_GAP_REGISTRY: readonly AIGeneratedImage[] = [
     "aspect": "16:9",
     "assignedTo": [
       "/our-work"
-    ]
-  },
-  {
-    "id": "img-095",
-    "seoFilename": "case-studies-hero-malta",
-    "altText": "OARC case studies for Malta growth clients",
-    "caption": "Long-form proof — numbers, names, outcomes.",
-    "dimensions": {
-      "width": 1408,
-      "height": 768
-    },
-    "aspect": "16:9",
-    "assignedTo": [
-      "/case-studies"
     ]
   },
   {

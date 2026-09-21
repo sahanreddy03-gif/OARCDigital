@@ -63,7 +63,6 @@ const MUST_AUDIT_PATHS: readonly string[] = [
   "/aeo/marketing-agency-mosta",
   "/aeo/marketing-agency-swieqi",
   "/blog/marketing-agency-malta",
-  "/case-studies/volta-home",
   "/industries",
   "/legal/privacy-policy",
 ];

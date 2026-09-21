@@ -60,7 +60,7 @@ Use this for Google specifically (IndexNow does not cover Google).
      one Tier-1/2 page. Fix, deploy, re-submit.
    - "Discovered — currently not indexed" → Google saw the URL but
      hasn't crawled it. Boost internal links from higher-authority
-     pages (homepage, /services, /case-studies) and re-submit.
+      pages (homepage, /services, /our-work) and re-submit.
    - "Page with redirect" → middleware is catching it. Check
      `middleware.ts` and `lib/seo/seoSets.ts`.
 

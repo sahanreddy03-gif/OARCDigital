@@ -195,9 +195,9 @@ export default function Page() {
                 Built for businesses that need weekly output, weekly reporting, and month-to-month flexibility — not a six-month retainer with a quarterly review.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
-                <Link href="/case-studies">
+                <Link href="/our-work">
                   <Button size="lg" className="bg-green-600 hover:bg-green-700" data-testid="button-hero-case-studies">
-                    See proof in case studies <ArrowRight className="ml-2 w-4 h-4" />
+                    See our work <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </Link>
                 <Link href="/pricing">
@@ -411,10 +411,10 @@ export default function Page() {
           <div className="max-w-7xl mx-auto px-6 md:px-8">
             <h2 className="text-2xl font-bold mb-8 text-center">Where buyers go next</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <Link href="/case-studies" className="group bg-card border rounded-lg p-6 hover-elevate block" data-testid="link-related-case-studies">
+              <Link href="/our-work" className="group bg-card border rounded-lg p-6 hover-elevate block" data-testid="link-related-work">
                 <div className="text-green-600 font-bold text-xs tracking-widest uppercase mb-2">Proof</div>
-                <h3 className="text-lg font-bold mb-2 group-hover:text-green-600 transition-colors">Case studies</h3>
-                <p className="text-sm text-muted-foreground">Real Malta clients, real revenue numbers, real time-to-launch. Read the work before you book the call.</p>
+                <h3 className="text-lg font-bold mb-2 group-hover:text-green-600 transition-colors">Our work</h3>
+                <p className="text-sm text-muted-foreground">Browse public work and evidence-led project stories before you book the call.</p>
               </Link>
               <Link href="/pricing" className="group bg-card border rounded-lg p-6 hover-elevate block" data-testid="link-related-pricing">
                 <div className="text-green-600 font-bold text-xs tracking-widest uppercase mb-2">Pricing</div>
@@ -453,9 +453,9 @@ export default function Page() {
                   Book the audit call
                 </Button>
               </Link>
-              <Link href="/case-studies">
+              <Link href="/our-work">
                 <Button size="lg" variant="outline" className="border-white text-white" data-testid="button-cta-case-studies">
-                  Read case studies
+                  Read our work
                 </Button>
               </Link>
             </div>

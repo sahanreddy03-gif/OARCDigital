@@ -64,7 +64,6 @@ const CANONICAL_60: CanonicalPage[] = [
   { url: "/pricing", tier: "P1", expects: "shell" },
   { url: "/why-us", tier: "P1", expects: "shell" },
   { url: "/blog", tier: "P1", expects: "shell" },
-  { url: "/case-studies", tier: "P1", expects: "shell" },
   { url: "/tools", tier: "P2", expects: "shell" },
   // Tier 3 — headline services
   { url: "/services/branding", tier: "P1", expects: "service" },

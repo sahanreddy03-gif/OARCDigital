@@ -55,7 +55,6 @@ export const TOP_PERF_PAGES: readonly string[] = [
   "/blog",
   // Conversion-intent
   "/contact",
-  "/case-studies/volta-home",
   "/industries",
 ] as const;
 

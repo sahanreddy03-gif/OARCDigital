@@ -347,7 +347,7 @@ Auto-generated from lib/seo/topPages.ts + lib/seo/llmsTxtGenerator.ts. The singl
 35. [Customer Acquisition Malta | Predictable CPA at Scale](https://oarcdigital.com/services/customer-acquisition) — tier service
 36. [AI Virtual Talent Hub | Autonomous AI Agents On-Demand](https://oarcdigital.com/services/hire-ai-employees) — tier service
 37. [Our Services | AI Creative, AI Employees & Revenue Automation](https://oarcdigital.com/services) — tier supporting
-38. [Our Work | Case Studies & Success Stories](https://oarcdigital.com/our-work) — tier supporting
+38. [Our Work | Evidence-led project stories](https://oarcdigital.com/our-work) — tier supporting
 39. [Contact OARC Digital | Get in Touch with Our Team](https://oarcdigital.com/contact) — tier supporting
 40. [Pricing Plans](https://oarcdigital.com/pricing) — tier supporting
 41. [Who We Are](https://oarcdigital.com/why-us) — tier supporting
@@ -367,13 +367,12 @@ Auto-generated from lib/seo/topPages.ts + lib/seo/llmsTxtGenerator.ts. The singl
 55. [3D & AR Experiences | Immersive Design](https://oarcdigital.com/services/immersive-3d-ar) — tier service
 56. [Performance Analytics & Reporting | Data-Driven Insights](https://oarcdigital.com/services/performance-analytics) — tier service
 57. [About OARC Digital | Malta's AI-Native Creative & Automation Agency](https://oarcdigital.com/about) — tier strategic
-58. [Case Studies — OARC Digital Malta | Detailed Engagement Write-Ups](https://oarcdigital.com/case-studies) — tier strategic
-59. [Industries We Serve in Malta](https://oarcdigital.com/industries) — tier strategic
-60. [Business Diagnostics | OARC Intelligence](https://oarcdigital.com/intelligence) — tier strategic
-61. [Free Business Diagnostics — Malta](https://oarcdigital.com/diagnostics) — tier strategic
-62. [Enterprise Solutions](https://oarcdigital.com/enterprise) — tier strategic
-63. [Road Map 2026](https://oarcdigital.com/roadmap-2026) — tier strategic
-64. [PDF Marketing Hub — Capabilities, Profiles & One-Pagers](https://oarcdigital.com/pdf-hub) — tier strategic
+58. [Industries We Serve in Malta](https://oarcdigital.com/industries) — tier strategic
+59. [Business Diagnostics | OARC Intelligence](https://oarcdigital.com/intelligence) — tier strategic
+60. [Free Business Diagnostics — Malta](https://oarcdigital.com/diagnostics) — tier strategic
+61. [Enterprise Solutions](https://oarcdigital.com/enterprise) — tier strategic
+62. [Road Map 2026](https://oarcdigital.com/roadmap-2026) — tier strategic
+63. [PDF Marketing Hub — Capabilities, Profiles & One-Pagers](https://oarcdigital.com/pdf-hub) — tier strategic
 
 <!-- AUTOGEN:CORE-60-INDEX:END -->
 

@@ -88,7 +88,7 @@ export function buildOurWorkShellGraph() {
             "@type": "ListItem",
             position: 1,
             name: "PJAZZA",
-            url: `${SITE_BASE}/case-studies/pjazza`,
+            url: `${SITE_BASE}/our-work/pjazza`,
           },
         ],
       },

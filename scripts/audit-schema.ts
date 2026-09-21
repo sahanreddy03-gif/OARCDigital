@@ -134,14 +134,6 @@ const URL_CONTRACT: Record<string, readonly string[]> = {
   // Representative blog posts emit Article (verified against rendered DOM).
   "/blog/marketing-agency-malta": ["Article", "BlogPosting"],
   "/blog/igaming-marketing-malta": ["Article", "BlogPosting"],
-  // /case-studies/*, /industries, and /legal/* are deliberately included in
-  // TARGETS (so the parse + allow-list tiers still cover their JSON-LD)
-  // but DO NOT yet emit a top-level schema entity. That schema gap is
-  // tracked separately — adding a contract here would gate Task #90 on
-  // unrelated work. When those pages ship a parent CreativeWork / WebPage
-  // / Organization entity, add the contract back.
-  "/case-studies/volta-home": [],
-  "/case-studies/authentic-stories": [],
   "/industries": [],
   "/legal/privacy-policy": [],
 };

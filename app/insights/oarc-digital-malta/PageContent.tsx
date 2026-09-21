@@ -568,7 +568,7 @@ export default function PageContent() {
         <div className="oi-wrap oi-work-foot">
           <div className="oi-inline-links">
             <Link href="/our-work">All work →</Link>
-            <Link href="/case-studies">27 case studies →</Link>
+            <Link href="/our-work">Our work →</Link>
             <Link href="/industries/restaurants">Restaurants →</Link>
             <Link href="/industries/igaming">iGaming →</Link>
             <Link href="/our-work">Recent launches →</Link>
@@ -744,7 +744,7 @@ export default function PageContent() {
             {[
               ["Services", "/services"],
               ["Our work", "/our-work"],
-              ["Case studies", "/case-studies"],
+              ["Our work", "/our-work"],
               ["About", "/about"],
               ["AI agents", "/ai-agents"],
               ["Malta", "/malta"],

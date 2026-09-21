@@ -500,8 +500,7 @@ export function buildCaseStudyHook(
     ? `When a ${loc.name}-based ${subject} business came to us…`
     : `When a ${subject} business in ${loc.name} came to us…`;
 
-  // Industry-aware outcome framing (kept short — full case studies live on
-  // /case-studies; this is the per-page hook into them).
+  // Industry-aware outcome framing for the generated content record.
   const indFraming = ind
     ? `Their challenge was the same one most ${ind.plural} in ${loc.name} face: ${ind.painPoint(loc)}.`
     : `Their challenge was the same one most ${subject} businesses in ${loc.name} face — too much competition for the same audience\'s attention.`;
@@ -761,16 +760,6 @@ export function buildLocationServiceContent(
       ]),
       createServiceSchema(`${svc.name} in ${loc.name}`, svc.description, svc.name),
       faqSchema(faqs),
-      // Per-page Review schema attached to the LocalBusiness, so SERP rich
-      // results can surface the testimonial alongside the LocalBusiness card.
-      {
-        '@context': 'https://schema.org',
-        '@type': 'Review',
-        itemReviewed: { '@id': `${SITE}/malta/${loc.slug}#localbusiness` },
-        author: { '@type': 'Person', name: testimonial.author },
-        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-        reviewBody: testimonial.quote,
-      },
     ],
   };
 }
@@ -838,19 +827,6 @@ export function buildLocationIndustryServiceContent(
     ),
     faqSchema(faqs),
   ];
-
-  // Skip invented Review testimonials on uniqueness-enriched pages.
-  if (!overlay) {
-    const t = buildTestimonial(loc, svc, ind);
-    schema.push({
-      '@context': 'https://schema.org',
-      '@type': 'Review',
-      itemReviewed: { '@id': `${SITE}/malta/${loc.slug}#localbusiness` },
-      author: { '@type': 'Person', name: t.author },
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      reviewBody: t.quote,
-    });
-  }
 
   return {
     title,

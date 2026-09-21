@@ -15,7 +15,7 @@
 //   - Contact-path components (Footer / MobileStickyCTA / layout) for tel:, wa.me,
 //     mailto:, cal.com, formspree
 //   - Programmatic vs hand-crafted (anything under a [bracket] dynamic route)
-//   - Dead pages: directories present in services/aeo/blog/case-studies that are
+//   - Dead pages: directories present in services/aeo/blog/industries that are
 //     missing page.tsx, OR sitemap entries pointing at non-existent slugs
 //
 // Output: .local/site-audit-report.md (markdown — designed for the user to read,
@@ -91,14 +91,13 @@ function tierFor(url: string): Tier {
   // Task #116: /diagnostic and /roadmap removed — 308 → /diagnostics and
   // /roadmap-2026 respectively (CROSS_SECTION_ALIASES in lib/seo/seoSets.ts).
   if (["/services", "/our-work", "/contact", "/pricing", "/why-us", "/why-oarc",
-       "/blog", "/case-studies", "/resources", "/enterprise",
+       "/blog", "/resources", "/enterprise",
        "/roadmap-2026", "/diagnostics", "/intelligence",
        "/research", "/comparison", "/solutions", "/tools", "/malta",
        "/pdf", "/pdf-hub"].includes(url)) return "shell";
   if (url.startsWith("/services/")) return "service";
   if (url.startsWith("/aeo/")) return "aeo";
   if (url.startsWith("/blog/")) return "blog";
-  if (url.startsWith("/case-studies/")) return "case-study";
   if (url.startsWith("/industries/")) return "industry";
   if (url.startsWith("/locations/") || url.startsWith("/malta/")) return "location";
   if (url.startsWith("/tools/")) return "tool";
@@ -199,11 +198,10 @@ function loadSitemapUrls(): Set<string> {
       const u = "/" + m[1].replace(/^\/+/, "");
       if (!u.includes("$") && !u.includes("${")) out.add(u);
     }
-    // ${slug} substitutions: walk SERVICE / AEO / BLOG / CASE_STUDY directories
+    // ${slug} substitutions: walk service, AEO, blog, and industry directories.
     if (/services/.test(src)) for (const s of dirChildren("app/services")) out.add(`/services/${s}`);
     if (/aeo/.test(src)) for (const s of dirChildren("app/aeo")) out.add(`/aeo/${s}`);
     if (/blog/.test(src)) for (const s of dirChildren("app/blog")) out.add(`/blog/${s}`);
-    if (/case-studies/.test(src)) for (const s of dirChildren("app/case-studies")) out.add(`/case-studies/${s}`);
     if (/industries/.test(src)) for (const s of dirChildren("app/industries")) out.add(`/industries/${s}`);
   }
   return out;
@@ -220,7 +218,7 @@ function dirChildren(p: string): string[] {
 // ── Dead-directory check: dir exists but has no page.tsx ───────────────
 function findDeadDirs(): string[] {
   const dead: string[] = [];
-  const roots = ["app/services", "app/aeo", "app/blog", "app/case-studies", "app/industries"];
+  const roots = ["app/services", "app/aeo", "app/blog", "app/industries"];
   for (const root of roots) {
     if (!fs.existsSync(root)) continue;
     for (const d of fs.readdirSync(root, { withFileTypes: true })) {

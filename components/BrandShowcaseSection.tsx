@@ -3,11 +3,16 @@
 import { useEffect, useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { featuredCaseStudies } from "@/data/caseStudies";
 import { registerGSAP, gsap, EASE, DUR } from "@/lib/motion/gsap-system";
 
+const pjazza = {
+  slug: "pjazza",
+  brand: "PJAZZA",
+  description: "OARC-owned live shopping marketplace",
+  thumbnailImage: "/attached_assets/IMG_0605_1775068068190.jpeg",
+} as const;
+
 export default function BrandShowcaseSection() {
-  const proofStudy = featuredCaseStudies[0];
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -31,8 +36,6 @@ export default function BrandShowcaseSection() {
     return () => ctx.revert();
   }, []);
 
-  if (!proofStudy) return null;
-
   return (
     <section
       ref={sectionRef}
@@ -53,11 +56,11 @@ export default function BrandShowcaseSection() {
           </p>
         </div>
 
-        <Link href={`/case-studies/${proofStudy.slug}`} className="group block">
+        <Link href="/our-work/pjazza" className="group block">
           <div className="grid overflow-hidden rounded-2xl bg-zinc-950 md:grid-cols-[1.1fr_0.9fr]">
             <div className="min-h-[310px] overflow-hidden md:min-h-[480px]">
               <img
-                src={proofStudy.thumbnailImage}
+                src={pjazza.thumbnailImage}
                 alt="PJAZZA marketplace interface shown on a mobile screen"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025]"
                 loading="lazy"
@@ -68,9 +71,9 @@ export default function BrandShowcaseSection() {
                 <p className="mb-8 font-mono text-[10px] uppercase tracking-[0.14em] text-white/55">
                   OARC-owned product
                 </p>
-                <h3 className="text-4xl font-medium tracking-[-0.06em] md:text-5xl">{proofStudy.brand}</h3>
+                <h3 className="text-4xl font-medium tracking-[-0.06em] md:text-5xl">{pjazza.brand}</h3>
                 <p className="mt-3 max-w-sm text-xl leading-tight tracking-[-0.04em] text-white/72">
-                  {proofStudy.description}
+                  {pjazza.description}
                 </p>
               </div>
               <span className="mt-14 inline-flex items-center gap-3 text-sm text-white">

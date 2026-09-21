@@ -43,10 +43,9 @@ the defence from if the SEO infra is ever lost.
 
 | # | URL                                              | Owned? | Notes                                                     |
 |---|--------------------------------------------------|--------|-----------------------------------------------------------|
-| 1 | https://oarcdigital.com/                         | ✅     | Homepage. Sitelinks: /services, /case-studies, /contact.  |
+| 1 | https://oarcdigital.com/                         | ✅     | Homepage. Sitelinks: /services, /our-work, /contact.      |
 | 2 | https://oarcdigital.com/about                    | ✅     | Founder Person entity anchored here.                      |
-| 3 | https://oarcdigital.com/case-studies             | ✅     | ItemList schema; pulls 7 cases.                           |
-| 4 | https://oarcdigital.com/our-work                 | ✅     | Album/CreativeWork schema.                                |
+| 3 | https://oarcdigital.com/our-work                 | ✅     | Album/CreativeWork schema.                                |
 | 5 | https://www.linkedin.com/company/oarc-digital    | ✅     | Company page. In ORG_SAMEAS.                              |
 | 6 | https://www.instagram.com/oarcdigital/           | ✅     | In ORG_SAMEAS.                                            |
 | 7 | https://oarcdigital.com/services                 | ✅     | Master services page.                                     |

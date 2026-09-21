@@ -109,7 +109,7 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
       {
         question: "Where can I see OARC Digital’s work?",
         answer:
-          "On /our-work and /case-studies—with evidence-led stories.",
+          "On /our-work—with evidence-led stories.",
       },
       {
         question: "Do you publish fake ROI?",
@@ -337,59 +337,6 @@ export const SUPPORTING_PAGE_SCHEMAS: Record<string, SupportingPageEntry> = {
         question: "Can posts help local SEO?",
         answer:
           "Yes when genuinely useful—not doorway spam.",
-      }],
-  },
-
-  "/case-studies": {
-    path: "/case-studies",
-    title: "Case Studies | OARC Digital Evidence",
-    description:
-      "OARC case studies—evidence-led stories with permissioned metrics only. No invented ROI.",
-    faqs: [
-      {
-        question: "What case study is currently published?",
-        answer:
-          "The current public case study is PJAZZA, an OARC-owned product. Its story links to the official PJAZZA page, where visitors can inspect the public product directly.",
-      },
-      {
-        question: "How do case studies differ from /our-work?",
-        answer:
-          "/our-work is the editorial entry point for OARC's public work collection. /case-studies is the matching detail library for the same evidence-approved project stories.",
-      },
-      {
-        question: "How does OARC decide what to publish?",
-        answer:
-          "Before a project is published, OARC confirms its public name, relationship to the work, approved media, direct verification link, and the source behind every visible claim. Information without an approved source is withheld.",
-      },
-      {
-        question: "What evidence is included in a case study?",
-        answer:
-          "A case study can include an approved public source, supplied project media, a private-project disclosure, and a clear account of what is known versus intentionally withheld.",
-      },
-      {
-        question: "Are all portfolio records external client work?",
-        answer:
-          "No. The portfolio distinguishes named partnerships, OARC-owned products, protected systems, and illustrative concept studies so readers can interpret each record correctly.",
-      },
-      {
-        question: "Where are OARC Digital case studies?",
-        answer:
-          "On this page and related work stories—with honest evidence.",
-      },
-      {
-        question: "Do you invent ROI percentages?",
-        answer:
-          "No.",
-      },
-      {
-        question: "Can you share a relevant industry example on a call?",
-        answer:
-          "Yes.",
-      },
-      {
-        question: "Hospitality?",
-        answer:
-          "When permissioned via H360 work.",
       }],
   },
 

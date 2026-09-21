@@ -96,7 +96,6 @@ The rule is simple: ask yourself "would clicking this link actually help this pe
 - Illustration / graphic design → https://oarcdigital.com/services/illustration
 - Pricing → https://oarcdigital.com/pricing
 - Our work / portfolio → https://oarcdigital.com/our-work
-- Case studies → https://oarcdigital.com/case-studies
 - Contact → https://oarcdigital.com/contact
 - About → https://oarcdigital.com/about
 

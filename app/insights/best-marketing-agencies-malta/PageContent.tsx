@@ -250,7 +250,7 @@ export default function PageContent() {
                 <Link href="/insights/oarc-digital-malta">The full OARC page →</Link>
                 <Link href="/services">Every service →</Link>
                 <Link href="/our-work">The work →</Link>
-                <Link href="/case-studies">27 case studies →</Link>
+                <Link href="/our-work">Our work →</Link>
                 <Link href="/pricing">Pricing &amp; scopes →</Link>
               </div>
             </div>
@@ -391,7 +391,7 @@ export default function PageContent() {
               ["About OARC", "/insights/oarc-digital-malta"],
               ["Services", "/services"],
               ["Our work", "/our-work"],
-              ["Case studies", "/case-studies"],
+              ["Our work", "/our-work"],
               ["AI agents", "/ai-agents"],
               ["Malta", "/malta"],
               ["Industries", "/industries/restaurants"],

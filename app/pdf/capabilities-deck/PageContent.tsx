@@ -2,10 +2,17 @@
 
 import { Zap, Users, TrendingUp, Target, Clock, Globe, Cpu, Palette, Database, Rocket, Sparkles } from "lucide-react";
 import { companyInfo, aboutText, coreServices, whyChooseUs, processSteps, technologyStack, keyDifferentiators } from "@/data/companyProfile";
-import { caseStudiesArray as websiteCases } from "@/data/caseStudies";
 import { useEffect } from "react";
 const logoImage = "/attached_assets/fdfdfd_1762818183304.png";
 import { pdfPagesSEO } from "@/data/seoMetadata";
+
+const websiteCases = [{
+  slug: "pjazza",
+  category: "OARC-Owned Product",
+  brand: "PJAZZA",
+  description: "OARC Digital's live shopping marketplace.",
+  metrics: { value: "Public", label: "product evidence" },
+}];
 
 export default function PageContent() {
   useEffect(() => {

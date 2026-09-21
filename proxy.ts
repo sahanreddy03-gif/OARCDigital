@@ -18,7 +18,6 @@ import {
   ARCHIVED_LOCATION_REDIRECTS,
   INDUSTRY_REDIRECTS,
 } from "./lib/seo/redirectMap";
-import { isPublicWork } from "./lib/data/workEvidence";
 
 const GONE_HTML = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
@@ -59,15 +58,19 @@ export function proxy(req: NextRequest): NextResponse | undefined {
 
   if (HARD_410_PATHS.has(pathname)) return gone();
 
-  // Case-study publication is controlled by the evidence ledger. Legacy route
-  // files are retained for internal reference, but no unverified entry may be
-  // served or indexed as public proof.
+  // Consolidate the retired case-study surface into the canonical Our Work
+  // collection. Only PJAZZA has a direct successor; every other legacy detail
+  // URL is permanently gone.
   if (pathname === "/case-studies" || pathname === "/case-studies/") {
-    return undefined;
+    return permanentRedirect(req, "/our-work");
+  }
+  if (
+    pathname === "/case-studies/pjazza" ||
+    pathname === "/case-studies/pjazza/"
+  ) {
+    return permanentRedirect(req, "/our-work/pjazza");
   }
   if (pathname.startsWith("/case-studies/")) {
-    const parts = pathname.replace(/\/+$/, "").split("/").filter(Boolean);
-    if (parts.length === 2 && isPublicWork(parts[1])) return undefined;
     return gone();
   }
 

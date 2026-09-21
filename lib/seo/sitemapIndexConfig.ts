@@ -11,7 +11,6 @@ export const CHILD_SITEMAPS = [
   "sitemap-h360.xml",
   "sitemap-aeo.xml",
   "sitemap-industries.xml",
-  "sitemap-case-studies.xml",
   "sitemap-blog.xml",
   // Malta priority cohort (≤2000; contains malta-priority-1000)
   "sitemap-malta-priority-matrix.xml",
