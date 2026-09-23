@@ -1,0 +1,64 @@
+name: OARC Safety Gate
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: oarc-safety-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: safety-contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CI: "true"
+      HUSKY: "0"
+      NODE_OPTIONS: "--max-old-space-size=6144"
+
+    steps:
+      - name: Check out the reviewed commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Use the production Node version
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install the locked dependency tree
+        run: npm ci --legacy-peer-deps
+
+      - name: Type-check
+        run: npm run check
+
+      - name: Enforce URL and SEO contracts that are green on production
+        run: |
+          npm run gate:historical
+          npm run guard:historical
+          npm run guard:uniqueness
+          npx --no-install tsx scripts/verify-redirects.ts --static
+          npx --no-install tsx scripts/audit-internal-links.ts
+          npx --no-install tsx scripts/audit-banned-phrases.ts
+          npx --no-install tsx scripts/audit-sitemap.ts
+
+      - name: Run the exact Vercel production build
+        run: PATH="$PWD/node_modules/.bin:$PATH" bash scripts/vercel-build.sh
+
+      - name: Report known full-gate debt
+        continue-on-error: true
+        run: npm run gate
+
+      - name: Report production dependency advisories
+        continue-on-error: true
+        run: npm audit --omit=dev --audit-level=critical
