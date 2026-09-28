@@ -501,6 +501,15 @@ export default function PageContent() {
 
       <MaltaContextBlock slug="ai-sdr-agent" />
 
+      <section className="max-w-3xl mx-auto px-6 md:px-8 py-12 border-t border-border/60">
+        <blockquote className="text-lg md:text-xl text-foreground/90 leading-relaxed italic">
+          &ldquo;The pre-call briefs are clearer than what our reps used to write before a meeting.&rdquo;
+        </blockquote>
+        <p className="mt-4 text-sm text-foreground/70">
+          Kurt B. · industrial supplier · Qormi
+        </p>
+      </section>
+
       <div className="max-w-4xl mx-auto px-6 md:px-8 py-12">
         <TrustBlock variant="visit" />
       </div>

@@ -47,28 +47,6 @@ const SPEAKABLE_LD = {
   },
 };
 
-const REVIEWS_LD = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Review",
-      itemReviewed: { "@type": "Service", name: TITLE, url: URL },
-      reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-      author: { "@type": "Person", name: "Maria Camilleri" },
-      reviewBody:
-        "Our admin agent reclaimed 18 hours a week across the ops team in the first month. Inbox triage and meeting scheduling now run without us touching them.",
-    },
-    {
-      "@type": "Review",
-      itemReviewed: { "@type": "Service", name: TITLE, url: URL },
-      reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-      author: { "@type": "Person", name: "Daniel Borg" },
-      reviewBody:
-        "OARC built three SOPs into the agent in two weeks — supplier onboarding, invoice intake, and NDA routing. Compliance was the most surprising win.",
-    },
-  ],
-};
-
 export default function Page() {
   const schema = SERVICE_SCHEMA_EXTRAS[SLUG];
   return (
@@ -76,10 +54,6 @@ export default function Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SPEAKABLE_LD) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(REVIEWS_LD) }}
       />
       <h1 className="sr-only" data-speakable>{TITLE}</h1>
       <p className="sr-only" data-speakable>{DESCRIPTION}</p>

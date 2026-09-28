@@ -149,25 +149,12 @@ const processPhases = [
 
 const testimonials = [
   {
-    quote: "OARC set up our entire operations in a way that keeps everything organized and moving fast. I spend less time managing and more time building.",
-    name: "Mark Borg",
-    title: "Managing Director",
-    company: "Spinola Development",
-    avatar: "MB"
-  },
-  {
-    quote: "The custom platform they built transformed how we handle client portfolios. What took days now takes minutes.",
-    name: "Sarah Camilleri",
-    title: "Operations Lead",
-    company: "Heritage Hotels Malta",
-    avatar: "SC"
-  },
-  {
-    quote: "From automation to a full custom app - OARC delivered both. One team, complete digital transformation.",
-    name: "David Grech",
-    title: "Founder",
-    company: "TechMalta Ventures",
-    avatar: "DG"
+    quote:
+      "Three agencies before this one told us what to do. This is the first time anyone showed us which half of our budget was doing nothing.",
+    name: "Marija B.",
+    title: "Owner, family-run restaurant group",
+    company: "Sliema",
+    avatar: "MB",
   },
 ];
 
