@@ -37,36 +37,10 @@ export const metadata: Metadata = {
   },
 };
 
-const REVIEWS_LD = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Review",
-      itemReviewed: { "@type": "Service", name: TITLE, url: URL },
-      reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-      author: { "@type": "Person", name: "Luca Spiteri" },
-      reviewBody:
-        "We moved from one human SDR to the OARC AI SDR plus a single closer. Qualified meetings tripled in 60 days and the pre-call briefs are better than what our reps used to write.",
-    },
-    {
-      "@type": "Review",
-      itemReviewed: { "@type": "Service", name: TITLE, url: URL },
-      reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-      author: { "@type": "Person", name: "Sarah Grech" },
-      reviewBody:
-        "Web chat, email, and WhatsApp under one agent — and the CRM is finally clean. Inbound time-to-first-touch dropped from 6 hours to 90 seconds.",
-    },
-  ],
-};
-
 export default function Page() {
   return (
     <>
       <SpeakableJsonLd path={`/services/${SLUG}`} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(REVIEWS_LD) }}
-      />
       {/* SSR-safe speakable shim: the client-rendered hero is gated by a
           loading state that suppresses [data-speakable] from initial HTML;
           this hidden h1/p is always present for the Speakable selector. */}

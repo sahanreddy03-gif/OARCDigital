@@ -46,28 +46,6 @@ const SPEAKABLE_LD = {
   },
 };
 
-const REVIEWS_LD = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Review",
-      itemReviewed: { "@type": "Service", name: TITLE, url: URL },
-      reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-      author: { "@type": "Person", name: "Andrei Vella" },
-      reviewBody:
-        "Italian-language enquiries from Sicilian buyers used to sit in the inbox until Monday. The AI replies in Italian within minutes and books the viewing — we closed two Sliema deals from leads we would have lost.",
-    },
-    {
-      "@type": "Review",
-      itemReviewed: { "@type": "Service", name: TITLE, url: URL },
-      reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-      author: { "@type": "Person", name: "Rachel Mifsud" },
-      reviewBody:
-        "Cash-buyer mentions and citizenship-programme leads now route to senior agents within minutes. Junior team handles the lettings and tyre-kickers without burning the senior calendar.",
-    },
-  ],
-};
-
 export default function Page() {
   const schema = SERVICE_SCHEMA_EXTRAS[SLUG];
   return (
@@ -75,10 +53,6 @@ export default function Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SPEAKABLE_LD) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(REVIEWS_LD) }}
       />
       <h1 className="sr-only" data-speakable>{TITLE}</h1>
       <p className="sr-only" data-speakable>{DESCRIPTION}</p>

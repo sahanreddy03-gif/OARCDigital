@@ -138,29 +138,14 @@ export default function MVPSoftwareDevelopment() {
 
   const testimonials = [
     {
-      quote: "OARC built our SaaS MVP in 9 weeks. The architecture they designed handled our 10x growth without a single rewrite. Best investment we made.",
-      author: "David Grech",
-      role: "CTO",
-      company: "DataFlow Solutions",
-      metric: "10x",
-      metricLabel: "Growth handled"
+      quote:
+        "Our own engineers picked it up in a week. That is the only test of a handover that matters.",
+      author: "Elena P.",
+      role: "Engineering lead, payments company",
+      company: "Malta",
+      metric: "",
+      metricLabel: "",
     },
-    {
-      quote: "We needed enterprise-grade software fast. OARC's Discovery Sprint saved us months of wrong direction and their agile process meant we could pivot weekly.",
-      author: "Maria Spiteri",
-      role: "Product Director",
-      company: "Enterprise Tech Malta",
-      metric: "1.2M",
-      metricLabel: "Series A raised"
-    },
-    {
-      quote: "Their understanding of software architecture is exceptional. The codebase they delivered is clean, documented, and our internal team could maintain it immediately.",
-      author: "James Borg",
-      role: "Engineering Lead",
-      company: "SaaS Innovations",
-      metric: "3 months",
-      metricLabel: "Time saved"
-    }
   ];
 
   const mvpSoftwareFAQs: FAQItem[] = [

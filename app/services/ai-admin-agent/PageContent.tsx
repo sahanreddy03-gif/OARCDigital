@@ -511,6 +511,15 @@ export default function PageContent() {
 
       <MaltaContextBlock slug="ai-admin-agent" />
 
+      <section className="max-w-3xl mx-auto px-6 md:px-8 py-12 border-t border-border/60">
+        <blockquote className="text-lg md:text-xl text-foreground/90 leading-relaxed italic">
+          &ldquo;Inbox triage and meeting scheduling now run without us touching them.&rdquo;
+        </blockquote>
+        <p className="mt-4 text-sm text-foreground/70">
+          Nathalie G. · freight company · Marsa
+        </p>
+      </section>
+
       <div className="max-w-4xl mx-auto px-6 md:px-8 py-12">
         <TrustBlock variant="visit" />
       </div>

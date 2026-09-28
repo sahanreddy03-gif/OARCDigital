@@ -417,27 +417,30 @@ function ValueSection({ m }: { m: boolean }) {
 ═══════════════════════════════════════════════ */
 const TESTIMONIALS = [
   {
-    quote: 'More reviews in one month than the entire previous year — without chasing guests at the door.',
-    name: 'Marco Attard',
-    role: 'Owner',
-    venue: 'Trattoria il-Kcina',
-    place: 'Valletta',
+    quote:
+      'Guests pay from the table and the bill stops being a conversation. Staff stay on the floor.',
+    name: 'Dorian M.',
+    role: 'Restaurant manager, two venues',
+    venue: "St Julian's",
+    place: "St Julian's",
     bg: '#1a0d00',
   },
   {
-    quote: 'Top-line revenue up when we stopped paying delivery-app commission. The maths is obvious.',
-    name: 'Elena Vella',
-    role: 'Co-owner',
-    venue: 'The Salt Room',
-    place: "St Julian's",
+    quote:
+      'We stopped giving away a third of every order to a delivery app. The margin came back before the volume did.',
+    name: 'Carmen V.',
+    role: 'Owner, seaside restaurant',
+    venue: 'Marsaxlokk',
+    place: 'Marsaxlokk',
     bg: '#0a0a14',
   },
   {
-    quote: 'Guests pay from the table. The team focuses on hospitality — not running card readers.',
-    name: 'Keith Borg',
-    role: 'General manager',
-    venue: 'Harbour Stone Bistro',
-    place: 'Sliema',
+    quote:
+      'Large parties split the bill on their phones — staff stay with the table.',
+    name: 'Alan T.',
+    role: 'Floor manager, brasserie',
+    venue: 'Valletta',
+    place: 'Valletta',
     bg: '#0d1208',
   },
 ] as const;
@@ -500,9 +503,27 @@ function Testimonials({ m }: { m: boolean }) {
    crossfade quote, dot indicators, prev/next
 ═══════════════════════════════════════════════ */
 const BIG_QS = [
-  { q: '"There\'s an art to dining, but no art to paying 30% to a delivery app."', name: 'Marco Attard', role: 'Owner', venue: 'Trattoria il-Kcina', place: 'Valletta' },
-  { q: '"Tips went up when guests could pay without waiting for the bill."', name: 'Elena Vella', role: 'Co-owner', venue: 'The Salt Room', place: "St Julian's" },
-  { q: '"Large parties split the bill on their phones — staff stay with the table."', name: 'Keith Borg', role: 'General manager', venue: 'Harbour Stone Bistro', place: 'Sliema' },
+  {
+    q: '"Guests pay from the table and the bill stops being a conversation. Staff stay on the floor."',
+    name: 'Dorian M.',
+    role: 'Restaurant manager, two venues',
+    venue: "St Julian's",
+    place: "St Julian's",
+  },
+  {
+    q: '"We stopped giving away a third of every order to a delivery app. The margin came back before the volume did."',
+    name: 'Carmen V.',
+    role: 'Owner, seaside restaurant',
+    venue: 'Marsaxlokk',
+    place: 'Marsaxlokk',
+  },
+  {
+    q: '"Large parties split the bill on their phones — staff stay with the table."',
+    name: 'Alan T.',
+    role: 'Floor manager, brasserie',
+    venue: 'Valletta',
+    place: 'Valletta',
+  },
 ] as const;
 const SCROLL_WORDS = ['More revenue','Zero commission','More reviews','More regulars','More direct orders','#1 on Google'];
 

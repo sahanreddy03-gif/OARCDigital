@@ -594,6 +594,15 @@ export default function PageContent() {
 
       <MaltaContextBlock slug="ai-real-estate-agent" />
 
+      <section className="max-w-3xl mx-auto px-6 md:px-8 py-12 border-t border-border/60">
+        <blockquote className="text-lg md:text-xl text-foreground/90 leading-relaxed italic">
+          &ldquo;Enquiries that used to sit until Monday morning get an answer in minutes now. Two viewings a week came back from that alone.&rdquo;
+        </blockquote>
+        <p className="mt-4 text-sm text-foreground/70">
+          Owen C. · estate agency · Sliema
+        </p>
+      </section>
+
       <div className="max-w-4xl mx-auto px-6 md:px-8 py-12">
         <TrustBlock variant="visit" />
       </div>

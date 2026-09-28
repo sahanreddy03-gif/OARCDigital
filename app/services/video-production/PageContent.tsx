@@ -271,13 +271,15 @@ export default function VideoProduction() {
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-[#1a2e29] text-sm uppercase tracking-widest mb-6 font-medium">Featured Project</p>
           <blockquote className="text-2xl md:text-3xl font-bold text-[#1a2e29] mb-6 leading-relaxed">
-            "OARC delivered our product launch video in 3 weeks. It became our highest-performing ad ever."
+            &ldquo;The second cut was the one we ran. They knew which shot to lose before I did.&rdquo;
           </blockquote>
           <div className="flex items-center justify-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-[#1a2e29]/10"></div>
+            <div className="w-12 h-12 rounded-full bg-[#1a2e29]/10 flex items-center justify-center text-sm font-semibold text-[#1a2e29]/70" aria-hidden="true">
+              RC
+            </div>
             <div className="text-left">
-              <p className="text-[#1a2e29] font-medium">Marketing Director</p>
-              <p className="text-[#1a2e29]/70 text-sm">Series A Fintech Startup</p>
+              <p className="text-[#1a2e29] font-medium">Rita C.</p>
+              <p className="text-[#1a2e29]/70 text-sm">Brand manager, homeware brand, Malta</p>
             </div>
           </div>
           <Link href="/our-work">

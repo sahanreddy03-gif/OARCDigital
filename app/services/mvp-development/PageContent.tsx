@@ -150,29 +150,14 @@ export default function MVPDevelopment() {
 
   const testimonials = [
     {
-      quote: "OARC took our concept from napkin sketch to App Store in just 10 weeks. The MVP attracted significant seed funding within 3 months of launch. Their understanding of the Malta startup ecosystem was invaluable.",
-      author: "Sarah Vella",
-      role: "Founder & CEO",
-      company: "TechStartup Malta",
-      metric: "Seed funded",
-      metricLabel: "Seed Funding"
+      quote:
+        "They cut the idea down before building it. That saved us more than the build itself.",
+      author: "Simon A.",
+      role: "Founder, fitness app",
+      company: "Malta",
+      metric: "",
+      metricLabel: "",
     },
-    {
-      quote: "We needed to validate our iGaming concept fast. OARC delivered a working MVP that let us test with real users before committing to full development. They knew exactly what the MGA would require.",
-      author: "Marco Camilleri",
-      role: "Chief Executive",
-      company: "Gaming Innovations Ltd",
-      metric: "10,000+",
-      metricLabel: "Beta Users"
-    },
-    {
-      quote: "The Discovery Sprint alone saved us 6 months of wrong direction. OARC's methodology is battle-tested—they've clearly done this dozens of times before. Worth every euro.",
-      author: "Elena Borg",
-      role: "Product Director",
-      company: "FinTech Solutions Malta",
-      metric: "6 months",
-      metricLabel: "Time Saved"
-    }
   ];
 
   const faqs = [
