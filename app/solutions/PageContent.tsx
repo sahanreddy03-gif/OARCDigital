@@ -11,6 +11,8 @@ import Footer from '@/components/Footer';
 import MinimalNav from '@/components/MinimalNav';
 import QuickLeadModal from '@/components/QuickLeadModal';
 import { NAP } from "@/lib/seo/nap";
+import ApprovedQuotes from "@/components/ApprovedQuotes";
+import { solutionsQuotes } from "@/lib/reviews/approvedQuotes";
 import { 
   ArrowRight, Check, Zap, Users, BarChart3, 
   Calendar, Bot, Workflow, Settings, ChevronRight,
@@ -147,16 +149,6 @@ const processPhases = [
   }
 ];
 
-const testimonials = [
-  {
-    quote:
-      "Three agencies before this one told us what to do. This is the first time anyone showed us which half of our budget was doing nothing.",
-    name: "Marija B.",
-    title: "Owner, family-run restaurant group",
-    company: "Sliema",
-    avatar: "MB",
-  },
-];
 
 const faqItems: FAQItem[] = [
   {
@@ -739,48 +731,7 @@ export default function PageContent() {
           </div>
         </section>
 
-        {/* ========== TESTIMONIALS ========== */}
-        <section className="py-24 px-6 border-t border-white/5">
-          <div className="max-w-6xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                What Our Clients Say
-              </h2>
-            </m.div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {testimonials.map((testimonial, i) => (
-                <m.div
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <GlassCard className="p-6 h-full" variant="subtle">
-                    <p className="text-white/70 text-sm leading-relaxed mb-6 italic">
-                      "{testimonial.quote}"
-                    </p>
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#c4ff4d]/10 flex items-center justify-center text-[#c4ff4d] font-bold text-sm">
-                        {testimonial.avatar}
-                      </div>
-                      <div>
-                        <p className="text-white font-medium text-sm">{testimonial.name}</p>
-                        <p className="text-white/40 text-xs">{testimonial.title}, {testimonial.company}</p>
-                      </div>
-                    </div>
-                  </GlassCard>
-                </m.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ApprovedQuotes quotes={solutionsQuotes} tone="dark" />
 
         {/* ========== 90 / 180 / 360 DAY REVENUE ROADMAP ========== */}
         <section className="py-24 px-6 border-t border-white/5 bg-zinc-950" data-testid="section-solutions-roadmap">

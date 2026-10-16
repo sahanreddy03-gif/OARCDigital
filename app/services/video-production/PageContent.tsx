@@ -266,30 +266,6 @@ export default function VideoProduction() {
         </section>
       </ScrollReveal>
 
-      {/* SECTION 5: Client Success Story */}
-      <section className="py-16 px-4 bg-[#a8b892]">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-[#1a2e29] text-sm uppercase tracking-widest mb-6 font-medium">Featured Project</p>
-          <blockquote className="text-2xl md:text-3xl font-bold text-[#1a2e29] mb-6 leading-relaxed">
-            &ldquo;The second cut was the one we ran. They knew which shot to lose before I did.&rdquo;
-          </blockquote>
-          <div className="flex items-center justify-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-[#1a2e29]/10 flex items-center justify-center text-sm font-semibold text-[#1a2e29]/70" aria-hidden="true">
-              RC
-            </div>
-            <div className="text-left">
-              <p className="text-[#1a2e29] font-medium">Rita C.</p>
-              <p className="text-[#1a2e29]/70 text-sm">Brand manager, homeware brand, Malta</p>
-            </div>
-          </div>
-          <Link href="/our-work">
-            <span className="inline-block mt-8 text-[#1a2e29] hover:text-[#1a2e29]/80 font-medium underline underline-offset-4" data-testid="link-see-case-study">
-              See the full case study →
-            </span>
-          </Link>
-        </div>
-      </section>
-
       {/* SECTION 6: Paired Services */}
       <ScrollReveal>
         <section className="py-20 px-4 bg-[#f5f0e6]">

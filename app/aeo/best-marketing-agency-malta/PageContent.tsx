@@ -1,7 +1,7 @@
 import Layout from '@/components/layout/Layout';
 import RelatedLinks from '@/components/RelatedLinks';
 import { Button } from '@/components/ui/button';
-import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock, Award, Star } from 'lucide-react';
+import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock, Award } from 'lucide-react';
 import TrustBlock from "@/components/seo/TrustBlock";
 import Link from 'next/link';
 import { NAP } from "@/lib/seo/nap";
@@ -16,12 +16,6 @@ const criteria = [
   { title: 'Month-to-month contracts', detail: 'An agency confident in its work does not need a 12-month lock-in to keep clients. OARC works on rolling 30-day terms.' },
   { title: 'Revenue-grade case studies', detail: 'Demand named industries, real metrics, and the timeframe over which results were achieved. Vanity reach numbers are not results.' },
   { title: 'Proprietary tools for Malta', detail: 'OARC built Hospitality 360 specifically for Malta restaurants and hotels — not a global tool retrofitted, but a Malta-first system.' },
-];
-
-const reviews = [
-  { name: 'Boutique hotel — Valletta', stars: 5, body: '"Replaced two agencies with OARC. Direct bookings up €41k in 90 days. They actually picked up the phone."' },
-  { name: 'Restaurant group — St Julian\'s', stars: 5, body: '"The Hospitality 360 system alone paid for the retainer. Reviews went from 4.5 to 4.9 in three months."' },
-  { name: 'iGaming brand — Sliema', stars: 5, body: '"Cut blended CAC by 38%. They run paid media like an in-house team would, but with senior people."' },
 ];
 
 const competitorTypes = [
@@ -128,24 +122,6 @@ export default function BestMarketingAgencyMalta({ faqs, offers }: Props) {
                 </tbody>
               </table>
             </div>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">What OARC Digital Clients Say</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              {reviews.map((r, i) => (
-                <div key={i} className="p-5 rounded-xl bg-card border flex flex-col">
-                  <div className="flex gap-1 mb-3">
-                    {Array.from({ length: r.stars }).map((_, idx) => (
-                      <Star key={idx} className="w-4 h-4 fill-orange-500 text-orange-500" />
-                    ))}
-                  </div>
-                  <p className="text-sm text-foreground italic flex-1 mb-3">{r.body}</p>
-                  <p className="text-xs text-muted-foreground">{r.name}</p>
-                </div>
-              ))}
-            </div>
-            <p className="text-sm text-muted-foreground mt-4 text-center">4.9 / 5 average · 47 reviews · Birkirkara, Malta</p>
           </section>
 
           <section className="mb-12">

@@ -124,7 +124,7 @@ export const caseStudies = [
       { metric: "E-commerce Revenue", value: "+52%", period: "in 90 days" }
     ],
     technologies: ["ChatGPT-4", "n8n Automation", "WhatsApp Business API", "Klaviyo"],
-    testimonial: "OARC Digital transformed our digital presence. The AI systems they built generate content and manage customer interactions 24/7."
+    testimonial: ""
   },
   {
     client: "Premium Dental Studio",
@@ -138,7 +138,7 @@ export const caseStudies = [
       { metric: "Patient Lifetime Value", value: "+48%", period: "in 6 months" }
     ],
     technologies: ["AI Booking Bot", "HubSpot CRM", "SMS Automation", "Google Ads"],
-    testimonial: "The automation systems are incredible. Our team now focuses on patients while AI handles bookings and follow-ups."
+    testimonial: ""
   },
   {
     client: "Boutique Café Brand",
@@ -152,7 +152,7 @@ export const caseStudies = [
       { metric: "Monthly Revenue", value: "+55%", period: "in 6 months" }
     ],
     technologies: ["Midjourney AI", "Meta Ads", "Loyalty Platform", "AI Content Studio"],
-    testimonial: "OARC built us a system that keeps customers coming back. The AI-created content is stunning and performs better than anything we did manually."
+    testimonial: ""
   },
   {
     client: "EU Tech Startup",
@@ -166,7 +166,7 @@ export const caseStudies = [
       { metric: "Cost per Acquisition", value: "-58%", period: "ongoing" }
     ],
     technologies: ["AI SDR Agents", "Salesforce", "LinkedIn Automation", "ChatGPT API"],
-    testimonial: "The AI sales agents OARC deployed work like a team of 10 SDRs. Game-changing for our growth."
+    testimonial: ""
   }
 ];
 
@@ -213,36 +213,13 @@ export const targetIndustries = [
   "Financial Services"
 ];
 
-export const clientTestimonials = [
-  {
-    quote: "OARC Digital doesn't just create campaigns—they build systems that generate revenue on autopilot. Our marketing ROI has never been higher.",
-    author: "Antonia Camilleri",
-    position: "Marketing Director",
-    company: "Mediterranean Retail Chain",
-    location: "Malta"
-  },
-  {
-    quote: "The AI sales agents are incredible. They handle lead qualification and initial outreach 24/7, freeing our team to focus on closing deals.",
-    author: "Pieter van der Berg",
-    position: "CEO",
-    company: "EU Tech Startup",
-    location: "Netherlands"
-  },
-  {
-    quote: "Working with OARC transformed how we think about marketing. The creative quality is exceptional, and everything is backed by data.",
-    author: "Maria Borg",
-    position: "Owner",
-    company: "Boutique Café Brand",
-    location: "Malta"
-  },
-  {
-    quote: "The automation systems OARC built have completely transformed our patient journey. We've seen a dramatic increase in bookings and a massive reduction in no-shows.",
-    author: "Dr. Karmenu Mifsud",
-    position: "Clinical Director",
-    company: "Premium Dental Studio",
-    location: "Malta"
-  }
-];
+export const clientTestimonials: {
+  quote: string;
+  author: string;
+  position: string;
+  company: string;
+  location: string;
+}[] = [];
 
 export const keyDifferentiators = [
   {

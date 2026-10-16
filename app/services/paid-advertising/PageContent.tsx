@@ -12,6 +12,8 @@ import RelatedServices from "@/components/RelatedServices";
 const heroImage = "/attached_assets/paid advertising_1763088406833.avif";
 
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
+import ApprovedQuotes from "@/components/ApprovedQuotes";
+import { paidQuotes } from "@/lib/reviews/approvedQuotes";
 const paidAdsFAQs: FAQItem[] = [
   { question: "What advertising platforms do you manage?", answer: "Google Ads, Meta (Facebook/Instagram), LinkedIn, TikTok, YouTube, and programmatic display. We optimize across platforms for maximum ROI." },
   { question: "How quickly can paid ads generate leads?", answer: "Campaigns can be live within 48 hours. Initial results appear within days, with optimization improving performance over 2-4 weeks." },
@@ -464,6 +466,8 @@ export default function PaidAdvertising() {
 
       <RelatedServices slug="/services/paid-advertising" />
 
+
+      <ApprovedQuotes quotes={paidQuotes} tone="dark" />
 
       {/* CTA */}
       <section className="py-20 px-4 relative overflow-hidden bg-[#23AACA]">

@@ -117,15 +117,6 @@ export function buildOffer(opts: OfferOpts) {
   };
 }
 
-// DEPRECATED — do not emit. Sahan lock (2026-09-11): NEVER invent stars/%.
-// AggregateRating is opt-in only when real permissioned Google/Clutch reviews
-// are wired in code. Kept exported so historical imports compile; RouteSchema
-// no longer auto-applies this fallback.
-export const DEFAULT_RATING: AggregateRatingOpts = {
-  ratingValue: 4.9,
-  reviewCount: 47,
-};
-
 export function buildService(opts: {
   name: string;
   description: string;

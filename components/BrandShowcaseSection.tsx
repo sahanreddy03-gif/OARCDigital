@@ -7,7 +7,7 @@ import { registerGSAP, gsap, EASE, DUR } from "@/lib/motion/gsap-system";
 
 const pjazza = {
   slug: "pjazza",
-  brand: "PJAZZA",
+  brand: "PJAZZA — OARC PRODUCT",
   description: "OARC-owned live shopping marketplace",
   thumbnailImage: "/attached_assets/IMG_0605_1775068068190.jpeg",
 } as const;

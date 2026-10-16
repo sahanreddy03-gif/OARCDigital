@@ -9,7 +9,7 @@ import { pdfPagesSEO } from "@/data/seoMetadata";
 const websiteCases = [{
   slug: "pjazza",
   category: "OARC-Owned Product",
-  brand: "PJAZZA",
+  brand: "PJAZZA — OARC PRODUCT",
   description: "OARC Digital's live shopping marketplace.",
   metrics: { value: "Public", label: "product evidence" },
 }];

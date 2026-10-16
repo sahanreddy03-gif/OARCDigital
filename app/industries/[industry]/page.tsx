@@ -22,6 +22,8 @@ const industrySlugAlias: Record<string, string> = {
 };
 const resolveIndustryKey = (slug: string) => industrySlugAlias[slug] ?? slug;
 import { Button } from '@/components/ui/button';
+import ApprovedQuotes from '@/components/ApprovedQuotes';
+import { hotelQuote, fitnessQuote, retailQuote, legalQuote } from '@/lib/reviews/approvedQuotes';
 import { NAP } from "@/lib/seo/nap";
 
 interface IndustryData {
@@ -957,6 +959,10 @@ export default async function IndustryHubPage({ params }: { params: Promise<Indu
             </div>
           </section>
         )}
+        {dataKey === 'hotels' && <ApprovedQuotes quotes={[hotelQuote]} />}
+        {dataKey === 'fitness' && <ApprovedQuotes quotes={[fitnessQuote]} />}
+        {dataKey === 'retail' && <ApprovedQuotes quotes={[retailQuote]} />}
+        {dataKey === 'legal-services' && <ApprovedQuotes quotes={[legalQuote]} />}
       </main>
     </Layout>
   );

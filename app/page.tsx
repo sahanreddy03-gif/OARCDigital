@@ -65,6 +65,8 @@ import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
 import TechEnabledSection from "@/components/TechEnabledSection";
 import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
 import HomepageWorkProof from "@/components/HomepageWorkProof";
+import ApprovedQuotes from "@/components/ApprovedQuotes";
+import { homepageQuotes } from "@/lib/reviews/approvedQuotes";
 import ComparisonSection from "@/components/ComparisonSection";
 import GrowthSimulator from "@/components/GrowthSimulator";
 import MoneyBackGuaranteeSection from "@/components/MoneyBackGuaranteeSection";
@@ -140,6 +142,7 @@ export default function Page() {
 
         {/* One authoritative work record */}
         <HomepageWorkProof />
+        <ApprovedQuotes quotes={homepageQuotes} />
 
         {/* Why OARC - Comparison */}
         <ComparisonSection />

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { 
   ArrowRight, CheckCircle2, Rocket, Target, Zap, Clock, 
   Shield, TrendingUp, Users, Code2, Database, Server,
-  BarChart3, RefreshCw, ChevronDown, Star, Building2, Globe,
+  BarChart3, RefreshCw, ChevronDown, Building2, Globe,
   Award, Layers, Calendar, Phone, Play, ExternalLink, 
   CheckCircle, XCircle, Euro, GitBranch, Cpu, Lock,
   Sparkles, Cloud, Settings, Terminal, type LucideIcon
@@ -134,18 +134,6 @@ export default function MVPSoftwareDevelopment() {
     { name: 'Data Platforms', icon: Database, description: 'Analytics dashboards, BI tools, data visualization, and reporting systems' },
     { name: 'Developer Tools', icon: Terminal, description: 'IDEs, CLI tools, SDKs, and development infrastructure software' },
     { name: 'Admin Panels', icon: Settings, description: 'Back-office systems, content management, and administrative dashboards' }
-  ];
-
-  const testimonials = [
-    {
-      quote:
-        "Our own engineers picked it up in a week. That is the only test of a handover that matters.",
-      author: "Elena P.",
-      role: "Engineering lead, payments company",
-      company: "Malta",
-      metric: "",
-      metricLabel: "",
-    },
   ];
 
   const mvpSoftwareFAQs: FAQItem[] = [
@@ -826,60 +814,6 @@ export default function MVPSoftwareDevelopment() {
               </div>
             </GlassCard>
           </m.div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="bg-black py-24 px-6" data-testid="section-testimonials">
-        <div className="max-w-7xl mx-auto">
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-              What Our Clients Say
-            </h2>
-          </m.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, idx) => (
-              <m.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                data-testid={`card-testimonial-${idx}`}
-              >
-                <GlassCard className="p-8 h-full flex flex-col" glowOnHover={false}>
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-[#23AACA] text-[#23AACA]" />
-                    ))}
-                  </div>
-                  <blockquote className="text-white/80 mb-6 flex-grow text-sm leading-relaxed" data-testid={`text-testimonial-${idx}`}>
-                    "{testimonial.quote}"
-                  </blockquote>
-                  <div className="pt-6 border-t border-white/10">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="text-white font-bold">{testimonial.author}</div>
-                        <div className="text-white/50 text-sm">{testimonial.role}</div>
-                        <div className="text-white/40 text-xs">{testimonial.company}</div>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-xl font-black text-[#4ade80]">{testimonial.metric}</div>
-                        <div className="text-xs text-white/50">{testimonial.metricLabel}</div>
-                      </div>
-                    </div>
-                  </div>
-                </GlassCard>
-              </m.div>
-            ))}
-          </div>
         </div>
       </section>
 

@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin, Brain, Search, Workflow, Camera, Utensils, Calendar, Users, Star } from "lucide-react";
 import RelatedLinks from "@/components/RelatedLinks";
 import TrustBlock from "@/components/seo/TrustBlock";
+import ApprovedQuotes from "@/components/ApprovedQuotes";
+import { restaurantQuote } from "@/lib/reviews/approvedQuotes";
 import { IMAGE_REGISTRY } from "@/lib/images/registry";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -360,6 +362,7 @@ export default function RestaurantsMaltaIndustryHub() {
           <section>
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital</h2>
             <TrustBlock variant="visit" />
+            <ApprovedQuotes quotes={[restaurantQuote]} />
           </section>
 
           <RelatedLinks slug="/industries/restaurants" />

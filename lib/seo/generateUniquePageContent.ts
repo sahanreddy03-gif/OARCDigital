@@ -428,36 +428,17 @@ export function getIndustryProfile(slug: string): IndustryProfile | undefined {
 }
 
 // ---------------------------------------------------------------------------
-// Case-study hook + testimonial generators
+// Case-study hook generator
 // ---------------------------------------------------------------------------
-// These produce the per-page caseStudyHook and testimonial blocks the spec
-// requires. They are intentionally NOT methods on ServiceProfile so that all
-// 5 services share a consistent template; the variation is driven entirely by
-// (location, service, industry?) data so two URLs never produce the same copy.
+// Intentionally NOT a method on ServiceProfile so that services share one
+// template. The unused fake-person testimonial generator was removed so a
+// later edit cannot print invented reviews on every Malta URL.
 
 export type CaseStudyHook = {
   headline: string;     // "When a Sliema restaurant came to us…"
   outcome: string;      // "…they grew direct reservations 47% in 90 days"
   metric: string;       // "+47% direct reservations · 90 days"
 };
-
-export type Testimonial = {
-  quote: string;
-  author: string;
-  role: string;
-  business: string;
-};
-
-// Realistic Malta first names + business-name patterns. Deterministic per
-// (loc, svc, ind?) so the same URL always shows the same testimonial.
-const MALTESE_FIRST_NAMES = ['Christian', 'Maria', 'Andrea', 'Roberta', 'Mark', 'Stephanie', 'Luca', 'Elena', 'Simon', 'Daniela', 'Karl', 'Francesca'];
-const MALTESE_SURNAMES   = ['Borg', 'Camilleri', 'Vella', 'Mifsud', 'Galea', 'Spiteri', 'Farrugia', 'Caruana', 'Sant', 'Grech', 'Zammit', 'Bonello'];
-
-function deterministicIdx(seed: string, mod: number): number {
-  let h = 0;
-  for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) | 0;
-  return Math.abs(h) % mod;
-}
 
 export function buildCaseStudyHook(
   loc: LocationProfile,
@@ -512,53 +493,6 @@ export function buildCaseStudyHook(
   };
 }
 
-export function buildTestimonial(
-  loc: LocationProfile,
-  svc: ServiceProfile,
-  ind?: IndustryProfile,
-): Testimonial {
-  const seed = `${loc.slug}|${svc.slug}|${ind?.slug ?? '_'}`;
-  const first = MALTESE_FIRST_NAMES[deterministicIdx(seed + 'f', MALTESE_FIRST_NAMES.length)];
-  const last  = MALTESE_SURNAMES[deterministicIdx(seed + 'l', MALTESE_SURNAMES.length)];
-
-  // Business-name pattern depends on industry / fallback to a credible
-  // location-anchored category. Deterministic per seed.
-  const businessSuffix = ind
-    ? ({ restaurant: ['Kitchen', 'Bistro', 'Trattoria'], hotel: ['Boutique Hotel', 'Hotel & Suites', 'Stays'], 'real-estate': ['Properties', 'Realty', 'Homes'] } as Record<string, string[]>)[ind.slug] ?? ['& Co.']
-    : ['& Co.', 'Studio', 'Group'];
-  const suffix = businessSuffix[deterministicIdx(seed + 's', businessSuffix.length)];
-  const business = `${last} ${suffix}`;
-
-  // Role depends on industry vs. generic.
-  const role = ind
-    ? (ind.slug === 'restaurant' ? 'Owner-Chef'
-      : ind.slug === 'hotel' ? 'General Manager'
-      : ind.slug === 'real-estate' ? 'Director'
-      : 'Founder')
-    : 'Founder';
-
-  // Quote varies by service so two services in the same town don\'t echo.
-  const quoteBySvc: Record<string, string> = {
-    'social-media-creative-management':
-      `OARC turned our social into our biggest source of new customers. Within three months we were getting more bookings from Instagram than from any other channel — and the production quality finally matches the rest of the brand.`,
-    'seo-services':
-      `For the first time, every channel we run feels like it\'s pulling in the same direction. Our pipeline is up, our cost-per-lead is down, and we actually understand which campaigns are doing the work.`,
-    'paid-advertising':
-      `We had been burning money on ads for two years before OARC took over. Within eight weeks our cost-per-acquisition dropped by more than a third and we started seeing real ROAS — not vanity metrics.`,
-    'web-design':
-      `The new site does in five seconds what the old one couldn\'t do in five minutes. Conversion is up, the team can update it themselves, and we\'re finally proud to send the URL out.`,
-    'ai-consulting':
-      `OARC helped us replace three full-time tasks with one AI workflow that runs around the clock. The team got their week back and our customers get faster answers — it paid for itself inside a quarter.`,
-  };
-
-  return {
-    quote: quoteBySvc[svc.slug] ?? quoteBySvc['seo-services'],
-    author: `${first} ${last}`,
-    role,
-    business: `${business}, ${loc.name}`,
-  };
-}
-
 // ---------------------------------------------------------------------------
 // Page content generators — return ready-to-render objects
 // ---------------------------------------------------------------------------
@@ -572,7 +506,6 @@ export type LocationHubContent = {
   opportunities: string[];
   services: { slug: string; name: string; desc: string }[];
   caseStudyHook: CaseStudyHook;
-  testimonial: Testimonial;
   schema: Record<string, unknown>[];
   canonical: string;
 };
@@ -588,7 +521,6 @@ export type LocationServiceContent = {
   faqs: { q: string; a: string }[];
   cta: string;
   caseStudyHook: CaseStudyHook;
-  testimonial: Testimonial;
   schema: Record<string, unknown>[];
   canonical: string;
 };
@@ -609,7 +541,6 @@ export type LocationIndustryServiceContent = {
   pricingFromEUR: number;
   faqs: { q: string; a: string }[];
   caseStudyHook: CaseStudyHook;
-  testimonial: Testimonial;
   schema: Record<string, unknown>[];
   canonical: string;
   /** Owner Hero Gate 2 — guest/return mechanism (uniqueness overlay). */
@@ -675,11 +606,8 @@ export function buildLocationHubContent(
 
   const whyHere = `${loc.longIntro} OARC Digital works with ${loc.name} businesses across ${loc.primaryIndustries.slice(0, 3).join(', ')} — and from our base in Birkirkara we cover the surrounding catchment of ${loc.nearestLocations.join(', ')} as part of every engagement.`;
 
-  // Hub uses the location\'s top primary-industry as the case-study subject and
-  // anchors the testimonial on the highest-converting service.
   const flagshipSvc = getServiceProfile('seo-services')!;
   const caseStudyHook = buildCaseStudyHook(loc, flagshipSvc);
-  const testimonial = buildTestimonial(loc, flagshipSvc);
 
   return {
     title,
@@ -694,7 +622,6 @@ export function buildLocationHubContent(
     opportunities: loc.opportunities,
     services: serviceCatalog,
     caseStudyHook,
-    testimonial,
     canonical,
     schema: [
       localBusinessForLocation(loc),
@@ -730,7 +657,6 @@ export function buildLocationServiceContent(
   ];
 
   const caseStudyHook = buildCaseStudyHook(loc, svc);
-  const testimonial = buildTestimonial(loc, svc);
 
   return {
     title,
@@ -747,7 +673,6 @@ export function buildLocationServiceContent(
     faqs,
     cta: svc.cta,
     caseStudyHook,
-    testimonial,
     canonical,
     schema: [
       localBusinessForLocation(loc),
@@ -848,7 +773,6 @@ export function buildLocationIndustryServiceContent(
     pricingFromEUR: locationPricing(svc.pricingFromEUR, loc),
     faqs,
     caseStudyHook: buildCaseStudyHook(loc, svc, ind),
-    testimonial: buildTestimonial(loc, svc, ind),
     canonical,
     schema,
     hero2: overlay?.hero2,

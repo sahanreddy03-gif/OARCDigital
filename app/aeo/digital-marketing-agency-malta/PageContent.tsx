@@ -41,27 +41,27 @@ const reasons = [
 const caseStudies = [
   {
     industry: 'Restaurant — St Julian\'s',
-    headline: 'Doubled monthly bookings in 11 weeks',
+    headline: 'Restaurant content and local ads',
     detail:
-      'Independent fine-dining restaurant. Rebuilt Instagram content strategy, launched targeted Meta ads to a 5km radius, deployed Hospitality 360 review automation. Result: +112% direct bookings via website and Google, 4.7 → 4.9 average Google rating.',
-    metric: '+112%',
-    metricLabel: 'monthly bookings',
+      'Independent fine-dining restaurant. Rebuilt Instagram content strategy, launched targeted Meta ads to a 5km radius, and connected the work to Hospitality 360.',
+    metric: 'Local',
+    metricLabel: 'restaurant programme',
   },
   {
     industry: 'iGaming — Sliema',
-    headline: 'Cut blended CAC by 38%',
+    headline: 'Paid social for an iGaming brand',
     detail:
-      'Affiliate-led iGaming brand. Migrated paid social from a London agency to OARC. Restructured Meta and TikTok funnels, introduced AI-driven creative testing. CAC dropped from €184 to €114 within two months while volume held flat.',
-    metric: '−38%',
-    metricLabel: 'cost per acquisition',
+      'Affiliate-led iGaming brand. The work moved paid social into one team and rebuilt the creative testing rhythm.',
+    metric: 'Paid',
+    metricLabel: 'social programme',
   },
   {
     industry: 'Hotel — Valletta',
-    headline: '€41k incremental direct bookings in 90 days',
+    headline: 'Direct booking work for a hotel',
     detail:
-      'Boutique 22-room hotel. Replaced OTA dependency with a direct-booking funnel: paid search on branded and competitor terms, AI WhatsApp concierge, and a redesigned booking page. €41k of net-new direct revenue in the first quarter.',
-    metric: '€41k',
-    metricLabel: 'incremental direct revenue',
+      'Boutique hotel. The work connected paid search, WhatsApp, and the booking page so guests had a direct route.',
+    metric: 'Direct',
+    metricLabel: 'booking route',
   },
 ];
 
