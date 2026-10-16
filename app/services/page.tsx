@@ -4,6 +4,8 @@ import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags"
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import { supportingPagesSEO } from "@/data/seoMetadata";
 import PageContent from "./PageContent";
+import ApprovedQuotes from "@/components/ApprovedQuotes";
+import { servicesHubQuotes } from "@/lib/reviews/approvedQuotes";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
@@ -38,6 +40,7 @@ export default function Page() {
           faqs={SUPPORTING_PAGE_SCHEMAS["/services"].faqs}
         />
       <PageContent />
+      <ApprovedQuotes quotes={servicesHubQuotes} />
     </>
   );
 }

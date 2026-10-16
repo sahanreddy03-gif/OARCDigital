@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
 };
 
-import { companyInfo, aboutText, coreServices, whyChooseUs, processSteps, caseStudies, technologyStack, clientTestimonials, targetIndustries } from "@/data/companyProfile";
+import { companyInfo, aboutText, coreServices, whyChooseUs, processSteps, caseStudies, technologyStack, targetIndustries } from "@/data/companyProfile";
 import { Palette, Users, TrendingUp, Zap, Target, Clock, Globe, Cpu, Mail, Phone, MapPin, Globe2 } from "lucide-react";
 import "@/styles/pdf.css";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
@@ -363,37 +363,6 @@ export default function Page() {
           <div className="pdf-page-number">09</div>
         </div>
         
-        <h2 className="pdf-section-title">What Clients Say</h2>
-        
-        <div className="mb-large">
-          {clientTestimonials.map((testimonial, idx) => (
-            <div key={idx} style={{ 
-              background: 'linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%)', 
-              border: '1px solid rgba(255, 255, 255, 0.1)', 
-              borderRadius: '16px', 
-              padding: '30px', 
-              marginBottom: '25px' 
-            }}>
-              <p style={{ fontSize: '16px', color: '#e0e0e0', fontStyle: 'italic', lineHeight: '1.8', marginBottom: '20px' }}>
-                "{testimonial.quote}"
-              </p>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div>
-                  <div style={{ fontSize: '15px', fontWeight: '700', color: '#ffffff' }}>
-                    {testimonial.author}
-                  </div>
-                  <div style={{ fontSize: '13px', color: '#a0a0a0' }}>
-                    {testimonial.position}, {testimonial.company}
-                  </div>
-                </div>
-                <div style={{ fontSize: '13px', color: '#FF5A00', fontWeight: '600' }}>
-                  {testimonial.location}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
         <div>
           <h3 style={{ fontSize: '24px', fontWeight: '700', color: '#00FF9C', marginBottom: '20px' }}>
             Industries We Serve

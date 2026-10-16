@@ -6,10 +6,10 @@ import { getHreflangAlternates } from "@/lib/seo/discoveryTags";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 const ANCHOR_METADATA: Record<string, { name: string; intro: string }> = {
-  pjazza: { name: "PJAZZA", intro: "A live-shopping marketplace designed to move the useful question closer to a local buying decision." },
+  pjazza: { name: "PJAZZA — OARC PRODUCT", intro: "A live-shopping marketplace designed to move the useful question closer to a local buying decision." },
   h360: { name: "H360", intro: "A connected restaurant system designed to turn discovery, bookings, guest questions, orders, and operations into a clearer day." },
-  "data-foundation": { name: "DATA FOUNDATION", intro: "A private client engagement focused on moving fragmented records toward governed data." },
-  "live-context": { name: "LIVE CONTEXT", intro: "A mobile reading-order redesign for a fast live-information environment." },
+  "data-foundation": { name: "OPERATIONS DATA FOUNDATION", intro: "A private client engagement focused on moving fragmented records toward governed data." },
+  "live-context": { name: "LIVE INFORMATION EXPERIENCE", intro: "A mobile reading-order redesign for a fast live-information environment." },
 };
 
 const ALL_WORK_SLUGS = Array.from(new Set([

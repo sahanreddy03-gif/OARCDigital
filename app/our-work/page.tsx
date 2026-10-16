@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import NewWorkIndex from "@/components/premium-work/NewWorkIndex";
+import ApprovedQuotes from "@/components/ApprovedQuotes";
+import { ourWorkQuotes } from "@/lib/reviews/approvedQuotes";
 import RouteSchema from "@/components/RouteSchema";
 import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
@@ -41,6 +43,7 @@ export default function Page() {
         includeLocalBusiness={false}
       />
       <NewWorkIndex />
+      <ApprovedQuotes quotes={ourWorkQuotes} />
     </>
   );
 }

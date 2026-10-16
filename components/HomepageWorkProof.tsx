@@ -18,10 +18,10 @@ const WORK = [
   },
   {
     href: "/our-work/hearth-test-kitchen",
-    title: "Hearth Test Kitchen",
+    title: "Creative Campaign Testing",
     description: "Brand, content and paid creative.",
     image: "/attached_assets/premium-work/hearth-test-kitchen_bbfae260.jpg",
-    alt: "Hearth Test Kitchen",
+    alt: "Creative Campaign Testing",
   },
 ] as const;
 

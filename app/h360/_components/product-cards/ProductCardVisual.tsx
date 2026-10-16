@@ -34,7 +34,7 @@ function Sheet({ children, dark }: { children: React.ReactNode; dark?: boolean }
 function MapsRankVisual({ playing }: VisualProps) {
   const reduce = useReducedMotion();
   const rows = [
-    { r: '#1', name: 'Your Restaurant', sub: 'Valletta · 4.9 ★ · Open', hi: true },
+    { r: '#1', name: 'Your Restaurant', sub: 'Valletta · Open', hi: true },
     { r: '#2', name: 'Competitor A', sub: "St. Julian's · 4.2 ★", hi: false },
     { r: '#3', name: 'Competitor B', sub: 'Sliema · 4.0 ★', hi: false },
   ];
@@ -207,9 +207,9 @@ function ReviewsStarsVisual({ playing }: VisualProps) {
           ))}
         </div>
         <m.div initial={{ opacity: 0 }} animate={playing && !reduce ? { opacity: 1 } : {}} transition={{ delay: 1.2 }} style={{ fontSize: 28, fontWeight: 800, color: DARK }}>
-          4.9
+          Reviews
         </m.div>
-        <div style={{ fontSize: 11, color: '#aaa', marginTop: 4 }}>+47 reviews this month</div>
+        <div style={{ fontSize: 11, color: '#aaa', marginTop: 4 }}>Reply in your tone</div>
       </div>
     </Sheet>
   );

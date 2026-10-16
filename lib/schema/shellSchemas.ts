@@ -87,7 +87,7 @@ export function buildOurWorkShellGraph() {
           {
             "@type": "ListItem",
             position: 1,
-            name: "PJAZZA",
+            name: "PJAZZA — OARC PRODUCT",
             url: `${SITE_BASE}/our-work/pjazza`,
           },
         ],

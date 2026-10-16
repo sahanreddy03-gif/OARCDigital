@@ -238,14 +238,7 @@ export default function MobileAppsDevelopment() {
                   <div className="flex-1">
                     <h3 className="text-white font-bold text-lg">Your App Name</h3>
                     <p className="text-white/70 text-sm">Your Company</p>
-                    <div className="flex items-center gap-2 mt-2">
-                      <div className="flex">
-                        {[1,2,3,4,5].map(i => (
-                          <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                        ))}
-                      </div>
-                      <span className="text-white/70 text-sm">4.9 · 10K+ reviews</span>
-                    </div>
+                    <p className="text-white/70 text-sm mt-2">Your listing</p>
                   </div>
                 </div>
                 
@@ -568,7 +561,7 @@ export default function MobileAppsDevelopment() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { value: "75+", label: "Apps shipped", icon: Smartphone },
-              { value: "4.7", label: "Avg. store rating", icon: Star },
+              { value: "iOS", label: "and Android", icon: Smartphone },
               { value: "5M+", label: "Total downloads", icon: Download },
               { value: "99.5%", label: "Crash-free rate", icon: Shield },
             ].map((stat, i) => (

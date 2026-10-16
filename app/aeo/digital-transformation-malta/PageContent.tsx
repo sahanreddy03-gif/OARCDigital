@@ -162,18 +162,18 @@ export default function DigitalTransformationMalta({ faqs, offers }: Props) {
             <div className="space-y-4">
               <div className="p-5 rounded-xl bg-card border">
                 <p className="text-xs uppercase tracking-wider text-orange-600 font-semibold mb-2">Hospitality group — 4 locations, Malta</p>
-                <h3 className="font-bold mb-2">AI receptionist + Hospitality 360 saved 47 hours/week</h3>
-                <p className="text-sm text-muted-foreground">Replaced front-of-house phone handling with an AI agent that takes bookings, answers menu questions in 9 languages, and prompts for Google reviews after each visit. Result: 47 staff hours per week reclaimed and Google rating moved from 4.6 to 4.9 in 90 days.</p>
+                <h3 className="font-bold mb-2">AI receptionist plus Hospitality 360</h3>
+                <p className="text-sm text-muted-foreground">Front-of-house calls, booking questions, and review follow-up can sit in one workflow instead of three separate tools.</p>
               </div>
               <div className="p-5 rounded-xl bg-card border">
                 <p className="text-xs uppercase tracking-wider text-orange-600 font-semibold mb-2">Professional services firm — Sliema</p>
-                <h3 className="font-bold mb-2">CRM automation eliminated 18 hours/week of admin</h3>
-                <p className="text-sm text-muted-foreground">Built an automated pipeline from website form through proposal generation and contract signature. Three partners reclaimed half a day each per week and proposal turnaround time dropped from 4 days to 6 hours.</p>
+                <h3 className="font-bold mb-2">CRM workflow for a professional firm</h3>
+                <p className="text-sm text-muted-foreground">The work connected the website form, the proposal, and the contract so the team had one path instead of a pile of follow-up.</p>
               </div>
               <div className="p-5 rounded-xl bg-card border">
                 <p className="text-xs uppercase tracking-wider text-orange-600 font-semibold mb-2">iGaming operator — St Julian&apos;s</p>
-                <h3 className="font-bold mb-2">AI SDR replaced two outbound BDRs at 60% cost</h3>
-                <p className="text-sm text-muted-foreground">Deployed an AI SDR for outbound affiliate qualification across LinkedIn and email. Generated 230 qualified affiliate conversations in the first quarter at roughly 40% the loaded cost of two junior BDRs.</p>
+                <h3 className="font-bold mb-2">Outbound follow-up for an iGaming operator</h3>
+                <p className="text-sm text-muted-foreground">The work set up an AI SDR for affiliate outreach on LinkedIn and email, with a person still owning the conversation that needs judgment.</p>
               </div>
             </div>
           </section>

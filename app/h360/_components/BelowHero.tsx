@@ -1,11 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ProductCardVisual from './product-cards/ProductCardVisual';
 import { PRODUCT_CARDS } from './product-cards/productCardsData';
 import type { ProductVisualId } from './product-cards/productCardsData';
 import { openH360Arc } from './openH360Arc';
+import { h360Quotes } from '@/lib/reviews/approvedQuotes';
 
 /* ─────────────────────────────────────────────────────
    Sunday exact design tokens (from extractBranding)
@@ -415,45 +416,11 @@ function ValueSection({ m }: { m: boolean }) {
    §7 TESTIMONIAL STRIP
    Sunday: Large photo on left, bold quote right
 ═══════════════════════════════════════════════ */
-const TESTIMONIALS = [
-  {
-    quote:
-      'Guests pay from the table and the bill stops being a conversation. Staff stay on the floor.',
-    name: 'Dorian M.',
-    role: 'Restaurant manager, two venues',
-    venue: "St Julian's",
-    place: "St Julian's",
-    bg: '#1a0d00',
-  },
-  {
-    quote:
-      'We stopped giving away a third of every order to a delivery app. The margin came back before the volume did.',
-    name: 'Carmen V.',
-    role: 'Owner, seaside restaurant',
-    venue: 'Marsaxlokk',
-    place: 'Marsaxlokk',
-    bg: '#0a0a14',
-  },
-  {
-    quote:
-      'Large parties split the bill on their phones — staff stay with the table.',
-    name: 'Alan T.',
-    role: 'Floor manager, brasserie',
-    venue: 'Valletta',
-    place: 'Valletta',
-    bg: '#0d1208',
-  },
-] as const;
-
-function venueInitials(venue: string): string {
-  const words = venue.split(/\s+/).filter((w) => !/^(the|&)$/i.test(w));
-  return (
-    words
-      .slice(0, 2)
-      .map((w) => (w.replace(/^il-|^ta'/i, '')[0] ?? '').toUpperCase())
-      .join('') || venue.slice(0, 2).toUpperCase()
-  );
-}
+const TESTIMONIAL_BACKGROUNDS = ['#1a0d00', '#0a0a14', '#0d1208'] as const;
+const TESTIMONIALS = h360Quotes.map((item, index) => ({
+  ...item,
+  bg: TESTIMONIAL_BACKGROUNDS[index] ?? '#0a0a0a',
+}));
 
 function TestimonialRow({ t, m }: { t: (typeof TESTIMONIALS)[number]; m: boolean }) {
   const ref = useReveal();
@@ -467,13 +434,9 @@ function TestimonialRow({ t, m }: { t: (typeof TESTIMONIALS)[number]; m: boolean
         background:`linear-gradient(135deg,${t.bg},#0a0a0a)`, position:'relative', overflow:'hidden',
       }}>
         <div style={{ position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center', flexDirection:'column', gap:8, padding: 20 }}>
-          <div style={{ width: 56, height: 56, borderRadius: 16, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, fontWeight: 800, color: 'rgba(255,255,255,0.55)', letterSpacing: '-0.04em' }}>
-            {venueInitials(t.venue)}
+          <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,0.72)', letterSpacing: '0.02em', textAlign: 'center', lineHeight: 1.4, maxWidth: 180 }}>
+            {t.credit}
           </div>
-          <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.72)', letterSpacing: '0.03em', textAlign: 'center', lineHeight: 1.35, maxWidth: 160 }}>
-            {t.venue}
-          </div>
-          <div style={{ fontSize: 10, fontWeight: 600, color: 'rgba(255,255,255,0.38)', letterSpacing: '0.06em' }}>{t.place.toUpperCase()}</div>
         </div>
       </div>
       <div style={{ flex:1, padding: m?'28px 24px':'40px 56px', display:'flex', flexDirection:'column', justifyContent:'center', fontFamily:FONT }}>
@@ -481,8 +444,7 @@ function TestimonialRow({ t, m }: { t: (typeof TESTIMONIALS)[number]; m: boolean
           &ldquo;{t.quote}&rdquo;
         </p>
         <div>
-          <div style={{ fontSize:14, fontWeight:700, color:C.white }}>{t.name}</div>
-          <div style={{ fontSize: 12, color: C.muted, marginTop: 4 }}>{t.role} · {t.venue}, {t.place}</div>
+          <div style={{ fontSize:14, fontWeight:700, color:C.white }}>{t.credit}</div>
         </div>
       </div>
     </div>
@@ -493,95 +455,6 @@ function Testimonials({ m }: { m: boolean }) {
   return (
     <section style={{ background: C.bg, borderTop:`1px solid ${C.border}` }}>
       {TESTIMONIALS.map((t, i) => <TestimonialRow key={i} t={t} m={m}/>)}
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════════
-   §8 BIG QUOTE CAROUSEL
-   Sunday: scrolling outline/filled heading,
-   crossfade quote, dot indicators, prev/next
-═══════════════════════════════════════════════ */
-const BIG_QS = [
-  {
-    q: '"Guests pay from the table and the bill stops being a conversation. Staff stay on the floor."',
-    name: 'Dorian M.',
-    role: 'Restaurant manager, two venues',
-    venue: "St Julian's",
-    place: "St Julian's",
-  },
-  {
-    q: '"We stopped giving away a third of every order to a delivery app. The margin came back before the volume did."',
-    name: 'Carmen V.',
-    role: 'Owner, seaside restaurant',
-    venue: 'Marsaxlokk',
-    place: 'Marsaxlokk',
-  },
-  {
-    q: '"Large parties split the bill on their phones — staff stay with the table."',
-    name: 'Alan T.',
-    role: 'Floor manager, brasserie',
-    venue: 'Valletta',
-    place: 'Valletta',
-  },
-] as const;
-const SCROLL_WORDS = ['More revenue','Zero commission','More reviews','More regulars','More direct orders','#1 on Google'];
-
-function QuoteCarousel({ m }: { m: boolean }) {
-  const [idx, setIdx] = useState(0);
-  const [key, setKey] = useState(0);
-  const go = useCallback((d: 1|-1) => { setIdx(i => (i+d+BIG_QS.length)%BIG_QS.length); setKey(k=>k+1); }, []);
-  const q = BIG_QS[idx];
-  const ref = useReveal();
-  return (
-    <section style={{ background: C.bg, borderTop:`1px solid ${C.border}`, overflow:'hidden', padding:`${m?56:80}px 0 ${m?56:72}px` }}>
-      {/* scrolling headline — alternating filled/outline like Sunday */}
-      <div style={{ overflow:'hidden', marginBottom: m?52:72, position:'relative' }}>
-        <div style={{ position:'absolute', left:0, top:0, bottom:0, width:60, background:`linear-gradient(to right,${C.bg},transparent)`, zIndex:2 }}/>
-        <div style={{ position:'absolute', right:0, top:0, bottom:0, width:60, background:`linear-gradient(to left,${C.bg},transparent)`, zIndex:2 }}/>
-        <div className="sdmq2">
-          {[...SCROLL_WORDS,...SCROLL_WORDS,...SCROLL_WORDS,...SCROLL_WORDS].map((w,i) => (
-            <span key={i} style={{
-              fontSize: m?30:56, fontWeight:800, letterSpacing:'-0.04em',
-              paddingRight: m?24:40, whiteSpace:'nowrap', flexShrink:0,
-              color: i%2===0 ? C.white : 'transparent',
-              WebkitTextStroke: i%2===0 ? undefined : `1px ${C.border}`,
-              fontFamily: FONT,
-            }}>{w}</span>
-          ))}
-        </div>
-      </div>
-      {/* quote */}
-      <div ref={ref} className="sdr" style={{ maxWidth:860, margin:'0 auto', padding: m?'0 24px':'0 80px', fontFamily:FONT }}>
-        <div style={{ display:'flex', gap:8, marginBottom: m?28:40 }}>
-          {BIG_QS.map((_,i) => (
-            <button key={i} onClick={() => { setIdx(i); setKey(k=>k+1); }} style={{ width:i===idx?28:8, height:8, borderRadius:99, background:i===idx?C.white:C.dim, border:'none', cursor:'pointer', transition:'all .3s ease', padding:0 }}/>
-          ))}
-        </div>
-        <div key={key} className="qactive">
-          <p style={{ fontSize: m?20:38, fontWeight:700, color:C.white, letterSpacing:'-0.03em', lineHeight:1.22, marginBottom: m?24:36, fontStyle:'italic' }}>
-            {q.q}
-          </p>
-          <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between' }}>
-            <div style={{ display:'flex', alignItems:'center', gap:12 }}>
-              <div style={{ width:44, height:44, borderRadius:12, background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.1)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:13, fontWeight:800, color:'rgba(255,255,255,0.55)', letterSpacing:'-0.03em' }} aria-hidden>
-                {venueInitials(q.venue)}
-              </div>
-              <div>
-                <div style={{ fontSize:14, fontWeight:700, color:C.white }}>{q.name}</div>
-                <div style={{ fontSize: 12, color: C.muted }}>{q.role} · {q.venue}, {q.place}</div>
-              </div>
-            </div>
-            <div style={{ display:'flex', gap:8 }}>
-              {([-1,1] as const).map(d => (
-                <button key={d} onClick={() => go(d)} style={{ width:42, height:42, borderRadius:99, border:`1px solid ${C.dim}`, background:'transparent', color:C.white, fontSize:18, cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center' }}>
-                  {d===-1?'←':'→'}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 }
@@ -689,7 +562,6 @@ export default function BelowHero() {
       <ValueSection m={m} />
       <TrustLogos m={m} />
       <Testimonials m={m} />
-      <QuoteCarousel m={m} />
       <H360ArcClosing m={m} />
     </div>
   );

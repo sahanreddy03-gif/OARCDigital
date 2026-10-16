@@ -35,7 +35,7 @@ export function buildPjazzaCaseStudyGraph() {
       buildBreadcrumb([
         { name: "Home", url: `${SITE_BASE}/` },
         { name: "Our Work", url: `${SITE_BASE}/our-work` },
-        { name: "PJAZZA", url: CASE_STUDY_URL },
+        { name: "PJAZZA — OARC PRODUCT", url: CASE_STUDY_URL },
       ]),
     ],
   };

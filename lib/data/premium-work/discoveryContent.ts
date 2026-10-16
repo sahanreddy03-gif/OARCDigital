@@ -44,7 +44,7 @@ export const DISCOVERY_CONTENT: Record<string, DiscoveryContent> = {
     enquiry: { label: "Map the restaurant day with OARC", href: contact },
   },
   "data-foundation": {
-    answerTitle: "What did the Data Foundation engagement address?",
+    answerTitle: "What did the Operations Data Foundation engagement address?",
     answer: "This private OARC engagement describes a national distributor whose product, customer, supplier, date, unit, and address records conflicted across ERP, CRM, and legacy sources. The public story explains the governed data-design approach while protecting the client identity and operating detail.",
     businessQuestion: "How do you make a business record reliable enough for people to act on when the same entity has several competing versions across systems?",
     workingMethod: "The documented intervention sequence is assessment, standardisation, matching, validation, enrichment, and visibility. The key discipline is not making data appear clean; it is retaining a traceable reason for each match, change, exception, and accountable review.",
@@ -56,8 +56,8 @@ export const DISCOVERY_CONTENT: Record<string, DiscoveryContent> = {
     enquiry: { label: "Discuss a private data problem", href: contact },
   },
   "live-context": {
-    answerTitle: "What is the Live Context engagement?",
-    answer: "Live Context is a private OARC mobile-experience engagement about making live sports information easier to read when score, commentary, context, and next actions compete for the same limited screen attention. The client, product detail, live data, and outcomes are protected.",
+    answerTitle: "What is the Live Information Experience engagement?",
+    answer: "Live Information Experience is a private OARC mobile-experience engagement about making live sports information easier to read when score, commentary, context, and next actions compete for the same limited screen attention. The client, product detail, live data, and outcomes are protected.",
     businessQuestion: "How do you make the first glance useful when a person is navigating fast-moving information on a small screen?",
     workingMethod: "The experience model separates the first-glance layer from the second question. It establishes what must be immediately visible, what should be available next, and what can remain quiet until a person actively asks for depth.",
     evidenceTitle: "What stays private",
@@ -212,8 +212,8 @@ export const DISCOVERY_CONTENT: Record<string, DiscoveryContent> = {
     enquiry: { label: "Map the document decision trail", href: contact },
   },
   "hearth-test-kitchen": {
-    answerTitle: "What does HEARTH TEST KITCHEN explore?",
-    answer: "HEARTH TEST KITCHEN is an OARC client project of creative operations. It explores how a team can protect taste and creative conviction while making each campaign version answer a real learning question, so feedback produces a more useful next decision instead of disappearing after a meeting.",
+    answerTitle: "What does CREATIVE CAMPAIGN TESTING explore?",
+    answer: "CREATIVE CAMPAIGN TESTING is an OARC client project of creative operations. It explores how a team can protect taste and creative conviction while making each campaign version answer a real learning question, so feedback produces a more useful next decision instead of disappearing after a meeting.",
     businessQuestion: "How can subjective creative feedback become a productive record for the next version without reducing the work to a formula?",
     workingMethod: "The model gives each version a written hypothesis, visible variables, a context for reading response, room for qualitative observation, and a next-batch decision. Craft notes are retained as evidence of judgment, not discarded in favour of a shallow score.",
     evidenceTitle: "What this study proves—and does not",

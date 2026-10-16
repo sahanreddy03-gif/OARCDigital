@@ -16,7 +16,7 @@ export type WorkEvidence = {
 export const workEvidenceLedger: Record<string, WorkEvidence> = {
   pjazza: {
     status: "first-party-product",
-    publicName: "PJAZZA",
+    publicName: "PJAZZA — OARC PRODUCT",
     officialUrl: "https://maltaverse.live/pjazza",
     shortDescription: "Malta's live shopping marketplace.",
     verifiedFacts: ["24+ businesses", "12 sectors", "Escrow protected"],

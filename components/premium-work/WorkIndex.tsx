@@ -13,10 +13,10 @@ import { CLIENT_CASE_STUDIES } from "@/lib/data/premium-work/clientCaseStudies";
 type Filter = "All records" | "Client work" | "Public products" | "Confidential" | "OARC Originals";
 
 const anchorProjects = [
-  { slug: "pjazza", category: "Public products", number: "01", tag: "PUBLIC PRODUCT / SOURCE-LINKED", title: "PJAZZA", line: "A live marketplace built around the question before a purchase.", evidence: "Product record · public links verified", image: "/attached_assets/premium-work/pjazza-food_b3085783.jpg", style: "card-pjazza" },
+  { slug: "pjazza", category: "Public products", number: "01", tag: "PUBLIC PRODUCT / SOURCE-LINKED", title: "PJAZZA — OARC PRODUCT", line: "A live marketplace built around the question before a purchase.", evidence: "Product record · public links verified", image: "/attached_assets/premium-work/pjazza-food_b3085783.jpg", style: "card-pjazza" },
   { slug: "h360", category: "Public products", number: "P01", tag: "OARC PRODUCT SYSTEM / RESTAURANTS", title: "H360", line: "A restaurant system joining discovery, bookings, questions, orders, and operations.", evidence: "Product record · not a named-client result", image: "/attached_assets/premium-work/h360-public-product-hub_b339c106.webp", style: "card-h360" },
-  { slug: "data-foundation", category: "Confidential", number: "20", tag: "CONFIDENTIAL / ANONYMOUS SOURCE RECORD", title: "DATA FOUNDATION", line: "A restricted story about moving fragmented records toward governed data.", evidence: "Client identity withheld · source boundary stated", image: "/attached_assets/premium-work/oarc-confidential-data-foundation_61730536.jpg", style: "card-data-foundation" },
-  { slug: "live-context", category: "Confidential", number: "21", tag: "CONFIDENTIAL / RESTRICTED DISCLOSURE", title: "LIVE CONTEXT", line: "A mobile reading-order redesign for a fast live-information environment.", evidence: "Client identity withheld · illustrative artefacts", image: "/attached_assets/premium-work/live-context-sports_486d86c2.jpg", style: "card-live-context" },
+  { slug: "data-foundation", category: "Confidential", number: "20", tag: "CONFIDENTIAL / ANONYMOUS SOURCE RECORD", title: "OPERATIONS DATA FOUNDATION", line: "A restricted story about moving fragmented records toward governed data.", evidence: "Client identity withheld · source boundary stated", image: "/attached_assets/premium-work/oarc-confidential-data-foundation_61730536.jpg", style: "card-data-foundation" },
+  { slug: "live-context", category: "Confidential", number: "21", tag: "CONFIDENTIAL / RESTRICTED DISCLOSURE", title: "LIVE INFORMATION EXPERIENCE", line: "A mobile reading-order redesign for a fast live-information environment.", evidence: "Client identity withheld · illustrative artefacts", image: "/attached_assets/premium-work/live-context-sports_486d86c2.jpg", style: "card-live-context" },
 ];
 const originalProjects = Object.entries(ORIGINAL_STUDIES).filter(([slug]) => slug !== "live-context").map(([slug, story], index) => ({ slug, category: "OARC Originals", number: String(index + 2).padStart(2, "0"), tag: story.eyebrow, title: story.name, line: story.intro, evidence: "Original scenario · no external client claim", image: story.image, style: `card-original card-${story.structure}` }));
 const clientProjects = Object.entries(CLIENT_CASE_STUDIES).map(([slug, story], index) => ({ slug, category: "Client work", number: `C${String(index + 1).padStart(2, "0")}`, tag: story.eyebrow, title: story.name, line: story.intro, evidence: story.facts.slice(0, 2).join(" · "), image: story.image, style: `card-client client-card-${slug}`, accent: story.theme.signal }));
@@ -24,7 +24,7 @@ const projects = [...clientProjects, ...anchorProjects, ...originalProjects];
 const filters: Filter[] = ["All records", "Client work", "Public products", "Confidential", "OARC Originals"];
 const indexableProjects = [...clientProjects, ...anchorProjects.filter((project) => project.slug !== "data-foundation"), ...originalProjects];
 const authorityRecords = [
-  { code: "P", name: "PJAZZA", status: "PUBLIC PRODUCT RECORD", note: "Official product source linked", href: "/our-work/pjazza", style: "authority-pjazza" },
+  { code: "P", name: "PJAZZA — OARC PRODUCT", status: "PUBLIC PRODUCT RECORD", note: "Official product source linked", href: "/our-work/pjazza", style: "authority-pjazza" },
   { code: "H", name: "H360", status: "OARC PRODUCT SYSTEM", note: "Public hospitality product", href: "/our-work/h360", style: "authority-h360" },
 ];
 

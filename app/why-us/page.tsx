@@ -3,6 +3,8 @@ import RouteSchema from "@/components/RouteSchema";
 import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import PageContent from "./PageContent";
+import ApprovedQuotes from "@/components/ApprovedQuotes";
+import { whyOarcQuotes } from "@/lib/reviews/approvedQuotes";
 
 const TITLE = "About OARC Digital | Who We Are | Malta";
 const DESCRIPTION =
@@ -48,6 +50,7 @@ export default function Page() {
           faqs={SUPPORTING_PAGE_SCHEMAS["/why-us"].faqs}
         />
       <PageContent />
+      <ApprovedQuotes quotes={whyOarcQuotes} />
     </>
   );
 }
