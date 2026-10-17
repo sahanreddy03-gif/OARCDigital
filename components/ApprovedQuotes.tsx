@@ -12,10 +12,14 @@ export default function ApprovedQuotes({
   const light = tone === "light";
   return (
     <section
-      aria-label="Client notes"
+      aria-label="Straight from them"
       className={light ? "bg-[#F2EFE9] py-16 md:py-20" : "bg-black py-16 md:py-20"}
     >
-      <div className="mx-auto grid max-w-6xl gap-6 px-5 md:grid-cols-2 md:px-8">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <h2 className={light ? "mb-8 text-3xl font-medium tracking-tight text-zinc-950 md:text-4xl" : "mb-8 text-3xl font-medium tracking-tight text-white md:text-4xl"}>
+          Straight from them
+        </h2>
+        <div className="grid gap-6 md:grid-cols-2">
         {quotes.map((item) => (
           <figure
             key={item.quote}
@@ -41,6 +45,7 @@ export default function ApprovedQuotes({
             </figcaption>
           </figure>
         ))}
+        </div>
       </div>
     </section>
   );

@@ -454,6 +454,9 @@ function TestimonialRow({ t, m }: { t: (typeof TESTIMONIALS)[number]; m: boolean
 function Testimonials({ m }: { m: boolean }) {
   return (
     <section style={{ background: C.bg, borderTop:`1px solid ${C.border}` }}>
+      <h2 style={{ maxWidth: 1160, margin: '0 auto', padding: m ? '40px 24px 0' : '56px 80px 0', fontSize: m ? 28 : 40, fontWeight: 800, color: C.white, letterSpacing: '-0.04em', fontFamily: FONT }}>
+        Straight from them
+      </h2>
       {TESTIMONIALS.map((t, i) => <TestimonialRow key={i} t={t} m={m}/>)}
     </section>
   );
