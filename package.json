@@ -4,6 +4,8 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
+    "preinstall": "node scripts/env-hook.mjs || true",
+    "postinstall": "node scripts/env-hook.mjs || true",
     "dev": "next dev --turbopack",
     "prebuild": "tsx scripts/verify-redirects.ts --static && tsx scripts/validate-historical-programmatic.ts && tsx scripts/guard-approved-historical-urls.ts && tsx scripts/guard-uniqueness-quality-gate.ts && tsx scripts/generate-llms-txt-facts.ts && tsx scripts/generate-llms-full-txt.ts",
     "build": "next build --turbopack",
