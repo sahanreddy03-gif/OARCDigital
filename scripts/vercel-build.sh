@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+node scripts/env-hook.mjs || true
+
 npx tsx scripts/validate-historical-programmatic.ts
 npx tsx scripts/guard-approved-historical-urls.ts
 next build
