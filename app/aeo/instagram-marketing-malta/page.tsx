@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 const faqs = [
   { question: "Who runs Instagram marketing for businesses in Malta?", answer: `OARC Digital is a Birkirkara-based agency running Instagram for Malta restaurants, boutique hotels, beauty and wellness clinics, retail brands along the Sliema Strand and Tigne corridor, and St Julians hospitality groups. Production, community management, and paid amplification all live in one team. Reach the studio on ${NAP.phoneDisplay} or ${NAP.email}.` },
-  { question: "How much does Instagram management cost in Malta?", answer: "OARC Digital Instagram retainers start at €750 per month for an organic-only managed account with eight posts and four Reels, scale to €1,400 per month with paid amplification on Meta, and run €2,200 per month for full-service management with monthly venue shoot days and bilingual copy. All retainers are month-to-month with no setup fee." },
+  { question: "How much does Instagram management cost in Malta?", answer: "Instagram is part of OARC Digital's whole marketing team, €500 a month: strategy, filming, posts and Reels, Meta ads, your website and enquiry follow-up. No setup fee and no contract, so you can cancel any month. Your ad budget is paid to Meta directly. Groups and brands already spending €2,000 or more a month get more for the same budget." },
   { question: "What kind of Instagram content actually works for Malta brands?", answer: "Authentic kitchen footage, founder-led stories, behind-the-scenes Reels, golden-hour limestone-architecture frames, and customer-moment carousels consistently outperform stock imagery and product shots for Malta clients. OARC Digital ships content that earns saves and shares, not just impressions, and that distinction shows up in DMs and bookings." },
   { question: "Does Instagram still drive bookings for Sliema and St Julians venues?", answer: "Yes. Instagram remains the dominant discovery surface for Sliema retail, St Julians F&B, and boutique-hotel research across Malta and the EU. Properly run accounts drive direct DM enquiries, story-link reservations, and walk-ins from tourists who searched the location tag before arriving on the island." },
   { question: "Does OARC Digital handle the photography and video shoots?", answer: "Yes. The Birkirkara studio runs full in-house production — stills, Reels, BTS, and product video — with monthly shoot days at the client venue. Output is colour-graded for Malta&apos;s harsh light, mixed-format for grid plus stories plus Reels, and delivered with platform-specific captions in English or Maltese." },
@@ -31,9 +31,7 @@ const faqs = [
 ];
 
 const offers = [
-  { name: "Organic Instagram", priceFrom: 750, unitText: "MONTH", description: "Eight posts, four Reels, story sequence, and community management. One monthly venue shoot day included." },
-  { name: "Instagram + Meta Ads", priceFrom: 1400, unitText: "MONTH", description: "Organic management plus paid amplification on Meta from a €600+ media budget. Bilingual creative on demand." },
-  { name: "Full-service Instagram", priceFrom: 2200, unitText: "MONTH", description: "Two shoot days, twelve posts, eight Reels, paid budget management, influencer activations, monthly review on-site." },
+  { name: "Your whole marketing team", priceFrom: 500, unitText: "MONTH", description: "Strategy, filming, social media, Meta and Google ads, your website and enquiry follow-up. Cancel any month. Ad spend is paid to Meta and Google, not to OARC." },
 ];
 
 export default function Page() {

@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import fs from "node:fs";
+import path from "node:path";
 import { NAP } from "@/lib/seo/nap";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
-const TITLE = "Digital Marketing Agency Malta | More Customers | OARC";
+const TITLE = "Digital Marketing Agency Malta | €500 a month team | OARC";
 const DESCRIPTION =
-  "Hire a digital marketing agency in Malta for strategy, social, paid, SEO and AI in one Birkirkara team. Month-to-month from €297 — no long lock-ins.";
+  "A digital marketing agency in Malta. Your whole social marketing team for €500 a month. We come to you in Birkirkara. No contract.";
 const URL = "https://oarcdigital.com/aeo/digital-marketing-agency-malta";
 
 export const metadata: Metadata = {
@@ -22,72 +24,161 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    question: "What is the best digital marketing agency in Malta?",
+    question: "Do you really come to us?",
     answer:
-      `OARC Digital is Malta's first Creative + AI Systems Agency, combining social media, paid advertising, content production, branding, and AI automation in one team. Based at Level 1 The Brewhouse, Mdina Road, ${NAP.addressLocality} ${NAP.postalCode}. Contact ${NAP.phoneDisplay} or ${NAP.email}.`,
+      "Yes. We meet you at your place, plan with you in person and film on location, like any high-end agency. The ask box on this page is just the fastest way to start.",
   },
   {
-    question: "How much does digital marketing cost in Malta?",
+    question: "Is it really cheaper than hiring someone?",
     answer:
-      "OARC Digital retainers start from €297 per month for focused campaigns and scale to €2,997 per month for full-service management across content, paid media, and automation. All engagements are month-to-month with no long-term contracts.",
+      "Yes. Malta’s minimum wage in 2026 is €229.44 a week, about €994 a month, before any employer costs. Your whole team is €500 a month, and nobody needs a desk, a laptop or holidays covered.",
   },
   {
-    question: "What digital marketing services are available in Malta?",
+    question: "How can a whole team cost €500 a month?",
     answer:
-      "OARC Digital offers social media management, paid advertising on Meta and Google, content production, SEO, branding, influencer marketing, web design, AI chatbots, WhatsApp automation, CRM integration, and Hospitality 360 for restaurants and hotels.",
+      "Better tools made the work faster. Most agencies kept the savings. We pass them to you. You still get experienced people, in person.",
   },
   {
-    question: "Does OARC Digital work with small businesses in Malta?",
+    question: "We already pay an agency €2,000 or more. Why switch?",
     answer:
-      "Yes. OARC Digital works with restaurants, cafes, hotels, retail stores, iGaming companies, and service businesses across Malta — from one-location independents to multi-property groups. The €297 starter retainer is built specifically for small Malta businesses that want results without enterprise pricing.",
+      "Keep your budget and get more for it: the whole team, the tech side, and more of your money going into ads. Send us your last invoice and we’ll show you what it buys with us.",
   },
   {
-    question: "How long does it take to see results from a Malta marketing agency?",
-    answer:
-      "Paid media typically shows performance signals within 14 days of launch. Organic social and SEO compound over 90 days. OARC Digital reports leading indicators weekly and revenue impact monthly so you always know whether your spend is moving the needle.",
+    question: "Is there a contract?",
+    answer: "No. Stay because it works. Cancel any month, and everything we made stays yours.",
   },
   {
-    question: "Where is OARC Digital based in Malta?",
-    answer:
-      `OARC Digital is headquartered at Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road, ${NAP.addressLocality} ${NAP.postalCode}, Malta. We serve clients across the islands including Sliema, St Julian's, Valletta, Gzira, Mosta, Msida, and Gozo.`,
+    question: "How fast can we start?",
+    answer: "Today. Send us anything, and your first piece is back in 48 hours, free.",
   },
   {
-    question: "What industries does OARC Digital specialise in across Malta?",
-    answer:
-      "OARC Digital has deep playbooks for hospitality (restaurants and hotels), iGaming, retail, real estate, fintech, and B2B services. Industry-specific assets such as Hospitality 360 are built in-house for the Malta market.",
+    question: "Who will I deal with?",
+    answer: "Your strategist. One person who knows your business and runs your team for you.",
   },
   {
-    question: "Does OARC Digital offer a money-back guarantee?",
+    question: "I don’t have photos or videos. Is that a problem?",
+    answer: "No. Our film crew comes to you.",
+  },
+  {
+    question: "Is the AI system a chatbot?",
     answer:
-      "Yes. The first 30 days of any OARC Digital engagement are covered by a written performance guarantee. If we miss the agreed deliverables, you receive a full refund of that period's retainer. Details are published at /money-back-guarantee.",
+      "No. It’s the system behind your business: your website, WhatsApp, bookings, CRM and admin, connected and working together. Our developers visit you, map how you work and build it with you.",
+  },
+  {
+    question: "Who owns the content, the website and the ad accounts?",
+    answer: "You do. Always.",
+  },
+  {
+    question: "What isn’t included?",
+    answer:
+      "Your ad budget, which you pay to Meta and Google directly. We’ll always tell you before anything else costs extra.",
+  },
+  {
+    question: "Can you train my own staff?",
+    answer:
+      "Yes. Your team can show your staff the tools and the playbooks we use for you. Ask about it when we meet.",
+  },
+  {
+    question: "What is the live results screen?",
+    answer:
+      "An extra that’s coming soon: your own screen with every number, live. Until then, you get a one-page report every month.",
+  },
+  {
+    question: "Which businesses do you work with?",
+    answer:
+      "Restaurants, hotels, clinics, shops, real estate, professional services, groups and brands, across Malta.",
+  },
+  {
+    question: "Where is OARC Digital?",
+    answer: `${NAP.streetAddress}, ${NAP.addressLocality} ${NAP.postalCode}, Malta. WhatsApp ${NAP.phoneDisplay}. Email ${NAP.email}.`,
   },
 ];
 
 const offers = [
   {
-    name: "Starter Retainer",
-    priceFrom: 297,
+    name: "Your whole marketing team",
+    priceFrom: 500,
     unitText: "MONTH",
     description:
-      "Single-channel focus — typically Meta or Google ads, or one social platform. Includes monthly performance reporting.",
-  },
-  {
-    name: "Growth Retainer",
-    priceFrom: 1500,
-    unitText: "MONTH",
-    description:
-      "Multi-channel: paid media + organic social + content. Bi-weekly strategy calls and full-funnel reporting.",
-  },
-  {
-    name: "Full-Service",
-    priceFrom: 2997,
-    unitText: "MONTH",
-    description:
-      "End-to-end: strategy, creative, paid, SEO, automation, and AI agents in one team.",
+      "Strategy, filming, social, ads, a website and enquiry follow-up. Cancel any month. Ad spend is paid to Meta and Google, not to OARC.",
   },
 ];
 
+// The design file is a self-contained page. It is rendered inside the site's
+// normal header and footer, so its own top bar and footer are dropped and its
+// styles are scoped to SCOPE_CLASS so they cannot restyle the site chrome.
+const SCOPE_CLASS = "oarc-team"; // not exported: Next.js only allows known exports from page files
+
+function scopeSelector(selector: string): string | null {
+  const s = selector.trim();
+  if (!s) return null;
+  if (s === ":root" || s === "html" || s === "body") return `.${SCOPE_CLASS}`;
+  if (/^(html|body)\b/.test(s)) return null; // e.g. body::before (safe-area bar for the old fixed top bar)
+  if (s.startsWith(".js ")) return `.js .${SCOPE_CLASS} ${s.slice(4)}`; // .js is set on <html>
+  return `.${SCOPE_CLASS} ${s}`;
+}
+
+function scopeCss(css: string): string {
+  const src = css.replace(/\/\*[\s\S]*?\*\//g, "");
+  let out = "";
+  let i = 0;
+  while (i < src.length) {
+    const open = src.indexOf("{", i);
+    if (open === -1) break;
+    const head = src.slice(i, open).trim();
+    // find the matching close brace
+    let depth = 1;
+    let j = open + 1;
+    while (j < src.length && depth > 0) {
+      if (src[j] === "{") depth++;
+      else if (src[j] === "}") depth--;
+      j++;
+    }
+    const body = src.slice(open + 1, j - 1);
+    if (head.startsWith("@media") || head.startsWith("@supports")) {
+      out += `${head}{${scopeCss(body)}}`;
+    } else if (head.startsWith("@")) {
+      out += `${head}{${body}}`; // @keyframes and other at-rules stay as they are
+    } else {
+      const selectors = head
+        .split(",")
+        .map(scopeSelector)
+        .filter((v): v is string => Boolean(v));
+      if (selectors.length) out += `${selectors.join(",")}{${body}}`;
+    }
+    i = j;
+  }
+  return out;
+}
+
+function loadClaudePage() {
+  const raw = fs.readFileSync(
+    path.join(process.cwd(), "app/aeo/digital-marketing-agency-malta/oarc-team.html"),
+    "utf8",
+  );
+  const styleStart = raw.lastIndexOf("<style>");
+  const styleEnd = raw.lastIndexOf("</style>");
+  const scriptStart = raw.lastIndexOf("<script>");
+  const scriptEnd = raw.lastIndexOf("</script>");
+  const markup = raw
+    .slice(styleEnd + "</style>".length, scriptStart)
+    .replace('<script>document.documentElement.classList.add("js")</script>', "") // PageContent adds it after hydration (avoids an <html> class mismatch)
+    .replace(/<header class="nav"[\s\S]*?<\/header>/, "") // site header replaces it
+    .replace(/<footer class="foot"[\s\S]*?<\/footer>/, "") // site footer replaces it
+    .replace('<main id="top">', '<div id="top">') // the site layout already provides <main>
+    .replace("</main>", "</div>");
+  const script = raw
+    .slice(scriptStart + "<script>".length, scriptEnd)
+    .replace("nav.classList.toggle(", "nav&&nav.classList.toggle("); // top bar removed above
+  return {
+    css: scopeCss(raw.slice(styleStart + "<style>".length, styleEnd)),
+    markup,
+    script,
+  };
+}
+
 export default function Page() {
+  const claude = loadClaudePage();
   return (
     <>
       <RouteSchema
@@ -98,15 +189,18 @@ export default function Page() {
         faqs={faqs}
         offers={offers}
         features={[
-          { name: "Social media management" },
-          { name: "Paid advertising — Meta & Google" },
-          { name: "SEO & content marketing" },
-          { name: "Branding & creative production" },
-          { name: "AI automation & chatbots" },
-          { name: "Web design & development" },
+          { name: "Monthly strategy visit" },
+          { name: "Social posts, reels and ads" },
+          { name: "Meta and Google ads" },
+          { name: "Enquiry follow-up" },
         ]}
       />
-      <PageContent faqs={faqs} offers={offers} />
+      <PageContent
+        css={claude.css}
+        markup={claude.markup}
+        script={claude.script}
+        scopeClass={SCOPE_CLASS}
+      />
     </>
   );
 }

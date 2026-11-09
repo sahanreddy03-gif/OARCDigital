@@ -9,7 +9,12 @@ import { useHomepageFloatingControlsVisibility } from "@/components/useHomepageF
 export default function MobileStickyCTA() {
   const pathname = usePathname() ?? "/";
   const showFloatingControls = useHomepageFloatingControlsVisibility();
-  if (pathname.startsWith("/h360") || pathname.startsWith("/our-work") || pathname.startsWith("/new-work")) return null;
+  if (
+    pathname.startsWith("/h360") ||
+    pathname.startsWith("/our-work") ||
+    pathname.startsWith("/new-work") ||
+    pathname.startsWith("/aeo/digital-marketing-agency-malta")
+  ) return null;
   const wa = whatsappUrl(pathname);
 
   return (

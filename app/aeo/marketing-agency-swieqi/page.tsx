@@ -25,15 +25,13 @@ const faqs = [
   { question: "What kinds of Swieqi businesses does OARC Digital work with?", answer: "Swieqi has one of Malta's highest household-income concentrations, with a strong expat and young-family demographic. OARC Digital works mainly with hospitality, fitness, beauty and wellness clinics, real-estate agencies, and premium service businesses targeting that audience." },
   { question: "What marketing channels work best for Swieqi businesses?", answer: "Instagram outperforms Facebook for almost every Swieqi consumer category — the local audience skews young, affluent, and visually driven. Meta lead-gen ads work strongly for fitness, beauty, and clinic categories. Google Maps optimisation is critical for the discovery layer." },
   { question: "Does OARC Digital have clients in Swieqi?", answer: "Yes — we run marketing for businesses operating in Swieqi, including a fitness brand near Triq is-Sirena and hospitality clients in the broader St Julian's / Swieqi corridor. We have direct campaign data from this catchment." },
-  { question: "How much does marketing cost for a Swieqi business?", answer: "OARC Digital retainers for Swieqi businesses start at €297 per month for single-channel management, €750 for combined social plus paid, and €1,500 for full-service including SEO and Google Maps optimisation. No setup fees, no annual lock-in." },
+  { question: "How much does marketing cost for a Swieqi business?", answer: "OARC Digital is a whole marketing team for Swieqi businesses for €500 a month: strategy, filming, social media, Meta and Google ads, your website and enquiry follow-up. No setup fee and no contract, so you can cancel any month. Your ad budget is paid to Meta and Google directly. Groups and brands already spending €2,000 or more a month get more for the same budget." },
   { question: "How quickly can a Swieqi business see marketing results?", answer: "Paid social and Google Ads deliver enquiries within 14 days for Swieqi consumer categories. Organic Instagram compounds over 60 to 90 days. SEO for premium-service Swieqi keywords typically pays back in 4 to 6 months." },
   { question: "Where is OARC Digital based?", answer: `Level 1, The Brewhouse, Mdina Road, ${NAP.addressLocality} ${NAP.postalCode}, Malta — 12 minutes from Swieqi by car. Swieqi clients meet the team in Birkirkara or at their premises during the first month of onboarding.` },
 ];
 
 const offers = [
-  { name: "Single-channel Retainer", priceFrom: 297, unitText: "MONTH", description: "One platform managed monthly — Instagram, Meta Ads, or Google Ads." },
-  { name: "Social + Paid", priceFrom: 750, unitText: "MONTH", description: "Combined organic social and paid media for Swieqi premium-service businesses." },
-  { name: "Full-service Marketing", priceFrom: 1500, unitText: "MONTH", description: "Social, paid, SEO, Google Maps, content, reporting — Swieqi growth-ready." },
+  { name: "Your whole marketing team", priceFrom: 500, unitText: "MONTH", description: "Strategy, filming, social media, Meta and Google ads, your website and enquiry follow-up. Cancel any month. Ad spend is paid to Meta and Google, not to OARC." },
 ];
 
 export default function Page() {

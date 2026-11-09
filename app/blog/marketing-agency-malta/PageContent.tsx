@@ -12,7 +12,7 @@ const comparisonRows = [
   { criterion: 'Contract flexibility', oarc: 'Month-to-month available', typical: '6–12 month minimum', freelancer: 'Per-project' },
   { criterion: 'Senior attention', oarc: 'Every account', typical: 'Seniors pitch, juniors deliver', freelancer: 'Single person' },
   { criterion: 'PJAZZA video production', oarc: 'Included', typical: 'Not available', freelancer: 'Not available' },
-  { criterion: 'Price range', oarc: '€297–€2,997/month', typical: '€1,500–€5,000+/month', freelancer: '€200–€800/month' },
+  { criterion: 'Price range', oarc: '€500/month, whole team', typical: '€1,500–€5,000+/month', freelancer: '€200–€800/month' },
 ];
 
 export default function MarketingAgencyMalta() {

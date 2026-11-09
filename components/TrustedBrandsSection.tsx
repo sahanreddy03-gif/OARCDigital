@@ -20,7 +20,6 @@ const MIXED_LOGOS: Logo[] = [
   { name: "BetVictor", src: "/brand-logos/recreated/betvictor.svg" },
   { name: "Festival Republic", src: "/brand-logos/normalized/festivalrepublic.png", opticalScale: 1.02 },
   { name: "JA Resorts", src: "/brand-logos/normalized/jaresorts.png", opticalScale: 1.02 },
-  { name: "Bolt", src: "/brand-logos/normalized/bolt.png", opticalScale: 1.05 },
   { name: "Kilimanjaro Live", src: "/brand-logos/normalized/kilimanjaro.png", opticalScale: 0.96 },
   { name: "LEON", src: "/brand-logos/normalized/leon.png", opticalScale: 1.05 },
   { name: "eCabs", src: "/brand-logos/normalized/ecabs.png" },
@@ -29,7 +28,6 @@ const MIXED_LOGOS: Logo[] = [
   { name: "LeoVegas", src: "/brand-logos/normalized/leovegas.png" },
   { name: "Slug & Lettuce", src: "/brand-logos/normalized/sluglettuce.png", opticalScale: 0.94 },
   { name: "Nero", src: "/brand-logos/normalized/nero.png", opticalScale: 1.04 },
-  { name: "Revolut", src: "/brand-logos/normalized/revolut.png" },
   { name: "TONI&GUY", src: "/brand-logos/normalized/toniguy.png" },
   { name: "The Hoxton", src: "/brand-logos/recreated/the-hoxton.svg" },
   { name: "Skyscanner", src: "/brand-logos/normalized/skyscanner.png" },
@@ -41,7 +39,6 @@ const MIXED_LOGOS: Logo[] = [
   { name: "talabat", src: "/brand-logos/normalized/talabat.png" },
   { name: "Unibet", src: "/brand-logos/recreated/unibet.svg" },
   { name: "Wise", src: "/brand-logos/normalized/wise.png", opticalScale: 1.06 },
-  { name: "Wolt", src: "/brand-logos/normalized/wolt.png", opticalScale: 1.05 },
 ];
 
 const LOGO_ROWS = [
