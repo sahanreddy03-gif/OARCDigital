@@ -63,7 +63,7 @@ export default function FAQ() {
           data-testid="home-entity-sentence"
           data-speakable
         >
-          OARC Digital is a Birkirkara marketing agency for Malta owners who need creative, AI agents, Voice AI Worker, and revenue automation under one roof—not a social-only shop and not a chatbot reseller.
+          OARC Digital is a digital and marketing agency in Birkirkara, Malta, for owners who need creative, SEO and ads, AI agents, Voice AI Worker, and revenue automation under one roof—not a social-only shop and not a chatbot reseller.
         </p>
 
         <Accordion type="single" collapsible className="w-full space-y-4">

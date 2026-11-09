@@ -40,11 +40,11 @@ The canonical entry order for AI answer engines and people discovering OARC Digi
 
 ## Pillar pages
 
-### Marketing Agency Malta | AI Creative + Agents | OARC
+### Marketing Agency Malta | Digital & AI Agency | OARC Digital
 Canonical: https://oarcdigital.com/
 
 **Description**
-Malta's AI-native marketing agency in Birkirkara: an in-house creative studio, AI workers and business systems built around measurable growth.
+OARC Digital is a digital and marketing agency in Birkirkara, Malta: creative studio, SEO and ads, AI agents and automation, run by one in-house team.
 
 **Entity focus**: OARC Digital — Malta agency
 **Primary intent**: navigational

@@ -528,7 +528,12 @@ export default function HeroSection() {
             <div className="w-full pl-8 lg:pl-12 pr-0">
               <div className="w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl text-left">
                 <div className="relative">
-                  <h1
+                  {/* One real <h1> per page: the mobile hero above owns it (Google
+                      indexes mobile-first). This desktop copy is a level-1 heading
+                      for assistive tech only, so crawlers no longer see two H1s. */}
+                  <p
+                    role="heading"
+                    aria-level={1}
                     className="hero-display-type mb-6 lg:mb-8 text-white"
                     data-testid="text-hero-headline-desktop"
                     data-speakable
@@ -543,7 +548,7 @@ export default function HeroSection() {
                       One AI-native team for{" "}
                       <span className="text-[#e8ffb0] font-semibold not-italic">creative, growth &amp; automation</span>
                     </span>
-                  </h1>
+                  </p>
 
                   <div className="flex justify-start mb-6">
                     <div

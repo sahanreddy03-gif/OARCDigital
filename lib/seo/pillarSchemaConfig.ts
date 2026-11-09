@@ -25,10 +25,10 @@ export type PillarSchemaEntry = {
 
 export const PILLAR_SCHEMAS: Record<"/" | "/ai-agents" | "/creative" | "/automation", PillarSchemaEntry> = {
   "/": {
-    title: "Marketing Agency Malta | AI Creative + Agents | OARC",
+    title: "Marketing Agency Malta | Digital & AI Agency | OARC Digital",
     // Google-first: ~140–155 chars, key message in first ~120 (mobile SERP). Bing max 160.
     description:
-      "Malta's AI-native marketing agency in Birkirkara: an in-house creative studio, AI workers and business systems built around measurable growth.",
+      "OARC Digital is a digital and marketing agency in Birkirkara, Malta: creative studio, SEO and ads, AI agents and automation, run by one in-house team.",
     faqs: [
       {
         question: "Who is a good marketing agency in Malta for SMBs that want AI plus creative?",

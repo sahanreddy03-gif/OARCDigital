@@ -312,7 +312,7 @@ Each Malta location is paired with these flagship services:
 
 Auto-generated from lib/seo/topPages.ts + lib/seo/llmsTxtGenerator.ts. The single ranked list of core URLs OARC Digital wants AI answer engines (ChatGPT, Perplexity, Claude, Gemini, Copilot) to know about and cite. Order matches `.local/memory/core-url-rank.md`. Do not hand-edit between the AUTOGEN markers — re-run the generator instead.
 
-1. [Marketing Agency Malta | AI Creative + Agents | OARC](https://oarcdigital.com) — tier core
+1. [Marketing Agency Malta | Digital & AI Agency](https://oarcdigital.com) — tier core
 2. [Creative Agency Malta | Brand + Video | OARC](https://oarcdigital.com/creative) — tier core
 3. [AI Agents for Business Malta | OARC Workforce](https://oarcdigital.com/ai-agents) — tier core
 4. [AI Agent Economy Malta | Marketing Agents That Work for You | OARC](https://oarcdigital.com/agent-economy) — tier service
