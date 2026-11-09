@@ -18,6 +18,7 @@ import restore from '@/lib/seo/restore.json';
 import { NAP } from '@/lib/seo/nap';
 import { LOCATION_IND_SVC_GLOBAL_KEEP, KEEP_LOCATION_IND_SVC_COMBOS } from '@/lib/seo/seoSets';
 import { historicalServices } from '@/shared/historicalProgrammaticInventory';
+import { isRetiredMatrixPath } from '@/lib/seo/retiredMatrix';
 
 type LocationIndustryServiceParams = {
   location: string;
@@ -43,8 +44,9 @@ export async function generateMetadata({
   if (!c) return { title: 'Not Found | OARC Digital' };
   const comboKey = `${location}/${slug}/${service}`;
   const shouldIndex =
-    LOCATION_IND_SVC_GLOBAL_KEEP ||
-    KEEP_LOCATION_IND_SVC_COMBOS.has(comboKey);
+    (LOCATION_IND_SVC_GLOBAL_KEEP ||
+      KEEP_LOCATION_IND_SVC_COMBOS.has(comboKey)) &&
+    !isRetiredMatrixPath(`/malta/${comboKey}`);
   return {
     title: c.title,
     description: c.description,

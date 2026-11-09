@@ -10,6 +10,7 @@ import {
   isKeptLocationServicePath,
 } from "@/lib/seo/seoSets";
 import { SITE_BASE, type UrlEntry } from "@/lib/seo/sitemapHelpers";
+import { isRetiredMatrixPath } from "@/lib/seo/retiredMatrix";
 
 /**
  * Build-time sitemap hygiene: drop URLs that would be non-200, noindex,
@@ -28,6 +29,7 @@ export type HygieneRejectReason =
   | "industry-hub-noindex"
   | "matrix-not-kept"
   | "matrix-global-keep-off"
+  | "matrix-retired"
   | "parent-not-kept"
   | "non-self-canonical-loc";
 
@@ -81,6 +83,7 @@ export function hygieneRejectReason(loc: string): HygieneRejectReason | null {
       if (!isKeptLocationIndustryServicePath(location, industry, service)) {
         return "matrix-not-kept";
       }
+      if (isRetiredMatrixPath(pathname)) return "matrix-retired";
     }
   }
 
