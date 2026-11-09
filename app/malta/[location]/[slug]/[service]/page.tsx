@@ -51,6 +51,10 @@ export async function generateMetadata({
     title: c.title,
     description: c.description,
     robots: shouldIndex ? { index: true, follow: true } : { index: false, follow: true },
+    // Bing-only noindex (owner-approved 2026-11-09). Bing suppresses the whole
+    // domain after the 2026-09-11 IndexNow bulk push of these template pages;
+    // hiding the matrix from Bingbot leaves Google's index untouched.
+    other: { bingbot: 'noindex, follow' },
     alternates: { canonical: c.canonical },
     openGraph: { title: c.title, description: c.description, url: c.canonical, type: 'website', images: ogImageEntry({ title: c.title, subtitle: c.description }) },
     twitter: { card: 'summary_large_image', title: c.title, description: c.description, images: [ogImageUrl({ title: c.title, subtitle: c.description })] },
