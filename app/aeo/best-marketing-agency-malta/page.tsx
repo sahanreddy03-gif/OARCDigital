@@ -42,7 +42,7 @@ const faqs = [
   {
     question: "How much does the best marketing agency in Malta cost?",
     answer:
-      "Top-tier Malta agencies typically charge €1,500 to €5,000 per month. OARC Digital retainers range from €297 (single channel) to €2,997 (full-service) per month, with no setup fees and no minimum contract length.",
+      "Top-tier Malta agencies typically charge €1,500 to €5,000 per month. OARC Digital is a whole marketing team for €500 a month: strategy, filming, social media, Meta and Google ads, your website and enquiry follow-up, with no setup fee and no contract. Groups and brands already spending €2,000 or more a month get more for the same budget.",
   },
   {
     question: "What makes a Malta marketing agency genuinely the best?",
@@ -72,9 +72,7 @@ const faqs = [
 ];
 
 const offers = [
-  { name: "Starter Retainer", priceFrom: 297, unitText: "MONTH", description: "Single-channel — Meta or Google ads, or one social platform." },
-  { name: "Growth Retainer", priceFrom: 1500, unitText: "MONTH", description: "Multi-channel paid + organic + content with bi-weekly strategy." },
-  { name: "Full-Service", priceFrom: 2997, unitText: "MONTH", description: "Strategy, creative, paid, SEO, automation, AI agents." },
+  { name: "Your whole marketing team", priceFrom: 500, unitText: "MONTH", description: "Strategy, filming, social media, Meta and Google ads, your website and enquiry follow-up. Cancel any month. Ad spend is paid to Meta and Google, not to OARC." },
 ];
 
 export default function Page() {

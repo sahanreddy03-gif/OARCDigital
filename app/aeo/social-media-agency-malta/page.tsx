@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 const faqs = [
   { question: "Who is the best social media agency in Malta?", answer: `OARC Digital is a Birkirkara-based social media agency running Instagram, TikTok, Facebook, and LinkedIn for Malta restaurants, hotels, retail brands, and MGA-licensed iGaming operators. The team produces all creative in-house, manages paid amplification on Meta, and reports monthly against booked revenue. Reach the office on ${NAP.phoneDisplay} or ${NAP.email}.` },
-  { question: "How much does a social media retainer cost in Malta?", answer: "OARC Digital social media retainers start at €750 per month for organic management on one channel with eight posts and four reels, scale to €1,500 per month for an organic plus paid combo across two channels, and reach €2,800 per month for full-service multi-channel work with monthly Maltese-language and English creative. No setup fees, no annual lock-in, contracts run month to month." },
+  { question: "How much does a social media retainer cost in Malta?", answer: "Social media is part of OARC Digital's whole marketing team, €500 a month: strategy, filming, posts and reels, Meta and TikTok ads, your website and enquiry follow-up. No setup fee and no contract, so you can cancel any month. Your ad budget is paid to the platforms directly. Groups and brands already spending €2,000 or more a month get more for the same budget." },
   { question: "Which social media channels matter most for Malta businesses?", answer: "Instagram drives discovery for Sliema and St Julians F&B and retail, Facebook still owns the family-resident audience in Birkirkara, Mosta, Qormi, and Paola, TikTok captures Gen-Z locals and short-stay tourists, and LinkedIn matters for fintech, MFSA-regulated services, and B2B software. OARC Digital chooses the channel mix from real campaign data, not from a generic deck." },
   { question: "Does OARC Digital produce content in Maltese as well as English?", answer: "Yes. Every retainer includes optional Maltese-language captions, voice-overs, and ad creative for audiences where Maltese outperforms English — typically Mosta, Birkirkara, Qormi, Paola, Mellieha, and the residential parts of Gzira. Tourist-facing brands in St Julians and Valletta usually run English with bilingual story slots when the calendar calls for it." },
   { question: "Can OARC Digital run paid ads alongside organic social?", answer: "Yes. The agency manages Meta Ads Manager and TikTok Ads Manager from the same retainer, with paid budgets typically starting at €600 per month per channel. Creative production, audience strategy, and reporting all live in one team so the organic feed and the paid feed do not contradict each other." },
@@ -31,9 +31,7 @@ const faqs = [
 ];
 
 const offers = [
-  { name: "Single-channel Retainer", priceFrom: 750, unitText: "MONTH", description: "One channel — Instagram, TikTok, Facebook, or LinkedIn — with eight posts and four reels per month, plus community management." },
-  { name: "Organic + Paid Combo", priceFrom: 1500, unitText: "MONTH", description: "Two channels managed end-to-end with paid media on Meta or TikTok, full creative production, and monthly performance reviews." },
-  { name: "Full-service Multi-channel", priceFrom: 2800, unitText: "MONTH", description: "Three to four channels, bilingual creative, paid amplification, influencer activations, and quarterly strategy reviews on-site." },
+  { name: "Your whole marketing team", priceFrom: 500, unitText: "MONTH", description: "Strategy, filming, social media, Meta and Google ads, your website and enquiry follow-up. Cancel any month. Ad spend is paid to Meta and Google, not to OARC." },
 ];
 
 export default function Page() {

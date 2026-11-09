@@ -206,25 +206,11 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       "Weekly social creative and management for Malta brands—Instagram, Meta, TikTok—measured on leads and bookings, not vanity likes. Birkirkara.",
     offers: [
       {
-        name: "Starter Social",
-        priceFrom: 597,
+        name: "Your whole marketing team",
+        priceFrom: 500,
         unitText: "MONTH",
         description:
-          "One platform (Instagram or TikTok), 12 posts per month, monthly strategy review, community management 5 days/week.",
-      },
-      {
-        name: "Growth Social",
-        priceFrom: 1500,
-        unitText: "MONTH",
-        description:
-          "Two platforms, 20 posts/month, monthly content shoot, ad creative variants, bi-weekly performance review.",
-      },
-      {
-        name: "Full Creative Studio",
-        priceFrom: 2997,
-        unitText: "MONTH",
-        description:
-          "Three platforms, weekly shoot day, paid social creative, influencer coordination, and quarterly brand campaigns.",
+          "Strategy, filming, social media, Meta and Google ads, your website and enquiry follow-up. Cancel any month. Ad spend is paid to Meta and Google, not to OARC.",
       },
     ],
     features: [
@@ -440,25 +426,11 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       "Performance paid advertising for Malta businesses—Google/Meta and more—creative-led, tracked, and tied to sales follow-up.",
     offers: [
       {
-        name: "Single Channel",
-        priceFrom: 750,
+        name: "Your whole marketing team",
+        priceFrom: 500,
         unitText: "MONTH",
         description:
-          "Meta or Google only. Up to €5k/month media spend. Weekly creative rotations, conversion tracking, monthly performance review.",
-      },
-      {
-        name: "Multi-Channel Growth",
-        priceFrom: 1800,
-        unitText: "MONTH",
-        description:
-          "Meta + Google + one secondary channel (TikTok, LinkedIn, or YouTube). Up to €30k/month spend. Bi-weekly creative tests, full-funnel reporting.",
-      },
-      {
-        name: "Performance Programme",
-        priceFrom: 4500,
-        unitText: "MONTH",
-        description:
-          "Cross-platform performance team: paid social, paid search, programmatic display, and creative production in one pod. €30k+/month spend.",
+          "Strategy, filming, social media, Meta and Google ads, your website and enquiry follow-up. Cancel any month. Ad spend is paid to Meta and Google, not to OARC.",
       },
     ],
     features: [
