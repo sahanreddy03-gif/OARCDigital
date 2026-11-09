@@ -36,6 +36,7 @@ import {
   MALTA_PRIORITY_MATRIX_PATHS,
 } from "../lib/seo/maltaMatrixCohorts";
 import { hygieneRejectReason, isSitemapEligible } from "../lib/seo/sitemapHygiene";
+import { RETIRED_MATRIX_COUNT, isRetiredMatrixPath } from "../lib/seo/retiredMatrix";
 import { SITE_BASE } from "../lib/seo/sitemapHelpers";
 import {
   historicalMatrixPaths,
@@ -149,6 +150,7 @@ function staticGuard(): string[] {
       MALTA_PRIORITY_MATRIX_PATHS.includes(path),
       `Sahan CSV malta URL dropped from priority cohort: ${path}`,
     );
+    invariant(!isRetiredMatrixPath(path), `Sahan CSV malta URL must never be retired: ${path}`);
     samplePaths.push(path);
   }
   for (const path of approvedLedger.sahanOwnSitePaths as string[]) {
@@ -180,6 +182,11 @@ function staticGuard(): string[] {
     );
     const loc = `${SITE_BASE}${path}`;
     const reason = hygieneRejectReason(loc);
+    if (isRetiredMatrixPath(path)) {
+      // Owner-approved retirement: still 200 (kept above), noindex, out of sitemaps.
+      invariant(reason === "matrix-retired", `retired path not filtered as retired: ${path} (${reason})`);
+      continue;
+    }
     invariant(reason === null, `hygiene would exclude approved path ${path}: ${reason}`);
 
     if (deepCheckPaths.has(path)) {
@@ -194,14 +201,23 @@ function staticGuard(): string[] {
 
   const priorityEntries = buildPriorityMatrixEntries();
   const expandedEntries = buildExpandedMatrixEntries();
-  invariant(priorityEntries.length === 2000);
-  invariant(expandedEntries.length === 5350);
+  const retiredInPriority = MALTA_PRIORITY_MATRIX_PATHS.filter(isRetiredMatrixPath).length;
+  invariant(
+    priorityEntries.length === approvedLedger.counts.priorityMatrixSitemap - retiredInPriority,
+    `priority matrix sitemap count ${priorityEntries.length}`,
+  );
+  invariant(
+    expandedEntries.length ===
+      approvedLedger.counts.expandedMatrixSitemap - (RETIRED_MATRIX_COUNT - retiredInPriority),
+    `expanded matrix sitemap count ${expandedEntries.length}`,
+  );
   for (const entry of [...priorityEntries, ...expandedEntries]) {
     invariant(isSitemapEligible(entry.loc), `sitemap hygiene rejected ${entry.loc}`);
   }
 
   // Prefer Sahan set first for live sampling, then a sparse matrix stride.
   for (let i = 0; i < matrixPaths.length; i += 73) {
+    if (isRetiredMatrixPath(matrixPaths[i]!)) continue; // retired pages are noindex by design
     samplePaths.push(matrixPaths[i]!);
   }
   return [...new Set(samplePaths)];

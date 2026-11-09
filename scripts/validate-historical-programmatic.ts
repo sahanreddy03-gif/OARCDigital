@@ -18,7 +18,7 @@ import {
 } from "../lib/seo/sitemapIndexConfig";
 import approvedLedger from "../seo-manifest/approved-historical-urls.json";
 import matrixExclusions from "../seo-manifest/sitemap-matrix-exclusions.json";
-import { filterSitemapEntries, isSitemapEligible } from "../lib/seo/sitemapHygiene";
+import { filterSitemapEntries, hygieneRejectReason, isSitemapEligible } from "../lib/seo/sitemapHygiene";
 import { getLocationProfile } from "../lib/seo/locationData";
 import {
   buildLocationIndustryServiceContent,
@@ -291,27 +291,53 @@ function main(): void {
           currentAdditionalLocationServices.length,
     `location-services sitemap count is ${locationServiceSitemap.length}`,
   );
-  invariant(prioritySitemap.length === 2000, `priority matrix sitemap count is ${prioritySitemap.length}`);
-  invariant(expandedSitemap.length === 5350, `expanded matrix sitemap count is ${expandedSitemap.length}`);
+  // Owner-approved retirements (seo-manifest/sitemap-matrix-exclusions.json):
+  // still live (200) but noindex and absent from the matrix sitemaps.
+  const retiredPaths = new Set<string>(
+    ((matrixExclusions as { paths?: string[] }).paths ?? []).map(String),
+  );
+  for (const path of [
+    ...(approvedLedger.sahanMaltaPriorityPaths as string[]),
+    ...(approvedLedger.sahanOwnSitePaths as string[]),
+  ]) {
+    invariant(!retiredPaths.has(path), `owner-approved URL must never be retired: ${path}`);
+  }
+  for (const path of retiredPaths) {
+    invariant(
+      hygieneRejectReason(`${SITE_BASE}${path}`) === "matrix-retired",
+      `retired path is not filtered as matrix-retired: ${path}`,
+    );
+  }
+  const retiredInPriority = MALTA_PRIORITY_MATRIX_PATHS.filter((p) => retiredPaths.has(p)).length;
+  const priorityIndexed = MALTA_PRIORITY_MATRIX_PATHS.filter((p) => !retiredPaths.has(p));
   invariant(
-    matrixCoverageSitemap.length === historicalProgrammaticExpected.matrixUrlCount,
+    prioritySitemap.length === 2000 - retiredInPriority,
+    `priority matrix sitemap count is ${prioritySitemap.length}`,
+  );
+  invariant(
+    expandedSitemap.length === 5350 - (retiredPaths.size - retiredInPriority),
+    `expanded matrix sitemap count is ${expandedSitemap.length}`,
+  );
+  invariant(
+    matrixCoverageSitemap.length === historicalProgrammaticExpected.matrixUrlCount - retiredPaths.size,
     `legacy matrix coverage helper count is ${matrixCoverageSitemap.length}`,
   );
+  const matrixIndexedExpected = new Set([...matrixExpected].filter((p) => !retiredPaths.has(p)));
   invariant(maltaSitemap.length === 340, `legacy Malta sitemap count is ${maltaSitemap.length}`);
 
-  setEqual(new Set(prioritySitemap), new Set(MALTA_PRIORITY_MATRIX_PATHS), "priority sitemap parity");
+  setEqual(new Set(prioritySitemap), new Set(priorityIndexed), "priority sitemap parity");
   setEqual(
     new Set([...prioritySitemap, ...expandedSitemap]),
-    matrixExpected,
-    "priority∪expanded must equal full historical matrix",
+    matrixIndexedExpected,
+    "priority∪expanded must equal full historical matrix minus owner-approved exclusions",
   );
   for (const path of prioritySitemap) {
     invariant(!new Set(expandedSitemap).has(path), `path in both matrix cohorts: ${path}`);
   }
   setEqual(
     new Set(matrixCoverageSitemap),
-    matrixExpected,
-    "legacy matrix coverage helper must equal full historical matrix",
+    matrixIndexedExpected,
+    "legacy matrix coverage helper must equal full historical matrix minus exclusions",
   );
 
   // /sitemap.xml must advertise every matrix partition (priority must not replace inventory)
@@ -351,8 +377,7 @@ function main(): void {
     "duplicate paths across priority and expanded matrix sitemaps",
   );
   invariant(
-    indexedMatrix.size - exclusionPaths.size >=
-      historicalProgrammaticExpected.matrixUrlCount - exclusionPaths.size,
+    indexedMatrix.size >= historicalProgrammaticExpected.matrixUrlCount - exclusionPaths.size,
     `indexed matrix coverage ${indexedMatrix.size} < expected ${historicalProgrammaticExpected.matrixUrlCount} after exclusions`,
   );
 

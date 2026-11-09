@@ -45,8 +45,9 @@ const TODAY_DATES = new Set([TODAY_UTC]);
 const APPROVED_BULK_RESTORATIONS: Readonly<Record<string, { date: string; count: number }>> = {
   // Cohort sitemaps may share one stable content date (not TODAY).
   "sitemap-malta-locations.xml": { date: HISTORICAL_ORIGINAL_MATRIX_LASTMOD, count: 50 },
-  "sitemap-malta-priority-matrix.xml": { date: HISTORICAL_ORIGINAL_MATRIX_LASTMOD, count: 2000 },
-  "sitemap-malta-expanded-matrix.xml": { date: HISTORICAL_ORIGINAL_MATRIX_LASTMOD, count: 5350 },
+  // Minus the 3,525 owner-approved retirements (seo-manifest/sitemap-matrix-exclusions.json): 538 priority, 2,987 expanded.
+  "sitemap-malta-priority-matrix.xml": { date: HISTORICAL_ORIGINAL_MATRIX_LASTMOD, count: 1462 },
+  "sitemap-malta-expanded-matrix.xml": { date: HISTORICAL_ORIGINAL_MATRIX_LASTMOD, count: 2363 },
 };
 
 const MODE: "static" | "http" = process.argv.includes("--http") ? "http" : "static";
