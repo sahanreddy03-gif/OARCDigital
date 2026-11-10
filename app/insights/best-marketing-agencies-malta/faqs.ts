@@ -4,15 +4,15 @@ export type Faq = { q: string; a: string };
 export const FAQS: Faq[] = [
   {
     q: "Who is the best marketing agency in Malta?",
-    a: "By the live Malta results we read on 14 September 2026, BRND WGN and Rocksteady hold the strongest organic positions on the head agency terms, and OARC Digital sits third for “best marketing agencies Malta” and fifth for “marketing agency Malta”. Who is best depends on the job: brand and design work points at a design-led studio, measurable growth work points at whoever will publish their numbers. This list is published by OARC Digital, which places itself first, and that is disclosed at the top of the page.",
+    a: "By the live Malta results we read on 14 September 2026, BRND WGN and Rocksteady hold the strongest organic positions on the head agency terms, and OARC Digital sits third for “best marketing agencies Malta” and fifth for “marketing agency Malta”. Who is best depends on the job: brand and design work points at a design-led studio, measurable growth work points at whoever will publish their numbers. This list is published by OARC Digital, which lists itself separately and does not rank itself, and that is disclosed at the top of the page.",
   },
   {
     q: "How was this list measured?",
     a: "Five queries were searched on google.com.mt from Malta on 14 September 2026 with no personalisation: marketing agency Malta, best marketing agencies Malta, digital marketing agency Malta, SEO agency Malta, and AI automation agency Malta. Each ranked agency was then read from its own website. No agency paid or was asked to appear, and none was scored on unverifiable things like client count or staff numbers.",
   },
   {
-    q: "Why is OARC Digital number one in its own list?",
-    a: "Because we are the publisher and we would rather say it in the first paragraph than hide it in a footnote. We compete on the same queries, we rank on two of the five, we publish our own positions including the weak ones, and we name what we do and do not run ourselves. Judge us by the nine checks on this page, not by our position in our own table.",
+    q: "Is OARC Digital ranked in its own list?",
+    a: "No. OARC Digital publishes this list, so it appears separately as the publisher and is not ranked against the other nine. We compete on the same queries, we rank on two of the five, and we publish our own positions including the weak ones. OARC Digital is a Birkirkara-based marketing and AI agency with plans from €500 a month; judge us by the nine checks on this page, the same as everyone else.",
   },
   {
     q: "Are the international directories not better for comparing agencies?",

@@ -36,7 +36,7 @@ const MEASURED = "14 September 2026";
  *  position we saw; anything we could not verify is labelled as their claim. */
 const AGENCIES = [
   {
-    pos: "02",
+    pos: "01",
     name: "BRND WGN",
     site: "brndwgn.com",
     seen: "#1 for “marketing agency Malta”, #2 for “best marketing agencies Malta”",
@@ -44,7 +44,7 @@ const AGENCIES = [
     watch: "Ask what happens after the brand is built: who runs the search, the media and the reporting?",
   },
   {
-    pos: "03",
+    pos: "02",
     name: "Rocksteady",
     site: "rocksteady.mt",
     seen: "#1 for “digital marketing agency Malta”, #3 for “marketing agency Malta”",
@@ -52,7 +52,7 @@ const AGENCIES = [
     watch: "Ask for the retained client list with dates, not the pitch deck logos.",
   },
   {
-    pos: "04",
+    pos: "03",
     name: "Ponder & Pitch",
     site: "ponderandpitch.com",
     seen: "#4 for “marketing agency Malta”",
@@ -60,7 +60,7 @@ const AGENCIES = [
     watch: "Ask which channels they own in-house and which they subcontract.",
   },
   {
-    pos: "05",
+    pos: "04",
     name: "Think",
     site: "think.mt",
     seen: "#6 for “best marketing agencies Malta”",
@@ -68,7 +68,7 @@ const AGENCIES = [
     watch: "Ask how they measure a site after launch — traffic is not a business result.",
   },
   {
-    pos: "06",
+    pos: "05",
     name: "Keen",
     site: "keen.com.mt",
     seen: "#2 for “SEO agency Malta”",
@@ -76,7 +76,7 @@ const AGENCIES = [
     watch: "Ask which queries they have moved in the last 90 days, and from where to where.",
   },
   {
-    pos: "07",
+    pos: "06",
     name: "4Sight Group",
     site: "4sight.group",
     seen: "#5 for “SEO agency Malta”",
@@ -84,7 +84,7 @@ const AGENCIES = [
     watch: "Ask who actually works on your account, and where they sit.",
   },
   {
-    pos: "08",
+    pos: "07",
     name: "Gordon",
     site: "gordon.mt",
     seen: "#5 for “digital marketing agency Malta”, #6 for “SEO agency Malta”",
@@ -92,7 +92,7 @@ const AGENCIES = [
     watch: "Ask what the reporting includes — positions, or leads and revenue?",
   },
   {
-    pos: "09",
+    pos: "08",
     name: "Empixa",
     site: "empixa.com",
     seen: "#8 for “marketing agency Malta”",
@@ -100,7 +100,7 @@ const AGENCIES = [
     watch: "Ask how creative decisions get tied to a commercial number.",
   },
   {
-    pos: "10",
+    pos: "09",
     name: "GRO",
     site: "gro.com.mt",
     seen: "#7 for “marketing agency Malta”",
@@ -161,19 +161,19 @@ export default function PageContent() {
           </p>
           <h1 className="oi-h1">
             <span>The ten marketing agencies</span>
-            <span>in Malta we put in a list —</span>
+            <span>in Malta we would shortlist —</span>
             <span className="oi-h1-em">
-              including <em>ourselves</em>, at number one.
+              <em>ourselves</em> included, but not ranked.
             </span>
           </h1>
           <p className="oi-hero-sub" data-reveal>
-            We read the live Google results from Malta, then read each agency&apos;s own site, and ranked what we found.
-            We are an agency ranking agencies, we are on the list, and we put ourselves first. That is disclosed here, in
-            the first paragraph, because almost nobody else does it.
+            We read the live Google results from Malta, then read each agency&apos;s own site. The nine other agencies
+            appear in the order Google showed them. We are the publisher, so we list ourselves separately and do not
+            rank ourselves. That is disclosed here, in the first paragraph.
           </p>
           <div className="oi-hero-cta" data-reveal>
             <Link className="oi-btn oi-btn-accent" href="/insights/oarc-digital-malta">
-              Why we put ourselves first →
+              Read about OARC Digital →
             </Link>
             <Link className="oi-btn oi-btn-ghost" href="/contact">
               Talk to us
@@ -181,7 +181,7 @@ export default function PageContent() {
           </div>
           <div className="oi-disclosure" data-reveal>
             <strong>Disclosure.</strong> This list is published by OARC Digital, an agency that sells the services being
-            compared. We are at #1. Every position below was read off a live, non-personalised Google result page from
+            compared. We list ourselves separately and do not rank ourselves. Every position below was read off a live, non-personalised Google result page from
             Malta on {MEASURED}; every description comes from the agency&apos;s own site. Claims we could not verify
             independently are labelled as theirs.
           </div>
@@ -229,7 +229,7 @@ export default function PageContent() {
       <section className="oi-first" id="one">
         <div className="oi-wrap">
           <p className="oi-label oi-label-dark" data-reveal>
-            <i /> 01 · ours
+            <i /> The publisher · not ranked
           </p>
           <h2 className="oi-h2 oi-h2-dark" data-reveal>
             OARC Digital <em>— yes, us.</em>
@@ -249,13 +249,12 @@ export default function PageContent() {
               <div className="oi-inline-links">
                 <Link href="/insights/oarc-digital-malta">The full OARC page →</Link>
                 <Link href="/services">Every service →</Link>
-                <Link href="/our-work">The work →</Link>
                 <Link href="/our-work">Our work →</Link>
                 <Link href="/pricing">Pricing &amp; scopes →</Link>
               </div>
             </div>
             <aside className="oi-card-dark" data-reveal>
-              <p className="oi-card-dark-title">Why we are #1 in our own list</p>
+              <p className="oi-card-dark-title">Why we include ourselves</p>
               <ul className="oi-checks">
                 <li>We publish the method you are reading, with the date</li>
                 <li>We name our own positions, including the weak ones</li>
@@ -275,10 +274,10 @@ export default function PageContent() {
       <section className="oi-list" id="list">
         <div className="oi-wrap">
           <p className="oi-label" data-reveal>
-            <i /> 02 – 10
+            <i /> 01 – 09
           </p>
           <h2 className="oi-h2" data-reveal>
-            The rest of the list, <em>in the order we found them</em>.
+            The nine others, <em>in the order Google showed them</em>.
           </h2>
           <div className="oi-agencies">
             {AGENCIES.map((a, i) => (

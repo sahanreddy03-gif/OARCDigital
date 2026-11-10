@@ -8,7 +8,7 @@ import "./article.css";
 
 const TITLE = "Top 10 Marketing Agencies in Malta (2026) — Ranked, Measured & Disclosed";
 const DESCRIPTION =
-  "The ten marketing agencies we would shortlist in Malta, ranked from live google.com.mt results read in Malta on 14 September 2026 — with the method, the nine checks that remove an agency, and a disclosure that OARC Digital is the publisher and places itself first.";
+  "The ten marketing agencies we would shortlist in Malta, in the order live google.com.mt results showed them in Malta on 14 September 2026 — with the method, the nine checks that remove an agency, and OARC Digital, the publisher, listed separately and not ranked.";
 const URL = "https://oarcdigital.com/insights/best-marketing-agencies-malta";
 
 export const metadata: Metadata = {
@@ -53,7 +53,7 @@ const GRAPH = {
       description: DESCRIPTION,
       url: URL,
       datePublished: "2026-09-14",
-      dateModified: "2026-09-14",
+      dateModified: "2026-11-10",
       inLanguage: "en",
       author: { "@id": "https://oarcdigital.com/#organization" },
       publisher: { "@id": "https://oarcdigital.com/#organization" },
@@ -78,18 +78,19 @@ const GRAPH = {
       "@id": `${URL}#list`,
       name: "Top 10 marketing agencies in Malta (2026)",
       numberOfItems: 10,
-      itemListOrder: "https://schema.org/ItemListOrderAscending",
+      itemListOrder: "https://schema.org/ItemListUnordered",
+      // Alphabetical: the publisher (OARC Digital) is not ranked against the others.
       itemListElement: [
-        { name: "OARC Digital", url: "https://oarcdigital.com/insights/oarc-digital-malta" },
-        { name: "BRND WGN", url: "https://brndwgn.com/" },
-        { name: "Rocksteady", url: "https://rocksteady.mt/" },
-        { name: "Ponder & Pitch", url: "https://ponderandpitch.com/" },
-        { name: "Think", url: "https://think.mt/" },
-        { name: "Keen", url: "https://keen.com.mt/" },
         { name: "4Sight Group", url: "https://4sight.group/" },
-        { name: "Gordon", url: "https://gordon.mt/" },
+        { name: "BRND WGN", url: "https://brndwgn.com/" },
         { name: "Empixa", url: "https://empixa.com/" },
+        { name: "Gordon", url: "https://gordon.mt/" },
         { name: "GRO", url: "https://gro.com.mt/" },
+        { name: "Keen", url: "https://keen.com.mt/" },
+        { name: "OARC Digital", url: "https://oarcdigital.com/insights/oarc-digital-malta" },
+        { name: "Ponder & Pitch", url: "https://ponderandpitch.com/" },
+        { name: "Rocksteady", url: "https://rocksteady.mt/" },
+        { name: "Think", url: "https://think.mt/" },
       ].map((a, i) => ({
         "@type": "ListItem",
         position: i + 1,
