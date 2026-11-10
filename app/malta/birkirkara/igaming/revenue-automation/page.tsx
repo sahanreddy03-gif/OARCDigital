@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 import Link from "next/link";
 import { ArrowUpRight, Check, CircleAlert, Clock3, GitBranch, ShieldCheck } from "lucide-react";
 import { NAP } from "@/lib/seo/nap";
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
     "A consent-aware revenue-automation operating layer for licensed iGaming teams in Malta: CRM triggers, human approvals, retention workflows and reporting.",
   alternates: { canonical },
   openGraph: {
+    images: ogImageEntry({ title: "iGaming Revenue Automation in Birkirkara", subtitle: "Operational CRM journeys for licensed iGaming teams." }),
     title: "Revenue automation with a human approval line",
     description: "Operational CRM journeys for licensed iGaming teams. Clear triggers, explicit consent and accountable review.",
     url: canonical,

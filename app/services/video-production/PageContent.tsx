@@ -25,7 +25,8 @@ const videoProductionFAQs: FAQItem[] = [
   { question: "Do you handle distribution and paid video?", answer: "Yes. Organic posting plus paid on Meta, TikTok, and YouTube when the brief needs it—creative and media share the same hypothesis." },
   { question: "Can you work with existing brand guidelines?", answer: "Yes. We follow your system precisely and can extend video-specific standards when branding is thin." },
   { question: "Who is OARC Digital?", answer: "OARC Digital is a Birkirkara creative and AI studio at The Brewhouse—video sits beside branding, social creative, AI agents, and automation. Phone +356 7971 1799." },
-  { question: "Where should I go next after video?", answer: "Creative for always-on assets, Branding if identity is unclear, or AI agents / Voice AI Worker if enquiries and calls are the leak." }
+  { question: "Where should I go next after video?", answer: "Creative for always-on assets, Branding if identity is unclear, or AI agents / Voice AI Worker if enquiries and calls are the leak." },
+  { question: "How much does video production cost in Malta with OARC?", answer: "Regular filming for social is included in OARC Digital's whole marketing team for €500 a month, with no setup fee. Larger one-off brand films are quoted as a fixed scope after a 20-minute call." },
 ];
 
 export default function VideoProduction() {

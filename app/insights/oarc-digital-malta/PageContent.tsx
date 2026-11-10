@@ -560,7 +560,7 @@ export default function PageContent() {
             {[...WORK, ...WORK].map((w, i) => (
               <span className="oi-frame" key={`${w}-${i}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`/insights/oarc-digital-malta/${w}.jpg`} alt="" loading="lazy" />
+                <img src={`/insights/oarc-digital-malta/${w}.jpg`} alt="" aria-hidden="true" loading="lazy" />
               </span>
             ))}
           </div>

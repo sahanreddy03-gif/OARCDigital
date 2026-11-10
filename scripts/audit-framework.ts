@@ -490,8 +490,24 @@ async function audit() {
   // still passes. This statically verifies that each service's
   // PageContent.tsx actually renders <MaltaContextBlock slug="<slug>" />.
   // Static-only check (no runtime fetch); cheap to run on every commit.
+  const editorialTemplate = path.join(process.cwd(), "components", "services", "OarcEditorialServicePage.tsx");
+  const EDITORIAL_TEMPLATE_HAS_MALTA_BLOCK =
+    fs.existsSync(editorialTemplate) &&
+    fs.readFileSync(editorialTemplate, "utf-8").includes("<MaltaContextBlock slug={service.slug}");
   for (const slug of Object.keys(SERVICE_SCHEMAS)) {
     const file = path.join(process.cwd(), "app", "services", slug, "PageContent.tsx");
+    // Editorial-template services have only page.tsx and render through the
+    // shared OarcEditorialServicePage, which itself renders
+    // <MaltaContextBlock slug={service.slug} />. Accept that wiring.
+    const routeFile = path.join(process.cwd(), "app", "services", slug, "page.tsx");
+    if (
+      !fs.existsSync(file) &&
+      fs.existsSync(routeFile) &&
+      fs.readFileSync(routeFile, "utf-8").includes("<OarcEditorialServicePage") &&
+      EDITORIAL_TEMPLATE_HAS_MALTA_BLOCK
+    ) {
+      continue;
+    }
     if (!fs.existsSync(file)) {
       // Some service slugs may legitimately have a different page shape
       // (e.g. shells routed elsewhere). Surface, do not hard-fail.

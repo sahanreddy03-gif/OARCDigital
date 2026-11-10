@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 import HospitalityExperience from "./HospitalityExperience";
 import "./hospitality.css";
 import { NAP, POSTAL_ADDRESS } from "@/lib/seo/nap";
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
     "A voice receptionist for Malta hotels, restaurants and hospitality teams. Handle calls, reservations, FAQs, transfers and human handoff with OARC Digital.",
   alternates: { canonical: "https://oarcdigital.com/voice-ai-worker/hospitality" },
   openGraph: {
+    images: ogImageEntry({ title: "Voice AI for Hospitality in Malta", subtitle: "A calmer front desk, on every call." }),
     title: "A calmer front desk, on every call.",
     description:
       "Voice AI for hospitality operators who want faster answers without losing the human welcome.",

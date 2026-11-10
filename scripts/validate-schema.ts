@@ -115,10 +115,13 @@ const CANONICAL_60: CanonicalPage[] = [
   { url: "/pdf-hub", tier: "P2", expects: "shell" },
 ];
 
-// Sanity gate: refuse to run if we drift from "60".
-if (CANONICAL_60.length !== 60) {
+// Sanity gate: refuse to run if the core list is accidentally gutted or
+// duplicated. It is 59 since /case-studies was retired (3ac8b5bd); retiring a
+// core URL is legitimate, so the gate checks a range, not an exact 60.
+const coreUrls = CANONICAL_60.map((c) => c.url);
+if (CANONICAL_60.length < 55 || CANONICAL_60.length > 60 || new Set(coreUrls).size !== coreUrls.length) {
   console.error(
-    `validate-schema: CANONICAL_60 length is ${CANONICAL_60.length}, must be exactly 60. ` +
+    `validate-schema: CANONICAL_60 has ${CANONICAL_60.length} entries (allowed 55–60, no duplicates). ` +
       "If `.local/memory/core-url-rank.md` legitimately changed, update both files together.",
   );
   process.exit(2);

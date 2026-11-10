@@ -226,6 +226,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       { question: "Is this only social, or part of a bigger stack?", answer: "Social is one spoke. OARC also runs branding, video, AI agents, Voice AI Worker, and automation." },
       { question: "How do you measure success?", answer: "Enquiries, booked calls/tables, and qualified pipeline—agreed up front. Engagement is a diagnostic." },
       { question: "Who is OARC Digital?", answer: "OARC Digital is a Birkirkara creative and AI studio at The Brewhouse. Phone +356 7971 1799." },
+      { question: "How much does social media management cost in Malta with OARC?", answer: "Social media is part of OARC Digital's whole marketing team for €500 a month: strategy, filming, posts and Reels, Meta ads, your website and enquiry follow-up, with no setup fee." },
     ],
   
     framework: {
@@ -304,6 +305,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       { question: "How long does video production take?", answer: "Simple social ads often ship in 1–2 weeks. Typical campaign packs take 3–6 weeks." },
       { question: "What makes OARC video different?", answer: "One Birkirkara team owns concept through edit and can connect video into creative retainers, AI agents, and Voice AI Worker." },
       { question: "Do you use AI in video production?", answer: "Yes for speed in post and variants—human direction leads. No invented percentage speed claims." },
+      { question: "How much does video production cost in Malta with OARC?", answer: "Regular filming for social is included in OARC Digital's whole marketing team for €500 a month, with no setup fee. Larger one-off brand films are quoted as a fixed scope after a 20-minute call." },
     ],
   
     framework: {
@@ -382,6 +384,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       { question: "How long does a branding project take?", answer: "Brand sprints typically ship in 4–6 weeks. Fuller brand builds run 8–12 weeks." },
       { question: "How is OARC branding different from a logo shop?", answer: "We start with positioning and owner money outcomes, then design. The same Birkirkara team connects identity into creative, AI agents, and Voice AI Worker." },
       { question: "Who is OARC Digital?", answer: "OARC Digital is a Birkirkara marketing and AI studio at The Brewhouse—creative, AI agents, Voice AI Worker, and automation under one team." },
+      { question: "How much does branding cost in Malta with OARC?", answer: "Brand projects are quoted as a fixed scope after a 20-minute call, so you know the price before work starts. Ongoing brand, social and filming work runs inside OARC Digital's whole marketing team for €500 a month, with no setup fee." },
     ],
   
     framework: {
@@ -1963,7 +1966,7 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
       primaryIntent: "commercial",
       generalizationKeywords: [
         "custom ai agents",
-        "ai agents for business",
+        "bespoke ai agent build malta",
         "business ai automation malta",
         "ai workflow agents",
         "ai agent development malta",
