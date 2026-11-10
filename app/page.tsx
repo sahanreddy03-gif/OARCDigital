@@ -59,8 +59,10 @@ import HomepageNeedsSection from "@/components/HomepageNeedsSection";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
 import Section2 from "@/components/Section2";
+import Section5 from "@/components/Section5";
 import HomepageWhyOarc from "@/components/HomepageWhyOarc";
-import HomepageAIStaff from "@/components/HomepageAIStaff";
+import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
+import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
 import HomepageOurWork from "@/components/HomepageOurWork";
 import MoneyBackGuaranteeSection from "@/components/MoneyBackGuaranteeSection";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
@@ -122,11 +124,15 @@ export default function Page() {
         {/* Services Showcase + industry chips */}
         <Section2 />
 
-        {/* Why OARC Digital — answer-first facts (replaced Section5 + ComparisonSection) */}
+        {/* Our Difference */}
+        <Section5 />
+
+        {/* Why OARC Digital — answer-first facts (replaced the AI-only comparison table) */}
         <HomepageWhyOarc />
 
         {/* AI Services Pillars - Dark Premium Zone */}
-        <HomepageAIStaff />
+        <HireAIEmployeesSection />
+        <LetsTalkRevenueSection />
 
 
         {/* One authoritative work record */}
