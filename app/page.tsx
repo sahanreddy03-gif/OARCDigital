@@ -59,13 +59,9 @@ import HomepageNeedsSection from "@/components/HomepageNeedsSection";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
 import Section2 from "@/components/Section2";
-import Section5 from "@/components/Section5";
-import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
-import TechEnabledSection from "@/components/TechEnabledSection";
-import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
+import HomepageWhyOarc from "@/components/HomepageWhyOarc";
+import HomepageAIStaff from "@/components/HomepageAIStaff";
 import HomepageOurWork from "@/components/HomepageOurWork";
-import ComparisonSection from "@/components/ComparisonSection";
-import GrowthSimulator from "@/components/GrowthSimulator";
 import MoneyBackGuaranteeSection from "@/components/MoneyBackGuaranteeSection";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
 import CTASections from "@/components/CTASections";
@@ -126,22 +122,16 @@ export default function Page() {
         {/* Services Showcase + industry chips */}
         <Section2 />
 
-        {/* Our Difference */}
-        <Section5 />
+        {/* Why OARC Digital — answer-first facts (replaced Section5 + ComparisonSection) */}
+        <HomepageWhyOarc />
 
         {/* AI Services Pillars - Dark Premium Zone */}
-        <HireAIEmployeesSection />
-        <LetsTalkRevenueSection />
+        <HomepageAIStaff />
 
-        {/* Tech & Services */}
-        <TechEnabledSection />
 
         {/* One authoritative work record */}
         <HomepageOurWork />
 
-        {/* Why OARC - Comparison */}
-        <ComparisonSection />
-        <GrowthSimulator />
 
         {/* Blog preview */}
         <BlogPreviewSection />

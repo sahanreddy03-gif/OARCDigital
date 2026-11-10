@@ -1,94 +1,77 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-const entries = [
+/**
+ * "What we do." — plain text, three columns, real links to each service page.
+ * Easy to scan for people and easy to read for Google (no images or video).
+ */
+const columns = [
   {
-    title: "Creative & Growth",
-    copy: "Brand, content and campaigns.",
-    theme: "growth",
-    image: "/attached_assets/generated_images/oarc-growth-card-v2.jpg",
-    alt: "A colourful OARC creative and growth campaign composition",
+    title: "Creative & growth",
+    copy: "We build your brand, make the content and run the ads that bring customers in.",
+    links: [
+      { label: "Branding", href: "/services/branding" },
+      { label: "Social media", href: "/services/social-media-creative-management" },
+      { label: "Video production", href: "/services/video-production" },
+      { label: "Google & Meta ads", href: "/services/paid-advertising" },
+      { label: "SEO", href: "/services/seo-services" },
+      { label: "Website design", href: "/services/web-design" },
+    ],
   },
   {
-    title: "AI & Automation",
-    copy: "AI workers and workflows.",
-    theme: "ai",
-    video: "/attached_assets/SnapInsta.to_AQMfI7sCSVLU8tLxyZLjxlyaGvnAjtYAkNpyBEIAox0m6TApwOZNnf5Y2rfuYUhoqYXMDubqUVXcJjUk8q57WHMBNJrUR_W4lUx94QM_1764630517873.mp4",
-    alt: "OARC ARC campaign film",
+    title: "AI staff & automation",
+    copy: "AI staff that sell, support and book for you, and systems built around how your business works.",
+    links: [
+      { label: "AI receptionist", href: "/services/ai-voice-receptionist" },
+      { label: "AI sales agent", href: "/services/ai-sdr-agent" },
+      { label: "AI support", href: "/services/ai-support-specialist" },
+      { label: "Custom AI agents", href: "/services/custom-ai-agents" },
+      { label: "Automation", href: "/services/automation" },
+      { label: "Custom software", href: "/services/custom-software-development" },
+    ],
   },
   {
-    title: "H360",
-    copy: "Bookings, calls, orders and guest relationships. Connected.",
-    theme: "systems",
-    image: "/attached_assets/premium-work/h360-public-product-hub_b339c106.webp",
-    alt: "H360 connected hospitality system",
+    title: "H360 for hospitality",
+    copy: "Bookings, calls, orders and guest relationships for restaurants and venues, in one connected system.",
+    links: [{ label: "See H360", href: "/h360" }],
   },
 ] as const;
 
 export default function Section2() {
   return (
-    <section id="growth-blueprint" className="bg-[#f2efe9] px-5 py-20 md:px-10 md:py-32" data-testid="section-growth-blueprint">
+    <section id="growth-blueprint" className="bg-[#f2efe9] px-5 py-20 md:px-10 md:py-28" data-testid="section-growth-blueprint">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-10 md:grid-cols-[.75fr_1.25fr] md:items-end">
-          <h2 className="max-w-md text-[clamp(3rem,7vw,6.7rem)] font-semibold leading-[.83] tracking-[-.08em] text-[#171614]">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <h2 className="text-[clamp(2.6rem,6vw,5.2rem)] font-semibold leading-[.88] tracking-[-.06em] text-[#171614]">
             What we do.
           </h2>
-          <div className="max-w-xl md:pb-2">
-            <Link
-              href="/services/ai-consulting#enquiry"
-              className="inline-flex items-center gap-2 border-b border-[#171614]/35 pb-1 text-sm font-semibold text-[#171614] transition-colors hover:border-[#c8102e]"
-            >
-              Start a project <ArrowUpRight className="h-4 w-4" />
-            </Link>
-          </div>
+          <Link
+            href="/services/ai-consulting#enquiry"
+            className="inline-flex w-fit items-center gap-2 border-b border-[#171614]/35 pb-1 text-sm font-semibold text-[#171614] transition-colors hover:border-[#171614]"
+          >
+            Start a project <ArrowUpRight className="h-4 w-4" />
+          </Link>
         </div>
 
-        <div className="mt-14 grid gap-3 md:grid-cols-[1.15fr_.85fr] md:grid-rows-2">
-          {entries.map((entry, index) => (
-            <Link
-              href={`/services/ai-consulting?theme=${entry.theme}#enquiry`}
-              key={entry.title}
-              className={`group relative overflow-hidden bg-[#171614] text-[#f2efe9] ${
-                index === 0 ? "md:row-span-2" : ""
-              }`}
-            >
-              <div className={`${index === 0 ? "aspect-[4/3] md:h-full" : "aspect-[16/9]"} relative overflow-hidden`}>
-                {"video" in entry ? (
-                  <video
-                    src={entry.video}
-                    aria-label={entry.alt}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                  />
-                ) : (
-                  <img
-                    src={entry.image}
-                    alt={entry.alt}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                  />
-                )}
-                <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(23,22,20,.92),transparent_65%)]" />
-                <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-                  <div className="flex items-end justify-between gap-5">
-                    <div>
-                      <h3 className={`${index === 0 ? "text-4xl md:text-6xl" : "text-3xl md:text-4xl"} font-medium leading-[.9] tracking-[-.065em]`}>
-                        {entry.title}
-                      </h3>
-                      <p className="mt-3 max-w-sm text-sm leading-relaxed text-[#f2efe9]/75 md:text-base">{entry.copy}</p>
-                    </div>
-                    <ArrowUpRight className="mb-1 h-6 w-6 shrink-0 text-[#e6ff76] transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
-                  </div>
-                </div>
-              </div>
-            </Link>
+        <div className="mt-12 grid gap-10 border-t border-[#171614]/15 pt-10 md:mt-16 md:grid-cols-3 md:gap-12">
+          {columns.map((col) => (
+            <div key={col.title}>
+              <h3 className="text-2xl font-semibold tracking-[-.03em] text-[#171614] md:text-3xl">{col.title}</h3>
+              <p className="mt-3 max-w-sm text-base leading-relaxed text-[#171614]/70">{col.copy}</p>
+              <ul className="mt-6 grid gap-2.5">
+                {col.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="group inline-flex items-center gap-1.5 text-base font-medium text-[#171614] underline decoration-[#171614]/20 underline-offset-4 hover:decoration-[#171614]"
+                    >
+                      {link.label}
+                      <ArrowUpRight className="h-4 w-4 opacity-50 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
         </div>
       </div>

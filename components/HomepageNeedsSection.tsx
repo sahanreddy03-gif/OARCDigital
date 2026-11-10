@@ -9,31 +9,31 @@ import Link from "next/link";
 const NEEDS = [
   {
     title: "More customers",
-    text: "Google, ads and SEO that bring people who buy.",
+    text: "Google ads, Meta ads and SEO that put you in front of people ready to buy.",
     href: "/services/growth",
     image: "/attached_assets/generated_images/oarc-growth-card-v2.jpg",
   },
   {
     title: "Content & social",
-    text: "We film, edit and post. You stay in your business.",
+    text: "We plan, film, edit and post every week. You stay focused on your business.",
     href: "/services/social",
     image: "/attached_assets/generated_images/oarc-dept-creative.jpg",
   },
   {
     title: "AI staff",
-    text: "A receptionist that answers every call and books it.",
+    text: "AI employees for sales, support and bookings. They work day and night.",
     href: "/services/ai-staff",
     image: "/attached_assets/generated_images/oarc-dept-ai-staff.jpg",
   },
   {
     title: "Reputation",
-    text: "More Google reviews. A name people trust.",
+    text: "More 5-star Google reviews, and a name people trust before they call.",
     href: "/services/reputation",
     image: "/attached_assets/generated_images/oarc-dept-reputation.jpg",
   },
   {
     title: "Automation",
-    text: "Follow-ups, quotes and admin that run themselves.",
+    text: "Fully customised systems for follow-ups, quotes and admin.",
     href: "/services/automation",
     image: "/attached_assets/generated_images/oarc-dept-automation.jpg",
   },

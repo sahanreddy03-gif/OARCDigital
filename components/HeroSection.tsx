@@ -485,15 +485,21 @@ export default function HeroSection() {
           </div>
 
           <div className="shrink-0 w-full px-3 mt-2 flex gap-2 justify-center">
-            <CompactMobileGlassCard label="Creative" href="/creative" testId="button-nav-creative" />
             <CompactMobileGlassCard
-              label="Agentic"
-              subtitle="AI Workers"
+              label="Creative"
+              subtitle="Brand, strategy, design"
+              href="/creative"
+              testId="button-nav-creative"
+            />
+            <CompactMobileGlassCard
+              label="AI Staff"
+              subtitle="Sales, support, bookings"
               href="/ai-agents"
               testId="button-nav-ai"
             />
             <CompactMobileGlassCard
-              label="Business Systems"
+              label="Automation"
+              subtitle="Fully customised"
               href="/solutions"
               testId="button-nav-growth"
             />
@@ -609,13 +615,13 @@ export default function HeroSection() {
                     />
                     <MobileGlassCard
                       icon={Bot}
-                      label="AI"
+                      label="AI Staff"
                       href="/ai-agents"
                       testId="button-nav-ai-desktop"
                     />
                     <MobileGlassCard
                       icon={Rocket}
-                      label="Growth"
+                      label="Automation"
                       href="/solutions"
                       testId="button-nav-growth-desktop"
                     />

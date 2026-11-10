@@ -8,90 +8,105 @@ import { serviceImages } from '@/assets/serviceImages';
 const services = [
   {
     title: "Ad creative",
+    href: "/services/ad-creative",
     subtitle: "Eye-catching designs that perform",
     image: serviceImages.adCreative,
     category: "Design & Static Creative"
   },
   {
     title: "Social media creative",
+    href: "/services/social-media-creative-management",
     subtitle: "Engaging assets for all platforms",
     image: serviceImages.socialMedia,
     category: "Design & Static Creative"
   },
   {
     title: "Presentation design",
+    href: "/services/presentation-pitch",
     subtitle: "Captivating slides that tell your story",
     image: serviceImages.presentation,
     category: "Design & Static Creative"
   },
   {
     title: "Illustration design",
+    href: "/services/illustration",
     subtitle: "Visual storytelling for your brand",
     image: serviceImages.illustration,
     category: "Design & Static Creative"
   },
   {
     title: "Branding services",
+    href: "/services/branding",
     subtitle: "Expertise & custom design services",
     image: serviceImages.branding,
     category: "Design & Static Creative"
   },
   {
     title: "eBooks & report design",
+    href: "/services/content-marketing",
     subtitle: "Your digital content supercharged",
     image: serviceImages.ebook,
     category: "Design & Static Creative"
   },
   {
     title: "Concept creation",
+    href: "/services/creative",
     subtitle: "Big ideas crafted for maximum impact",
     image: serviceImages.concept,
     category: "Design & Static Creative"
   },
   {
     title: "Print design",
+    href: "/services/print-packaging",
     subtitle: "Tangible designs that leave a lasting impression",
     image: serviceImages.printDesign,
     category: "Design & Static Creative"
   },
   {
     title: "Packaging & merchandise design",
+    href: "/services/print-packaging",
     subtitle: "Bring your brand to life",
     image: serviceImages.packaging,
     category: "Design & Static Creative"
   },
   {
     title: "Video production",
+    href: "/services/video-production",
     subtitle: "Effortless video production at scale",
     image: serviceImages.video,
     category: "Motion & Video"
   },
   {
     title: "Motion design",
+    href: "/services/motion-design",
     subtitle: "For websites, ads, and presentations",
     image: serviceImages.motion,
     category: "Motion & Video"
   },
   {
     title: "Immersive design",
+    href: "/services/immersive-3d-ar",
     subtitle: "Innovative solutions for 3D/AR design services",
     image: serviceImages.immersive,
     category: "Motion & Video"
   },
   {
     title: "Email creation",
+    href: "/services/email-creative",
     subtitle: "Click-worthy emails that drive engagement",
     image: serviceImages.email,
     category: "Digital & Web"
   },
   {
     title: "Website design",
+    href: "/services/web-design",
     subtitle: "Stunning websites and landing pages built to engage",
     image: serviceImages.webDesign,
     category: "Digital & Web"
   },
   {
     title: "Design Systems",
+    href: "/services/design-systems",
     subtitle: "Robust design systems that drive visual consistency",
     image: serviceImages.designSystems,
     category: "Digital & Web",
@@ -99,6 +114,7 @@ const services = [
   },
   {
     title: "Product Design",
+    href: "/services/mvp-development",
     subtitle: "Engaging & intuitive experiences",
     image: serviceImages.productDesign,
     category: "Digital & Web",
@@ -106,12 +122,14 @@ const services = [
   },
   {
     title: "AI-enhanced creative",
+    href: "/services/creative",
     subtitle: "Human brilliance powered by AI",
     image: serviceImages.aiEnhanced,
     category: "AI-Powered"
   },
   {
     title: "AI consulting",
+    href: "/services/ai-consulting",
     subtitle: "Maximize AI with tailored strategies",
     image: serviceImages.aiConsulting,
     category: "AI-Powered"
@@ -288,26 +306,18 @@ export default function AICreativeSection() {
 
       <div className="relative container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl mb-8">
         <div className="text-center">
-          {/* Kicker — paper surface */}
-          <p className="kicker kicker-paper justify-center mb-5">Full Service Creative</p>
-
           <h2
             className="font-ds-display font-extrabold mb-0"
             data-testid="text-ai-creative-heading"
             style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.04em', lineHeight: '1.0', color: 'var(--ink)' }}
           >
-            Every type of creative work
+            Branding, strategy, creative
+            <br />
+            {/* Accent words: Instrument Serif italic on paper surface */}
+            <span className="font-ds-flair italic font-normal" style={{ color: 'var(--sigdeep)' }}>&amp; design.</span>
           </h2>
-          <p
-            className="font-ds-display font-extrabold"
-            style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.04em', lineHeight: '1.0', color: 'var(--ink)' }}
-          >
-            you'll ever need
-            {/* Accent word: Instrument Serif italic, sigdeep on paper surface */}
-            <span
-              className="font-ds-flair italic"
-              style={{ color: 'var(--sigdeep)' }}
-            > and more</span>
+          <p className="mx-auto mt-4 max-w-xl text-base md:text-lg" style={{ color: 'var(--ink)', opacity: 0.7 }}>
+            Ads, social, video, websites and print, made by our team in Malta.
           </p>
         </div>
       </div>
@@ -317,7 +327,7 @@ export default function AICreativeSection() {
         <div className="flex gap-4 md:gap-6 lg:gap-8 cursor-grab active:cursor-grabbing" data-testid="carousel-track" ref={trackRef} style={{ willChange: 'transform' }}>
           {duplicatedServices.map((service, index) => (
             <Link
-              href="/services"
+              href={service.href}
               key={index}
               className="flex-shrink-0 w-[240px] sm:w-[280px] md:w-[320px] lg:w-[380px] group block"
             >
@@ -360,7 +370,7 @@ export default function AICreativeSection() {
             data-testid="mobile-left-column"
           >
             {leftColumnServices.map((service, index) => (
-              <Link href="/services" key={`left-${index}`} className="flex-shrink-0 group block">
+              <Link href={service.href} key={`left-${index}`} className="flex-shrink-0 group block">
                 <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 shadow-lg" data-testid={`service-card-left-${index}`}>
                   <img src={service.image} alt={`${service.title} - Premium creative work`} className="w-full h-full object-cover scale-110" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -385,7 +395,7 @@ export default function AICreativeSection() {
             data-testid="mobile-right-column"
           >
             {rightColumnServices.map((service, index) => (
-              <Link href="/services" key={`right-${index}`} className="flex-shrink-0 group block">
+              <Link href={service.href} key={`right-${index}`} className="flex-shrink-0 group block">
                 <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 shadow-lg" data-testid={`service-card-right-${index}`}>
                   <img src={service.image} alt={`${service.title} - Premium creative work`} className="w-full h-full object-cover scale-110" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
