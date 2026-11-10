@@ -468,7 +468,7 @@ export default function HeroSection() {
                 style={{ fontSize: "clamp(1.05rem, 4.65vw, 1.2rem)" }}
               >
                 One AI-native team for{" "}
-                <span className={`${heroSans.className} text-[#e8ffb0] font-semibold not-italic`}>
+                <span className={`${heroSans.className} text-[#F9FF84] font-semibold not-italic`}>
                   creative, growth &amp; automation
                 </span>
               </span>
@@ -511,7 +511,7 @@ export default function HeroSection() {
             data-testid="text-hero-inhouse-line"
             data-speakable
           >
-            <span className={`${heroSans.className} text-[#e8ffb0] font-semibold not-italic`}>
+            <span className={`${heroSans.className} text-[#F9FF84] font-semibold not-italic`}>
               In-house
             </span>{" "}
             <span className={`${heroSerif.className} italic text-white`}>
@@ -552,7 +552,7 @@ export default function HeroSection() {
                     </span>
                     <span className="block font-extralight italic font-serif tracking-[-0.04em] leading-[1.05] mt-2 text-[clamp(2.2rem,4.7vw,3.85rem)] lg:text-[clamp(2.3rem,4.1vw,3.4rem)]">
                       One AI-native team for{" "}
-                      <span className="text-[#e8ffb0] font-semibold not-italic">creative, growth &amp; automation</span>
+                      <span className="text-[#F9FF84] font-semibold not-italic">creative, growth &amp; automation</span>
                     </span>
                   </p>
 

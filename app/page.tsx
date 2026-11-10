@@ -58,15 +58,12 @@ import DiagnosticsTeaser from "@/components/DiagnosticsTeaser";
 import HomepageNeedsSection from "@/components/HomepageNeedsSection";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
-import Section2 from "@/components/Section2";
 import Section5 from "@/components/Section5";
 import HomepageWhyOarc from "@/components/HomepageWhyOarc";
-import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
-import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
+import HomepageAIStaff from "@/components/HomepageAIStaff";
 import HomepageOurWork from "@/components/HomepageOurWork";
 import MoneyBackGuaranteeSection from "@/components/MoneyBackGuaranteeSection";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
-import CTASections from "@/components/CTASections";
 import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import RouteSchema from "@/components/RouteSchema";
@@ -121,8 +118,6 @@ export default function Page() {
         {/* Every type of creative work */}
         <AICreativeSection />
 
-        {/* Services Showcase + industry chips */}
-        <Section2 />
 
         {/* Our Difference */}
         <Section5 />
@@ -131,8 +126,7 @@ export default function Page() {
         <HomepageWhyOarc />
 
         {/* AI Services Pillars - Dark Premium Zone */}
-        <HireAIEmployeesSection />
-        <LetsTalkRevenueSection />
+        <HomepageAIStaff />
 
 
         {/* One authoritative work record */}
@@ -147,7 +141,6 @@ export default function Page() {
 
         {/* Final CTAs */}
         <MoneyBackGuaranteeSection />
-        <CTASections />
         <NeedHelpCTA />
         {/* Top-30 internal-link funnel */}
         <MostPopularServices />

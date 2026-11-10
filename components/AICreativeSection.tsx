@@ -313,8 +313,8 @@ export default function AICreativeSection() {
           >
             Branding, strategy, creative
             <br />
-            {/* Accent words: Instrument Serif italic on paper surface */}
-            <span className="font-ds-flair italic font-normal" style={{ color: 'var(--sigdeep)' }}>&amp; design.</span>
+            {/* Design system v3: on paper the highlight is a black box with the yellow word */}
+            <span className="font-ds-flair italic font-normal mt-2 inline-block rounded-md bg-[#0E0E0E] px-3 pb-1 text-[#F9FF84]">&amp; design.</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base md:text-lg" style={{ color: 'var(--ink)', opacity: 0.7 }}>
             Ads, social, video, websites and print, made by our team in Malta.
@@ -344,7 +344,7 @@ export default function AICreativeSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 {service.badge && (
-                  <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-[#c4ff4d] text-zinc-900 text-xs font-bold px-2.5 md:px-3 py-1 md:py-1.5 rounded-full z-10">
+                  <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-[#F9FF84] text-zinc-900 text-xs font-bold px-2.5 md:px-3 py-1 md:py-1.5 rounded-full z-10">
                     {service.badge}
                   </div>
                 )}
@@ -375,7 +375,7 @@ export default function AICreativeSection() {
                   <img src={service.image} alt={`${service.title} - Premium creative work`} className="w-full h-full object-cover scale-110" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                   {service.badge && (
-                    <div className="absolute top-3 right-3 bg-[#c4ff4d] text-zinc-900 text-xs font-bold px-2.5 py-1 rounded-full z-10">{service.badge}</div>
+                    <div className="absolute top-3 right-3 bg-[#F9FF84] text-zinc-900 text-xs font-bold px-2.5 py-1 rounded-full z-10">{service.badge}</div>
                   )}
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <h3 className="font-ds-display text-lg font-bold text-white leading-tight" style={{ letterSpacing: '-0.03em' }}>{service.title}</h3>
@@ -400,7 +400,7 @@ export default function AICreativeSection() {
                   <img src={service.image} alt={`${service.title} - Premium creative work`} className="w-full h-full object-cover scale-110" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                   {service.badge && (
-                    <div className="absolute top-3 right-3 bg-[#c4ff4d] text-zinc-900 text-xs font-bold px-2.5 py-1 rounded-full z-10">{service.badge}</div>
+                    <div className="absolute top-3 right-3 bg-[#F9FF84] text-zinc-900 text-xs font-bold px-2.5 py-1 rounded-full z-10">{service.badge}</div>
                   )}
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <h3 className="font-ds-display text-lg font-bold text-white leading-tight" style={{ letterSpacing: '-0.03em' }}>{service.title}</h3>
