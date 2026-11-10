@@ -68,6 +68,7 @@ export const CORE: CoreEntry[] = [
   { path: "/roadmap-2026", priority: 0.6, changefreq: "monthly" },
   { path: "/resources", priority: 0.6, changefreq: "monthly" },
   { path: "/press", priority: 0.6, changefreq: "monthly" },
+  { path: "/videos/oarc-digital-malta-film", priority: 0.6, changefreq: "monthly" },
   { path: "/pdf-hub", priority: 0.6, changefreq: "monthly" },
   { path: "/lp", priority: 0.65, changefreq: "monthly", source: "app/lp/page.tsx" },
   { path: "/lp/ai-tips-marketers-guide", priority: 0.65, changefreq: "monthly", source: "app/lp/ai-tips-marketers-guide/page.tsx" },

@@ -2,6 +2,7 @@
 
 import { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
+import { useLenis } from "lenis/react";
 
 // ── Engine realm tokens ──────────────────────────────────────────────────────
 const T = {
@@ -4536,6 +4537,15 @@ export default function DepartmentDetailModal({ dept, onClose }: DepartmentDetai
   const panelRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
+  const lenis = useLenis();
+
+  // Lenis drives the page wheel on desktop. While the panel is open, pause it
+  // so the wheel scrolls the panel (data-lenis-prevent) and not the page behind.
+  useEffect(() => {
+    if (!dept || !lenis) return;
+    lenis.stop();
+    return () => lenis.start();
+  }, [dept, lenis]);
 
   const handleClose = useCallback(() => {
     setVisible(false);
@@ -4604,7 +4614,7 @@ export default function DepartmentDetailModal({ dept, onClose }: DepartmentDetai
   return createPortal(
     <>
       {/* backdrop */}
-      <div aria-hidden="true" onClick={handleClose} style={{
+      <div aria-hidden="true" data-lenis-prevent onClick={handleClose} style={{
         position:"fixed", inset:0, zIndex:8998,
         background:"rgba(14,13,12,.6)",
         opacity: visible ? 1 : 0,
@@ -4613,6 +4623,7 @@ export default function DepartmentDetailModal({ dept, onClose }: DepartmentDetai
       {/* panel */}
       <div
         ref={panelRef}
+        data-lenis-prevent
         role="dialog"
         aria-modal="true"
         aria-labelledby="department-detail-modal-title"
