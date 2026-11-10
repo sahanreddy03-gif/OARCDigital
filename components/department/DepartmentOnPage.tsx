@@ -18,7 +18,9 @@ export default function DepartmentOnPage({ dept }: { dept: string }) {
       {styles.map((s) => (
         <style key={s.id} id={s.id} dangerouslySetInnerHTML={{ __html: s.css }} />
       ))}
-      <div style={{ maxWidth: 960, margin: "0 auto" }}>
+      {/* In the pop-up each world is its own scroll box; on a page the page scrolls. */}
+      <style>{`.dept-page-body>*{height:auto!important;max-height:none!important;overflow-x:clip!important;overflow-y:visible!important}`}</style>
+      <div className="dept-page-body" style={{ maxWidth: 960, margin: "0 auto" }}>
         <DepartmentContent dept={dept} onClose={() => {}} />
       </div>
     </div>

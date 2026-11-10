@@ -5,9 +5,10 @@ import { DeptBottom, DeptTop } from "./DepartmentSeo";
 import { DEPARTMENTS } from "@/lib/departments/data";
 import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
-/** Dark-ground departments (yellow signal); the rest are paper + cobalt. */
-const DARK = new Set(["Media", "Social", "Clarity", "AI Staff", "Creative", "Automation", "Enquiries", "Products", "Compare"]);
-const BG: Record<string, string> = { dark: "#0E0E0E", light: "#F5F3EE" };
+/** Ground per department: AI departments sit on cobalt, the loud ones on ink, the rest on paper. */
+const AI = new Set(["AI Staff", "Automation", "Enquiries"]);
+const DARK = new Set(["Media", "Social", "Clarity", "Creative", "Products", "Compare"]);
+const BG = { ai: "#0035AD", dark: "#0E0E0E", light: "#F5F3EE" } as const;
 
 export function departmentMetadata(key: keyof typeof DEPARTMENTS): Metadata {
   const d = DEPARTMENTS[key];
@@ -41,13 +42,13 @@ export default function DepartmentRoute({
   children?: React.ReactNode;
 }) {
   const d = DEPARTMENTS[id];
-  const dark = DARK.has(d.dept);
+  const tone = AI.has(d.dept) ? "ai" : DARK.has(d.dept) ? "dark" : "light";
   return (
     <Layout>
       {children}
       <article>
-        <div style={{ background: BG[dark ? "dark" : "light"] }}>
-          <DeptTop data={d} dark={dark} />
+        <div style={{ background: BG[tone] }}>
+          <DeptTop data={d} tone={tone} />
         </div>
         <DepartmentOnPage dept={d.dept} />
         <DeptBottom data={d} />

@@ -10,14 +10,24 @@ import { LOGOS, TRUST, type DeptSeo } from "@/lib/departments/types";
  */
 const serif = { fontFamily: "var(--font-instrument-serif), Georgia, serif" };
 
-/** Breadcrumb + trust claims, above the department content. */
-export function DeptTop({ data, dark }: { data: DeptSeo; dark: boolean }) {
-  const fg = dark ? "text-[#F5F3EE]" : "text-[#0E0E0E]";
-  const dim = dark ? "text-[#F5F3EE]/65" : "text-[#0E0E0E]/65";
-  const line = dark ? "border-white/12" : "border-[#0E0E0E]/12";
-  const big = dark ? "text-[#F9FF84]" : "text-[#0035AD]";
+/** The owner-approved comparison from the first Growth page (commit ffe4cb10), made true for every department. */
+const COMPARE: [string, string, string][] = [
+  ["Who does the work", "Five suppliers you manage", "One team, one point of contact"],
+  ["How it is judged", "Reports full of activity", "One result you can count"],
+  ["Who replies to enquiries", "Whoever is free", "Tom, in seconds, 24/7"],
+  ["What you own", "Nothing when you leave", "Your accounts, ads, content and data"],
+];
+
+/** Breadcrumb + trust boxes (each with its description), above the department content. */
+export function DeptTop({ data, tone }: { data: DeptSeo; tone: "light" | "dark" | "ai" }) {
+  const light = tone === "light";
+  const fg = light ? "text-[#0E0E0E]" : "text-[#F5F3EE]";
+  const dim = light ? "text-[#0E0E0E]/65" : "text-[#F5F3EE]/70";
+  const grid = light ? "border-[#0E0E0E]/12 bg-[#0E0E0E]/12" : "border-white/15 bg-white/15";
+  const cell = tone === "light" ? "bg-[#F5F3EE]" : tone === "ai" ? "bg-[#0035AD]" : "bg-[#0E0E0E]";
+  const big = light ? "text-[#0E0E0E]" : "text-[#F9FF84]";
   return (
-    <div className={`${fg} px-5 pb-6 pt-28 md:pt-32`}>
+    <div className={`${fg} px-5 pb-8 pt-28 md:pt-32`}>
       <div className="mx-auto max-w-[920px]">
         <nav aria-label="Breadcrumb" className={`text-[15px] ${dim}`}>
           <Link href="/" className="hover:underline">
@@ -26,13 +36,13 @@ export function DeptTop({ data, dark }: { data: DeptSeo; dark: boolean }) {
           <span aria-hidden="true"> / </span>
           <span>{data.keyword} in Malta</span>
         </nav>
-        <ul className={`mt-4 flex flex-wrap gap-x-5 gap-y-2 border-y ${line} py-4 md:grid md:grid-cols-5 md:gap-x-6 md:py-5`}>
+        <ul className={`mt-5 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border ${grid} md:grid-cols-5`}>
           {TRUST.map((t) => (
-            <li key={t.big}>
-              <span className={`block text-[19px] leading-none md:text-[22px] ${big}`} style={serif}>
+            <li key={t.big} className={`${cell} p-4 last:col-span-2 md:p-5 md:last:col-span-1`}>
+              <span className={`block text-[24px] leading-none md:text-[26px] ${big}`} style={serif}>
                 {t.big}
               </span>
-              <span className={`mt-1.5 hidden text-[14px] leading-snug md:block ${dim}`}>{t.small}</span>
+              <span className={`mt-2 block text-[14px] leading-snug md:text-[15px] ${dim}`}>{t.small}</span>
             </li>
           ))}
         </ul>
@@ -71,8 +81,45 @@ export function DeptBottom({ data }: { data: DeptSeo }) {
         </div>
       </section>
 
+      {/* A normal agency vs OARC */}
+      <section aria-labelledby="dept-compare" className="border-t border-[#0E0E0E]/12 px-5 py-16 md:py-24">
+        <div className="mx-auto max-w-[920px]">
+          <h2 id="dept-compare" className="text-[clamp(2.4rem,5.5vw,4.2rem)] font-normal leading-[.95]" style={serif}>
+            A normal agency vs OARC.
+          </h2>
+          <table className="mt-8 w-full border-collapse text-left">
+            <thead>
+              <tr className="border-b-2 border-[#0E0E0E]">
+                <th scope="col" className="w-[30%] py-3 pr-3 text-[15px] font-semibold text-[#0E0E0E]/60">
+                  <span className="sr-only">Question</span>
+                </th>
+                <th scope="col" className="py-3 pr-3 text-[15px] font-semibold text-[#0E0E0E]/60">
+                  A normal agency
+                </th>
+                <th scope="col" className="py-3 text-[17px] font-semibold">
+                  OARC
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {COMPARE.map(([q, them, us]) => (
+                <tr key={q} className="border-b border-[#0E0E0E]/15 align-top">
+                  <th scope="row" className="py-4 pr-3 text-[15px] font-semibold md:text-base">
+                    {q}
+                  </th>
+                  <td className="py-4 pr-3 text-[15px] text-[#0E0E0E]/55 line-through decoration-[#0E0E0E]/25 md:text-base">
+                    {them}
+                  </td>
+                  <td className="py-4 text-[16px] font-semibold md:text-lg">{us}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       {/* Tom */}
-      <section aria-labelledby="dept-tom" className="bg-[#0E0E0E] px-5 py-16 text-[#F5F3EE] md:py-24">
+      <section aria-labelledby="dept-tom" className="bg-[#0035AD] px-5 py-16 text-[#F5F3EE] md:py-24">
         <div className="mx-auto grid max-w-[920px] gap-8 md:grid-cols-[1.3fr_.7fr] md:items-end">
           <div>
             <h2 id="dept-tom" className="text-[clamp(2.4rem,5.5vw,4.2rem)] font-normal leading-[.95]" style={serif}>
@@ -130,7 +177,7 @@ export function DeptBottom({ data }: { data: DeptSeo }) {
               <details key={f.question} className="group border-b border-[#0E0E0E]/20 py-5">
                 <summary className="flex cursor-pointer list-none items-start justify-between gap-6 text-xl font-semibold leading-snug">
                   <h3 className="text-xl font-semibold leading-snug">{f.question}</h3>
-                  <span aria-hidden="true" className="mt-0.5 text-2xl leading-none text-[#0035AD] transition-transform group-open:rotate-45">
+                  <span aria-hidden="true" className="mt-0.5 text-2xl leading-none text-[#0E0E0E] transition-transform group-open:rotate-45">
                     +
                   </span>
                 </summary>
@@ -142,7 +189,7 @@ export function DeptBottom({ data }: { data: DeptSeo }) {
       </section>
 
       {/* Book + related */}
-      <section aria-labelledby="dept-cta" className="bg-[#0035AD] px-5 py-16 text-[#F5F3EE] md:py-24">
+      <section aria-labelledby="dept-cta" className="bg-[#0E0E0E] px-5 py-16 text-[#F5F3EE] md:py-24">
         <div className="mx-auto max-w-[920px]">
           <h2 id="dept-cta" className="text-[clamp(2.4rem,5.5vw,4.2rem)] font-normal leading-[.95]" style={serif}>
             Book a free 20-minute call.
@@ -153,7 +200,7 @@ export function DeptBottom({ data }: { data: DeptSeo }) {
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
             <Link
               href="/contact"
-              className="inline-flex items-center rounded-full bg-[#F5F3EE] px-7 py-4 text-base font-semibold text-[#0E0E0E] transition-opacity hover:opacity-90"
+              className="inline-flex items-center rounded-full bg-[#F9FF84] px-7 py-4 text-base font-semibold text-[#0E0E0E] transition-opacity hover:opacity-90"
             >
               Book a free call →
             </Link>
@@ -175,7 +222,7 @@ export function DeptBottom({ data }: { data: DeptSeo }) {
                 <li key={r.href}>
                   <Link
                     href={r.href}
-                    className="inline-flex rounded-full border border-white/30 px-4 py-2.5 text-base transition-colors hover:bg-[#F5F3EE] hover:text-[#0035AD]"
+                    className="inline-flex rounded-full border border-white/30 px-4 py-2.5 text-base transition-colors hover:bg-[#F5F3EE] hover:text-[#0E0E0E]"
                   >
                     {r.label}
                   </Link>

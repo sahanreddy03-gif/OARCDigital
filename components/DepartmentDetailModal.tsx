@@ -188,10 +188,10 @@ const CtaItalic = ({ children }: { children: React.ReactNode }) => (
 const GM_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Spectral:ital,wght@0,500;1,400;1,500&display=swap');
 .gmx{
-  --bone:#F5F3EE;--card:#FBFAF7;--ink:#0E0E0E;--terra:#0035AD;--terrad:#002A8A;
+  --bone:#F5F3EE;--card:#FBFAF7;--ink:#0E0E0E;--terra:#0E0E0E;--terrad:#000000;
   --i70:rgba(14,14,14,.7);--i45:rgba(14,14,14,.46);--i30:rgba(14,14,14,.3);
   --i16:rgba(14,14,14,.16);--i10:rgba(14,14,14,.08);
-  --tg:rgba(0,53,173,.28);--tf:rgba(0,53,173,.08);
+  --tg:rgba(14,14,14,.28);--tf:rgba(14,14,14,.08);
   --line:rgba(14,14,14,.12);
   --ui:'Instrument Sans',sans-serif;--serif:'Spectral',serif;--e:cubic-bezier(.16,1,.3,1);
   background:var(--bone);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -266,9 +266,13 @@ const GM_CSS = `
 
 /* owner 2026-11-10: no small labels */
 .gmx .hero .lbl,.gmx .shead,.gmx .phase .idx s,.gmx .hero .team s,.gmx .bonus s{display:none!important}
+
+/* owner 2026-11-10: colour by idea */
+.gmx .hero h1 em{background:linear-gradient(transparent 58%,#F9FF84 58%);padding:0 .08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.gmx .nodeOn{fill:#F9FF84;stroke:#0E0E0E;stroke-width:1.5}.gmx .labk{fill:#0E0E0E}.gmx .glow{filter:none}
 `;
 
-const GM_TERRA = '#0035AD';
+const GM_TERRA = '#0E0E0E';
 const GM_BONE = '#F5F3EE';
 
 const GM_STEPS = ['They find you','You find them','They like you','They pick you','You stay close','They come back'];
@@ -447,7 +451,7 @@ function GrowthContent({ onClose }: { onClose: () => void }) {
 const SL_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700;800&display=swap');
 .slx{
-  --paper:#F5F3EE;--ink:#0E0E0E;--red:#0035AD;--navy:#0E0E0E;--cream:#F5F3EE;
+  --paper:#F5F3EE;--ink:#0E0E0E;--red:#0E0E0E;--navy:#0E0E0E;--cream:#F5F3EE;
   --i62:rgba(14,14,14,.62);--i42:rgba(14,14,14,.42);--i26:rgba(14,14,14,.26);
   --i14:rgba(14,14,14,.14);--i06:rgba(14,14,14,.05);
   --ui:'Inter Tight',sans-serif;--serif:'Instrument Serif',serif;
@@ -581,6 +585,9 @@ const SL_CSS = `
 
 /* owner 2026-11-10: no small labels */
 .slx .bar,.slx .kick,.slx .thesis .lead,.slx .roof,.slx .unit .tag,.slx .guar .g-eye{display:none!important}
+
+/* owner 2026-11-10: colour by idea */
+.slx .thesis{background:#F9FF84!important;color:#0E0E0E!important}.slx .thesis *{color:#0E0E0E!important}
 `;
 
 const SL_UNITS = [
@@ -1775,18 +1782,18 @@ function ClarityContent({ onClose }: { onClose: () => void }) {
 // ────────────────────────────────────────────────────────────────────────────
 // ─── AI STAFF — Graphite monochrome world (design sheet World D) ─────────────
 const AIS_VI  = '#F5F5F3';
-const AIS_INK = '#0E0E0E';
+const AIS_INK = '#0035AD';
 
 const AIS_CSS = `
 .ais{
   --vi:#F5F3EE;--vi2:rgba(245,243,238,.9);
   --vig:rgba(245,243,238,.3);--vif:rgba(245,243,238,.08);
-  --ink:#0E0E0E;--deep:#0E0E0E;--card:#171717;
+  --ink:#0035AD;--deep:#0035AD;--card:#0B42C4;
   --c:#F5F3EE;--c70:rgba(245,243,238,.72);--c45:rgba(245,243,238,.46);
   --c26:rgba(245,243,238,.26);--c16:rgba(245,243,238,.16);
   --c10:rgba(245,243,238,.1);--line:rgba(245,243,238,.11);
   --e:cubic-bezier(.16,1,.3,1);
-  background:#0E0E0E;color:#F5F3EE;
+  background:#0035AD;color:#F5F3EE;
   font-family:'Schibsted Grotesk',var(--font-bricolage,'Bricolage Grotesque',sans-serif);
   -webkit-font-smoothing:antialiased;overflow-x:hidden}
 .ais .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
@@ -2522,10 +2529,10 @@ function CreativeContent({ onClose }: { onClose: () => void }) {
 const OP_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap');
 .op{
-  --paper:#F5F3EE;--card:#FBFAF7;--ink:#0E0E0E;--em:#0035AD;--emd:#002A8A;
+  --paper:#F5F3EE;--card:#FBFAF7;--ink:#0E0E0E;--em:#0E0E0E;--emd:#000000;
   --i70:rgba(14,14,14,.7);--i50:rgba(14,14,14,.5);--i30:rgba(14,14,14,.32);
   --i16:rgba(14,14,14,.16);--i12:rgba(14,14,14,.12);--i08:rgba(14,14,14,.07);
-  --emg:rgba(0,53,173,.28);--emf:rgba(0,53,173,.08);--line:rgba(14,14,14,.12);
+  --emg:rgba(14,14,14,.28);--emf:rgba(14,14,14,.08);--line:rgba(14,14,14,.12);
   --ui:'Hanken Grotesk',sans-serif;--serif:'Newsreader',serif;--e:cubic-bezier(.16,1,.3,1);
   background:var(--paper);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased}
 .op *{margin:0;padding:0;box-sizing:border-box}
@@ -2606,9 +2613,12 @@ const OP_CSS = `
 
 /* owner 2026-11-10: no small labels */
 .op .hero .lbl,.op .shead,.op .phase .idx s,.op .hero .team s,.op .bonus s{display:none!important}
+
+/* owner 2026-11-10: colour by idea */
+.op .hero h1 em,.op .phase h2 em{color:#0E0E0E}.op .nodeOn{fill:#0E0E0E}.op .who{color:#0E0E0E}
 `;
 
-const OP_PAPER = '#F5F3EE', OP_EM = '#0035AD';
+const OP_PAPER = '#F5F3EE', OP_EM = '#0E0E0E';
 const OP_TEAM = ['Operations strategists','Systems builders','Automation engineers','Your account lead'];
 const OP_PARTS = [
   { n:'01', sp:'Where your time goes', h:'We find where your <em>time goes.</em>', out:'The week you can\u2019t see, mapped.',
@@ -2778,7 +2788,7 @@ function OperationsContent({ onClose }: { onClose: () => void }) {
 const AU_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Martian+Mono:wght@400;500&display=swap');
 .au{
-  --ink:#0E0E0E;--deep:#080808;--card:#171717;--c:#F5F3EE;--mint:#F9FF84;--mintd:#E6EC6A;
+  --ink:#0035AD;--deep:#002A8A;--card:#0B42C4;--c:#F5F3EE;--mint:#F9FF84;--mintd:#E6EC6A;
   --c70:rgba(245,243,238,.72);--c45:rgba(245,243,238,.46);--c26:rgba(245,243,238,.26);
   --c16:rgba(245,243,238,.15);--c10:rgba(245,243,238,.08);
   --mg:rgba(249,255,132,.45);--mf:rgba(249,255,132,.12);--line:rgba(245,243,238,.12);
@@ -3314,7 +3324,7 @@ function TransformationContent({ onClose }: { onClose: () => void }) {
 // ────────────────────────────────────────────────────────────────────────────
 // REPUTATION CONTENT  (light theme)
 // ────────────────────────────────────────────────────────────────────────────
-const RE = { bg:"#F5F3EE", card:"#FBFAF7", hot:"#0035AD", ink:"#0E0E0E",
+const RE = { bg:"#F5F3EE", card:"#FBFAF7", hot:"#FF4B4B", ink:"#0E0E0E",
   dim:"rgba(14,14,14,.7)", c45:"rgba(14,14,14,.48)", line:"rgba(14,14,14,.13)" };
 
 const SVG_RE_CHART = `<svg viewBox="0 0 300 170" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
@@ -3457,10 +3467,10 @@ function ReputationContent({ onClose }: { onClose: () => void }) {
 const BR_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,500&family=Manrope:wght@400;500;600;700&display=swap');
 .br{
-  --stone:#F5F3EE;--card:#FBFAF7;--ink:#0E0E0E;--ox:#0035AD;--oxd:#002A8A;
+  --stone:#F5F3EE;--card:#FBFAF7;--ink:#0E0E0E;--ox:#0E0E0E;--oxd:#000000;
   --i70:rgba(14,14,14,.7);--i45:rgba(14,14,14,.46);--i30:rgba(14,14,14,.3);
   --i16:rgba(14,14,14,.15);--i10:rgba(14,14,14,.07);
-  --og:rgba(0,53,173,.3);--of:rgba(0,53,173,.09);--line:rgba(14,14,14,.13);
+  --og:rgba(14,14,14,.3);--of:rgba(14,14,14,.09);--line:rgba(14,14,14,.13);
   --disp:'Playfair Display',serif;--ui:'Manrope',sans-serif;--e:cubic-bezier(.16,1,.3,1);
   background:var(--stone);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased}
 .br *{margin:0;padding:0;box-sizing:border-box}
@@ -3550,7 +3560,7 @@ const BR_CSS = `
 .br .hero .lbl,.br .shead,.br .phase .idx s,.br .hero .team s,.br .bonus s{display:none!important}
 `;
 
-const BR_OX = '#0035AD';
+const BR_OX = '#0E0E0E';
 const BR_TEAM = ['Brand strategists','Naming & voice','Designers','The Studio'];
 
 const BR_PARTS = [
@@ -3847,7 +3857,7 @@ function EnquiriesContent({ onClose }: { onClose: () => void }) {
       a:"We're a team that builds, trains and runs AI for real businesses. The AI handles the speed; the pipeline and follow-up cadence are designed by people. Together, enquiries become a reliable revenue engine instead of a leaky bucket." },
   ];
   return (
-    <div style={{ background:T.noir, color:T.ivory }}>
+    <div style={{ background:"#0035AD", color:T.ivory }}>
       <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${T.line}` }}>
         <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
           fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
@@ -3863,7 +3873,7 @@ function EnquiriesContent({ onClose }: { onClose: () => void }) {
         </p>
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginTop:"1.6rem" }}>
           {channels.map(ch => (
-            <div key={ch.id} style={{ background:T.card, border:`1px solid ${T.line}`, borderRadius:8, padding:"10px 12px" }}>
+            <div key={ch.id} style={{ background:"#0B42C4", border:`1px solid ${T.line}`, borderRadius:8, padding:"10px 12px" }}>
               <p style={{ fontFamily:"monospace", fontSize:9, color:T.scar, letterSpacing:".1em",
                 textTransform:"uppercase" as const, marginBottom:4 }}>{ch.label}</p>
               <p style={{ fontFamily:"monospace", fontSize:10, color:T.dim, lineHeight:1.55 }}>{ch.desc}</p>
@@ -4490,10 +4500,10 @@ const CONTENT_MAP: Record<string, (props:{onClose:()=>void}) => React.ReactEleme
 // ── per-department header colours ─────────────────────────────────────────────
 const DEPT_HDR_BG: Record<string,string> = {
   Growth: "#F5F3EE",  Sales: "#F5F3EE",  Media: "#0E0E0E",  Social: T.noir,
-  Clarity: "#0E0E0E",  "AI Staff": "#0E0E0E",  Creative: "#0E0E0E",
-  Operations: "#F5F3EE",  Automation: "#0E0E0E",  Transformation: "#F5F3EE",
+  Clarity: "#0E0E0E",  "AI Staff": "#0035AD",  Creative: "#0E0E0E",
+  Operations: "#F5F3EE",  Automation: "#0035AD",  Transformation: "#F5F3EE",
   Reputation: "#F5F3EE",  Brand: "#F5F3EE",
-  Enquiries: T.noir,  Ship: "#F5F3EE",  Products: "#0E0E0E",  Compare: T.noir,
+  Enquiries: "#0035AD",  Ship: "#F5F3EE",  Products: "#0E0E0E",  Compare: T.noir,
 };
 const LIGHT_DEPTS = new Set(["Operations","Reputation","Brand","Ship","Growth","Sales"]);
 
