@@ -1,6 +1,8 @@
 /** Homepage mobile CUSTOMERS band — single source for visible assets + SEO. */
 export const HERO_CUSTOMERS_VIDEO = {
   mp4: "/media/hero/hero-customers-loop.mp4",
+  /** 960x540 H.264, faststart, ~2 MB: what phones actually play (starts fast, no VP9). */
+  mobileMp4: "/media/hero/hero-customers-loop-540.mp4",
   webm: "/media/hero/hero-customers-loop.webm",
   posterJpg: "/media/hero/hero-customers-poster-v2.jpg",
   posterAvif: "/media/hero/hero-customers-poster-v2.avif",

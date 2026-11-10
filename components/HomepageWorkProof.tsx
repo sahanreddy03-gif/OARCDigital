@@ -33,9 +33,14 @@ export default function HomepageWorkProof() {
           <h2 id="homepage-work-proof-title" className="max-w-2xl text-[clamp(3rem,7vw,6.6rem)] font-semibold leading-[.84] tracking-[-.08em] text-[#171614]">
             Our work in Malta.
           </h2>
-          <Link href="/our-work" className="group inline-flex items-center gap-2 border-b border-[#171614]/30 pb-1 text-sm font-semibold text-[#171614] transition-colors hover:border-[#171614]">
-            View all work <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-          </Link>
+          <div className="flex flex-wrap items-center gap-6">
+            <Link href="/videos/oarc-digital-malta-film" className="group inline-flex items-center gap-2 border-b border-[#171614]/30 pb-1 text-sm font-semibold text-[#171614] transition-colors hover:border-[#171614]">
+              Watch our film <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+            </Link>
+            <Link href="/our-work" className="group inline-flex items-center gap-2 border-b border-[#171614]/30 pb-1 text-sm font-semibold text-[#171614] transition-colors hover:border-[#171614]">
+              View all work <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
         <div className="grid gap-3 md:grid-cols-[1.18fr_.82fr]">
           {WORK.map((item, index) => (
