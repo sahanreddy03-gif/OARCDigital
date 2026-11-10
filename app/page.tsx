@@ -55,8 +55,7 @@ import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
 import MostPopularServices from "@/components/MostPopularServices";
 import DiagnosticsTeaser from "@/components/DiagnosticsTeaser";
-import ShiftHappensSection from "@/components/ShiftHappensSection";
-import OARCDepartmentIndex from "@/components/OARCDepartmentIndex";
+import HomepageNeedsSection from "@/components/HomepageNeedsSection";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
 import Section2 from "@/components/Section2";
@@ -64,9 +63,7 @@ import Section5 from "@/components/Section5";
 import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
 import TechEnabledSection from "@/components/TechEnabledSection";
 import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
-import HomepageWorkProof from "@/components/HomepageWorkProof";
-import ApprovedQuotes from "@/components/ApprovedQuotes";
-import { homepageQuotes } from "@/lib/reviews/approvedQuotes";
+import HomepageOurWork from "@/components/HomepageOurWork";
 import ComparisonSection from "@/components/ComparisonSection";
 import GrowthSimulator from "@/components/GrowthSimulator";
 import MoneyBackGuaranteeSection from "@/components/MoneyBackGuaranteeSection";
@@ -110,15 +107,14 @@ export default function Page() {
       <div>
         <HeroSection />
 
-        {/* SHIFT HAPPENS + department index — one unified bone surface, no gap */}
+        {/* What do you need? — five plain choices (replaced Shift Happens + 16 departments) */}
         <div style={{ background: "#F2EFE9" }}>
-          <ShiftHappensSection />
           <div
             id="homepage-floating-controls-trigger"
             aria-hidden="true"
             className="h-px w-full"
           />
-          <OARCDepartmentIndex />
+          <HomepageNeedsSection />
         </div>
 
         {/* Stat ticker strip — original position, old logo strip style */}
@@ -141,8 +137,7 @@ export default function Page() {
         <TechEnabledSection />
 
         {/* One authoritative work record */}
-        <HomepageWorkProof />
-        <ApprovedQuotes quotes={homepageQuotes} />
+        <HomepageOurWork />
 
         {/* Why OARC - Comparison */}
         <ComparisonSection />
