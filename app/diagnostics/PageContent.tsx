@@ -160,6 +160,9 @@ export default function PageContent() {
 
   useEffect(() => {
     setMounted(true);
+    // Homepage industry chips link here as /diagnostics?industry=<id>.
+    const industry = new URLSearchParams(window.location.search).get("industry");
+    if (industry && verticals.some((v) => v.id === industry)) setSelectedVertical(industry);
   }, []);
 
   const vertical = verticals.find((v) => v.id === selectedVertical)!;

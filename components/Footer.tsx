@@ -80,7 +80,7 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
               </div>
               <div>
                 <dt className="text-zinc-500">Since</dt>
-                <dd className="text-lg text-[#F5F3EE]">2023 · €500 a month · No setup fee</dd>
+                <dd className="text-lg text-[#F5F3EE]">Founded 2023 in Birkirkara, Malta</dd>
               </div>
             </dl>
           </div>

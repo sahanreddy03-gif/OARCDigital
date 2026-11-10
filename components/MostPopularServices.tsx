@@ -1,339 +1,123 @@
 import Link from "next/link";
-import { ArrowUpRight, Sparkles } from "lucide-react";
 
-type AccentTheme = "amber" | "teal";
+/**
+ * "The pages Malta business owners read before they call us" — a short,
+ * numbered reading list into the main ranking pages. Every link the old
+ * glow-card grid had is kept (same hrefs and test ids) so no page loses its
+ * homepage link.
+ * Design system v3: paper ground, ink type, one black box with yellow text.
+ */
+type Tile = { label: string; href: string; title: string; blurb: string };
 
-type Tile = {
-  label: string;
-  href: string;
-  title: string;
-  blurb: string;
-  accent: AccentTheme;
-};
-
-const HERO: Tile = {
-  label: "Most searched · Malta",
-  href: "/aeo/digital-marketing-agency-malta",
-  title: "Digital Marketing Agency Malta",
-  blurb:
-    "Strategy, creative, paid, SEO, and AI under one roof — built and shipped from our Birkirkara studio.",
-  accent: "amber",
-};
-
-const SUPPORTING: Tile[] = [
+const PAGES: Tile[] = [
+  {
+    label: "Most searched",
+    href: "/aeo/digital-marketing-agency-malta",
+    title: "Digital Marketing Agency Malta",
+    blurb: "Strategy, creative, ads, SEO and AI under one roof, from our Birkirkara studio.",
+  },
   {
     label: "Buyer's guide",
     href: "/aeo/best-marketing-agency-malta",
     title: "Best Marketing Agency Malta 2026",
-    blurb:
-      "How to choose — and the five tests that separate the best from the rest.",
-    accent: "amber",
+    blurb: "How to choose an agency, and five tests that separate the best from the rest.",
   },
   {
-    label: "Agent marketplace",
-    href: "/agent-economy",
-    title: "AI Agent Economy Malta",
-    blurb:
-      "Marketing agents that work for you — SEO/AEO, creative, GBP, voice, outreach.",
-    accent: "amber",
-  },
-  {
-    label: "Service",
-    href: "/services/social-media-creative-management",
-    title: "Social Media Creative Management",
-    blurb:
-      "Editorial-grade social production for Malta's most discerning brands.",
-    accent: "teal",
-  },
-  {
-    label: "Service",
+    label: "AI staff",
     href: "/ai-agents",
     title: "AI Workforce Agents",
-    blurb: "Sales, support, bookings, ops — one AI team that runs 24/7.",
-    accent: "teal",
+    blurb: "Sales, support, bookings and admin. An AI team that works day and night.",
+  },
+  {
+    label: "Social",
+    href: "/services/social-media-creative-management",
+    title: "Social Media Creative Management",
+    blurb: "We plan, film, edit and post, so your feed looks as good as your business.",
+  },
+  {
+    label: "Automation",
+    href: "/automation",
+    title: "Automation & AI Systems",
+    blurb: "Replace the manual work your team hates, wired into the tools you already use.",
+  },
+  {
+    label: "Agents",
+    href: "/agent-economy",
+    title: "AI Agent Economy Malta",
+    blurb: "What AI agents can already do for SEO, creative, Google profile, voice and outreach.",
   },
 ];
 
-const WIDE: Tile = {
-  label: "Service",
-  href: "/automation",
-  title: "Automation & AI Systems",
-  blurb:
-    "Replace the manual workflows your team hates. Software that pays for itself, wired into the tools you already use.",
-  accent: "teal",
-};
-
-// Class strings expanded (not interpolated) so Tailwind JIT detects every utility.
-const ACCENTS: Record<
-  AccentTheme,
-  { eyebrow: string; glowCss: string; arrow: string; ring: string }
-> = {
-  amber: {
-    eyebrow: "text-orange-300",
-    glowCss:
-      "radial-gradient(circle at center, rgba(251,146,60,0.22) 0%, rgba(251,146,60,0.06) 40%, transparent 70%)",
-    arrow: "text-orange-300 group-hover:text-orange-200",
-    ring: "group-hover:border-orange-400/50 group-hover:shadow-[0_20px_60px_-20px_rgba(251,146,60,0.45)]",
-  },
-  teal: {
-    eyebrow: "text-teal-300",
-    glowCss:
-      "radial-gradient(circle at center, rgba(45,212,191,0.22) 0%, rgba(45,212,191,0.06) 40%, transparent 70%)",
-    arrow: "text-teal-300 group-hover:text-teal-200",
-    ring: "group-hover:border-teal-400/50 group-hover:shadow-[0_20px_60px_-20px_rgba(45,212,191,0.4)]",
-  },
-};
+const serif = { fontFamily: "var(--font-instrument-serif), Georgia, serif" };
 
 function testId(href: string) {
   return `link-popular-${href.replace(/[^a-z0-9]+/gi, "-")}`;
 }
 
-function CardShell({
-  tile,
-  className,
-  children,
-}: {
-  tile: Tile;
-  className?: string;
-  children: React.ReactNode;
-}) {
-  const a = ACCENTS[tile.accent];
-  return (
-    <Link
-      href={tile.href}
-      data-testid={testId(tile.href)}
-      className={[
-        "group relative isolate flex flex-col overflow-hidden rounded-2xl",
-        "border border-white/10 bg-white/[0.03] backdrop-blur-sm",
-        "transition-all duration-300 ease-out",
-        "hover:-translate-y-1 hover:bg-white/[0.05]",
-        "active:-translate-y-0.5 active:bg-white/[0.06] active:scale-[0.99]",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950",
-        a.ring,
-        className ?? "",
-      ].join(" ")}
-    >
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -top-1/3 -right-1/3 h-[120%] w-[120%] rounded-full opacity-70 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
-        style={{ backgroundImage: a.glowCss }}
-      />
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
-      />
-      <div className="relative z-10 flex h-full flex-col">{children}</div>
-    </Link>
-  );
-}
-
-
-function StandardCard({ tile }: { tile: Tile }) {
-  const a = ACCENTS[tile.accent];
-  return (
-    <CardShell tile={tile} className="p-6 md:p-7">
-      <div className="mb-5 flex items-start justify-between gap-3">
-        <span
-          className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${a.eyebrow}`}
-        >
-          {tile.label}
-        </span>
-        <ArrowUpRight
-          className={`h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${a.arrow}`}
-        />
-      </div>
-      <h3 className="mb-2 text-lg font-bold leading-snug text-white md:text-xl">
-        {tile.title}
-      </h3>
-      <p className="mt-auto text-sm leading-relaxed text-zinc-300/90">
-        {tile.blurb}
-      </p>
-    </CardShell>
-  );
-}
-
-function MediumCard({ tile }: { tile: Tile }) {
-  const a = ACCENTS[tile.accent];
-  return (
-    <CardShell tile={tile} className="lg:col-span-2 p-6 md:p-7">
-      <div className="mb-5 flex items-start justify-between gap-3">
-        <span
-          className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${a.eyebrow}`}
-        >
-          {tile.label}
-        </span>
-        <ArrowUpRight
-          className={`h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${a.arrow}`}
-        />
-      </div>
-      <h3 className="mb-2 text-lg font-bold leading-snug text-white md:text-xl lg:text-2xl">
-        {tile.title}
-      </h3>
-      <p className="mt-auto max-w-md text-sm leading-relaxed text-zinc-300/90 md:text-base">
-        {tile.blurb}
-      </p>
-    </CardShell>
-  );
-}
-
-function TallCard({ tile }: { tile: Tile }) {
-  const a = ACCENTS[tile.accent];
-  return (
-    <CardShell
-      tile={tile}
-      className="lg:row-span-2 min-h-[220px] lg:min-h-0 p-6 md:p-7"
-    >
-      <div className="mb-5 flex items-start justify-between gap-3">
-        <span
-          className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${a.eyebrow}`}
-        >
-          {tile.label}
-        </span>
-        <ArrowUpRight
-          className={`h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${a.arrow}`}
-        />
-      </div>
-      <h3 className="mb-3 text-lg font-bold leading-snug text-white md:text-xl">
-        {tile.title}
-      </h3>
-      <p className="text-sm leading-relaxed text-zinc-300/90">{tile.blurb}</p>
-      <div className="mt-auto hidden pt-6 lg:block">
-        <div className="flex items-center gap-2 border-t border-white/10 pt-4">
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-teal-400" />
-          <span className="text-[11px] font-medium uppercase tracking-wider text-zinc-400">
-            Live · 24/7 ops
-          </span>
-        </div>
-      </div>
-    </CardShell>
-  );
-}
-
-function HeroCard({ tile }: { tile: Tile }) {
-  const a = ACCENTS[tile.accent];
-  return (
-    <CardShell
-      tile={tile}
-      className="md:col-span-2 lg:col-span-3 lg:row-span-2 min-h-[320px] md:min-h-[380px] lg:min-h-[460px] p-7 md:p-9"
-    >
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(to_right,rgba(255,255,255,0.6)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.6)_1px,transparent_1px)] [background-size:48px_48px]"
-      />
-
-      <div className="mb-6 flex items-start justify-between gap-3">
-        <span
-          className={`inline-flex items-center gap-2 rounded-full border border-orange-400/30 bg-orange-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] ${a.eyebrow}`}
-        >
-          <Sparkles className="h-3.5 w-3.5" />
-          {tile.label}
-        </span>
-        <ArrowUpRight
-          className={`h-5 w-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${a.arrow}`}
-        />
-      </div>
-
-      <h3 className="mb-4 text-2xl font-bold leading-tight text-white md:text-3xl lg:text-4xl">
-        {tile.title}
-      </h3>
-      <p className="max-w-md text-base leading-relaxed text-zinc-200/90 md:text-lg">
-        {tile.blurb}
-      </p>
-
-      <div className="mt-auto border-t border-white/10 pt-6">
-        <p className="text-xs font-medium uppercase tracking-wider text-zinc-400">
-          Start with the public point of view
-        </p>
-      </div>
-    </CardShell>
-  );
-}
-
-function WideCard({ tile }: { tile: Tile }) {
-  const a = ACCENTS[tile.accent];
-  return (
-    <CardShell tile={tile} className="md:col-span-2 lg:col-span-6 p-7 md:p-8">
-      <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-        <div className="flex-1">
-          <div className="mb-3 flex items-center gap-3">
-            <span
-              className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${a.eyebrow}`}
-            >
-              {tile.label}
-            </span>
-            <span className="h-px flex-1 bg-gradient-to-r from-white/15 to-transparent md:max-w-[80px]" />
-          </div>
-          <h3 className="mb-2 text-xl font-bold leading-snug text-white md:text-2xl">
-            {tile.title}
-          </h3>
-          <p className="max-w-2xl text-sm leading-relaxed text-zinc-300/90 md:text-base">
-            {tile.blurb}
-          </p>
-        </div>
-        <div className="flex items-center gap-2 self-start md:self-auto">
-          <span className={`text-sm font-medium ${a.eyebrow}`}>
-            Explore the system
-          </span>
-          <ArrowUpRight
-            className={`h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${a.arrow}`}
-          />
-        </div>
-      </div>
-    </CardShell>
-  );
-}
-
 export default function MostPopularServices() {
   return (
     <section
-      className="relative overflow-hidden bg-zinc-950 py-20 text-white md:py-28"
+      aria-labelledby="homepage-popular-title"
+      className="bg-[#F5F3EE] px-4 py-20 text-[#0E0E0E] md:px-10 md:py-28"
       data-testid="section-most-popular-services"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-0"
-      >
-        <div className="absolute -top-40 -left-32 h-[520px] w-[520px] rounded-full bg-orange-500/15 blur-[120px]" />
-        <div className="absolute -bottom-40 -right-32 h-[520px] w-[520px] rounded-full bg-teal-500/10 blur-[140px]" />
-        <div className="absolute inset-0 opacity-[0.04] [background-image:radial-gradient(rgba(255,255,255,0.8)_1px,transparent_1px)] [background-size:32px_32px]" />
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12">
-        {/* Header */}
-        <div className="mb-12 flex flex-col gap-6 md:mb-14 md:flex-row md:items-end md:justify-between">
-          <div>
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-orange-500/25 bg-orange-500/10 px-3 py-1">
-              <Sparkles className="h-3.5 w-3.5 text-orange-300" />
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-300">
-                Most Popular Right Now
-              </span>
-            </div>
-            <h2 className="max-w-2xl text-3xl font-bold leading-[1.1] tracking-tight md:text-4xl lg:text-5xl">
-              The pages Malta business owners read before they call us
-            </h2>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-zinc-400 md:text-base">
-              These are the clearest entry points into OARC’s services, products, and operating point of view
-              before you ever fill in a form.
-            </p>
-          </div>
+      <div className="mx-auto max-w-[1180px]">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <h2
+            id="homepage-popular-title"
+            className="max-w-3xl text-[clamp(2.6rem,6vw,5rem)] font-normal leading-[.95] tracking-[-0.02em]"
+            style={serif}
+          >
+            The pages Malta business owners read
+            <br />
+            <span className="mt-2 inline-block rounded-md bg-[#0E0E0E] px-3 pb-1 italic text-[#F9FF84]">
+              before they call us.
+            </span>
+          </h2>
           <Link
             href="/services"
             data-testid="link-most-popular-all-services"
-            className="group inline-flex items-center gap-2 self-start rounded-full border border-white/15 bg-white/[0.04] px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition-all duration-200 hover:border-orange-400/40 hover:bg-white/[0.08] active:bg-white/[0.12] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 md:self-auto"
+            className="shrink-0 self-start border-b border-[#0E0E0E]/30 pb-1 text-sm font-semibold hover:border-[#0E0E0E] md:self-auto"
           >
-            See all services
-            <ArrowUpRight className="h-4 w-4 text-orange-300 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+            See all services →
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-6 lg:auto-rows-fr">
-          <HeroCard tile={HERO} />
-          <MediumCard tile={SUPPORTING[0]} />
-          <TallCard tile={SUPPORTING[3]} />
-          <StandardCard tile={SUPPORTING[1]} />
-          <StandardCard tile={SUPPORTING[2]} />
-          <WideCard tile={WIDE} />
-        </div>
+        <ol className="mt-12 border-t border-[#0E0E0E]/20 md:mt-16">
+          {PAGES.map((page, i) => (
+            <li key={page.href} className="border-b border-[#0E0E0E]/20">
+              <Link
+                href={page.href}
+                data-testid={testId(page.href)}
+                className="group grid grid-cols-[2.25rem_1fr_auto] items-baseline gap-x-4 py-6 transition-colors md:grid-cols-[3rem_1.1fr_1fr_auto] md:gap-x-8 md:py-7"
+              >
+                <span className="text-sm font-semibold tabular-nums text-[#0E0E0E]/40">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span>
+                  <span className="block text-xs font-semibold uppercase tracking-[0.12em] text-[#0E0E0E]/50">
+                    {page.label}
+                  </span>
+                  <span
+                    className="mt-1.5 block text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.02] transition-transform duration-300 group-hover:translate-x-1"
+                    style={serif}
+                  >
+                    {page.title}
+                  </span>
+                </span>
+                <span className="col-start-2 mt-2 text-[15px] leading-snug text-[#0E0E0E]/65 md:col-start-auto md:mt-0">
+                  {page.blurb}
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="col-start-3 row-start-1 grid h-10 w-10 place-items-center self-center rounded-full border border-[#0E0E0E]/25 transition-colors group-hover:border-transparent group-hover:bg-[#0E0E0E] group-hover:text-[#F9FF84] md:col-start-auto md:row-start-auto"
+                >
+                  →
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
