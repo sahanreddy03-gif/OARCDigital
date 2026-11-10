@@ -61,7 +61,9 @@ export default function HomepageWhyOarc() {
           >
             Why OARC
             <br />
-            <span className="mt-2 inline-block rounded-md bg-[#0E0E0E] px-3 pb-1 italic text-[#F9FF84]">Digital.</span>
+            <em>
+              Digital<span className="text-[#FF4B4B]">.</span>
+            </em>
           </h2>
           <p className="oarc-reveal max-w-xl text-lg leading-relaxed text-[#0E0E0E]/80 md:text-xl">
             OARC Digital is a marketing agency in {NAP.addressLocality}, Malta, founded in 2023. One team handles

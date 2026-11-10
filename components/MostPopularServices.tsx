@@ -70,9 +70,7 @@ export default function MostPopularServices() {
           >
             The pages Malta business owners read
             <br />
-            <span className="mt-2 inline-block rounded-md bg-[#0E0E0E] px-3 pb-1 italic text-[#F9FF84]">
-              before they call us.
-            </span>
+            <em className="text-[#0E0E0E]/55">before they call us.</em>
           </h2>
           <Link
             href="/services"
