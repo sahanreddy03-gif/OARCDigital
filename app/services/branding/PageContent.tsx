@@ -26,7 +26,8 @@ const brandingFAQs: FAQItem[] = [
   { question: "Can branding connect to social, video, and AI?", answer: "Yes. Branding is the system; Creative, video, social management, and AI agents apply it so the feed, site, and phone answers feel like the same business." },
   { question: "Who owns the brand files?", answer: "You do. Source and delivery files transfer on engagement close. OARC does not lock your identity behind a retainer." },
   { question: "Who is OARC Digital?", answer: "OARC Digital is a Birkirkara marketing and AI studio at The Brewhouse—creative, AI agents, Voice AI Worker, and automation under one team. Phone +356 7971 1799." },
-  { question: "Where should I go next after branding?", answer: "Usually Creative for ongoing assets, or AI agents / Voice AI Worker if missed enquiries are the leak. See also /creative, /ai-agents, and /solutions." }
+  { question: "Where should I go next after branding?", answer: "Usually Creative for ongoing assets, or AI agents / Voice AI Worker if missed enquiries are the leak. See also /creative, /ai-agents, and /solutions." },
+  { question: "How much does branding cost in Malta with OARC?", answer: "Brand projects are quoted as a fixed scope after a 20-minute call, so you know the price before work starts. Ongoing brand, social and filming work runs inside OARC Digital's whole marketing team for €500 a month, with no setup fee." },
 ];
 
 export default function Branding() {

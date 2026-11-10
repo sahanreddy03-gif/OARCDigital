@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   keywords:
     "AI agent economy Malta, marketing agents that work for you, agentic web Malta, AEO GEO LEO, capability registry, MCP action endpoints, SEO AEO agent, GBP agent, voice agent Malta, OARC Digital Birkirkara",
-  alternates: getHreflangAlternates("/agent-economy", { canonical: URL }),
+  alternates: getHreflangAlternates("/agent-economy", { canonical: "https://oarcdigital.com/agent-economy" }),
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,

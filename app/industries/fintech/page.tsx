@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 import Link from "next/link";
 import styles from "./fintech.module.css";
 
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     "Brand, websites and demand systems for Malta fintech teams working across payments, EMI, RegTech and B2B finance.",
   alternates: { canonical: CANONICAL },
   openGraph: {
+    images: ogImageEntry({ title: "Fintech marketing in Malta", subtitle: "Compliance-ready landing pages and credible pipeline for Malta fintech teams." }),
     title: "Fintech marketing in Malta | OARC Digital",
     description:
       "Compliance-ready landing pages and credible pipeline for Malta fintech teams.",
@@ -76,7 +78,7 @@ export default function FintechMaltaIndustryHub() {
             <Link href="/contact" className={styles.circleLink}>Book a call <span>↗</span></Link>
           </div>
           <div className={styles.heroArt} aria-hidden="true">
-            <img src={`${media}/EmEeE3nEnsYtcfk6OkPsVDAiEc.png`} alt="" />
+            <img src={`${media}/EmEeE3nEnsYtcfk6OkPsVDAiEc.png`} alt="" aria-hidden="true" />
           </div>
         </section>
 
@@ -109,7 +111,7 @@ export default function FintechMaltaIndustryHub() {
           <div className={styles.sectionLabel}><span>03</span><span>READS</span></div>
           <div className={styles.readsHeading}><h2>Notes for the<br /><em>regulated world.</em></h2><Link href="/journal">View all reads +</Link></div>
           <div className={styles.readsGrid}>
-            {reads.map(([title, copy], i) => <Link href="/journal" className={styles.readCard} key={title}><img src={`${media}/${["qnF48NDkND2wwflYUqb0gqBsOQ.png","S2SuZiZulrtvLrs30SjQSv40.png","EmEeE3nEnsYtcfk6OkPsVDAiEc.png"][i]}`} alt="" /><span>0{i + 1} / NOTE</span><h3>{title}</h3><p>{copy}</p></Link>)}
+            {reads.map(([title, copy], i) => <Link href="/journal" className={styles.readCard} key={title}><img src={`${media}/${["qnF48NDkND2wwflYUqb0gqBsOQ.png","S2SuZiZulrtvLrs30SjQSv40.png","EmEeE3nEnsYtcfk6OkPsVDAiEc.png"][i]}`} alt="" aria-hidden="true" /><span>0{i + 1} / NOTE</span><h3>{title}</h3><p>{copy}</p></Link>)}
           </div>
         </section>
 

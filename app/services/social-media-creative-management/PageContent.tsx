@@ -17,7 +17,8 @@ const socialCreativeManagementFAQs: FAQItem[] = [
   { question: "Do you handle community management?", answer: "Yes when scoped. Brand voice stays consistent, and high-intent messages can hand to AI agents or humans." },
   { question: "Can we approve content before posting?", answer: "Yes. Full approval workflows or trusted retainer cadence—your choice." },
   { question: "Who is OARC Digital?", answer: "OARC Digital is a Birkirkara creative and AI studio at The Brewhouse. Social creative management sits beside brand, video, AI agents, and Voice AI Worker. Phone +356 7971 1799." },
-  { question: "Where should owners go if phones or follow-up are the leak?", answer: "Voice AI Worker for missed calls, AI agents for chat/CRM follow-up, Solutions for automation—see /voice-ai-worker, /ai-agents, and /solutions." }
+  { question: "Where should owners go if phones or follow-up are the leak?", answer: "Voice AI Worker for missed calls, AI agents for chat/CRM follow-up, Solutions for automation—see /voice-ai-worker, /ai-agents, and /solutions." },
+  { question: "How much does social media management cost in Malta with OARC?", answer: "Social media is part of OARC Digital's whole marketing team for €500 a month: strategy, filming, posts and Reels, Meta ads, your website and enquiry follow-up, with no setup fee." },
 ];
 import { 
   ArrowRight, CheckCircle2, Zap, BarChart3, Wand2, Network,

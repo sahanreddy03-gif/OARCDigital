@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 import RouteSchema from "@/components/RouteSchema";
 import VoiceAIExperience from "./VoiceAIExperience";
 
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "https://oarcdigital.com/voice-ai-worker" },
-  openGraph: { title, description, url: "https://oarcdigital.com/voice-ai-worker", type: "website" },
+  openGraph: { images: ogImageEntry({ title, subtitle: description }), title, description, url: "https://oarcdigital.com/voice-ai-worker", type: "website" },
   twitter: { card: "summary_large_image", title: "Voice AI Worker", description },
 };
 
