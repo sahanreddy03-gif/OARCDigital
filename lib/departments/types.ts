@@ -1,37 +1,21 @@
-/** Shared shape for the 15 department pages (/services/growth, …). */
+/**
+ * Department pages (/services/growth, …). The page body is the owner's own
+ * department content from components/DepartmentDetailModal.tsx (one source for
+ * the pop-up and the page). This file holds only the search layer around it.
+ */
 
-export const INK = "#0E0E0E";
-export const PAPER = "#F5F3EE";
-export const YELLOW = "#F9FF84";
-export const COBALT = "#0035AD";
-export const RED = "#FF4B4B";
-
-export type DeptStep = {
-  title: string;
-  short: string;
-  text: string;
-  who: string;
-  stat: string;
-  statText: string;
-  viz: string;
-  vizLabel: string;
-  tom?: boolean;
-};
-
-export type DepartmentData = {
+export type DeptSeo = {
+  /** Key in DepartmentDetailModal's content map, e.g. "Growth". */
+  dept: string;
   path: string;
   title: string;
   description: string;
-  hook: string;
-  keywordLine: string;
+  /** Plain search phrase for the breadcrumb and summary, e.g. "Growth marketing". */
+  keyword: string;
+  /** Answer-first entity sentence (what AI assistants quote). */
   answer: string;
   bestFor: string;
-  journey: { title: string; intro: string; from: string; to: string };
-  steps: DeptStep[];
-  compare: { title: string; rows: [string, string, string][] };
-  guarantee: { title: string; text: string };
   faqs: { question: string; answer: string }[];
-  cta: { title: string; text: string };
   related: { label: string; href: string }[];
   updated: string;
 };
@@ -43,4 +27,12 @@ export const TRUST = [
   { big: "20+", small: "Brands trust us, from BrewDog to Kreta" },
   { big: "Certified", small: "Certified talent in ads, content and AI" },
   { big: "AI-native", small: "Malta's first AI-native marketing agency" },
+] as const;
+
+export const LOGOS = [
+  { name: "Kreta", src: "/brand-logos/recreated/kreta.svg" },
+  { name: "BrewDog", src: "/brand-logos/normalized/brewdog.png" },
+  { name: "32Red", src: "/brand-logos/normalized/32red.png" },
+  { name: "The Alchemist", src: "/brand-logos/recreated/alchemist.svg" },
+  { name: "Palino", src: "/brand-logos/normalized/palino.png" },
 ] as const;

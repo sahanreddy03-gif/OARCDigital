@@ -168,7 +168,9 @@ export const allServiceSlugs = [
   'growth',
   'sales',
   'media',
-  'social'
+  'social',
+  // Owner-approved department page (2026-11-10)
+  'enquiries'
 ] as const;
 
 // All valid case study slugs (from App.tsx routes - canonical names only)
