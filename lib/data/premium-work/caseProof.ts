@@ -155,7 +155,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
     client: "MCW CBD Relax Shop",
     confidential: false,
     stats: [
-      { value: "EUR 20,000", label: "Sales generated" },
+      { value: "€20,000", label: "Sales generated" },
       { value: "#1", label: "On Google in Malta in 3 months" },
       { value: "+30%", label: "Sales, month on month" },
     ],
