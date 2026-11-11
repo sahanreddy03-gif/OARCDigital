@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import AIStaffPageClient from "./AIStaffPageClient";
 import { ogImageEntry } from "@/lib/seo/ogImageUrl";
+import Footer from "@/components/Footer";
 
 const TITLE = "AI Staff Malta | Hire AI Employees | OARC";
 const DESCRIPTION =
@@ -123,20 +124,24 @@ export default function AIStaffPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(LD) }}
       />
       <AIStaffPageClient />
-      <p data-speakable data-testid="dept-entity-sentence" style={{background:"#0E0D0C",color:"rgba(242,239,233,.75)",margin:0,padding:"1.5rem 22px 0",fontSize:13,lineHeight:1.75,maxWidth:"58ch"}}>
-        OARC Digital is a Birkirkara AI staff partner for Malta owners who need sales, support, booking, and admin covered by AI employees—with human handoff—and the same team for creative and voice.
-      </p>
-      <p className="px-6 pb-10 text-sm text-muted-foreground" data-testid="dept-money-links" style={{background:"#0E0D0C",color:"rgba(242,239,233,.55)",margin:0,padding:"1.25rem 22px 1rem"}}>
-        Explore: <a href="/" style={{color:"#F2EFE9"}}>Home</a>
-        {" · "}<a href="/creative" style={{color:"#F2EFE9"}}>Creative</a>
-        {" · "}<a href="/ai-agents" style={{color:"#F2EFE9"}}>AI agents</a>
-        {" · "}<a href="/solutions" style={{color:"#F2EFE9"}}>Solutions</a>
-        {" · "}<a href="/services/automation" style={{color:"#F2EFE9"}}>Automation</a>
-        {" · "}<a href="/services/seo-services" style={{color:"#F2EFE9"}}>SEO</a>
-        {" · "}<a href="/voice-ai-worker" style={{color:"#F2EFE9"}}>Voice AI Worker</a>
-        {" · "}<a href="/h360" style={{color:"#F2EFE9"}}>H360</a>
-        {" · "}<a href="/malta" style={{color:"#F2EFE9"}}>Malta hubs</a>
-      </p>
+      {/* The closing lines sit on a full-width band, then the site footer, so the page ends properly. */}
+      <div style={{ background: "#0E0D0C" }}>
+        <p data-speakable data-testid="dept-entity-sentence" style={{background:"#0E0D0C",color:"rgba(242,239,233,.75)",margin:0,padding:"1.5rem 22px 0",fontSize:13,lineHeight:1.75,maxWidth:"58ch"}}>
+          OARC Digital is a Birkirkara AI staff partner for Malta owners who need sales, support, booking, and admin covered by AI employees—with human handoff—and the same team for creative and voice.
+        </p>
+        <p className="px-6 pb-10 text-sm text-muted-foreground" data-testid="dept-money-links" style={{background:"#0E0D0C",color:"rgba(242,239,233,.55)",margin:0,padding:"1.25rem 22px 1rem"}}>
+          Explore: <a href="/" style={{color:"#F2EFE9"}}>Home</a>
+          {" · "}<a href="/creative" style={{color:"#F2EFE9"}}>Creative</a>
+          {" · "}<a href="/ai-agents" style={{color:"#F2EFE9"}}>AI agents</a>
+          {" · "}<a href="/solutions" style={{color:"#F2EFE9"}}>Solutions</a>
+          {" · "}<a href="/services/automation" style={{color:"#F2EFE9"}}>Automation</a>
+          {" · "}<a href="/services/seo-services" style={{color:"#F2EFE9"}}>SEO</a>
+          {" · "}<a href="/voice-ai-worker" style={{color:"#F2EFE9"}}>Voice AI Worker</a>
+          {" · "}<a href="/h360" style={{color:"#F2EFE9"}}>H360</a>
+          {" · "}<a href="/malta" style={{color:"#F2EFE9"}}>Malta hubs</a>
+        </p>
+      </div>
+      <Footer />
       <p className="px-6 pb-10 text-sm" data-testid="dept-malta-location-links" style={{background:"#0E0D0C",color:"rgba(242,239,233,.45)",margin:0,padding:"0 22px 2.5rem"}}>
         Malta markets: <a href="/malta/valletta" style={{color:"#F2EFE9"}}>Valletta</a>
         {" · "}<a href="/malta/sliema" style={{color:"#F2EFE9"}}>Sliema</a>
