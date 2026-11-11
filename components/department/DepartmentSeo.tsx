@@ -2,6 +2,7 @@ import Link from "next/link";
 import { homepageQuotes, servicesHubQuotes, whyOarcQuotes } from "@/lib/reviews/approvedQuotes";
 import { NAP } from "@/lib/seo/nap";
 import { LOGOS, TRUST, type DeptSeo } from "@/lib/departments/types";
+import { CLIENT_CASE_STUDIES } from "@/lib/data/premium-work/clientCaseStudies";
 import LeakCheck from "./LeakCheck";
 
 /**
@@ -46,6 +47,121 @@ export function DeptTop({ data, tone }: { data: DeptSeo; tone: "light" | "dark" 
   );
 }
 
+/**
+ * Real client work for each department, from the Our Work records (name, photo and the
+ * recorded scope only; no result figures are claimed here). Keys are /our-work slugs.
+ */
+const WORK_NAMES: Record<string, string> = {
+  "louisiana-mama": "Louisiana Mama",
+  palino: "Palino",
+  "ricky-jr-burger": "Ricky Jr Burger",
+  "mcw-cbd": "MCW CBD Relax Shop",
+  "calle-bistro": "Calle Bistro",
+  kreta: "Kreta",
+  "tiffany": "Tiffany Lounge",
+  "massive-fan-zone": "Spinola Bay Fan Zone",
+  "spinola-gin-fest": "Spinola Gin Fest",
+};
+const WORK_BY_DEPT: Record<string, string[]> = {
+  Growth: ["calle-bistro", "kreta", "louisiana-mama"],
+  Sales: ["louisiana-mama", "tiffany", "calle-bistro"],
+  Media: ["calle-bistro", "massive-fan-zone", "spinola-gin-fest"],
+  Social: ["ricky-jr-burger", "palino", "louisiana-mama"],
+  Clarity: ["calle-bistro", "kreta", "mcw-cbd"],
+  "AI Staff": ["louisiana-mama", "tiffany", "calle-bistro"],
+  Creative: ["palino", "tiffany", "spinola-gin-fest"],
+  Operations: ["louisiana-mama", "tiffany", "mcw-cbd"],
+  Automation: ["louisiana-mama", "tiffany", "calle-bistro"],
+  Transformation: ["mcw-cbd", "tiffany", "louisiana-mama"],
+  Reputation: ["mcw-cbd", "kreta", "calle-bistro"],
+  Brand: ["palino", "louisiana-mama", "ricky-jr-burger"],
+  Enquiries: ["louisiana-mama", "tiffany", "calle-bistro"],
+};
+
+/** Every client named in the approved quotes, the logo strip and the Our Work records. */
+const CLIENT_WALL = [
+  "BrewDog", "32Red", "The Alchemist", "Kreta", "Palino", "Louisiana Mama", "Calle Bistro", "Tiffany Lounge",
+  "Ricky Jr Burger", "MCW CBD Relax Shop", "Bay Street Group", "Eden Leisure Group", "Dhalia Real Estate Services",
+  "CSB Group", "Camilleri Preziosi", "Polidano Group", "G3 Group", "Carmelo Abela Group",
+  "Cynergi Health & Fitness Club", "Jatco Insurance Brokers", "Fahrenheit Logistics", "Rent Anytime",
+];
+
+function RealWork({ dept }: { dept: string }) {
+  const items = (WORK_BY_DEPT[dept] ?? [])
+    .map((slug) => ({ slug, study: CLIENT_CASE_STUDIES[slug] }))
+    .filter((x) => x.study);
+  if (items.length === 0) return null;
+  return (
+    <section aria-labelledby="dept-work" className="bg-[#0E0E0E] px-5 py-16 text-[#F5F3EE] md:py-24">
+      <div className="mx-auto max-w-[980px]">
+        <h2 id="dept-work" className={H2} style={serif}>
+          We don&apos;t just say it. <em className="text-[#F9FF84]" style={{ fontFamily: "var(--font-instrument-serif), Georgia, serif" }}>We&apos;ve done it.</em>
+        </h2>
+        <ul className="mt-10 border-t border-[#F5F3EE]/30">
+          {items.map(({ slug, study }) => (
+            <li key={slug} className="border-b border-[#F5F3EE]/30">
+              <Link href={`/our-work/${slug}`} className="group grid gap-x-8 gap-y-2 py-6 md:grid-cols-[1fr_1.2fr_auto] md:items-baseline">
+                <span className="text-[clamp(2.2rem,5vw,3.4rem)] leading-none" style={serif}>
+                  {WORK_NAMES[slug]}
+                </span>
+                <span className="text-xl leading-snug">{study.facts.slice(0, 2).join(". ")}.</span>
+                <span aria-hidden="true" className="text-[28px] leading-none transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-10 text-lg font-semibold">And the brands that trust us:</p>
+        <p className="mt-3 text-[clamp(1.5rem,3vw,2.1rem)] leading-[1.25]" style={serif}>
+          {CLIENT_WALL.join(" · ")}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/**
+ * Example phone screens: what the owner sees on their phone when the service is working.
+ * Illustrations, labelled "Example" on the page. Not client results.
+ */
+const PHONE: Record<string, [string, string][]> = {
+  Sales: [["New lead", "Replied in 4 seconds"], ["Call booked", "Tuesday, 10:30"], ["Quote accepted", "Deal closed"]],
+  Media: [["Ad A", "14 enquiries this week"], ["Ad B", "Paused. Not working"], ["Budget moved", "To the ad that sells"]],
+  Social: [["Reel posted", "09:00, as planned"], ["New message", "\u201cDo you have a table tonight?\u201d"], ["Booked", "Table for 4, 20:30"]],
+  Clarity: [["Google", "18 customers"], ["Instagram ads", "9 customers"], ["Flyers", "0 customers. Cut it"]],
+  "AI Staff": [["Call at 23:14", "Answered by Tom"], ["Booking made", "Thursday, 14:00"], ["Passed to you", "1 tricky question"]],
+  Creative: [["New video", "Ready to post"], ["New ad set", "6 versions"], ["Brand kit", "Updated"]],
+  Operations: [["Invoices", "Sent automatically"], ["Reminders", "12 sent today"], ["Weekly report", "Ready"]],
+  Automation: [["New lead", "Logged and answered"], ["Follow-up", "Sent on day 2"], ["Booked", "Added to calendar"]],
+  Transformation: [["Orders", "All in one place"], ["Stock", "Updated live"], ["Team", "Same screen"]],
+  Reputation: [["New review", "5 stars"], ["Press", "Story published"], ["Mentions", "Up this week"]],
+  Brand: [["Logo", "One version, everywhere"], ["Website", "Matches the shop"], ["Posts", "Look like you"]],
+  Enquiries: [["WhatsApp, 02:10", "Answered in 4 seconds"], ["Instagram DM", "Answered in 4 seconds"], ["Booked", "Saturday, 13:00"]],
+};
+
+function PhoneMock({ dept }: { dept: string }) {
+  const rows = PHONE[dept];
+  if (!rows) return null;
+  return (
+    <figure className="mx-auto w-[260px] shrink-0 md:mx-0">
+      <div className="rounded-[38px] border-[6px] border-[#F5F3EE]/90 bg-[#0E0E0E] p-3">
+        <div className="mx-auto mb-3 h-1.5 w-16 rounded-full bg-[#F5F3EE]/40" />
+        <ul className="flex flex-col gap-2.5">
+          {rows.map(([top, bottom], i) => (
+            <li key={top} className={`rounded-2xl p-4 ${i === rows.length - 1 ? "bg-[#F9FF84] text-[#0E0E0E]" : "bg-[#F5F3EE] text-[#0E0E0E]"}`}>
+              <span className="block text-base font-semibold leading-tight">{top}</span>
+              <span className="mt-1 block text-base leading-snug">{bottom}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="mx-auto mt-3 h-1 w-24 rounded-full bg-[#F5F3EE]/40" />
+      </div>
+      <figcaption className="mt-3 text-center text-base text-[#F5F3EE]/80">Example of your phone on a normal day.</figcaption>
+    </figure>
+  );
+}
+
 /** What happens after they contact us: the whole journey in 4 short steps. */
 const NEXT: [string, string][] = [
   ["You book the free check.", "20 minutes, on a call. No preparation needed."],
@@ -72,8 +188,9 @@ export function DeptIntro({ data }: { data: DeptSeo }) {
   return (
     <div style={sans}>
       <section className="bg-[#0E0E0E] px-5 pb-16 pt-6 text-[#F5F3EE] md:pb-24">
-        <div className="mx-auto max-w-[980px]">
-          <h1 className="text-[clamp(3rem,8.6vw,6.4rem)] font-normal leading-[.92] tracking-[-0.02em]" style={serif}>
+        <div className="mx-auto grid max-w-[1080px] gap-12 md:grid-cols-[1fr_auto] md:items-center">
+         <div>
+          <h1 className="text-[clamp(3rem,7.4vw,5.6rem)] font-normal leading-[.92] tracking-[-0.02em]" style={serif}>
             {intro.lead}{" "}
             <em className="text-[#F9FF84]" style={{ fontFamily: "var(--font-instrument-serif), Georgia, serif" }}>
               {intro.punch}
@@ -91,6 +208,8 @@ export function DeptIntro({ data }: { data: DeptSeo }) {
               See what happens next
             </a>
           </div>
+         </div>
+         <PhoneMock dept={data.dept} />
         </div>
       </section>
 
@@ -160,6 +279,8 @@ export function DeptBottom({ data }: { data: DeptSeo }) {
   const check = data.offer.name.replace(/^The /, "the ");
   return (
     <div className="text-[#0E0E0E]" style={sans}>
+      <RealWork dept={data.dept} />
+
       {data.leak && <LeakCheck steps={data.leak} offerName={data.offer.name} />}
 
       {/* Proof, in the middle: The table (espresso ground, paper words, one yellow signal) */}
