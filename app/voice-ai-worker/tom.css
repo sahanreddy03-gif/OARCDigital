@@ -1824,3 +1824,103 @@
 @media (max-width: 900px) {
   .tom-v2 .tom-example { justify-self: start; }
 }
+
+/* ── v2 palette (Notion design system v3) ─────────────────────────────────────
+   Two grounds, ink and paper, with paper or ink words. Yellow appears once per
+   screen, on the main button. One cobalt section closes the page (cobalt = AI,
+   the fix). Mint, red and the green tints are gone; so are the decorative text
+   labels. Still scoped to .tom-v2. */
+.tom-v2 {
+  --ink: #0e0e0e;
+  --paper: #f5f3ee;
+  --white: #f5f3ee;
+  --signal: #f5f3ee;
+  --mint: #cfcbc2;
+  --line: rgba(14, 14, 14, 0.16);
+  --dark-line: rgba(245, 243, 238, 0.2);
+  background: #0e0e0e;
+}
+.tom-v2 .tom-light,
+.tom-v2 .tom-promise,
+.tom-v2 .tom-proof-led { --signal: #0e0e0e; }
+
+/* Grounds */
+.tom-v2 .tom-hero { background: #0e0e0e; }
+.tom-v2 .tom-hero-still { filter: grayscale(1) brightness(0.5) contrast(1.05); }
+.tom-v2 .tom-section,
+.tom-v2 .tom-section:nth-of-type(odd),
+.tom-v2 .tom-campaign-scene,
+.tom-v2 .tom-force { background: #0e0e0e; color: #f5f3ee; }
+.tom-v2 .tom-section.tom-light,
+.tom-v2 .tom-promise,
+.tom-v2 .tom-proof-led { background: #f5f3ee; color: #0e0e0e; }
+.tom-v2 .tom-campaign-scene::before { display: none; }
+
+/* Words: full strength on both grounds */
+.tom-v2 .tom-copy,
+.tom-v2 .tom-lead,
+.tom-v2 .tom-card p,
+.tom-v2 .tom-list li,
+.tom-v2 .tom-faq p,
+.tom-v2 .tom-hero-flow small { color: inherit; opacity: 1; }
+.tom-v2 .tom-hero .tom-lead,
+.tom-v2 .tom-hero-flow small { color: rgba(245, 243, 238, 0.86); }
+.tom-v2 .tom-hero-flow strong { color: #f5f3ee; }
+
+/* Small labels: one neutral colour, no "//" and no decorative system text */
+.tom-v2 .tom-kicker { color: rgba(245, 243, 238, 0.72) !important; }
+.tom-v2 .tom-light .tom-kicker,
+.tom-v2 .tom-promise .tom-kicker,
+.tom-v2 .tom-proof-led .tom-kicker { color: rgba(14, 14, 14, 0.7) !important; }
+.tom-v2 .tom-kicker::before,
+.tom-v2 .tom-force::before,
+.tom-v2 .tom-graph::after,
+.tom-v2 .tom-promise::after { display: none; }
+.tom-v2 .tom-support { color: rgba(14, 14, 14, 0.75); }
+
+/* Cards: flat, one hairline, the section's own words colour */
+.tom-v2 .tom-card,
+.tom-v2 .tom-force .tom-card { background: rgba(245, 243, 238, 0.06); border-color: rgba(245, 243, 238, 0.2); color: #f5f3ee; box-shadow: none; }
+.tom-v2 .tom-card:hover,
+.tom-v2 .tom-force .tom-card:hover { background: rgba(245, 243, 238, 0.1); }
+.tom-v2 .tom-light .tom-card { background: #ffffff; border-color: rgba(14, 14, 14, 0.14); color: #0e0e0e; }
+.tom-v2 .tom-light .tom-card:hover { background: #ffffff; }
+.tom-v2 .tom-card h3,
+.tom-v2 .tom-card p { color: inherit; }
+.tom-v2 .tom-card strong { color: inherit; opacity: 0.7; }
+.tom-v2 .tom-card::before { opacity: 0.5; }
+
+/* The worked example panels */
+.tom-v2 .tom-panel:first-child { background: #0e0e0e; color: #f5f3ee; }
+.tom-v2 .tom-panel:last-child { background: #ffffff; color: #0e0e0e; }
+.tom-v2 .tom-graph { background-color: #ffffff; }
+.tom-v2 .tom-graph path[stroke="#c8102e"] { stroke: #0e0e0e; }
+
+/* Buttons: sentence case, readable. Yellow is the one signal: the main action. */
+.tom-v2 .tom-button { font-family: var(--tom-read); font-size: 1rem; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.tom-v2 .tom-button--red { border-color: #f9ff84; background: #f9ff84; color: #0e0e0e; }
+.tom-v2 .tom-button--red:hover,
+.tom-v2 .tom-button--red:focus-visible { background: #f5f3ee; border-color: #f5f3ee; color: #0e0e0e; }
+.tom-v2 .tom-example__note::before { background: #0e0e0e; outline: 0; }
+
+/* Industry links */
+.tom-v2 .tom-industry-link:hover,
+.tom-v2 .tom-industry-link:focus-visible { color: inherit; text-decoration: underline; }
+
+/* "The work is the product": 4 steps */
+.tom-v2 .tom-workflow { margin: 0; padding: 0; list-style: none; max-width: 34rem; justify-self: end; width: 100%; }
+.tom-v2 .tom-workflow li { position: relative; display: grid; grid-template-columns: 3rem 1fr; gap: 1.2rem; padding-bottom: 2rem; }
+.tom-v2 .tom-workflow li:last-child { padding-bottom: 0; }
+.tom-v2 .tom-workflow li:not(:last-child)::after { content: ""; position: absolute; left: 1.5rem; top: 3rem; bottom: 0; width: 1px; background: rgba(245, 243, 238, 0.35); }
+.tom-v2 .tom-workflow__n { display: grid; place-items: center; width: 3rem; height: 3rem; border: 1px solid rgba(245, 243, 238, 0.6); border-radius: 50%; font-family: var(--tom-serif); font-size: 1.5rem; line-height: 1; }
+.tom-v2 .tom-workflow li:last-child .tom-workflow__n { border-color: #f9ff84; background: #f9ff84; color: #0e0e0e; }
+.tom-v2 .tom-workflow strong { display: block; padding-top: 0.35rem; font-family: var(--tom-serif); font-weight: 400; font-size: clamp(1.5rem, 2.2vw, 1.95rem); line-height: 1.08; }
+.tom-v2 .tom-workflow p { margin: 0.4rem 0 0; font-family: var(--tom-read); font-size: 1.0625rem; line-height: 1.45; color: rgba(245, 243, 238, 0.86); }
+
+/* Closing section: the one cobalt ground */
+.tom-v2 .tom-close { background: #0035ad; color: #f5f3ee; }
+.tom-v2 .tom-close .tom-kicker { color: rgba(245, 243, 238, 0.85) !important; }
+
+@media (max-width: 900px) {
+  .tom-v2 .tom-workflow { justify-self: start; margin-top: 2.5rem; }
+}
