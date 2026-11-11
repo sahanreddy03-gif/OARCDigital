@@ -101,13 +101,13 @@ export default function PageContent() {
           <p className="text-xs uppercase tracking-[0.25em] text-orange-500 mb-6" data-testid="text-eyebrow">
             AI Admin Agent — OARC AI Employees
           </p>
-          <h1
+          <h2
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.08] mb-8"
             data-speakable
             data-testid="heading-hero"
           >
             AI admin agent — inbox and calendar without the grind
-          </h1>
+          </h2>
           <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-2xl" data-speakable>
             Inbox triaged before 8:30am. Meetings scheduled automatically. Documents filed the moment they arrive. Follow-ups chased on schedule — without you touching any of it.
           </p>

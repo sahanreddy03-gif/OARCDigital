@@ -128,13 +128,13 @@ export default function PageContent() {
           <p className="text-xs uppercase tracking-[0.25em] text-orange-500 mb-6" data-testid="text-eyebrow">
             AI Real Estate Agent — OARC AI Employees
           </p>
-          <h1
+          <h2
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.08] mb-8"
             data-speakable
             data-testid="heading-hero"
           >
             Never Miss a Viewing Request<br className="hidden md:block" /> Again — Even at 2am.
-          </h1>
+          </h2>
           <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-2xl" data-speakable>
             AI that reads every portal enquiry in the buyer&apos;s language, qualifies budget and intent, books the viewing into the right agent&apos;s calendar, and sends a one-page briefing before they arrive — around the clock, seven days a week.
           </p>

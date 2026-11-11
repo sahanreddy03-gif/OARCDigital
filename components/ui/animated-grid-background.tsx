@@ -22,6 +22,13 @@ export function AnimatedGridBackground({
   showDiagonalGrid = true,
   intensity = 'high'
 }: AnimatedGridBackgroundProps) {
+  // Owner, Nov 2026: the moving scan lines, particles and rings were visual noise behind the
+  // text on every page that uses this background. The faint static grid stays; the motion
+  // is switched off here for all callers (it also stops a full-screen canvas loop).
+  showScanLine = false;
+  showParticles = false;
+  showConcentricRings = false;
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const opacityMap = {
