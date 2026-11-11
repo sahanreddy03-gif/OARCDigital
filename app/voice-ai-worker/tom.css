@@ -1941,3 +1941,9 @@
 .tom-v2 .tom-card__n + p b { display: block; margin-bottom: 0.55rem; font-family: var(--tom-serif); font-weight: 400; font-size: clamp(1.5rem, 2vw, 1.8rem); line-height: 1.1; }
 /* The day-in-the-life card keeps its time label, at a readable size */
 .tom-v2 .tom-day .tom-card strong { display: block; margin-bottom: 0.8rem; font-size: 0.95rem; opacity: 0.8; }
+
+/* Card hierarchy, corrected: the headline is the bold thing; the description is regular. */
+.tom-v2 .tom-card h3 { font-family: var(--tom-read); font-weight: 600; letter-spacing: -0.015em; font-size: clamp(1.45rem, 1.9vw, 1.7rem); line-height: 1.15; }
+.tom-v2 .tom-card p b { font-weight: 400; color: inherit; }
+.tom-v2 .tom-card__n + p b { display: block; margin-bottom: 0.6rem; font-family: var(--tom-read); font-weight: 600; letter-spacing: -0.015em; font-size: clamp(1.45rem, 1.9vw, 1.7rem); line-height: 1.15; color: #f5f3ee; }
+.tom-v2 .tom-light .tom-card__n + p b { color: #0e0e0e; }
