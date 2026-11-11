@@ -244,8 +244,8 @@ export const CASE_PROOF: Record<string, CaseProof> = {
     client: "Louisiana Mama",
     confidential: false,
     stats: [
-      { value: "+45%", label: "WhatsApp menu taps" },
       { value: "700", label: "More meals sold" },
+      { value: "+45%", label: "WhatsApp menu taps" },
       { value: "80,000", label: "Local food lovers reached" },
     ],
     did: [
@@ -302,9 +302,9 @@ export const CASE_PROOF: Record<string, CaseProof> = {
     client: "Ricky Jr Burger",
     confidential: false,
     stats: [
+      { value: "700", label: "More people into the two shops" },
       { value: "+40%", label: "Menu taps from Instagram" },
       { value: "50,000", label: "Views on daily burger reels" },
-      { value: "700", label: "More people into the two shops" },
     ],
     did: [
       "We made social posts for Ricky Jr every day.",

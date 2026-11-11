@@ -1,5 +1,5 @@
 /**
- * Editorial treatment for the restored OARC Original Studies.
+ * Card labels for the client projects.
  * These are the service lenses for this client record.
  */
 export type OriginalTreatment = {
@@ -12,12 +12,12 @@ export const ORIGINAL_TREATMENTS: Record<string, OriginalTreatment> = {
   "meridian-retail-response": {
     serviceTag: "AI SUPPORT / HUMAN HANDOFF",
     cardLine: "A response-content and routing model for keeping the question, context, and accountable next step together.",
-    mediaRole: "Workflow artefact / service logic",
+    mediaRole: "Workflow diagram / service logic",
   },
   "cobalt-decision-thread": {
     serviceTag: "STRATEGY / CONTENT SYSTEM",
     cardLine: "A strategy-to-execution content system that keeps the reason behind a decision visible after the workshop ends.",
-    mediaRole: "Decision map / planning artefact",
+    mediaRole: "Decision map / planning diagram",
   },
   "skyline-first-response": {
     serviceTag: "LEAD EXPERIENCE / CONVERSATION DESIGN",
@@ -27,7 +27,7 @@ export const ORIGINAL_TREATMENTS: Record<string, OriginalTreatment> = {
   "vela-signal-pipeline": {
     serviceTag: "PAID CREATIVE / SALES ENABLEMENT",
     cardLine: "A signal-to-conversation model that separates curiosity from readiness before a sales message is written.",
-    mediaRole: "Signal model / revenue-operations artefact",
+    mediaRole: "Signal model / revenue-operations diagram",
   },
   "ashford-in-real-life": {
     serviceTag: "PRODUCT CONTENT / SHORT-FORM VIDEO",
@@ -40,7 +40,7 @@ export const ORIGINAL_TREATMENTS: Record<string, OriginalTreatment> = {
     mediaRole: "Community capture / participation cue",
   },
   "maison-verre-discovery": {
-    serviceTag: "CAMPAIGN CONCEPT / SENSORY FILM",
+    serviceTag: "LAUNCH CAMPAIGN / SENSORY FILM",
     cardLine: "A discovery-led launch sequence built from sensory clues, cultural cues, and a visual reason to stop scrolling.",
     mediaRole: "Campaign still / sensory direction",
   },
@@ -67,12 +67,12 @@ export const ORIGINAL_TREATMENTS: Record<string, OriginalTreatment> = {
   "aurum-document-trail": {
     serviceTag: "DOCUMENT AUTOMATION / EXPLAINER SYSTEM",
     cardLine: "A document workflow for extracting, checking, and escalating information while keeping the source trail visible.",
-    mediaRole: "Document still / validation artefact",
+    mediaRole: "Document still / validation diagram",
   },
   "hearth-test-kitchen": {
     serviceTag: "CREATIVE TESTING / CAMPAIGN ITERATION",
     cardLine: "A creative-testing loop that turns subjective campaign feedback into a sharper next decision instead of another opinion pile.",
-    mediaRole: "Creative board / concept-testing scene",
+    mediaRole: "Creative board / ad-testing scene",
   },
   "fanline-live-ritual": {
     serviceTag: "LIVE CONTENT / AUDIENCE ENGAGEMENT",
@@ -92,7 +92,7 @@ export const ORIGINAL_TREATMENTS: Record<string, OriginalTreatment> = {
   "northforge-adoption-ladder": {
     serviceTag: "AI ADOPTION / GOVERNANCE CONTENT",
     cardLine: "An AI adoption model for moving from scattered experiments to a reviewable practice with owners, limits, and a reason to continue.",
-    mediaRole: "Governance artefact / adoption model",
+    mediaRole: "Governance diagram / adoption model",
   },
   "belgrave-client-time": {
     serviceTag: "PREMIUM SERVICE / WORKFLOW DESIGN",
