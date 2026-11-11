@@ -117,6 +117,8 @@ const services = [
     href: "/services/mvp-development",
     subtitle: "Engaging & intuitive experiences",
     image: serviceImages.productDesign,
+    // Wide banner with the phone on the right: without this the card crops to empty green.
+    position: "76% center",
     category: "Digital & Web",
     badge: "NEW"
   },
@@ -339,6 +341,7 @@ export default function AICreativeSection() {
                   src={service.image}
                   alt={`${service.title} - AI-powered creative service in Malta`}
                   className="w-full h-full object-cover scale-110 transition-transform duration-700 group-hover:scale-115"
+                  style={{ objectPosition: "position" in service ? service.position : undefined }}
                   data-testid={`carousel-image-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                   loading="lazy"
                 />
@@ -372,7 +375,7 @@ export default function AICreativeSection() {
             {leftColumnServices.map((service, index) => (
               <Link href={service.href} key={`left-${index}`} className="flex-shrink-0 group block">
                 <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 shadow-lg" data-testid={`service-card-left-${index}`}>
-                  <img src={service.image} alt={`${service.title} - Premium creative work`} className="w-full h-full object-cover scale-110" loading="lazy" />
+                  <img src={service.image} alt={`${service.title} - Premium creative work`} className="w-full h-full object-cover scale-110" style={{ objectPosition: "position" in service ? service.position : undefined }} loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                   {service.badge && (
                     <div className="absolute top-3 right-3 bg-[#F9FF84] text-zinc-900 text-xs font-bold px-2.5 py-1 rounded-full z-10">{service.badge}</div>
@@ -397,7 +400,7 @@ export default function AICreativeSection() {
             {rightColumnServices.map((service, index) => (
               <Link href={service.href} key={`right-${index}`} className="flex-shrink-0 group block">
                 <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 shadow-lg" data-testid={`service-card-right-${index}`}>
-                  <img src={service.image} alt={`${service.title} - Premium creative work`} className="w-full h-full object-cover scale-110" loading="lazy" />
+                  <img src={service.image} alt={`${service.title} - Premium creative work`} className="w-full h-full object-cover scale-110" style={{ objectPosition: "position" in service ? service.position : undefined }} loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                   {service.badge && (
                     <div className="absolute top-3 right-3 bg-[#F9FF84] text-zinc-900 text-xs font-bold px-2.5 py-1 rounded-full z-10">{service.badge}</div>
