@@ -42,7 +42,7 @@ export default function PageContent() {
         <div className="mt-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Pricing, ROI and Maltese-language support</h2>
             <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
-              Booking Agent Lite at €690/month handles web + email for a single calendar and up to 400 bookings per month — a fit for a single-location clinic or specialty restaurant. Multichannel Booker at €1,490/month adds WhatsApp + SMS, multi-staff calendar coverage, and the full no-show recovery cadence. Hospitality Concierge at €2,900/month is the deposit-capture, table-management, bilingual EN/MT script tier built specifically for Malta restaurants and spas.
+              Plans start from €500 a month. Booking Agent Lite handles web + email for a single calendar and up to 400 bookings per month — a fit for a single-location clinic or specialty restaurant. Multichannel Booker adds WhatsApp + SMS, multi-staff calendar coverage, and the full no-show recovery cadence. Hospitality Concierge is the deposit-capture, table-management, bilingual EN/MT script tier built specifically for Malta restaurants and spas. The bigger plans are quoted as a fixed monthly price after a 20-minute call.
             </p>
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
               Bilingual English / Maltese is configured by default for clients with Maltese-speaking customer bases — the agent classifies each conversation by language and replies in kind. For brokerage and hospitality clients with significant Italian, French, or German enquiry volume, those languages are added during onboarding without an extra fee.

@@ -94,24 +94,10 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
     offers: [
       {
         name: "Solo Operator Pilot",
-        priceFrom: 990,
+        priceFrom: 500,
         unitText: "MONTH",
         description:
           "Single user — Gmail / Outlook + Google Calendar + Drive triage, with one core SOP automated. Set-up plus weekly tuning.",
-      },
-      {
-        name: "Team Admin Agent",
-        priceFrom: 2400,
-        unitText: "MONTH",
-        description:
-          "Up to 10 seats, shared inbox + calendar coverage, document filing, and three SOPs (e.g. invoice intake, NDA routing, supplier onboarding).",
-      },
-      {
-        name: "Operations Pod",
-        priceFrom: 5800,
-        unitText: "MONTH",
-        description:
-          "Multi-team deployment with HR, finance, and ops SOPs, custom integrations to your CRM / ERP, and a dedicated solutions engineer.",
       },
     ],
     features: [
@@ -182,24 +168,10 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
     offers: [
       {
         name: "Booking Agent Lite",
-        priceFrom: 690,
+        priceFrom: 500,
         unitText: "MONTH",
         description:
           "Web chat + email channels, single calendar, up to 400 bookings per month. Includes set-up, scripts, and weekly tuning.",
-      },
-      {
-        name: "Multichannel Booker",
-        priceFrom: 1490,
-        unitText: "MONTH",
-        description:
-          "Web, WhatsApp, SMS, and email coverage. Multi-calendar (up to 10 staff), no-show recovery, and reminder cadences.",
-      },
-      {
-        name: "Hospitality Concierge",
-        priceFrom: 2900,
-        unitText: "MONTH",
-        description:
-          "Restaurant / clinic / spa concierge — table or appointment management, deposits, waitlists, and bilingual EN/MT scripting.",
       },
     ],
     features: [
@@ -229,7 +201,7 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
       {
         question: "Does it handle phone calls?",
         answer:
-          "We handle voice via the AI Voice Agent add-on (an extra €390/mo). It answers, books, transfers complex calls, and captures voicemail when humans are unavailable. Most clients route after-hours and overflow calls to it.",
+          "We handle voice via the AI Voice Agent add-on. It answers, books, transfers complex calls, and captures voicemail when humans are unavailable. Most clients route after-hours and overflow calls to it.",
       },
       {
         question: "How long until we see ROI?",
@@ -270,24 +242,10 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
     offers: [
       {
         name: "Document Auditor",
-        priceFrom: 1490,
+        priceFrom: 500,
         unitText: "MONTH",
         description:
           "Up to 1,000 documents/month — contracts, T&Cs, AML files — extracted, classified, and red-flagged against your policy library.",
-      },
-      {
-        name: "Continuous Compliance",
-        priceFrom: 2990,
-        unitText: "MONTH",
-        description:
-          "Document auditor + regulatory change monitoring (MFSA, MGA, IDPC, GDPR) with weekly delta reports and policy-impact summaries.",
-      },
-      {
-        name: "Regulated Enterprise",
-        priceFrom: 6500,
-        unitText: "MONTH",
-        description:
-          "Custom rule packs, on-prem or EU-only deployment, MFSA / MGA-grade audit log, and a dedicated compliance engineer.",
       },
     ],
     features: [
@@ -496,24 +454,10 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
     offers: [
       {
         name: "Insights Pilot",
-        priceFrom: 1990,
+        priceFrom: 500,
         unitText: "MONTH",
         description:
           "Single data source (warehouse or product DB), 5 named users, 20 dashboard tiles, weekly insight digest. Set-up included.",
-      },
-      {
-        name: "Team Analyst",
-        priceFrom: 4400,
-        unitText: "MONTH",
-        description:
-          "Up to 3 data sources, 25 named users, custom semantic layer, Slack/Teams Q&A, and a monthly executive briefing.",
-      },
-      {
-        name: "Data Platform Build",
-        priceFrom: 18000,
-        unitText: "PROJECT",
-        description:
-          "End-to-end build: warehouse (BigQuery / Snowflake / Postgres), dbt models, semantic layer, AI analyst, and analyst training.",
       },
     ],
     features: [
@@ -584,24 +528,10 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
     offers: [
       {
         name: "Listing Qualifier",
-        priceFrom: 990,
+        priceFrom: 500,
         unitText: "MONTH",
         description:
           "Portal-feed and inbound web qualification for up to 1,000 leads/month — budget, timeline, financing, intent capture.",
-      },
-      {
-        name: "Sales Agent Assistant",
-        priceFrom: 1890,
-        unitText: "MONTH",
-        description:
-          "Adds viewing booking, calendar sync per agent, multi-listing routing, and a CRM-ready briefing on every handoff.",
-      },
-      {
-        name: "Brokerage Pod",
-        priceFrom: 4500,
-        unitText: "MONTH",
-        description:
-          "Multi-agent deployment, EN/MT/IT scripting, cold-lead reactivation, and weekly broker performance reports.",
       },
     ],
     features: [
@@ -722,24 +652,10 @@ export const SERVICE_SCHEMA_EXTRAS: Record<string, ServiceSchemaExtra> = {
     offers: [
       {
         name: "Support Agent Lite",
-        priceFrom: 990,
+        priceFrom: 500,
         unitText: "MONTH",
         description:
           "Web chat + email channels, single language, up to 1,000 tickets/month, knowledge-base ingestion included.",
-      },
-      {
-        name: "Support Pod",
-        priceFrom: 2400,
-        unitText: "MONTH",
-        description:
-          "Multichannel (chat, email, WhatsApp, FB Messenger), bilingual EN/MT, up to 5,000 tickets/month, CSAT survey + reporting.",
-      },
-      {
-        name: "Enterprise Support",
-        priceFrom: 6900,
-        unitText: "MONTH",
-        description:
-          "Custom integrations to your help-desk and order systems, dedicated solutions engineer, SLA on response and tuning.",
       },
     ],
     features: [

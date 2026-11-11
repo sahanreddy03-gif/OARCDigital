@@ -32,9 +32,9 @@ const adminTasks = [
 ];
 
 const tiers = [
-  { name: "Solo Operator", price: "€990", period: "/month", seats: "1 user", sops: "1 core SOP", detail: "Single-user inbox triage, scheduling, and document filing. Recovers 8–12 hours of operator time per week. Most clients recover the fee inside six weeks.", highlight: false },
-  { name: "Team Admin Agent", price: "€2,400", period: "/month", seats: "Up to 10 seats", sops: "3 SOPs", detail: "Multi-seat deployment with three documented workflow automations. The most common Malta SME entry point. Includes weekly tuning calls in the first 90 days.", highlight: true },
-  { name: "Operations Pod", price: "€5,800", period: "/month", seats: "Unlimited", sops: "Custom", detail: "Multi-team rollout with a dedicated solutions engineer, custom CRM and ERP connectors, and EU-only inference on Azure OpenAI West Europe.", highlight: false },
+  { name: "Solo Operator", price: "From €500", period: "/month", seats: "1 user", sops: "1 core SOP", detail: "Single-user inbox triage, scheduling, and document filing. Recovers 8–12 hours of operator time per week. Most clients recover the fee inside six weeks.", highlight: false },
+  { name: "Team Admin Agent", price: "Custom quote", period: "", seats: "Up to 10 seats", sops: "3 SOPs", detail: "Multi-seat deployment with three documented workflow automations. The most common Malta SME entry point. Includes weekly tuning calls in the first 90 days.", highlight: true },
+  { name: "Operations Pod", price: "Custom quote", period: "", seats: "Unlimited", sops: "Custom", detail: "Multi-team rollout with a dedicated solutions engineer, custom CRM and ERP connectors, and EU-only inference on Azure OpenAI West Europe.", highlight: false },
 ];
 
 const deployPhases = [
@@ -424,7 +424,7 @@ export default function PageContent() {
                   {[
                     "Works 24 hours a day, 365 days a year",
                     "No leave, no sick days, no public holiday surcharges",
-                    "€990–€5,800 per month depending on scope",
+                    "From €500 a month, depending on scope",
                     "4-week deployment from kickoff to autonomous operation",
                     "Never leaves — no re-recruit cost, no knowledge drain",
                     "Rule-based tasks executed in under 30 seconds",

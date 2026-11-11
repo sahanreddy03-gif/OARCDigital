@@ -658,24 +658,10 @@ export const SERVICE_SCHEMAS: Record<string, ServiceSchemaEntry> = {
     offers: [
       {
         name: "AI SDR Pilot",
-        priceFrom: 1500,
+        priceFrom: 500,
         unitText: "MONTH",
         description:
           "Single-channel deployment (web chat or email). Up to 500 conversations/month. Includes setup, prompt engineering, and weekly tuning.",
-      },
-      {
-        name: "AI SDR Multichannel",
-        priceFrom: 2997,
-        unitText: "MONTH",
-        description:
-          "Web chat + email + WhatsApp. Up to 2,000 conversations/month. CRM handoff, calendar booking, and bi-weekly optimisation.",
-      },
-      {
-        name: "AI Sales Pod",
-        priceFrom: 6500,
-        unitText: "MONTH",
-        description:
-          "AI SDR + AI Support Specialist + AI Appointment Booker working in concert. Custom training on your sales playbook, unlimited conversations.",
       },
     ],
     features: [

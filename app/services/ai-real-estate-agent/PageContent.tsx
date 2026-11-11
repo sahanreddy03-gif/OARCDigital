@@ -31,9 +31,9 @@ const viewingFlow = [
 ];
 
 const tiers = [
-  { name: "Listing Qualifier", price: "€990", period: "/month", volume: "Up to 1,000 enquiries/month", detail: "Portal triage, multilingual qualification, and cold-lead nurture queue. Right entry point for a single-office brokerage of three to seven agents.", highlight: false },
-  { name: "Sales Agent Assistant", price: "€1,890", period: "/month", volume: "Viewing booking + calendar sync", detail: "Adds automated viewing booking, per-agent calendar sync, and CRM-ready handoff briefing. The most complete single-office deployment.", highlight: true },
-  { name: "Brokerage Pod", price: "€4,500", period: "/month", volume: "Multi-office, custom volume", detail: "Multi-office tier with cold-lead reactivation, EN/MT/IT scripting, weekly broker performance reports, and a dedicated account manager.", highlight: false },
+  { name: "Listing Qualifier", price: "From €500", period: "/month", volume: "Up to 1,000 enquiries/month", detail: "Portal triage, multilingual qualification, and cold-lead nurture queue. Right entry point for a single-office brokerage of three to seven agents.", highlight: false },
+  { name: "Sales Agent Assistant", price: "Custom quote", period: "", volume: "Viewing booking + calendar sync", detail: "Adds automated viewing booking, per-agent calendar sync, and CRM-ready handoff briefing. The most complete single-office deployment.", highlight: true },
+  { name: "Brokerage Pod", price: "Custom quote", period: "", volume: "Multi-office, custom volume", detail: "Multi-office tier with cold-lead reactivation, EN/MT/IT scripting, weekly broker performance reports, and a dedicated account manager.", highlight: false },
 ];
 
 const buyerPool = [

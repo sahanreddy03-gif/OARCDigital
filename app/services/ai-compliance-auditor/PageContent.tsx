@@ -41,7 +41,7 @@ export default function PageContent() {
         <div className="mt-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Pricing tiers and engagement model</h2>
             <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
-              Document Auditor at €1,490/month handles up to 1,000 documents per month with one rule pack and is the typical entry point for mid-size Malta-licensed operators. Continuous Compliance at €2,990/month adds the regulatory change monitoring and the weekly delta report. Regulated Enterprise at €6,500/month is the on-prem-or-private-VPC tier for large MFSA / MGA operators with strict data-residency requirements.
+              Plans start from €500 a month. Document Auditor handles up to 1,000 documents per month with one rule pack and is the typical entry point for mid-size Malta-licensed operators. Continuous Compliance adds the regulatory change monitoring and the weekly delta report. Regulated Enterprise is the on-prem-or-private-VPC tier for large MFSA / MGA operators with strict data-residency requirements. The bigger plans are quoted as a fixed monthly price after a 20-minute call.
             </p>
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
               Every tier includes the rule-pack tuning, the human-reviewer approval workflow, the audit log, and the weekly tuning calls during the first 90 days. We sign a DPA, an NDA, and a non-disclosure schedule before any documents are shared, and IP in the rule packs assigns to the client at SOW close.
