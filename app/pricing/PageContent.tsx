@@ -9,6 +9,7 @@ import { Check, Star, Building2, Zap, Sparkles, Crown, MessageCircle, Lock, Arro
 import { m, AnimatePresence } from 'framer-motion';
 import Link from "next/link";
 import { SiWhatsapp } from 'react-icons/si';
+import { bookingUrl } from "@/lib/utm";
 
 const pricingCategories = [
   {
@@ -545,6 +546,56 @@ export default function PageContent() {
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Every package custom-tailored to your business. More value, faster delivery, measurable results.
           </p>
+        </div>
+
+        <div className="container mx-auto px-6 max-w-5xl mb-16 relative z-10" data-testid="section-price-summary">
+          <div className="grid gap-5 md:grid-cols-2">
+            <div className="flex flex-col rounded-3xl bg-slate-900 p-8 text-left text-white shadow-xl">
+              <p className="text-xs font-bold uppercase tracking-widest text-white/60">Campaign offer</p>
+              <p className="mt-4 font-serif text-5xl font-medium md:text-6xl">
+                €500 <span className="font-sans text-lg font-normal text-white/70">a month</span>
+              </p>
+              <p className="mt-4 text-lg text-white/80">
+                Your whole social marketing team. No contract.
+              </p>
+              <Link
+                href="/aeo/digital-marketing-agency-malta"
+                className="mt-6 md:mt-auto inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-slate-900 transition-opacity hover:opacity-90"
+                data-testid="link-price-campaign"
+              >
+                See what you get <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            <div className="flex flex-col rounded-3xl border border-slate-200 bg-white p-8 text-left shadow-lg">
+              <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Everything else</p>
+              <p className="mt-4 font-serif text-5xl font-medium text-slate-900 md:text-6xl">Custom price</p>
+              <p className="mt-4 text-lg text-slate-600">Priced to the job, after a 20-minute call.</p>
+              <ul className="mt-5 mb-6 space-y-2 text-slate-700">
+                {[
+                  "Creative work: brand, design, ads",
+                  "AI automation and AI staff",
+                  "Custom-built websites, apps and systems",
+                  "Video shoots: we come and film for you",
+                  "A mix of everything",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <Check className="mt-1 h-4 w-4 shrink-0 text-slate-900" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={bookingUrl("/pricing")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto inline-flex w-fit items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90"
+                data-testid="link-price-custom-call"
+              >
+                <Calendar className="h-4 w-4" /> Book a 20-minute call
+              </a>
+            </div>
+          </div>
         </div>
 
         <div className="container mx-auto px-6 max-w-6xl mb-20 relative z-10">
