@@ -1,31 +1,19 @@
 "use client";
 
-import { createContext, useContext, useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { useLenis } from "lenis/react";
 
-/**
- * Heading level for each world's big headline. In the pop-up it is the dialog's <h1>. On a
- * department page the page has its own <h1>, so the same headline renders as an <h2> with
- * the class "as-h1" (the page rewrites the world's "h1" CSS selectors to match it).
- */
-export const DeptHeadingLevel = createContext<"h1" | "h2">("h1");
-function DeptH1(props: React.HTMLAttributes<HTMLHeadingElement>) {
-  const level = useContext(DeptHeadingLevel);
-  if (level === "h1") return <h1 {...props} />;
-  return <h2 {...props} className={`as-h1 ${props.className ?? ""}`.trim()} />;
-}
-
 // ── Engine realm tokens ──────────────────────────────────────────────────────
 const T = {
-  noir:   "#0E0E0E",
-  ivory:  "#F5F3EE",
-  scar:   "#F9FF84",  // brand yellow signal on ink
+  noir:   "#0E0D0C",
+  ivory:  "#F2EFE9",
+  scar:   "#E02B20",  // scarlet on noir
   crim:   "#C8102E",  // crimson on ivory
   card:   "#141210",
-  line:   "rgba(245,243,238,.12)",
-  dim:    "rgba(245,243,238,.62)",
-  dimLow: "rgba(245,243,238,.42)",
+  line:   "rgba(242,239,233,.12)",
+  dim:    "rgba(242,239,233,.55)",
+  dimLow: "rgba(242,239,233,.36)",
   e:      "cubic-bezier(.16,1,.3,1)",
   // Studio tokens (for placeholder)
   stu:    "#F0EAE0",
@@ -60,10 +48,12 @@ function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 // ── Kicker ───────────────────────────────────────────────────────────────────
 function Kicker({ label, color = T.scar }: { label: string; color?: string }) {
-  // Owner 2026-11-10: no tiny uppercase labels. Kickers read as a clear line.
   return (
-    <p style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)", fontStyle:"italic",
-      fontSize:"clamp(1.25rem,4.4vw,1.55rem)", lineHeight:1.2, color, margin:"0 0 1rem" }}>{label}</p>
+    <div style={{ display:"flex", alignItems:"center", gap:".65rem", marginBottom:".9rem" }}>
+      <span style={{ display:"block", width:24, height:1, background:color, flexShrink:0 }} />
+      <span style={{ fontFamily:"var(--font-space-mono,'Space Mono',monospace)", fontSize:10,
+        letterSpacing:".26em", textTransform:"uppercase" as const, color }}>{label}</span>
+    </div>
   );
 }
 
@@ -200,11 +190,11 @@ const CtaItalic = ({ children }: { children: React.ReactNode }) => (
 const GM_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Spectral:ital,wght@0,500;1,400;1,500&display=swap');
 .gmx{
-  --bone:#F5F3EE;--card:#FBFAF7;--ink:#0E0E0E;--terra:#0E0E0E;--terrad:#000000;
-  --i70:rgba(14,14,14,.7);--i45:rgba(14,14,14,.46);--i30:rgba(14,14,14,.3);
-  --i16:rgba(14,14,14,.16);--i10:rgba(14,14,14,.08);
-  --tg:rgba(14,14,14,.28);--tf:rgba(14,14,14,.08);
-  --line:rgba(14,14,14,.12);
+  --bone:#F6F1E9;--card:#FBF8F2;--ink:#17120C;--terra:#C0532B;--terrad:#A5401E;
+  --i70:rgba(23,18,12,.7);--i45:rgba(23,18,12,.46);--i30:rgba(23,18,12,.3);
+  --i16:rgba(23,18,12,.16);--i10:rgba(23,18,12,.08);
+  --tg:rgba(192,83,43,.28);--tf:rgba(192,83,43,.08);
+  --line:rgba(23,18,12,.12);
   --ui:'Instrument Sans',sans-serif;--serif:'Spectral',serif;--e:cubic-bezier(.16,1,.3,1);
   background:var(--bone);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .gmx *{margin:0;padding:0;box-sizing:border-box}
@@ -214,7 +204,7 @@ const GM_CSS = `
 .gmx .hero h1 em{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.06em;color:var(--terra)}
 .gmx .hero p{font-size:.98rem;color:var(--i70);line-height:1.58;margin-top:1rem;max-width:44ch}
 .gmx .hero p b{color:var(--ink);font-weight:600}
-.gmx .journey{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.4rem 1.2rem;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 14px 34px rgba(14,14,14,.05)}
+.gmx .journey{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.4rem 1.2rem;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 14px 34px rgba(23,18,12,.05)}
 .gmx .journey .jcap{display:flex;justify-content:space-between;font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--i30);margin-bottom:.4rem}
 .gmx .jsvg{width:100%;display:block;overflow:visible}
 .gmx .hero .team{margin-top:1.7rem}
@@ -232,7 +222,7 @@ const GM_CSS = `
 .gmx .phase h2 em{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.08em;color:var(--terra)}
 .gmx .phase .out{font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,5.5vw,1.7rem);color:var(--ink);margin-top:.9rem;line-height:1.15}
 .gmx .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--card);position:relative;overflow:hidden;aspect-ratio:1/.8;box-shadow:0 1px 0 rgba(255,255,255,.6) inset}
-.gmx .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(14,14,14,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.gmx .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(23,18,12,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
 .gmx .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .gmx .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.02em;color:var(--terra)}
 .gmx .who::before{content:'';width:16px;height:1px;background:var(--terra);opacity:.5}
@@ -275,26 +265,19 @@ const GM_CSS = `
 .gmx .spin{animation:gmx-sp 6s linear infinite}
 @keyframes gmx-sp{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.gmx *{animation:none!important;transition-duration:.01ms!important}.gmx .up,.gmx .pop{opacity:1;transform:none}.gmx .draw{stroke-dashoffset:0}.gmx .grow{transform:none}}
-
-/* owner 2026-11-10: no small labels */
-.gmx .hero .lbl,.gmx .shead,.gmx .phase .idx s,.gmx .hero .team s,.gmx .bonus s{display:none!important}
-
-/* owner 2026-11-10: colour by idea */
-.gmx .hero h1 em{background:linear-gradient(transparent 58%,#F9FF84 58%);padding:0 .08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.gmx .nodeOn{fill:#F9FF84;stroke:#0E0E0E;stroke-width:1.5}.gmx .labk{fill:#0E0E0E}.gmx .glow{filter:none}
 `;
 
-const GM_TERRA = '#0E0E0E';
-const GM_BONE = '#F5F3EE';
+const GM_TERRA = '#C0532B';
+const GM_BONE = '#F6F1E9';
 
 const GM_STEPS = ['They find you','You find them','They like you','They pick you','You stay close','They come back'];
 const GM_TEAM = ['Search','Reach','The Studio','Conversion','Lifecycle','Retention'];
 
-export const GM_PARTS = [
+const GM_PARTS = [
   { n:'01', sp:'They find you', h:'They <em>find</em> you.', out:'The ones already looking.',
     who:'Search team',
     cap:'The Search team owns the moment someone is already searching for what you sell \u2014 on Google, on Maps, in the AI answer. We work your listing, your reviews and the pages those answers are built from, so when a buyer looks, <b>you\u2019re the one they find.</b> The plumber searched at 8pm, the clinic got googled nearby, the shopper typed \u201cbest near me\u201d \u2014 the cheapest customer there is, already wanting you.',
-    stat:'76', statEm:'%', statP:'of people who search nearby on their phone visit a business within a day \u2014 if you show up (Google)', viz:'find' },
+    stat:'76', statEm:'%', statP:'of people who search nearby on their phone visit a business within a day \u2014 if you show up', viz:'find' },
   { n:'02', sp:'You find them', h:'You <em>find</em> them.', out:'The ones not looking yet.',
     who:'Reach team',
     cap:'Most of your future customers aren\u2019t searching today. The Reach team builds audiences from the people who already paid you, then runs your social and paid ads at the exact people who look just like them \u2014 on the platform, at the hour they\u2019re actually there. Search waits to be found; <b>this goes and finds them.</b>',
@@ -302,7 +285,7 @@ export const GM_PARTS = [
   { n:'03', sp:'They like you', h:'They <em>like</em> you.', out:'They care before they compare.',
     who:'The Studio',
     cap:'Reach picks who sees you; the Studio gives them a reason to stop. We turn your business into story-led video and content \u2014 who you are, why you do it, what you stand for \u2014 so people care before they ever compare a price. Because half of what an ad returns is the creative itself, not the spend.',
-    stat:'49', statEm:'%', statP:'of an ad\u2019s sales lift comes from the creative \u2014 the story is the reason they pick you (Nielsen)', viz:'like' },
+    stat:'49', statEm:'%', statP:'of an ad\u2019s sales lift comes from the creative \u2014 the story is the reason they pick you', viz:'like' },
   { n:'04', sp:'They pick you', h:'They <em>pick</em> you.', out:'You beat the other three.',
     who:'Conversion team',
     cap:'Once they care, they compare. Every buyer checks the same four things with their head \u2014 a visible price, recent work, real reviews, a straight answer \u2014 and picks whoever has them all. The Conversion team fills whatever\u2019s blank, <b>starting with the price most competitors hide.</b>',
@@ -310,20 +293,20 @@ export const GM_PARTS = [
   { n:'05', sp:'You stay close', h:'You <em>stay close</em>.', out:'You never go quiet.',
     who:'Lifecycle team',
     cap:'The Lifecycle team owns every moment between deciding and buying \u2014 both ways. The instant a buyer reaches out they get an answer in seconds, any hour, and we stay in front across the gap until they\u2019re ready. Answer in five minutes and you\u2019re far likelier to win them than at thirty.',
-    stat:'21', statEm:'\u00d7', statP:'likelier to qualify a lead answered in 5 minutes than in 30 \u2014 so we never go quiet (Lead Response Management study)', viz:'stayclose' },
+    stat:'21', statEm:'\u00d7', statP:'likelier to qualify a lead answered in 5 minutes than in 30 \u2014 so we never go quiet', viz:'stayclose' },
   { n:'06', sp:'They come back', h:'They <em>come back</em>.', out:'Again, and again.',
     who:'Retention team',
     cap:'The first sale is the expensive one. The Retention team captures the review at the sale, times the next offer to the buyer\u2019s own cycle, and engineers the referral \u2014 turning one customer into many, at almost no cost. <b>This is the cheapest growth there is.</b>',
-    stat:'25-95', statEm:'%', statP:'more profit from just a 5% lift in how many customers come back (Bain & Company)', viz:'comeback' },
+    stat:'25-95', statEm:'%', statP:'more profit from just a 5% lift in how many customers come back', viz:'comeback' },
 ] as const;
 
-export const GM_VIZ: Record<string, () => string> = {
+const GM_VIZ: Record<string, () => string> = {
   find() {
     let s='<rect class="wire up" x="40" y="34" width="320" height="42" rx="10" style="animation-delay:.1s"/>'+
       '<circle class="wire up" cx="66" cy="55" r="8" style="animation-delay:.2s"/><line class="wire up" x1="72" y1="61" x2="80" y2="69" style="animation-delay:.2s"/>'+
       '<text class="lab up" x="90" y="60" font-size="12.5" style="animation-delay:.3s">best [your service] near me</text>';
     const rows=[{y:98,on:1,t:'You'},{y:156,on:0,t:'A competitor'},{y:214,on:0,t:'A competitor'}];
-    rows.forEach((r,i)=>{s+=`<rect class="${r.on?'nodeOn glow':'wire'} up" x="40" y="${r.y}" width="320" height="44" rx="8" ${r.on?'':'fill="rgba(14,14,14,.03)"'} style="animation-delay:${.4+i*.12}s"/>`+
+    rows.forEach((r,i)=>{s+=`<rect class="${r.on?'nodeOn glow':'wire'} up" x="40" y="${r.y}" width="320" height="44" rx="8" ${r.on?'':'fill="rgba(23,18,12,.03)"'} style="animation-delay:${.4+i*.12}s"/>`+
       `<text class="${r.on?'labk':'lab'} up" x="60" y="${r.y+28}" font-size="13.5" style="animation-delay:${.5+i*.12}s">${r.t}</text>`;});
     s+='<text class="lab up" x="40" y="282" font-size="10.5" opacity=".55" style="animation-delay:.9s">found the moment they search</text>';
     return `<svg viewBox="0 0 400 292">${s}</svg>`;
@@ -339,7 +322,7 @@ export const GM_VIZ: Record<string, () => string> = {
   like() {
     let s='<path class="wire draw glow" style="--L:520" d="M30,214 C110,214 124,110 204,98 C264,89 292,116 300,120"/>';
     const b=[[30,214],[124,158],[204,98]];b.forEach((p,i)=>{const on=i===2;s+=`<circle class="${on?'nodeOn glow':'node'} pop" cx="${p[0]}" cy="${p[1]}" r="${on?7:5}" style="animation-delay:${.6+i*.2}s"/>`;});
-    s+=`<path class="pop" style="animation-delay:1.3s" d="M330,112 c-7,-11 -24,-4 -24,9 c0,11 24,24 24,24 c0,0 24,-13 24,-24 c0,-13 -17,-20 -24,-9 z" fill="#FF4B4B"/>`+
+    s+=`<path class="pop" style="animation-delay:1.3s" d="M330,112 c-7,-11 -24,-4 -24,9 c0,11 24,24 24,24 c0,0 24,-13 24,-24 c0,-13 -17,-20 -24,-9 z" fill="${GM_TERRA}"/>`+
        '<text class="lab up" x="34" y="240" font-size="10.5" style="animation-delay:.3s">a reason to care</text>';
     return `<svg viewBox="0 0 400 260">${s}</svg>`;
   },
@@ -389,8 +372,8 @@ function GrowthContent({ onClose }: { onClose: () => void }) {
     let ns='';
     GM_STEPS.forEach((nm,i)=>{const y=40+i*79.2;
       ns+=`<circle class="nodeOn glow pop" cx="52" cy="${y}" r="7" style="animation-delay:${.2+i*.16}s"/>`+
-          `<text class="lab up" x="76" y="${y-3}" font-size="10" style="animation-delay:${.3+i*.16}s" font-family="Instrument Sans" font-weight="700" fill="rgba(14,14,14,.3)">0${i+1}</text>`+
-          `<text class="up" x="76" y="${y+13}" font-size="14" style="animation-delay:${.35+i*.16}s" font-family="Instrument Sans" font-weight="600" fill="#0E0E0E">${nm}</text>`;});
+          `<text class="lab up" x="76" y="${y-3}" font-size="10" style="animation-delay:${.3+i*.16}s" font-family="Instrument Sans" font-weight="700" fill="rgba(23,18,12,.3)">0${i+1}</text>`+
+          `<text class="up" x="76" y="${y+13}" font-size="14" style="animation-delay:${.35+i*.16}s" font-family="Instrument Sans" font-weight="600" fill="#17120C">${nm}</text>`;});
     g.innerHTML = ns;
     const id = requestAnimationFrame(() => journeyRef.current?.classList.add('live'));
     return () => cancelAnimationFrame(id);
@@ -410,7 +393,7 @@ function GrowthContent({ onClose }: { onClose: () => void }) {
     <div className="gmx" ref={wrapRef}>
       <div className="hero">
         <p className="lbl">Growth</p>
-        <DeptH1>Bring me more<br /><em>customers.</em></DeptH1>
+        <h1>Bring me more<br /><em>customers.</em></h1>
         <p>A stranger finds you, likes you, picks you over the others, and comes back for more. <b>That whole journey — six steps, one team, one number at month end.</b> Miss a step and the rest never happen, so we run all six.</p>
 
         <div className="journey" ref={journeyRef}>
@@ -418,7 +401,7 @@ function GrowthContent({ onClose }: { onClose: () => void }) {
           <svg className="jsvg" viewBox="0 0 340 476" preserveAspectRatio="xMidYMid meet">
             <path className="wire draw" style={{ ['--L' as string]: 400 }} d="M52,40 L52,436" />
             <path className="wire draw glow" style={{ ['--L' as string]: 640, animationDelay: '.6s' }} d="M52,436 C300,436 300,40 52,40" />
-            <path className="pop" style={{ animationDelay: '1.6s' }} d="M52,40 l-6,-13 l14,4 z" fill="#0035AD" />
+            <path className="pop" style={{ animationDelay: '1.6s' }} d="M52,40 l-6,-13 l14,4 z" fill="#C0532B" />
             <g ref={jnodesRef} />
           </svg>
         </div>
@@ -447,6 +430,11 @@ function GrowthContent({ onClose }: { onClose: () => void }) {
         ))}
       </div>
 
+      <div className="bonus">
+        <s>Bonus, included</s>
+        <h4>Oh — and a little tool, on us.</h4>
+        <p>A small tool that watches the journey and flags the step where customers are leaking — so the team fixes the right thing first. <b>Nice to have, not the main event.</b> The work at every step is done by the people above.</p>
+      </div>
 
       <div className="end">
         <div className="big">Six steps. One team.<br /><span>One number.</span></div>
@@ -463,9 +451,9 @@ function GrowthContent({ onClose }: { onClose: () => void }) {
 const SL_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700;800&display=swap');
 .slx{
-  --paper:#F5F3EE;--ink:#0E0E0E;--red:#0E0E0E;--navy:#0E0E0E;--cream:#F5F3EE;
-  --i62:rgba(14,14,14,.62);--i42:rgba(14,14,14,.42);--i26:rgba(14,14,14,.26);
-  --i14:rgba(14,14,14,.14);--i06:rgba(14,14,14,.05);
+  --paper:#FFFFFF;--ink:#16120E;--red:#D2302A;--navy:#152949;--cream:#F4EFE6;
+  --i62:rgba(22,18,14,.62);--i42:rgba(22,18,14,.42);--i26:rgba(22,18,14,.26);
+  --i14:rgba(22,18,14,.14);--i06:rgba(22,18,14,.05);
   --ui:'Inter Tight',sans-serif;--serif:'Instrument Serif',serif;
   --e:cubic-bezier(.16,1,.3,1);
   background:var(--paper);color:var(--ink);font-family:var(--ui);
@@ -498,7 +486,7 @@ const SL_CSS = `
 .slx .rooftitle{font-size:clamp(1.4rem,4.6vw,2rem);font-weight:700;letter-spacing:-.03em;line-height:1.1;max-width:24ch;margin-bottom:1.4rem}
 .slx .rooftitle em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--red)}
 .slx .showcase{padding:2.2rem 0;border-top:1.5px solid var(--ink)}
-.slx .chartwrap{background:#FBFAF7;border:1px solid var(--i14);border-radius:14px;padding:1.5rem 1.3rem 1.3rem}
+.slx .chartwrap{background:#FAF8F4;border:1px solid var(--i14);border-radius:14px;padding:1.5rem 1.3rem 1.3rem}
 .slx .chart{display:flex;align-items:flex-end;gap:.55rem;height:186px}
 .slx .col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%;text-align:center;min-width:0}
 .slx .col .v{font-size:12px;font-weight:800;margin-bottom:.4rem;color:var(--ink);font-variant-numeric:tabular-nums;opacity:0;transform:translateY(6px);transition:opacity .5s var(--e) .6s,transform .5s var(--e) .6s}
@@ -531,31 +519,31 @@ const SL_CSS = `
 .slx .unit .proof p{font-size:12px;color:var(--i42);line-height:1.35;max-width:26ch}
 .slx .unit.system{background:var(--navy);color:var(--cream);border-radius:16px;padding:2.2rem 1.6rem;border-top:0;margin:.6rem 0}
 .slx .unit.system .no{color:#fff}
-.slx .unit.system .tag{color:#fff;border-color:rgba(245,243,238,.32)}
+.slx .unit.system .tag{color:#fff;border-color:rgba(244,239,230,.32)}
 .slx .unit.system h3 em{color:#fff}
-.slx .unit.system .role{color:#F9FF84}
-.slx .unit.system .body{color:rgba(245,243,238,.78)}
-.slx .unit.system .deliv span{color:var(--cream);background:rgba(245,243,238,.12)}
+.slx .unit.system .role{color:#9FC0EC}
+.slx .unit.system .body{color:rgba(244,239,230,.78)}
+.slx .unit.system .deliv span{color:var(--cream);background:rgba(244,239,230,.12)}
 .slx .unit.system .proof{border-left-color:#fff}
-.slx .unit.system .proof b em{color:rgba(245,243,238,.4)}
-.slx .unit.system .proof p{color:rgba(245,243,238,.6)}
-.slx .unit.system .ip{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#F9FF84}
-.slx .unit.system .ip::before{content:'';width:7px;height:7px;border-radius:50%;background:#F9FF84}
-.slx .flow{margin-top:1.5rem;padding-top:1.4rem;border-top:1px solid rgba(245,243,238,.18)}
-.slx .flow .flab{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,238,.5);margin-bottom:1rem;display:flex;justify-content:space-between}
-.slx .flow .flab .live{color:#F9FF84;display:inline-flex;align-items:center;gap:.4rem}
-.slx .flow .flab .live::before{content:'';width:6px;height:6px;border-radius:50%;background:#F9FF84;animation:slx-blink 1.4s var(--e) infinite}
+.slx .unit.system .proof b em{color:rgba(244,239,230,.4)}
+.slx .unit.system .proof p{color:rgba(244,239,230,.6)}
+.slx .unit.system .ip{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#9FC0EC}
+.slx .unit.system .ip::before{content:'';width:7px;height:7px;border-radius:50%;background:#9FC0EC}
+.slx .flow{margin-top:1.5rem;padding-top:1.4rem;border-top:1px solid rgba(244,239,230,.18)}
+.slx .flow .flab{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,239,230,.5);margin-bottom:1rem;display:flex;justify-content:space-between}
+.slx .flow .flab .live{color:#7FE0A8;display:inline-flex;align-items:center;gap:.4rem}
+.slx .flow .flab .live::before{content:'';width:6px;height:6px;border-radius:50%;background:#7FE0A8;animation:slx-blink 1.4s var(--e) infinite}
 @keyframes slx-blink{0%,100%{opacity:1}50%{opacity:.25}}
 .slx .track{display:flex;align-items:flex-start;gap:.3rem}
 .slx .node{flex:1;text-align:center;position:relative}
-.slx .node .dot{width:13px;height:13px;border-radius:50%;background:rgba(245,243,238,.22);margin:0 auto .55rem;transition:background .4s var(--e),box-shadow .4s var(--e)}
-.slx .node.on .dot{background:#F9FF84;box-shadow:0 0 0 5px rgba(249,255,132,.18)}
-.slx .node .lb{font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(245,243,238,.55);line-height:1.25;transition:color .4s}
+.slx .node .dot{width:13px;height:13px;border-radius:50%;background:rgba(244,239,230,.22);margin:0 auto .55rem;transition:background .4s var(--e),box-shadow .4s var(--e)}
+.slx .node.on .dot{background:#9FC0EC;box-shadow:0 0 0 5px rgba(159,192,236,.18)}
+.slx .node .lb{font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(244,239,230,.55);line-height:1.25;transition:color .4s}
 .slx .node.on .lb{color:var(--cream)}
-.slx .node .t{font-family:var(--serif);font-style:italic;font-size:.85rem;color:#F9FF84;margin-top:.2rem;height:1rem;opacity:0;transition:opacity .4s}
+.slx .node .t{font-family:var(--serif);font-style:italic;font-size:.85rem;color:#9FC0EC;margin-top:.2rem;height:1rem;opacity:0;transition:opacity .4s}
 .slx .node.on .t{opacity:1}
-.slx .track .seg{flex:0 0 auto;align-self:flex-start;width:14px;height:2px;background:rgba(245,243,238,.2);margin-top:5.5px;border-radius:2px}
-.slx .track .seg.on{background:#F9FF84}
+.slx .track .seg{flex:0 0 auto;align-self:flex-start;width:14px;height:2px;background:rgba(244,239,230,.2);margin-top:5.5px;border-radius:2px}
+.slx .track .seg.on{background:#9FC0EC}
 .slx .faq{padding:2.2rem 0;border-top:1.5px solid var(--ink)}
 .slx .qa{border-top:1px solid var(--i14);padding:1.4rem 0}
 .slx .qa:first-of-type{border-top:0}
@@ -572,11 +560,11 @@ const SL_CSS = `
 .slx .tcap{font-size:11.5px;color:var(--i42);line-height:1.45;margin-top:1.2rem;max-width:50ch}
 .slx .tcap b{color:var(--red);font-weight:700}
 .slx .guar{background:var(--ink);color:var(--cream);border-radius:16px;padding:2.4rem 1.6rem;margin:2.2rem 0}
-.slx .guar .g-eye{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#FF4B4B}
+.slx .guar .g-eye{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#F0857E}
 .slx .guar .g-big{font-size:clamp(1.8rem,5.6vw,2.7rem);font-weight:700;letter-spacing:-.035em;line-height:1.1;margin-top:1rem;max-width:20ch}
 .slx .guar .g-big em{font-family:var(--serif);font-style:italic;font-weight:400;color:#fff}
-.slx .guar .g-sub{font-size:1rem;color:rgba(245,243,238,.8);line-height:1.6;margin-top:1.2rem;max-width:52ch}
-.slx .guar .g-sig{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:#F9FF84;margin-top:1.4rem}
+.slx .guar .g-sub{font-size:1rem;color:rgba(244,239,230,.8);line-height:1.6;margin-top:1.2rem;max-width:52ch}
+.slx .guar .g-sig{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:#9FC0EC;margin-top:1.4rem}
 .slx .step{display:flex;gap:1rem;border-top:1px solid var(--i14);padding:1.2rem 0}
 .slx .step:first-of-type{border-top:0}
 .slx .step .sn{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--red);width:40px;flex-shrink:0;line-height:1}
@@ -594,12 +582,6 @@ const SL_CSS = `
 .slx .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--e),transform .7s var(--e)}
 .slx .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.slx .reveal,.slx .col .v{opacity:1;transform:none}.slx .cbar{transition:none}}
-
-/* owner 2026-11-10: no small labels */
-.slx .bar,.slx .kick,.slx .thesis .lead,.slx .roof,.slx .unit .tag,.slx .guar .g-eye{display:none!important}
-
-/* owner 2026-11-10: colour by idea */
-.slx .thesis{background:#F9FF84!important;color:#0E0E0E!important}.slx .thesis *{color:#0E0E0E!important}
 `;
 
 const SL_UNITS = [
@@ -712,7 +694,7 @@ function SalesContent({ onClose }: { onClose: () => void }) {
       <div className="wrap">
         <section className="hero">
           <span className="kick">The sales engagement</span>
-          <DeptH1>We don&apos;t sell you<br />software. <em>We run<br />your sales.</em></DeptH1>
+          <h1>We don&apos;t sell you<br />software. <em>We run<br />your sales.</em></h1>
           <p className="sub">One team that owns the whole sale — the strategy, the content that closes, how you show up, and one system you keep. Everything your sales needs, pointed at one number: revenue.</p>
           <div className="stats">
             <div className="st"><b>78<em>%</em></b><p>of buyers choose whoever answers first</p></div>
@@ -849,11 +831,11 @@ function SalesContent({ onClose }: { onClose: () => void }) {
 const MM_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;500;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap');
 .mm{
-  --ink:#0E0E0E;--deep:#080808;--card:#171717;--c:#F5F3EE;--am:#F9FF84;--dim:#8C8C88;
-  --c70:rgba(245,243,238,.72);--c45:rgba(245,243,238,.46);--c26:rgba(245,243,238,.26);
-  --c16:rgba(245,243,238,.16);--c10:rgba(245,243,238,.1);
-  --amg:rgba(249,255,132,.5);--amf:rgba(249,255,132,.12);
-  --line:rgba(245,243,238,.12);
+  --ink:#0C0F16;--deep:#080A0F;--card:#12151E;--c:#F0EBE2;--am:#F6A61C;--dim:#7C8598;
+  --c70:rgba(240,235,226,.72);--c45:rgba(240,235,226,.46);--c26:rgba(240,235,226,.26);
+  --c16:rgba(240,235,226,.16);--c10:rgba(240,235,226,.1);
+  --amg:rgba(246,166,28,.5);--amf:rgba(246,166,28,.12);
+  --line:rgba(240,235,226,.12);
   --ui:'Chivo',sans-serif;--mono:'DM Mono',monospace;
   --e:cubic-bezier(.16,1,.3,1);
   background:var(--ink);color:var(--c);font-family:var(--ui);
@@ -865,7 +847,7 @@ const MM_CSS = `
 .mm .desc{font-size:.97rem;color:var(--c70);line-height:1.55;margin-top:1rem;max-width:43ch}
 .mm .desc b{color:var(--c);font-weight:700}
 .mm .board{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35)}
-.mm .bhead{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1.1rem;border-bottom:1px solid var(--line);background:rgba(245,243,238,.02)}
+.mm .bhead{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1.1rem;border-bottom:1px solid var(--line);background:rgba(240,235,226,.02)}
 .mm .bhead b{font-size:12px;font-weight:700}
 .mm .bhead s{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--c45);font-style:normal}
 .mm .brow{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1.1rem;border-bottom:1px solid var(--line);opacity:0;transform:translateY(8px);transition:.55s var(--e)}
@@ -873,13 +855,13 @@ const MM_CSS = `
 .mm .board.go .brow{opacity:1;transform:none}
 .mm .bch{font-family:var(--mono);font-size:12.5px;color:var(--c)}
 .mm .bv{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.02em;padding:5px 10px;border-radius:5px;white-space:nowrap}
-.mm .bv.on{color:var(--am);background:var(--amf);border:1px solid rgba(249,255,132,.4)}
-.mm .bv.off{color:var(--dim);background:rgba(140,140,136,.08);border:1px solid var(--line)}
+.mm .bv.on{color:var(--am);background:var(--amf);border:1px solid rgba(246,166,28,.4)}
+.mm .bv.off{color:var(--dim);background:rgba(124,133,152,.08);border:1px solid var(--line)}
 .mm .team{margin-top:1.7rem}
 .mm .team s{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--c45);font-style:normal}
 .mm .team .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:.7rem}
 .mm .team .chips span{border:1px solid var(--line);padding:6px 10px;font-size:11px;color:var(--c70);border-radius:2px}
-.mm .pass{margin:1.5rem 20px 0;border:1px solid rgba(249,255,132,.4);border-radius:12px;background:linear-gradient(180deg,rgba(249,255,132,.08),transparent);padding:1.4rem}
+.mm .pass{margin:1.5rem 20px 0;border:1px solid rgba(246,166,28,.4);border-radius:12px;background:linear-gradient(180deg,rgba(246,166,28,.08),transparent);padding:1.4rem}
 .mm .pass s{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--am);font-style:normal}
 .mm .pass h3{font-size:1.5rem;font-weight:900;letter-spacing:-.03em;margin:.4rem 0 .5rem}
 .mm .pass p{font-size:.9rem;color:var(--c70);line-height:1.55}
@@ -895,7 +877,7 @@ const MM_CSS = `
 .mm .phase h2 em{font-style:normal;color:var(--am)}
 .mm .phase .out{font-size:clamp(1.3rem,5.2vw,1.6rem);color:var(--c);margin-top:.9rem;line-height:1.2;font-weight:500}
 .mm .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--deep);position:relative;overflow:hidden;aspect-ratio:1/.78}
-.mm .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(245,243,238,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.mm .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(240,235,226,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
 .mm .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .mm .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--am)}
 .mm .who::before{content:'';width:16px;height:1px;background:var(--am);opacity:.5}
@@ -905,7 +887,7 @@ const MM_CSS = `
 .mm .stat b{font-family:var(--mono);font-size:clamp(2.1rem,9.5vw,2.8rem);font-weight:500;letter-spacing:-.03em;line-height:.9}
 .mm .stat b em{font-style:normal;font-size:.5em;color:var(--am)}
 .mm .stat p{font-size:11.5px;color:var(--c45);line-height:1.35;max-width:26ch}
-.mm .bonus{margin:0 20px;padding:1.3rem 1.4rem;border:1px dashed var(--line);border-radius:10px;background:rgba(245,243,238,.02)}
+.mm .bonus{margin:0 20px;padding:1.3rem 1.4rem;border:1px dashed var(--line);border-radius:10px;background:rgba(240,235,226,.02)}
 .mm .bonus s{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--c45);font-style:normal}
 .mm .bonus h4{font-size:1.15rem;font-weight:700;margin:.5rem 0 .5rem;letter-spacing:-.02em}
 .mm .bonus p{font-size:.88rem;color:var(--c70);line-height:1.55}
@@ -917,15 +899,15 @@ const MM_CSS = `
 .mm .end > p b{color:var(--c);font-weight:700}
 .mm .end a{display:block;margin-top:1.4rem;text-align:center;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--am);text-decoration:none;padding:1.15rem;border-radius:6px}
 .mm .end .foot{font-family:var(--mono);font-size:10.5px;color:var(--c26);letter-spacing:.04em;margin-top:1.4rem}
-.mm .wire{stroke:rgba(245,243,238,.16);stroke-width:1.25;fill:none}
-.mm .node{fill:rgba(245,243,238,.16)}
-.mm .nodeOn{fill:#F9FF84}
-.mm .bad{fill:#8C8C88}
-.mm .ring{fill:none;stroke:#F9FF84;stroke-width:1.5}
-.mm .lab{font-family:'DM Mono';font-weight:400;fill:rgba(245,243,238,.7)}
-.mm .labA{font-family:'DM Mono';font-weight:500;fill:#F9FF84}
-.mm .labk{font-family:'DM Mono';font-weight:500;fill:#0E0E0E}
-.mm .glow{filter:drop-shadow(0 0 8px rgba(249,255,132,.5))}
+.mm .wire{stroke:rgba(240,235,226,.16);stroke-width:1.25;fill:none}
+.mm .node{fill:rgba(240,235,226,.16)}
+.mm .nodeOn{fill:#F6A61C}
+.mm .bad{fill:#7C8598}
+.mm .ring{fill:none;stroke:#F6A61C;stroke-width:1.5}
+.mm .lab{font-family:'DM Mono';font-weight:400;fill:rgba(240,235,226,.7)}
+.mm .labA{font-family:'DM Mono';font-weight:500;fill:#F6A61C}
+.mm .labk{font-family:'DM Mono';font-weight:500;fill:#0C0F16}
+.mm .glow{filter:drop-shadow(0 0 8px rgba(246,166,28,.5))}
 .mm .draw{stroke-dasharray:var(--L,240);stroke-dashoffset:var(--L,240)}
 .mm .viz.live .draw{animation:mm-draw 1.1s var(--e) forwards}
 @keyframes mm-draw{to{stroke-dashoffset:0}}
@@ -944,13 +926,10 @@ const MM_CSS = `
 .mm .viz.live .growx{animation:mm-grwx .9s var(--e) forwards}
 @keyframes mm-grwx{to{transform:scaleX(1)}}
 @media(prefers-reduced-motion:reduce){.mm *{animation:none!important;transition-duration:.01ms!important}.mm .up,.mm .pop,.mm .brow{opacity:1;transform:none}.mm .draw{stroke-dashoffset:0}.mm .grow,.mm .growd,.mm .growx{transform:none}}
-
-/* owner 2026-11-10: no small labels */
-.mm .lbl,.mm .shead,.mm .phase .idx s,.mm .team s,.mm .bonus s{display:none!important}
 `;
 
-const MM_AM = '#F9FF84';
-const MM_INK = '#0E0E0E';
+const MM_AM = '#F6A61C';
+const MM_INK = '#0C0F16';
 
 const MM_VIZ: Record<string, () => string> = {
   allocate: () => {
@@ -1076,7 +1055,7 @@ function MediaContent({ onClose }: { onClose: () => void }) {
     <div className="mm" ref={wrapRef}>
       <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:"1px solid var(--line)" }}>
         <p className="lbl">Marketing and media</p>
-        <DeptH1>We make your money<br /><em>come back with more.</em></DeptH1>
+        <h1>We make your money<br /><em>come back with more.</em></h1>
         <p className="desc">The right channels, the right creative, tested in flights and scaled only when they win — and <b>every euro of ad spend goes to the platforms, never to us.</b> Media that pays for itself, run by one team.</p>
 
         <div className="board" ref={boardRef}>
@@ -1123,6 +1102,11 @@ function MediaContent({ onClose }: { onClose: () => void }) {
         ))}
       </div>
 
+      <div className="bonus">
+        <s>Bonus, included</s>
+        <h4>Oh — and a little tool, on us.</h4>
+        <p>A small tool that pings the team the moment a channel's cost spikes or a winning ad starts to tire — so budget never quietly bleeds. <b>Nice to have, not the main event.</b> The buying and the calls are made by the people above.</p>
+      </div>
 
       <div className="end">
         <div className="big">Media that pays<br /><span>for itself.</span></div>
@@ -1137,12 +1121,12 @@ function MediaContent({ onClose }: { onClose: () => void }) {
 // ── SOCIAL content — exact prototype port, green world ───────────────────────
 const SC_CSS = `
 .sc{
-  --bg:#0E0E0E;--deep:#080808;--em:#F9FF84;
-  --c:#F5F3EE;
-  --c70:rgba(245,243,238,.72);--c45:rgba(245,243,238,.46);
-  --c26:rgba(245,243,238,.26);--c16:rgba(245,243,238,.16);
-  --emg:rgba(249,255,132,.55);--emd:rgba(249,255,132,.16);
-  --line:rgba(245,243,238,.13);
+  --bg:#0E0C14;--deep:#08070C;--em:#FF6A2B;
+  --c:#F3EEE6;
+  --c70:rgba(243,238,230,.72);--c45:rgba(243,238,230,.46);
+  --c26:rgba(243,238,230,.26);--c16:rgba(243,238,230,.16);
+  --emg:rgba(255,106,43,.55);--emd:rgba(255,106,43,.16);
+  --line:rgba(243,238,230,.13);
   --e:cubic-bezier(.16,1,.3,1);
   background:var(--bg);color:var(--c);
   font-family:'Familjen Grotesk',sans-serif;
@@ -1163,7 +1147,7 @@ const SC_CSS = `
 @keyframes sc-float{from{transform:rotateX(58deg) rotateZ(-38deg) translateZ(0)}to{transform:rotateX(54deg) rotateZ(-34deg) translateZ(7px)}}
 .sc .layer{position:absolute;inset:0;border:1.5px solid var(--c26);background:rgba(242,239,233,.03);
   border-radius:6px;opacity:0;box-shadow:0 1px 0 rgba(242,239,233,.08) inset}
-.sc .layer.hot{border-color:var(--em);background:rgba(249,255,132,.12);box-shadow:0 0 26px var(--emg)}
+.sc .layer.hot{border-color:var(--em);background:rgba(255,106,43,.12);box-shadow:0 0 26px var(--emg)}
 .sc .layer .dot{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   width:7px;height:7px;border-radius:50%;background:var(--em);box-shadow:0 0 12px var(--emg)}
 .sc .layer .tag{position:absolute;left:calc(100% + 16px);top:50%;white-space:nowrap;
@@ -1186,7 +1170,7 @@ const SC_CSS = `
 .sc .shead{padding:1.7rem 20px .4rem;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--c45);display:flex;align-items:center;gap:.8rem}
 .sc .shead::after{content:'';flex:1;height:1px;background:var(--line)}
 .sc .phase{padding:1.8rem 20px 2rem;border-top:1px solid var(--line)}
-.sc .phase.hot{background:linear-gradient(180deg,rgba(249,255,132,.07),transparent 58%)}
+.sc .phase.hot{background:linear-gradient(180deg,rgba(255,106,43,.07),transparent 58%)}
 .sc .core-tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.16em;
   text-transform:uppercase;color:var(--bg);background:var(--em);padding:5px 10px;border-radius:2px;margin-bottom:1rem}
 .sc .phase .idx{display:flex;align-items:baseline;gap:.6rem;font-variant-numeric:tabular-nums}
@@ -1223,15 +1207,15 @@ const SC_CSS = `
 .sc .end > p{font-size:.95rem;color:var(--c70);line-height:1.6;max-width:44ch;margin-top:1rem}
 .sc .end > p b{color:var(--c)}
 .sc .end a{display:block;margin-top:1.4rem;text-align:center;font-size:12px;font-weight:700;
-  letter-spacing:.13em;text-transform:uppercase;color:#F5F3EE;background:var(--em);
+  letter-spacing:.13em;text-transform:uppercase;color:#F3EEE6;background:var(--em);
   text-decoration:none;padding:1.15rem;border-radius:4px}
 .sc .end .foot{font-size:11px;color:var(--c26);letter-spacing:.04em;margin-top:1.4rem}
 .sc .wire{stroke:var(--c16);stroke-width:1.25;fill:none}
 .sc .node{fill:var(--c16)}
 .sc .nodeOn{fill:var(--em)}
 .sc .ring{fill:none;stroke:var(--em);stroke-width:1.5}
-.sc .lab{font-weight:600;fill:rgba(245,243,238,.7)}
-.sc .labk{font-weight:700;fill:#080808}
+.sc .lab{font-weight:600;fill:rgba(243,238,230,.7)}
+.sc .labk{font-weight:700;fill:#08070C}
 .sc .glow{filter:drop-shadow(0 0 9px var(--emg))}
 .sc .draw{stroke-dasharray:var(--L,240);stroke-dashoffset:var(--L,240)}
 .sc .viz.live .draw{animation:sc-draw 1.1s var(--e) forwards}
@@ -1249,13 +1233,10 @@ const SC_CSS = `
 .sc *{animation:none!important;transition-duration:.01ms!important}
 .sc .stack{animation:none}.sc .layer{opacity:1}.sc .stack.go .layer{animation:none;opacity:1}
 .sc .up,.sc .pop{opacity:1;transform:none}.sc .draw{stroke-dashoffset:0}.sc .grow{transform:none}}
-
-/* owner 2026-11-10: no small labels */
-.sc .hero .lbl,.sc .shead,.sc .phase .idx s,.sc .team-row s,.sc .bonus s{display:none!important}
 `;
 
-const SC_EM = '#F9FF84';
-const SC_INK = '#080808';
+const SC_EM = '#FF6A2B';
+const SC_INK = '#08070C';
 
 const SC_VIZ: Record<string, () => string> = {
   where: () => {
@@ -1416,7 +1397,7 @@ function SocialContent({ onClose }: { onClose: () => void }) {
       {/* hero */}
       <div className="hero">
         <p className="lbl">Everything social takes</p>
-        <DeptH1>Social is a whole world.<br /><em>We deliver all of it.</em></DeptH1>
+        <h1>Social is a whole world.<br /><em>We deliver all of it.</em></h1>
         <p className="desc">The story, the video, every platform, being where your people already are, and knowing how it all actually works — <b>delivered by one team who does this all day.</b> You touch none of it. It becomes the strongest thing you&apos;ve got.</p>
 
         {/* 3D stack */}
@@ -1454,6 +1435,11 @@ function SocialContent({ onClose }: { onClose: () => void }) {
       ))}
 
       {/* bonus */}
+      <div className="bonus">
+        <s>Bonus, included</s>
+        <h4>Oh — and a little tool, on us.</h4>
+        <p>A simple tool that flags a rising trend and pings the team the second someone mentions you, so we&apos;re first to the moment. <b>Nice to have — not the main event.</b> The work is done by the people above.</p>
+      </div>
 
       {/* end / CTA */}
       <div className="end">
@@ -1507,7 +1493,7 @@ function injectVB() {
   _vbInj = true;
 }
 
-function VizBox({ svg, bg = "#080808", brd = "rgba(245,243,238,.11)", dot = "rgba(245,243,238,.05)" }:
+function VizBox({ svg, bg = "#07080C", brd = "rgba(234,237,242,.11)", dot = "rgba(234,237,242,.05)" }:
   { svg: string; bg?: string; brd?: string; dot?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -1541,11 +1527,11 @@ function VizBox({ svg, bg = "#080808", brd = "rgba(245,243,238,.11)", dot = "rgb
 const CL_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
 .clx{
-  --ink:#0E0E0E;--deep:#080808;--card:#171717;--c:#F5F3EE;--az:#F9FF84;--bad:#FF4B4B;
-  --c70:rgba(245,243,238,.72);--c45:rgba(245,243,238,.46);--c26:rgba(245,243,238,.26);
-  --c16:rgba(245,243,238,.16);--c10:rgba(245,243,238,.1);
-  --azg:rgba(249,255,132,.5);--azf:rgba(249,255,132,.12);
-  --line:rgba(245,243,238,.11);
+  --ink:#0B0D12;--deep:#07080C;--card:#0E1117;--c:#EAEDF2;--az:#3D7BFF;--bad:#E5563B;
+  --c70:rgba(234,237,242,.72);--c45:rgba(234,237,242,.46);--c26:rgba(234,237,242,.26);
+  --c16:rgba(234,237,242,.16);--c10:rgba(234,237,242,.1);
+  --azg:rgba(61,123,255,.5);--azf:rgba(61,123,255,.12);
+  --line:rgba(234,237,242,.11);
   --ui:'Sora',sans-serif;--mono:'JetBrains Mono',monospace;--e:cubic-bezier(.16,1,.3,1);
   background:var(--ink);color:var(--c);font-family:var(--ui);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .clx *{margin:0;padding:0;box-sizing:border-box}
@@ -1556,7 +1542,7 @@ const CL_CSS = `
 .clx .hero p{font-size:.98rem;color:var(--c70);line-height:1.55;margin-top:1rem;max-width:42ch}
 .clx .hero p b{color:var(--c);font-weight:600}
 .clx .board{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.3)}
-.clx .bhead{display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.1rem;border-bottom:1px solid var(--line);background:rgba(245,243,238,.02)}
+.clx .bhead{display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.1rem;border-bottom:1px solid var(--line);background:rgba(234,237,242,.02)}
 .clx .bhead b{font-size:12px;font-weight:700;letter-spacing:.01em}
 .clx .bhead s{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--c45);font-style:normal;text-decoration:none}
 .clx .brow{display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.1rem;border-bottom:1px solid var(--line);opacity:0;transform:translateY(8px);transition:.55s var(--e)}
@@ -1564,8 +1550,8 @@ const CL_CSS = `
 .clx .board.go .brow{opacity:1;transform:none}
 .clx .bch{font-family:var(--mono);font-size:13px;color:var(--c)}
 .clx .bv{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em;padding:5px 10px;border-radius:5px;white-space:nowrap}
-.clx .bv.on{color:var(--az);background:var(--azf);border:1px solid rgba(249,255,132,.4)}
-.clx .bv.off{color:var(--bad);background:rgba(255,75,75,.1);border:1px solid rgba(255,75,75,.32)}
+.clx .bv.on{color:var(--az);background:var(--azf);border:1px solid rgba(61,123,255,.4)}
+.clx .bv.off{color:var(--bad);background:rgba(229,86,59,.1);border:1px solid rgba(229,86,59,.32)}
 .clx .hero .team{margin-top:1.7rem}
 .clx .hero .team s{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--c45);font-style:normal;text-decoration:none}
 .clx .hero .team .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:.7rem}
@@ -1581,7 +1567,7 @@ const CL_CSS = `
 .clx .phase h2 em{font-style:normal;color:var(--az)}
 .clx .phase .out{font-size:clamp(1.3rem,5.2vw,1.6rem);color:var(--c);margin-top:.9rem;line-height:1.2;font-weight:500}
 .clx .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--deep);position:relative;overflow:hidden;aspect-ratio:1/.78}
-.clx .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(245,243,238,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.clx .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(234,237,242,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
 .clx .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .clx .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.02em;color:var(--az)}
 .clx .who::before{content:'';width:16px;height:1px;background:var(--az);opacity:.5}
@@ -1591,7 +1577,7 @@ const CL_CSS = `
 .clx .stat b{font-family:var(--mono);font-size:clamp(2.1rem,9.5vw,2.8rem);font-weight:700;letter-spacing:-.03em;line-height:.9}
 .clx .stat b em{font-style:normal;font-size:.5em;color:var(--az)}
 .clx .stat p{font-size:11.5px;color:var(--c45);line-height:1.35;max-width:25ch}
-.clx .bonus{margin:0 20px;padding:1.3rem 1.4rem;border:1px dashed var(--line);border-radius:10px;background:rgba(245,243,238,.02)}
+.clx .bonus{margin:0 20px;padding:1.3rem 1.4rem;border:1px dashed var(--line);border-radius:10px;background:rgba(234,237,242,.02)}
 .clx .bonus s{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--c45);font-style:normal;text-decoration:none}
 .clx .bonus h4{font-size:1.15rem;font-weight:700;margin:.5rem 0 .5rem;letter-spacing:-.02em}
 .clx .bonus p{font-size:.88rem;color:var(--c70);line-height:1.55}
@@ -1625,13 +1611,10 @@ const CL_CSS = `
 .clx .growd{transform:scaleY(0);transform-origin:50% 0}
 .clx .live .growd{animation:clx-grw .75s var(--e) forwards}
 @media(prefers-reduced-motion:reduce){.clx *{animation:none!important;transition-duration:.01ms!important}.clx .up,.clx .pop,.clx .brow{opacity:1;transform:none}.clx .draw{stroke-dashoffset:0}.clx .grow,.clx .growd{transform:none}}
-
-/* owner 2026-11-10: no small labels */
-.clx .hero .lbl,.clx .shead,.clx .phase .idx s,.clx .hero .team s,.clx .bonus s{display:none!important}
 `;
 
-const CL_INK = '#0E0E0E';
-const CL_AZ = '#F9FF84';
+const CL_INK = '#0B0D12';
+const CL_AZ = '#3D7BFF';
 
 const CL_BOARD: [string, string, number][] = [
   ['Instagram video', 'WORKING  \u2191', 1],
@@ -1669,7 +1652,7 @@ const CL_VIZ: Record<string, () => string> = {
       s+=`<rect class="wire up" x="30" y="${y}" width="152" height="38" rx="6" opacity=".38" style="animation-delay:${i*.08}s"/>`+
          `<text class="lab up" x="46" y="${y+24}" font-size="12.5" opacity=".38" style="animation-delay:${i*.08}s">${t}</text>`;});
     money.forEach((t,i)=>{const y=42+i*52;
-      s+=`<rect class="up" x="218" y="${y}" width="152" height="38" rx="6" fill="rgba(249,255,132,.1)" stroke="${CL_AZ}" stroke-width="1.4" style="animation-delay:${.5+i*.1}s"/>`+
+      s+=`<rect class="up" x="218" y="${y}" width="152" height="38" rx="6" fill="rgba(61,123,255,.1)" stroke="${CL_AZ}" stroke-width="1.4" style="animation-delay:${.5+i*.1}s"/>`+
          `<text class="labA up" x="234" y="${y+24}" font-size="12.5" style="animation-delay:${.5+i*.1}s">${t}</text>`;});
     return `<svg viewBox="0 0 400 264">${s}</svg>`;
   },
@@ -1741,7 +1724,7 @@ function ClarityContent({ onClose }: { onClose: () => void }) {
     <div className="clx" ref={wrapRef}>
       <div className="hero">
         <p className="lbl">Tell me what&apos;s working</p>
-        <DeptH1>We tell you what&apos;s<br /><em>actually working.</em></DeptH1>
+        <h1>We tell you what&apos;s<br /><em>actually working.</em></h1>
         <p>Not a dashboard full of numbers you&apos;ll never read — one straight answer: what&apos;s making you money, what&apos;s wasting it, and what to do next. <b>Everyone hands you data. We hand you the decision.</b></p>
 
         <div className="board" ref={boardRef}>
@@ -1778,6 +1761,11 @@ function ClarityContent({ onClose }: { onClose: () => void }) {
         ))}
       </div>
 
+      <div className="bonus">
+        <s>Bonus, included</s>
+        <h4>Oh — and a little tool, on us.</h4>
+        <p>A small tool that watches your numbers and pings the team the moment one moves sharply — up or down — so nothing surprises you late. <b>Nice to have, not the main event.</b> The reading and the call are done by the people above.</p>
+      </div>
 
       <div className="end">
         <div className="big">Stop guessing.<br /><span>Know.</span></div>
@@ -1794,23 +1782,23 @@ function ClarityContent({ onClose }: { onClose: () => void }) {
 // ────────────────────────────────────────────────────────────────────────────
 // ─── AI STAFF — Graphite monochrome world (design sheet World D) ─────────────
 const AIS_VI  = '#F5F5F3';
-const AIS_INK = '#0035AD';
+const AIS_INK = '#0B0C0D';
 
 const AIS_CSS = `
 .ais{
-  --vi:#F5F3EE;--vi2:rgba(245,243,238,.9);
-  --vig:rgba(245,243,238,.3);--vif:rgba(245,243,238,.08);
-  --ink:#0035AD;--deep:#0035AD;--card:#0B42C4;
-  --c:#F5F3EE;--c70:rgba(245,243,238,.72);--c45:rgba(245,243,238,.46);
-  --c26:rgba(245,243,238,.26);--c16:rgba(245,243,238,.16);
-  --c10:rgba(245,243,238,.1);--line:rgba(245,243,238,.11);
+  --vi:#F5F5F3;--vi2:rgba(245,245,243,.9);
+  --vig:rgba(245,245,243,.3);--vif:rgba(245,245,243,.08);
+  --ink:#0B0C0D;--deep:#0B0C0D;--card:#131415;
+  --c:#F5F5F3;--c70:rgba(245,245,243,.72);--c45:rgba(245,245,243,.46);
+  --c26:rgba(245,245,243,.26);--c16:rgba(245,245,243,.16);
+  --c10:rgba(245,245,243,.1);--line:rgba(245,245,243,.11);
   --e:cubic-bezier(.16,1,.3,1);
-  background:#0035AD;color:#F5F3EE;
+  background:#0B0C0D;color:#F5F5F3;
   font-family:'Schibsted Grotesk',var(--font-bricolage,'Bricolage Grotesque',sans-serif);
   -webkit-font-smoothing:antialiased;overflow-x:hidden}
 .ais .hero{padding:1.8rem 20px 2.2rem;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
 .ais .hero::before{content:'';position:absolute;top:-40px;right:-60px;width:280px;height:280px;border-radius:50%;
-  background:radial-gradient(circle,rgba(245,243,238,.09),rgba(245,243,238,.03) 45%,transparent 70%);filter:blur(10px)}
+  background:radial-gradient(circle,rgba(245,245,243,.09),rgba(245,245,243,.03) 45%,transparent 70%);filter:blur(10px)}
 .ais .hero>*{position:relative}
 .ais .hero .lbl{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--vi2)}
 .ais .hero h1{font-size:clamp(2.3rem,9.4vw,3.4rem);font-weight:800;line-height:.98;letter-spacing:-.04em;margin-top:.7rem}
@@ -1823,7 +1811,7 @@ const AIS_CSS = `
 .ais .rgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
 .ais .rcard{background:var(--card);padding:1rem;opacity:0;transform:translateY(8px);transition:.5s var(--e)}
 .ais .roster.go .rcard{opacity:1;transform:none}
-.ais .rcard.hot{background:rgba(245,243,238,.06)}
+.ais .rcard.hot{background:rgba(245,245,243,.06)}
 .ais .rcard .rn{font-weight:700;font-size:.95rem;letter-spacing:-.01em}
 .ais .rcard .rd{font-size:11.5px;color:var(--c45);margin-top:.2rem;line-height:1.3}
 .ais .rcard .rs{margin-top:.6rem;display:inline-flex;align-items:center;gap:5px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--vi2)}
@@ -1844,7 +1832,7 @@ const AIS_CSS = `
 .ais .phase h2 em{font-style:normal;color:var(--vi2)}
 .ais .out{font-size:clamp(1.25rem,5vw,1.55rem);color:var(--c);margin-top:.9rem;line-height:1.22;font-weight:500}
 .ais .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--deep);position:relative;overflow:hidden;aspect-ratio:1/.78}
-.ais .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(245,243,238,.05) 1px,transparent 0);background-size:22px 22px;-webkit-mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%);mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.ais .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(245,245,243,.05) 1px,transparent 0);background-size:22px 22px;-webkit-mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%);mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
 .ais .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .ais .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.02em;color:var(--vi2)}
 .ais .who::before{content:'';width:16px;height:1px;background:var(--vi);opacity:.5}
@@ -1861,7 +1849,7 @@ const AIS_CSS = `
 .ais .vcompare{display:grid;grid-template-columns:1fr 1fr}
 .ais .vcol{padding:1.1rem 1.05rem 1.3rem}
 .ais .vcol+.vcol{border-left:1px solid var(--line)}
-.ais .vcol.on{background:rgba(245,243,238,.06)}
+.ais .vcol.on{background:rgba(245,245,243,.06)}
 .ais .vcol s{font-size:11px;font-weight:700;color:var(--c45);font-style:normal;text-decoration:none}
 .ais .vcol.on s{color:var(--vi2)}
 .ais .vcol ul{list-style:none;margin-top:.75rem;display:flex;flex-direction:column;gap:.55rem}
@@ -1869,17 +1857,17 @@ const AIS_CSS = `
 .ais .vcol.on li{color:var(--c)}
 .ais .vcol li::before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:50%;background:var(--c26)}
 .ais .vcol.on li::before{background:var(--vi);box-shadow:0 0 6px var(--vig)}
-.ais .vguarantee{padding:1rem 1.1rem;border-top:1px solid var(--line);font-size:.9rem;line-height:1.45;color:var(--c);background:rgba(245,243,238,.04)}
+.ais .vguarantee{padding:1rem 1.1rem;border-top:1px solid var(--line);font-size:.9rem;line-height:1.45;color:var(--c);background:rgba(245,245,243,.04)}
 .ais .vguarantee b{color:var(--vi2)}
 .ais .end{padding:2.4rem 20px calc(2.4rem + env(safe-area-inset-bottom));border-top:1px solid var(--line);margin-top:1.7rem;position:relative;overflow:hidden}
 .ais .end::before{content:'';position:absolute;bottom:-80px;left:-40px;width:300px;height:300px;border-radius:50%;
-  background:radial-gradient(circle,rgba(245,243,238,.09),transparent 68%);filter:blur(12px)}
+  background:radial-gradient(circle,rgba(245,245,243,.09),transparent 68%);filter:blur(12px)}
 .ais .end>*{position:relative}
 .ais .end .big{font-size:clamp(2.5rem,10.5vw,3.6rem);font-weight:900;line-height:1;letter-spacing:-.04em}
 .ais .end .big span{color:var(--vi2)}
 .ais .end>p{font-size:.95rem;color:var(--c70);line-height:1.62;max-width:46ch;margin-top:1.1rem}
 .ais .end>p b{color:var(--c);font-weight:600}
-.ais .end a{display:block;margin-top:1.5rem;text-align:center;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--vi);text-decoration:none;padding:1.15rem;border-radius:6px;box-shadow:0 10px 30px rgba(245,243,238,.14)}
+.ais .end a{display:block;margin-top:1.5rem;text-align:center;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--vi);text-decoration:none;padding:1.15rem;border-radius:6px;box-shadow:0 10px 30px rgba(245,245,243,.14)}
 .ais .end .foot{font-family:'Space Mono',monospace;font-size:10px;color:var(--c26);letter-spacing:.03em;margin-top:1.4rem}
 .ais .wire{stroke:var(--c16);stroke-width:1.25;fill:none}
 .ais .node{fill:var(--c16)}.ais .nodeOn{fill:var(--vi)}
@@ -1903,9 +1891,6 @@ const AIS_CSS = `
 @media(prefers-reduced-motion:reduce){
   .ais .up,.ais .pop,.ais .rcard{opacity:1;transform:none}
   .ais .draw{stroke-dashoffset:0}.ais .grow{transform:none}}
-
-/* owner 2026-11-10: no small labels */
-.ais .hero .lbl,.ais .shead,.ais .phase .idx s,.ais .team s{display:none!important}
 `;
 
 // ─── AI STAFF — VIZ generators (monochrome: AIS_VI=white, AIS_INK=graphite) ──
@@ -1928,7 +1913,7 @@ const AIS_VIZ: Record<string, () => string> = {
     for (let i=0;i<22;i++){const h=12+((i*i*5)%56),on=i>2&&i<18;
       s+=`<rect class="${on?'nodeOn glow':'node'} grow" x="${36+i*15}" y="${122-h/2}" width="7" height="${h}" rx="3" style="animation-delay:${(i*.035).toFixed(3)}s"/>`;}
     s+=`<line class="wire" x1="36" y1="122" x2="366" y2="122" opacity=".22"/>` +
-       `<rect class="up" x="108" y="178" width="184" height="42" rx="11" fill="rgba(245,243,238,.1)" stroke="${AIS_VI}" stroke-width="1.4" style="animation-delay:1s"/>` +
+       `<rect class="up" x="108" y="178" width="184" height="42" rx="11" fill="rgba(245,245,243,.1)" stroke="${AIS_VI}" stroke-width="1.4" style="animation-delay:1s"/>` +
        `<text class="labA up" x="200" y="204" font-size="12.5" font-weight="700" text-anchor="middle" style="animation-delay:1.1s">Answered · booked · sold</text>`;
     return `<svg viewBox="0 0 400 250">${s}</svg>`;
   },
@@ -1971,7 +1956,7 @@ const AIS_VIZ: Record<string, () => string> = {
     st.forEach((n,i)=>{s+=`<circle class="ring glow pop" cx="${n.x}" cy="${y}" r="24" style="animation-delay:${(i*.25).toFixed(2)}s"/>` +
       `<text class="lab pop" x="${n.x}" y="${y+4}" font-size="9.5" font-weight="700" text-anchor="middle" style="animation-delay:${(i*.25+.1).toFixed(2)}s">${n.l}</text>`;});
     s+=`<text class="lab up" x="200" y="40" font-size="10.5" text-anchor="middle" opacity=".6" style="animation-delay:.2s">our people, at your table</text>` +
-       `<rect class="up" x="118" y="148" width="164" height="44" rx="12" fill="rgba(245,243,238,.1)" stroke="${AIS_VI}" stroke-width="1.4" style="animation-delay:1.1s"/>` +
+       `<rect class="up" x="118" y="148" width="164" height="44" rx="12" fill="rgba(245,245,243,.1)" stroke="${AIS_VI}" stroke-width="1.4" style="animation-delay:1.1s"/>` +
        `<text class="labA up" x="200" y="175" font-size="13" font-weight="700" text-anchor="middle" style="animation-delay:1.2s">Delivered in a week</text>`;
     return `<svg viewBox="0 0 400 210">${s}</svg>`;
   },
@@ -2069,7 +2054,7 @@ function AIStaffContent({ onClose }: { onClose: () => void }) {
       {/* hero */}
       <div className="hero">
         <p className="lbl">Pick your employee</p>
-        <DeptH1>Not chatbots.<br /><em>Employees that do the work.</em></DeptH1>
+        <h1>Not chatbots.<br /><em>Employees that do the work.</em></h1>
         <p>Trained on your business, plugged into your systems, working under your control with your data protected — <b>voice support, sales, a concierge for your customers, research on your competitors,</b> and the software and hardware around them. Built and delivered by our people. In a week. In Malta.</p>
 
         <div className="roster" ref={rosterRef}>
@@ -2160,9 +2145,9 @@ function AIStaffContent({ onClose }: { onClose: () => void }) {
 const CR_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 .cr{
-  --bg:#0E0E0E;--bg2:#171717;--bone:#F5F3EE;--gold:#F9FF84;--goldd:#E6EC6A;
-  --b72:rgba(245,243,238,.72);--b50:rgba(245,243,238,.5);--b32:rgba(245,243,238,.32);
-  --b18:rgba(245,243,238,.18);--b10:rgba(245,243,238,.1);
+  --bg:#100E0A;--bg2:#171410;--bone:#F2ECDD;--gold:#D9B26A;--goldd:#B98F3E;
+  --b72:rgba(242,236,221,.72);--b50:rgba(242,236,221,.5);--b32:rgba(242,236,221,.32);
+  --b18:rgba(242,236,221,.18);--b10:rgba(242,236,221,.1);
   --ui:'Space Grotesk',sans-serif;--serif:'Fraunces',serif;
   --e:cubic-bezier(.16,1,.3,1);
   background:var(--bg);color:var(--bone);font-family:var(--ui);
@@ -2193,11 +2178,11 @@ const CR_CSS = `
 .cr .stage{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
 .cr .spec{background:var(--bg2);border:1px solid var(--b10);border-radius:14px;padding:1rem .9rem 1.1rem}
 .cr .spec .plate{height:96px;border-radius:9px;margin-bottom:.9rem;position:relative;overflow:hidden}
-.cr .plate-plain{background:#262626;display:flex;align-items:center;justify-content:center}
+.cr .plate-plain{background:#26241d;display:flex;align-items:center;justify-content:center}
 .cr .plate-plain::after{content:'YOUR BRAND';font-family:var(--ui);font-size:10px;letter-spacing:.15em;color:var(--b32);font-weight:600}
-.cr .plate-craft{background:linear-gradient(150deg,#34361C,#1C1C1C);display:flex;align-items:center;justify-content:center;border:1px solid rgba(249,255,132,.3)}
+.cr .plate-craft{background:linear-gradient(150deg,#3a2f16,#1c1810);display:flex;align-items:center;justify-content:center;border:1px solid rgba(217,178,106,.3)}
 .cr .plate-craft .mono{font-family:var(--serif);font-style:italic;font-size:2rem;color:var(--gold)}
-.cr .plate-craft::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(249,255,132,.22),transparent);transform:translateX(-100%);animation:cr-sweep 3s var(--e) infinite}
+.cr .plate-craft::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(217,178,106,.22),transparent);transform:translateX(-100%);animation:cr-sweep 3s var(--e) infinite}
 @keyframes cr-sweep{to{transform:translateX(100%)}}
 .cr .spec .lbl{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--b50)}
 .cr .spec.after .lbl{color:var(--gold)}
@@ -2215,11 +2200,11 @@ const CR_CSS = `
 .cr .rooftitle{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,5vw,2.3rem);letter-spacing:-.02em;line-height:1.1;max-width:22ch;margin-bottom:1.8rem}
 .cr .rooftitle em{font-style:italic;color:var(--gold)}
 .cr .work{border-top:1px solid var(--b18);padding:2rem 0}
-.cr .art{height:168px;border-radius:13px;position:relative;overflow:hidden;margin-bottom:1.2rem;background:linear-gradient(160deg,#1B1B1B,#121212);border:1px solid var(--b10);display:flex;align-items:center;justify-content:center}
+.cr .art{height:168px;border-radius:13px;position:relative;overflow:hidden;margin-bottom:1.2rem;background:linear-gradient(160deg,#1b1810,#121009);border:1px solid var(--b10);display:flex;align-items:center;justify-content:center}
 .cr .art .ast{font-family:var(--serif);font-style:italic;font-size:5rem;color:var(--gold);line-height:1}
 .cr .art .aa{font-family:var(--serif);font-size:4.4rem;color:var(--bone);letter-spacing:-.02em}
-.cr .art.identity{background-image:radial-gradient(var(--b18) 1.2px,transparent 1.2px);background-size:17px 17px;background-color:#121212}
-.cr .reel{width:66px;height:106px;border-radius:13px;border:1.5px solid var(--gold);position:relative;background:rgba(249,255,132,.06);display:flex;align-items:center;justify-content:center}
+.cr .art.identity{background-image:radial-gradient(var(--b18) 1.2px,transparent 1.2px);background-size:17px 17px;background-color:#121009}
+.cr .reel{width:66px;height:106px;border-radius:13px;border:1.5px solid var(--gold);position:relative;background:rgba(217,178,106,.06);display:flex;align-items:center;justify-content:center}
 .cr .reel .rp{width:0;height:0;border-left:20px solid var(--gold);border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:4px}
 .cr .reel::before{content:'';position:absolute;top:11px;left:11px;right:11px;height:4px;border-radius:3px;background:var(--b18)}
 .cr .reel::after{content:'';position:absolute;bottom:13px;left:11px;width:32px;height:4px;border-radius:3px;background:var(--b18)}
@@ -2231,12 +2216,12 @@ const CR_CSS = `
 @keyframes cr-eq{0%,100%{height:9px}50%{height:31px}}
 .cr .ab{display:flex;gap:14px;align-items:center}
 .cr .abx{width:60px;height:70px;border-radius:11px;border:1.5px solid var(--b18);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.7rem;color:var(--b50);position:relative}
-.cr .abx.win{border-color:var(--gold);color:var(--gold);background:rgba(249,255,132,.1)}
-.cr .abx.win::after{content:'\\2713';position:absolute;top:-9px;right:-9px;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#0E0E0E;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:var(--ui);font-weight:700}
+.cr .abx.win{border-color:var(--gold);color:var(--gold);background:rgba(217,178,106,.1)}
+.cr .abx.win::after{content:'\\2713';position:absolute;top:-9px;right:-9px;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#100E0A;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:var(--ui);font-weight:700}
 .cr .dgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;width:138px}
 .cr .dgrid i{width:13px;height:13px;border-radius:3px;background:var(--b18)}
 .cr .dgrid i.on{background:var(--gold)}
-.cr .art.ai::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(249,255,132,.28),transparent);transform:translateX(-100%);animation:cr-sweep 2.8s var(--e) infinite}
+.cr .art.ai::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(217,178,106,.28),transparent);transform:translateX(-100%);animation:cr-sweep 2.8s var(--e) infinite}
 .cr .work .tag{font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);border:1px solid var(--b18);border-radius:20px;padding:.32rem .7rem;display:inline-block}
 .cr .work h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,5.6vw,2.5rem);letter-spacing:-.02em;line-height:1.02;margin-top:.9rem}
 .cr .work h3 em{font-style:italic;color:var(--gold)}
@@ -2248,7 +2233,7 @@ const CR_CSS = `
 .cr .work .pf b{font-family:var(--serif);font-size:clamp(2rem,7vw,2.7rem);font-weight:400;line-height:.8}
 .cr .work .pf b em{font-style:italic;color:var(--gold);font-size:.5em}
 .cr .work .pf p{font-size:12px;color:var(--b50);line-height:1.35;max-width:26ch}
-.cr .work.system{background:linear-gradient(160deg,rgba(249,255,132,.08),transparent);border:1px solid rgba(249,255,132,.34);border-radius:16px;padding:1.8rem 1.4rem;margin:.6rem 0}
+.cr .work.system{background:linear-gradient(160deg,rgba(217,178,106,.08),transparent);border:1px solid rgba(217,178,106,.34);border-radius:16px;padding:1.8rem 1.4rem;margin:.6rem 0}
 .cr .work.system .ip{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--gold)}
 .cr .work.system .ip::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--gold)}
 .cr .proof-sec{padding:2.2rem 0;border-top:1px solid var(--b18)}
@@ -2261,11 +2246,11 @@ const CR_CSS = `
 .cr .trow .after{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--bone)}
 .cr .tcap{font-size:12px;color:var(--b50);line-height:1.45;margin-top:1.2rem;max-width:52ch}
 .cr .tcap b{color:var(--gold);font-weight:600}
-.cr .guar{background:var(--bone);color:#0E0E0E;border-radius:16px;padding:2.4rem 1.6rem;margin:2.2rem 0}
+.cr .guar{background:var(--bone);color:#100E0A;border-radius:16px;padding:2.4rem 1.6rem;margin:2.2rem 0}
 .cr .guar .g-eye{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--goldd)}
 .cr .guar .g-big{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,5.8vw,2.8rem);line-height:1.08;letter-spacing:-.02em;margin-top:1rem;max-width:19ch}
 .cr .guar .g-big em{font-style:italic;color:var(--goldd)}
-.cr .guar .g-sub{font-size:1rem;color:rgba(14,14,14,.72);line-height:1.6;margin-top:1.2rem;max-width:52ch}
+.cr .guar .g-sub{font-size:1rem;color:rgba(16,14,10,.72);line-height:1.6;margin-top:1.2rem;max-width:52ch}
 .cr .guar .g-sig{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--goldd);margin-top:1.4rem}
 .cr .faq{padding:2.2rem 0;border-top:1px solid var(--b18)}
 .cr .qa{border-top:1px solid var(--b10);padding:1.4rem 0}
@@ -2283,15 +2268,12 @@ const CR_CSS = `
 .cr .end .big{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:-.02em;line-height:.98;margin-top:2rem}
 .cr .end .big em{font-style:italic;color:var(--gold)}
 .cr .end .k{font-size:clamp(1.05rem,1.9vw,1.3rem);color:var(--b72);line-height:1.45;margin-top:1.1rem;max-width:34ch}
-.cr .end a{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.6rem;font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#0E0E0E;background:var(--gold);text-decoration:none;padding:1.1rem 1.8rem;border-radius:4px;transition:gap .3s var(--e),background .3s}
+.cr .end a{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.6rem;font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#100E0A;background:var(--gold);text-decoration:none;padding:1.1rem 1.8rem;border-radius:4px;transition:gap .3s var(--e),background .3s}
 .cr .end a:hover{gap:1rem;background:var(--bone)}
 .cr .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--e),transform .7s var(--e)}
 .cr .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.cr .reveal{opacity:1;transform:none}.cr .meter .fill{transition:none}
   .cr .plate-craft::before,.cr .art.ai::after,.cr .eq b{animation:none}}
-
-/* owner 2026-11-10: no small labels */
-.cr .bar,.cr .kick,.cr .thesis .lead,.cr .eyebrow,.cr .roof,.cr .work .tag,.cr .guar .g-eye{display:none!important}
 `;
 
 const CR_WORKS = [
@@ -2424,7 +2406,7 @@ function CreativeContent({ onClose }: { onClose: () => void }) {
       <div className="wrap">
         <section className="hero">
           <span className="kick">Creative firepower</span>
-          <DeptH1>Make us look<br />like a <em>billion.</em></DeptH1>
+          <h1>Make us look<br />like a <em>billion.</em></h1>
           <p className="sub">Whatever your size, we make you look like the category leader — the brand people remember, screenshot, and pay a premium for. Big ideas, an always-on social engine, films, ad creative that converts, and a system that makes it all. One team, full firepower.</p>
           <div className="stats">
             <div className="st"><b>49<em>%</em></b><p>of marketing return is the creative itself</p></div>
@@ -2541,10 +2523,10 @@ function CreativeContent({ onClose }: { onClose: () => void }) {
 const OP_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap');
 .op{
-  --paper:#F5F3EE;--card:#FBFAF7;--ink:#0E0E0E;--em:#0E0E0E;--emd:#000000;
-  --i70:rgba(14,14,14,.7);--i50:rgba(14,14,14,.5);--i30:rgba(14,14,14,.32);
-  --i16:rgba(14,14,14,.16);--i12:rgba(14,14,14,.12);--i08:rgba(14,14,14,.07);
-  --emg:rgba(14,14,14,.28);--emf:rgba(14,14,14,.08);--line:rgba(14,14,14,.12);
+  --paper:#F4F1EA;--card:#FBFAF6;--ink:#16150F;--em:#0E7A54;--emd:#0B6446;
+  --i70:rgba(22,21,15,.7);--i50:rgba(22,21,15,.5);--i30:rgba(22,21,15,.32);
+  --i16:rgba(22,21,15,.16);--i12:rgba(22,21,15,.12);--i08:rgba(22,21,15,.07);
+  --emg:rgba(14,122,84,.28);--emf:rgba(14,122,84,.08);--line:rgba(22,21,15,.12);
   --ui:'Hanken Grotesk',sans-serif;--serif:'Newsreader',serif;--e:cubic-bezier(.16,1,.3,1);
   background:var(--paper);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased}
 .op *{margin:0;padding:0;box-sizing:border-box}
@@ -2554,7 +2536,7 @@ const OP_CSS = `
 .op .hero h1 em{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.1em;color:var(--em)}
 .op .hero p{font-size:.98rem;color:var(--i70);line-height:1.55;margin-top:1rem;max-width:42ch}
 .op .hero p b{color:var(--ink);font-weight:600}
-.op .heroviz{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.2rem 1.1rem 1rem;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 10px 30px rgba(14,14,14,.04)}
+.op .heroviz{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.2rem 1.1rem 1rem;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 10px 30px rgba(22,21,15,.04)}
 .op .heroviz .cap{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.9rem}
 .op .heroviz .cap b{font-size:12px;font-weight:700;letter-spacing:.02em}
 .op .heroviz .cap s{font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--i30);font-style:normal;text-decoration:none}
@@ -2581,7 +2563,7 @@ const OP_CSS = `
 .op .phase h2 em{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.14em;color:var(--em)}
 .op .phase .out{font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,5.5vw,1.7rem);color:var(--ink);margin-top:.9rem;line-height:1.14}
 .op .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--card);position:relative;overflow:hidden;aspect-ratio:1/.78;box-shadow:0 1px 0 rgba(255,255,255,.6) inset}
-.op .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(14,14,14,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.op .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(22,21,15,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
 .op .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .op .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.02em;color:var(--em)}
 .op .who::before{content:'';width:16px;height:1px;background:var(--em);opacity:.5}
@@ -2622,15 +2604,9 @@ const OP_CSS = `
 .op .live .growx{animation:op-grwx .9s var(--e) forwards}
 @keyframes op-grwx{to{transform:scaleX(1)}}
 @media(prefers-reduced-motion:reduce){.op *{animation:none!important;transition-duration:.01ms!important}.op .up,.op .pop{opacity:1;transform:none}.op .draw{stroke-dashoffset:0}.op .growx{transform:none}}
-
-/* owner 2026-11-10: no small labels */
-.op .hero .lbl,.op .shead,.op .phase .idx s,.op .hero .team s,.op .bonus s{display:none!important}
-
-/* owner 2026-11-10: colour by idea */
-.op .hero h1 em,.op .phase h2 em{color:#0E0E0E}.op .nodeOn{fill:#0E0E0E}.op .who{color:#0E0E0E}
 `;
 
-const OP_PAPER = '#F5F3EE', OP_EM = '#0E0E0E';
+const OP_PAPER = '#F4F1EA', OP_EM = '#0E7A54';
 const OP_TEAM = ['Operations strategists','Systems builders','Automation engineers','Your account lead'];
 const OP_PARTS = [
   { n:'01', sp:'Where your time goes', h:'We find where your <em>time goes.</em>', out:'The week you can\u2019t see, mapped.',
@@ -2746,7 +2722,7 @@ function OperationsContent({ onClose }: { onClose: () => void }) {
     <div className="op" ref={wrapRef}>
       <div className="hero">
         <p className="lbl">Your week, given back</p>
-        <DeptH1>Take the boring work<br /><em>off your plate.</em></DeptH1>
+        <h1>Take the boring work<br /><em>off your plate.</em></h1>
         <p>Every week you lose hours to the same repetitive jobs — answering, booking, chasing, entering, reporting. <b>We find all of it, take it off you, and build it to run itself.</b> You get the one thing you can&apos;t buy back: time.</p>
 
         <div className="heroviz" ref={herovizRef}>
@@ -2782,6 +2758,11 @@ function OperationsContent({ onClose }: { onClose: () => void }) {
         ))}
       </div>
 
+      <div className="bonus">
+        <s>Bonus, included</s>
+        <h4>Oh — and a little tool, on us.</h4>
+        <p>A small assistant that drafts the repetitive replies for a human to approve, so even the answering gets faster. <b>Nice to have, not the main event.</b> The system is designed and owned by the people above.</p>
+      </div>
 
       <div className="end">
         <div className="big">You get your<br /><span>week back.</span></div>
@@ -2800,10 +2781,10 @@ function OperationsContent({ onClose }: { onClose: () => void }) {
 const AU_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Martian+Mono:wght@400;500&display=swap');
 .au{
-  --ink:#0035AD;--deep:#002A8A;--card:#0B42C4;--c:#F5F3EE;--mint:#F9FF84;--mintd:#E6EC6A;
-  --c70:rgba(245,243,238,.72);--c45:rgba(245,243,238,.46);--c26:rgba(245,243,238,.26);
-  --c16:rgba(245,243,238,.15);--c10:rgba(245,243,238,.08);
-  --mg:rgba(249,255,132,.45);--mf:rgba(249,255,132,.12);--line:rgba(245,243,238,.12);
+  --ink:#0A0C0F;--deep:#06070A;--card:#12151A;--c:#EAF0EC;--mint:#34E39B;--mintd:#22B87C;
+  --c70:rgba(234,240,236,.72);--c45:rgba(234,240,236,.46);--c26:rgba(234,240,236,.26);
+  --c16:rgba(234,240,236,.15);--c10:rgba(234,240,236,.08);
+  --mg:rgba(52,227,155,.45);--mf:rgba(52,227,155,.12);--line:rgba(234,240,236,.12);
   --ui:'Plus Jakarta Sans',sans-serif;--mono:'Martian Mono',monospace;--e:cubic-bezier(.16,1,.3,1);
   background:var(--ink);color:var(--c);font-family:var(--ui);-webkit-font-smoothing:antialiased}
 .au *{margin:0;padding:0;box-sizing:border-box}
@@ -2831,7 +2812,7 @@ const AU_CSS = `
 .au .phase h2 em{font-style:normal;color:var(--mint)}
 .au .phase .out{font-size:clamp(1.3rem,5.2vw,1.6rem);color:var(--c);margin-top:.9rem;line-height:1.2;font-weight:500}
 .au .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--deep);position:relative;overflow:hidden;aspect-ratio:1/.72}
-.au .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(245,243,238,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.au .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(234,240,236,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
 .au .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .au .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;color:var(--mint)}
 .au .who::before{content:'';width:16px;height:1px;background:var(--mint);opacity:.5}
@@ -2886,9 +2867,6 @@ const AU_CSS = `
 .au .orbit2{transform-origin:200px 120px;animation:au-orb 3.5s linear infinite}
 @keyframes au-orb{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.au *{animation:none!important;transition-duration:.01ms!important}.au .up,.au .pop{opacity:1;transform:none}.au .draw{stroke-dashoffset:0}.au .grow{transform:none}.au .vrow{opacity:1;transform:none}.au .orbit,.au .orbit2{animation:none!important}}
-
-/* owner 2026-11-10: no small labels */
-.au .hero .lbl,.au .shead,.au .phase .idx s,.au .hero .team s{display:none!important}
 `;
 
 const AU_TEAM = ['Automation engineers','Integrations','AI','Support'];
@@ -2936,7 +2914,7 @@ const AU_VIZ: Record<string, () => string> = {
     const tools:[string,number,number][]=[['Sheets',72,54],['Stripe',330,60],['WhatsApp',60,196],['POS',324,202],['Email',200,38]];
     let s='<circle class="nodeOn glow pop" cx="200" cy="128" r="34" style="animation-delay:.2s"/><text class="labk pop" x="200" y="132" font-size="10" text-anchor="middle" style="animation-delay:.35s">one system</text>';
     tools.forEach((t,i)=>{s+=`<line class="wire draw" style="--L:180;animation-delay:${.5+i*.1}s" x1="200" y1="128" x2="${t[1]}" y2="${t[2]}"/>`+
-      `<rect class="wire up" x="${t[1]-38}" y="${t[2]-15}" width="76" height="30" rx="7" fill="rgba(245,243,238,.03)" style="animation-delay:${.7+i*.1}s"/>`+
+      `<rect class="wire up" x="${t[1]-38}" y="${t[2]-15}" width="76" height="30" rx="7" fill="rgba(234,240,236,.03)" style="animation-delay:${.7+i*.1}s"/>`+
       `<text class="lab up" x="${t[1]}" y="${t[2]+4}" font-size="10.5" text-anchor="middle" style="animation-delay:${.8+i*.1}s">${t[0]}</text>`;});
     return `<svg viewBox="0 0 400 256">${s}</svg>`;
   },
@@ -3018,7 +2996,7 @@ function AutomationContent({ onClose }: { onClose: () => void }) {
     <div className="au" ref={wrapRef}>
       <div className="hero">
         <p className="lbl">AI and automation</p>
-        <DeptH1>The business that<br /><em>runs itself.</em></DeptH1>
+        <h1>The business that<br /><em>runs itself.</em></h1>
         <p>Everything connected, the busywork triggering itself, the smart calls handled — running 24/7 while you watch it work. <b>Not more staff. A business that needs fewer hands to run.</b></p>
 
         <div className="frame" ref={frameRef}>
@@ -3089,10 +3067,10 @@ function AutomationContent({ onClose }: { onClose: () => void }) {
 const TR_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
 .trx{
-  --paper:#F5F3EE;--card:#FBFAF7;--ink:#0E0E0E;--cyan:#0035AD;--cyand:#002A8A;
-  --i70:rgba(14,14,14,.7);--i45:rgba(14,14,14,.45);--i30:rgba(14,14,14,.3);
-  --i16:rgba(14,14,14,.14);--i10:rgba(14,14,14,.07);
-  --cg:rgba(0,53,173,.3);--cf:rgba(0,53,173,.1);--line:rgba(14,14,14,.12);
+  --paper:#EEF1F4;--card:#F8FAFB;--ink:#0D1220;--cyan:#0E8FA8;--cyand:#0A7285;
+  --i70:rgba(13,18,32,.7);--i45:rgba(13,18,32,.45);--i30:rgba(13,18,32,.3);
+  --i16:rgba(13,18,32,.14);--i10:rgba(13,18,32,.07);
+  --cg:rgba(14,143,168,.3);--cf:rgba(14,143,168,.1);--line:rgba(13,18,32,.12);
   --ui:'Space Grotesk',sans-serif;--mono:'IBM Plex Mono',monospace;--e:cubic-bezier(.16,1,.3,1);
   background:var(--paper);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased}
 .trx *{margin:0;padding:0;box-sizing:border-box}
@@ -3102,7 +3080,7 @@ const TR_CSS = `
 .trx .hero h1 em{font-style:normal;color:var(--cyand)}
 .trx .hero p{font-size:.98rem;color:var(--i70);line-height:1.58;margin-top:1rem;max-width:44ch}
 .trx .hero p b{color:var(--ink);font-weight:700}
-.trx .frame{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.3rem 1rem 1rem;box-shadow:0 14px 34px rgba(14,14,14,.05)}
+.trx .frame{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.3rem 1rem 1rem;box-shadow:0 14px 34px rgba(13,18,32,.05)}
 .trx .frame .fc{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--i30);margin-bottom:.3rem;padding:0 .3rem}
 .trx .frame svg{width:100%;display:block;overflow:visible}
 .trx .hero .team{margin-top:1.7rem}
@@ -3120,7 +3098,7 @@ const TR_CSS = `
 .trx .phase h2 em{font-style:normal;color:var(--cyand)}
 .trx .phase .out{font-size:clamp(1.3rem,5.2vw,1.6rem);color:var(--ink);margin-top:.9rem;line-height:1.2;font-weight:500}
 .trx .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--card);position:relative;overflow:hidden;aspect-ratio:1/.72;box-shadow:0 1px 0 rgba(255,255,255,.7) inset}
-.trx .viz::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(14,14,14,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(14,14,14,.05) 1px,transparent 1px);background-size:26px 26px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 88%)}
+.trx .viz::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(13,18,32,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(13,18,32,.05) 1px,transparent 1px);background-size:26px 26px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 88%)}
 .trx .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .trx .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--cyand)}
 .trx .who::before{content:'';width:16px;height:1px;background:var(--cyan);opacity:.5}
@@ -3165,12 +3143,9 @@ const TR_CSS = `
 .trx .live .growx{animation:trx-grwx .9s var(--e) forwards}
 @keyframes trx-grwx{to{transform:scaleX(1)}}
 @media(prefers-reduced-motion:reduce){.trx *{animation:none!important;transition-duration:.01ms!important}.trx .up,.trx .pop{opacity:1;transform:none}.trx .draw{stroke-dashoffset:0}.trx .grow,.trx .growx{transform:none}}
-
-/* owner 2026-11-10: no small labels */
-.trx .hero .lbl,.trx .shead,.trx .phase .idx s,.trx .hero .team s,.trx .bonus s{display:none!important}
 `;
 
-const TR_CY = '#0035AD';
+const TR_CY = '#0E8FA8';
 const TR_TEAM = ['Discovery','Product & design','Engineering','Integrations','Support'];
 
 const TR_PARTS = [
@@ -3199,7 +3174,7 @@ const TR_PARTS = [
 const TR_VIZ: Record<string, () => string> = {
   map() {
     const st:[string,number][]=[['A',54],['B',150],['C',246],['D',342]],y=92;let s='';
-    st.forEach((n,i)=>{s+=`<rect class="wire up" x="${n[1]}" y="${y}" width="60" height="44" rx="7" fill="rgba(14,14,14,.03)" style="animation-delay:${i*.12}s"/>`+
+    st.forEach((n,i)=>{s+=`<rect class="wire up" x="${n[1]}" y="${y}" width="60" height="44" rx="7" fill="rgba(13,18,32,.03)" style="animation-delay:${i*.12}s"/>`+
       `<text class="lab up" x="${n[1]+30}" y="${y+27}" font-size="14" text-anchor="middle" style="animation-delay:${i*.12}s">${n[0]}</text>`;});
     s+=`<line class="wire draw" style="--L:32;animation-delay:.5s" x1="116" y1="${y+22}" x2="148" y2="${y+22}"/>`;
     s+=`<line class="draw glow" style="--L:32;animation-delay:.7s" x1="208" y1="${y+22}" x2="244" y2="${y+22}" stroke="${TR_CY}" stroke-width="2.2" stroke-dasharray="4 4"/>`;
@@ -3227,7 +3202,7 @@ const TR_VIZ: Record<string, () => string> = {
     const tools:[string,number,number][]=[['POS',72,54],['Stripe',330,64],['Sheets',62,198],['Calendar',322,206]];
     let s='<circle class="nodeOn glow pop" cx="200" cy="130" r="36" style="animation-delay:.2s"/><text class="labk pop" x="200" y="134" font-size="11" text-anchor="middle" font-weight="500" style="animation-delay:.35s">your system</text>';
     tools.forEach((t,i)=>{s+=`<line class="wire draw" style="--L:180;animation-delay:${.5+i*.12}s" x1="200" y1="130" x2="${t[1]}" y2="${t[2]}"/>`+
-      `<rect class="wire up" x="${t[1]-36}" y="${t[2]-16}" width="72" height="32" rx="7" fill="rgba(14,14,14,.03)" style="animation-delay:${.7+i*.12}s"/>`+
+      `<rect class="wire up" x="${t[1]-36}" y="${t[2]-16}" width="72" height="32" rx="7" fill="rgba(13,18,32,.03)" style="animation-delay:${.7+i*.12}s"/>`+
       `<text class="lab up" x="${t[1]}" y="${t[2]+5}" font-size="11" text-anchor="middle" style="animation-delay:${.8+i*.12}s">${t[0]}</text>`;});
     return `<svg viewBox="0 0 400 260">${s}</svg>`;
   },
@@ -3285,7 +3260,7 @@ function TransformationContent({ onClose }: { onClose: () => void }) {
     <div className="trx" ref={wrapRef}>
       <div className="hero">
         <p className="lbl">Change how the business runs</p>
-        <DeptH1>Software your business<br /><em>should run on.</em></DeptH1>
+        <h1>Software your business<br /><em>should run on.</em></h1>
         <p>Some businesses run on spreadsheets, WhatsApp and duct tape. We design and build the custom software they should run on — <b>a real product and engineering team, live in weeks, and it&apos;s yours to keep.</b></p>
 
         <div className="frame" ref={frameRef}>
@@ -3336,20 +3311,20 @@ function TransformationContent({ onClose }: { onClose: () => void }) {
 // ────────────────────────────────────────────────────────────────────────────
 // REPUTATION CONTENT  (light theme)
 // ────────────────────────────────────────────────────────────────────────────
-const RE = { bg:"#F5F3EE", card:"#FBFAF7", hot:"#FF4B4B", ink:"#0E0E0E",
-  dim:"rgba(14,14,14,.7)", c45:"rgba(14,14,14,.48)", line:"rgba(14,14,14,.13)" };
+const RE = { bg:"#F5F1E8", card:"#FBF8F1", hot:"#FF2E6C", ink:"#151312",
+  dim:"rgba(21,19,18,.7)", c45:"rgba(21,19,18,.48)", line:"rgba(21,19,18,.13)" };
 
 const SVG_RE_CHART = `<svg viewBox="0 0 300 170" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <line stroke="rgba(14,14,14,.14)" stroke-width="1" x1="12" y1="152" x2="288" y2="152"/>
-  <text font-family="monospace" font-size="8" fill="rgba(14,14,14,.45)" x="12" y="165">time →</text>
-  <line stroke="rgba(14,14,14,.2)" stroke-width="1.5" stroke-dasharray="3 3" x1="182" y1="14" x2="182" y2="150"/>
-  <text font-family="monospace" font-size="8" fill="rgba(14,14,14,.5)" text-anchor="middle" x="182" y="10">you stop paying</text>
-  <path fill="none" stroke="rgba(14,14,14,.28)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+  <line stroke="rgba(21,19,18,.14)" stroke-width="1" x1="12" y1="152" x2="288" y2="152"/>
+  <text font-family="monospace" font-size="8" fill="rgba(21,19,18,.45)" x="12" y="165">time →</text>
+  <line stroke="rgba(21,19,18,.2)" stroke-width="1.5" stroke-dasharray="3 3" x1="182" y1="14" x2="182" y2="150"/>
+  <text font-family="monospace" font-size="8" fill="rgba(21,19,18,.5)" text-anchor="middle" x="182" y="10">you stop paying</text>
+  <path fill="none" stroke="rgba(21,19,18,.28)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
     class="draw" style="--L:440" d="M12,142 L60,96 L110,74 L160,70 L182,74 L230,110 L288,138"/>
   <path fill="none" stroke="${RE.hot}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
     class="draw" style="--L:520;animation-delay:.3s" d="M12,150 C70,148 130,132 178,104 C226,76 262,34 288,16"/>
   <text font-family="monospace" font-size="9" font-weight="700" fill="${RE.hot}" text-anchor="end" class="up" x="292" y="20" style="animation-delay:.6s">fame</text>
-  <text font-family="monospace" font-size="9" font-weight="700" fill="rgba(14,14,14,.4)" text-anchor="end" class="up" x="292" y="150" style="animation-delay:.4s">ads</text>
+  <text font-family="monospace" font-size="9" font-weight="700" fill="rgba(21,19,18,.4)" text-anchor="end" class="up" x="292" y="150" style="animation-delay:.4s">ads</text>
 </svg>`;
 
 function ReputationContent({ onClose }: { onClose: () => void }) {
@@ -3380,14 +3355,14 @@ function ReputationContent({ onClose }: { onClose: () => void }) {
   return (
     <div style={{ background: RE.bg, color: RE.ink }}>
       <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${RE.line}` }}>
-        <DeptH1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
+        <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
           fontSize: "clamp(2.4rem,10vw,3.8rem)", lineHeight: .9, letterSpacing: "-.05em",
           textTransform: "uppercase", color: RE.ink, marginBottom: "1rem" }}>
           Make me<br />
           <em style={{ fontFamily: "var(--font-instrument-serif,'Instrument Serif',serif)",
             fontStyle: "italic", fontWeight: 400, textTransform: "none", letterSpacing: 0,
             color: RE.hot, fontSize: "1.04em" }}>famous.</em>
-        </DeptH1>
+        </h1>
         <p style={{ fontSize: ".98rem", color: RE.dim, lineHeight: 1.6, maxWidth: "44ch" }}>
           Famous means people know you before you say a word — and pick you because of it.
           We make the videos, get you in the news, get the right people talking,
@@ -3415,7 +3390,7 @@ function ReputationContent({ onClose }: { onClose: () => void }) {
             textTransform: "uppercase", color: RE.c45, marginBottom: ".6rem" }}>Ads stop. Fame doesn't.</p>
           <div style={{ display: "flex", gap: "1rem", marginBottom: ".8rem" }}>
             <span style={{ display: "flex", alignItems: "center", gap: ".4rem", fontSize: 11, color: RE.dim }}>
-              <span style={{ width: 16, height: 3, background: "rgba(14,14,14,.28)", borderRadius: 2, display: "inline-block" }}/>
+              <span style={{ width: 16, height: 3, background: "rgba(21,19,18,.28)", borderRadius: 2, display: "inline-block" }}/>
               Ads — you pay to show up
             </span>
             <span style={{ display: "flex", alignItems: "center", gap: ".4rem", fontSize: 11, color: RE.dim }}>
@@ -3423,7 +3398,7 @@ function ReputationContent({ onClose }: { onClose: () => void }) {
               Fame — keeps working free
             </span>
           </div>
-          <VizBox svg={SVG_RE_CHART} bg={RE.card} brd={RE.line} dot="rgba(14,14,14,.04)" />
+          <VizBox svg={SVG_RE_CHART} bg={RE.card} brd={RE.line} dot="rgba(21,19,18,.04)" />
           <p style={{ fontSize: 12, color: RE.dim, lineHeight: 1.5, marginTop: ".8rem" }}>
             <strong style={{ color: RE.hot }}>Stop paying for ads and you disappear.</strong> Fame keeps working after you stop — and it grows every time your name comes up.
           </p>
@@ -3438,7 +3413,7 @@ function ReputationContent({ onClose }: { onClose: () => void }) {
                 fontWeight: 800, fontSize: "1.5rem", color: RE.hot }}>{s.n}</span>
               <span style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: ".13em",
                 textTransform: "uppercase" as const, color: RE.c45,
-                border: `1px solid rgba(14,14,14,.14)`, borderRadius: 20, padding: ".3rem .68rem" }}>{s.tag}</span>
+                border: `1px solid rgba(21,19,18,.14)`, borderRadius: 20, padding: ".3rem .68rem" }}>{s.tag}</span>
             </div>
             <h2 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 700,
               fontSize: "clamp(1.8rem,7vw,2.4rem)", lineHeight: 1, letterSpacing: "-.03em", color: RE.ink, marginBottom: ".6rem" }}
@@ -3450,7 +3425,7 @@ function ReputationContent({ onClose }: { onClose: () => void }) {
             <div style={{ display: "flex", flexWrap: "wrap" as const, gap: 6, marginBottom: "1rem" }}>
               {s.delivs.map(d => (
                 <span key={d} style={{ fontSize: 11.5, fontWeight: 600, color: RE.ink,
-                  background: "rgba(14,14,14,.055)", borderRadius: 5, padding: ".44rem .74rem" }}>{d}</span>
+                  background: "rgba(21,19,18,.055)", borderRadius: 5, padding: ".44rem .74rem" }}>{d}</span>
               ))}
             </div>
             <div style={{ display: "flex", alignItems: "baseline", gap: ".7rem",
@@ -3464,6 +3439,21 @@ function ReputationContent({ onClose }: { onClose: () => void }) {
           </div>
         </Reveal>
       ))}
+      <Reveal>
+        <div style={{ margin: "0 20px 1.8rem", padding: "1.5rem 1.3rem",
+          border: `1px dashed rgba(21,19,18,.28)`, borderRadius: 14 }}>
+          <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: ".14em",
+            textTransform: "uppercase" as const, color: RE.hot, marginBottom: ".7rem" }}>+ Bonus, included</p>
+          <h3 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 700,
+            fontSize: "clamp(1.25rem,4vw,1.55rem)", letterSpacing: "-.02em", color: RE.ink, marginBottom: ".5rem" }}>
+            Oh — and a little tool, on us.
+          </h3>
+          <p style={{ fontSize: ".97rem", color: RE.dim, lineHeight: 1.6 }}>
+            A simple tool that pings you when anyone mentions you online.{" "}
+            <strong style={{ color: RE.ink }}>Nice to have — not the main event.</strong>
+          </p>
+        </div>
+      </Reveal>
       <FAQ items={faqs} bg={RE.bg} border={RE.line} head={RE.ink} body={RE.dim} light />
       <CTA big={<>Famous.<br /><CtaItalic>On purpose.</CtaItalic></>}
         sub="Videos, press, the right people talking, and everywhere they look — the four moves that make your name the one everyone knows."
@@ -3479,10 +3469,10 @@ function ReputationContent({ onClose }: { onClose: () => void }) {
 const BR_CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,500&family=Manrope:wght@400;500;600;700&display=swap');
 .br{
-  --stone:#F5F3EE;--card:#FBFAF7;--ink:#0E0E0E;--ox:#0E0E0E;--oxd:#000000;
-  --i70:rgba(14,14,14,.7);--i45:rgba(14,14,14,.46);--i30:rgba(14,14,14,.3);
-  --i16:rgba(14,14,14,.15);--i10:rgba(14,14,14,.07);
-  --og:rgba(14,14,14,.3);--of:rgba(14,14,14,.09);--line:rgba(14,14,14,.13);
+  --stone:#ECE7DE;--card:#F5F1EA;--ink:#16120F;--ox:#8A2233;--oxd:#6E1926;
+  --i70:rgba(22,18,15,.7);--i45:rgba(22,18,15,.46);--i30:rgba(22,18,15,.3);
+  --i16:rgba(22,18,15,.15);--i10:rgba(22,18,15,.07);
+  --og:rgba(138,34,51,.3);--of:rgba(138,34,51,.09);--line:rgba(22,18,15,.13);
   --disp:'Playfair Display',serif;--ui:'Manrope',sans-serif;--e:cubic-bezier(.16,1,.3,1);
   background:var(--stone);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased}
 .br *{margin:0;padding:0;box-sizing:border-box}
@@ -3492,7 +3482,7 @@ const BR_CSS = `
 .br .hero h1 em{font-style:italic;font-weight:500;color:var(--ox)}
 .br .hero p{font-size:.98rem;color:var(--i70);line-height:1.6;margin-top:1.1rem;max-width:44ch}
 .br .hero p b{color:var(--ink);font-weight:700}
-.br .frame{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.4rem 1rem 1rem;box-shadow:0 14px 34px rgba(14,14,14,.06)}
+.br .frame{margin-top:2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:1.4rem 1rem 1rem;box-shadow:0 14px 34px rgba(22,18,15,.06)}
 .br .frame .fc{text-align:center;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--i30);margin-bottom:.5rem}
 .br .frame svg{width:100%;display:block;overflow:visible}
 .br .hero .team{margin-top:1.7rem}
@@ -3510,7 +3500,7 @@ const BR_CSS = `
 .br .phase h2 em{font-style:italic;font-weight:500;color:var(--ox)}
 .br .phase .out{font-family:var(--disp);font-style:italic;font-weight:500;font-size:clamp(1.35rem,5.5vw,1.7rem);color:var(--ink);margin-top:.8rem;line-height:1.2}
 .br .viz{margin-top:1.5rem;border:1px solid var(--line);border-radius:10px;background:var(--card);position:relative;overflow:hidden;aspect-ratio:1/.78;box-shadow:0 1px 0 rgba(255,255,255,.7) inset}
-.br .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(14,14,14,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
+.br .viz::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(22,18,15,.05) 1px,transparent 0);background-size:22px 22px;mask-image:radial-gradient(130% 100% at 50% 45%,#000 45%,transparent 85%)}
 .br .viz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .br .who{margin-top:1rem;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.02em;color:var(--ox)}
 .br .who::before{content:'';width:16px;height:1px;background:var(--ox);opacity:.5}
@@ -3567,12 +3557,9 @@ const BR_CSS = `
 .br .live .grow{animation:br-grw .7s var(--e) forwards}
 @keyframes br-grw{to{transform:scaleY(1)}}
 @media(prefers-reduced-motion:reduce){.br *{animation:none!important;transition-duration:.01ms!important}.br .up,.br .pop{opacity:1;transform:none}.br .draw{stroke-dashoffset:0}.br .grow{transform:none}.br .vrow{opacity:1;transform:none}}
-
-/* owner 2026-11-10: no small labels */
-.br .hero .lbl,.br .shead,.br .phase .idx s,.br .hero .team s,.br .bonus s{display:none!important}
 `;
 
-const BR_OX = '#0E0E0E';
+const BR_OX = '#8A2233';
 const BR_TEAM = ['Brand strategists','Naming & voice','Designers','The Studio'];
 
 const BR_PARTS = [
@@ -3704,7 +3691,7 @@ function BrandContent({ onClose }: { onClose: () => void }) {
     <div className="br" ref={wrapRef}>
       <div className="hero">
         <p className="lbl">Creative and brand</p>
-        <DeptH1>Everything they see,<br /><em>hear and feel.</em></DeptH1>
+        <h1>Everything they see,<br /><em>hear and feel.</em></h1>
         <p>Every image, film, word, screen, sign and space that makes someone feel something about your business — and choose you. Strategy, identity, content, product, campaigns, the lot. <b>One team for the entire creative world of your company.</b></p>
 
         <div className="frame" ref={frameRef}>
@@ -3758,6 +3745,11 @@ function BrandContent({ onClose }: { onClose: () => void }) {
         ))}
       </div>
 
+      <div className="bonus">
+        <s>Bonus, included</s>
+        <h4>Oh — and a little tool, on us.</h4>
+        <p>A small tool that scans where your brand is showing up inconsistent — an old logo here, a wrong colour there — so nothing slips. <b>Nice to have, not the main event.</b> The thinking is done by the people above.</p>
+      </div>
 
       <div className="end">
         <div className="big">The whole way your business<br /><span>looks, sounds and feels.</span></div>
@@ -3773,62 +3765,62 @@ function BrandContent({ onClose }: { onClose: () => void }) {
 // ENQUIRIES CONTENT  (noir / crimson — omnichannel AI that converts leads)
 // ────────────────────────────────────────────────────────────────────────────
 const SVG_EQ_SPEED = `<svg viewBox="0 0 400 220" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <text font-family="monospace" font-size="9" fill="rgba(245,243,238,.38)" letter-spacing=".1em" class="up" x="24" y="28" style="animation-delay:.05s">ENQUIRY IN</text>
+  <text font-family="monospace" font-size="9" fill="rgba(242,239,233,.38)" letter-spacing=".1em" class="up" x="24" y="28" style="animation-delay:.05s">ENQUIRY IN</text>
   ${["WhatsApp","Phone","DMs","Email"].map((ch, i) => {
     const y = 44 + i * 36;
-    return `<rect fill="rgba(249,255,132,.08)" stroke="rgba(249,255,132,.28)" stroke-width="1.25" rx="5" class="up" x="24" y="${y}" width="148" height="26" style="animation-delay:${0.15 + i * 0.1}s"/>
-    <text font-family="monospace" font-size="10" fill="rgba(245,243,238,.72)" class="up" x="38" y="${y + 17}" style="animation-delay:${0.28 + i * 0.1}s">${ch}</text>`;
+    return `<rect fill="rgba(224,43,32,.08)" stroke="rgba(224,43,32,.28)" stroke-width="1.25" rx="5" class="up" x="24" y="${y}" width="148" height="26" style="animation-delay:${0.15 + i * 0.1}s"/>
+    <text font-family="monospace" font-size="10" fill="rgba(242,239,233,.72)" class="up" x="38" y="${y + 17}" style="animation-delay:${0.28 + i * 0.1}s">${ch}</text>`;
   }).join("")}
-  <line stroke="rgba(245,243,238,.14)" stroke-width="1.25" class="draw" style="--L:66;animation-delay:.65s" x1="172" y1="110" x2="238" y2="110"/>
-  <circle fill="#F9FF84" class="pop" cx="272" cy="110" r="34" style="animation-delay:.82s"/>
+  <line stroke="rgba(242,239,233,.14)" stroke-width="1.25" class="draw" style="--L:66;animation-delay:.65s" x1="172" y1="110" x2="238" y2="110"/>
+  <circle fill="#E02B20" class="pop" cx="272" cy="110" r="34" style="animation-delay:.82s"/>
   <text font-family="monospace" font-size="14" font-weight="700" fill="#fff" text-anchor="middle" class="up" x="272" y="104" style="animation-delay:.96s">00:04</text>
   <text font-family="monospace" font-size="8.5" fill="rgba(255,255,255,.75)" text-anchor="middle" class="up" x="272" y="120" style="animation-delay:1.01s">seconds</text>
-  <line stroke="rgba(249,255,132,.35)" stroke-width="1.25" class="draw" style="--L:54;animation-delay:1.1s" x1="305" y1="96" x2="346" y2="74"/>
-  <line stroke="rgba(249,255,132,.35)" stroke-width="1.25" class="draw" style="--L:54;animation-delay:1.2s" x1="305" y1="124" x2="346" y2="146"/>
-  <rect fill="rgba(245,243,238,.06)" stroke="rgba(245,243,238,.12)" stroke-width="1.25" rx="6" class="up" x="340" y="58" width="52" height="28" style="animation-delay:1.15s"/>
-  <text font-family="monospace" font-size="10" fill="rgba(245,243,238,.72)" text-anchor="middle" class="up" x="366" y="76" style="animation-delay:1.3s">Book</text>
-  <rect fill="#F9FF84" rx="6" class="pop" x="340" y="130" width="52" height="28" style="animation-delay:1.25s"/>
+  <line stroke="rgba(224,43,32,.35)" stroke-width="1.25" class="draw" style="--L:54;animation-delay:1.1s" x1="305" y1="96" x2="346" y2="74"/>
+  <line stroke="rgba(224,43,32,.35)" stroke-width="1.25" class="draw" style="--L:54;animation-delay:1.2s" x1="305" y1="124" x2="346" y2="146"/>
+  <rect fill="rgba(242,239,233,.06)" stroke="rgba(242,239,233,.12)" stroke-width="1.25" rx="6" class="up" x="340" y="58" width="52" height="28" style="animation-delay:1.15s"/>
+  <text font-family="monospace" font-size="10" fill="rgba(242,239,233,.72)" text-anchor="middle" class="up" x="366" y="76" style="animation-delay:1.3s">Book</text>
+  <rect fill="#E02B20" rx="6" class="pop" x="340" y="130" width="52" height="28" style="animation-delay:1.25s"/>
   <text font-family="monospace" font-size="10" fill="#fff" text-anchor="middle" class="pop" x="366" y="148" style="animation-delay:1.4s">Close</text>
 </svg>`;
 
 const SVG_EQ_QUALIFY = `<svg viewBox="0 0 400 210" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <circle fill="rgba(249,255,132,.1)" stroke="#F9FF84" stroke-width="1.5" class="pop" cx="52" cy="105" r="28" style="animation-delay:.1s"/>
-  <text font-family="monospace" font-size="9" fill="#F9FF84" text-anchor="middle" class="up" x="52" y="101" style="animation-delay:.22s">Enquiry</text>
-  <text font-family="monospace" font-size="8.5" fill="rgba(245,243,238,.5)" text-anchor="middle" class="up" x="52" y="115" style="animation-delay:.27s">in</text>
-  <line stroke="rgba(245,243,238,.14)" stroke-width="1.25" class="draw" style="--L:56;animation-delay:.32s" x1="80" y1="105" x2="136" y2="105"/>
-  <rect fill="rgba(245,243,238,.05)" stroke="rgba(245,243,238,.12)" stroke-width="1.25" rx="8" class="pop" x="136" y="72" width="104" height="66" style="animation-delay:.44s"/>
-  <text font-family="monospace" font-size="9" fill="rgba(245,243,238,.55)" text-anchor="middle" class="up" x="188" y="95" style="animation-delay:.56s">Budget?</text>
-  <text font-family="monospace" font-size="9" fill="rgba(245,243,238,.55)" text-anchor="middle" class="up" x="188" y="110" style="animation-delay:.62s">Timeline?</text>
-  <text font-family="monospace" font-size="9" fill="rgba(245,243,238,.55)" text-anchor="middle" class="up" x="188" y="125" style="animation-delay:.68s">Decision?</text>
-  <line stroke="rgba(245,243,238,.14)" stroke-width="1.25" class="draw" style="--L:56;animation-delay:.78s" x1="240" y1="105" x2="296" y2="105"/>
-  <circle fill="#F9FF84" class="pop" cx="324" cy="105" r="28" style="animation-delay:.92s"/>
+  <circle fill="rgba(224,43,32,.1)" stroke="#E02B20" stroke-width="1.5" class="pop" cx="52" cy="105" r="28" style="animation-delay:.1s"/>
+  <text font-family="monospace" font-size="9" fill="#E02B20" text-anchor="middle" class="up" x="52" y="101" style="animation-delay:.22s">Enquiry</text>
+  <text font-family="monospace" font-size="8.5" fill="rgba(242,239,233,.5)" text-anchor="middle" class="up" x="52" y="115" style="animation-delay:.27s">in</text>
+  <line stroke="rgba(242,239,233,.14)" stroke-width="1.25" class="draw" style="--L:56;animation-delay:.32s" x1="80" y1="105" x2="136" y2="105"/>
+  <rect fill="rgba(242,239,233,.05)" stroke="rgba(242,239,233,.12)" stroke-width="1.25" rx="8" class="pop" x="136" y="72" width="104" height="66" style="animation-delay:.44s"/>
+  <text font-family="monospace" font-size="9" fill="rgba(242,239,233,.55)" text-anchor="middle" class="up" x="188" y="95" style="animation-delay:.56s">Budget?</text>
+  <text font-family="monospace" font-size="9" fill="rgba(242,239,233,.55)" text-anchor="middle" class="up" x="188" y="110" style="animation-delay:.62s">Timeline?</text>
+  <text font-family="monospace" font-size="9" fill="rgba(242,239,233,.55)" text-anchor="middle" class="up" x="188" y="125" style="animation-delay:.68s">Decision?</text>
+  <line stroke="rgba(242,239,233,.14)" stroke-width="1.25" class="draw" style="--L:56;animation-delay:.78s" x1="240" y1="105" x2="296" y2="105"/>
+  <circle fill="#E02B20" class="pop" cx="324" cy="105" r="28" style="animation-delay:.92s"/>
   <text font-family="monospace" font-size="9" font-weight="700" fill="#fff" text-anchor="middle" class="up" x="324" y="101" style="animation-delay:1.06s">Booked</text>
   <text font-family="monospace" font-size="8.5" fill="rgba(255,255,255,.7)" text-anchor="middle" class="up" x="324" y="115" style="animation-delay:1.11s">auto</text>
 </svg>`;
 
 const SVG_EQ_CHASE = `<svg viewBox="0 0 400 228" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <text font-family="monospace" font-size="9" fill="rgba(245,243,238,.38)" letter-spacing=".08em" class="up" x="24" y="24" style="animation-delay:.05s">AUTO FOLLOW-UP CHAIN</text>
-  <rect fill="#F9FF84" rx="7" class="up" x="72" y="40" width="256" height="30" style="animation-delay:.15s"/>
+  <text font-family="monospace" font-size="9" fill="rgba(242,239,233,.38)" letter-spacing=".08em" class="up" x="24" y="24" style="animation-delay:.05s">AUTO FOLLOW-UP CHAIN</text>
+  <rect fill="#E02B20" rx="7" class="up" x="72" y="40" width="256" height="30" style="animation-delay:.15s"/>
   <text font-family="monospace" font-size="10" fill="#fff" text-anchor="middle" class="up" x="200" y="59" style="animation-delay:.3s">Answered in 00:04</text>
-  <line stroke="rgba(245,243,238,.18)" stroke-width="1.25" class="draw" style="--L:22;animation-delay:.42s" x1="200" y1="70" x2="200" y2="92"/>
-  <rect fill="rgba(245,243,238,.05)" stroke="rgba(245,243,238,.12)" stroke-width="1.25" rx="7" class="up" x="72" y="92" width="256" height="30" style="animation-delay:.48s"/>
-  <text font-family="monospace" font-size="10" fill="rgba(245,243,238,.7)" text-anchor="middle" class="up" x="200" y="111" style="animation-delay:.62s">No reply → Day 1 follow-up</text>
-  <line stroke="rgba(245,243,238,.18)" stroke-width="1.25" class="draw" style="--L:22;animation-delay:.74s" x1="200" y1="122" x2="200" y2="144"/>
-  <rect fill="rgba(245,243,238,.05)" stroke="rgba(245,243,238,.12)" stroke-width="1.25" rx="7" class="up" x="72" y="144" width="256" height="30" style="animation-delay:.8s"/>
-  <text font-family="monospace" font-size="10" fill="rgba(245,243,238,.7)" text-anchor="middle" class="up" x="200" y="163" style="animation-delay:.94s">Still quiet → Day 3 nudge</text>
-  <line stroke="rgba(245,243,238,.18)" stroke-width="1.25" class="draw" style="--L:22;animation-delay:1.06s" x1="200" y1="174" x2="200" y2="196"/>
-  <rect fill="#F9FF84" rx="7" class="up" x="72" y="196" width="256" height="30" style="animation-delay:1.12s"/>
+  <line stroke="rgba(242,239,233,.18)" stroke-width="1.25" class="draw" style="--L:22;animation-delay:.42s" x1="200" y1="70" x2="200" y2="92"/>
+  <rect fill="rgba(242,239,233,.05)" stroke="rgba(242,239,233,.12)" stroke-width="1.25" rx="7" class="up" x="72" y="92" width="256" height="30" style="animation-delay:.48s"/>
+  <text font-family="monospace" font-size="10" fill="rgba(242,239,233,.7)" text-anchor="middle" class="up" x="200" y="111" style="animation-delay:.62s">No reply → Day 1 follow-up</text>
+  <line stroke="rgba(242,239,233,.18)" stroke-width="1.25" class="draw" style="--L:22;animation-delay:.74s" x1="200" y1="122" x2="200" y2="144"/>
+  <rect fill="rgba(242,239,233,.05)" stroke="rgba(242,239,233,.12)" stroke-width="1.25" rx="7" class="up" x="72" y="144" width="256" height="30" style="animation-delay:.8s"/>
+  <text font-family="monospace" font-size="10" fill="rgba(242,239,233,.7)" text-anchor="middle" class="up" x="200" y="163" style="animation-delay:.94s">Still quiet → Day 3 nudge</text>
+  <line stroke="rgba(242,239,233,.18)" stroke-width="1.25" class="draw" style="--L:22;animation-delay:1.06s" x1="200" y1="174" x2="200" y2="196"/>
+  <rect fill="#E02B20" rx="7" class="up" x="72" y="196" width="256" height="30" style="animation-delay:1.12s"/>
   <text font-family="monospace" font-size="10" fill="#fff" text-anchor="middle" class="up" x="200" y="215" style="animation-delay:1.26s">Final win-back — Day 7</text>
 </svg>`;
 
 const SVG_EQ_PIPE = `<svg viewBox="0 0 400 226" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <text font-family="monospace" font-size="9" fill="rgba(245,243,238,.38)" letter-spacing=".08em" class="up" x="16" y="26" style="animation-delay:.05s">PIPELINE</text>
+  <text font-family="monospace" font-size="9" fill="rgba(242,239,233,.38)" letter-spacing=".08em" class="up" x="16" y="26" style="animation-delay:.05s">PIPELINE</text>
   ${["New","Qualified","Booked","Closed"].map((label, i) => {
     const x = 16 + i * 94;
     const h = [88, 60, 40, 76][i];
-    const col = i === 3 ? "#F9FF84" : `rgba(249,255,132,${[".28",".48",".66"][i]})`;
-    return `<rect fill="rgba(245,243,238,.04)" stroke="rgba(245,243,238,.1)" stroke-width="1.25" rx="6" class="up" x="${x}" y="40" width="82" height="160" style="animation-delay:${0.1 + i * 0.08}s"/>
-    <text font-family="monospace" font-size="8.5" fill="rgba(245,243,238,.42)" text-anchor="middle" class="up" x="${x + 41}" y="57" style="animation-delay:${0.2 + i * 0.08}s">${label}</text>
+    const col = i === 3 ? "#E02B20" : `rgba(224,43,32,${[".28",".48",".66"][i]})`;
+    return `<rect fill="rgba(242,239,233,.04)" stroke="rgba(242,239,233,.1)" stroke-width="1.25" rx="6" class="up" x="${x}" y="40" width="82" height="160" style="animation-delay:${0.1 + i * 0.08}s"/>
+    <text font-family="monospace" font-size="8.5" fill="rgba(242,239,233,.42)" text-anchor="middle" class="up" x="${x + 41}" y="57" style="animation-delay:${0.2 + i * 0.08}s">${label}</text>
     <rect fill="${col}" rx="3" class="grow" x="${x + 8}" y="${200 - h}" width="66" height="${h}" style="animation-delay:${0.35 + i * 0.1}s"/>`;
   }).join("")}
 </svg>`;
@@ -3869,23 +3861,23 @@ function EnquiriesContent({ onClose }: { onClose: () => void }) {
       a:"We're a team that builds, trains and runs AI for real businesses. The AI handles the speed; the pipeline and follow-up cadence are designed by people. Together, enquiries become a reliable revenue engine instead of a leaky bucket." },
   ];
   return (
-    <div style={{ background:"#0035AD", color:T.ivory }}>
+    <div style={{ background:T.noir, color:T.ivory }}>
       <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${T.line}` }}>
-        <DeptH1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
           fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
           textTransform:"uppercase", color:T.ivory, marginBottom:"1rem" }}>
           Turn enquiries<br />
           <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
             fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0,
             color:T.scar, fontSize:"1.04em" }}>into money.</em>
-        </DeptH1>
+        </h1>
         <p style={{ fontSize:".98rem", color:T.dim, lineHeight:1.6, maxWidth:"44ch" }}>
           Every enquiry answered in four seconds, qualified, booked, and chased until paid.{" "}
           <strong style={{ color:T.ivory }}>One AI across WhatsApp, phone, DMs and email — every lead tracked in one pipeline.</strong>
         </p>
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginTop:"1.6rem" }}>
           {channels.map(ch => (
-            <div key={ch.id} style={{ background:"#0B42C4", border:`1px solid ${T.line}`, borderRadius:8, padding:"10px 12px" }}>
+            <div key={ch.id} style={{ background:T.card, border:`1px solid ${T.line}`, borderRadius:8, padding:"10px 12px" }}>
               <p style={{ fontFamily:"monospace", fontSize:9, color:T.scar, letterSpacing:".1em",
                 textTransform:"uppercase" as const, marginBottom:4 }}>{ch.label}</p>
               <p style={{ fontFamily:"monospace", fontSize:10, color:T.dim, lineHeight:1.55 }}>{ch.desc}</p>
@@ -3924,6 +3916,20 @@ function EnquiriesContent({ onClose }: { onClose: () => void }) {
           </div>
         </Reveal>
       ))}
+      <Reveal>
+        <div style={{ margin:"0 20px 1.8rem", padding:"1.3rem 1.4rem",
+          border:`1px dashed ${T.line}`, borderRadius:10, background:T.card }}>
+          <Kicker label="Bonus, included" color={T.dim} />
+          <h4 style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
+            fontStyle:"italic", fontSize:"1.3rem", fontWeight:400, color:T.ivory, marginBottom:".5rem" }}>
+            Oh — and a little tool, on us.
+          </h4>
+          <p style={{ fontSize:".88rem", color:T.dim, lineHeight:1.55 }}>
+            A small tool that flags the moment a lead goes cold in the pipeline — so the team steps in before the window closes.{" "}
+            <strong style={{ color:T.ivory }}>Nice to have, not the main event.</strong>
+          </p>
+        </div>
+      </Reveal>
       <FAQ items={faqs} />
       <CTA big={<>Every lead caught.<br /><CtaItalic>Every one paid.</CtaItalic></>}
         sub="Four seconds to answer, automatic qualification and booking, chased until paid — and every lead tracked in one pipeline."
@@ -3936,9 +3942,9 @@ function EnquiriesContent({ onClose }: { onClose: () => void }) {
 // SHIP CONTENT  (light / cyan — custom software engineering)
 // ────────────────────────────────────────────────────────────────────────────
 const SH = {
-  bg:"#F5F3EE", card:"#FBFAF7", cy:"#002A8A", cy2:"#0035AD",
-  ink:"#0E0E0E", dim:"rgba(14,14,14,.7)", c45:"rgba(14,14,14,.45)",
-  c28:"rgba(14,14,14,.28)", line:"rgba(14,14,14,.12)",
+  bg:"#EEF1F4", card:"#F8FAFB", cy:"#0A7285", cy2:"#0E8FA8",
+  ink:"#0D1220", dim:"rgba(13,18,32,.7)", c45:"rgba(13,18,32,.45)",
+  c28:"rgba(13,18,32,.28)", line:"rgba(13,18,32,.12)",
 };
 
 const SVG_SH_MAP = `<svg viewBox="0 0 400 230" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
@@ -3951,38 +3957,38 @@ const SVG_SH_MAP = `<svg viewBox="0 0 400 230" style="position:absolute;inset:0;
     { l:"Phone bookings",   x:14,  y:144 },
     { l:"Manual invoices",  x:178, y:144 },
   ].map((n, i) => `
-    <rect fill="rgba(0,53,173,.06)" stroke="rgba(0,53,173,.25)" stroke-width="1.25" rx="5" class="up" x="${n.x}" y="${n.y}" width="150" height="26" style="animation-delay:${0.1 + i * 0.08}s"/>
+    <rect fill="rgba(14,143,168,.06)" stroke="rgba(14,143,168,.25)" stroke-width="1.25" rx="5" class="up" x="${n.x}" y="${n.y}" width="150" height="26" style="animation-delay:${0.1 + i * 0.08}s"/>
     <text font-family="monospace" font-size="9.5" fill="${SH.dim}" class="up" x="${n.x + 10}" y="${n.y + 17}" style="animation-delay:${0.22 + i * 0.08}s">${n.l}</text>
   `).join("")}
-  <circle fill="#0035AD" class="pop" cx="358" cy="117" r="34" style="animation-delay:.72s"/>
+  <circle fill="#0E8FA8" class="pop" cx="358" cy="117" r="34" style="animation-delay:.72s"/>
   <text font-family="monospace" font-size="10" font-weight="700" fill="#fff" text-anchor="middle" class="up" x="358" y="113" style="animation-delay:.86s">One</text>
   <text font-family="monospace" font-size="9.5" fill="rgba(255,255,255,.85)" text-anchor="middle" class="up" x="358" y="127" style="animation-delay:.92s">system</text>
 </svg>`;
 
 const SVG_SH_FIT = `<svg viewBox="0 0 400 220" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-  <rect fill="rgba(14,14,14,.06)" stroke="${SH.line}" stroke-width="1.25" rx="8" class="up" x="20" y="36" width="158" height="148" style="animation-delay:.1s"/>
+  <rect fill="rgba(13,18,32,.06)" stroke="${SH.line}" stroke-width="1.25" rx="8" class="up" x="20" y="36" width="158" height="148" style="animation-delay:.1s"/>
   <text font-family="monospace" font-size="9" fill="${SH.c45}" text-anchor="middle" class="up" x="99" y="56" style="animation-delay:.2s">Off-the-shelf</text>
-  <rect fill="rgba(14,14,14,.1)" rx="4" class="up" x="38" y="70" width="84" height="52" style="animation-delay:.28s"/>
-  <rect fill="rgba(14,14,14,.06)" rx="3" class="up" x="134" y="80" width="28" height="30" style="animation-delay:.34s"/>
+  <rect fill="rgba(13,18,32,.1)" rx="4" class="up" x="38" y="70" width="84" height="52" style="animation-delay:.28s"/>
+  <rect fill="rgba(13,18,32,.06)" rx="3" class="up" x="134" y="80" width="28" height="30" style="animation-delay:.34s"/>
   <text font-family="monospace" font-size="8.5" fill="${SH.c45}" text-anchor="middle" class="up" x="99" y="144" style="animation-delay:.4s">You bend to fit it</text>
   <text font-family="monospace" font-size="22" fill="${SH.line}" text-anchor="middle" class="up" x="99" y="174" style="animation-delay:.45s">⟲</text>
-  <rect fill="rgba(0,53,173,.09)" stroke="#0035AD" stroke-width="1.5" rx="8" class="pop" x="222" y="36" width="158" height="148" style="animation-delay:.58s"/>
+  <rect fill="rgba(14,143,168,.09)" stroke="#0E8FA8" stroke-width="1.5" rx="8" class="pop" x="222" y="36" width="158" height="148" style="animation-delay:.58s"/>
   <text font-family="monospace" font-size="9" fill="${SH.cy}" text-anchor="middle" class="up" x="301" y="56" style="animation-delay:.7s">Built for you</text>
-  <rect fill="rgba(0,53,173,.2)" stroke="#0035AD" stroke-width="1.5" rx="4" class="pop" x="240" y="70" width="122" height="52" style="animation-delay:.84s"/>
+  <rect fill="rgba(14,143,168,.2)" stroke="#0E8FA8" stroke-width="1.5" rx="4" class="pop" x="240" y="70" width="122" height="52" style="animation-delay:.84s"/>
   <text font-family="monospace" font-size="8.5" fill="${SH.cy}" text-anchor="middle" class="up" x="301" y="144" style="animation-delay:.9s">It fits your workflow</text>
-  <circle fill="#0035AD" class="pop" cx="318" cy="166" r="14" style="animation-delay:1.02s"/>
+  <circle fill="#0E8FA8" class="pop" cx="318" cy="166" r="14" style="animation-delay:1.02s"/>
   <text font-family="monospace" font-size="13" fill="#fff" text-anchor="middle" class="pop" x="318" y="171" style="animation-delay:1.16s">✓</text>
 </svg>`;
 
 const SVG_SH_WEEKS = `<svg viewBox="0 0 400 210" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
   <text font-family="monospace" font-size="9" fill="${SH.c45}" letter-spacing=".08em" class="up" x="16" y="26" style="animation-delay:.05s">TIMELINE</text>
   <text font-family="monospace" font-size="9.5" fill="${SH.c45}" class="up" x="16" y="60" style="animation-delay:.12s">Others</text>
-  <rect fill="rgba(14,14,14,.1)" rx="5" class="growx" x="72" y="46" width="312" height="24" style="animation-delay:.22s"/>
+  <rect fill="rgba(13,18,32,.1)" rx="5" class="growx" x="72" y="46" width="312" height="24" style="animation-delay:.22s"/>
   <text font-family="monospace" font-size="9" fill="${SH.c28}" class="up" x="78" y="62" style="animation-delay:.7s">12–18 months of slides</text>
   <text font-family="monospace" font-size="9.5" fill="${SH.cy}" class="up" x="16" y="104" style="animation-delay:.35s">Us</text>
-  <rect fill="#0035AD" rx="5" class="growx" x="72" y="90" width="120" height="24" style="animation-delay:.48s"/>
+  <rect fill="#0E8FA8" rx="5" class="growx" x="72" y="90" width="120" height="24" style="animation-delay:.48s"/>
   <text font-family="monospace" font-size="9" fill="#fff" class="up" x="78" y="106" style="animation-delay:.92s">6 weeks · live</text>
-  <rect fill="rgba(0,53,173,.15)" stroke="#0035AD" stroke-width="1.5" rx="12" class="pop" x="200" y="90" width="52" height="24" style="animation-delay:.96s"/>
+  <rect fill="rgba(14,143,168,.15)" stroke="#0E8FA8" stroke-width="1.5" rx="12" class="pop" x="200" y="90" width="52" height="24" style="animation-delay:.96s"/>
   <text font-family="monospace" font-size="9.5" fill="${SH.cy}" text-anchor="middle" class="up" x="226" y="106" style="animation-delay:1.1s">LIVE</text>
   <line stroke="${SH.line}" stroke-width="1" class="draw" style="--L:96;animation-delay:1.18s" x1="72" y1="140" x2="168" y2="140"/>
   ${["Discover","Design","Build","Ship"].map((s, i) => `<text font-family="monospace" font-size="8.5" fill="${SH.c45}" text-anchor="middle" class="up" x="${96 + i * 32}" y="155" style="animation-delay:${1.24 + i * 0.08}s">${s}</text>`).join("")}
@@ -3997,10 +4003,10 @@ const SVG_SH_PLUG = `<svg viewBox="0 0 400 230" style="position:absolute;inset:0
     { l:"WhatsApp", cx:200, cy:30  },
   ].map((n, i) => `
     <line stroke="${SH.line}" stroke-width="1.25" class="draw" style="--L:172;animation-delay:${0.2 + i * 0.1}s" x1="${n.cx}" y1="${n.cy}" x2="200" y2="125"/>
-    <circle fill="rgba(0,53,173,.08)" stroke="rgba(0,53,173,.3)" stroke-width="1.25" class="pop" cx="${n.cx}" cy="${n.cy}" r="20" style="animation-delay:${0.36 + i * 0.1}s"/>
+    <circle fill="rgba(14,143,168,.08)" stroke="rgba(14,143,168,.3)" stroke-width="1.25" class="pop" cx="${n.cx}" cy="${n.cy}" r="20" style="animation-delay:${0.36 + i * 0.1}s"/>
     <text font-family="monospace" font-size="8.5" fill="${SH.cy}" text-anchor="middle" class="up" x="${n.cx}" y="${n.cy + 4}" style="animation-delay:${0.52 + i * 0.1}s">${n.l}</text>
   `).join("")}
-  <circle fill="#0035AD" class="pop" cx="200" cy="125" r="36" style="animation-delay:.76s"/>
+  <circle fill="#0E8FA8" class="pop" cx="200" cy="125" r="36" style="animation-delay:.76s"/>
   <text font-family="monospace" font-size="9.5" font-weight="700" fill="#fff" text-anchor="middle" class="up" x="200" y="121" style="animation-delay:.9s">your</text>
   <text font-family="monospace" font-size="9.5" font-weight="700" fill="#fff" text-anchor="middle" class="up" x="200" y="135" style="animation-delay:.96s">system</text>
 </svg>`;
@@ -4045,14 +4051,14 @@ function ShipContent({ onClose }: { onClose: () => void }) {
       {/* hero */}
       <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${SH.line}` }}>
         <Kicker label="Build" color={SH.cy} />
-        <DeptH1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
           fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
           textTransform:"uppercase", color:SH.ink, marginBottom:"1rem" }}>
           Software your business<br />
           <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
             fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0,
             color:SH.cy, fontSize:"1.04em" }}>should run on.</em>
-        </DeptH1>
+        </h1>
         <p style={{ fontSize:".98rem", color:SH.dim, lineHeight:1.6, maxWidth:"44ch" }}>
           Some businesses run on spreadsheets, WhatsApp and duct tape. We design and build the custom software they should run on —{" "}
           <strong style={{ color:SH.ink }}>a real product and engineering team, live in weeks, and it's yours to keep.</strong>
@@ -4104,7 +4110,7 @@ function ShipContent({ onClose }: { onClose: () => void }) {
             <p style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
               fontStyle:"italic", fontSize:"clamp(1.05rem,3.8vw,1.25rem)", color:SH.ink,
               marginBottom:".7rem", lineHeight:1.2 }}>{p.out}</p>
-            <VizBox svg={p.svg} bg={SH.card} brd={SH.line} dot="rgba(14,14,14,.04)" />
+            <VizBox svg={p.svg} bg={SH.card} brd={SH.line} dot="rgba(13,18,32,.04)" />
             <p style={{ fontFamily:"monospace", fontSize:10, color:SH.c45, marginTop:".6rem",
               marginBottom:".6rem" }}>— {p.svgCap}</p>
             <p style={{ fontSize:".92rem", color:SH.dim, lineHeight:1.62, maxWidth:"52ch" }}>{p.cap}</p>
@@ -4167,9 +4173,9 @@ function ShipContent({ onClose }: { onClose: () => void }) {
 // PRODUCTS CONTENT  (dark blue — OARC's own platforms, in production)
 // ────────────────────────────────────────────────────────────────────────────
 const PRD = {
-  bg:"#0E0E0E", card:"#171717", sig:"#F9FF84",
-  c:"#F5F3EE", dim:"rgba(245,243,238,.62)", c45:"rgba(245,243,238,.45)",
-  line:"rgba(245,243,238,.1)", b22:"rgba(249,255,132,.22)",
+  bg:"#050A10", card:"#0A1018", sig:"#3EC6FF",
+  c:"#EAF2F6", dim:"rgba(234,242,246,.62)", c45:"rgba(234,242,246,.45)",
+  line:"rgba(234,242,246,.1)", b22:"rgba(62,198,255,.22)",
 };
 
 function ProductsContent({ onClose }: { onClose: () => void }) {
@@ -4212,14 +4218,14 @@ function ProductsContent({ onClose }: { onClose: () => void }) {
     <div style={{ background:PRD.bg, color:PRD.c }}>
       {/* hero */}
       <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${PRD.line}` }}>
-        <DeptH1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
           fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
           textTransform:"uppercase", color:PRD.c, marginBottom:"1rem" }}>
           We don't advise.<br />
           <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
             fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0,
             color:PRD.sig, fontSize:"1.04em" }}>We build.</em>
-        </DeptH1>
+        </h1>
         <p style={{ fontSize:".98rem", color:PRD.dim, lineHeight:1.6, maxWidth:"44ch" }}>
           Production-ready platforms, not decks.{" "}
           <strong style={{ color:PRD.c }}>We rebuilt how businesses operate on systems we've already built — already running in Malta venues tonight.</strong>
@@ -4273,7 +4279,7 @@ function ProductsContent({ onClose }: { onClose: () => void }) {
                 borderRadius:8, padding:"12px 14px", position:"relative" as const }}>
                 <span style={{ position:"absolute" as const, top:9, right:10, width:5, height:5,
                   borderRadius:"50%", background:PRD.sig,
-                  boxShadow:`0 0 0 0 rgba(249,255,132,.5)`,
+                  boxShadow:`0 0 0 0 rgba(62,198,255,.5)`,
                   animation:"blip 1.6s ease-out infinite", display:"block" }} />
                 <p style={{ fontFamily:"monospace", fontSize:9, color:PRD.sig,
                   letterSpacing:".12em", marginBottom:".4rem" }}>{m.id}</p>
@@ -4337,7 +4343,7 @@ function ProductsContent({ onClose }: { onClose: () => void }) {
           color:PRD.bg, background:PRD.sig,
           textDecoration:"none", padding:"1.15rem", borderRadius:6 }}>Rebuild yours — book a call →</a>
         <p style={{ fontFamily:"var(--font-space-mono,'Space Mono',monospace)", fontSize:10.5,
-          color:"rgba(245,243,238,.3)", letterSpacing:".04em", marginTop:"1.4rem", textAlign:"center" as const }}>
+          color:"rgba(234,242,246,.3)", letterSpacing:".04em", marginTop:"1.4rem", textAlign:"center" as const }}>
           OARC — one team for the whole business. Malta.</p>
       </div>
     </div>
@@ -4383,14 +4389,14 @@ function CompareContent({ onClose }: { onClose: () => void }) {
       {/* hero */}
       <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${T.line}` }}>
         <Kicker label="Why OARC" />
-        <DeptH1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
           fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
           textTransform:"uppercase", color:T.ivory, marginBottom:"1rem" }}>
           Paper vs<br />
           <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
             fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0,
             color:T.scar, fontSize:"1.04em" }}>production.</em>
-        </DeptH1>
+        </h1>
         <p style={{ fontSize:".98rem", color:T.dim, lineHeight:1.6, maxWidth:"44ch" }}>
           Consultants give you a report. Agencies manage the spend. We build and run the systems.{" "}
           <strong style={{ color:T.ivory }}>Own platform in production. AI staff deployed. Metric-proven. Founder-led.</strong>
@@ -4414,7 +4420,7 @@ function CompareContent({ onClose }: { onClose: () => void }) {
                 padding:".7rem 0", borderBottom:`1px solid ${T.line}`, alignItems:"start" }}>
                 <span style={{ fontFamily:"monospace", fontSize:9.5, color:T.dimLow, lineHeight:1.45,
                   paddingRight:".5rem" }}>{r.label}</span>
-                <span style={{ fontSize:11, color:"rgba(245,243,238,.3)", lineHeight:1.45,
+                <span style={{ fontSize:11, color:"rgba(242,239,233,.3)", lineHeight:1.45,
                   paddingRight:".5rem", textAlign:"center" as const }}>{r.them}</span>
                 <span style={{ fontSize:11, color:T.ivory, lineHeight:1.45, fontWeight:600,
                   textAlign:"center" as const }}>{r.us}</span>
@@ -4511,11 +4517,11 @@ const CONTENT_MAP: Record<string, (props:{onClose:()=>void}) => React.ReactEleme
 
 // ── per-department header colours ─────────────────────────────────────────────
 const DEPT_HDR_BG: Record<string,string> = {
-  Growth: "#F5F3EE",  Sales: "#F5F3EE",  Media: "#0E0E0E",  Social: T.noir,
-  Clarity: "#0E0E0E",  "AI Staff": "#0035AD",  Creative: "#0E0E0E",
-  Operations: "#F5F3EE",  Automation: "#0035AD",  Transformation: "#F5F3EE",
-  Reputation: "#F5F3EE",  Brand: "#F5F3EE",
-  Enquiries: "#0035AD",  Ship: "#F5F3EE",  Products: "#0E0E0E",  Compare: T.noir,
+  Growth: "#F6F1E9",  Sales: "#FFFFFF",  Media: "#0C0F16",  Social: T.noir,
+  Clarity: "#0B0D12",  "AI Staff": "#060607",  Creative: "#100E0A",
+  Operations: "#F4F1EA",  Automation: "#0A0C0F",  Transformation: "#050A10",
+  Reputation: "#F5F1E8",  Brand: "#ECE7DE",
+  Enquiries: T.noir,  Ship: "#EEF1F4",  Products: "#050A10",  Compare: T.noir,
 };
 const LIGHT_DEPTS = new Set(["Operations","Reputation","Brand","Ship","Growth","Sales"]);
 
@@ -4677,13 +4683,11 @@ export default function DepartmentDetailModal({ dept, onClose }: DepartmentDetai
   );
 }
 
-// ── Page mode (owner 2026-11-10) ──────────────────────────────────────────────
+// ── Page mode ─────────────────────────────────────────────────────────────────
 // The same department content also renders as a real page at /services/*, so
 // Google and AI assistants can read it (the pop-up only exists after a click).
 // One source: edit a department here and both the pop-up and its page change.
-// Page copies of the CSS use "-page" ids so each department's own effect still
-// injects (and later removes) its copy exactly as in the pop-up; the server copy
-// only stops the page flashing unstyled before hydration.
+// Nothing above this line differs from the pop-up design.
 const VB_STYLE = { id: "oarc-vb-css-page", css: VIZ_CSS };
 export const DEPARTMENT_STYLES: Record<string, { id: string; css: string }[]> = {
   Growth:         [{ id: "gmx-modal-css-page", css: GM_CSS }, VB_STYLE],

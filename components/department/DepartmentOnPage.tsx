@@ -1,10 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import {
   DEPARTMENT_BG,
+  DEPARTMENT_IS_LIGHT,
   DEPARTMENT_STYLES,
   DepartmentContent,
-  DeptHeadingLevel,
 } from "@/components/DepartmentDetailModal";
 
 /**
@@ -34,8 +35,9 @@ function readable(css: string): string {
     });
 }
 
-export default function DepartmentOnPage({ dept }: { dept: string }) {
+export default function DepartmentOnPage({ dept, crumb }: { dept: string; crumb: string }) {
   const styles = DEPARTMENT_STYLES[dept] ?? [];
+  const light = DEPARTMENT_IS_LIGHT(dept);
   return (
     <div style={{ background: DEPARTMENT_BG[dept] ?? "#0E0E0E" }}>
       {styles.map((s) => (
@@ -43,10 +45,19 @@ export default function DepartmentOnPage({ dept }: { dept: string }) {
       ))}
       {/* In the pop-up each world is its own scroll box; on a page the page scrolls. */}
       <style>{`.dept-page-body>*{height:auto!important;max-height:none!important;overflow-x:clip!important;overflow-y:visible!important}`}</style>
+      <nav
+        aria-label="Breadcrumb"
+        className="mx-auto px-5 pb-2 pt-28 text-base md:pt-32"
+        style={{ maxWidth: 860, color: light ? "rgba(14,14,14,.8)" : "rgba(245,243,238,.85)", fontFamily: "var(--font-inter-tight), sans-serif" }}
+      >
+        <Link href="/" className="hover:underline">
+          Home
+        </Link>
+        <span aria-hidden="true"> / </span>
+        <span>{crumb}</span>
+      </nav>
       <div className="dept-page-body" style={{ maxWidth: 860, margin: "0 auto" }}>
-        <DeptHeadingLevel.Provider value="h2">
-          <DepartmentContent dept={dept} onClose={() => {}} />
-        </DeptHeadingLevel.Provider>
+        <DepartmentContent dept={dept} onClose={() => {}} />
       </div>
     </div>
   );
