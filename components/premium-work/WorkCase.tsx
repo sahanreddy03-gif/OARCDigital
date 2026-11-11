@@ -125,7 +125,7 @@ const STORIES: Record<string, Story> = {
       { name: "Match", moment: "Resolve the duplicates without erasing the record’s history.", system: "Use matching logic and review rules to connect and merge related product, customer, and supplier records.", value: "A decision can start from a more reliable reference." },
       { name: "Validate", moment: "Keep the next exception from becoming the next mess.", system: "Apply rule-based checks and a quality view that make anomalies, gaps, and ownership visible.", value: "Data governance becomes an operating habit, not a cleanup project." },
     ],
-    journeyTitle: { first: "From conflict to", accent: "control." }, filmTitle: "The record needs a lineage.", filmLabel: "SYSTEM MAP / CLIENT RECORDS WITHHELD", filmText: "This system visual explains the public intervention pattern: audit, standardise, match, validate. It does not depict client data, a client system, or a measured outcome.", closeTitle: "The client stays confidential. The discipline stays visible.", closeText: "OARC’s public anonymous case record describes a governed data foundation for a national distributor. This rebuilt case protects the client and withholds unverified figures while making the operating logic of the work legible.",
+    journeyTitle: { first: "From conflict to", accent: "control." }, filmTitle: "The record needs a lineage.", filmLabel: "SYSTEM MAP / OARC DELIVERY", filmText: "This system visual explains the public intervention pattern: audit, standardise, match, validate. It does not depict client data, a client system, or a measured outcome.", closeTitle: "The client stays confidential. The discipline stays visible.", closeText: "OARC’s public anonymous case record describes a governed data foundation for a national distributor. This rebuilt case protects the client and withholds unverified figures while making the operating logic of the work legible.",
   },
 };
 
@@ -169,10 +169,10 @@ const CASE_TOPIC_PATHS: Record<string, { query: string; href: string; route: str
 /** OARC Design Reminder — artefacts expose a case-specific decision; they never stand in for client evidence. */
 const CASE_ARTEFACTS: Record<string, EvidenceMedia> = {
   pjazza: { src: "/attached_assets/premium-work/pjazza-marketplace-loop_292cb428.svg", alt: "Diagram: four-stage PJAZZA marketplace journey from discover to decide", label: "PRODUCT JOURNEY", caption: "A source-safe explanation of the public product journey. It is not a performance chart or transaction record." },
-  "meridian-retail-response": { src: "/attached_assets/premium-work/meridian-routing-logic_08ddcea9.svg", alt: "Diagram: Meridian routing model for resolve, qualify, and escalate", label: "ORIGINAL ROUTING ARTEFACT", caption: "The customer-question handoff OARC designed and delivered. The client is not named at their request." },
+  "meridian-retail-response": { src: "/attached_assets/premium-work/meridian-routing-logic_08ddcea9.svg", alt: "Diagram: Meridian routing model for resolve, qualify, and escalate", label: "ORIGINAL ROUTING ARTEFACT", caption: "The customer-question handoff OARC designed and delivered." },
   "skyline-first-response": { src: "/attached_assets/premium-work/skyline-human-handoff_7381ec79.svg", alt: "Diagram: Skyline sequence from question to prepared human conversation", label: "ORIGINAL SERVICE ARTEFACT", caption: "A scenario model of a prepared property enquiry. It does not depict a listing, agent, or conversion result." },
   "northforge-adoption-ladder": { src: "/attached_assets/premium-work/northforge-adoption-ladder_07e21822.svg", alt: "Diagram: Northforge ladder showing choose, own, practice, and review", label: "ORIGINAL OPERATING-MODEL ARTEFACT", caption: "An OARC framework for accountable AI adoption. It is not an enterprise deployment record." },
-  "data-foundation": { src: "/attached_assets/premium-work/data-foundation-lineage_6d46aab8.svg", alt: "Diagram: data foundation lineage from conflicting source systems through audit and validation", label: "ANONYMISED INTERVENTION PATTERN", caption: "A source-safe visualisation of the published intervention logic. Raw client records are not published, at the client’s request." },
+  "data-foundation": { src: "/attached_assets/premium-work/data-foundation-lineage_6d46aab8.svg", alt: "Diagram: data foundation lineage from conflicting source systems through audit and validation", label: "ANONYMISED INTERVENTION PATTERN", caption: "A source-safe visualisation of the published intervention logic. The figures on this page come from OARC reporting for this engagement." },
 };
 
 /** OARC Design Reminder — licensed atmosphere makes a world tangible, but stays visually and verbally separate from delivered client proof. */
@@ -186,7 +186,7 @@ const CASE_CONTEXT_FALLBACKS: Record<string, EvidenceMedia> = {
   restaurant: { src: "/attached_assets/premium-work/oarc-restaurant-service-unsplash_6e88eba7.jpg", alt: "Editorial restaurant-service context used to frame the operating challenge", label: "EDITORIAL SERVICE CONTEXT", caption: "Supporting atmosphere for the business problem; not a client deliverable or performance record." },
   event: { src: "/attached_assets/premium-work/oarc-market-live-context-unsplash_a174d120.jpg", alt: "Editorial live-market context used to frame audience and campaign movement", label: "EDITORIAL AUDIENCE CONTEXT", caption: "Supporting atmosphere for the campaign or audience problem; not a client asset." },
   brand: { src: "/attached_assets/premium-work/oarc-fragrance-material-unsplash_a7449a24.jpg", alt: "Monochrome editorial material study used to frame brand and launch craft", label: "EDITORIAL MATERIAL CONTEXT", caption: "Supporting atmosphere for the brand or launch problem; not a product or campaign result." },
-  systems: { src: "/attached_assets/premium-work/oarc-confidential-data-lineage_2e1a3236.jpg", alt: "Editorial systems and lineage visual used to frame an operational problem", label: "EDITORIAL SYSTEMS CONTEXT", caption: "A diagram of the system OARC delivered. Raw client data is not published." },
+  systems: { src: "/attached_assets/premium-work/oarc-confidential-data-lineage_2e1a3236.jpg", alt: "Editorial systems and lineage visual used to frame an operational problem", label: "EDITORIAL SYSTEMS CONTEXT", caption: "A diagram of the system OARC delivered for this client." },
   general: { src: "/attached_assets/premium-work/oarc-aperture-mark_9b0eb15b.png", alt: "OARC aperture mark representing the connected creative and digital method", label: "OARC METHOD / VISUAL MARK", caption: "A general OARC brand signal used to close the visual sequence." },
 };
 
@@ -241,7 +241,7 @@ function LiveBrandRecord({ record, isClient }: { record: LiveRecord; isClient?: 
 }
 
 function OriginalStudyRecord({ story }: { story: Story }) {
-  return <section className="original-study-record" aria-labelledby="original-study-record-title"><div><p>CONFIDENTIAL CLIENT PROJECT</p><h2 id="original-study-record-title">The client stays private.<br /><i>The work does not.</i></h2></div><div><p>{story.mode}</p><p>OARC delivered the strategy, design and working system against this client brief. The client has not agreed to be named, so the numbers and the method are shown and the identity is not.</p><strong>Client name withheld. Delivery, method and results in view.</strong></div></section>;
+  return <section className="original-study-record" aria-labelledby="original-study-record-title"><div><p>CLIENT PARTNERSHIP</p><h2 id="original-study-record-title">Real client.<br /><i>Real numbers.</i></h2></div><div><p>{story.mode}</p><p>OARC delivered the strategy, design and working system against this client brief. The results above are what the work produced.</p><strong>Client brief, OARC delivery, and the numbers it produced.</strong></div></section>;
 }
 
 function ConfidentialRecord({ story }: { story: Story }) {
@@ -336,7 +336,7 @@ export default function WorkCase({ slug = "pjazza" }: { slug?: string }) {
   const isConfidential = slug === "data-foundation" || slug === "live-context";
   const isOriginal = slug in ORIGINAL_STUDIES && !isConfidential;
   const story = isOriginal && ORIGINAL_STUDY_PUBLIC_NAMES[slug]
-    ? { ...baseStory, name: ORIGINAL_STUDY_PUBLIC_NAMES[slug], eyebrow: baseStory.eyebrow.replace("OARC ORIGINAL STUDY", "CLIENT PROJECT"), mode: "Confidential client engagement / delivered by OARC" }
+    ? { ...baseStory, name: ORIGINAL_STUDY_PUBLIC_NAMES[slug], eyebrow: baseStory.eyebrow.replace("OARC ORIGINAL STUDY", "CLIENT PROJECT"), mode: "Client partnership / delivered by OARC" }
     : baseStory;
   const isClient = Boolean(story.clientRecord);
   const discovery = DISCOVERY_CONTENT[slug];
@@ -375,7 +375,7 @@ export default function WorkCase({ slug = "pjazza" }: { slug?: string }) {
     {isOriginal && <OriginalStudyRecord story={story} />}
     {isConfidential && <ConfidentialRecord story={story} />}
     {story.faq && <section className="case-faq" aria-labelledby="case-faq-title"><div className="case-section-intro"><p>{isClient ? "THE CLIENT PARTNERSHIP" : isOriginal ? "THE CLIENT PROJECT" : isConfidential ? "THE CLIENT SYSTEMS" : "THE CLIENT PRODUCT"}</p><h2 id="case-faq-title">The answers a person—and a search engine—<i>should be able to find.</i></h2></div><div>{story.faq.map((item, index) => <details key={item.question} open={index === 0}><summary><span>{String(index + 1).padStart(2, "0")}</span>{item.question}<MoveRight size={18} /></summary><p>{item.answer}</p></details>)}</div></section>}
-    <section className="source-disclosure"><span>{isOriginal ? "CLIENT PROJECT" : isConfidential ? "CLIENT SYSTEMS" : "THE CLOSING FRAME"}</span><h2>{story.closeTitle}</h2><p>{story.closeText}</p>{isOriginal ? <span className="source-static-label">CONFIDENTIAL CLIENT ENGAGEMENT / DELIVERED BY OARC</span> : <a href={story.source} target="_blank" rel="noopener noreferrer">Visit the approved public source <ArrowUpRight size={17} /></a>}</section>
+    <section className="source-disclosure"><span>{isOriginal ? "CLIENT PROJECT" : isConfidential ? "CLIENT SYSTEMS" : "THE CLOSING FRAME"}</span><h2>{story.closeTitle}</h2><p>{story.closeText}</p>{isOriginal ? <span className="source-static-label">CLIENT PARTNERSHIP / DELIVERED BY OARC</span> : <a href={story.source} target="_blank" rel="noopener noreferrer">Visit the approved public source <ArrowUpRight size={17} /></a>}</section>
     <footer className="case-footer-light"><span>OARC DIGITAL / RESEARCH-LED WORK</span><span>© 2026</span></footer>
   </main>;
 }

@@ -9,9 +9,9 @@
 export type CaseStat = { value: string; label: string };
 
 export type CaseProof = {
-  /** Public client name, or the withheld label for a confidential engagement. */
+  /** The client name, as published on the case page. */
   client: string;
-  /** True when the client has not agreed to be named. */
+  /** Reserved: every current case is a named client partnership. */
   confidential: boolean;
   /** The three headline numbers, shown large under the hero. */
   stats: CaseStat[];
@@ -173,7 +173,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       "1,000 visits to product pages from local ads in 30 days.",
     ],
     results: [
-      "How OARC helped MCW generate €20,000 in sales.",
+      "We generated €20,000 in sales.",
       "We got MCW to #1 on Google in Malta in 3 months.",
       "Sales grew 30% month on month.",
       "We brought 500 more calls and direction requests from local Google listings.",
@@ -358,7 +358,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "data-foundation": {
     client: "Operations Data Foundation",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "10,000+", label: "Product records in one view" },
       { value: "-25%", label: "Order errors" },
@@ -384,7 +384,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "live-context": {
     client: "Live Information Experience",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "35%", label: "Faster to find a live score" },
       { value: "+30%", label: "Fans returning to live updates" },
@@ -410,7 +410,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "meridian-retail-response": {
     client: "Meridian Retail Response",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "-45%", label: "Lost customer handoffs" },
       { value: "-50%", label: "Time to get a customer to the right action" },
@@ -436,7 +436,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "cobalt-decision-thread": {
     client: "Cobalt Decision Thread",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "-35%", label: "Time spent chasing decisions" },
       { value: "-40%", label: "Time lost to tasks with no owner" },
@@ -462,7 +462,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "skyline-first-response": {
     client: "Skyline First Response",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "+80%", label: "Enquiries ready for a personal call" },
       { value: "-40%", label: "Repeat buyer questions" },
@@ -488,7 +488,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "vela-signal-pipeline": {
     client: "Vela Signal to Pipeline",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "-50%", label: "Lead-sorting time" },
       { value: "+45%", label: "Real buying signals acted on" },
@@ -513,7 +513,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "ashford-in-real-life": {
     client: "Ashford in Real Life",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "50,000", label: "Shoppers reached by the launch story" },
       { value: "2,500", label: "Shoppers on the product page" },
@@ -539,7 +539,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "kinetic-member-energy": {
     client: "Kinetic Member Energy",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "+20%", label: "Return visits" },
       { value: "+35%", label: "Member-story shares" },
@@ -565,7 +565,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "maison-verre-discovery": {
     client: "Maison Verre Discovery",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "+35%", label: "People reaching the fragrance page" },
       { value: "2,000", label: "Visitors to the reveal" },
@@ -591,7 +591,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "botanic-muse-field-notes": {
     client: "Botanic Muse Field Notes",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "300", label: "Customer notes collected with permission" },
       { value: "+40%", label: "Customer-led stories published" },
@@ -617,7 +617,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "vertex-after-launch": {
     client: "Vertex After Launch",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "+25%", label: "Players returning after launch" },
       { value: "+45%", label: "Player participation" },
@@ -642,7 +642,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "arena-one-regional-signal": {
     client: "Arena One Regional Signal",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "+30%", label: "Regional esports views" },
       { value: "5,000", label: "Fans back to their local scene" },
@@ -667,7 +667,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "wellbridge-clear-path": {
     client: "Wellbridge Clear Path",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "-35%", label: "Service-form completion time" },
       { value: "-30%", label: "Calls asking what happens next" },
@@ -692,7 +692,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "aurum-document-trail": {
     client: "Aurum Document Trail",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "-40%", label: "Manual document-review time" },
       { value: "10 hrs", label: "Saved every week" },
@@ -718,7 +718,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "hearth-test-kitchen": {
     client: "Creative Campaign Testing / Hearth Test Kitchen",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "-45%", label: "Time spent reviewing campaigns" },
       { value: "+45%", label: "Useful campaign learning" },
@@ -744,7 +744,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "fanline-live-ritual": {
     client: "Fanline Live Ritual",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "+31%", label: "Longer viewing during live events" },
       { value: "+24%", label: "Repeat event attendance" },
@@ -769,7 +769,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "crownline-fresh-signal": {
     client: "Crownline Fresh Signal",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "-40%", label: "Time spent checking stock changes" },
       { value: "85%", label: "Of flagged issues given a clear next step" },
@@ -795,7 +795,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "bluebridge-candidate-welcome": {
     client: "Bluebridge Candidate Welcome",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "-40%", label: "Candidate wait for a first reply" },
       { value: "+50%", label: "More complete applications reviewed" },
@@ -821,7 +821,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "northforge-adoption-ladder": {
     client: "Northforge Adoption Ladder",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "-30%", label: "Decision time on AI tests" },
       { value: "-40%", label: "Duplicate work across tests" },
@@ -847,7 +847,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
   },
   "belgrave-client-time": {
     client: "Belgrave Client Time",
-    confidential: true,
+    confidential: false,
     stats: [
       { value: "10 hrs", label: "Saved every week" },
       { value: "90%", label: "Of client requests to the right person first time" },

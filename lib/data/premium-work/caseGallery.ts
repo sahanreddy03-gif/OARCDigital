@@ -70,3 +70,24 @@ export function getCaseGallery(slug: string): CaseGallery | undefined {
   if (!gallery || gallery.items.length < 3) return undefined;
   return gallery;
 }
+
+/**
+ * A designed graphic that draws the numbers standing directly above it.
+ *
+ * This is illustration, not evidence: it may only restate figures already
+ * published in `caseProof.ts`. It must never imitate a screenshot of a real
+ * interface, because a reader would take that as proof rather than drawing.
+ */
+export type CaseGraphic = { src: string; alt: string; caption: string };
+
+export const CASE_GRAPHIC: Record<string, CaseGraphic> = {
+  "mcw-cbd": {
+    src: "/attached_assets/premium-work/mcw-growth.svg",
+    alt: "Sales growing 30% each month across three months, reaching number one on Google in Malta and EUR 20,000 in sales by month three",
+    caption: "Three months, 30% growth each month.",
+  },
+};
+
+export function getCaseGraphic(slug: string): CaseGraphic | undefined {
+  return CASE_GRAPHIC[slug];
+}

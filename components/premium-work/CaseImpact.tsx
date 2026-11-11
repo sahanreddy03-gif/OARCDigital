@@ -1,4 +1,4 @@
-import { getCaseGallery } from "@/lib/data/premium-work/caseGallery";
+import { getCaseGallery, getCaseGraphic } from "@/lib/data/premium-work/caseGallery";
 import { getCaseProof } from "@/lib/data/premium-work/caseProof";
 
 /**
@@ -15,6 +15,7 @@ export default function CaseImpact({ slug }: { slug: string }) {
   if (!proof) return null;
 
   const gallery = getCaseGallery(slug);
+  const graphic = getCaseGraphic(slug);
   const hasStats = proof.stats.length > 0;
   const hasBrief = proof.targets.length > 0;
 
@@ -38,6 +39,12 @@ export default function CaseImpact({ slug }: { slug: string }) {
               </div>
             ))}
           </dl>
+          {graphic && (
+            <figure className="case-impact-graphic" data-testid="case-impact-graphic">
+              <img src={graphic.src} alt={graphic.alt} loading="lazy" decoding="async" />
+              <figcaption>{graphic.caption}</figcaption>
+            </figure>
+          )}
           <p className="case-impact-source">
             Figures from OARC campaign and client reporting for {proof.client}.
           </p>

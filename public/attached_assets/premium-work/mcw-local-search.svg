@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 620" role="img" aria-label="The four-step route from a local search to a sale: search, choose, arrive, buy">
+  <rect width="1240" height="620" fill="none"/>
+
+  <text x="60" y="54" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="3.4" fill="#5c7066">FROM A SEARCH TO A SALE</text>
+  <text x="60" y="118" font-family="Georgia, 'Times New Roman', serif" font-size="48" fill="#10251f">Four steps. No dead ends.</text>
+
+  <line x1="60" y1="168" x2="1180" y2="168" stroke="#c3d4ca" stroke-width="1"/>
+
+  <line x1="75" y1="252" x2="1105" y2="252" stroke="#c3d4ca" stroke-width="2"/>
+
+  <circle cx="75" cy="252" r="14" fill="#10251f"/>
+  <text x="60" y="320" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2.4" fill="#5c7066">01 / SEARCH</text>
+  <text x="60" y="358" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#10251f">Somebody looks</text>
+  <text x="60" y="390" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#10251f">for CBD near them.</text>
+  <text x="60" y="430" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#44584e">Every branch listing carries</text>
+  <text x="60" y="452" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#44584e">the same correct details.</text>
+
+  <circle cx="418" cy="252" r="14" fill="#10251f"/>
+  <text x="343" y="320" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2.4" fill="#5c7066">02 / CHOOSE</text>
+  <text x="343" y="358" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#10251f">They compare the</text>
+  <text x="343" y="390" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#10251f">first few results.</text>
+  <text x="343" y="430" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#44584e">Photos, categories and</text>
+  <text x="343" y="452" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#44584e">answered reviews earn the tap.</text>
+
+  <circle cx="761" cy="252" r="14" fill="#10251f"/>
+  <text x="626" y="320" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2.4" fill="#5c7066">03 / ARRIVE</text>
+  <text x="626" y="358" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#10251f">They tap directions,</text>
+  <text x="626" y="390" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#10251f">or they call.</text>
+  <text x="626" y="430" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#44584e">The nearest branch shows,</text>
+  <text x="626" y="452" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#44584e">with a route that works.</text>
+
+  <circle cx="1105" cy="252" r="20" fill="#f4b942"/>
+  <circle cx="1105" cy="252" r="8" fill="#10251f"/>
+  <text x="909" y="320" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2.4" fill="#5c7066">04 / BUY</text>
+  <text x="909" y="358" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#10251f">They walk in, or go</text>
+  <text x="909" y="390" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#10251f">to the website.</text>
+  <text x="909" y="430" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#44584e">Every link lands on a product</text>
+  <text x="909" y="452" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#44584e">page, never the homepage.</text>
+
+  <line x1="60" y1="528" x2="1180" y2="528" stroke="#c3d4ca" stroke-width="1"/>
+  <text x="60" y="566" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#5c7066">OARC Digital / the local search route built for MCW CBD Relax Shop</text>
+</svg>

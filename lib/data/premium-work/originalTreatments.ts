@@ -1,6 +1,6 @@
 /**
  * Editorial treatment for the restored OARC Original Studies.
- * These are the service lenses for a confidential record; the client is not named.
+ * These are the service lenses for this client record.
  */
 export type OriginalTreatment = {
   serviceTag: string;
