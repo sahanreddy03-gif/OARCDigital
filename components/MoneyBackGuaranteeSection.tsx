@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Shield, CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
-import Link from "next/link";
+import { bookingUrl } from "@/lib/utm";
 import { registerGSAP, gsap, ScrollTrigger, EASE, DUR, STAG } from "@/lib/motion/gsap-system";
 
 export default function MoneyBackGuaranteeSection() {
@@ -275,7 +275,7 @@ export default function MoneyBackGuaranteeSection() {
             ref={ctaRef}
             style={{ opacity: 0 }}
           >
-            <Link href="/contact">
+            <a href={bookingUrl("home-guarantee")} target="_blank" rel="noopener noreferrer">
               <Button 
                 size="lg" 
                 className="bg-[#0a0a0a] hover:bg-[#1a1a1a] text-white font-bold rounded-full px-10 py-7 text-base shadow-xl shadow-black/15 transition-all duration-300 hover:scale-105 hover:shadow-2xl group"
@@ -285,7 +285,7 @@ export default function MoneyBackGuaranteeSection() {
                 Schedule a Call
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
-            </Link>
+            </a>
           </div>
 
           <p 

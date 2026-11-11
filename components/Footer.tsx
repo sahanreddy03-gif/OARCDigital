@@ -5,6 +5,7 @@ import { FaLinkedin } from "react-icons/fa6";
 import { servicesCatalog } from '@/config/servicesConfig';
 import { NAP } from "@/lib/seo/nap";
 import FooterH360Link from '@/components/FooterH360Link';
+import { bookingUrl } from "@/lib/utm";
 const greenLogo = "/attached_assets/image_1767660951950.png";
 
 const WHATSAPP_NUMBER = NAP.whatsappNumber;
@@ -57,9 +58,9 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
                 Book a 20-minute call or send us a WhatsApp. You talk to the people who will do the work, in {NAP.addressLocality}, Malta.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/contact" className="inline-flex items-center rounded-full bg-[#F5F3EE] px-7 py-4 text-base font-semibold text-[#0E0E0E] transition-opacity hover:opacity-90" data-testid="button-footer-cta">
+                <a href={bookingUrl("footer")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full bg-[#F5F3EE] px-7 py-4 text-base font-semibold text-[#0E0E0E] transition-opacity hover:opacity-90" data-testid="button-footer-cta">
                   Book a 20-minute call
-                </Link>
+                </a>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-4 text-base font-semibold text-[#F5F3EE] transition-colors hover:bg-white/10" data-testid="button-footer-whatsapp">
                   <SiWhatsapp className="h-5 w-5" /> WhatsApp us
                 </a>

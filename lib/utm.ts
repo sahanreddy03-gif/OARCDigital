@@ -51,6 +51,17 @@ export function calcomUrl(sourcePath: string): string | null {
   return withUtm(base, sourcePath, "calcom", "booking");
 }
 
+/**
+ * The owner's live Cal.com booking page. Used when the env override above is
+ * not set, so a "Book a call" button always opens the real calendar.
+ */
+const DEFAULT_BOOKING_URL = "https://cal.com/oarc-digital-srwvnv";
+
+/** Booking link for every "Book a call" button. Never null. */
+export function bookingUrl(sourcePath: string): string {
+  return calcomUrl(sourcePath) ?? withUtm(DEFAULT_BOOKING_URL, sourcePath, "calcom", "booking");
+}
+
 export const CONTACT = {
   phoneE164: PHONE_E164,
   whatsappNumber: WHATSAPP_NUMBER,

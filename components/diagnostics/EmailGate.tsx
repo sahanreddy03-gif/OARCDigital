@@ -19,7 +19,7 @@ export default function EmailGate({ toolName, rowsHidden, onUnlock }: EmailGateP
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim() || !email.includes("@")) {
-      setErrorMsg("Enter a valid work email so we can send the full report.");
+      setErrorMsg("Enter a valid work email to unlock the full report.");
       setStatus("error");
       return;
     }
@@ -42,7 +42,11 @@ export default function EmailGate({ toolName, rowsHidden, onUnlock }: EmailGateP
       onUnlock?.(email.trim());
     } catch (err) {
       setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : "Submit failed. Try again or WhatsApp us.");
+      setErrorMsg(
+        err instanceof Error && err.message
+          ? err.message
+          : "That did not send. Try again, or WhatsApp us on +356 7971 1799.",
+      );
     }
   };
 
@@ -53,10 +57,9 @@ export default function EmailGate({ toolName, rowsHidden, onUnlock }: EmailGateP
         data-testid={`gate-success-${toolName.toLowerCase().replace(/\s+/g, "-")}`}
       >
         <CheckCircle2 className="h-8 w-8 text-[#c4ff4d] mx-auto mb-3" />
-        <p className="text-white font-semibold mb-1">Full report on the way</p>
+        <p className="text-white font-semibold mb-1">Full report unlocked</p>
         <p className="text-sm text-zinc-400">
-          The complete {toolName} workbook is heading to your inbox in the next few minutes. Check
-          your spam folder if you do not see it within ten.
+          The complete {toolName} report is now showing on this page.
         </p>
       </div>
     );
@@ -78,8 +81,8 @@ export default function EmailGate({ toolName, rowsHidden, onUnlock }: EmailGateP
             {rowsHidden} more rows behind the wall
           </p>
           <p className="text-sm text-zinc-400">
-            Drop your work email and we will send the full {toolName} workbook — every issue,
-            every fix, every euro figure. No sales follow-up unless you ask for one.
+            Drop your work email to unlock the full {toolName} report on this page — every
+            issue, every fix, every euro figure. No sales follow-up unless you ask for one.
           </p>
         </div>
       </div>
@@ -112,15 +115,14 @@ export default function EmailGate({ toolName, rowsHidden, onUnlock }: EmailGateP
           data-testid="button-unlock-report"
           className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#c4ff4d] px-5 py-3 text-sm font-semibold text-black transition-all hover:shadow-lg hover:shadow-[#c4ff4d]/25 disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          {status === "submitting" ? "Sending…" : `Send me the full ${toolName} workbook`}
+          {status === "submitting" ? "Unlocking…" : `Unlock the full ${toolName} report`}
           <ArrowRight className="h-4 w-4" />
         </button>
         {status === "error" && errorMsg && (
           <p className="text-xs text-red-400" data-testid="text-gate-error">{errorMsg}</p>
         )}
         <p className="text-[10px] text-zinc-500">
-          We email it once, file the lead, and that is it. GDPR rules apply — unsubscribe in one
-          click from the email itself.
+          We keep your email for one optional follow-up, and that is it. GDPR rules apply.
         </p>
       </form>
     </m.div>

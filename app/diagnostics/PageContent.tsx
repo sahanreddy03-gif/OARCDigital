@@ -112,7 +112,7 @@ const FAQS = [
   {
     question: "Is the diagnostics hub really free?",
     answer:
-      `Yes. The four tools — Industry Scan, Growth Simulator, AI Workforce Designer, and the Cortex Business Intelligence Scan — are free with no credit card. We show the headline result on screen, then offer a full PDF workbook in exchange for a work email so we can route the report and follow up if you want a human conversation. You can run every tool without ever giving us your address.`,
+      `Yes. The four tools — Industry Scan, Growth Simulator, AI Workforce Designer, and the Cortex Business Intelligence Scan — are free with no credit card. We show the headline result on screen, then unlock the full report on this page in exchange for a work email, so we can follow up if you want a human conversation. You can run every tool without ever giving us your address.`,
   },
   {
     question: "How is /diagnostics different from /tools?",
@@ -127,12 +127,12 @@ const FAQS = [
   {
     question: "What happens to my data after I run a scan?",
     answer:
-      `Inputs to the Cortex Business Intelligence Scan are processed in EU-resident infrastructure (Frankfurt or Dublin) and discarded after the report is generated. Email addresses captured at the gate are stored in the OARC CRM and used for one report email plus an optional human follow-up if you flagged interest. We never resell or trade lead data — IDPC and GDPR rules apply across the board.`,
+      `Inputs to the Cortex Business Intelligence Scan are processed in EU-resident infrastructure (Frankfurt or Dublin) and discarded after the report is generated. Email addresses captured at the gate are stored in the OARC CRM and used only for an optional human follow-up if you flagged interest. We never resell or trade lead data — IDPC and GDPR rules apply across the board.`,
   },
   {
     question: "Can I share these reports with my team?",
     answer:
-      `Yes. The full PDF workbook is licensed for internal use — share it with your operating team, board, or co-founders without restriction. Republication on a third-party site needs written permission. Most teams print one copy, mark it up in a working session, and use it as the input to the next quarterly plan.`,
+      `Yes. The full report is yours to use inside your business — share it with your operating team, board, or co-founders without restriction. Republication on a third-party site needs written permission. Most teams print one copy, mark it up in a working session, and use it as the input to the next quarterly plan.`,
   },
   {
     question: "Do I have to talk to a salesperson after I download a report?",
@@ -228,8 +228,8 @@ export default function PageContent() {
             </p>
             <p className="text-sm text-zinc-500 max-w-2xl mx-auto">
               Run any tool in your browser. The first three rows of every result are visible without
-              an email. The full workbook — every issue, every fix, every euro figure — arrives in
-              your inbox the moment you ask for it.
+              an email. The full report — every issue, every fix, every euro figure — unlocks on
+              this page the moment you add your email.
             </p>
           </m.section>
 
@@ -484,7 +484,7 @@ export default function PageContent() {
                       <EyeOff className="h-5 w-5 text-zinc-500 mx-auto mb-2" />
                       <p className="text-sm text-zinc-400">
                         {hiddenCount} more issues for {vertical.name} are hidden in the full
-                        workbook
+                        report
                       </p>
                     </div>
                     <EmailGate
@@ -498,7 +498,7 @@ export default function PageContent() {
                   <div className="rounded-xl border border-[#c4ff4d]/20 bg-[#c4ff4d]/5 p-4 flex items-center gap-3">
                     <Eye className="h-4 w-4 text-[#c4ff4d]" />
                     <p className="text-sm text-zinc-300">
-                      Full workbook unlocked. The complete report has been emailed to you.
+                      Full report unlocked. Every issue is now shown above.
                     </p>
                   </div>
                 )}
@@ -707,7 +707,7 @@ export default function PageContent() {
                 <p className="text-sm text-zinc-400 leading-relaxed">
                   Pricing assumes EUR-denominated SMEs with 3 to 25 staff and turnover under five
                   million. Where regulation matters — MFSA, MGA, IDPC — we flag it in the full
-                  workbook rather than the on-page preview. The hub is built for Malta first, EU
+                  report rather than the on-page preview. The hub is built for Malta first, EU
                   second.
                 </p>
               </div>
