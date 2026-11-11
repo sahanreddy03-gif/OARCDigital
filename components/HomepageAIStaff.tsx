@@ -11,8 +11,8 @@ import Link from "next/link";
  * (animation-timeline: view()), skipped where unsupported or reduced motion.
  */
 const AI_STAFF = [
-  { title: "Sales rep", text: "Tom calls back every lead and books the meeting.", href: "/voice-ai-worker" },
-  { title: "Customer support", text: "Tom answers calls, chat and WhatsApp, day and night.", href: "/voice-ai-worker" },
+  { title: "Sales rep", text: "Tom calls back every lead and books the meeting.", href: "/services/ai-sdr-agent" },
+  { title: "Customer support", text: "Tom answers calls, chat and WhatsApp, day and night.", href: "/services/ai-support-specialist" },
   { title: "Appointment booker", text: "Fills your calendar and sends reminders.", href: "/services/ai-appointment-booker" },
   { title: "Admin assistant", text: "Handles forms, emails and data entry.", href: "/services/ai-admin-agent" },
   { title: "Data analyst", text: "Turns your numbers into a weekly report.", href: "/services/ai-data-analyst" },
@@ -85,7 +85,7 @@ export default function HomepageAIStaff() {
               <span className="h-1.5 w-1.5 rounded-full bg-[#F9FF84]" aria-hidden="true" /> Live in Malta businesses
             </span>
             <span className="mt-3 block text-[clamp(2.2rem,4.5vw,3.6rem)] leading-none" style={serif}>
-              Meet Tom, your AI receptionist.
+              Meet Tom, your Voice AI Worker.
             </span>
             <span className="mt-3 block max-w-xl text-base text-[#F5F3EE]/70">
               Answers every call, sells, supports customers and books them in. In English, Maltese and Italian.

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 import RouteSchema from "@/components/RouteSchema";
-import VoiceAIExperience from "./VoiceAIExperience";
+import Layout from "@/components/layout/Layout";
+import TomExperience from "./TomExperience";
 
 const title = "AI Phone Receptionist Malta | Voice AI Worker | OARC";
 const description = "Voice AI Worker for Malta businesses: answers calls, acts in your systems, books work, and hands off decisions that need a person. Birkirkara.";
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
 
 export default function VoiceAIWorkerPage() {
   return (
-    <>
+    <Layout navTheme="dark" showMobileNav>
       <RouteSchema
         type="service"
         path="/voice-ai-worker"
@@ -62,7 +63,7 @@ export default function VoiceAIWorkerPage() {
         ]}
         faqs={FAQS}
       />
-      <VoiceAIExperience />
-    </>
+      <TomExperience />
+    </Layout>
   );
 }
