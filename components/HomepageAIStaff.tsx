@@ -85,7 +85,7 @@ export default function HomepageAIStaff() {
               <span className="h-1.5 w-1.5 rounded-full bg-[#F9FF84]" aria-hidden="true" /> Live in Malta businesses
             </span>
             <span className="mt-3 block text-[clamp(2.2rem,4.5vw,3.6rem)] leading-none" style={serif}>
-              Meet Tom, your AI receptionist.
+              Meet Tom, your Voice AI Worker.
             </span>
             <span className="mt-3 block max-w-xl text-base text-[#F5F3EE]/70">
               Answers every call, sells, supports customers and books them in. In English, Maltese and Italian.

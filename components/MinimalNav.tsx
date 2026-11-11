@@ -15,7 +15,7 @@ const PRIMARY = [
   { href: "/services",  label: "Services" },
   { href: "/creative",  label: "Creative" },
   { href: "/ai-agents", label: "AI Agents" },
-  { href: "/tom",       label: "Voice AI Worker" },
+  { href: "/voice-ai-worker", label: "Tom, Voice AI Worker" },
   { href: "/solutions", label: "Automation" },
   { href: "/our-work",  label: "Our Work" },
   { href: "/pricing",   label: "Pricing" },
