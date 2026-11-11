@@ -74,7 +74,7 @@ export default function BrandingAgencyMalta({ faqs, offers }: Props) {
               That mix is what most generic brand agencies miss. The standard playbook from London or Berlin tends to optimise for one surface and one audience. Malta brands have to flex constantly &mdash; English to Maltese, locals to tourists, premium positioning to compliance disclosure, retail signage to Instagram grid. OARC Digital builds identity systems that do that work, not vanity logos that look great on Behance and break the moment your barback in Paceville needs to print a daily specials menu.
             </p>
             <p className="text-foreground leading-relaxed">
-              We have been doing this from Birkirkara since 2023. Hospitality groups in Sliema and St Julians, MGA-licensed operators in Ta&apos; Xbiex, fintech and payment institutions under MFSA supervision, retail brands shipping to the EU mainland, professional-services firms in Floriana and Valletta. Every engagement starts with a half-day workshop on-site, a written positioning brief, and a category audit before anyone in the studio touches Figma.
+              We have been doing this from Birkirkara since 2021. Hospitality groups in Sliema and St Julians, MGA-licensed operators in Ta&apos; Xbiex, fintech and payment institutions under MFSA supervision, retail brands shipping to the EU mainland, professional-services firms in Floriana and Valletta. Every engagement starts with a half-day workshop on-site, a written positioning brief, and a category audit before anyone in the studio touches Figma.
             </p>
           </section>
 
