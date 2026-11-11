@@ -58,9 +58,22 @@ export default function DepartmentRoute({
         ) : (
           <>
             <DeptIntro data={d} />
-            <div id="dept-detail" className="scroll-mt-20">
+            {/* The owner's long, detailed content: one tap away, so the page stays light.
+                It is in the HTML either way, so search engines still read it. */}
+            <details id="dept-detail" className="group scroll-mt-20 bg-[#F5F3EE]">
+              <summary className="mx-auto flex max-w-[980px] cursor-pointer list-none items-center justify-between gap-6 px-5 py-8 text-[#0E0E0E]">
+                <span
+                  className="text-[clamp(1.9rem,4vw,2.8rem)] leading-none"
+                  style={{ fontFamily: "var(--font-instrument-serif-roman), Georgia, serif" }}
+                >
+                  Want every detail? Open it.
+                </span>
+                <span aria-hidden="true" className="text-4xl leading-none transition-transform group-open:rotate-45">
+                  +
+                </span>
+              </summary>
               <DepartmentOnPage dept={d.dept} />
-            </div>
+            </details>
           </>
         )}
         <DeptBottom data={d} />

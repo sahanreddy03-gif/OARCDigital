@@ -46,6 +46,14 @@ export function DeptTop({ data, tone }: { data: DeptSeo; tone: "light" | "dark" 
   );
 }
 
+/** What happens after they contact us: the whole journey in 4 short steps. */
+const NEXT: [string, string][] = [
+  ["You book the free check.", "20 minutes, on a call. No preparation needed."],
+  ["We show you what to fix.", "You get a 1-page scorecard and 3 fixes you can do yourself."],
+  ["You get one clear price.", "In writing, before anything starts. No surprises."],
+  ["We do the work.", "One team. Every month you see the result. You can leave any month."],
+];
+
 /** Why OARC, the same three true things on every page. */
 const WHY: [string, string][] = [
   ["One team does all of it.", "Marketing, creative, tech and AI. You talk to one team, not 5 suppliers."],
@@ -79,8 +87,8 @@ export function DeptIntro({ data }: { data: DeptSeo }) {
             >
               Get my free {check} →
             </a>
-            <a href="#dept-detail" className="border-b border-white/60 pb-1 text-lg font-semibold hover:border-white">
-              See how it works
+            <a href="#what-happens" className="border-b border-white/60 pb-1 text-lg font-semibold hover:border-white">
+              See what happens next
             </a>
           </div>
         </div>
@@ -236,6 +244,26 @@ export function DeptBottom({ data }: { data: DeptSeo }) {
               Or WhatsApp us
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* What happens next: white ground, ink words */}
+      <section id="what-happens" aria-labelledby="dept-next" className="scroll-mt-20 bg-white px-5 py-16 md:py-24">
+        <div className="mx-auto max-w-[980px]">
+          <h2 id="dept-next" className={H2} style={serif}>
+            What happens next.
+          </h2>
+          <ol className="mt-8 grid gap-4 md:grid-cols-4">
+            {NEXT.map(([big, small], i) => (
+              <li key={big} className="rounded-[18px] bg-[#F5F3EE] p-6">
+                <span className="block text-[44px] leading-none text-[#0035AD]" style={serif}>
+                  {i + 1}
+                </span>
+                <p className="mt-3 text-xl font-semibold leading-snug">{big}</p>
+                <p className="mt-2 text-lg leading-snug">{small}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
