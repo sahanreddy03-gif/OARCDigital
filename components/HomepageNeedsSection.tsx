@@ -1,55 +1,129 @@
 import Link from "next/link";
 
 /**
- * "What do you need?" — five plain choices that replace the Shift Happens
- * headline and the 16-card department rail on the homepage.
- * The smaller departments keep a homepage link in the text row underneath,
- * so no page loses its internal link from the homepage.
+ * "What do you need?" — 15 plain cards (Ship sits inside Custom software), replacing the
+ * Shift Happens headline and the 16-card department rail on the homepage.
+ * Every department page keeps its internal link from the homepage.
  */
 const NEEDS = [
   {
-    title: "More customers",
-    text: "Google ads, Meta ads and SEO that put you in front of people ready to buy.",
+    title: "Get more customers",
+    tone: "ink",
+    text: "Digital marketing for Malta businesses: ads, SEO and content.",
     href: "/services/growth",
     image: "/attached_assets/generated_images/oarc-growth-card-v2.jpg",
   },
   {
-    title: "Content & social",
-    text: "We plan, film, edit and post every week. You stay focused on your business.",
-    href: "/services/social",
-    image: "/attached_assets/generated_images/oarc-dept-creative.jpg",
-  },
-  {
-    title: "AI staff",
-    text: "AI employees for sales, support and bookings. They work day and night.",
+    title: "Hire an AI employee",
+    tone: "cobalt",
+    text: "AI staff for sales, support and bookings. Works 24/7.",
     href: "/services/ai-staff",
     image: "/attached_assets/generated_images/oarc-dept-ai-staff.jpg",
   },
   {
-    title: "Reputation",
-    text: "More 5-star Google reviews, and a name people trust before they call.",
+    title: "Build a brand people pay more for",
+    tone: "espresso",
+    text: "Branding agency: logo, identity and brand strategy.",
+    href: "/services/brand",
+    image: "/attached_assets/generated_images/oarc-dept-brand.jpg",
+  },
+  {
+    title: "Answer every enquiry in seconds",
+    tone: "cobalt",
+    text: "AI receptionist for WhatsApp, calls, DMs and email.",
+    href: "/tom",
+    image: "/attached_assets/generated_images/oarc-dept-enquiries.jpg",
+  },
+  {
+    title: "Close more sales",
+    tone: "ink",
+    text: "Sales systems and follow-up that turn leads into customers.",
+    href: "/services/sales",
+    image: "/attached_assets/generated_images/oarc-dept-sales.jpg",
+  },
+  {
+    title: "Let your business run itself",
+    tone: "cobalt",
+    text: "Business automation that connects all your tools.",
+    href: "/services/automation",
+    image: "/attached_assets/generated_images/oarc-dept-automation.jpg",
+  },
+  {
+    title: "Look like the biggest brand in your market",
+    tone: "espresso",
+    text: "Creative agency: ads, video, design and websites.",
+    href: "/services/creative",
+    image: "/attached_assets/generated_images/oarc-dept-creative.jpg",
+  },
+  {
+    title: "Know what's actually working",
+    tone: "cobalt",
+    text: "Marketing reports that tell you what to do next.",
+    href: "/services/clarity",
+    image: "/attached_assets/generated_images/oarc-dept-clarity.jpg",
+  },
+  {
+    title: "Win on social media",
+    tone: "ink",
+    text: "Social media management: we plan, film, edit and post.",
+    href: "/services/social",
+    image: "/attached_assets/generated_images/oarc-dept-social.jpg",
+  },
+  {
+    title: "Custom software, built for you",
+    tone: "cobalt",
+    text: "Apps and systems built in weeks. You own the code.",
+    href: "/services/transformation",
+    image: "/attached_assets/generated_images/oarc-dept-transformation.jpg",
+  },
+  {
+    title: "Run your restaurant on one system",
+    tone: "espresso",
+    text: "H360: QR menus, kitchen display, payments, loyalty.",
+    href: "/h360",
+    image: "/attached_assets/generated_images/oarc-dept-products.jpg",
+  },
+  {
+    title: "Get 10+ hours back every week",
+    tone: "cobalt",
+    text: "We take the repetitive admin off your plate.",
+    href: "/services/operations",
+    image: "/attached_assets/generated_images/oarc-dept-operations.jpg",
+  },
+  {
+    title: "Ads that pay for themselves",
+    tone: "ink",
+    text: "Google, Meta and TikTok ads, managed in Malta.",
+    href: "/services/media",
+    image: "/attached_assets/generated_images/oarc-dept-media.jpg",
+  },
+  {
+    title: "Get famous in Malta",
+    tone: "cobalt",
+    text: "PR, press, creators and 5-star Google reviews.",
     href: "/services/reputation",
     image: "/attached_assets/generated_images/oarc-dept-reputation.jpg",
   },
   {
-    title: "Automation",
-    text: "Fully customised systems for follow-ups, quotes and admin.",
-    href: "/services/automation",
-    image: "/attached_assets/generated_images/oarc-dept-automation.jpg",
+    title: "Why OARC, not another agency",
+    tone: "espresso",
+    text: "We build working systems, not reports.",
+    href: "/why-oarc",
+    image: "/attached_assets/generated_images/oarc-dept-compare.jpg",
   },
 ] as const;
 
-const MORE = [
-  { label: "Creative", href: "/services/creative" },
-  { label: "Sales", href: "/services/sales" },
-  { label: "Media", href: "/services/media" },
-  { label: "Brand", href: "/services/brand" },
-  { label: "Operations", href: "/services/operations" },
-  { label: "Clarity", href: "/services/clarity" },
-  { label: "Transformation", href: "/services/transformation" },
-  { label: "Products", href: "/h360" },
-  { label: "Why OARC", href: "/why-oarc" },
-] as const;
+/**
+ * Notion v3, three trios in one repeat: black, white, brown, white. White sits between
+ * black and brown so the two dark cards never touch (in 3 columns, in any direction).
+ * ink (yellow title, paper text), white = AI and systems (cobalt title, ink text),
+ * espresso = brand, money, restaurants (yellow title, paper text).
+ */
+const TONES = {
+  ink: { card: "bg-[#0E0E0E] text-[#F5F3EE]", title: "#F9FF84" },
+  cobalt: { card: "bg-white text-[#0E0E0E] ring-1 ring-[#171614]/10", title: "#0035AD" },
+  espresso: { card: "bg-[#3E2723] text-[#F5F3EE]", title: "#F9FF84" },
+} as const;
 
 export default function HomepageNeedsSection() {
   return (
@@ -70,14 +144,14 @@ export default function HomepageNeedsSection() {
           </em>
         </h2>
 
-        <div className="mt-10 grid gap-3.5 sm:grid-cols-2 lg:grid-cols-5 md:mt-12">
+        <div className="mt-10 grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3 md:mt-12">
           {NEEDS.map((need) => (
             <Link
-              key={need.href}
+              key={need.title}
               href={need.href}
-              className="group flex overflow-hidden rounded-[18px] border border-[#171614]/10 bg-[#FAF9F6] transition-transform duration-200 hover:-translate-y-1 sm:flex-col"
+              className={`group flex overflow-hidden rounded-[18px] ${TONES[need.tone].card} transition-transform duration-200 hover:-translate-y-1 sm:flex-col`}
             >
-              <span className="block w-[38%] shrink-0 overflow-hidden sm:aspect-[4/3] sm:w-full">
+              <span className="block w-[38%] shrink-0 overflow-hidden sm:aspect-[16/10] sm:w-full">
                 <img
                   src={need.image}
                   alt=""
@@ -87,23 +161,30 @@ export default function HomepageNeedsSection() {
                   className="h-full w-full object-cover"
                 />
               </span>
-              <span className="flex flex-1 flex-col gap-2 p-[18px] pb-5">
-                <h3 className="text-[22px] font-semibold leading-[1.05] tracking-[-0.03em]">{need.title}</h3>
-                <p className="flex-1 text-[15px] leading-snug text-[#6B655C]">{need.text}</p>
-                <span className="text-sm font-semibold">See how →</span>
+              <span className="flex flex-1 flex-col p-5 sm:p-6">
+                <h3
+                  className="text-[32px] font-normal leading-[1] tracking-[-0.02em] sm:text-[38px]"
+                  style={{ color: TONES[need.tone].title, fontFamily: "var(--font-instrument-serif-roman), Georgia, serif" }}
+                >
+                  {need.title}
+                </h3>
+                <p
+                  className="mt-3 flex-1 text-[17px] leading-[1.45]"
+                  style={{ fontFamily: "var(--font-inter-tight), sans-serif" }}
+                >
+                  {need.text}
+                </p>
+                <span
+                  aria-hidden="true"
+                  className="mt-4 self-end text-[26px] leading-none transition-transform duration-200 group-hover:translate-x-1"
+                >
+                  →
+                </span>
               </span>
             </Link>
           ))}
         </div>
 
-        <p className="mt-8 flex flex-wrap gap-x-4 gap-y-2 text-sm text-[#6B655C]">
-          <span>Also:</span>
-          {MORE.map((item) => (
-            <Link key={item.href} href={item.href} className="underline decoration-[#171614]/20 underline-offset-4 hover:text-[#171614]">
-              {item.label}
-            </Link>
-          ))}
-        </p>
       </div>
     </section>
   );
