@@ -108,6 +108,36 @@ export const CASE_GALLERY: Record<string, CaseGallery> = {
       { src: `${MEDIA}/mcw-cbd-04.jpg`, alt: "A product visual made for MCW (4)" },
     ],
   },
+  "drink-n-more": {
+    heading: "Campaign visuals for Drink N More",
+    note: "Made by OARC Digital.",
+    items: [
+      { src: `${MEDIA}/drink-n-more-02.jpg`, alt: "Drink N More campaign visual (2)" },
+      { src: `${MEDIA}/drink-n-more-03.jpg`, alt: "Drink N More campaign visual (3)" },
+      { src: `${MEDIA}/drink-n-more-04.jpg`, alt: "Drink N More campaign visual (4)" },
+      { src: `${MEDIA}/drink-n-more-05.jpg`, alt: "Drink N More campaign visual (5)" },
+    ],
+  },
+  "ricky-jr-burger": {
+    heading: "Campaign visuals for Ricky Jr",
+    note: "Made by OARC Digital.",
+    items: [
+      { src: `${MEDIA}/ricky-jr-burger-01.jpg`, alt: "Ricky Jr campaign visual (1)" },
+      { src: `${MEDIA}/ricky-jr-burger-02.jpg`, alt: "Ricky Jr campaign visual (2)" },
+      { src: `${MEDIA}/ricky-jr-burger-03.jpg`, alt: "Ricky Jr campaign visual (3)" },
+      { src: `${MEDIA}/ricky-jr-burger-04.jpg`, alt: "Ricky Jr campaign visual (4)" },
+    ],
+  },
+  "louisiana-mama": {
+    heading: "Campaign visuals for Louisiana Mama",
+    note: "Made by OARC Digital.",
+    items: [
+      { src: `${MEDIA}/louisiana-mama-01.jpg`, alt: "Louisiana Mama campaign visual (1)" },
+      { src: `${MEDIA}/louisiana-mama-02.jpg`, alt: "Louisiana Mama campaign visual (2)" },
+      { src: `${MEDIA}/louisiana-mama-03.jpg`, alt: "Louisiana Mama campaign visual (3)" },
+      { src: `${MEDIA}/louisiana-mama-04.jpg`, alt: "Louisiana Mama campaign visual (4)" },
+    ],
+  },
 };
 
 export function getCaseGallery(slug: string): CaseGallery | undefined {

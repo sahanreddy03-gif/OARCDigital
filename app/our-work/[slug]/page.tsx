@@ -8,8 +8,8 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 const ANCHOR_METADATA: Record<string, { name: string; intro: string }> = {
   pjazza: { name: "PJAZZA — OARC PRODUCT", intro: "PJAZZA is Malta’s live-shopping marketplace, built by OARC. You watch the product live, ask the seller a question, and pay safely. 100 new sellers joined and 500 buyers started a chat." },
   h360: { name: "H360", intro: "H360 is OARC’s restaurant system. It joins up being found, bookings, calls, orders and repeat guests, so the whole day runs as one." },
-  "data-foundation": { name: "OPERATIONS DATA FOUNDATION", intro: "A national distributor asked us to clean its product data. We brought over 10,000 records into one clear view. Order errors fell 25% and fulfilment delays fell 30%." },
-  "live-context": { name: "LIVE INFORMATION EXPERIENCE", intro: "A live sports app asked us to make its match pages easier to read. We redesigned them so the score comes first. Fans find live scores 35% faster." },
+  "data-foundation": { name: "OPERATIONS DATA FOUNDATION", intro: "A national distributor had messy product data. We built a system that cleaned over 10,000 records into one clear view. Order errors fell 25% and delays fell 30%." },
+  "live-context": { name: "LIVE INFORMATION EXPERIENCE", intro: "We redesigned a live sports app. The score now comes first, on any phone. Fans find live scores 35% faster." },
 };
 
 const ALL_WORK_SLUGS = Array.from(new Set([

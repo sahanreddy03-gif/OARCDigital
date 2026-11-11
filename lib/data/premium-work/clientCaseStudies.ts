@@ -284,6 +284,8 @@ export const CLIENT_CASE_STUDIES: Record<string, ClientCaseStudy> = {
     eyebrow: "CLIENT PARTNERSHIP / LAUNCH CAMPAIGN",
     title: ["2,000 NEW", "FOLLOWERS", "IN ONE WEEK."],
     intro: "Drink N More is a new venue on the Spinola Bay waterfront. We planned the launch: the message, the creative and the content. It gained 2,000 followers in launch week.",
+    image: "/attached_assets/premium-work/client-media/drink-n-more-01.jpg",
+    heroAlt: "Cocktails on a waterfront terrace at sunset, Drink N More campaign visual.",
     mode: "CLIENT PARTNERSHIP / LAUNCH CAMPAIGN",
     record: "A new venue has one first week. Waste it and you start from zero.",
     facts: ["Launch plan", "Launch creative", "Spinola Bay"],

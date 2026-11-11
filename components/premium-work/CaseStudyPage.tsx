@@ -133,15 +133,21 @@ export default function CaseStudyPage({
 
       {work && (
         <section className="cs-block">
-          <h2>{work.title}</h2>
           {proof && proof.did.length >= 3 ? (
-            <ul className="cs-did">
-              {proof.did.map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
+            <>
+              <h2>Everything we did for {proof.client.split(" - ")[0]}.</h2>
+              <ul className="cs-did">
+                {proof.did.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
+              <p className="cs-did-note">One team did all of it, start to finish.</p>
+            </>
           ) : (
-            <p>{work.body}</p>
+            <>
+              <h2>{work.title}</h2>
+              <p>{work.body}</p>
+            </>
           )}
           {workPicture && (
             <figure className="cs-picture">

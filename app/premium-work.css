@@ -1028,3 +1028,9 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.premium-work-root .cs-block > p.cs-did-note {
+  color: #55534f;
+  font-size: 15px;
+  margin-top: 18px;
+}
