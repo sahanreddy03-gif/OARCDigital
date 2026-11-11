@@ -100,7 +100,6 @@ export default function CaseStudyPage({
         </div>
         <div className="cs-lede">
           <p>{story.intro}</p>
-          <p>{story.record}</p>
         </div>
       </section>
 
@@ -114,7 +113,15 @@ export default function CaseStudyPage({
       {work && (
         <section className="cs-block">
           <h2>{work.title}</h2>
-          <p>{work.body}</p>
+          {proof && proof.did.length >= 3 ? (
+            <ul className="cs-did">
+              {proof.did.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          ) : (
+            <p>{work.body}</p>
+          )}
           {workPicture && (
             <figure className="cs-picture">
               <img src={workPicture.src} alt={workPicture.alt} loading="lazy" decoding="async" />
