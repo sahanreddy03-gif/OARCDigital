@@ -11,8 +11,8 @@ import Link from "next/link";
  * (animation-timeline: view()), skipped where unsupported or reduced motion.
  */
 const AI_STAFF = [
-  { title: "Sales rep", text: "Tom calls back every lead and books the meeting.", href: "/voice-ai-worker" },
-  { title: "Customer support", text: "Tom answers calls, chat and WhatsApp, day and night.", href: "/voice-ai-worker" },
+  { title: "Sales rep", text: "Tom calls back every lead and books the meeting.", href: "/services/ai-sdr-agent" },
+  { title: "Customer support", text: "Tom answers calls, chat and WhatsApp, day and night.", href: "/services/ai-support-specialist" },
   { title: "Appointment booker", text: "Fills your calendar and sends reminders.", href: "/services/ai-appointment-booker" },
   { title: "Admin assistant", text: "Handles forms, emails and data entry.", href: "/services/ai-admin-agent" },
   { title: "Data analyst", text: "Turns your numbers into a weekly report.", href: "/services/ai-data-analyst" },
