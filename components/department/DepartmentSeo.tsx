@@ -3,7 +3,6 @@ import { homepageQuotes, servicesHubQuotes, whyOarcQuotes } from "@/lib/reviews/
 import { NAP } from "@/lib/seo/nap";
 import { LOGOS, TRUST, type DeptSeo } from "@/lib/departments/types";
 import { CLIENT_CASE_STUDIES } from "@/lib/data/premium-work/clientCaseStudies";
-import LeakCheck from "./LeakCheck";
 
 /**
  * Everything around a department's own content. The owner's content is the page; this adds
@@ -281,8 +280,6 @@ export function DeptBottom({ data }: { data: DeptSeo }) {
     <div className="text-[#0E0E0E]" style={sans}>
       <RealWork dept={data.dept} />
 
-      {data.leak && <LeakCheck steps={data.leak} offerName={data.offer.name} />}
-
       {/* Proof, in the middle: The table (espresso ground, paper words, one yellow signal) */}
       <section aria-labelledby="dept-proof" className="bg-[#3E2723] px-5 py-16 text-[#F5F3EE] md:py-24">
         <div className="mx-auto max-w-[860px]">
@@ -321,133 +318,6 @@ export function DeptBottom({ data }: { data: DeptSeo }) {
                 className="h-6 w-auto opacity-90 brightness-0 invert md:h-7"
               />
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* The offer: Yellow flood (yellow ground, ink words, black button) */}
-      <section id="free-check" aria-labelledby="dept-offer" className="scroll-mt-24 bg-[#F9FF84] px-5 py-16 md:py-24">
-        <div className="mx-auto max-w-[860px]">
-          <p className="text-lg font-semibold">Free. 20 minutes. Yours to keep.</p>
-          <h2 id="dept-offer" className={`${H2} mt-3`} style={serif}>
-            {data.offer.name}.
-          </h2>
-          <p className="mt-5 max-w-[40ch] text-xl leading-relaxed md:text-2xl">{data.offer.line}</p>
-          <h3 className="mt-10 text-lg font-semibold">Exactly what you get:</h3>
-          <ol className="mt-3 border-t border-[#0E0E0E]/25">
-            {data.offer.checks.map((c, i) => (
-              <li key={c} className="flex gap-4 border-b border-[#0E0E0E]/25 py-4 text-lg leading-snug md:text-xl">
-                <span className="w-7 shrink-0 text-[26px] leading-none" style={serif}>
-                  {i + 1}
-                </span>
-                <span>{c}</span>
-              </li>
-            ))}
-          </ol>
-          <p className="mt-6 max-w-[52ch] text-lg leading-relaxed">
-            You leave with a 1-page scorecard, the biggest problem and 3 fixes you can do yourself. It&apos;s yours even if
-            you never hire us. No sales pitch: if there is nothing worth fixing, we tell you. And if you do hire us:
-            month-to-month, no lock-in.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center rounded-full bg-[#0E0E0E] px-7 py-4 text-lg font-semibold text-[#F9FF84] transition-opacity hover:opacity-90"
-            >
-              Get my free check →
-            </Link>
-            <a
-              href={`https://wa.me/${NAP.whatsappNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-b-2 border-[#0E0E0E] pb-1 text-lg font-semibold"
-            >
-              Or WhatsApp us
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* What happens next: white ground, ink words */}
-      <section id="what-happens" aria-labelledby="dept-next" className="scroll-mt-20 bg-white px-5 py-16 md:py-24">
-        <div className="mx-auto max-w-[980px]">
-          <h2 id="dept-next" className={H2} style={serif}>
-            What happens next.
-          </h2>
-          <ol className="mt-8 grid gap-4 md:grid-cols-4">
-            {NEXT.map(([big, small], i) => (
-              <li key={big} className="rounded-[18px] bg-[#F5F3EE] p-6">
-                <span className="block text-[44px] leading-none text-[#0035AD]" style={serif}>
-                  {i + 1}
-                </span>
-                <p className="mt-3 text-xl font-semibold leading-snug">{big}</p>
-                <p className="mt-2 text-lg leading-snug">{small}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* A normal agency vs OARC: Editorial (paper ground, ink words) */}
-      <section aria-labelledby="dept-compare" className="bg-[#F5F3EE] px-5 py-16 md:py-24">
-        <div className="mx-auto max-w-[860px]">
-          <h2 id="dept-compare" className={H2} style={serif}>
-            A normal agency vs OARC.
-          </h2>
-          <table className="mt-8 w-full border-collapse text-left">
-            <thead>
-              <tr className="border-b-2 border-[#0E0E0E]">
-                <th scope="col" className="w-[30%] py-3 pr-3 text-base font-semibold">
-                  <span className="sr-only">Question</span>
-                </th>
-                <th scope="col" className="py-3 pr-3 text-base font-semibold text-[#0E0E0E]/70">
-                  A normal agency
-                </th>
-                <th scope="col" className="py-3 text-lg font-semibold">
-                  OARC
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {COMPARE.map(([q, them, us]) => (
-                <tr key={q} className="border-b border-[#0E0E0E]/20 align-top">
-                  <th scope="row" className="py-4 pr-3 text-base font-semibold">
-                    {q}
-                  </th>
-                  <td className="py-4 pr-3 text-base text-[#0E0E0E]/70">{them}</td>
-                  <td className="py-4 text-lg font-semibold">{us}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* Tom: The fix (cobalt ground, paper words) */}
-      <section aria-labelledby="dept-tom" className="bg-[#0035AD] px-5 py-16 text-[#F5F3EE] md:py-24">
-        <div className="mx-auto grid max-w-[860px] gap-8 md:grid-cols-[1.3fr_.7fr] md:items-end">
-          <div>
-            <h2 id="dept-tom" className={H2} style={serif}>
-              Meet Tom.
-              <br />
-              <em>He answers in 4 seconds.</em>
-            </h2>
-            <p className="mt-6 text-lg leading-relaxed">
-              Tom is your AI receptionist. He picks up every call, WhatsApp, Instagram message and email, day or night,
-              in English, Maltese and Italian. He answers questions, books customers in and passes anything tricky to
-              your team.
-            </p>
-          </div>
-          <div className="flex flex-col gap-4 md:items-end">
-            <Link
-              href="/voice-ai-worker"
-              className="inline-flex items-center rounded-full bg-[#F5F3EE] px-7 py-4 text-base font-semibold text-[#0E0E0E] transition-opacity hover:opacity-90"
-            >
-              Hear Tom answer →
-            </Link>
-            <Link href="/services/ai-staff" className="border-b border-white/60 pb-1 text-base font-semibold hover:border-white">
-              See all AI staff
-            </Link>
           </div>
         </div>
       </section>
