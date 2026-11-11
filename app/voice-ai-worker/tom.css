@@ -1924,3 +1924,20 @@
 @media (max-width: 900px) {
   .tom-v2 .tom-workflow { justify-self: start; margin-top: 2.5rem; }
 }
+
+/* ── v2 cards: one headline you get at a glance, then the detail ──────────────
+   Order of reading: the number (quiet), the headline (large serif, full
+   strength), the first phrase of the description (bold), the rest (softer). */
+.tom-v2 .tom-card { padding: 1.7rem 1.5rem 1.8rem; }
+.tom-v2 .tom-card::before { display: none; }
+.tom-v2 .tom-card__n { display: block; margin-bottom: 1rem; font-family: var(--tom-serif); font-size: 1.5rem; line-height: 1; opacity: 0.5; }
+.tom-v2 .tom-card h3 { margin: 0 0 0.85rem; font-size: clamp(1.9rem, 2.5vw, 2.35rem); line-height: 1.04; color: #f5f3ee; }
+.tom-v2 .tom-card p { margin: 0; font-size: 1.0625rem; line-height: 1.5; color: rgba(245, 243, 238, 0.74); }
+.tom-v2 .tom-card p b { font-weight: 600; color: #f5f3ee; }
+.tom-v2 .tom-light .tom-card h3 { color: #0e0e0e; }
+.tom-v2 .tom-light .tom-card p { color: rgba(14, 14, 14, 0.72); }
+.tom-v2 .tom-light .tom-card p b { color: #0e0e0e; }
+/* Cards with no headline of their own: the bold first phrase is the headline */
+.tom-v2 .tom-card__n + p b { display: block; margin-bottom: 0.55rem; font-family: var(--tom-serif); font-weight: 400; font-size: clamp(1.5rem, 2vw, 1.8rem); line-height: 1.1; }
+/* The day-in-the-life card keeps its time label, at a readable size */
+.tom-v2 .tom-day .tom-card strong { display: block; margin-bottom: 0.8rem; font-size: 0.95rem; opacity: 0.8; }
