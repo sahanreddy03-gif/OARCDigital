@@ -82,7 +82,7 @@ function DataFlowLines() {
           animate={{ strokeDashoffset: -100 }}
           transition={{ 
             duration: 8 + i * 2, 
-            repeat: Infinity, 
+            repeat: 0, 
             ease: 'linear',
             delay: i * 0.5
           }}
@@ -142,7 +142,7 @@ function FloatingMetric({ value, label, top, left, delay }: {
       style={{ top, left }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: [0.3, 0.6, 0.3], y: [-5, 5, -5] }}
-      transition={{ duration: 6, repeat: Infinity, delay, ease: 'easeInOut' }}
+      transition={{ duration: 6, repeat: 0, delay, ease: 'easeInOut' }}
     >
       <span className="text-lg font-bold text-[#23AACA]">{value}</span>
       <span className="text-[8px] uppercase tracking-wider text-white/40">{label}</span>
@@ -172,7 +172,7 @@ function PulsingRings() {
           }}
           transition={{
             duration: 3 + ring,
-            repeat: Infinity,
+            repeat: 0,
             delay: ring * 0.3,
             ease: 'easeInOut',
           }}
@@ -182,7 +182,7 @@ function PulsingRings() {
         className="absolute w-4 h-4 rounded-full bg-[#23AACA]"
         style={{ top: 'calc(50% - 8px)', left: 'calc(50% - 8px)' }}
         animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
-        transition={{ duration: 2, repeat: Infinity }}
+        transition={{ duration: 2, repeat: 0 }}
       />
     </div>
   );
@@ -219,7 +219,7 @@ function FloatingParticle({ delay, duration, size, left, top, color }: {
       transition={{
         duration,
         delay,
-        repeat: Infinity,
+        repeat: 0,
         ease: "easeInOut",
       }}
     />
@@ -348,13 +348,13 @@ export default function LetsTalkRevenueSection() {
         className="absolute bottom-0 right-0 w-[700px] h-[700px] rounded-full blur-[180px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(35,170,202,0.18) 0%, transparent 65%)' }}
         animate={prefersReducedMotion ? {} : { scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 10, repeat: 0, ease: 'easeInOut' }}
       />
       <m.div 
         className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(196,255,77,0.08) 0%, transparent 70%)' }}
         animate={prefersReducedMotion ? {} : { scale: [1, 1.15, 1], opacity: [0.3, 0.6, 0.3] }}
-        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
+        transition={{ duration: 12, repeat: 0, ease: 'easeInOut', delay: 3 }}
       />
       
       {/* Subtle floating tech icon - only visible on desktop */}
@@ -362,7 +362,7 @@ export default function LetsTalkRevenueSection() {
         <m.div 
           className="absolute top-[30%] right-[8%] text-[#23AACA]/10 hidden lg:block"
           animate={{ y: [-5, 5, -5] }}
-          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 7, repeat: 0, ease: 'easeInOut' }}
         >
           <TrendingUp className="w-6 h-6" />
         </m.div>
@@ -388,7 +388,7 @@ export default function LetsTalkRevenueSection() {
             <m.div 
               className="w-1.5 h-1.5 rounded-full bg-[#23AACA]"
               animate={prefersReducedMotion ? {} : { scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              transition={{ duration: 2, repeat: 0 }}
             />
             <span className="text-[9px] uppercase tracking-[0.2em] text-white/60 font-medium">We Build It For You</span>
           </m.div>

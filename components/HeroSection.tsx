@@ -468,7 +468,7 @@ export default function HeroSection() {
                 style={{ fontSize: "clamp(1.05rem, 4.65vw, 1.2rem)" }}
               >
                 One AI-native team for{" "}
-                <span className={`${heroSans.className} text-[#e8ffb0] font-semibold not-italic`}>
+                <span className={`${heroSans.className} text-[#F9FF84] font-semibold not-italic`}>
                   creative, growth &amp; automation
                 </span>
               </span>
@@ -485,15 +485,21 @@ export default function HeroSection() {
           </div>
 
           <div className="shrink-0 w-full px-3 mt-2 flex gap-2 justify-center">
-            <CompactMobileGlassCard label="Creative" href="/creative" testId="button-nav-creative" />
             <CompactMobileGlassCard
-              label="Agentic"
-              subtitle="AI Workers"
+              label="Creative"
+              subtitle="Brand, strategy, design"
+              href="/creative"
+              testId="button-nav-creative"
+            />
+            <CompactMobileGlassCard
+              label="AI Staff"
+              subtitle="Sales, support, bookings"
               href="/ai-agents"
               testId="button-nav-ai"
             />
             <CompactMobileGlassCard
-              label="Business Systems"
+              label="Automation"
+              subtitle="Fully customised"
               href="/solutions"
               testId="button-nav-growth"
             />
@@ -505,7 +511,7 @@ export default function HeroSection() {
             data-testid="text-hero-inhouse-line"
             data-speakable
           >
-            <span className={`${heroSans.className} text-[#e8ffb0] font-semibold not-italic`}>
+            <span className={`${heroSans.className} text-[#F9FF84] font-semibold not-italic`}>
               In-house
             </span>{" "}
             <span className={`${heroSerif.className} italic text-white`}>
@@ -546,7 +552,7 @@ export default function HeroSection() {
                     </span>
                     <span className="block font-extralight italic font-serif tracking-[-0.04em] leading-[1.05] mt-2 text-[clamp(2.2rem,4.7vw,3.85rem)] lg:text-[clamp(2.3rem,4.1vw,3.4rem)]">
                       One AI-native team for{" "}
-                      <span className="text-[#e8ffb0] font-semibold not-italic">creative, growth &amp; automation</span>
+                      <span className="text-[#F9FF84] font-semibold not-italic">creative, growth &amp; automation</span>
                     </span>
                   </p>
 
@@ -609,13 +615,13 @@ export default function HeroSection() {
                     />
                     <MobileGlassCard
                       icon={Bot}
-                      label="AI"
+                      label="AI Staff"
                       href="/ai-agents"
                       testId="button-nav-ai-desktop"
                     />
                     <MobileGlassCard
                       icon={Rocket}
-                      label="Growth"
+                      label="Automation"
                       href="/solutions"
                       testId="button-nav-growth-desktop"
                     />

@@ -1,235 +1,99 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, TrendingDown, Zap } from "lucide-react";
 import { verticals } from "@/data/diagnosticsData";
-import { registerGSAP, gsap, ScrollTrigger, EASE, DUR, STAG } from "@/lib/motion/gsap-system";
+import { NAP } from "@/lib/seo/nap";
+
+/**
+ * Homepage entry to /diagnostics. Each industry chip opens the diagnostic with
+ * that industry already selected (/diagnostics?industry=<id>). The full report
+ * is unlocked with an email, which reaches the OARC team via /api/leads.
+ * Design system v3: cobalt ground = "the fix"; paper type; one yellow phrase.
+ * No fake "live" numbers and no JavaScript animation.
+ */
+const STEPS = [
+  { n: "1", title: "Pick your industry", text: "Restaurant, clinic, shop, property, legal and more." },
+  { n: "2", title: "See where money leaks", text: "Missed calls, no-shows, slow follow-ups, quiet reviews." },
+  { n: "3", title: "Get the fix", text: "Unlock the full report by email, or talk to us straight away." },
+] as const;
+
+const serif = { fontFamily: "var(--font-instrument-serif), Georgia, serif" };
 
 export default function DiagnosticsTeaser() {
-  const previewVertical = verticals[0];
-  const previewProblems = previewVertical.problems.slice(0, 3);
-  const totalMonthlyLoss = previewProblems.reduce((sum, p) => sum + p.monthlyImpact, 0);
-
-  const sectionRef = useRef<HTMLElement>(null);
-  const badgeRef = useRef<HTMLDivElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
-  const paraRef = useRef<HTMLParagraphElement>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
-  const lossNumberRef = useRef<HTMLSpanElement>(null);
-  const cardsGridRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    registerGSAP();
-
-    const ctx = gsap.context(() => {
-      const trigger = sectionRef.current!;
-
-      // Badge + pulsing dot fadeIn
-      gsap.fromTo(
-        badgeRef.current,
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: DUR.normal,
-          ease: EASE.soft,
-          scrollTrigger: { trigger, start: "top 85%" },
-        }
-      );
-
-      // h2 slideUp
-      gsap.fromTo(
-        headingRef.current,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: DUR.normal,
-          ease: EASE.hard,
-          delay: 0.1,
-          scrollTrigger: { trigger, start: "top 85%" },
-        }
-      );
-
-      // Paragraph fadeUp
-      gsap.fromTo(
-        paraRef.current,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: DUR.normal,
-          ease: EASE.soft,
-          delay: 0.2,
-          scrollTrigger: { trigger, start: "top 85%" },
-        }
-      );
-
-      // Glass panel scales in
-      gsap.fromTo(
-        panelRef.current,
-        { opacity: 0, scale: 0.94, y: 20 },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: DUR.slow,
-          ease: EASE.back,
-          delay: 0.3,
-          scrollTrigger: { trigger, start: "top 85%" },
-        }
-      );
-
-      // Count-up the loss number
-      if (lossNumberRef.current) {
-        const el = lossNumberRef.current;
-        const obj = { val: 0 };
-        gsap.to(obj, {
-          val: totalMonthlyLoss,
-          duration: DUR.xslow,
-          ease: EASE.out,
-          delay: 0.5,
-          scrollTrigger: { trigger, start: "top 85%" },
-          onUpdate() {
-            el.textContent =
-              new Intl.NumberFormat("en-EU", {
-                style: "currency",
-                currency: "EUR",
-                maximumFractionDigits: 0,
-              }).format(Math.round(obj.val)) + "/mo";
-          },
-        });
-      }
-
-      // Issue cards stagger in
-      if (cardsGridRef.current) {
-        const cards = Array.from(cardsGridRef.current.children);
-        gsap.fromTo(
-          cards,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: DUR.normal,
-            ease: EASE.out,
-            stagger: STAG.loose,
-            delay: 0.5,
-            scrollTrigger: { trigger, start: "top 85%" },
-          }
-        );
-      }
-    }, sectionRef.current!);
-
-    return () => ctx.revert();
-  }, [totalMonthlyLoss]);
-
   return (
-    <section ref={sectionRef} className="py-12 md:py-16 bg-[#0a0a0c] relative overflow-hidden">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
-      
-      <div className="container mx-auto px-4 max-w-5xl relative z-10">
-        <div className="text-center mb-8">
-          <div
-            ref={badgeRef}
-            style={{ opacity: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-zinc-400 mb-4"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c4ff4d] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c4ff4d]"></span>
-            </span>
-            AI-Powered Business Intelligence
-          </div>
+    <section
+      aria-labelledby="homepage-diagnostic-title"
+      className="bg-[#0035AD] px-4 py-20 text-[#F5F3EE] md:px-10 md:py-28"
+      data-testid="homepage-diagnostic"
+    >
+      <div className="mx-auto max-w-[1180px]">
+        <div className="grid gap-8 md:grid-cols-[1.1fr_.9fr] md:items-end">
           <h2
-            ref={headingRef}
-            style={{ opacity: 0 }}
-            className="text-2xl md:text-3xl font-bold text-white mb-3"
+            id="homepage-diagnostic-title"
+            className="text-[clamp(2.8rem,6.5vw,5.5rem)] font-normal leading-[.95] tracking-[-0.02em]"
+            style={serif}
           >
-            Run a free <span className="text-[#c4ff4d]">60-second business diagnostic</span>
+            Run a free
+            <br />
+            <em className="text-[#F9FF84]">60-second business diagnostic.</em>
           </h2>
-          <p
-            ref={paraRef}
-            style={{ opacity: 0 }}
-            className="text-zinc-400 max-w-xl mx-auto text-sm md:text-base"
-          >
-            Four free tools — Industry Scan, Growth Simulator, AI Workforce Designer, Cortex Business Intelligence Scan — for Malta operators who want a fast read on revenue leakage.
+          <p className="max-w-md text-base leading-relaxed text-[#F5F3EE]/80 md:text-lg">
+            Find out where your business is losing customers and money, based on what we see across Malta
+            businesses like yours. Free, and no call needed.
           </p>
         </div>
 
-        <div
-          ref={panelRef}
-          style={{ opacity: 0 }}
-          className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8"
-        >
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <p className="text-xs text-zinc-500 mb-1">Live Analysis: {previewVertical.name}</p>
-              <div className="flex items-center gap-2">
-                <TrendingDown className="h-4 w-4 text-red-400" />
-                <span ref={lossNumberRef} className="text-xl md:text-2xl font-bold text-red-400">
-                  {new Intl.NumberFormat("en-EU", {
-                    style: "currency",
-                    currency: "EUR",
-                    maximumFractionDigits: 0,
-                  }).format(totalMonthlyLoss)}/mo
-                </span>
-              </div>
-            </div>
-            <div className="hidden md:flex items-center gap-3">
-              {verticals.slice(0, 5).map((v) => (
-                <div 
-                  key={v.id} 
-                  className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-lg"
-                  title={v.name}
+        <ol className="mt-12 grid gap-3 md:mt-16 md:grid-cols-3">
+          {STEPS.map((step) => (
+            <li
+              key={step.n}
+              className="rounded-2xl border border-white/20 bg-white/[0.07] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]"
+            >
+              <span className="grid h-9 w-9 place-items-center rounded-full bg-[#F5F3EE] text-sm font-bold text-[#0035AD]">
+                {step.n}
+              </span>
+              <h3 className="mt-5 text-[28px] leading-none" style={serif}>
+                {step.title}
+              </h3>
+              <p className="mt-2 text-[15px] leading-snug text-[#F5F3EE]/75">{step.text}</p>
+            </li>
+          ))}
+        </ol>
+
+        <div className="mt-12 md:mt-14">
+          <p className="text-lg font-semibold">Start with your industry:</p>
+          <ul className="mt-4 flex flex-wrap gap-2.5">
+            {verticals.map((v) => (
+              <li key={v.id}>
+                <Link
+                  href={`/diagnostics?industry=${v.id}`}
+                  className="group inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/[0.08] px-4 py-2.5 text-sm font-medium transition-colors hover:bg-[#F5F3EE] hover:text-[#0035AD]"
                 >
-                  {v.icon}
-                </div>
-              ))}
-              <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-xs text-zinc-400">
-                +{verticals.length - 5}
-              </div>
-            </div>
-          </div>
-
-          <div ref={cardsGridRef} className="grid md:grid-cols-3 gap-4 mb-6">
-            {previewProblems.map((problem, i) => (
-              <div
-                key={problem.id}
-                style={{ opacity: 0 }}
-                className="p-4 rounded-xl bg-black/30 border border-white/5 hover:border-white/20 transition-all"
-              >
-                <div className="flex items-start justify-between mb-2">
-                  <span className="text-[10px] text-zinc-500 uppercase tracking-wider font-medium">
-                    Issue #{i + 1}
+                  <span aria-hidden="true">{v.icon}</span>
+                  {v.name}
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
+                    →
                   </span>
-                  <span className="text-xs text-red-400 font-semibold">
-                    -€{(problem.monthlyImpact / 1000).toFixed(1)}K
-                  </span>
-                </div>
-                <h4 className="font-semibold text-white text-sm mb-2">{problem.title}</h4>
-                <div className="flex items-center gap-1.5 text-[10px] text-[#c4ff4d]">
-                  <Zap className="h-3 w-3" />
-                  <span>{problem.solutions.length} solutions</span>
-                </div>
-              </div>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
+        </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/10">
-            <p className="text-xs text-zinc-500">
-              Analyzing {verticals.reduce((sum, v) => sum + v.problems.length, 0)}+ issues across {verticals.length} industries
-            </p>
-            <Link href="/diagnostics">
-              <button 
-                className="group inline-flex items-center gap-2 px-5 py-2.5 bg-[#c4ff4d] text-black text-sm font-semibold rounded-lg hover:shadow-lg hover:shadow-[#c4ff4d]/25 transition-all"
-                data-testid="button-diagnostics-cta"
-              >
-                See Your Industry
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-              </button>
-            </Link>
-          </div>
+        <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+          <Link
+            href="/diagnostics"
+            data-testid="button-diagnostics-cta"
+            className="inline-flex items-center rounded-full bg-[#F5F3EE] px-6 py-3.5 text-[15px] font-semibold text-[#0E0E0E] transition-opacity hover:opacity-90"
+          >
+            Start the free diagnostic →
+          </Link>
+          <a
+            href={`https://wa.me/${NAP.whatsappNumber}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-b border-white/40 pb-1 text-sm font-semibold hover:border-white"
+          >
+            Or ask us on WhatsApp
+          </a>
         </div>
       </div>
     </section>

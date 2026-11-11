@@ -126,7 +126,7 @@ function NeuralNetworkBackground() {
                 strokeWidth="0.5"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: [0.1, 0.4, 0.1] }}
-                transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, delay: Math.random() * 2 }}
+                transition={{ duration: 3 + Math.random() * 2, repeat: 0, delay: Math.random() * 2 }}
               />
             );
           }
@@ -143,7 +143,7 @@ function NeuralNetworkBackground() {
           filter="url(#glow)"
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.3, 0.8, 0.3] }}
-          transition={{ duration: 2 + Math.random() * 2, repeat: Infinity, delay: Math.random() * 2 }}
+          transition={{ duration: 2 + Math.random() * 2, repeat: 0, delay: Math.random() * 2 }}
         />
       ))}
     </svg>
@@ -204,7 +204,7 @@ function FloatingParticle({ delay, duration, size, left, top, color }: {
       transition={{
         duration,
         delay,
-        repeat: Infinity,
+        repeat: 0,
         ease: "easeInOut",
       }}
     />
@@ -221,7 +221,7 @@ function ScanLine() {
       style={{ boxShadow: '0 0 20px rgba(196,255,77,0.5), 0 0 40px rgba(196,255,77,0.3)' }}
       initial={{ top: '-2px', opacity: 0 }}
       animate={{ top: ['0%', '100%'], opacity: [0, 1, 1, 0] }}
-      transition={{ duration: 8, repeat: Infinity, ease: 'linear', repeatDelay: 3 }}
+      transition={{ duration: 8, repeat: 0, ease: 'linear', repeatDelay: 3 }}
     />
   );
 }
@@ -248,7 +248,7 @@ function ConcentricRings() {
           }}
           transition={{
             duration: 4 + ring,
-            repeat: Infinity,
+            repeat: 0,
             delay: ring * 0.5,
             ease: 'easeInOut',
           }}
@@ -366,13 +366,13 @@ export default function HireAIEmployeesSection() {
         className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[150px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(196,255,77,0.15) 0%, transparent 70%)' }}
         animate={prefersReducedMotion ? {} : { scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 8, repeat: 0, ease: 'easeInOut' }}
       />
       <m.div 
         className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[120px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(35,170,202,0.12) 0%, transparent 70%)' }}
         animate={prefersReducedMotion ? {} : { scale: [1, 1.15, 1], opacity: [0.4, 0.7, 0.4] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+        transition={{ duration: 10, repeat: 0, ease: 'easeInOut', delay: 2 }}
       />
       
       {/* Subtle floating tech icons - only visible on desktop */}
@@ -380,7 +380,7 @@ export default function HireAIEmployeesSection() {
         <m.div 
           className="absolute top-[30%] left-[8%] text-[#c4ff4d]/10 hidden lg:block"
           animate={{ y: [-5, 5, -5] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 6, repeat: 0, ease: 'easeInOut' }}
         >
           <Cpu className="w-6 h-6" />
         </m.div>
@@ -406,7 +406,7 @@ export default function HireAIEmployeesSection() {
             <m.div 
               className="w-1.5 h-1.5 rounded-full bg-[#c4ff4d]"
               animate={prefersReducedMotion ? {} : { scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              transition={{ duration: 2, repeat: 0 }}
             />
             <span className="text-[9px] uppercase tracking-[0.2em] text-white/60 font-medium">Hire Our AI</span>
           </m.div>
