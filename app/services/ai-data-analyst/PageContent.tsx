@@ -4,9 +4,9 @@ export default function PageContent() {
     return (
       <section className="py-16 md:py-24 bg-background border-t">
         <div className="max-w-4xl mx-auto px-6 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
             AI data analyst — ask questions, get decision-ready answers
-          </h2>
+          </h1>
 
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">The two-week BI ticket queue is a structural problem</h2>
