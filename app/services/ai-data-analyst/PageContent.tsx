@@ -41,10 +41,10 @@ export default function PageContent() {
         <div className="mt-12">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Investment and what is actually shipped</h2>
             <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
-              Insights Pilot at €1,990/month is one data source, five named users, twenty saved dashboard tiles. Most pilots run for ninety days; about 80% convert to the Team Analyst tier. Team Analyst at €4,400/month is up to three sources, twenty-five users, the full semantic layer, the Slack and Teams interface, and a monthly executive briefing on what the team has been asking the data.
+              Plans start from €500 a month. Insights Pilot is one data source, five named users, twenty saved dashboard tiles. Most pilots run for ninety days; about 80% convert to the Team Analyst tier. Team Analyst, quoted as a fixed monthly price after a 20-minute call, is up to three sources, twenty-five users, the full semantic layer, the Slack and Teams interface, and a monthly executive briefing on what the team has been asking the data.
             </p>
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
-              Data Platform Build at €18,000 is the project-shaped offer for clients who do not yet have a warehouse — we ship the warehouse (BigQuery, Snowflake, or Postgres), the dbt models, the semantic layer, the AI analyst, and a half-day analyst-training session in eight to ten weeks.
+              Data Platform Build, quoted as a fixed price before work starts, is the project-shaped offer for clients who do not yet have a warehouse — we ship the warehouse (BigQuery, Snowflake, or Postgres), the dbt models, the semantic layer, the AI analyst, and a half-day analyst-training session in eight to ten weeks.
             </p>
           </div>
 

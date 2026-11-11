@@ -30,9 +30,9 @@ const sequenceSteps = [
 ];
 
 const tiers = [
-  { name: "AI SDR Lite", price: "€1,490", period: "/month", target: "15–20 qualified meetings/month", detail: "Single-ICP outbound on email. Separate sending domain, IP warm-up, DKIM/SPF/DMARC setup, and reply management included.", highlight: false },
-  { name: "AI SDR Pro", price: "€2,900", period: "/month", target: "40–60 qualified meetings/month", detail: "Email plus LinkedIn outreach, multi-ICP coverage, and weekly creative iteration on the message library. The most complete outbound programme.", highlight: true },
-  { name: "Custom Build", price: "€18,000", period: "project", target: "Bespoke targets", detail: "Custom ICP modelling, bespoke CRM hooks, integration with your own enrichment stack, or voice-call layering on top of the email and LinkedIn foundation.", highlight: false },
+  { name: "AI SDR Lite", price: "From €500", period: "/month", target: "15–20 qualified meetings/month", detail: "Single-ICP outbound on email. Separate sending domain, IP warm-up, DKIM/SPF/DMARC setup, and reply management included.", highlight: false },
+  { name: "AI SDR Pro", price: "Custom quote", period: "", target: "40–60 qualified meetings/month", detail: "Email plus LinkedIn outreach, multi-ICP coverage, and weekly creative iteration on the message library. The most complete outbound programme.", highlight: true },
+  { name: "Custom Build", price: "Custom quote", period: "", target: "Bespoke targets", detail: "Custom ICP modelling, bespoke CRM hooks, integration with your own enrichment stack, or voice-call layering on top of the email and LinkedIn foundation.", highlight: false },
 ];
 
 const qualificationRubric = [
