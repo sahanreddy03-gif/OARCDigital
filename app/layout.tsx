@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Nunito_Sans, Montserrat, Inter, Space_Grotesk, EB_Garamond, Anton, Bricolage_Grotesque, Space_Mono, Instrument_Serif, Fraunces, JetBrains_Mono } from "next/font/google";
+import { Nunito_Sans, Montserrat, Inter, Space_Grotesk, EB_Garamond, Anton, Bricolage_Grotesque, Space_Mono, Instrument_Serif, Fraunces, JetBrains_Mono, Inter_Tight } from "next/font/google";
 import { partytownSnippet } from "@qwik.dev/partytown/integration";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -76,6 +76,24 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "700", "800"],
 });
 
+// Design system v3 (Notion "OARC Design System (final)"): upright Instrument Serif for
+// editorial lines, and Inter Tight as the web stand-in for Neue Haas Unica (sentences).
+// Separate variables, so existing --font-instrument-serif (italic) users are unchanged.
+const instrumentSerifRoman = Instrument_Serif({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-instrument-serif-roman",
+  style: ["normal"],
+  weight: "400",
+});
+
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter-tight",
+  weight: ["400", "600"],
+});
+
 const fontVariables = [
   nunitoSans.variable,
   montserrat.variable,
@@ -88,6 +106,8 @@ const fontVariables = [
   instrumentSerif.variable,
   fraunces.variable,
   jetbrainsMono.variable,
+  instrumentSerifRoman.variable,
+  interTight.variable,
 ].join(" ");
 
 const ORGANIZATION_JSONLD = [

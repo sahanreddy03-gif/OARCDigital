@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { SiInstagram, SiFacebook, SiX, SiLinkedin, SiWhatsapp } from "react-icons/si";
+import { SiInstagram, SiFacebook, SiX, SiWhatsapp, SiYoutube, SiTiktok, SiThreads, SiPinterest } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa6";
 import { servicesCatalog } from '@/config/servicesConfig';
 import { NAP } from "@/lib/seo/nap";
 import FooterH360Link from '@/components/FooterH360Link';
@@ -10,12 +11,26 @@ const WHATSAPP_NUMBER = NAP.whatsappNumber;
 const WHATSAPP_MESSAGE = "Hi, I'm interested in your services";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
+// Same official profiles as Organization.sameAs (lib/seo/organizationSchema.ts),
+// so people, Google and AI assistants see one consistent set of channels.
 const socialLinks = [
-  { name: 'Instagram', icon: SiInstagram, href: 'https://instagram.com/oarcdigital' },
-  { name: 'Facebook', icon: SiFacebook, href: 'https://www.facebook.com/share/1DMdmhdsai/' },
+  { name: 'Instagram', icon: SiInstagram, href: 'https://www.instagram.com/oarcdigital/' },
+  { name: 'Facebook', icon: SiFacebook, href: 'https://www.facebook.com/923192157540623' },
+  { name: 'LinkedIn', icon: FaLinkedin, href: 'https://www.linkedin.com/company/oarc-digital' },
+  { name: 'YouTube', icon: SiYoutube, href: 'https://www.youtube.com/@oarcdigital' },
+  { name: 'TikTok', icon: SiTiktok, href: 'https://www.tiktok.com/@oarc.digital' },
   { name: 'X', icon: SiX, href: 'https://x.com/oarcdigital' },
-  { name: 'LinkedIn', icon: SiLinkedin, href: 'https://linkedin.com/company/oarcdigital' },
+  { name: 'Threads', icon: SiThreads, href: 'https://www.threads.com/@oarc.digital' },
+  { name: 'Pinterest', icon: SiPinterest, href: 'https://www.pinterest.com/oarcd/' },
 ];
+
+const listings = [
+  { name: 'Google Maps', href: NAP.mapUrl },
+  { name: 'Crunchbase', href: 'https://www.crunchbase.com/organization/oarc-digital' },
+  { name: 'Yellow.com.mt', href: 'https://www.yellow.com.mt/oarc-digital_marketing-consultants+bkara/' },
+];
+
+const serif = { fontFamily: "var(--font-instrument-serif), Georgia, serif" };
 
 interface FooterProps {
   hideGetInTouch?: boolean;
@@ -30,32 +45,44 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
   return (
     <footer className="relative bg-[#0A0A0A] text-white overflow-hidden">
       {!hideGetInTouch && (
-        <div className="relative border-b border-white/5">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 text-center">
-            <h2 className="font-bold text-white mb-8 leading-none" style={{ fontSize: 'clamp(3rem, 12vw, 8rem)', letterSpacing: '-0.04em' }}>
-              GET IN<br />TOUCH
-            </h2>
-            
-            <div className="flex flex-col gap-3 max-w-3xl mx-auto mb-12">
-              <p className="text-lg md:text-xl text-zinc-400 leading-relaxed font-normal">
-                Ready to 10x your revenue? Let's make it happen.
+        <div className="relative border-b border-white/10">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 grid gap-12 md:grid-cols-[1.2fr_.8fr] md:items-end">
+            <div>
+              <h2 className="font-normal text-[#F5F3EE] leading-[.9]" style={{ ...serif, fontSize: 'clamp(3.5rem, 10vw, 8.5rem)', letterSpacing: '-0.02em' }}>
+                Let&apos;s get you
+                <br />
+                <em className="text-[#F9FF84]">more customers.</em>
+              </h2>
+              <p className="mt-6 max-w-lg text-lg text-zinc-400 leading-relaxed">
+                Book a 20-minute call or send us a WhatsApp. You talk to the people who will do the work, in {NAP.addressLocality}, Malta.
               </p>
-              <p className="text-lg md:text-xl text-zinc-400 leading-relaxed font-normal">
-                Your growth is our obsession. Let's talk strategy.
-              </p>
-              <p className="text-lg md:text-xl text-zinc-400 leading-relaxed font-normal">
-                AI-powered results. Human-crafted relationships.
-              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/contact" className="inline-flex items-center rounded-full bg-[#F5F3EE] px-7 py-4 text-base font-semibold text-[#0E0E0E] transition-opacity hover:opacity-90" data-testid="button-footer-cta">
+                  Book a 20-minute call
+                </Link>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-4 text-base font-semibold text-[#F5F3EE] transition-colors hover:bg-white/10" data-testid="button-footer-whatsapp">
+                  <SiWhatsapp className="h-5 w-5" /> WhatsApp us
+                </a>
+              </div>
             </div>
-            
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              <button className="group relative px-10 py-5 bg-[#c4ff4d] hover:bg-[#b0e845] rounded-xl font-bold text-black text-lg shadow-2xl transition-all duration-300 hover:scale-105" data-testid="button-footer-cta">
-                <div className="relative flex items-center gap-3">
-                  <SiWhatsapp className="w-6 h-6" />
-                  <span>WhatsApp Us</span>
-                </div>
-              </button>
-            </a>
+            <dl className="grid gap-5 text-sm">
+              <div>
+                <dt className="text-zinc-500">Call</dt>
+                <dd><a href={`tel:${NAP.phoneE164}`} className="text-lg text-[#F5F3EE] hover:underline">{NAP.phoneDisplay}</a></dd>
+              </div>
+              <div>
+                <dt className="text-zinc-500">Email</dt>
+                <dd><a href={`mailto:${NAP.email}`} className="text-lg text-[#F5F3EE] hover:underline">{NAP.email}</a></dd>
+              </div>
+              <div>
+                <dt className="text-zinc-500">Visit</dt>
+                <dd className="text-lg text-[#F5F3EE]">{NAP.streetAddressShort}, {NAP.addressLocality}</dd>
+              </div>
+              <div>
+                <dt className="text-zinc-500">Since</dt>
+                <dd className="text-lg text-[#F5F3EE]">Founded 2023 in Birkirkara, Malta</dd>
+              </div>
+            </dl>
           </div>
         </div>
       )}
@@ -165,20 +192,8 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
                 </Link>
               </li>
               <li>
-                <Link href="/roadmap-2026" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-roadmap">
-                  <span>Road Map 2026</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="#our-work" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-our-work">
+                <Link href="/our-work" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-our-work">
                   <span>Our Work</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/pdf-hub" className="group inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm font-normal" data-testid="link-footer-pdf">
-                  <span>Client PDFs</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
@@ -202,6 +217,17 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
             {NAP.phoneDisplay}
           </a>
         </div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-6 border-b border-white/5">
+        <p className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-zinc-500">
+          <span>Find us on</span>
+          {listings.map((l) => (
+            <a key={l.name} href={l.href} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors">
+              {l.name}
+            </a>
+          ))}
+        </p>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-8 border-b border-white/5">
@@ -246,7 +272,7 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
           </div>
 
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}

@@ -55,23 +55,15 @@ import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/HeroSection";
 import MostPopularServices from "@/components/MostPopularServices";
 import DiagnosticsTeaser from "@/components/DiagnosticsTeaser";
-import ShiftHappensSection from "@/components/ShiftHappensSection";
-import OARCDepartmentIndex from "@/components/OARCDepartmentIndex";
+import HomepageNeedsSection from "@/components/HomepageNeedsSection";
 import TrustedBrandsSection from "@/components/TrustedBrandsSection";
 import AICreativeSection from "@/components/AICreativeSection";
-import Section2 from "@/components/Section2";
 import Section5 from "@/components/Section5";
-import HireAIEmployeesSection from "@/components/HireAIEmployeesSection";
-import TechEnabledSection from "@/components/TechEnabledSection";
-import LetsTalkRevenueSection from "@/components/LetsTalkRevenueSection";
-import HomepageWorkProof from "@/components/HomepageWorkProof";
-import ApprovedQuotes from "@/components/ApprovedQuotes";
-import { homepageQuotes } from "@/lib/reviews/approvedQuotes";
-import ComparisonSection from "@/components/ComparisonSection";
-import GrowthSimulator from "@/components/GrowthSimulator";
+import HomepageWhyOarc from "@/components/HomepageWhyOarc";
+import HomepageAIStaff from "@/components/HomepageAIStaff";
+import HomepageOurWork from "@/components/HomepageOurWork";
 import MoneyBackGuaranteeSection from "@/components/MoneyBackGuaranteeSection";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
-import CTASections from "@/components/CTASections";
 import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import RouteSchema from "@/components/RouteSchema";
@@ -110,15 +102,14 @@ export default function Page() {
       <div>
         <HeroSection />
 
-        {/* SHIFT HAPPENS + department index — one unified bone surface, no gap */}
+        {/* What do you need? — five plain choices (replaced Shift Happens + 16 departments) */}
         <div style={{ background: "#F2EFE9" }}>
-          <ShiftHappensSection />
           <div
             id="homepage-floating-controls-trigger"
             aria-hidden="true"
             className="h-px w-full"
           />
-          <OARCDepartmentIndex />
+          <HomepageNeedsSection />
         </div>
 
         {/* Stat ticker strip — original position, old logo strip style */}
@@ -127,26 +118,20 @@ export default function Page() {
         {/* Every type of creative work */}
         <AICreativeSection />
 
-        {/* Services Showcase + industry chips */}
-        <Section2 />
 
         {/* Our Difference */}
         <Section5 />
 
-        {/* AI Services Pillars - Dark Premium Zone */}
-        <HireAIEmployeesSection />
-        <LetsTalkRevenueSection />
+        {/* Why OARC Digital — answer-first facts (replaced the AI-only comparison table) */}
+        <HomepageWhyOarc />
 
-        {/* Tech & Services */}
-        <TechEnabledSection />
+        {/* AI Services Pillars - Dark Premium Zone */}
+        <HomepageAIStaff />
+
 
         {/* One authoritative work record */}
-        <HomepageWorkProof />
-        <ApprovedQuotes quotes={homepageQuotes} />
+        <HomepageOurWork />
 
-        {/* Why OARC - Comparison */}
-        <ComparisonSection />
-        <GrowthSimulator />
 
         {/* Blog preview */}
         <BlogPreviewSection />
@@ -156,7 +141,6 @@ export default function Page() {
 
         {/* Final CTAs */}
         <MoneyBackGuaranteeSection />
-        <CTASections />
         <NeedHelpCTA />
         {/* Top-30 internal-link funnel */}
         <MostPopularServices />

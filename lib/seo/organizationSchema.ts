@@ -79,7 +79,7 @@ export const ORG_SAMEAS: readonly string[] = Object.freeze([
  * The agency's founding date. Set once here so every Knowledge-Graph
  * emission carries a consistent value. Format: ISO 8601 (YYYY-MM-DD).
  */
-export const ORG_FOUNDING_DATE = "2022";
+export const ORG_FOUNDING_DATE = "2023";
 
 /**
  * The topic graph that anchors entity-based ranking on AI answer engines.
