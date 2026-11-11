@@ -1692,3 +1692,258 @@
 .tom-proof-note { margin-top:2rem; color:#657069; }
 @media (max-width:900px) { .tom-proof-grid { grid-template-columns:repeat(2,1fr); } }
 @media (max-width:560px) { .tom-proof-grid { grid-template-columns:1fr; } }
+
+/* ── v2 (Nov 2026): same content, easier to read ──────────────────────────────
+   Scoped to the main Voice AI Worker page (.tom-v2). The industry pages keep the
+   original look. Display type moves to Instrument Serif, reading text to Inter
+   Tight, and nothing a visitor has to read is smaller than 15px. */
+.tom-v2 {
+  --tom-read: var(--font-inter-tight), "Inter Tight", system-ui, sans-serif;
+  --tom-serif: var(--font-instrument-serif-roman), "Instrument Serif", Georgia, serif;
+}
+.tom-v2 .tom-display {
+  font-family: var(--tom-serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  text-transform: none;
+}
+.tom-v2 .tom-hero h1.tom-display { font-size: clamp(3.2rem, 7vw, 6.6rem); }
+.tom-v2 .tom-hero h1.tom-display span { display: block; }
+.tom-v2 .tom-section h2.tom-display,
+.tom-v2 .tom-campaign-copy h2.tom-display { font-size: clamp(2.4rem, 4.8vw, 4.4rem); }
+.tom-v2 .tom-italic { letter-spacing: -0.01em; }
+
+.tom-v2 .tom-plain {
+  max-width: 30rem;
+  margin: 1.5rem 0 0;
+  font-family: var(--tom-serif);
+  font-size: clamp(1.5rem, 2.3vw, 2.05rem);
+  line-height: 1.15;
+  color: #f5f5f3;
+}
+.tom-v2 .tom-lead,
+.tom-v2 .tom-copy,
+.tom-v2 .tom-support,
+.tom-v2 .tom-card p,
+.tom-v2 .tom-list li,
+.tom-v2 .tom-faq p,
+.tom-v2 .tom-faq summary,
+.tom-v2 .tom-industry-link,
+.tom-v2 .tom-hero-flow span,
+.tom-v2 .tom-hero-flow small,
+.tom-v2 .tom-proof-card p,
+.tom-v2 .tom-proof-card small {
+  font-family: var(--tom-read);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.tom-v2 .tom-lead { max-width: 34rem; margin-top: 1rem; font-size: clamp(1.05rem, 1.35vw, 1.2rem); line-height: 1.5; }
+.tom-v2 .tom-copy { font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.55; }
+.tom-v2 .tom-card p,
+.tom-v2 .tom-list li,
+.tom-v2 .tom-faq p,
+.tom-v2 .tom-industry-link { font-size: 1.0625rem; line-height: 1.5; }
+.tom-v2 .tom-faq summary { font-size: 1.25rem; font-weight: 600; }
+.tom-v2 .tom-proof-card p,
+.tom-v2 .tom-proof-card small { font-size: 1rem; line-height: 1.4; }
+
+.tom-v2 .tom-kicker { font-size: 0.84rem; letter-spacing: 0.1em; line-height: 1.3; }
+.tom-v2 .tom-card strong,
+.tom-v2 .tom-proof-card__status { font-size: 0.8rem; letter-spacing: 0.08em; }
+.tom-v2 .tom-card h3 {
+  font-family: var(--tom-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-size: clamp(1.6rem, 2.3vw, 2.1rem);
+  line-height: 1.06;
+}
+.tom-v2 .tom-button { font-size: 0.9rem; letter-spacing: 0.06em; }
+.tom-v2 .tom-log div { font-size: 0.98rem; line-height: 1.45; }
+.tom-v2 .tom-panel h3 { font-size: 0.85rem; }
+.tom-v2 .tom-promise blockquote p {
+  font-family: var(--tom-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-size: clamp(1.7rem, 3.1vw, 2.7rem);
+  line-height: 1.14;
+}
+
+/* The three steps under the buttons: three plain steps, no decorative panel on top of them */
+.tom-v2 .tom-hero-flow { max-width: 44rem; margin-top: 2.6rem; padding: 0; min-height: 0; border: 0; border-top: 1px solid rgba(245, 245, 243, 0.28); border-radius: 0; background: none; box-shadow: none; overflow: visible; }
+.tom-v2 .tom-hero-flow::before,
+.tom-v2 .tom-hero-flow::after { display: none; }
+.tom-v2 .tom-hero-flow > div { display: block; min-height: 0; padding: 1rem 1.2rem 0.4rem 0; background: none; }
+.tom-v2 .tom-hero-flow small { max-width: none; }
+@media (max-width: 700px) {
+  .tom-v2 .tom-hero-flow { grid-template-columns: 1fr; }
+  .tom-v2 .tom-hero-flow > div { padding: 1rem 0; border-right: 0; border-bottom: 1px solid rgba(245, 245, 243, 0.18); }
+}
+.tom-v2 .tom-hero-flow strong { font-family: var(--tom-serif); font-weight: 400; font-size: 1.7rem; line-height: 1; }
+.tom-v2 .tom-hero-flow span { display: block; margin-top: 0.35rem; font-size: 1.05rem; font-weight: 600; color: #f5f5f3; }
+.tom-v2 .tom-hero-flow small { display: block; margin-top: 0.3rem; font-size: 0.95rem; line-height: 1.4; }
+
+/* The worked example on the right of the first screen */
+.tom-v2 .tom-example {
+  justify-self: end;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0;
+  padding: 1.5rem 1.5rem 1.2rem;
+  border-radius: 18px;
+  background: #f2efe9;
+  color: #0b0c0d;
+  font-family: var(--tom-read);
+}
+.tom-v2 .tom-example__head { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.95rem; font-weight: 600; }
+.tom-v2 .tom-example__quote { margin: 1rem 0 0.35rem; font-family: var(--tom-serif); font-size: clamp(1.5rem, 2vw, 1.8rem); line-height: 1.1; }
+.tom-v2 .tom-example__tr { margin: 0; font-size: 1rem; color: rgba(11, 12, 13, 0.75); }
+.tom-v2 .tom-example ol { margin: 1.1rem 0 0; padding: 0; list-style: none; border-top: 1px solid rgba(11, 12, 13, 0.2); }
+.tom-v2 .tom-example li { display: flex; gap: 0.9rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(11, 12, 13, 0.2); font-size: 1rem; line-height: 1.3; }
+.tom-v2 .tom-example time { min-width: 4.7rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.tom-v2 .tom-example__note { margin-top: 0.9rem; font-size: 0.95rem; font-weight: 600; }
+.tom-v2 .tom-example__note::before { content: ""; display: inline-block; width: 0.6rem; height: 0.6rem; margin-right: 0.5rem; border-radius: 50%; background: #f9ff84; outline: 1px solid #0b0c0d; }
+
+.tom-v2 .tom-close { background: #0b0c0d; color: #f5f5f3; }
+.tom-v2 .tom-close .tom-copy { max-width: 40rem; }
+.tom-v2 .tom-close .tom-actions { margin-top: 2rem; }
+
+/* First screen: fits one screen, example level with the headline */
+.tom-v2 .tom-hero { min-height: 0; }
+.tom-v2 .tom-hero-grid { align-items: start; padding-top: clamp(7rem, 14vh, 9.5rem); padding-bottom: clamp(3rem, 6vh, 5rem); }
+.tom-v2 .tom-hero h1 .tom-italic { font-size: 1em; }
+/* Line 1 "Meet Tom." is the headline; line 2 "Your Voice AI Worker." sits under it, a size down, on one line. */
+.tom-v2 .tom-hero h1.tom-display span:last-child { margin-top: 0.12em; font-size: 0.66em; white-space: nowrap; }
+.tom-v2 .tom-example { margin-top: 0.6rem; }
+.tom-v2 .tom-support { font-size: 1.05rem; }
+.tom-v2 .tom-chain span,
+.tom-v2 .tom-chain .tom-button { font-size: 0.95rem; }
+.tom-v2 .tom-card strong,
+.tom-v2 .tom-proof-card__status { font-size: 0.875rem; }
+
+@media (max-width: 900px) {
+  .tom-v2 .tom-example { justify-self: start; }
+}
+
+/* ── v2 palette (Notion design system v3) ─────────────────────────────────────
+   Two grounds, ink and paper, with paper or ink words. Yellow appears once per
+   screen, on the main button. One cobalt section closes the page (cobalt = AI,
+   the fix). Mint, red and the green tints are gone; so are the decorative text
+   labels. Still scoped to .tom-v2. */
+.tom-v2 {
+  --ink: #0e0e0e;
+  --paper: #f5f3ee;
+  --white: #f5f3ee;
+  --signal: #f5f3ee;
+  --mint: #cfcbc2;
+  --line: rgba(14, 14, 14, 0.16);
+  --dark-line: rgba(245, 243, 238, 0.2);
+  background: #0e0e0e;
+}
+.tom-v2 .tom-light,
+.tom-v2 .tom-promise,
+.tom-v2 .tom-proof-led { --signal: #0e0e0e; }
+
+/* Grounds */
+.tom-v2 .tom-hero { background: #0e0e0e; }
+.tom-v2 .tom-hero-still { filter: grayscale(1) brightness(0.5) contrast(1.05); }
+.tom-v2 .tom-section,
+.tom-v2 .tom-section:nth-of-type(odd),
+.tom-v2 .tom-campaign-scene,
+.tom-v2 .tom-force { background: #0e0e0e; color: #f5f3ee; }
+.tom-v2 .tom-section.tom-light,
+.tom-v2 .tom-promise,
+.tom-v2 .tom-proof-led { background: #f5f3ee; color: #0e0e0e; }
+.tom-v2 .tom-campaign-scene::before { display: none; }
+
+/* Words: full strength on both grounds */
+.tom-v2 .tom-copy,
+.tom-v2 .tom-lead,
+.tom-v2 .tom-card p,
+.tom-v2 .tom-list li,
+.tom-v2 .tom-faq p,
+.tom-v2 .tom-hero-flow small { color: inherit; opacity: 1; }
+.tom-v2 .tom-hero .tom-lead,
+.tom-v2 .tom-hero-flow small { color: rgba(245, 243, 238, 0.86); }
+.tom-v2 .tom-hero-flow strong { color: #f5f3ee; }
+
+/* Small labels: one neutral colour, no "//" and no decorative system text */
+.tom-v2 .tom-kicker { color: rgba(245, 243, 238, 0.72) !important; }
+.tom-v2 .tom-light .tom-kicker,
+.tom-v2 .tom-promise .tom-kicker,
+.tom-v2 .tom-proof-led .tom-kicker { color: rgba(14, 14, 14, 0.7) !important; }
+.tom-v2 .tom-kicker::before,
+.tom-v2 .tom-force::before,
+.tom-v2 .tom-graph::after,
+.tom-v2 .tom-promise::after { display: none; }
+.tom-v2 .tom-support { color: rgba(14, 14, 14, 0.75); }
+
+/* Cards: flat, one hairline, the section's own words colour */
+.tom-v2 .tom-card,
+.tom-v2 .tom-force .tom-card { background: rgba(245, 243, 238, 0.06); border-color: rgba(245, 243, 238, 0.2); color: #f5f3ee; box-shadow: none; }
+.tom-v2 .tom-card:hover,
+.tom-v2 .tom-force .tom-card:hover { background: rgba(245, 243, 238, 0.1); }
+.tom-v2 .tom-light .tom-card { background: #ffffff; border-color: rgba(14, 14, 14, 0.14); color: #0e0e0e; }
+.tom-v2 .tom-light .tom-card:hover { background: #ffffff; }
+.tom-v2 .tom-card h3,
+.tom-v2 .tom-card p { color: inherit; }
+.tom-v2 .tom-card strong { color: inherit; opacity: 0.7; }
+.tom-v2 .tom-card::before { opacity: 0.5; }
+
+/* The worked example panels */
+.tom-v2 .tom-panel:first-child { background: #0e0e0e; color: #f5f3ee; }
+.tom-v2 .tom-panel:last-child { background: #ffffff; color: #0e0e0e; }
+.tom-v2 .tom-graph { background-color: #ffffff; }
+.tom-v2 .tom-graph path[stroke="#c8102e"] { stroke: #0e0e0e; }
+
+/* Buttons: sentence case, readable. Yellow is the one signal: the main action. */
+.tom-v2 .tom-button { font-family: var(--tom-read); font-size: 1rem; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.tom-v2 .tom-button--red { border-color: #f9ff84; background: #f9ff84; color: #0e0e0e; }
+.tom-v2 .tom-button--red:hover,
+.tom-v2 .tom-button--red:focus-visible { background: #f5f3ee; border-color: #f5f3ee; color: #0e0e0e; }
+.tom-v2 .tom-example__note::before { background: #0e0e0e; outline: 0; }
+
+/* Industry links */
+.tom-v2 .tom-industry-link:hover,
+.tom-v2 .tom-industry-link:focus-visible { color: inherit; text-decoration: underline; }
+
+/* "The work is the product": 4 steps */
+.tom-v2 .tom-workflow { margin: 0; padding: 0; list-style: none; max-width: 34rem; justify-self: end; width: 100%; }
+.tom-v2 .tom-workflow li { position: relative; display: grid; grid-template-columns: 3rem 1fr; gap: 1.2rem; padding-bottom: 2rem; }
+.tom-v2 .tom-workflow li:last-child { padding-bottom: 0; }
+.tom-v2 .tom-workflow li:not(:last-child)::after { content: ""; position: absolute; left: 1.5rem; top: 3rem; bottom: 0; width: 1px; background: rgba(245, 243, 238, 0.35); }
+.tom-v2 .tom-workflow__n { display: grid; place-items: center; width: 3rem; height: 3rem; border: 1px solid rgba(245, 243, 238, 0.6); border-radius: 50%; font-family: var(--tom-serif); font-size: 1.5rem; line-height: 1; }
+.tom-v2 .tom-workflow li:last-child .tom-workflow__n { border-color: #f9ff84; background: #f9ff84; color: #0e0e0e; }
+.tom-v2 .tom-workflow strong { display: block; padding-top: 0.35rem; font-family: var(--tom-serif); font-weight: 400; font-size: clamp(1.5rem, 2.2vw, 1.95rem); line-height: 1.08; }
+.tom-v2 .tom-workflow p { margin: 0.4rem 0 0; font-family: var(--tom-read); font-size: 1.0625rem; line-height: 1.45; color: rgba(245, 243, 238, 0.86); }
+
+/* Closing section: the one cobalt ground */
+.tom-v2 .tom-close { background: #0035ad; color: #f5f3ee; }
+.tom-v2 .tom-close .tom-kicker { color: rgba(245, 243, 238, 0.85) !important; }
+
+@media (max-width: 900px) {
+  .tom-v2 .tom-workflow { justify-self: start; margin-top: 2.5rem; }
+}
+
+/* ── v2 cards: one headline you get at a glance, then the detail ──────────────
+   Order of reading: the number (quiet), the headline (large serif, full
+   strength), the first phrase of the description (bold), the rest (softer). */
+.tom-v2 .tom-card { padding: 1.7rem 1.5rem 1.8rem; }
+.tom-v2 .tom-card::before { display: none; }
+.tom-v2 .tom-card__n { display: block; margin-bottom: 1rem; font-family: var(--tom-serif); font-size: 1.5rem; line-height: 1; opacity: 0.5; }
+.tom-v2 .tom-card h3 { margin: 0 0 0.85rem; font-size: clamp(1.9rem, 2.5vw, 2.35rem); line-height: 1.04; color: #f5f3ee; }
+.tom-v2 .tom-card p { margin: 0; font-size: 1.0625rem; line-height: 1.5; color: rgba(245, 243, 238, 0.74); }
+.tom-v2 .tom-card p b { font-weight: 600; color: #f5f3ee; }
+.tom-v2 .tom-light .tom-card h3 { color: #0e0e0e; }
+.tom-v2 .tom-light .tom-card p { color: rgba(14, 14, 14, 0.72); }
+.tom-v2 .tom-light .tom-card p b { color: #0e0e0e; }
+/* Cards with no headline of their own: the bold first phrase is the headline */
+.tom-v2 .tom-card__n + p b { display: block; margin-bottom: 0.55rem; font-family: var(--tom-serif); font-weight: 400; font-size: clamp(1.5rem, 2vw, 1.8rem); line-height: 1.1; }
+/* The day-in-the-life card keeps its time label, at a readable size */
+.tom-v2 .tom-day .tom-card strong { display: block; margin-bottom: 0.8rem; font-size: 0.95rem; opacity: 0.8; }
+
+/* Card hierarchy, corrected: the headline is the bold thing; the description is regular. */
+.tom-v2 .tom-card h3 { font-family: var(--tom-read); font-weight: 600; letter-spacing: -0.015em; font-size: clamp(1.45rem, 1.9vw, 1.7rem); line-height: 1.15; }
+.tom-v2 .tom-card p b { font-weight: 400; color: inherit; }
+.tom-v2 .tom-card__n + p b { display: block; margin-bottom: 0.6rem; font-family: var(--tom-read); font-weight: 600; letter-spacing: -0.015em; font-size: clamp(1.45rem, 1.9vw, 1.7rem); line-height: 1.15; color: #f5f3ee; }
+.tom-v2 .tom-light .tom-card__n + p b { color: #0e0e0e; }
