@@ -19,7 +19,10 @@ export type CaseProof = {
   did: string[];
   /** What the work set out to achieve. Targets, not outcomes. */
   targets: string[];
-  /** What the work achieved. */
+  /**
+   * The claims. One line = one claim, shown on the case page in this order.
+   * To add a claim for a brand, add a line to its `results` list.
+   */
   results: string[];
 };
 

@@ -10,7 +10,7 @@ import { useState, type CSSProperties } from "react";
 import { ORIGINAL_STUDIES, ORIGINAL_STUDY_PUBLIC_NAMES } from "@/lib/data/premium-work/originalStudies";
 import { DISCOVERY_CONTENT, type DiscoveryContent } from "@/lib/data/premium-work/discoveryContent";
 import { CLIENT_CASE_STUDIES } from "@/lib/data/premium-work/clientCaseStudies";
-import CaseImpact from "@/components/premium-work/CaseImpact";
+import CaseStudyPage from "@/components/premium-work/CaseStudyPage";
 
 type EvidenceMedia = { src: string; alt: string; label: string; caption: string };
 type LiveRecord = { relationship: string; links: { label: string; url: string; note: string }[]; instagramStatus: string; verified: string; confidential?: boolean };
@@ -77,7 +77,7 @@ const STORIES: Record<string, Story> = {
     },
     faq: [{ question: "What is H360?", answer: "H360 is OARC Digital’s restaurant system for Malta. It covers being found, bookings, phone calls, direct orders, payments and repeat guests." }, { question: "What problem does it solve?", answer: "Restaurants use too many separate tools. H360 joins them, so a guest can find, book, call, order and return in one flow." }, { question: "Who is it for?", answer: "Restaurants, cafes and bars in Malta that want more direct bookings and orders, with less admin." }],
     stages: [{ name: "Get found", moment: "A guest looks for somewhere to eat.", system: "The restaurant shows up on Google with a clear way to book.", value: "Guests find you first." }, { name: "Book", moment: "They pick a time.", system: "Online booking, confirmed in seconds.", value: "No phone tag." }, { name: "Be answered", moment: "They call during service.", system: "A phone host answers, books and passes on what matters.", value: "No missed calls." }, { name: "Order direct", moment: "They order at the table or from home.", system: "QR menu to kitchen ticket, no app in the middle.", value: "You keep the margin." }, { name: "Return", moment: "They come back.", system: "Repeat-guest tools remember them.", value: "Regulars, not one-offs." }],
-    filmTitle: "The restaurant day, in order.", filmLabel: "HOW IT WORKS", filmText: "Found, booked, answered, served, remembered. One walkthrough of the day H360 runs.", closeTitle: "One system for the whole restaurant day.", closeText: "H360 is built and run by OARC Digital for restaurants in Malta.",
+    filmTitle: "The restaurant day, in order.", filmLabel: "HOW IT WORKS", filmText: "Found, booked, answered, served, remembered. One walkthrough of the day H360 runs.", closeTitle: "Run the whole day from one place.", closeText: "H360 is built and run by OARC Digital for restaurants in Malta.",
   },
   "data-foundation": {
     name: "OPERATIONS DATA FOUNDATION", eyebrow: "CLIENT PARTNERSHIP / DATA CLEAN-UP", title: ["25% FEWER", "ORDER", "ERRORS."], intro: "A national distributor had the same product saved ten different ways. Orders went wrong. We cleaned 10,000 records into one clear view.", image: "/attached_assets/premium-work/oarc-confidential-data-foundation_61730536.jpg", journeyImage: "/attached_assets/premium-work/oarc-confidential-data-lineage_2e1a3236.jpg", mode: "Client partnership / data clean-up", record: "When two systems disagree about a product, the order goes wrong.", facts: ["10,000+ product records", "One clear view", "Fewer errors, faster orders"], source: "https://oarcdigital.com/our-work/data-foundation", sourceLabel: "OARC’s public anonymous case record",
@@ -313,39 +313,15 @@ export default function WorkCase({ slug = "pjazza" }: { slug?: string }) {
   const rootStyle = story.theme ? ({ "--study-bg": story.theme.bg, "--study-paper": story.theme.paper, "--study-ink": story.theme.ink, "--study-signal": story.theme.signal, "--study-accent": story.theme.accent } as CSSProperties) : undefined;
 
 
-  if (!knownStory) return <main className="premium-work-root documentary"><section className="source-disclosure"><span>RECORD UNAVAILABLE</span><h2>This OARC Work record could not be found.</h2><Link href="/our-work">Return to Our Work</Link></section></main>;
+  if (!knownStory) return <div className="documentary"><section className="source-disclosure"><span>RECORD UNAVAILABLE</span><h2>This OARC Work record could not be found.</h2><Link href="/our-work">Return to Our Work</Link></section></div>;
 
   const caseFormat = slug === "pjazza" ? "marketplace" : slug === "h360" ? "hospitality" : slug === "data-foundation" ? "archive" : slug === "live-context" ? "live" : isClient ? "client" : "original";
   const publicEyebrow = story.eyebrow.replace(/OARC ORIGINAL STUDY\s*\/\s*/i, "CLIENT PROJECT / ");
   const publicMode = story.mode.replace(/confidential engagement|restricted-disclosure|original study/gi, "client project").replace(/\s*\/\s*no (external )?client.*$/i, "");
   const heroAlt = story.heroAlt ?? (story.name === "PJAZZA — OARC PRODUCT" ? "Official PJAZZA marketplace imagery showing a food-and-dining context" : story.name === "OPERATIONS DATA FOUNDATION" ? "Diagram: data-governance system visual with no client data" : isConfidential ? "Private client project illustration" : `Client project visual world for ${story.name}`);
-  return <main className={`case-page documentary case-${slug} case-format-${caseFormat} ${isOriginal ? `original-case structure-${story.structure}` : ""} ${isClient ? "client-case" : ""}`} style={rootStyle}>
-    <header className="case-nav-light"><Link href="/our-work" className="oarc-brand light-brand" aria-label="OARC Digital Work"><span className="brand-word"><b>OARC</b><i>DIGITAL</i></span></Link><span className="case-signal">{isOriginal ? "CLIENT PROJECT / OARC DELIVERY" : isConfidential ? "CLIENT SYSTEMS / OARC DELIVERY" : isClient ? "CLIENT PARTNERSHIP / OARC DELIVERY" : "OARC PRODUCT / LIVE"}</span><Link href="/our-work" className="back-link-light"><ChevronLeft size={16} /> All stories</Link></header>
-    <section className="documentary-hero"><div className="documentary-hero-copy"><p>{publicEyebrow}</p><h1>{story.title.map((line, index) => <span className={index === 1 ? "hero-italic" : ""} key={line}>{line}</span>)}</h1><p className="documentary-intro">{story.intro}</p><div className="documentary-status"><CircleCheck size={15} /> {publicMode}</div></div><figure className={!story.image ? "documentary-hero-art" : ""}>{story.image ? <img src={story.image} alt={heroAlt} decoding="async" fetchPriority="high" /> : <div className="launch-art" aria-label="Client launch treatment visual" role="img"><span>DNM</span><b>LAUNCH<br />SEQUENCE</b><i>2026</i></div>}<figcaption><span>{story.name} / {isOriginal ? "Client project" : isClient ? "OARC client partnership" : isConfidential ? "Client systems" : "Client product"}</span>{isOriginal ? <span>Client project visual / OARC art direction</span> : <a href={story.source} target="_blank" rel="noopener noreferrer">Source: {story.sourceLabel} <ArrowUpRight size={14} /></a>}</figcaption></figure></section>
-    <CaseProofLedger story={story} slug={slug} isOriginal={isOriginal} />
-    <CaseAnswerPanel story={story} />
-    <section className="case-record-light"><p>WHAT THIS IS</p><div><h2>{story.record}</h2><div className="record-facts">{story.facts.map((fact, index) => <div key={fact}><b>{String(index + 1).padStart(2, "0")}</b><span>{fact}</span></div>)}</div></div></section>
-    <CaseImpact slug={slug} />
-    <CaseDeliverySummary story={story} slug={slug} context={campaignContext} artefact={artefact} />
-    <CaseServiceSignalRail story={story} />
-    {slug === "h360" && <RestaurantDayRibbon />}
-    {discovery && <CaseDiscoveryDepth content={discovery} isOriginal={isOriginal} isConfidential={isConfidential} />}
-    {discovery && <CaseTopicPaths slug={slug} content={discovery} isOriginal={isOriginal} />}
-    {isOriginal && <OriginalSignature story={story} />}
-    {slug === "pjazza" && story.evidenceMedia && <MarketplaceProofWall media={story.evidenceMedia} />}
-    {slug === "data-foundation" && <ArchiveProtocol />}
-    {slug === "maison-verre-discovery" && <ObjectSequence />}
-    {story.evidenceMedia && slug !== "pjazza" && <section className="pjazza-evidence-gallery" aria-labelledby="pjazza-evidence-title"><div className="case-section-intro"><p>THE PRODUCT, LIVE</p><h2 id="pjazza-evidence-title">The marketplace must work across <i>different kinds of decisions.</i></h2><span>Real categories from the live marketplace.</span></div><div className="pjazza-evidence-grid">{story.evidenceMedia.map((media, index) => <figure key={media.label} className={`pjazza-evidence-item evidence-${index + 1}`}><img src={media.src} alt={media.alt} loading="lazy" decoding="async" /><figcaption><b>{media.label}</b><span>{media.caption}</span></figcaption></figure>)}</div></section>}
-    {isOriginal ? <OriginalChapters story={story} slug={slug} /> : <section className="case-chapters-light">{story.chapters.map((chapter, index) => <article key={chapter.number}><div className="chapter-key"><b>{chapter.number}</b><span>{chapter.label}</span></div><div><h2>{chapter.title}</h2><p>{chapter.body}</p><CaseChapterMedia story={story} slug={slug} index={index} label={chapter.label} /></div>{index === 1 && <aside><Sparkles size={31} /><span>GOOD WORK SHOWS UP IN THE NUMBERS.</span></aside>}</article>)}</section>}
-    {campaignContext && <CampaignContext context={campaignContext} story={story} />}
-    {artefact && <EvidenceArtefact artefact={artefact} />}
-    <section className="case-film-panel"><figure className={!story.journeyImage ? "case-film-art" : ""}>{story.journeyImage ? <img src={story.journeyImage} alt={story.heroAlt ?? (story.name === "PJAZZA — OARC PRODUCT" ? "Official PJAZZA marketplace imagery showing a public people-and-services context" : story.name === "OPERATIONS DATA FOUNDATION" ? "Diagram: four-stage data-governance process visual with no client data" : isConfidential ? "Private client project mobile experience illustration" : `Client project supporting visual for ${story.name}`)} loading="lazy" decoding="async" /> : <div className="launch-art launch-art-small" aria-hidden="true"><span>DNM</span><b>FIRST<br />SIGNAL</b><i>OARC</i></div>}</figure><div><span>{story.filmLabel}</span><h2>{story.filmTitle}</h2><p>{story.filmText}</p><span className="asset-status"><Play size={14} /> {isOriginal ? "DELIVERED BY OARC" : isClient ? story.image ? "FROM THE CLIENT WORK" : "LAUNCH CAMPAIGN BY OARC" : "BUILT BY OARC"}</span></div></section>
-    {isOriginal ? <OriginalSystem story={story} /> : <Journey story={story} />}
-    {story.liveRecord && <LiveBrandRecord record={story.liveRecord} isClient={isClient} />}
-    {isOriginal && <OriginalStudyRecord story={story} />}
-    {isConfidential && <ConfidentialRecord story={story} />}
-    {story.faq && <section className="case-faq" aria-labelledby="case-faq-title"><div className="case-section-intro"><p>{isClient ? "THE CLIENT PARTNERSHIP" : isOriginal ? "THE CLIENT PROJECT" : isConfidential ? "THE CLIENT SYSTEMS" : "THE CLIENT PRODUCT"}</p><h2 id="case-faq-title">Quick <i>answers.</i></h2></div><div>{story.faq.map((item, index) => <details key={item.question} open={index === 0}><summary><span>{String(index + 1).padStart(2, "0")}</span>{item.question}<MoveRight size={18} /></summary><p>{item.answer}</p></details>)}</div></section>}
-    <section className="source-disclosure"><span>{isOriginal ? "CLIENT PROJECT" : isConfidential ? "CLIENT SYSTEMS" : "THE CLOSING FRAME"}</span><h2>{story.closeTitle}</h2><p>{story.closeText}</p>{isOriginal ? <span className="source-static-label">CLIENT PARTNERSHIP / DELIVERED BY OARC</span> : <a href={story.source} target="_blank" rel="noopener noreferrer">See it live <ArrowUpRight size={17} /></a>}</section>
-    <footer className="case-footer-light"><span>OARC DIGITAL / RESEARCH-LED WORK</span><span>© 2026</span></footer>
-  </main>;
+  const order = Object.keys(STORIES);
+  const nextSlug = order[(order.indexOf(slug) + 1) % order.length];
+  const nextStory = STORIES[nextSlug];
+  const next = nextStory ? { slug: nextSlug, name: ORIGINAL_STUDY_PUBLIC_NAMES[nextSlug] ?? nextStory.name, headline: nextStory.title.join(" "), image: nextStory.image } : undefined;
+  return <CaseStudyPage slug={slug} story={story} next={next} diagram={artefact ? { src: artefact.src, alt: artefact.alt } : undefined} extraPictures={story.evidenceMedia?.map((media) => ({ src: media.src, alt: media.alt }))} />;
 }
