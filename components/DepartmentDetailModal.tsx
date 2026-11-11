@@ -1,8 +1,20 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
+import { createContext, useContext, useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { useLenis } from "lenis/react";
+
+/**
+ * Heading level for each world's big headline. In the pop-up it is the dialog's <h1>. On a
+ * department page the page has its own <h1>, so the same headline renders as an <h2> with
+ * the class "as-h1" (the page rewrites the world's "h1" CSS selectors to match it).
+ */
+export const DeptHeadingLevel = createContext<"h1" | "h2">("h1");
+function DeptH1(props: React.HTMLAttributes<HTMLHeadingElement>) {
+  const level = useContext(DeptHeadingLevel);
+  if (level === "h1") return <h1 {...props} />;
+  return <h2 {...props} className={`as-h1 ${props.className ?? ""}`.trim()} />;
+}
 
 // ── Engine realm tokens ──────────────────────────────────────────────────────
 const T = {
@@ -278,7 +290,7 @@ const GM_BONE = '#F5F3EE';
 const GM_STEPS = ['They find you','You find them','They like you','They pick you','You stay close','They come back'];
 const GM_TEAM = ['Search','Reach','The Studio','Conversion','Lifecycle','Retention'];
 
-const GM_PARTS = [
+export const GM_PARTS = [
   { n:'01', sp:'They find you', h:'They <em>find</em> you.', out:'The ones already looking.',
     who:'Search team',
     cap:'The Search team owns the moment someone is already searching for what you sell \u2014 on Google, on Maps, in the AI answer. We work your listing, your reviews and the pages those answers are built from, so when a buyer looks, <b>you\u2019re the one they find.</b> The plumber searched at 8pm, the clinic got googled nearby, the shopper typed \u201cbest near me\u201d \u2014 the cheapest customer there is, already wanting you.',
@@ -305,7 +317,7 @@ const GM_PARTS = [
     stat:'25-95', statEm:'%', statP:'more profit from just a 5% lift in how many customers come back (Bain & Company)', viz:'comeback' },
 ] as const;
 
-const GM_VIZ: Record<string, () => string> = {
+export const GM_VIZ: Record<string, () => string> = {
   find() {
     let s='<rect class="wire up" x="40" y="34" width="320" height="42" rx="10" style="animation-delay:.1s"/>'+
       '<circle class="wire up" cx="66" cy="55" r="8" style="animation-delay:.2s"/><line class="wire up" x1="72" y1="61" x2="80" y2="69" style="animation-delay:.2s"/>'+
@@ -398,7 +410,7 @@ function GrowthContent({ onClose }: { onClose: () => void }) {
     <div className="gmx" ref={wrapRef}>
       <div className="hero">
         <p className="lbl">Growth</p>
-        <h1>Bring me more<br /><em>customers.</em></h1>
+        <DeptH1>Bring me more<br /><em>customers.</em></DeptH1>
         <p>A stranger finds you, likes you, picks you over the others, and comes back for more. <b>That whole journey — six steps, one team, one number at month end.</b> Miss a step and the rest never happen, so we run all six.</p>
 
         <div className="journey" ref={journeyRef}>
@@ -700,7 +712,7 @@ function SalesContent({ onClose }: { onClose: () => void }) {
       <div className="wrap">
         <section className="hero">
           <span className="kick">The sales engagement</span>
-          <h1>We don&apos;t sell you<br />software. <em>We run<br />your sales.</em></h1>
+          <DeptH1>We don&apos;t sell you<br />software. <em>We run<br />your sales.</em></DeptH1>
           <p className="sub">One team that owns the whole sale — the strategy, the content that closes, how you show up, and one system you keep. Everything your sales needs, pointed at one number: revenue.</p>
           <div className="stats">
             <div className="st"><b>78<em>%</em></b><p>of buyers choose whoever answers first</p></div>
@@ -1064,7 +1076,7 @@ function MediaContent({ onClose }: { onClose: () => void }) {
     <div className="mm" ref={wrapRef}>
       <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:"1px solid var(--line)" }}>
         <p className="lbl">Marketing and media</p>
-        <h1>We make your money<br /><em>come back with more.</em></h1>
+        <DeptH1>We make your money<br /><em>come back with more.</em></DeptH1>
         <p className="desc">The right channels, the right creative, tested in flights and scaled only when they win — and <b>every euro of ad spend goes to the platforms, never to us.</b> Media that pays for itself, run by one team.</p>
 
         <div className="board" ref={boardRef}>
@@ -1404,7 +1416,7 @@ function SocialContent({ onClose }: { onClose: () => void }) {
       {/* hero */}
       <div className="hero">
         <p className="lbl">Everything social takes</p>
-        <h1>Social is a whole world.<br /><em>We deliver all of it.</em></h1>
+        <DeptH1>Social is a whole world.<br /><em>We deliver all of it.</em></DeptH1>
         <p className="desc">The story, the video, every platform, being where your people already are, and knowing how it all actually works — <b>delivered by one team who does this all day.</b> You touch none of it. It becomes the strongest thing you&apos;ve got.</p>
 
         {/* 3D stack */}
@@ -1729,7 +1741,7 @@ function ClarityContent({ onClose }: { onClose: () => void }) {
     <div className="clx" ref={wrapRef}>
       <div className="hero">
         <p className="lbl">Tell me what&apos;s working</p>
-        <h1>We tell you what&apos;s<br /><em>actually working.</em></h1>
+        <DeptH1>We tell you what&apos;s<br /><em>actually working.</em></DeptH1>
         <p>Not a dashboard full of numbers you&apos;ll never read — one straight answer: what&apos;s making you money, what&apos;s wasting it, and what to do next. <b>Everyone hands you data. We hand you the decision.</b></p>
 
         <div className="board" ref={boardRef}>
@@ -2057,7 +2069,7 @@ function AIStaffContent({ onClose }: { onClose: () => void }) {
       {/* hero */}
       <div className="hero">
         <p className="lbl">Pick your employee</p>
-        <h1>Not chatbots.<br /><em>Employees that do the work.</em></h1>
+        <DeptH1>Not chatbots.<br /><em>Employees that do the work.</em></DeptH1>
         <p>Trained on your business, plugged into your systems, working under your control with your data protected — <b>voice support, sales, a concierge for your customers, research on your competitors,</b> and the software and hardware around them. Built and delivered by our people. In a week. In Malta.</p>
 
         <div className="roster" ref={rosterRef}>
@@ -2412,7 +2424,7 @@ function CreativeContent({ onClose }: { onClose: () => void }) {
       <div className="wrap">
         <section className="hero">
           <span className="kick">Creative firepower</span>
-          <h1>Make us look<br />like a <em>billion.</em></h1>
+          <DeptH1>Make us look<br />like a <em>billion.</em></DeptH1>
           <p className="sub">Whatever your size, we make you look like the category leader — the brand people remember, screenshot, and pay a premium for. Big ideas, an always-on social engine, films, ad creative that converts, and a system that makes it all. One team, full firepower.</p>
           <div className="stats">
             <div className="st"><b>49<em>%</em></b><p>of marketing return is the creative itself</p></div>
@@ -2734,7 +2746,7 @@ function OperationsContent({ onClose }: { onClose: () => void }) {
     <div className="op" ref={wrapRef}>
       <div className="hero">
         <p className="lbl">Your week, given back</p>
-        <h1>Take the boring work<br /><em>off your plate.</em></h1>
+        <DeptH1>Take the boring work<br /><em>off your plate.</em></DeptH1>
         <p>Every week you lose hours to the same repetitive jobs — answering, booking, chasing, entering, reporting. <b>We find all of it, take it off you, and build it to run itself.</b> You get the one thing you can&apos;t buy back: time.</p>
 
         <div className="heroviz" ref={herovizRef}>
@@ -3006,7 +3018,7 @@ function AutomationContent({ onClose }: { onClose: () => void }) {
     <div className="au" ref={wrapRef}>
       <div className="hero">
         <p className="lbl">AI and automation</p>
-        <h1>The business that<br /><em>runs itself.</em></h1>
+        <DeptH1>The business that<br /><em>runs itself.</em></DeptH1>
         <p>Everything connected, the busywork triggering itself, the smart calls handled — running 24/7 while you watch it work. <b>Not more staff. A business that needs fewer hands to run.</b></p>
 
         <div className="frame" ref={frameRef}>
@@ -3273,7 +3285,7 @@ function TransformationContent({ onClose }: { onClose: () => void }) {
     <div className="trx" ref={wrapRef}>
       <div className="hero">
         <p className="lbl">Change how the business runs</p>
-        <h1>Software your business<br /><em>should run on.</em></h1>
+        <DeptH1>Software your business<br /><em>should run on.</em></DeptH1>
         <p>Some businesses run on spreadsheets, WhatsApp and duct tape. We design and build the custom software they should run on — <b>a real product and engineering team, live in weeks, and it&apos;s yours to keep.</b></p>
 
         <div className="frame" ref={frameRef}>
@@ -3368,14 +3380,14 @@ function ReputationContent({ onClose }: { onClose: () => void }) {
   return (
     <div style={{ background: RE.bg, color: RE.ink }}>
       <div style={{ padding: "1.8rem 20px 2.2rem", borderBottom: `1px solid ${RE.line}` }}>
-        <h1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
+        <DeptH1 style={{ fontFamily: "var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight: 800,
           fontSize: "clamp(2.4rem,10vw,3.8rem)", lineHeight: .9, letterSpacing: "-.05em",
           textTransform: "uppercase", color: RE.ink, marginBottom: "1rem" }}>
           Make me<br />
           <em style={{ fontFamily: "var(--font-instrument-serif,'Instrument Serif',serif)",
             fontStyle: "italic", fontWeight: 400, textTransform: "none", letterSpacing: 0,
             color: RE.hot, fontSize: "1.04em" }}>famous.</em>
-        </h1>
+        </DeptH1>
         <p style={{ fontSize: ".98rem", color: RE.dim, lineHeight: 1.6, maxWidth: "44ch" }}>
           Famous means people know you before you say a word — and pick you because of it.
           We make the videos, get you in the news, get the right people talking,
@@ -3692,7 +3704,7 @@ function BrandContent({ onClose }: { onClose: () => void }) {
     <div className="br" ref={wrapRef}>
       <div className="hero">
         <p className="lbl">Creative and brand</p>
-        <h1>Everything they see,<br /><em>hear and feel.</em></h1>
+        <DeptH1>Everything they see,<br /><em>hear and feel.</em></DeptH1>
         <p>Every image, film, word, screen, sign and space that makes someone feel something about your business — and choose you. Strategy, identity, content, product, campaigns, the lot. <b>One team for the entire creative world of your company.</b></p>
 
         <div className="frame" ref={frameRef}>
@@ -3859,14 +3871,14 @@ function EnquiriesContent({ onClose }: { onClose: () => void }) {
   return (
     <div style={{ background:"#0035AD", color:T.ivory }}>
       <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${T.line}` }}>
-        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+        <DeptH1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
           fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
           textTransform:"uppercase", color:T.ivory, marginBottom:"1rem" }}>
           Turn enquiries<br />
           <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
             fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0,
             color:T.scar, fontSize:"1.04em" }}>into money.</em>
-        </h1>
+        </DeptH1>
         <p style={{ fontSize:".98rem", color:T.dim, lineHeight:1.6, maxWidth:"44ch" }}>
           Every enquiry answered in four seconds, qualified, booked, and chased until paid.{" "}
           <strong style={{ color:T.ivory }}>One AI across WhatsApp, phone, DMs and email — every lead tracked in one pipeline.</strong>
@@ -4033,14 +4045,14 @@ function ShipContent({ onClose }: { onClose: () => void }) {
       {/* hero */}
       <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${SH.line}` }}>
         <Kicker label="Build" color={SH.cy} />
-        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+        <DeptH1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
           fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
           textTransform:"uppercase", color:SH.ink, marginBottom:"1rem" }}>
           Software your business<br />
           <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
             fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0,
             color:SH.cy, fontSize:"1.04em" }}>should run on.</em>
-        </h1>
+        </DeptH1>
         <p style={{ fontSize:".98rem", color:SH.dim, lineHeight:1.6, maxWidth:"44ch" }}>
           Some businesses run on spreadsheets, WhatsApp and duct tape. We design and build the custom software they should run on —{" "}
           <strong style={{ color:SH.ink }}>a real product and engineering team, live in weeks, and it's yours to keep.</strong>
@@ -4200,14 +4212,14 @@ function ProductsContent({ onClose }: { onClose: () => void }) {
     <div style={{ background:PRD.bg, color:PRD.c }}>
       {/* hero */}
       <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${PRD.line}` }}>
-        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+        <DeptH1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
           fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
           textTransform:"uppercase", color:PRD.c, marginBottom:"1rem" }}>
           We don't advise.<br />
           <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
             fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0,
             color:PRD.sig, fontSize:"1.04em" }}>We build.</em>
-        </h1>
+        </DeptH1>
         <p style={{ fontSize:".98rem", color:PRD.dim, lineHeight:1.6, maxWidth:"44ch" }}>
           Production-ready platforms, not decks.{" "}
           <strong style={{ color:PRD.c }}>We rebuilt how businesses operate on systems we've already built — already running in Malta venues tonight.</strong>
@@ -4371,14 +4383,14 @@ function CompareContent({ onClose }: { onClose: () => void }) {
       {/* hero */}
       <div style={{ padding:"1.8rem 20px 2.2rem", borderBottom:`1px solid ${T.line}` }}>
         <Kicker label="Why OARC" />
-        <h1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
+        <DeptH1 style={{ fontFamily:"var(--font-bricolage,'Bricolage Grotesque',sans-serif)", fontWeight:800,
           fontSize:"clamp(2.4rem,10vw,3.8rem)", lineHeight:.9, letterSpacing:"-.05em",
           textTransform:"uppercase", color:T.ivory, marginBottom:"1rem" }}>
           Paper vs<br />
           <em style={{ fontFamily:"var(--font-instrument-serif,'Instrument Serif',serif)",
             fontStyle:"italic", fontWeight:400, textTransform:"none", letterSpacing:0,
             color:T.scar, fontSize:"1.04em" }}>production.</em>
-        </h1>
+        </DeptH1>
         <p style={{ fontSize:".98rem", color:T.dim, lineHeight:1.6, maxWidth:"44ch" }}>
           Consultants give you a report. Agencies manage the spend. We build and run the systems.{" "}
           <strong style={{ color:T.ivory }}>Own platform in production. AI staff deployed. Metric-proven. Founder-led.</strong>

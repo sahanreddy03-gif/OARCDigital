@@ -18,6 +18,15 @@ export type DeptSeo = {
   faqs: { question: string; answer: string }[];
   related: { label: string; href: string }[];
   updated: string;
+  /**
+   * Plain-words top of the page: the search phrase, the promise, what we do, what you get.
+   * Growth has its own full page body, so it has no intro.
+   */
+  intro?: { lead: string; punch: string; promise: string; weDo: string[]; youGet: string[] };
+  /** The free check: one clear, low-risk reason to contact us, with its contents spelled out. */
+  offer: { name: string; line: string; checks: string[] };
+  /** Optional 30-second self-check (yes/no per step). The first "no" is the leak. */
+  leak?: { question: string; step: string; fix: string }[];
 };
 
 /** The trust claims the owner confirmed (2026-11-10). One source, every page. */

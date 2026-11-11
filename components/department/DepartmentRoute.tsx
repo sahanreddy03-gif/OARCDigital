@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Layout from "@/components/layout/Layout";
 import DepartmentOnPage from "./DepartmentOnPage";
-import { DeptBottom, DeptTop } from "./DepartmentSeo";
+import GrowthBody from "./GrowthBody";
+import { DeptBottom, DeptIntro, DeptTop } from "./DepartmentSeo";
 import { DEPARTMENTS } from "@/lib/departments/data";
 import { ogImageEntry } from "@/lib/seo/ogImageUrl";
 
@@ -47,10 +48,21 @@ export default function DepartmentRoute({
     <Layout>
       {children}
       <article>
-        <div style={{ background: BG[tone] }}>
-          <DeptTop data={d} tone={tone} />
+        {/* Every page opens the same way: ink hero, then plain "what we do / what you get".
+            Growth has its own full body; the others show the owner's detailed content below. */}
+        <div style={{ background: "#0E0E0E" }}>
+          <DeptTop data={d} tone="dark" />
         </div>
-        <DepartmentOnPage dept={d.dept} />
+        {d.dept === "Growth" ? (
+          <GrowthBody />
+        ) : (
+          <>
+            <DeptIntro data={d} />
+            <div id="dept-detail" className="scroll-mt-20">
+              <DepartmentOnPage dept={d.dept} />
+            </div>
+          </>
+        )}
         <DeptBottom data={d} />
       </article>
     </Layout>
