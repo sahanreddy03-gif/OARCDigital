@@ -99,13 +99,13 @@ export default function PageContent() {
           <p className="text-xs uppercase tracking-[0.25em] text-orange-500 mb-6" data-testid="text-eyebrow">
             AI SDR Agent — OARC AI Employees
           </p>
-          <h1
+          <h2
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.08] mb-8"
             data-speakable
             data-testid="heading-hero"
           >
             AI SDR Agent Malta — qualify leads and book the meeting
-          </h1>
+          </h2>
           <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-2xl" data-speakable>
             Outbound prospecting, cold email and LinkedIn sequences, qualification conversations, and calendar booking — all handled by AI while your closers focus on what only humans can do.
           </p>
