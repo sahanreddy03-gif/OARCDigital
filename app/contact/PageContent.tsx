@@ -5,12 +5,13 @@ import { useState, useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import { supportingPagesSEO } from "@/data/seoMetadata";
 import ContactForm from "@/components/contact/ContactForm";
-import { Mail, Phone, MessageCircle, MapPin, Bot, Sparkles, ArrowRight, Send } from "lucide-react";
+import { Mail, Phone, MessageCircle, MapPin, Bot, Sparkles, ArrowRight, Send, CalendarDays } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import Link from "next/link";
 import { m } from "framer-motion";
 const contactBokehBg = "/attached_assets/contact-bokeh-bg.jpg";
 import { NAP } from "@/lib/seo/nap";
+import { bookingUrl } from "@/lib/utm";
 import { buildContactShellGraph } from "@/lib/schema/shellSchemas";
 
 const WHATSAPP_NUMBER = NAP.whatsappNumber;
@@ -148,6 +149,17 @@ export default function PageContent() {
                     </div>
                   </a>
                   
+                  <a
+                    href={bookingUrl("/contact")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-4 mb-4 bg-cyan-400 text-black font-semibold rounded-xl hover:bg-cyan-300 transition-all duration-300"
+                    data-testid="link-book-call-hero"
+                  >
+                    <CalendarDays className="w-5 h-5" />
+                    Book a 20-minute call
+                  </a>
+
                   <button 
                     onClick={scrollToForm}
                     className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-white/10 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/20 transition-all duration-300"

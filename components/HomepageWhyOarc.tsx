@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { NAP } from "@/lib/seo/nap";
+import { bookingUrl } from "@/lib/utm";
 
 /**
  * "Why OARC Digital" — one clear, answer-first block about the whole business
@@ -91,12 +92,14 @@ export default function HomepageWhyOarc() {
         </ol>
 
         <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4 md:mt-12">
-          <Link
-            href="/contact"
+          <a
+            href={bookingUrl("home-why-oarc")}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center rounded-full bg-[#0E0E0E] px-6 py-3.5 text-[15px] font-semibold text-[#F5F3EE] transition-opacity hover:opacity-85"
           >
             Book a 20-minute call →
-          </Link>
+          </a>
           <Link href="/why-oarc" className="border-b border-[#0E0E0E]/30 pb-1 text-sm font-semibold hover:border-[#0E0E0E]">
             Why OARC in detail
           </Link>

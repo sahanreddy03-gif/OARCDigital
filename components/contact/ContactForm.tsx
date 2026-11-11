@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Loader2, Send } from "lucide-react";
 import { NAP } from "@/lib/seo/nap";
+import EnquiryNextSteps from "@/components/EnquiryNextSteps";
 
 type Status = "idle" | "sending" | "success" | "error";
 type ContactFormProps = {
@@ -22,6 +23,7 @@ export default function ContactForm({
   successMessage = "Message sent. We’ll be in touch within 24 hours.",
 }: ContactFormProps = {}) {
   const [status, setStatus] = useState<Status>("idle");
+  const [sentName, setSentName] = useState("");
   const isBlueprintForm = funnelTheme !== undefined;
   const fieldClasses = isBlueprintForm
     ? "bg-white/5 border-white/10 text-white placeholder:text-zinc-600 focus:border-[#c8102e]/60 focus:ring-1 focus:ring-[#c8102e]/30 transition-all"
@@ -39,6 +41,7 @@ export default function ContactForm({
         headers: { Accept: "application/json" },
       });
       if (res.ok) {
+        setSentName(String(data.get("name") ?? ""));
         setStatus("success");
         form.reset();
       } else {
@@ -160,13 +163,21 @@ export default function ContactForm({
           </Button>
 
           {status === "success" && (
-            <p
-              role="status"
-              data-testid="text-form-success"
-              className="text-green-400 text-center text-sm font-medium"
-            >
-              {successMessage}
-            </p>
+            <div className="rounded-xl border border-green-400/25 bg-green-400/5 p-4">
+              <p
+                role="status"
+                data-testid="text-form-success"
+                className="text-green-400 text-center text-sm font-medium"
+              >
+                {successMessage}
+              </p>
+              <EnquiryNextSteps
+                name={sentName}
+                topic={funnelTheme}
+                lead="Want a faster answer? Pick one:"
+                className="mt-4 text-center"
+              />
+            </div>
           )}
           {status === "error" && (
             <p

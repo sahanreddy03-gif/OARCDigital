@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import EnquiryNextSteps from '@/components/EnquiryNextSteps';
 
 type Props = {
   leadName: string;
@@ -40,9 +41,18 @@ export default function GuideLeadForm({ leadName, ctaLabel }: Props) {
 
   if (status === 'done') {
     return (
-      <p className="lp-form-success" data-speakable>
-        Check your inbox—we sent the guide. If nothing arrives in five minutes, email hello@oarcdigital.com.
-      </p>
+      <div className="lp-form-success">
+        <p data-speakable>
+          Got it. We will email your guide within 24 hours. Nothing by then? Email hello@oarcdigital.com.
+        </p>
+        <EnquiryNextSteps
+          name={form.name}
+          topic="the guide"
+          lead="Want to talk it through now?"
+          tone="light"
+          className="mt-4"
+        />
+      </div>
     );
   }
 

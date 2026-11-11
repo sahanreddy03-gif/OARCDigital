@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
 import { X, Check, Zap, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import EnquiryNextSteps from '@/components/EnquiryNextSteps';
 
 interface QuickLeadModalProps {
   isOpen: boolean;
@@ -39,6 +40,7 @@ export default function QuickLeadModal({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [sent, setSent] = useState({ name: '', plan: '' });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -69,13 +71,14 @@ export default function QuickLeadModal({
       });
 
       if (response.ok) {
+        setSent({ name: formData.name, plan: formData.plan || planName || '' });
         setIsSubmitted(true);
         setFormData({ name: '', email: '', phone: '', plan: '' });
       } else {
         throw new Error('Submission failed');
       }
     } catch (err) {
-      setError('Something went wrong. Please try again or contact us directly.');
+      setError('That did not send. Please try again, or WhatsApp us on +356 7971 1799.');
     }
     setIsSubmitting(false);
   };
@@ -187,7 +190,7 @@ export default function QuickLeadModal({
               </form>
 
               <p className="text-zinc-500 text-xs text-center mt-4">
-                We'll respond within 2 hours during business hours.
+                We reply within 24 hours. WhatsApp is fastest.
               </p>
             </>
           ) : (
@@ -196,7 +199,13 @@ export default function QuickLeadModal({
                 <Check className="w-8 h-8 text-[#c4ff4d]" />
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">Request Received!</h3>
-              <p className="text-zinc-400">We'll be in touch very soon.</p>
+              <p className="text-zinc-400">We reply within 24 hours.</p>
+              <EnquiryNextSteps
+                name={sent.name}
+                topic={sent.plan && sent.plan !== 'Just a consultation' ? sent.plan : undefined}
+                lead="Want a faster answer? Pick one:"
+                className="mt-6"
+              />
               <Button 
                 onClick={handleClose}
                 className="mt-6 bg-white/10 hover:bg-white/20 text-white px-8"

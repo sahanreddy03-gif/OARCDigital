@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { bookingUrl } from "@/lib/utm";
 import { registerGSAP, gsap, EASE, DUR } from "@/lib/motion/gsap-system";
 
 export default function NeedHelpCTA() {
@@ -82,7 +82,7 @@ export default function NeedHelpCTA() {
             </div>
           </div>
 
-          <Link href="/contact">
+          <a href={bookingUrl("home-need-help")} target="_blank" rel="noopener noreferrer">
             <Button
               size="lg"
               className="rounded-full font-semibold shadow-lg whitespace-nowrap"
@@ -92,7 +92,7 @@ export default function NeedHelpCTA() {
               Schedule a Free Consultation
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
-          </Link>
+          </a>
         </div>
       </div>
     </section>

@@ -33,6 +33,14 @@ export async function POST(request: NextRequest) {
         `New lead from ARC chat — ${result.data.name} | ${result.data.contact} | Interest: ${result.data.service}` +
         (transcript ? `\n\n--- Transcript ---\n${transcript}` : ""),
     });
+    // If the notification email failed AND nothing was stored, the enquiry has
+    // reached nobody. Say so, so the form can show an error instead of "sent".
+    if (!submission.emailed && !submission.lead) {
+      return NextResponse.json(
+        { error: "That did not send. Please try again, or WhatsApp us on +356 7971 1799." },
+        { status: 502 },
+      );
+    }
     return NextResponse.json({ success: true, emailed: submission.emailed, lead: submission.lead });
   } catch {
     console.error("Lead capture error");
