@@ -137,7 +137,7 @@ export default function NewWorkIndex() {
   const [menuOpen, setMenuOpen] = useState(false);
   const visible = useMemo(() => filter === "All client work" ? projects : projects.filter((project) => project.category === filter), [filter]);
 
-  return <main className="work-index work-index-light" id="our-work-top">
+  return <div className="work-index work-index-light" id="our-work-top">
     <section className="light-hero">
       <header className="light-topbar"><Brand /><span className="oarc-edition">OUR WORK / CLIENT PARTNERSHIPS<br />EDITION 01 — 2026</span><nav className="light-nav" aria-label="Our Work navigation"><a href="#our-work-records">Work</a><a href="#our-work-standard">How to read it</a></nav><a href="#our-work-contact" className="light-contact">Start a conversation <ArrowUpRight size={15} /></a><button className="light-menu" aria-label="Open navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button></header>
       {menuOpen && <nav className="light-mobile-nav" aria-label="Mobile Our Work navigation"><a href="#our-work-records" onClick={() => setMenuOpen(false)}>Work</a><a href="#our-work-standard" onClick={() => setMenuOpen(false)}>How to read it</a><a href="#our-work-contact" onClick={() => setMenuOpen(false)}>Start a conversation</a></nav>}
@@ -160,5 +160,5 @@ export default function NewWorkIndex() {
 
     <section className="standard-section" id="our-work-standard"><div className="standard-stamp"><span>OARC</span><b>OUR<br />WORK</b></div><div><p className="ink-label">HOW TO READ THIS COLLECTION</p><h2>One collection.<br />Four client types.</h2><p>Each project shows the client, what OARC did, and the results.</p></div><ol><li><b>01</b> Client partnerships: named brands, with links to see them live.</li><li><b>02</b> Products and systems: things we built, and what they changed.</li><li><b>03</b> Client projects: the problem, the fix and the numbers.</li></ol></section>
     <section className="archive-section" id="our-work-contact"><div><p className="ink-label">THE NEXT PARTNERSHIP</p><h2>Bring the real<br /><i>pressure.</i></h2><p>Bring the ambition, the business problem, or the moment that deserves a sharper creative and digital response.</p></div><a href="/contact" className="archive-contact">Start a conversation <ArrowUpRight size={19} /></a></section>
-  </main>;
+  </div>;
 }
