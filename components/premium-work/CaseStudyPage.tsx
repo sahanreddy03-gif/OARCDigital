@@ -29,6 +29,14 @@ type CaseStory = {
 
 type Picture = { src: string; alt: string };
 
+/** First match wins, so the order matters: money and people first, then attention. */
+const CLAIM_GROUPS: { label: string; test: RegExp }[] = [
+  { label: "Bookings, sales and customers", test: /booking|reservation|table|order|sales|sold|meals|calls|enquir|fans to|visitors to|people to the two shops|shoppers through|sellers|buyers|came back/i },
+  { label: "Views and reach", test: /reach|views|viewers|watch/i },
+  { label: "Social media", test: /follower|engagement|save|share|vote|social/i },
+  { label: "Visits", test: /visit|page|menu|taps|clicks|find|found/i },
+];
+
 export type NextCase = { slug: string; name: string; headline: string; image?: string };
 
 export default function CaseStudyPage({
@@ -65,6 +73,19 @@ export default function CaseStudyPage({
   const morePictures = pool.slice(1, 7);
   // Stats already carry the three headline claims; list only the others.
   const moreClaims = proof ? proof.results.slice(0, 12) : [];
+
+  // Sort every claim into a plain bucket so the breadth of the work shows at a glance.
+  const grouped = CLAIM_GROUPS.map((group) => ({ label: group.label, lines: [] as string[] }));
+  const ungrouped: string[] = [];
+  for (const line of moreClaims) {
+    const index = CLAIM_GROUPS.findIndex((group) => group.test.test(line));
+    if (index >= 0) grouped[index].lines.push(line);
+    else ungrouped.push(line);
+  }
+  // Only marketing work sorts cleanly; otherwise keep one plain list.
+  const sortsCleanly = ungrouped.length * 2 <= moreClaims.length;
+  const board = sortsCleanly ? grouped.filter((group) => group.lines.length > 0) : [];
+  if (board.length >= 2 && ungrouped.length > 0) board.push({ label: "More results", lines: ungrouped });
 
   return (
     <article className="cs" data-testid="case-study">
@@ -173,13 +194,26 @@ export default function CaseStudyPage({
               ))}
             </dl>
           )}
-          {moreClaims.length > 0 && (
+          {board.length >= 2 ? (
+            <div className="cs-board" data-testid="case-board">
+              {board.map((group) => (
+                <div key={group.label}>
+                  <h3>{group.label}</h3>
+                  <ul>
+                    {group.lines.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ) : moreClaims.length > 0 ? (
             <ul className="cs-claims">
               {moreClaims.map((line) => (
                 <li key={line}>{line}</li>
               ))}
             </ul>
-          )}
+          ) : null}
         </section>
       )}
 
