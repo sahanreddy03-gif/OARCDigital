@@ -346,7 +346,12 @@ export default function PageContent() {
             </p>
             <div id="specialist-ai" className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
               <Link href="/tom" className="text-white hover:text-[#c4ff4d]">Voice AI Worker →</Link>
+              <Link href="/ai-agents" className="text-zinc-400 hover:text-white">AI Agents</Link>
               <Link href="/services/custom-ai-agents" className="text-zinc-400 hover:text-white">Custom AI Agents</Link>
+              <Link href="/services/seo-services" className="text-zinc-400 hover:text-white">SEO</Link>
+              <span className="text-zinc-500">Custom Mobile &amp; Web Applications</span>
+              <Link href="/services/mobile-apps-development" className="text-zinc-400 hover:text-white">Mobile apps</Link>
+              <Link href="/services/web-apps-development" className="text-zinc-400 hover:text-white">Web apps</Link>
               <Link href="/services/conversational-commerce" className="text-zinc-400 hover:text-white">Conversational Commerce</Link>
               <Link href="/services/ai-employee-service-desk" className="text-zinc-400 hover:text-white">AI Concierge</Link>
             </div>
@@ -403,9 +408,14 @@ export default function PageContent() {
                       <p className="text-xs text-white/60 font-semibold mb-3 uppercase tracking-[0.2em]">
                         {categoryTaglines[activeCategory] || 'Transform your business'}
                       </p>
-                      <h3 className="text-3xl md:text-4xl font-black mb-6 text-white">
+                      <h3 className="text-3xl md:text-4xl font-black mb-4 text-white">
                         {activeCategoryData.featured.title}
                       </h3>
+                      {activeCategoryData.featured.description ? (
+                        <p className="text-base text-white/80 mb-6 max-w-xl">
+                          {activeCategoryData.featured.description}
+                        </p>
+                      ) : null}
                       <Link href={`/services/${activeCategoryData.featured.route || activeCategoryData.featured.slug}`}>
                         <button
                           className="px-6 py-3 bg-white rounded-full font-semibold text-sm text-zinc-900 hover:scale-105 transition-transform inline-flex items-center gap-2"

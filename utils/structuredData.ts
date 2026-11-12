@@ -7,7 +7,7 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "MarketingAgency",
   "name": NAP.name,
-  "description": "Malta's first Creative + AI Systems Agency. Social media management, video production, branding, web design, AI agents, and marketing automation for Malta businesses.",
+  "description": "Malta-based creative and AI systems agency. Social media, video, branding, web design, SEO, AI agents, and marketing automation for businesses in every industry.",
   "url": "https://oarcdigital.com",
   "telephone": NAP.phoneE164,
   "email": NAP.email,
@@ -24,6 +24,7 @@ export const localBusinessSchema = {
     "latitude": NAP.geo.lat,
     "longitude": NAP.geo.lng
   },
+  "openingHours": NAP.openingHours,
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -96,8 +97,8 @@ export const organizationSchema = {
   "alternateName": "OARC",
   "url": "https://oarcdigital.com",
   "logo": "https://oarcdigital.com/favicon.png",
-  "description": "OARC Digital helps Maltese businesses grow revenue fast through brand strategy, AI-driven automation, and performance marketing. Malta's first AI-native creative, automation & intelligent agents agency.",
-  "foundingDate": "2020",
+  "description": "Malta-based creative and AI systems agency. One AI-native team for creative, growth and automation, serving businesses in every industry.",
+  "foundingDate": "2023",
   "founders": [
     {
       "@type": "Person",

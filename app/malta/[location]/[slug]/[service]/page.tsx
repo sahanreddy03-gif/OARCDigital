@@ -19,6 +19,7 @@ import { NAP } from '@/lib/seo/nap';
 import { LOCATION_IND_SVC_GLOBAL_KEEP, KEEP_LOCATION_IND_SVC_COMBOS } from '@/lib/seo/seoSets';
 import { historicalServices } from '@/shared/historicalProgrammaticInventory';
 import { isRetiredMatrixPath } from '@/lib/seo/retiredMatrix';
+import { isThinMatrixPath } from '@/lib/seo/thinMatrix';
 
 type LocationIndustryServiceParams = {
   location: string;
@@ -43,10 +44,12 @@ export async function generateMetadata({
   const c = buildLocationIndustryServiceContent(location, slug, service);
   if (!c) return { title: 'Not Found | OARC Digital' };
   const comboKey = `${location}/${slug}/${service}`;
+  const matrixPath = `/malta/${comboKey}`;
   const shouldIndex =
     (LOCATION_IND_SVC_GLOBAL_KEEP ||
       KEEP_LOCATION_IND_SVC_COMBOS.has(comboKey)) &&
-    !isRetiredMatrixPath(`/malta/${comboKey}`);
+    !isRetiredMatrixPath(matrixPath) &&
+    !isThinMatrixPath(matrixPath);
   return {
     title: c.title,
     description: c.description,
@@ -344,8 +347,7 @@ export default async function IndustryLocationServicePage({
               Ready to grow in {loc.name}?
             </h2>
             <p className="text-zinc-300 mb-6">
-              OARC Digital — Malta&apos;s First Creative + AI Systems Agency. Month-to-month contracts. Senior team on
-              every account.
+              OARC Digital is a Malta-based creative and AI systems agency. One AI-native team for creative, growth and automation.
             </p>
             <a
               href="/contact"

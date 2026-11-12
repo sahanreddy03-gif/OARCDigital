@@ -24,6 +24,7 @@
 //   npx tsx scripts/index-now-ping.ts                                 # sitemap + homepage
 //   npx tsx scripts/index-now-ping.ts https://oarcdigital.com/foo    # + explicit URL
 //   npx tsx scripts/index-now-ping.ts --delta                         # changed routes since last publication
+//   npx tsx scripts/index-now-ping.ts --sitemap                       # every URL in the indexable sitemaps
 //
 // Cap: IndexNow accepts max 10,000 URLs/request. Delta mode hard-caps at
 // 9,000 URL slots (1,000 reserved for sitemap + retries + safety). On
@@ -34,6 +35,16 @@
 import { execSync } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
+import { buildEntries as buildAeoEntries } from "../app/sitemap-aeo.xml/route";
+import { buildEntries as buildBlogEntries } from "../app/sitemap-blog.xml/route";
+import { buildEntries as buildCoreEntries } from "../app/sitemap-core.xml/route";
+import { buildEntries as buildExpandedEntries } from "../app/sitemap-malta-expanded-matrix.xml/route";
+import { buildEntries as buildH360Entries } from "../app/sitemap-h360.xml/route";
+import { buildEntries as buildIndustriesEntries } from "../app/sitemap-industries.xml/route";
+import { buildEntries as buildLocationServiceEntries } from "../app/sitemap-malta-location-services.xml/route";
+import { buildEntries as buildLocationEntries } from "../app/sitemap-malta-locations.xml/route";
+import { buildEntries as buildPriorityEntries } from "../app/sitemap-malta-priority-matrix.xml/route";
+import { buildEntries as buildServicesEntries } from "../app/sitemap-services.xml/route";
 import { pingSitemapAndUrls, submitToIndexNow } from "../lib/indexNow";
 import { TOP_PAGES, topPageCanonical } from "../lib/seo/topPages";
 
@@ -161,18 +172,54 @@ function computeDeltaUrls(): string[] {
   return list;
 }
 
+const SITEMAP_BATCH = 10000;
+
+async function collectIndexableSitemapUrls(): Promise<string[]> {
+  const builders: Array<() => Promise<{ loc: string }[]>> = [
+    async () => buildCoreEntries(),
+    async () => buildServicesEntries(),
+    async () => buildH360Entries(),
+    async () => buildAeoEntries(),
+    async () => buildIndustriesEntries(),
+    async () => buildBlogEntries(),
+    async () => buildPriorityEntries(),
+    async () => buildExpandedEntries(),
+    async () => buildLocationEntries(),
+    async () => buildLocationServiceEntries(),
+  ];
+  const urls = new Set<string>([`https://${HOST}/sitemap.xml`]);
+  for (const build of builders) {
+    for (const entry of await build()) urls.add(entry.loc);
+  }
+  return [...urls];
+}
+
 async function main() {
+  const args = process.argv.slice(2);
+  const isDelta = args.includes("--delta");
+  const fromSitemap = args.includes("--sitemap");
+  const explicit = args.filter((a) => a.startsWith("http"));
+
   if (process.env.VERCEL_ENV !== "production") {
+    if (fromSitemap) {
+      const urls = await collectIndexableSitemapUrls();
+      console.log(
+        `[index-now-ping] dry-run — ${urls.length} indexable sitemap URL(s). Set VERCEL_ENV=production to submit. No request sent.`,
+      );
+      return;
+    }
     console.log(
       `[index-now-ping] VERCEL_ENV=${process.env.VERCEL_ENV ?? "unset"} — skipping (production-only).`,
     );
     return;
   }
-  const args = process.argv.slice(2);
-  const isDelta = args.includes("--delta");
-  const explicit = args.filter((a) => a.startsWith("http"));
 
-  const extras = isDelta ? [...computeDeltaUrls(), ...explicit] : explicit;
+  const sitemapUrls = fromSitemap ? await collectIndexableSitemapUrls() : [];
+  const extras = isDelta
+    ? [...computeDeltaUrls(), ...explicit]
+    : fromSitemap
+      ? sitemapUrls
+      : explicit;
 
   // Delta mode with zero changed URLs and no explicit args = sitemap-only ping.
   // Still useful so Bing/Yandex re-crawl /sitemap.xml on every publication.
@@ -181,7 +228,13 @@ async function main() {
   );
 
   let results;
-  if (extras.length === 0) {
+  if (fromSitemap) {
+    const all = [];
+    for (let i = 0; i < extras.length; i += SITEMAP_BATCH) {
+      all.push(...(await submitToIndexNow(extras.slice(i, i + SITEMAP_BATCH))));
+    }
+    results = all;
+  } else if (extras.length === 0) {
     results = await pingSitemapAndUrls();
   } else if (extras.length <= 9998) {
     // pingSitemapAndUrls prepends sitemap+homepage so cap-aware path ok.
@@ -226,7 +279,7 @@ async function main() {
       pingedAt: new Date().toISOString(),
       commit,
       vercelEnv: process.env.VERCEL_ENV ?? null,
-      mode: isDelta ? "delta" : "full",
+      mode: isDelta ? "delta" : fromSitemap ? "sitemap" : "full",
       extraUrlCount: extras.length,
       endpointsTotal: results.length,
       endpointsOk: results.length - failed,

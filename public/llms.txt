@@ -1,8 +1,22 @@
 # OARC Digital
 
-> OARC Digital — Creative + AI Systems Agency — Where Creativity Meets Revenue.
+> Marketing Agency Malta. One AI-native team for creative, growth & automation.
 
-OARC Digital is a Malta-based creative and AI systems agency, combining brand strategy, content production, AI workers, voice coverage, business automation, and hospitality technology under one team. Based in Birkirkara, Malta.
+OARC Digital is a Malta-based creative and AI systems agency serving every industry. One team for creative, growth, and automation, based in Birkirkara, Malta.
+
+## Core services
+
+- [SEO](https://oarcdigital.com/services/seo-services) — technical, local, and content search for Malta.
+- [AI Agents](https://oarcdigital.com/ai-agents) — AI workers for sales, support, bookings, and operations.
+- [Custom AI agents](https://oarcdigital.com/services/custom-ai-agents) — agents scoped to a defined business workflow.
+- [Custom mobile applications](https://oarcdigital.com/services/mobile-apps-development) — iOS and Android products.
+- [Custom web applications](https://oarcdigital.com/services/web-apps-development) — SaaS, portals, and internal tools.
+- [Social media](https://oarcdigital.com/services/social-media-creative-management) — Instagram, TikTok, Facebook, and LinkedIn.
+- [Video production](https://oarcdigital.com/services/video-production)
+- [Web design](https://oarcdigital.com/services/web-design)
+- [Paid advertising](https://oarcdigital.com/services/paid-advertising)
+- [Branding](https://oarcdigital.com/services/branding)
+- [Voice AI Worker](https://oarcdigital.com/voice-ai-worker)
 
 Website: https://oarcdigital.com
 Instagram: https://www.instagram.com/oarcdigital

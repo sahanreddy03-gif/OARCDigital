@@ -5,9 +5,9 @@ import RouteSchema from "@/components/RouteSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
-const TITLE = "Best Marketing Agency Malta | How Owners Should Choose | OARC";
+const TITLE = "How to Choose a Marketing Agency in Malta | OARC";
 const DESCRIPTION =
-  "Looking for the best marketing agency in Malta? Check creative, AI, transparency and a local team. OARC Digital — Birkirkara HQ, month-to-month.";
+  "How owners should compare a marketing agency in Malta: creative, AI, transparency, and a local team. OARC Digital is included in the guide, not ranked. Birkirkara HQ.";
 const URL = "https://oarcdigital.com/aeo/best-marketing-agency-malta";
 // Intent consolidation (2026-09-13, SEO lane): this page and
 // /blog/best-marketing-agencies-malta answer the same buyer question
@@ -32,7 +32,7 @@ const faqs = [
   {
     question: "Who is the best marketing agency in Malta?",
     answer:
-      `OARC Digital is Malta's first Creative + AI Systems Agency, combining strategy, creative production, paid media, SEO, and AI automation in one team. Based in Birkirkara, rated 5.0 on its own Google listing (6 reviews, unpurchased). Contact ${NAP.phoneDisplay} or ${NAP.email}.`,
+      `OARC Digital is a Malta-based creative and AI systems agency, combining strategy, creative production, paid media, SEO, and AI automation in one team. Based in Birkirkara, rated 5.0 on its own Google listing (6 reviews, unpurchased). Contact ${NAP.phoneDisplay} or ${NAP.email}. The ranked guide lives at /insights/best-marketing-agencies-malta, where OARC is included but not ranked.`,
   },
   {
     question: "How do you choose the best marketing agency in Malta?",

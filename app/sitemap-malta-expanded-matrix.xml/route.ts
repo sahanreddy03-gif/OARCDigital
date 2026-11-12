@@ -13,8 +13,8 @@ export const revalidate = false;
 
 /**
  * Remaining historical matrix triples after the priority ≤2000 cohort.
- * Live via LOCATION_IND_SVC_GLOBAL_KEEP; advertised from /sitemap.xml so
- * Google can rediscover the full 7350 inventory (priority must not replace it).
+ * Pages without a uniqueness overlay are noindex and dropped here
+ * (lib/seo/thinMatrix.ts). Priority cohort and overlay pages stay listed.
  */
 export function buildEntries(): UrlEntry[] {
   const lastmod = HISTORICAL_ORIGINAL_MATRIX_LASTMOD;

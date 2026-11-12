@@ -98,7 +98,7 @@ export const serviceProfiles: Record<string, ServiceProfile> = {
       },
       {
         q: `How do you handle the ${loc.audienceProfile.includes('multicultural') || loc.audienceProfile.includes('international') ? 'multilingual' : 'Maltese vs English'} audience in ${loc.name}?`,
-        a: `${loc.audienceProfile.includes('multicultural') ? `${loc.name} has one of the most diverse audiences on the island, so we plan content in English with Maltese, Italian, and other community languages layered in where the data shows it converts.` : `For ${loc.name} we typically run a bilingual Maltese + English content strategy — most local-language posts outperform English-only versions by 30–60% on Facebook.`}`,
+        a: `${loc.audienceProfile.includes('multicultural') ? `${loc.name} has one of the most diverse audiences on the island, so we plan content in English with Maltese, Italian, and other community languages layered in where the data shows it converts.` : `For ${loc.name} we typically run a bilingual Maltese + English content strategy, and we choose the language from what that audience actually responds to rather than a fixed split.`}`,
       },
     ],
   },
@@ -352,14 +352,14 @@ export const industryProfiles: Record<string, IndustryProfile> = {
     context: 'food and dining',
     painPoint: (loc) =>
       loc.audienceProfile.includes('tourist') || loc.audienceProfile.includes('cultural')
-        ? `competing for tourist spend in a ${loc.name} dining market where 200+ venues fight for the same Google Maps result`
+        ? `competing for tourist attention in the ${loc.name} dining market, where many venues are trying to be found on the same Google Maps searches`
         : `building a loyal local diner base in ${loc.name} when the audience defaults to whichever venue is most visible on Instagram and TikTok that week`,
     opportunity: (loc) =>
-      `${loc.name} restaurants that get short-form video right see 3–5x reservation growth within 90 days. Landmarks like ${loc.landmarks[0]} give ${loc.name} venues a visual identity most Malta competitors cannot copy.`,
+      `${loc.name} restaurants that publish useful short-form video and keep their Google listing current are easier to choose. Landmarks like ${loc.landmarks[0]} give ${loc.name} venues a visual setting worth filming.`,
     industryFaq: (loc, svc) => [
       {
         q: `What\'s the realistic ROI of ${svc.toLowerCase()} for a restaurant in ${loc.name}?`,
-        a: `Our ${loc.name} restaurant clients typically see 30–60% growth in direct reservations within the first 90 days, plus a measurable lift in Google Maps "discovery" searches. ROI depends heavily on average ticket size and table turnover.`,
+        a: `It depends on the restaurant, the baseline, and how bookings are measured. We agree the commercial outcome from your own reservations or enquiries before work starts, then report against that baseline. There is no standard lift we publish for every ${loc.name} restaurant.`,
       },
       {
         q: `Do you photograph and film food in-house for ${loc.name} restaurants?`,
@@ -374,13 +374,13 @@ export const industryProfiles: Record<string, IndustryProfile> = {
     plural: 'hotels',
     context: 'hospitality and accommodation',
     painPoint: (loc) =>
-      `reducing OTA commission dependency for ${loc.name} hotels — direct booking share for most Malta properties sits below 25% and every percentage point recovered is pure margin`,
+      `reducing reliance on online travel agencies for ${loc.name} hotels, so more bookings can come through the property's own site and channels`,
     opportunity: (loc) =>
       `Hotels in ${loc.name} can use the surrounding catchment — ${loc.nearestLocations.join(', ')} — and landmarks like ${loc.landmarks[0]} as the storytelling spine of a direct-booking content engine that OTAs structurally can\'t replicate.`,
     industryFaq: (loc, svc) => [
       {
         q: `Can ${svc.toLowerCase()} actually move the needle on direct bookings for a ${loc.name} hotel?`,
-        a: `Yes, when paired with the right tech stack. Our ${loc.name} hotel clients have grown direct booking share by 8–15 percentage points in 12 months — primarily through paid search defending the brand name, content marketing, and email automation.`,
+        a: `It can, when the site, the offer, and the follow-up can take a direct booking. We start from the property's current booking mix and agree what "better" means before any campaign. We do not publish a standard direct-booking lift for every ${loc.name} hotel.`,
       },
       {
         q: `Which source markets do you target for ${loc.name} hotels?`,
@@ -397,7 +397,7 @@ export const industryProfiles: Record<string, IndustryProfile> = {
     painPoint: (loc) =>
       `generating qualified property leads in ${loc.name} when the listing portals commoditise every property and most agencies look identical to a serious buyer`,
     opportunity: (loc) =>
-      `${loc.name} real estate agencies that invest in cinematic property video and a personal-brand content layer outperform portal-only agencies by 4–8x on cost-per-qualified-enquiry. ${loc.audienceProfile}`,
+      `${loc.name} real estate agencies that invest in property video and a personal-brand content layer give buyers a reason to enquire beyond the listing portals. ${loc.audienceProfile}`,
     industryFaq: (loc, svc) => [
       {
         q: `Can you target international buyers looking for property in ${loc.name}?`,
@@ -405,7 +405,7 @@ export const industryProfiles: Record<string, IndustryProfile> = {
       },
       {
         q: `Do you shoot property tours and aerial footage in ${loc.name}?`,
-        a: `Yes — full property video, drone (where permitted), and walkthrough reels are part of every ${loc.name} real estate engagement. Listings with our video routinely outperform portal-standard photography by 3–5x on enquiry rate.`,
+        a: `Yes — full property video, drone where it is permitted, and walkthrough reels can be part of a ${loc.name} real estate engagement. We compare enquiry quality against the agency's own portal baseline rather than a published multiplier.`,
       },
     ],
   },
@@ -445,51 +445,21 @@ export function buildCaseStudyHook(
   svc: ServiceProfile,
   ind?: IndustryProfile,
 ): CaseStudyHook {
-  // Service-specific outcome metric — deterministic per service so each
-  // location-service page anchors on the metric most credible for that service.
-  const metricBySvc: Record<string, { metric: string; outcome: string }> = {
-    'social-media-creative-management': {
-      metric: '+312% organic reach · 6 months',
-      outcome: 'tripled their organic reach and grew direct enquiries by 47% in six months',
-    },
-    'seo-services': {
-      metric: '+184% qualified leads · 12 weeks',
-      outcome: 'nearly tripled their qualified-lead volume in twelve weeks at a 38% lower cost-per-lead',
-    },
-    'paid-advertising': {
-      metric: '−42% CPA · 8 weeks',
-      outcome: 'cut their cost-per-acquisition by 42% in eight weeks while doubling monthly conversions',
-    },
-    'web-design': {
-      metric: '+71% conversion rate · post-launch',
-      outcome: 'lifted their site conversion rate by 71% in the first 60 days after launch',
-    },
-    'ai-consulting': {
-      metric: '−68% support-handle time · 90 days',
-      outcome: 'cut their average customer-support handle time by 68% in the first 90 days of automation',
-    },
-  };
-  const m = metricBySvc[svc.slug] ?? metricBySvc['seo-services'];
-
-  // Industry-specific subject — defaults to the location\'s top primary industry
-  // when no explicit industry is supplied.
+  // No fabricated client, percentage, or time-boxed result. The hook names
+  // the local job; measurement stays on the business's own baseline.
   const subject = ind
     ? ind.name.toLowerCase()
     : loc.primaryIndustries[0];
 
-  const headline = ind
-    ? `When a ${loc.name}-based ${subject} business came to us…`
-    : `When a ${subject} business in ${loc.name} came to us…`;
-
-  // Industry-aware outcome framing for the generated content record.
-  const indFraming = ind
-    ? `Their challenge was the same one most ${ind.plural} in ${loc.name} face: ${ind.painPoint(loc)}.`
-    : `Their challenge was the same one most ${subject} businesses in ${loc.name} face — too much competition for the same audience\'s attention.`;
+  const headline = `${svc.shortName} for ${subject} businesses in ${loc.name}`;
+  const outcome = ind
+    ? `The local pressure is ${ind.painPoint(loc)}. Progress is agreed from that business's own baseline, not from a standard result.`
+    : `Progress for a ${subject} business in ${loc.name} is agreed from that business's own baseline, not from a standard result.`;
 
   return {
     headline,
-    outcome: `${indFraming} Within the first quarter of working with us, they ${m.outcome}.`,
-    metric: m.metric,
+    outcome,
+    metric: "Measured against the agreed baseline",
   };
 }
 

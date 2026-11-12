@@ -62,6 +62,21 @@ export const NAP = deepFreeze({
 
   // The canonical Google Maps deep-link rendered into JSON-LD `hasMap`.
   mapUrl: "https://maps.google.com/?q=Level+1+The+Brewhouse+Birkirkara+Malta",
+
+  // Published office hours (also in the Birkirkara AEO FAQ and contact schema).
+  // Monday–Friday, Malta time. No weekend hours are published.
+  openingHours: "Mo-Fr 09:00-18:00",
+} as const);
+
+/**
+ * Schema.org OpeningHoursSpecification for the Birkirkara studio.
+ * Weekdays 09:00–18:00. Frozen with the rest of the NAP record.
+ */
+export const OPENING_HOURS_SPECIFICATION = deepFreeze({
+  "@type": "OpeningHoursSpecification",
+  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+  opens: "09:00",
+  closes: "18:00",
 } as const);
 
 /**

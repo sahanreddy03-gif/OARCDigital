@@ -106,6 +106,10 @@ export default function PageContent() {
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
               Whether you need AI automation, creative campaigns, or growth strategy—we're here to transform your vision into reality.
             </p>
+            <p className="mt-4 text-base text-white/80">
+              Birkirkara studio · {NAP.openingHours} ·{" "}
+              <a href={`tel:${NAP.phoneE164}`} className="underline underline-offset-4">{NAP.phoneDisplay}</a>
+            </p>
           </m.div>
 
           {/* Two Premium Cards - Speak With Us first, AI Strategist second */}

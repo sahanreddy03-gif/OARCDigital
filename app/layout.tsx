@@ -8,7 +8,8 @@ import { Providers } from "./providers";
 import SpeculationRules from "@/components/SpeculationRules";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Analytics from "@/components/Analytics";
-import { NAP, POSTAL_ADDRESS, GEO_COORDINATES } from "@/lib/seo/nap";
+import { GEO_COORDINATES, NAP, OPENING_HOURS_SPECIFICATION, POSTAL_ADDRESS } from "@/lib/seo/nap";
+import { ORG_DESCRIPTION, ORG_FOUNDING_DATE, ORG_SLOGAN } from "@/lib/seo/organizationSchema";
 import { ORG_SAMEAS } from "@/lib/schema";
 
 const nunitoSans = Nunito_Sans({
@@ -114,23 +115,29 @@ const ORGANIZATION_JSONLD = [
   {
     "@context": "https://schema.org",
     "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+    "@id": "https://oarcdigital.com/#organization",
     name: NAP.name,
     alternateName: NAP.alternateName,
-    description:
-      "Malta's AI-native marketing agency. One in-house team for creative, growth and automation: a creative studio, AI workers and connected business systems.",
+    description: ORG_DESCRIPTION,
     url: "https://oarcdigital.com",
+    logo: "https://oarcdigital.com/oarc-logo.png",
+    image: "https://oarcdigital.com/oarc-logo.png",
     telephone: NAP.phoneE164,
     email: NAP.email,
+    foundingDate: ORG_FOUNDING_DATE,
     address: POSTAL_ADDRESS,
     sameAs: ORG_SAMEAS,
     geo: GEO_COORDINATES,
     hasMap: NAP.mapUrl,
+    openingHours: NAP.openingHours,
+    openingHoursSpecification: [OPENING_HOURS_SPECIFICATION],
     areaServed: [{ "@type": "Country", name: "Malta" }],
     knowsAbout: [
       "Digital Marketing",
       "Creative Production",
       "Brand Strategy",
       "Social Media Marketing",
+      "Search Engine Optimisation",
       "AI Workers",
       "Voice AI",
       "Marketing Automation",
@@ -141,7 +148,7 @@ const ORGANIZATION_JSONLD = [
       "Influencer Marketing",
       "Malta Marketing",
     ],
-    slogan: "One AI-native team for creative, growth & automation.",
+    slogan: ORG_SLOGAN,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "OARC Digital departments",

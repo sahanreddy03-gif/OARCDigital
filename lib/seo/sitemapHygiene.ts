@@ -11,6 +11,7 @@ import {
 } from "@/lib/seo/seoSets";
 import { SITE_BASE, type UrlEntry } from "@/lib/seo/sitemapHelpers";
 import { isRetiredMatrixPath } from "@/lib/seo/retiredMatrix";
+import { isThinMatrixPath } from "@/lib/seo/thinMatrix";
 
 /**
  * Build-time sitemap hygiene: drop URLs that would be non-200, noindex,
@@ -30,6 +31,7 @@ export type HygieneRejectReason =
   | "matrix-not-kept"
   | "matrix-global-keep-off"
   | "matrix-retired"
+  | "matrix-thin"
   | "parent-not-kept"
   | "non-self-canonical-loc";
 
@@ -84,6 +86,7 @@ export function hygieneRejectReason(loc: string): HygieneRejectReason | null {
         return "matrix-not-kept";
       }
       if (isRetiredMatrixPath(pathname)) return "matrix-retired";
+      if (isThinMatrixPath(pathname)) return "matrix-thin";
     }
   }
 

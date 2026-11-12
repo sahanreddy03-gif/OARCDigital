@@ -25,7 +25,7 @@
 //     ranking on AI answer engines. Keep them tight (8-12 entries) and
 //     rooted in services we actually deliver.
 
-import { NAP, POSTAL_ADDRESS } from "@/lib/seo/nap";
+import { NAP, OPENING_HOURS_SPECIFICATION, POSTAL_ADDRESS, GEO_COORDINATES } from "@/lib/seo/nap";
 
 const BASE = "https://oarcdigital.com";
 
@@ -52,7 +52,6 @@ export const ORG_SAMEAS: readonly string[] = Object.freeze([
   "https://www.instagram.com/oarcdigital/",
   "https://www.facebook.com/923192157540623",
   "https://x.com/oarcdigital",
-  "https://www.linkedin.com/in/sahanoarcdigital",
   "https://www.linkedin.com/company/oarc-digital",
   "https://www.youtube.com/@oarcdigital",
   "https://www.tiktok.com/@oarc.digital",
@@ -68,7 +67,11 @@ export const ORG_SAMEAS: readonly string[] = Object.freeze([
   "https://www.designrush.com/agency/profile/oarc-digital",
   "https://maps.google.com/maps?cid=11181985666378828912",
   "https://clutch.co/profile/oarc-digital",
+  "https://www.sortlist.com/agency/oarc-digital",
   "https://www.agencyspotter.com/oarc-digital",
+  "https://themanifest.com/company/oarc-digital",
+  "https://www.visitmalta.co.uk/business-directory/business/oarc-digital",
+  "https://hootool.ai/en/product/oarcdigital-com",
   "https://theresanaiforthat.com/ai/oarc-digital-ai-workforce-agents/",
   "https://toolhunt.io/oarc-digital-ai-workforce-agents/",
   "https://huntscreens.com/products/oarc-digital-ai-workforce-agents",
@@ -80,6 +83,13 @@ export const ORG_SAMEAS: readonly string[] = Object.freeze([
  * emission carries a consistent value. Format: ISO 8601 (YYYY-MM-DD).
  */
 export const ORG_FOUNDING_DATE = "2023";
+
+/** Press-room description. Avoids unsourced "first" / ranking claims. */
+export const ORG_DESCRIPTION =
+  "Malta-based creative and AI systems agency. One AI-native team for creative, growth and automation, serving businesses in every industry.";
+
+/** Homepage H1, used as the Organization slogan. */
+export const ORG_SLOGAN = "One AI-native team for creative, growth & automation.";
 
 /**
  * The topic graph that anchors entity-based ranking on AI answer engines.
@@ -140,20 +150,22 @@ export function buildPerson() {
 export function buildOrganization() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
     "@id": `${BASE}/#organization`,
     name: NAP.name,
     alternateName: NAP.alternateName,
     url: BASE,
     logo: `${BASE}/oarc-logo.png`,
     image: `${BASE}/oarc-logo.png`,
-    description:
-      "Malta's first AI-native creative, automation & intelligent agents agency. Brand strategy, social media, video, and AI systems for Maltese businesses.",
+    description: ORG_DESCRIPTION,
     telephone: NAP.phoneE164,
     email: NAP.email,
     address: POSTAL_ADDRESS,
+    geo: GEO_COORDINATES,
     foundingDate: ORG_FOUNDING_DATE,
     founder: { "@id": `${BASE}/#founder` },
+    openingHours: NAP.openingHours,
+    openingHoursSpecification: [OPENING_HOURS_SPECIFICATION],
     areaServed: { "@type": "Country", name: "Malta" },
     knowsAbout: [...ORG_KNOWS_ABOUT],
     contactPoint: [
@@ -174,7 +186,7 @@ export function buildOrganization() {
         availableLanguage: ["English"],
       },
     ],
-    slogan: "AI-Native Marketing That Drives Revenue",
+    slogan: ORG_SLOGAN,
     sameAs: [...ORG_SAMEAS],
   };
 }

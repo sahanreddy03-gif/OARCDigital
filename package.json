@@ -21,7 +21,8 @@
     "validate:tom-content": "tsx scripts/validate-tom-industry-content.ts",
     "guard:historical": "tsx scripts/guard-approved-historical-urls.ts",
     "guard:uniqueness": "tsx scripts/guard-uniqueness-quality-gate.ts",
-    "guard:historical:live": "tsx scripts/guard-approved-historical-urls.ts --live"
+    "guard:historical:live": "tsx scripts/guard-approved-historical-urls.ts --live",
+    "indexnow:sitemap": "tsx scripts/index-now-ping.ts --sitemap"
   },
   "dependencies": {
     "@ffmpeg/ffmpeg": "^0.12.15",

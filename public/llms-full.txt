@@ -1,5 +1,7 @@
 # OARC Digital — Full Reference for AI Answer Engines
 
+> Marketing Agency Malta. One AI-native team for creative, growth & automation. Malta-based creative and AI systems agency serving every industry.
+
 > Auto-generated body between AUTOGEN markers below from `lib/seo/serviceSchemaConfig.ts` + `lib/seo/pillarSchemaConfig.ts` + `lib/seo/serviceSchemaExtras.ts` by `scripts/generate-llms-full-txt.ts`. Do not hand-edit INSIDE the markers — re-run the generator. Content OUTSIDE the markers is preserved across runs.
 
 Canonical NAP: OARC Digital | Level 1, The Brewhouse, Zone 2, Central Business District, Mdina Road, Birkirkara CBD 2010, Malta | +356 7971 1799 | hello@oarcdigital.com

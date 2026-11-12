@@ -4,7 +4,7 @@ import {
   Target, Zap, Lightbulb, BarChart3, Smartphone, HeadphonesIcon, Brain, 
   Calendar, FileCheck, Building2, Rocket, Filter, ShoppingCart, 
   PenTool, Code2, Server, Glasses, Link2, Bot, UserCheck, ClipboardList,
-  LineChart, Settings, Workflow
+  LineChart, Settings, Workflow, Search
 } from 'lucide-react';
 
 export interface ServiceItem {
@@ -266,6 +266,12 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         slug: 'performance-analytics', 
         icon: LineChart,
         description: 'Custom dashboards, ROI tracking, attribution modeling, performance insights'
+      },
+      {
+        title: 'SEO',
+        slug: 'seo-services',
+        icon: Search,
+        description: 'Technical SEO, local search, and content for the queries Malta customers already type'
       },
     ]
   },

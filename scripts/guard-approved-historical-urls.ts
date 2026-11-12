@@ -37,6 +37,7 @@ import {
 } from "../lib/seo/maltaMatrixCohorts";
 import { hygieneRejectReason, isSitemapEligible } from "../lib/seo/sitemapHygiene";
 import { RETIRED_MATRIX_COUNT, isRetiredMatrixPath } from "../lib/seo/retiredMatrix";
+import { isThinMatrixPath } from "../lib/seo/thinMatrix";
 import { SITE_BASE } from "../lib/seo/sitemapHelpers";
 import {
   historicalMatrixPaths,
@@ -187,6 +188,11 @@ function staticGuard(): string[] {
       invariant(reason === "matrix-retired", `retired path not filtered as retired: ${path} (${reason})`);
       continue;
     }
+    if (isThinMatrixPath(path)) {
+      // Expanded cohort without a uniqueness overlay: still 200, noindex, out of sitemaps.
+      invariant(reason === "matrix-thin", `thin path not filtered as thin: ${path} (${reason})`);
+      continue;
+    }
     invariant(reason === null, `hygiene would exclude approved path ${path}: ${reason}`);
 
     if (deepCheckPaths.has(path)) {
@@ -202,13 +208,16 @@ function staticGuard(): string[] {
   const priorityEntries = buildPriorityMatrixEntries();
   const expandedEntries = buildExpandedMatrixEntries();
   const retiredInPriority = MALTA_PRIORITY_MATRIX_PATHS.filter(isRetiredMatrixPath).length;
+  const thinInExpanded = matrixPaths.filter(isThinMatrixPath).length;
   invariant(
     priorityEntries.length === approvedLedger.counts.priorityMatrixSitemap - retiredInPriority,
     `priority matrix sitemap count ${priorityEntries.length}`,
   );
   invariant(
     expandedEntries.length ===
-      approvedLedger.counts.expandedMatrixSitemap - (RETIRED_MATRIX_COUNT - retiredInPriority),
+      approvedLedger.counts.expandedMatrixSitemap -
+        (RETIRED_MATRIX_COUNT - retiredInPriority) -
+        thinInExpanded,
     `expanded matrix sitemap count ${expandedEntries.length}`,
   );
   for (const entry of [...priorityEntries, ...expandedEntries]) {
@@ -218,6 +227,7 @@ function staticGuard(): string[] {
   // Prefer Sahan set first for live sampling, then a sparse matrix stride.
   for (let i = 0; i < matrixPaths.length; i += 73) {
     if (isRetiredMatrixPath(matrixPaths[i]!)) continue; // retired pages are noindex by design
+    if (isThinMatrixPath(matrixPaths[i]!)) continue; // thin expanded pages are noindex by design
     samplePaths.push(matrixPaths[i]!);
   }
   return [...new Set(samplePaths)];

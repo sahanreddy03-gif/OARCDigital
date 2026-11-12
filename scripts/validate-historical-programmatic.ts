@@ -19,6 +19,7 @@ import {
 import approvedLedger from "../seo-manifest/approved-historical-urls.json";
 import matrixExclusions from "../seo-manifest/sitemap-matrix-exclusions.json";
 import { filterSitemapEntries, hygieneRejectReason, isSitemapEligible } from "../lib/seo/sitemapHygiene";
+import { isThinMatrixPath } from "../lib/seo/thinMatrix";
 import { getLocationProfile } from "../lib/seo/locationData";
 import {
   buildLocationIndustryServiceContent,
@@ -310,19 +311,23 @@ function main(): void {
   }
   const retiredInPriority = MALTA_PRIORITY_MATRIX_PATHS.filter((p) => retiredPaths.has(p)).length;
   const priorityIndexed = MALTA_PRIORITY_MATRIX_PATHS.filter((p) => !retiredPaths.has(p));
+  const thinPaths = new Set([...matrixExpected].filter((p) => isThinMatrixPath(p)));
   invariant(
     prioritySitemap.length === 2000 - retiredInPriority,
     `priority matrix sitemap count is ${prioritySitemap.length}`,
   );
   invariant(
-    expandedSitemap.length === 5350 - (retiredPaths.size - retiredInPriority),
+    expandedSitemap.length === 5350 - (retiredPaths.size - retiredInPriority) - thinPaths.size,
     `expanded matrix sitemap count is ${expandedSitemap.length}`,
   );
   invariant(
-    matrixCoverageSitemap.length === historicalProgrammaticExpected.matrixUrlCount - retiredPaths.size,
+    matrixCoverageSitemap.length ===
+      historicalProgrammaticExpected.matrixUrlCount - retiredPaths.size - thinPaths.size,
     `legacy matrix coverage helper count is ${matrixCoverageSitemap.length}`,
   );
-  const matrixIndexedExpected = new Set([...matrixExpected].filter((p) => !retiredPaths.has(p)));
+  const matrixIndexedExpected = new Set(
+    [...matrixExpected].filter((p) => !retiredPaths.has(p) && !thinPaths.has(p)),
+  );
   invariant(maltaSitemap.length === 340, `legacy Malta sitemap count is ${maltaSitemap.length}`);
 
   setEqual(new Set(prioritySitemap), new Set(priorityIndexed), "priority sitemap parity");
@@ -364,7 +369,7 @@ function main(): void {
     invariant(matrixExpected.has(path), `exclusion path not in historical matrix ledger: ${path}`);
   }
   const requiredIndexed = new Set(
-    [...matrixExpected].filter((path) => !exclusionPaths.has(path)),
+    [...matrixExpected].filter((path) => !exclusionPaths.has(path) && !isThinMatrixPath(path)),
   );
   const indexedMatrix = new Set([...prioritySitemap, ...expandedSitemap]);
   const missingFromIndex = [...requiredIndexed].filter((path) => !indexedMatrix.has(path));
@@ -377,8 +382,9 @@ function main(): void {
     "duplicate paths across priority and expanded matrix sitemaps",
   );
   invariant(
-    indexedMatrix.size >= historicalProgrammaticExpected.matrixUrlCount - exclusionPaths.size,
-    `indexed matrix coverage ${indexedMatrix.size} < expected ${historicalProgrammaticExpected.matrixUrlCount} after exclusions`,
+    indexedMatrix.size ===
+      historicalProgrammaticExpected.matrixUrlCount - exclusionPaths.size - thinPaths.size,
+    `indexed matrix coverage ${indexedMatrix.size} != expected after exclusions and thin pages`,
   );
 
   const locationSitemapEntries = buildLocationEntries();

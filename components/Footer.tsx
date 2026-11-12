@@ -26,9 +26,18 @@ const socialLinks = [
 ];
 
 const listings = [
-  { name: 'Google Maps', href: NAP.mapUrl },
+  { name: 'Google Maps', href: 'https://maps.google.com/maps?cid=11181985666378828912' },
+  { name: 'Clutch', href: 'https://clutch.co/profile/oarc-digital' },
+  { name: 'DesignRush', href: 'https://www.designrush.com/agency/profile/oarc-digital' },
+  { name: 'Sortlist', href: 'https://www.sortlist.com/agency/oarc-digital' },
+  { name: 'Agency Spotter', href: 'https://www.agencyspotter.com/oarc-digital' },
+  { name: 'The Manifest', href: 'https://themanifest.com/company/oarc-digital' },
+  { name: 'VisitMalta', href: 'https://www.visitmalta.co.uk/business-directory/business/oarc-digital' },
   { name: 'Crunchbase', href: 'https://www.crunchbase.com/organization/oarc-digital' },
   { name: 'Yellow.com.mt', href: 'https://www.yellow.com.mt/oarc-digital_marketing-consultants+bkara/' },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/oarc-digital' },
+  { name: 'YouTube', href: 'https://www.youtube.com/@oarcdigital' },
+  { name: 'Instagram', href: 'https://www.instagram.com/oarcdigital/' },
 ];
 
 const serif = { fontFamily: "var(--font-instrument-serif), Georgia, serif" };
@@ -77,7 +86,7 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
               </div>
               <div>
                 <dt className="text-zinc-500">Visit</dt>
-                <dd className="text-lg text-[#F5F3EE]">{NAP.streetAddressShort}, {NAP.addressLocality}</dd>
+                <dd className="text-lg text-[#F5F3EE]">{NAP.streetAddress}, {NAP.addressLocality} {NAP.postalCode}, Malta</dd>
               </div>
               <div>
                 <dt className="text-zinc-500">Since</dt>

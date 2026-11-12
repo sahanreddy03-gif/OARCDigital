@@ -2,13 +2,14 @@
 // Pure functions returning serialisable objects; emit via <JsonLd> or
 // <script type="application/ld+json"> in the page head.
 
-import { NAP, POSTAL_ADDRESS, GEO_COORDINATES } from "@/lib/seo/nap";
+import { NAP, OPENING_HOURS_SPECIFICATION } from "@/lib/seo/nap";
 // Organization + founder Person entities are owned by `lib/seo/organizationSchema.ts`
 // (single source of truth — Task #118). Re-exported here so existing imports
 // `from "@/lib/schema"` continue to resolve unchanged.
 import {
   buildOrganization as _buildOrganization,
   buildPerson as _buildPerson,
+  ORG_FOUNDING_DATE,
   ORG_SAMEAS as _ORG_SAMEAS,
 } from "@/lib/seo/organizationSchema";
 
@@ -66,6 +67,11 @@ export function buildLocalBusiness(opts?: { locality?: string; lat?: number; lng
       longitude: opts?.lng ?? NAP.geo.lng,
     },
     areaServed: [{ "@type": "Country", name: "Malta" }],
+    foundingDate: ORG_FOUNDING_DATE,
+    openingHours: NAP.openingHours,
+    openingHoursSpecification: [OPENING_HOURS_SPECIFICATION],
+    logo: `${BASE}/oarc-logo.png`,
+    sameAs: [..._ORG_SAMEAS],
     parentOrganization: ORG_REF,
   };
 }
