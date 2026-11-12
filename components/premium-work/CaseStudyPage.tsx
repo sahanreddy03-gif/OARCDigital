@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import CaseStudyFull from "@/components/premium-work/CaseStudyFull";
 import { getCaseGallery } from "@/lib/data/premium-work/caseGallery";
+import { getCaseFull } from "@/lib/data/premium-work/caseFull";
 import { getCaseProof } from "@/lib/data/premium-work/caseProof";
 import { bookingUrl, whatsappUrl } from "@/lib/utm";
 
@@ -52,6 +54,8 @@ export default function CaseStudyPage({
   diagram?: Picture;
   extraPictures?: Picture[];
 }) {
+  if (getCaseFull(slug)) return <CaseStudyFull slug={slug} story={story} />;
+
   const proof = getCaseProof(slug);
   const gallery = getCaseGallery(slug);
   const headline = story.title.join(" ");
