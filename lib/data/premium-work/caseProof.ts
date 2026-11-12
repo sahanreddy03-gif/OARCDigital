@@ -31,15 +31,18 @@ export const CASE_PROOF: Record<string, CaseProof> = {
     client: "Tiffany Lounge",
     confidential: false,
     stats: [
+      { value: "55%", label: "Engagement from paid campaigns" },
+      { value: "+50%", label: "Sales from website tracking" },
       { value: "+24%", label: "Table bookings from Instagram" },
-      { value: "+30%", label: "Private-event enquiries" },
-      { value: "+28%", label: "Midweek bookings from local ads" },
     ],
     did: [
-      "We made promo videos for Tiffany Lounge.",
-      "We built its website.",
+      "We run the social media.",
+      "We promote the events.",
+      "We run the paid campaigns.",
+      "We built the website, with tracking.",
       "We linked the website to table bookings.",
       "We put events and private hire on the site.",
+      "We made the promo videos.",
     ],
     targets: [
       "50,000 video views in 30 days.",
@@ -48,6 +51,8 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       "40 private-event enquiries in 60 days.",
     ],
     results: [
+      "Paid campaigns took engagement to 55%.",
+      "Tracking on the website came with a 50% increase in sales.",
       "We grew table bookings from Instagram by 24%.",
       "We brought 180 more people to the reservation page from weekly event posts.",
       "We grew private-event enquiries by 30% with social ads.",
