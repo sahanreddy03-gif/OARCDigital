@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { Inter_Tight, Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import MobileHeroMasonryGrid from "./MobileHeroMasonryGrid";
@@ -11,16 +11,22 @@ import { HERO_CUSTOMERS_VIDEO } from "@/lib/media/heroCustomersVideo";
 const heroBackground = "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
 
 /** Superside headline pair — Inter Tight (sans) + Instrument Serif (italic accent). */
-const heroSans = Inter_Tight({
-  subsets: ["latin"],
+const heroSans = localFont({
+  src: [
+    { path: "../app/fonts/inter-tight.woff2", weight: "400", style: "normal" },
+    { path: "../app/fonts/inter-tight.woff2", weight: "500", style: "normal" },
+    { path: "../app/fonts/inter-tight.woff2", weight: "600", style: "normal" },
+    { path: "../app/fonts/inter-tight.woff2", weight: "700", style: "normal" },
+  ],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
 });
-const heroSerif = Instrument_Serif({
-  subsets: ["latin"],
+const heroSerif = localFont({
+  src: [
+    { path: "../app/fonts/instrument-serif.woff2", weight: "400", style: "normal" },
+    { path: "../app/fonts/instrument-serif-italic.woff2", weight: "400", style: "italic" },
+  ],
   display: "swap",
-  weight: "400",
-  style: ["normal", "italic"],
+  adjustFontFallback: "Times New Roman",
 });
 
 const HERO_PLACEHOLDER = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERAgMSIv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABcRAQEBAQAAAAAAAAAAAAAAAAARAQL/2gAMAwEAAhEDEQA/AOUODgIwlnPNZsz85MnNwu9uB2nnUQ7ugLToEq//2Q==';
