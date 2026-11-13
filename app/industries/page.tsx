@@ -171,6 +171,11 @@ export default function Page() {
                 );
               })}
             </div>
+            <div className="mt-10 p-6 rounded-2xl border border-border bg-card">
+              <p className="text-sm font-semibold mb-1">Want the admin done for you too?</p>
+              <p className="text-sm text-muted-foreground mb-3">We also build one AI system per industry. It answers every enquiry, tracks every deadline and does the paperwork.</p>
+              <Link href="/ai" className="text-sm font-medium" style={{ color: '#ff914d' }} data-testid="link-ai-systems">See AI systems by industry: real estate, law firms and more →</Link>
+            </div>
           </div>
         </section>
 

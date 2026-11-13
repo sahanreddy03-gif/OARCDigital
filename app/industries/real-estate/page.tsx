@@ -502,6 +502,12 @@ export default function RealEstateMaltaIndustryHub() {
             <ApprovedQuotes quotes={[realEstateQuote]} />
           </section>
 
+          <div className="p-5 rounded-xl border bg-muted/40">
+            <p className="text-sm font-semibold mb-1">Looking for the AI system for estate agencies?</p>
+            <p className="text-sm text-muted-foreground mb-3">This page is the marketing service. If you want a system that answers every enquiry in under a minute, tracks every lease and finds owners ready to list, that is a separate product.</p>
+            <Link href="/ai/real-estate" className="text-sm text-orange-500 font-medium hover:text-orange-600 transition-colors" data-testid="link-ai-real-estate">Real estate AI for agencies in Malta: enquiries, leases, owners and paperwork →</Link>
+          </div>
+
           <RelatedLinks slug="/industries/real-estate" />
 
           {/* CTA */}
