@@ -1091,3 +1091,59 @@
 @media (min-width: 800px) {
   .premium-work-root .cs-full > .cs-gallery { gap: 14px; grid-template-columns: 1fr 1fr; padding: 16px max(16px, calc((100% - 1180px) / 2)); }
 }
+
+/* Our Work index: one title, industry filters, one big picture per brand. */
+.premium-work-root .wx { margin: 0 auto; max-width: 1320px; padding: 0 clamp(20px, 5vw, 56px); }
+.premium-work-root .wx-hero { padding: clamp(80px, 10vw, 132px) 0 clamp(34px, 5vw, 60px); }
+.premium-work-root .wx-hero h1 { font-size: clamp(60px, 12vw, 176px); font-weight: 800; letter-spacing: -0.055em; line-height: 0.88; margin: 0; }
+.premium-work-root .wx-hero h1 span { color: #0035AD; }
+.premium-work-root .wx-hero p { color: #55534f; font-size: clamp(18px, 1.8vw, 22px); line-height: 1.45; margin: clamp(20px, 3vw, 32px) 0 0; max-width: 34ch; }
+.premium-work-root .wx-filters { border-bottom: 1px solid #d9d6cf; display: flex; flex-wrap: wrap; gap: 8px; padding-bottom: 22px; }
+.premium-work-root .wx-filters button { align-items: baseline; background: transparent; border: 1px solid rgba(14, 14, 14, 0.22); border-radius: 999px; color: #0E0E0E; cursor: pointer; display: inline-flex; font-size: 15px; font-weight: 700; gap: 7px; padding: 10px 17px; transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease; }
+.premium-work-root .wx-filters button span { color: #8a877f; font-size: 11px; font-weight: 700; }
+.premium-work-root .wx-filters button:hover { border-color: #0E0E0E; }
+.premium-work-root .wx-filters button[aria-pressed="true"] { background: #0E0E0E; border-color: #0E0E0E; color: #F5F3EE; }
+.premium-work-root .wx-filters button[aria-pressed="true"] span { color: rgba(245, 243, 238, 0.6); }
+.premium-work-root .wx-filters button:focus-visible { outline: 2px solid #0035AD; outline-offset: 2px; }
+.premium-work-root .wx-grid { display: grid; gap: clamp(44px, 5vw, 64px) 28px; list-style: none; margin: clamp(30px, 4vw, 48px) 0 0; padding: 0; }
+.premium-work-root .wx-card { color: inherit; display: block; text-decoration: none; }
+.premium-work-root .wx-card figure { aspect-ratio: 4 / 3; background: #0E0E0E; margin: 0; overflow: hidden; }
+.premium-work-root .wx-card img { display: block; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); width: 100%; }
+.premium-work-root .wx-card:hover img { transform: scale(1.035); }
+.premium-work-root .wx-noimage { align-items: flex-end; color: #F5F3EE; display: flex; font-size: clamp(28px, 4vw, 52px); font-weight: 800; height: 100%; letter-spacing: -0.04em; padding: 24px; }
+.premium-work-root .wx-copy { padding-top: 18px; }
+.premium-work-root .wx-copy strong { color: #0035AD; display: block; font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
+.premium-work-root .wx-copy h3 { font-size: clamp(24px, 2.7vw, 38px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.02; margin: 10px 0 12px; max-width: 22ch; }
+.premium-work-root .wx-copy p { color: #6b6962; display: flex; flex-wrap: wrap; font-size: 14px; gap: 4px 10px; margin: 0; }
+.premium-work-root .wx-copy em { align-items: center; border-bottom: 1px solid transparent; display: inline-flex; font-size: 13px; font-style: normal; font-weight: 800; gap: 6px; letter-spacing: 0.06em; margin-top: 16px; padding-bottom: 2px; text-transform: uppercase; transition: border-color 0.18s ease; }
+.premium-work-root .wx-card:hover em, .premium-work-root .wx-card:focus-visible em { border-bottom-color: #0E0E0E; }
+.premium-work-root .wx-card:focus-visible { outline: 2px solid #0035AD; outline-offset: 6px; }
+.premium-work-root .wx-services { border-top: 1px solid #d9d6cf; display: grid; gap: 22px; margin-top: clamp(80px, 10vw, 140px); padding-top: clamp(32px, 4vw, 48px); }
+.premium-work-root .wx-services h2 { font-size: clamp(30px, 3.6vw, 48px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin: 0; }
+.premium-work-root .wx-services nav { display: flex; flex-wrap: wrap; gap: 10px 26px; }
+.premium-work-root .wx-services a { align-items: center; border-bottom: 1px solid rgba(14, 14, 14, 0.25); display: inline-flex; font-size: 16px; font-weight: 700; gap: 6px; padding: 6px 0; transition: border-color 0.18s ease, color 0.18s ease; }
+.premium-work-root .wx-services a:hover { border-bottom-color: #0035AD; color: #0035AD; }
+.premium-work-root .wx-close { background: #0E0E0E; color: #F5F3EE; margin: clamp(60px, 8vw, 110px) calc(-1 * clamp(20px, 5vw, 56px)) 0; padding: clamp(56px, 8vw, 110px) clamp(20px, 5vw, 56px); }
+.premium-work-root .wx-close h2 { font-size: clamp(40px, 6.4vw, 92px); font-weight: 800; letter-spacing: -0.05em; line-height: 0.95; margin: 0; max-width: 14ch; }
+.premium-work-root .wx-close p { color: rgba(245, 243, 238, 0.72); font-size: clamp(17px, 1.7vw, 20px); line-height: 1.5; margin: 22px 0 0; max-width: 40ch; }
+.premium-work-root .wx-close div { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.premium-work-root .wx-close a { align-items: center; background: #F9FF84; border-radius: 999px; color: #0E0E0E; display: inline-flex; font-size: 16px; font-weight: 800; gap: 8px; padding: 15px 26px; transition: opacity 0.18s ease; }
+.premium-work-root .wx-close a:hover { opacity: 0.88; }
+.premium-work-root .wx-close a.wx-alt { background: transparent; border: 1px solid rgba(245, 243, 238, 0.35); color: #F5F3EE; }
+.premium-work-root .wx-close a.wx-alt:hover { background: rgba(245, 243, 238, 0.08); opacity: 1; }
+@media (min-width: 820px) {
+  .premium-work-root .wx-grid { grid-template-columns: 1fr 1fr; }
+  .premium-work-root .wx-grid .wx-wide { grid-column: 1 / -1; }
+  .premium-work-root .wx-grid .wx-wide figure { aspect-ratio: 16 / 8; }
+  .premium-work-root .wx-grid .wx-wide h3 { font-size: clamp(32px, 4vw, 56px); max-width: 20ch; }
+  .premium-work-root .wx-services { gap: 40px; grid-template-columns: minmax(200px, 0.35fr) 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .premium-work-root .wx-card img { transition: none; }
+  .premium-work-root .wx-card:hover img { transform: none; }
+}
+@media (max-width: 819px) {
+  .premium-work-root .wx-filters { flex-wrap: nowrap; margin-right: calc(-1 * clamp(20px, 5vw, 56px)); overflow-x: auto; padding-right: clamp(20px, 5vw, 56px); scrollbar-width: none; }
+  .premium-work-root .wx-filters::-webkit-scrollbar { display: none; }
+  .premium-work-root .wx-filters button { flex: 0 0 auto; font-size: 14px; padding: 9px 15px; }
+}
