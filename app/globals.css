@@ -1468,16 +1468,35 @@
   }
 }
 
-/* OARC specialist AI services / editorial product treatment */
-.oe-hero { background:radial-gradient(circle at 76% 18%,rgba(196,255,77,.13),transparent 30%),linear-gradient(135deg,#0d0f0f,#1a211d); }
-.oe-hero-art { box-shadow:0 1.5rem 5rem rgba(0,0,0,.22); overflow:hidden; }
-.oe-hero-art img { filter:saturate(.9) contrast(1.05); transform:scale(1.03); transition:transform 1.2s cubic-bezier(.2,.75,.2,1),filter 1.2s; }
-.oe-hero-art:hover img { transform:scale(1.08); filter:saturate(1.15) contrast(1.08); }
-.oe-marquee { background:#c4ff4d; color:#0d0f0f; }
+/* Editorial service pages: same look as the /ai pages (paper, ink, cobalt, Instrument Serif).
+   Replaces the dark hero + lime layer that made the headline unreadable. No lime, no green. */
+.oarc-editorial { background:#F5F3EE; color:#0E0E0E; font-family:var(--font-inter-tight),system-ui,sans-serif; --service-accent:#0035AD !important; --service-soft:#ECE9E2 !important; }
+.oarc-editorial h1,.oarc-editorial h2,.oe-split-card h2 { font-family:var(--font-instrument-serif),Georgia,serif; font-weight:400; letter-spacing:-.02em; }
+.oarc-editorial h3 { font-family:var(--font-inter-tight),system-ui,sans-serif; font-weight:600; letter-spacing:-.01em; }
+.oarc-editorial em { font-family:var(--font-instrument-serif),Georgia,serif; font-style:italic; }
+.oe-hero h1 { font-size:clamp(3.1rem,6vw,6.2rem); line-height:.98; }
+.oe-intro,.oe-eyebrow,.oe-section-label { color:#55524C; }
+.oe-hero-art { background:#E3DFD6; border-radius:28px; box-shadow:0 18px 48px -12px rgba(14,14,14,.18); overflow:hidden; }
+.oe-hero-art img { transition:transform 1.2s cubic-bezier(.2,.75,.2,1); }
+.oe-hero-art:hover img { transform:scale(1.035); }
+.oe-button { background:#0E0E0E; color:#F5F3EE; }
+.oe-marquee { background:#0035AD; color:#F5F3EE; }
+.oe-marquee span { color:#F9FF84; }
+.oe-split { background:#ECE9E2; }
+.oe-split-card,.oe-faq { background:#0E0E0E; color:#F5F3EE; }
+.oe-split-mark,.oe-faq h2 em { color:#F9FF84; }
+.oe-faq .oe-section-label { color:#B7B2A8; }
+.oe-capability-grid h2 em,.oe-steps h2 em { color:#8A867E; }
+/* AI consulting (growth blueprint) page: same type as the /ai pages. */
+.oarc-blueprint { font-family:var(--font-inter-tight),system-ui,sans-serif; }
+.oarc-blueprint h1,.oarc-blueprint h2 { font-family:var(--font-instrument-serif),Georgia,serif; font-weight:400 !important; letter-spacing:-.02em !important; line-height:.98 !important; }
+.oarc-blueprint h3 { font-family:var(--font-inter-tight),system-ui,sans-serif; font-weight:600 !important; letter-spacing:-.01em !important; line-height:1.15 !important; }
+.oarc-blueprint em { font-family:var(--font-instrument-serif),Georgia,serif; font-style:italic; }
+.oe-capabilities,.oe-related { background:#F5F3EE; }
+.oe-related-card { color:#0E0E0E; border-radius:22px; background:#fff; border-color:#E3DFD6; transition:transform .35s,border-color .35s; }
+.oe-related-card:hover { transform:translateY(-5px); background:#fff; border-color:#0E0E0E; }
 .oe-proof { transition:transform .35s,background .35s; }
-.oe-proof:hover { transform:translateY(-5px); background:rgba(196,255,77,.1); }
+.oe-proof:hover { transform:translateY(-5px); background:#E8EEFB; }
 .oe-capability { transition:transform .35s,border-color .35s; }
-.oe-capability:hover { transform:translateX(8px); border-color:#c4ff4d; }
-.oe-related-card { transition:transform .35s,background .35s; }
-.oe-related-card:hover { transform:translateY(-7px); background:rgba(196,255,77,.12); }
+.oe-capability:hover { transform:translateX(8px); border-color:#0035AD; }
 @media (prefers-reduced-motion: reduce) { .oe-hero-art img,.oe-proof,.oe-capability,.oe-related-card { transition:none; } }
