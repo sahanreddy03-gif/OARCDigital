@@ -1088,6 +1088,7 @@
 .premium-work-root .cs-bleed-banner img { height: auto; max-height: 70vh; object-fit: contain; width: min(1100px, 100%); }
 .premium-work-root .cs-full .cs-block ul:not(.cs-did):not(.cs-aims) { margin: 8px 0 0; padding-left: 1.15em; }
 .premium-work-root .cs-full .cs-block ul:not(.cs-did):not(.cs-aims) li { margin: 8px 0; }
+.premium-work-root .cs-full .cs-block > h3 { font-size: clamp(19px, 2vw, 24px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.2; margin: 26px 0 6px; }
 @media (min-width: 800px) {
   .premium-work-root .cs-full > .cs-gallery { gap: 14px; grid-template-columns: 1fr 1fr; padding: 16px max(16px, calc((100% - 1180px) / 2)); }
 }

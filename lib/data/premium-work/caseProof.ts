@@ -44,12 +44,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       "We put events and private hire on the site.",
       "We made the promo videos.",
     ],
-    targets: [
-      "50,000 video views in 30 days.",
-      "1,000 menu visits from the videos.",
-      "250 booking clicks from event posts.",
-      "40 private-event enquiries in 60 days.",
-    ],
+    targets: [],
     results: [
       "Paid campaigns took engagement to 55%.",
       "Tracking on the website came with a 50% increase in sales.",
@@ -57,6 +52,10 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       "We brought 180 more people to the reservation page from weekly event posts.",
       "We grew private-event enquiries by 30% with social ads.",
       "We grew midweek bookings by 28% with local event ads.",
+      "We got 50,000 video views in 30 days.",
+      "We brought 1,000 people to the menu from the videos.",
+      "We got 250 booking clicks from event posts.",
+      "We brought in 40 private-event enquiries in 60 days.",
     ],
   },
   "portomaso-casino": {
@@ -95,18 +94,18 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "-30%", label: "Cost per event-interest action" },
     ],
     did: [
+      "We made the Fan Zone videos and posts.",
       "We made Fan Zone posts around the World Cup fixtures.",
       "We used paid ads to promote the Fan Zone.",
       "We helped fans plan their match nights before kick-off.",
     ],
-    targets: [
-      "250,000 views on Fan Zone videos.",
-      "8,000 saves on match-night posts.",
-    ],
+    targets: [],
     results: [
       "We brought 12,000 fans to the Spinola Bay Fan Zone.",
       "We got 2,000 people to visit match-night details from social posts.",
       "We cut the cost of each event-interest action by 30%.",
+      "We got 250,000 views on Fan Zone videos.",
+      "We got 8,000 saves on match-night posts.",
     ],
   },
   "spinola-gin-fest": {
@@ -118,18 +117,20 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "2x", label: "Visits to festival details before opening" },
     ],
     did: [
-      "We made videos and posts for Spinola Gin Fest.",
+      "We made the videos and posts for Spinola Gin Fest.",
+      "We built the campaign around each festival night.",
+      "We pushed the content before opening night.",
+      "We kept the festival details easy to find.",
     ],
-    targets: [
-      "180,000 views on Gin Fest videos.",
-      "6,000 event-interest taps for the next festival.",
-    ],
+    targets: [],
     results: [
       "We covered the 4th Gin Fest on 16–17 July 2026.",
       "We brought 4,500 visitors to the festival over two nights.",
       "We doubled visits to the festival details before opening night.",
       "We reached 300,000 people with Gin Fest campaign content.",
       "We turned festival clips into 1,000 saved event plans.",
+      "We got 180,000 views on Gin Fest videos.",
+      "We got 6,000 taps from people who want the next festival.",
     ],
   },
   "drink-n-more": {
@@ -373,6 +374,9 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "-30%", label: "Fulfilment delays" },
     ],
     did: [
+      "We cleaned more than 10,000 product records.",
+      "We brought every record into one product view.",
+      "We added checks before an order goes out.",
       "We helped teams catch data problems before they delayed an order.",
     ],
     targets: [],
@@ -425,6 +429,10 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "+30%", label: "Routine questions closed without a handoff" },
     ],
     did: [
+      "We built Meridian a customer-service app.",
+      "We brought every customer question into one place.",
+      "We set the app to sort each question by itself.",
+      "We sent each question to the right person, with the customer’s story attached.",
       "We kept the customer’s question with every team handoff.",
     ],
     targets: [],
@@ -451,6 +459,7 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "2x", label: "Faster to update a decision on new information" },
     ],
     did: [
+      "We built Cobalt one place to track every decision.",
       "We gave every key task a clear owner.",
       "We made each decision’s next step and owner clear.",
       "We helped teams act on new evidence without losing the reason behind the choice.",
@@ -477,8 +486,11 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "30 min", label: "Saved on every first call" },
     ],
     did: [
-      "We cut missed handoffs by two per enquiry.",
+      "We built Skyline a property enquiry app.",
+      "We had the app ask buyers a few smart questions.",
+      "We handed agents a ready brief before the first call.",
       "We helped buyers get an answer without repeating their details.",
+      "We cut missed handoffs by two per enquiry.",
     ],
     targets: [],
     results: [
@@ -502,7 +514,12 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "+45%", label: "Real buying signals acted on" },
       { value: "80%", label: "More customer context kept to follow-up" },
     ],
-    did: [],
+    did: [
+      "We built Vela a sales app.",
+      "We sorted leads by how ready they are to buy.",
+      "We showed the team why each lead is ready.",
+      "We set up follow-up for the ready buyers.",
+    ],
     targets: [],
     results: [
       "We cut time spent chasing people who were not ready by 35%.",
@@ -528,8 +545,11 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "+30%", label: "Social-video completion" },
     ],
     did: [
+      "We ran the product launch from start to finish.",
+      "We made the real-life launch clips.",
       "We turned one real-life product moment into four campaign stories.",
       "We turned customer stories into three clear reasons to choose the product.",
+      "We ran the launch ads.",
     ],
     targets: [],
     results: [
@@ -580,7 +600,10 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "+50%", label: "Saves on launch posts" },
     ],
     did: [
+      "We ran Maison Verre’s fragrance launch.",
+      "We made six teaser posts that lead to the reveal.",
       "We made the scent story clear with six simple sensory clues.",
+      "We ran the launch ads.",
     ],
     targets: [],
     results: [
@@ -606,7 +629,10 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "-45%", label: "Time to find a story that fits" },
     ],
     did: [
+      "We built Botanic Muse an app for customer stories.",
       "We kept stories, photos, and permissions together in one place.",
+      "We sorted the stories by theme for the editors.",
+      "We made the stories ready to publish on social media.",
     ],
     targets: [],
     results: [
@@ -631,7 +657,12 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "+45%", label: "Player participation" },
       { value: "1,000", label: "Players sharing a game moment" },
     ],
-    did: [],
+    did: [
+      "We ran Vertex’s game community after launch.",
+      "We made posts that celebrate players.",
+      "We ran challenges and events.",
+      "We gave players a reason to come back.",
+    ],
     targets: [],
     results: [
       "We brought back 25% more players after launch.",
@@ -656,7 +687,12 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "5,000", label: "Fans back to their local scene" },
       { value: "+35%", label: "Social interaction" },
     ],
-    did: [],
+    did: [
+      "We ran Arena One’s social media in local languages.",
+      "We posted for each region, not one feed for everyone.",
+      "We told the story behind each match.",
+      "We brought fans back to their local scene after each event.",
+    ],
     targets: [],
     results: [
       "We helped 30% more fans follow local esports across regions.",
@@ -681,7 +717,12 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "-30%", label: "Calls asking what happens next" },
       { value: "-45%", label: "Unclear admin messages" },
     ],
-    did: [],
+    did: [
+      "We rebuilt the Wellbridge service path.",
+      "We showed the next step clearly on a phone.",
+      "We made the forms shorter and simpler.",
+      "We made handoffs between teams clear.",
+    ],
     targets: [],
     results: [
       "We helped people see their next service step 35% sooner.",
@@ -707,7 +748,11 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "95%", label: "Of key details linked to their source" },
     ],
     did: [
+      "We built Aurum a document app.",
+      "We made documents searchable, so staff find answers fast.",
+      "We linked every key detail to the page it came from.",
       "We made each extracted detail easier for a person to verify.",
+      "We set up a clear review path for the team.",
     ],
     targets: [],
     results: [
@@ -733,7 +778,10 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "-35%", label: "Time between ad tests" },
     ],
     did: [
+      "We built Hearth an ad-testing tool.",
+      "We wrote a short brief for every test.",
       "We gave every new ad version a clear reason to test.",
+      "We carried what each round taught into the next one.",
     ],
     targets: [],
     results: [
@@ -758,7 +806,12 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "+24%", label: "Repeat event attendance" },
       { value: "42%", label: "Faster to find the right detail" },
     ],
-    did: [],
+    did: [
+      "We redesigned Fanline’s live-event screens.",
+      "We put the right detail on screen at the right moment.",
+      "We made sharing a reaction easy.",
+      "We gave viewers a clear way back to the next event.",
+    ],
     targets: [],
     results: [
       "We helped viewers find the right live-event detail 42% faster.",
@@ -784,6 +837,9 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "+35%", label: "Earlier detection of stock changes" },
     ],
     did: [
+      "We built Crownline a stock dashboard.",
+      "We showed demand and stock on one screen.",
+      "We set up early warnings when stock changes.",
       "We gave each stock issue a clear owner and review time.",
     ],
     targets: [],
@@ -810,7 +866,10 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "-35%", label: "Repeat candidate messages" },
     ],
     did: [
+      "We rebuilt the Bluebridge application path.",
+      "We sent every candidate a fast first reply.",
       "We made each candidate’s status clear at every step.",
+      "We gave recruiters a short brief for each application.",
     ],
     targets: [],
     results: [
@@ -838,6 +897,8 @@ export const CASE_PROOF: Record<string, CaseProof> = {
     did: [
       "We turned scattered AI tests into one repeatable way of working.",
       "We gave every AI project a clear human owner.",
+      "We set up a review for every AI test.",
+      "We rolled the new way of working out to every team.",
     ],
     targets: [],
     results: [
@@ -861,7 +922,12 @@ export const CASE_PROOF: Record<string, CaseProof> = {
       { value: "90%", label: "Of client requests to the right person first time" },
       { value: "+25%", label: "More team time for people" },
     ],
-    did: [],
+    did: [
+      "We rebuilt how Belgrave prepares for client requests.",
+      "We kept each client’s history in one place.",
+      "We sent every request to the right person.",
+      "We made handoffs between teams clear.",
+    ],
     targets: [],
     results: [
       "We cut time preparing for client requests by 40%.",
