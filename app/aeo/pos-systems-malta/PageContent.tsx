@@ -37,7 +37,7 @@ function FlowDiagram() {
 export default function POSSystemsMalta({ faqs: providedFaqs }: { faqs: Faq[] }) {
   const displayFaqs = providedFaqs.length ? providedFaqs : faqs;
   return (
-    <Layout>
+    <Layout showNavLogo={false}>
       <main className="pos-page">
         <header className="pos-header">
           <Link href="/" className="pos-logo" aria-label="OARC Digital home"><span>OARC</span><small>DIGITAL</small></Link>

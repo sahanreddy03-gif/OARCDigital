@@ -95,9 +95,12 @@ const SERVICE_GROUPS: { title: string; href: string; accent: string; items: { na
 export default function MinimalNav({
   theme = "dark",
   showMobileTrigger = false,
+  showLogo = true,
 }: {
   theme?: "dark" | "light";
   showMobileTrigger?: boolean;
+  /** Top-left OARC logo linking home. Off only on pages that draw their own logo. */
+  showLogo?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -143,6 +146,40 @@ export default function MinimalNav({
 
   return (
     <>
+      {/* ── Logo — top-left, links home, scrolls away with page like the trigger ── */}
+      {showLogo && (
+        <div
+          className="absolute top-0 left-0 z-50"
+          style={{
+            paddingTop: "max(16px, env(safe-area-inset-top))",
+            paddingLeft: "max(18px, env(safe-area-inset-left))",
+          }}
+        >
+          <Link
+            href="/"
+            aria-label="OARC Digital home"
+            data-testid="link-header-logo"
+            className={`flex h-10 items-center gap-2 ${isLight ? "text-zinc-900" : "text-white"}`}
+          >
+            <img
+              src="/oarc-logo-mark.webp"
+              alt=""
+              aria-hidden="true"
+              width={28}
+              height={28}
+              decoding="async"
+              className="h-7 w-7"
+            />
+            <span className="flex flex-col leading-none" style={{ fontFamily: "var(--font-heatrobox, sans-serif)" }}>
+              <span className="text-[15px] tracking-[0.2em]">OARC</span>
+              <span className={`mt-[3px] text-[6px] tracking-[0.42em] ${isLight ? "text-zinc-500" : "text-white/55"}`}>
+                DIGITAL
+              </span>
+            </span>
+          </Link>
+        </div>
+      )}
+
       {/* ── Trigger — static corner mark, scrolls away with page ── */}
       <div
         className={`absolute top-0 right-0 z-50 ${showMobileTrigger ? "block" : "hidden md:block"}`}
