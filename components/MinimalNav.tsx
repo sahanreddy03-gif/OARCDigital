@@ -146,10 +146,12 @@ export default function MinimalNav({
 
   return (
     <>
-      {/* ── Logo — top-left, links home, scrolls away with page like the trigger ── */}
+      {/* ── Logo — top-left, links home, scrolls away with page like the trigger.
+            Same phone rule as the trigger: pages that hide the trigger on phones
+            (e.g. /lp) leave no room at the top, so the logo is hidden there too. ── */}
       {showLogo && (
         <div
-          className="absolute top-0 left-0 z-50"
+          className={`absolute top-0 left-0 z-50 ${showMobileTrigger ? "block" : "hidden md:block"}`}
           style={{
             paddingTop: "max(16px, env(safe-area-inset-top))",
             paddingLeft: "max(18px, env(safe-area-inset-left))",
