@@ -3,11 +3,14 @@ import {
   MessageCircle, Filter, CalendarDays, Clock, UserPlus, RefreshCw, Link2, PenLine, Image as ImageIcon, Euro, Repeat,
   Wrench, CreditCard, FileText, BarChart3, Sun, Network, Workflow, TrendingUp, ShieldCheck, Search, FolderOpen,
   Scale, Inbox, Languages, Users, Lock, Eye, BadgeCheck, Building2, BookOpen, Car, Plane, Receipt, Gavel, Phone, Check,
+  CalendarClock,
   type LucideIcon,
 } from "lucide-react";
 import { NAP } from "@/lib/seo/nap";
-import type { AiIcon, AiSystemContent, Spotlight } from "@/lib/ai-systems/types";
-import { AskSpot, Calc, JobsRail } from "./AiSystemClient";
+import { bookingUrl } from "@/lib/utm";
+import type { AiIcon, AiSystemContent } from "@/lib/ai-systems/types";
+import { AskSpot, Calc, FloatBar, HeroFilm, JobsRail, PriceForm } from "./AiSystemClient";
+import { SpotVisual } from "./AiVisuals";
 import s from "./ai-system.module.css";
 
 const ICONS: Record<AiIcon, LucideIcon> = {
@@ -29,96 +32,142 @@ export function whatsappLink(business: string) {
   return `https://wa.me/${NAP.whatsappNumber}?text=${encodeURIComponent(text)}`;
 }
 
-function DemoButton({ href, label, variant }: { href: string; label: string; variant?: "onDark" | "onCobalt" }) {
+/** WhatsApp link that asks for the price. */
+export function priceLink(business: string) {
+  const text = `Hi OARC, I run a ${business} in Malta. What does the AI system cost?`;
+  return `https://wa.me/${NAP.whatsappNumber}?text=${encodeURIComponent(text)}`;
+}
+
+function PriceButton({ href, label, variant, testid }: { href: string; label: string; variant?: "onDark"; testid: string }) {
   return (
-    <a className={`${s.btn} ${variant ? s[variant] : ""}`} href={href} target="_blank" rel="noopener" data-testid="button-book-demo">
+    <a className={`${s.btn} ${variant ? s[variant] : ""}`} href={href} target="_blank" rel="noopener" data-testid={testid}>
       <MessageCircle aria-hidden="true" strokeWidth={1.6} />{label}
     </a>
   );
 }
 
-function SpotVisual({ spot }: { spot: Spotlight }) {
-  const v = spot.visual;
-  if (v.type === "chat") {
-    return (
-      <div className={s.chat}>
-        <div className={s.chead}><i>{v.initials}</i><div>{v.name}<small>{v.origin}</small></div><span className={s.ch}>{v.status}</span></div>
-        {v.messages.map((m, i) => (
-          <div key={i} className={`${s.msg} ${m.from === "in" ? s.msgIn : s.msgOut}`}>{m.text}<small>{m.time}</small></div>
-        ))}
-        {v.slots && <div className={s.slot}>{v.slots.map((x) => <span key={x}>{x}</span>)}</div>}
-        <div className={s.done}><span>{v.done.before}<b>{v.done.strong}</b>{v.done.after}</span></div>
-      </div>
-    );
-  }
-  if (v.type === "rows") {
-    return (
-      <div className={s.clist}>
-        <h4>{v.title} <small>{v.hint}</small></h4>
-        {v.rows.map((r) => (
-          <div className={s.crow} key={r.title}>
-            <span className={`${s.score} ${r.top ? s.scoreTop : ""}`}>{r.badge}</span>
-            <div><b>{r.title}</b><span>{r.detail}</span></div>
-            {v.action === "call"
-              ? <span className={s.call}><Phone aria-hidden="true" strokeWidth={1.8} /></span>
-              : <span className={`${s.tag} ${r.top ? s.tagOn : ""}`}>{r.tag}</span>}
-          </div>
-        ))}
-      </div>
-    );
-  }
-  if (v.type === "timeline") {
-    return (
-      <div className={s.lt}>
-        <h4>{v.title}</h4>
-        <p>{v.subtitle}</p>
-        {v.steps.map((st) => (
-          <div className={`${s.step} ${st.key ? s.stepKey : ""}`} key={st.title}>
-            <span className={s.dd}>{st.when}</span><span className={s.pin} />
-            <div><b>{st.title}</b><span>{st.detail}</span>{st.tag && <span className={`${s.tag} ${s.tagOn}`}>{st.tag}</span>}</div>
-          </div>
-        ))}
-      </div>
-    );
-  }
-  return null;
+function CallButton({ href, label, dark, testid }: { href: string; label: string; dark?: boolean; testid: string }) {
+  return (
+    <a className={`${s.btn} ${dark ? s.ghostDark : s.ghost}`} href={href} target="_blank" rel="noopener" data-testid={testid}>
+      <CalendarClock aria-hidden="true" strokeWidth={1.6} />{label}
+    </a>
+  );
 }
 
 export default function AiSystemPage({ c }: { c: AiSystemContent }) {
-  const wa = whatsappLink(c.business);
+  const price = priceLink(c.business);
+  const call = bookingUrl(`/ai/${c.slug}`);
   const d = c.dashboard;
-  return (
-    <div className={s.root}>
-      {/* PAGE BAR */}
-      <div className={s.top}>
-        <div className={`${s.wrap} ${s.topIn}`}>
-          <a className={s.brand} href="#top"><b>OARC</b><span>{c.barLabel}</span></a>
-          <nav className={s.topNav} aria-label="On this page">
-            <a className={s.nl} href="#features">Features</a>
-            <a className={s.nl} href="#live">48 hours</a>
-            <a className={s.nl} href="#start">The offer</a>
-            <a className={s.nl} href="#faq">Questions</a>
-            <a className={`${s.btn} ${s.sm}`} href={wa} target="_blank" rel="noopener" data-testid="button-bar-demo">Book a demo</a>
-          </nav>
+  const top = c.jobs.items.slice(0, 3);
+  const rest = c.jobs.items.slice(3);
+
+  const trust = (
+    <section className={s.sec} id="trust">
+      <div className={s.wrap}>
+        <div className={s.sh}><div><h2>{c.trust.title}</h2></div></div>
+        <div className={s.trust}>
+          {c.trust.items.map((t) => <div className={s.tr} key={t.title}><Ico name={t.icon} /><div><h3>{t.title}</h3><p>{t.body}</p></div></div>)}
         </div>
       </div>
-      {/* HERO */}
+    </section>
+  );
+
+  return (
+    <div className={s.root}>
+      {/* HERO: one pain, then watch it work */}
       <section className={s.hero} id="top">
         <div className={s.wrap}>
-          <nav className={s.crumbs} aria-label="Breadcrumb">
-            <Link href="/">OARC Digital</Link><span>/</span><Link href="/ai">AI systems</Link><span>/</span><span>{c.name}</span>
-          </nav>
           <span className={s.pill}><span className={s.ldot} />{c.hero.pill}</span>
           <p className={s.fin}>{c.hero.kicker}</p>
           <h1>{c.hero.h1Before} <span className={s.hl}>{c.hero.h1Highlight}</span></h1>
           <p className={s.sub}>{c.hero.sub}</p>
           <div className={s.acts}>
-            <DemoButton href={wa} label={c.hero.primaryCta} />
-            <a className={`${s.btn} ${s.ghost}`} href="#features">{c.hero.secondaryCta}</a>
+            <PriceButton href={price} label={c.hero.primaryCta} testid="button-hero-price" />
+            <CallButton href={call} label={c.hero.secondaryCta} testid="button-hero-call" />
           </div>
           <p className={s.note}>{c.hero.note}</p>
 
-          <div className={s.shot} role="img" aria-label={`Example of the OARC ${c.name.toLowerCase()} dashboard, with example data`}>
+          <HeroFilm film={c.film} />
+
+          <div className={s.proof}>
+            <p className={s.proofN}>{c.proof.line}.</p>
+            <div className={s.with}><span className={s.withLab}>Works with</span>{c.worksWith.map((w) => <span key={w}>{w}</span>)}</div>
+          </div>
+        </div>
+      </section>
+
+      {c.trustEarly && trust}
+
+      {/* YOUR NUMBERS */}
+      <section className={s.sec} id="worth">
+        <div className={s.wrap}>
+          <div className={s.sh}><div><h2>{c.calc.title}</h2></div></div>
+          <Calc calc={c.calc} />
+        </div>
+      </section>
+
+      {/* WHY NOW: the sourced facts */}
+      <section className={s.sec}>
+        <div className={s.wrap}>
+          <div className={s.sh}><div><h2>{c.facts.title}</h2></div></div>
+          <div className={s.facts}>
+            {c.facts.items.map((f) => (
+              <div className={s.fact} key={f.l}>
+                <span className={`${s.n} ${s.tnum}`}>{f.n}</span>
+                <span className={s.l}>{f.l}</span>
+                <a className={s.src} href={f.src.href} target="_blank" rel="noopener nofollow">{f.src.label}</a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* JOBS: three big, the rest in the rail */}
+      <JobsRail
+        title={c.jobs.title}
+        moreTitle={`And ${rest.length} more.`}
+        hint="Swipe to see them all →"
+        featured={top.map((j) => (
+          <li className={`${s.featCard} ${s.reveal}`} key={j.title}>
+            <Ico name={j.icon} />
+            <h3>{j.title}</h3>
+            <p>{j.body}</p>
+            <span className={s.gain}>{j.gain}</span>
+          </li>
+        ))}
+      >
+        {rest.map((j) => (
+          <li className={s.card} key={j.title}>
+            <Ico name={j.icon} />
+            <h3>{j.title}</h3>
+            <p>{j.body}</p>
+            <span className={s.gain}>{j.gain}</span>
+          </li>
+        ))}
+      </JobsRail>
+
+      {/* SPOTLIGHTS */}
+      {c.spotlights.map((sp, i) => (
+        <section className={s.sec} key={sp.title}>
+          {sp.visual.type === "ask" ? (
+            <AskSpot spot={sp} rev={i % 2 === 1} />
+          ) : (
+            <div className={`${s.wrap} ${s.spot} ${i % 2 === 1 ? s.rev : ""}`}>
+              <div className={s.txt}>
+                <h2>{sp.title}</h2>
+                <ul className={s.ticks}>{sp.points.map((p) => <li key={p}>{p}</li>)}</ul>
+              </div>
+              <div className={`${s.vis} ${s.reveal}`}><SpotVisual visual={sp.visual} /></div>
+            </div>
+          )}
+        </section>
+      ))}
+
+      {/* THE DASHBOARD */}
+      <section className={s.sec} id="dashboard">
+        <div className={s.wrap}>
+          <div className={s.sh}><div><h2>{d.title}</h2><p className={s.d}>{d.body}</p></div></div>
+          <div className={s.shot} role="img" aria-label={`The OARC ${c.name.toLowerCase()} dashboard: today's numbers, what needs you, and the week so far`}>
             <div className={s.app} aria-hidden="true">
               <div className={s.abar}>
                 <span className={s.logo}>OARC<small>{d.org}</small></span>
@@ -149,7 +198,7 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
                       <h4>{d.chartTitle}</h4>
                       <div className={s.bars}>
                         {d.bars.map((b, i) => (
-                          <div key={b.label} className={i === d.bars.length - 1 ? s.t : undefined} style={{ ["--h" as string]: `${b.h}%`, animationDelay: `${0.4 + i * 0.09}s` }}><span>{b.label}</span></div>
+                          <div key={b.label} className={i === d.bars.length - 1 ? s.t : undefined} style={{ ["--h" as string]: `${b.h}%` }}><span>{b.label}</span></div>
                         ))}
                       </div>
                       <div className={s.avg}><span>{d.chartFoot.label}</span><b className={s.tnum}>{d.chartFoot.value}</b></div>
@@ -172,18 +221,8 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
                 <span className={`${s.tag} ${s.tagOn}`}>{d.alertFloat.tag}</span>
               </div>
             </div>
-            <span className={s.exl}>Example data</span>
           </div>
-
-          <div className={s.with}><p className={s.lab}>Works with</p>{c.worksWith.map((w) => <span key={w}>{w}</span>)}</div>
-        </div>
-      </section>
-
-      {/* PILLARS */}
-      <section className={s.sec}>
-        <div className={s.wrap}>
-          <div className={s.sh}><div><p className={s.lab}>{c.pillars.label}</p><h2>{c.pillars.title}</h2></div></div>
-          <div className={s.pillars}>
+          <div className={`${s.pillars} ${s.pillarsUnder}`}>
             {c.pillars.items.map((p) => (
               <div className={`${s.pl} ${s.reveal}`} key={p.title}><Ico name={p.icon} /><h3>{p.title}</h3><p>{p.body}</p></div>
             ))}
@@ -191,40 +230,10 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
         </div>
       </section>
 
-      {/* JOBS */}
-      <JobsRail label={c.jobs.label} title={c.jobs.title} hint="Swipe to see them all →">
-        {c.jobs.items.map((j, i) => (
-          <li className={s.card} key={j.title}>
-            <div className={s.top2}><Ico name={j.icon} /><span className={s.no}>{String(i + 1).padStart(2, "0")}</span></div>
-            <h3>{j.title}</h3>
-            <p>{j.body}</p>
-            <span className={s.gain}>{j.gain}</span>
-          </li>
-        ))}
-      </JobsRail>
-
-      {/* SPOTLIGHTS */}
-      {c.spotlights.map((sp, i) => (
-        <section className={s.sec} key={sp.title}>
-          {sp.visual.type === "ask" ? (
-            <AskSpot spot={sp} rev={i % 2 === 1} />
-          ) : (
-            <div className={`${s.wrap} ${s.spot} ${i % 2 === 1 ? s.rev : ""}`}>
-              <div className={s.txt}>
-                <p className={s.lab}>{sp.label}</p>
-                <h2>{sp.title}</h2>
-                <ul className={s.ticks}>{sp.points.map((p) => <li key={p}>{p}</li>)}</ul>
-              </div>
-              <div className={`${s.vis} ${s.reveal}`}><SpotVisual spot={sp} /></div>
-            </div>
-          )}
-        </section>
-      ))}
-
       {/* AREAS */}
       <section className={s.sec} id="areas">
         <div className={s.wrap}>
-          <div className={s.sh}><div><p className={s.lab}>{c.areas.label}</p><h2>{c.areas.title}</h2><p className={s.d}>{c.areas.intro}</p></div></div>
+          <div className={s.sh}><div><h2>{c.areas.title}</h2><p className={s.d}>{c.areas.intro}</p></div></div>
           <div className={s.areaHead} aria-hidden="true"><span>{c.areas.colA}</span><span>{c.areas.colB}</span><span>{c.areas.colC}</span></div>
           <div className={s.areas}>
             {c.areas.items.map((a) => (
@@ -241,18 +250,17 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
       {/* CLIENT WINS */}
       <section className={s.sec}>
         <div className={s.wrap}>
-          <div className={s.sh}><div><p className={s.lab}>{c.wins.label}</p><h2>{c.wins.title}</h2></div></div>
+          <div className={s.sh}><div><h2>{c.wins.title}</h2></div></div>
           <div className={s.wins}>
             {c.wins.items.map((w) => <div className={`${s.win} ${s.reveal}`} key={w.title}><b>{w.title}</b><p>{w.body}</p></div>)}
           </div>
         </div>
       </section>
 
-      {/* LIVE */}
+      {/* LIVE IN 48 HOURS */}
       <section id="live">
         <div className={s.wrap}>
           <div className={s.live}>
-            <p className={s.lab}>{c.live.label}</p>
             <h2>{c.live.h2Before} <em>{c.live.h2Em}</em></h2>
             <p className={s.d}>{c.live.body}</p>
             <ol className={s.tl}>
@@ -265,11 +273,10 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
       {/* WAYS TO START + OFFER */}
       <section className={s.sec} id="start">
         <div className={s.wrap}>
-          <div className={s.sh}><div><p className={s.lab}>{c.ways.label}</p><h2>{c.ways.title}</h2></div></div>
+          <div className={s.sh}><div><h2>{c.ways.title}</h2></div></div>
           <div className={s.ways}>
-            {c.ways.items.map((w, i) => (
+            {c.ways.items.map((w) => (
               <div className={s.way} key={w.title}>
-                <span className={s.no}>{String(i + 1).padStart(2, "0")}</span>
                 <h3>{w.title}</h3>
                 <p>{w.body}</p>
                 <span className={s.eg}>{w.example}</span>
@@ -278,16 +285,17 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
           </div>
           <div className={s.offer}>
             <div className={s.offerL}>
-              <p className={s.lab}>{c.offer.label}</p>
               <h3>{c.offer.title}</h3>
               <p className={s.d}>{c.offer.body}</p>
-              <div className={s.acts}><DemoButton href={wa} label={c.offer.cta} /></div>
+              <div className={s.acts}>
+                <PriceButton href={price} label={c.offer.cta} testid="button-offer-price" />
+                <CallButton href={call} label={c.offer.secondaryCta} testid="button-offer-call" />
+              </div>
             </div>
             <div className={s.offerR}>
-              <p className={s.lab}>{c.offer.listLabel}</p>
               <ul className={s.get}>
-                {c.offer.items.map((it, i) => (
-                  <li key={it.strong}><b>{String(i + 1).padStart(2, "0")}</b><span><strong>{it.strong}</strong> {it.rest}</span></li>
+                {c.offer.items.map((it) => (
+                  <li key={it.strong}><Check aria-hidden="true" strokeWidth={2.2} /><span><strong>{it.strong}</strong> {it.rest}</span></li>
                 ))}
               </ul>
             </div>
@@ -295,52 +303,25 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
         </div>
       </section>
 
-      {/* CALCULATOR */}
-      <section className={s.sec} id="worth">
-        <div className={s.wrap}>
-          <div className={s.sh}><div><p className={s.lab}>{c.calc.label}</p><h2>{c.calc.title}</h2></div></div>
-          <Calc calc={c.calc} />
-        </div>
-      </section>
-
-      {/* TRUST */}
-      <section className={s.sec} id="trust">
-        <div className={s.wrap}>
-          <div className={s.sh}><div><p className={s.lab}>{c.trust.label}</p><h2>{c.trust.title}</h2></div></div>
-          <div className={s.trust}>
-            {c.trust.items.map((t) => <div className={s.tr} key={t.title}><Ico name={t.icon} /><div><h3>{t.title}</h3><p>{t.body}</p></div></div>)}
-          </div>
-        </div>
-      </section>
-
-      {/* FACTS */}
-      <section className={s.sec}>
-        <div className={s.wrap}>
-          <div className={s.sh}><div><p className={s.lab}>{c.facts.label}</p><h2>{c.facts.title}</h2></div></div>
-          <div className={s.facts}>
-            {c.facts.items.map((f) => (
-              <div className={s.fact} key={f.l}>
-                <span className={`${s.n} ${s.tnum}`}>{f.n}</span>
-                <span className={s.l}>{f.l}</span>
-                <a className={s.src} href={f.src.href} target="_blank" rel="noopener nofollow">{f.src.label}</a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {!c.trustEarly && trust}
 
       {/* FAQ + CTA */}
       <section className={s.sec} id="faq">
         <div className={s.wrap}>
-          <div className={s.sh}><div><p className={s.lab}>Questions</p><h2>Straight answers.</h2></div></div>
+          <div className={s.sh}><div><h2>Straight answers.</h2></div></div>
           <div className={s.faq}>
             {c.faq.map((f) => <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>)}
           </div>
 
-          <div className={s.cta}>
+          <div className={s.cta} id="price">
             <h2>{c.cta.titleBefore} <em>{c.cta.titleEm}</em></h2>
             <p>{c.cta.body}</p>
-            <DemoButton href={wa} label={c.cta.button} variant="onDark" />
+            <div className={s.ctaActs}>
+              <PriceButton href={price} label={c.cta.button} variant="onDark" testid="button-cta-price" />
+              <CallButton href={call} label={c.cta.secondary} dark testid="button-cta-call" />
+            </div>
+            <p className={s.leadLab}>Or leave your number and we’ll message you.</p>
+            <PriceForm service={`AI system: ${c.name}`} source={`/ai/${c.slug} price request`} />
           </div>
 
           <div className={s.foot}>
@@ -352,12 +333,17 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
             </div>
             <div className={s.footBlock}>
               <p className={s.lab}>Also from OARC</p>
-              <div className={s.rel}>{c.related.map((r) => <Link key={r.href} href={r.href}>{r.label}</Link>)}</div>
+              <div className={s.rel}>
+                <Link href="/ai">All AI systems</Link>
+                {c.related.map((r) => <Link key={r.href} href={r.href}>{r.label}</Link>)}
+              </div>
             </div>
             <small>{c.disclaimer}</small>
           </div>
         </div>
       </section>
+
+      <FloatBar line={c.proof.line} short={c.proof.short} href={price} label="Ask for the price" />
     </div>
   );
 }

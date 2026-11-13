@@ -15,6 +15,7 @@ const PRIMARY = [
   { href: "/services",  label: "Services" },
   { href: "/creative",  label: "Creative" },
   { href: "/ai-agents", label: "AI Agents" },
+  { href: "/ai",        label: "AI by Industry" },
   { href: "/voice-ai-worker", label: "Tom, Voice AI Worker" },
   { href: "/solutions", label: "Automation" },
   { href: "/our-work",  label: "Our Work" },
@@ -56,6 +57,16 @@ const SERVICE_GROUPS: { title: string; href: string; accent: string; items: { na
       { name: "AI Appointment Booker", href: "/services/ai-appointment-booker" },
       { name: "AI Consulting",         href: "/services/ai-consulting" },
       { name: "Revenue Automation",    href: "/services/revenue-automation" },
+    ],
+  },
+  {
+    title: "AI by Industry",
+    href: "/ai",
+    accent: "#c4ff4d",
+    items: [
+      { name: "Real estate agencies", href: "/ai/real-estate" },
+      { name: "Law firms",            href: "/ai/law-firms" },
+      { name: "All industries",       href: "/ai" },
     ],
   },
   {

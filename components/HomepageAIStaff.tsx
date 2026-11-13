@@ -152,6 +152,9 @@ export default function HomepageAIStaff() {
           >
             Meet all the AI staff →
           </Link>
+          <Link href="/ai" className="border-b border-white/30 pb-1 text-sm font-semibold hover:border-white" data-testid="link-home-ai-industry">
+            AI systems by industry: real estate, law firms
+          </Link>
           <Link href="/agent-economy" className="border-b border-white/30 pb-1 text-sm font-semibold hover:border-white">
             What is the agent economy?
           </Link>

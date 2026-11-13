@@ -60,14 +60,8 @@ export default async function Page({ params }: Props) {
         url,
         areaServed: { "@type": "Country", name: "Malta" },
         provider: { "@type": "Organization", "@id": `${BASE}/#organization`, name: NAP.name, url: BASE },
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: c.jobs.title,
-          itemListElement: c.jobs.items.map((j) => ({
-            "@type": "Offer",
-            itemOffered: { "@type": "Service", name: j.title, description: j.body },
-          })),
-        },
+        // One Service node. The jobs are listed as plain text, not as 16+ nested offers.
+        serviceOutput: c.jobs.items.map((j) => j.title).join("; "),
       },
       {
         "@type": "FAQPage",

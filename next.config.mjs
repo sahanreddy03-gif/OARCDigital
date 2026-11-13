@@ -83,6 +83,17 @@ const nextConfig = {
       { source: '/privacy-policy', destination: '/legal/privacy-policy', permanent: true },
       { source: '/data-deletion', destination: '/legal/data-deletion', permanent: true },
       { source: '/terms-conditions', destination: '/legal/terms-conditions', permanent: true },
+      { source: '/cookie-policy', destination: '/legal/cookie-policy', permanent: true },
+      // AI system pages: the ways people type or guess the address
+      { source: '/ai/law-firm', destination: '/ai/law-firms', permanent: true },
+      { source: '/ai/legal', destination: '/ai/law-firms', permanent: true },
+      { source: '/ai/law', destination: '/ai/law-firms', permanent: true },
+      { source: '/ai/lawyers', destination: '/ai/law-firms', permanent: true },
+      { source: '/ai/advocates', destination: '/ai/law-firms', permanent: true },
+      { source: '/ai/realestate', destination: '/ai/real-estate', permanent: true },
+      { source: '/ai/real-estate-agencies', destination: '/ai/real-estate', permanent: true },
+      { source: '/ai/estate-agents', destination: '/ai/real-estate', permanent: true },
+      { source: '/ai/property', destination: '/ai/real-estate', permanent: true },
     ];
   },
   async headers() {

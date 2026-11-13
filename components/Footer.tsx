@@ -234,13 +234,13 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-8 border-b border-white/5">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div className="flex flex-wrap items-center gap-4 md:gap-6">
-            <Link href="/privacy-policy" className="text-zinc-400 hover:text-white transition-colors text-sm" data-testid="link-footer-privacy">
+            <Link href="/legal/privacy-policy" className="text-zinc-400 hover:text-white transition-colors text-sm" data-testid="link-footer-privacy">
               Privacy Policy
             </Link>
-            <Link href="/cookie-policy" className="text-zinc-400 hover:text-white transition-colors text-sm" data-testid="link-footer-cookies">
+            <Link href="/legal/cookie-policy" className="text-zinc-400 hover:text-white transition-colors text-sm" data-testid="link-footer-cookies">
               Cookie Policy
             </Link>
-            <Link href="/terms-conditions" className="text-zinc-400 hover:text-white transition-colors text-sm" data-testid="link-footer-terms">
+            <Link href="/legal/terms-conditions" className="text-zinc-400 hover:text-white transition-colors text-sm" data-testid="link-footer-terms">
               Terms & Conditions
             </Link>
           </div>

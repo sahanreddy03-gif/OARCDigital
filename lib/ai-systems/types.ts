@@ -48,6 +48,14 @@ export interface Spotlight {
   visual: SpotVisual;
 }
 
+/** One scene of the self-playing demo at the top of the page. */
+export interface FilmScene {
+  clock: string;
+  caption: string;
+  result: string;
+  visual: ChatVisual | RowsVisual | TimelineVisual;
+}
+
 export interface CalcInput { label: string; value: number; max?: number }
 
 export interface AiSystemContent {
@@ -64,6 +72,12 @@ export interface AiSystemContent {
   serviceType: string;
   schemaDescription: string;
   hub: { title: string; body: string; gain: string };
+  /** Deployment proof, supplied by the owner. line = full sentence, short = phone width. */
+  proof: { line: string; short: string };
+  /** Self-playing demo in the hero. */
+  film: { title: string; scenes: FilmScene[] };
+  /** Show the trust block right under the hero (law firms). */
+  trustEarly?: boolean;
 
   hero: {
     pill: string;
@@ -76,6 +90,8 @@ export interface AiSystemContent {
     note: string;
   };
   dashboard: {
+    title: string;
+    body: string;
     org: string;
     search: string;
     initials: string;
@@ -118,6 +134,7 @@ export interface AiSystemContent {
     title: string;
     body: string;
     cta: string;
+    secondaryCta: string;
     listLabel: string;
     items: { strong: string; rest: string }[];
   };
@@ -135,7 +152,7 @@ export interface AiSystemContent {
   trust: { label: string; title: string; items: { icon: AiIcon; title: string; body: string }[] };
   facts: { label: string; title: string; items: { n: string; l: string; src: SourceLink }[] };
   faq: { q: string; a: string }[];
-  cta: { titleBefore: string; titleEm: string; body: string; button: string };
+  cta: { titleBefore: string; titleEm: string; body: string; button: string; secondary: string };
   sources: SourceLink[];
   related: { label: string; href: string }[];
   disclaimer: string;
