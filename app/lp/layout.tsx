@@ -1,19 +1,26 @@
-import { Inter_Tight, Instrument_Serif } from 'next/font/google';
+import localFont from 'next/font/local';
 import type { ReactNode } from 'react';
 import './lp-guides.css';
 
-const interTight = Inter_Tight({
-  subsets: ['latin'],
+const interTight = localFont({
+  src: [
+    { path: '../fonts/inter-tight.woff2', weight: '400', style: 'normal' },
+    { path: '../fonts/inter-tight.woff2', weight: '500', style: 'normal' },
+    { path: '../fonts/inter-tight.woff2', weight: '600', style: 'normal' },
+    { path: '../fonts/inter-tight.woff2', weight: '700', style: 'normal' },
+  ],
   display: 'swap',
+  adjustFontFallback: false,
+  fallback: ['InterTightFallback'],
   variable: '--font-lp-sans',
-  weight: ['400', '500', '600', '700'],
 });
 
-const instrumentSerif = Instrument_Serif({
-  subsets: ['latin'],
+const instrumentSerif = localFont({
+  src: [{ path: '../fonts/instrument-serif.woff2', weight: '400', style: 'normal' }],
   display: 'swap',
+  adjustFontFallback: false,
+  fallback: ['InstrumentSerifFallback'],
   variable: '--font-lp-serif',
-  weight: '400',
 });
 
 /** Superside-inspired LP shell — scoped fonts/colours; main site homepage untouched. */

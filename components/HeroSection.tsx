@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { Inter_Tight, Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 import { Palette, Bot, Rocket } from "lucide-react";
 import FloatingChipCarousel from "./FloatingChipCarousel";
 import MobileHeroMasonryGrid from "./MobileHeroMasonryGrid";
@@ -11,16 +11,25 @@ import { HERO_CUSTOMERS_VIDEO } from "@/lib/media/heroCustomersVideo";
 const heroBackground = "/attached_assets/d375f1d50d97b0de7953ca2cecd2b8aea2cd96b2-3524x1181_1761251957292.avif";
 
 /** Superside headline pair — Inter Tight (sans) + Instrument Serif (italic accent). */
-const heroSans = Inter_Tight({
-  subsets: ["latin"],
+const interTight = localFont({
+  src: [
+    { path: "../app/fonts/inter-tight.woff2", weight: "400", style: "normal" },
+    { path: "../app/fonts/inter-tight.woff2", weight: "500", style: "normal" },
+    { path: "../app/fonts/inter-tight.woff2", weight: "600", style: "normal" },
+    { path: "../app/fonts/inter-tight.woff2", weight: "700", style: "normal" },
+  ],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  adjustFontFallback: false,
+  fallback: ["InterTightFallback"],
 });
-const heroSerif = Instrument_Serif({
-  subsets: ["latin"],
+const instrumentSerif = localFont({
+  src: [
+    { path: "../app/fonts/instrument-serif.woff2", weight: "400", style: "normal" },
+    { path: "../app/fonts/instrument-serif-italic.woff2", weight: "400", style: "italic" },
+  ],
   display: "swap",
-  weight: "400",
-  style: ["normal", "italic"],
+  adjustFontFallback: false,
+  fallback: ["InstrumentSerifFallback"],
 });
 
 const HERO_PLACEHOLDER = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERAgMSIv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABcRAQEBAQAAAAAAAAAAAAAAAAARAQL/2gAMAwEAAhEDEQA/AOUODgIwlnPNZsz85MnNwu9uB2nnUQ7ugLToEq//2Q==';
@@ -236,14 +245,14 @@ const CompactMobileGlassCard = ({
       data-testid={testId}
     >
       <span
-        className={`${heroSerif.className} italic leading-none text-white`}
+        className={`${instrumentSerif.className} italic leading-none text-white`}
         style={{ fontSize: "clamp(1.05rem, 4.8vw, 1.3rem)", letterSpacing: "-0.025em" }}
       >
         {label}
       </span>
       {subtitle ? (
         <span
-          className={`${heroSans.className} mt-1 font-medium leading-[1.05] text-white/80`}
+          className={`${interTight.className} mt-1 font-medium leading-[1.05] text-white/80`}
           style={{ fontSize: "clamp(0.58rem, 2.5vw, 0.68rem)", letterSpacing: "-0.01em" }}
         >
           {subtitle}
@@ -449,7 +458,7 @@ export default function HeroSection() {
         {/* ========== CONTENT ========== */}
         {/* MOBILE — carousel stays pinned at bottom. */}
         <div
-          className={`hero-type md:hidden relative h-[100svh] flex flex-col overflow-hidden ${heroSans.className}`}
+          className={`hero-type md:hidden relative h-[100svh] flex flex-col overflow-hidden ${interTight.className}`}
           style={{
             paddingTop: "max(4.25rem, calc(env(safe-area-inset-top) + 3.25rem))",
             paddingBottom: "max(0.2rem, env(safe-area-inset-bottom))",
@@ -458,17 +467,17 @@ export default function HeroSection() {
           <div className="shrink-0 px-1 text-center">
             <h1 className="hero-display-type text-white" data-testid="text-hero-headline" data-speakable>
               <span
-                className={`${heroSans.className} block font-semibold tracking-[-0.035em] leading-[1.05]`}
+                className={`${interTight.className} block font-semibold tracking-[-0.035em] leading-[1.05]`}
                 style={{ fontSize: "clamp(1.55rem, 7.6vw, 1.95rem)" }}
               >
                 Marketing Agency Malta
               </span>
               <span
-                className={`${heroSerif.className} mt-1 block whitespace-nowrap italic tracking-[-0.045em] leading-[1.08]`}
+                className={`${instrumentSerif.className} mt-1 block whitespace-nowrap italic tracking-[-0.045em] leading-[1.08]`}
                 style={{ fontSize: "clamp(1.05rem, 4.65vw, 1.2rem)" }}
               >
                 One AI-native team for{" "}
-                <span className={`${heroSans.className} text-[#F9FF84] font-semibold not-italic`}>
+                <span className={`${interTight.className} text-[#F9FF84] font-semibold not-italic`}>
                   creative, growth &amp; automation
                 </span>
               </span>
@@ -511,13 +520,13 @@ export default function HeroSection() {
             data-testid="text-hero-inhouse-line"
             data-speakable
           >
-            <span className={`${heroSans.className} text-[#F9FF84] font-semibold not-italic`}>
+            <span className={`${interTight.className} text-[#F9FF84] font-semibold not-italic`}>
               In-house
             </span>{" "}
-            <span className={`${heroSerif.className} italic text-white`}>
+            <span className={`${instrumentSerif.className} italic text-white`}>
               Studio, Sales &amp; Tech
             </span>{" "}
-            <span className={`${heroSans.className} text-white font-semibold`}>
+            <span className={`${interTight.className} text-white font-semibold`}>
               at your disposal
             </span>
           </p>

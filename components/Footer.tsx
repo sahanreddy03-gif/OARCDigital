@@ -6,7 +6,7 @@ import { servicesCatalog } from '@/config/servicesConfig';
 import { NAP } from "@/lib/seo/nap";
 import FooterH360Link from '@/components/FooterH360Link';
 import { bookingUrl } from "@/lib/utm";
-const greenLogo = "/attached_assets/image_1767660951950.png";
+const greenLogo = "/oarc-logo-mark.webp";
 
 const WHATSAPP_NUMBER = NAP.whatsappNumber;
 const WHATSAPP_MESSAGE = "Hi, I'm interested in your services";
@@ -259,6 +259,10 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
             <img 
               src={greenLogo} 
               alt="OARC Digital logo" 
+              width={44}
+              height={44}
+              loading="lazy"
+              decoding="async"
               className="h-10 w-10 lg:h-11 lg:w-11 object-contain"
               data-testid="img-footer-logo"
             />

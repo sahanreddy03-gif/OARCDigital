@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Nunito_Sans, Montserrat, Inter, Space_Grotesk, EB_Garamond, Anton, Bricolage_Grotesque, Space_Mono, Instrument_Serif, Fraunces, JetBrains_Mono, Inter_Tight } from "next/font/google";
+import localFont from "next/font/local";
 import { partytownSnippet } from "@qwik.dev/partytown/integration";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import "./fonts/fallbacks.css";
 import "./globals.css";
 import { Providers } from "./providers";
 import SpeculationRules from "@/components/SpeculationRules";
@@ -11,87 +12,136 @@ import Analytics from "@/components/Analytics";
 import { NAP, POSTAL_ADDRESS, GEO_COORDINATES } from "@/lib/seo/nap";
 import { ORG_SAMEAS } from "@/lib/schema";
 
-const nunitoSans = Nunito_Sans({
-  subsets: ["latin"],
+// Fonts are self-hosted from app/fonts (same latin files Google Fonts serves), so builds
+// never depend on fonts.googleapis.com. Only the body font is preloaded on every page;
+// the rest load on first use (display: swap + the same metric-matched fallbacks Google used: app/fonts/fallbacks.css).
+const nunitoSans = localFont({
+  src: [
+    { path: "./fonts/nunito-sans.woff2", weight: "200", style: "normal" },
+    { path: "./fonts/nunito-sans.woff2", weight: "300", style: "normal" },
+    { path: "./fonts/nunito-sans.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/nunito-sans.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/nunito-sans.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/nunito-sans.woff2", weight: "800", style: "normal" },
+    { path: "./fonts/nunito-sans.woff2", weight: "900", style: "normal" },
+  ],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["NunitoSansFallback"],
+  declarations: [{ prop: "font-stretch", value: "100%" }],
   variable: "--font-nunito-sans",
-  weight: ["200", "300", "400", "600", "700", "800", "900"],
 });
-const montserrat = Montserrat({
-  subsets: ["latin"],
+const montserrat = localFont({
+  src: [{ path: "./fonts/montserrat.woff2", weight: "100 900", style: "normal" }],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["MontserratFallback"],
   variable: "--font-montserrat",
+  preload: false,
 });
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: [{ path: "./fonts/inter.woff2", weight: "100 900", style: "normal" }],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["InterFallback"],
   variable: "--font-inter",
+  preload: false,
 });
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
+const spaceGrotesk = localFont({
+  src: [{ path: "./fonts/space-grotesk.woff2", weight: "300 700", style: "normal" }],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["SpaceGroteskFallback"],
   variable: "--font-space-grotesk",
+  preload: false,
 });
-const ebGaramond = EB_Garamond({
-  subsets: ["latin"],
+const ebGaramond = localFont({
+  src: [{ path: "./fonts/eb-garamond.woff2", weight: "400 800", style: "normal" }],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["EBGaramondFallback"],
   variable: "--font-eb-garamond",
+  preload: false,
 });
-const anton = Anton({
-  subsets: ["latin"],
+const bricolage = localFont({
+  src: [
+    { path: "./fonts/bricolage-grotesque.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/bricolage-grotesque.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/bricolage-grotesque.woff2", weight: "800", style: "normal" },
+  ],
   display: "swap",
-  variable: "--font-anton",
-  weight: "400",
-});
-const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
-  display: "swap",
+  adjustFontFallback: false,
+  fallback: ["BricolageGrotesqueFallback"],
+  declarations: [{ prop: "font-stretch", value: "100%" }],
   variable: "--font-bricolage",
-  weight: ["500", "700", "800"],
+  preload: false,
 });
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
+const spaceMono = localFont({
+  src: [
+    { path: "./fonts/space-mono-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/space-mono-700.woff2", weight: "700", style: "normal" },
+  ],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["SpaceMonoFallback"],
   variable: "--font-space-mono",
-  weight: ["400", "700"],
+  preload: false,
 });
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
+// One "Instrument Serif" family holds both the italic and the upright face, exactly as the
+// live Google setup did (both configs shared that family name, so their faces merged).
+// --font-instrument-serif and --font-instrument-serif-roman both point at it.
+const instrumentSerif = localFont({
+  src: [
+    { path: "./fonts/instrument-serif-italic.woff2", weight: "400", style: "italic" },
+    { path: "./fonts/instrument-serif.woff2", weight: "400", style: "normal" },
+  ],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["InstrumentSerifFallback"],
   variable: "--font-instrument-serif",
-  style: ["italic"],
-  weight: "400",
+  preload: false,
 });
-const fraunces = Fraunces({
-  subsets: ["latin"],
+const fraunces = localFont({
+  src: [
+    { path: "./fonts/fraunces.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/fraunces.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/fraunces.woff2", weight: "900", style: "normal" },
+    { path: "./fonts/fraunces-italic.woff2", weight: "400", style: "italic" },
+    { path: "./fonts/fraunces-italic.woff2", weight: "600", style: "italic" },
+    { path: "./fonts/fraunces-italic.woff2", weight: "900", style: "italic" },
+  ],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["FrauncesFallback"],
   variable: "--font-fraunces",
-  weight: ["400", "600", "900"],
-  style: ["normal", "italic"],
+  preload: false,
 });
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
+const jetbrainsMono = localFont({
+  src: [
+    { path: "./fonts/jetbrains-mono.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/jetbrains-mono.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/jetbrains-mono.woff2", weight: "800", style: "normal" },
+  ],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["JetBrainsMonoFallback"],
   variable: "--font-jetbrains-mono",
-  weight: ["400", "700", "800"],
+  preload: false,
 });
 
 // Design system v3 (Notion "OARC Design System (final)"): upright Instrument Serif for
-// editorial lines, and Inter Tight as the web stand-in for Neue Haas Unica (sentences).
-// Separate variables, so existing --font-instrument-serif (italic) users are unchanged.
-const instrumentSerifRoman = Instrument_Serif({
-  subsets: ["latin"],
+// editorial lines (--font-instrument-serif-roman, set on <html> below), and Inter Tight as
+// the web stand-in for Neue Haas Unica (sentences).
+const interTight = localFont({
+  src: [
+    { path: "./fonts/inter-tight.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/inter-tight.woff2", weight: "600", style: "normal" },
+  ],
   display: "swap",
-  variable: "--font-instrument-serif-roman",
-  style: ["normal"],
-  weight: "400",
-});
-
-const interTight = Inter_Tight({
-  subsets: ["latin"],
-  display: "swap",
+  adjustFontFallback: false,
+  fallback: ["InterTightFallback"],
   variable: "--font-inter-tight",
-  weight: ["400", "600"],
+  preload: false,
 });
 
 const fontVariables = [
@@ -100,13 +150,11 @@ const fontVariables = [
   inter.variable,
   spaceGrotesk.variable,
   ebGaramond.variable,
-  anton.variable,
   bricolage.variable,
   spaceMono.variable,
   instrumentSerif.variable,
   fraunces.variable,
   jetbrainsMono.variable,
-  instrumentSerifRoman.variable,
   interTight.variable,
 ].join(" ");
 
@@ -240,9 +288,9 @@ export const metadata: Metadata = {
 };
 
 // ─── Performance budget ───────────────────────────────────────────────────────
-// next/font    : Nunito Sans, Montserrat, Inter, Space Grotesk, EB Garamond,
-//                Orbitron, Anton — all loaded via next/font/google (display:swap,
-//                self-hosted, zero FOUT, no external round-trip)
+// next/font    : all families self-hosted from app/fonts via next/font/local
+//                (display:swap, metric-matched fallbacks, no Google fetch at build).
+//                Only Nunito Sans (body) is preloaded site-wide.
 // Partytown    : GTM / Google Ads (AW-17812517147) offloaded to web worker in
 //                production — main thread free during first-paint window
 // SpeedInsights: @vercel/speed-insights/next wired below — real-user data
@@ -258,7 +306,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={fontVariables}>
+    <html
+      lang="en"
+      className={fontVariables}
+      style={{ ["--font-instrument-serif-roman" as string]: instrumentSerif.style.fontFamily }}
+    >
       <head>
         <link
           rel="preload"
