@@ -3,7 +3,6 @@
  * Numbers come from caseProof. Tiffany's 55% and 50% were given by the owner.
  */
 
-import { CASE_PROOF } from "@/lib/data/premium-work/caseProof";
 import { CASE_FULL_OTHERS } from "@/lib/data/premium-work/caseFullOthers";
 import { CASE_FULL_SYSTEMS } from "@/lib/data/premium-work/caseFullSystems";
 
@@ -43,11 +42,7 @@ export type FullCase = {
   closeTitle: string;
   close: string[];
   moreSlugs: string[];
-  groups: { label: string; lines: string[] }[];
 };
-
-const tiffany = CASE_PROOF.tiffany;
-const line = tiffany.results;
 
 export const CASE_FULL: Record<string, FullCase> = {
   ...CASE_FULL_OTHERS,
@@ -155,11 +150,6 @@ export const CASE_FULL: Record<string, FullCase> = {
       "Social, the events, the paid campaigns, and the website. Tiffany Lounge is a client of OARC Digital. The numbers on this page come from the work on this account.",
     ],
     moreSlugs: ["portomaso-casino", "massive-fan-zone", "spinola-gin-fest"],
-    groups: [
-      { label: "Social media", lines: [line[0], line[2]] },
-      { label: "Visits", lines: [line[3]] },
-      { label: "Bookings and sales", lines: [line[1], line[4], line[5]] },
-    ],
   },
 };
 

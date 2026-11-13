@@ -78,10 +78,6 @@ export const CASE_FULL_OTHERS: Record<string, FullCase> = {
     closeTitle: "The place, then the table.",
     close: ["OARC Digital made the venue photographs and the restaurant content for Portomaso Casino. The numbers come from the work on this account."],
     moreSlugs: ["massive-fan-zone", "spinola-gin-fest", "calle-bistro"],
-    groups: [
-      { label: "Bookings and sales", lines: ["We grew restaurant booking clicks by 35% with location-led posts.", "We brought 450 more diners to the restaurant page from venue content."] },
-      { label: "Views and reach", lines: ["We brought the Portomaso setting to 60,000 local viewers."] },
-    ],
     faq: [
       { q: "What did OARC Digital do for Portomaso Casino?", a: "OARC Digital photographed the entrance, floor and lounge at Portomaso Marina and ran content that sent people to the restaurant. Restaurant booking clicks grew 35%." },
       { q: "Did the Portomaso work promote gambling?", a: "No. The page and the posts are about the venue and the restaurant. Booking clicks are for a table." },
@@ -109,11 +105,6 @@ export const CASE_FULL_OTHERS: Record<string, FullCase> = {
     closeTitle: "One bay. Every match.",
     close: ["OARC Digital made the Fan Zone posts and ran the paid ads for Massive Promotions. The numbers come from the work on this account."],
     moreSlugs: ["spinola-gin-fest", "drink-n-more", "portomaso-casino"],
-    groups: [
-      { label: "Bookings and sales", lines: ["We brought 12,000 fans to the Spinola Bay Fan Zone."] },
-      { label: "Visits", lines: ["We got 2,000 people to visit match-night details from social posts."] },
-      { label: "Social media", lines: ["We cut the cost of each event-interest action by 30%."] },
-    ],
     faq: [
       { q: "What did OARC Digital do for the Spinola Bay Fan Zone?", a: "OARC Digital made Fan Zone posts around the World Cup fixtures and ran the paid ads. 12,000 fans came to Spinola Bay." },
       { q: "How did fans find the match details?", a: "Social posts sent 2,000 people to the match-night details. The posts went up so fans could plan before kick-off." },
@@ -140,12 +131,6 @@ export const CASE_FULL_OTHERS: Record<string, FullCase> = {
     closeTitle: "The dates, then the crowd.",
     close: ["OARC Digital made the Gin Fest videos, posts and poster for Massive Promotions. The numbers come from the work on this account."],
     moreSlugs: ["massive-fan-zone", "drink-n-more", "calle-bistro"],
-    groups: [
-      { label: "Bookings and sales", lines: ["We brought 4,500 visitors to the festival over two nights."] },
-      { label: "Views and reach", lines: ["We reached 300,000 people with Gin Fest campaign content."] },
-      { label: "Social media", lines: ["We turned festival clips into 1,000 saved event plans."] },
-      { label: "Visits", lines: ["We doubled visits to the festival details before opening night."] },
-    ],
     faq: [
       { q: "When was the Spinola Gin Fest that OARC Digital promoted?", a: "The 4th Spinola Gin Fest ran on 16 and 17 July 2026. OARC Digital made the videos and posts before opening night. 4,500 people came." },
       { q: "How far did the Gin Fest campaign reach?", a: "The campaign reached 300,000 people. Visits to the festival details doubled before opening night, and 1,000 people saved an event plan." },
@@ -172,10 +157,6 @@ export const CASE_FULL_OTHERS: Record<string, FullCase> = {
     closeTitle: "The opening, planned.",
     close: ["OARC Digital planned and made the Drink N More launch at Spinola Bay. The numbers come from the work on this account."],
     moreSlugs: ["spinola-gin-fest", "massive-fan-zone", "mcw-cbd"],
-    groups: [
-      { label: "Visits", lines: ["We brought 2,000 local people to the launch details page.", "We helped 600 more people find Drink N More from launch posts."] },
-      { label: "Social media", lines: ["We grew launch-week social followers by 2,000.", "We brought 800 people back with launch-week content."] },
-    ],
     faq: [
       { q: "What did OARC Digital do for the Drink N More launch?", a: "OARC Digital planned the Spinola Bay launch, wrote the first public message, and made the content before opening. 2,000 people came to the launch details and followers grew by 2,000 in launch week." },
       { q: "Did people come back after opening week?", a: "Launch-week content brought 800 people back. Another 600 found Drink N More from the launch posts." },
@@ -202,11 +183,6 @@ export const CASE_FULL_OTHERS: Record<string, FullCase> = {
     closeTitle: "Search, then the nearest shop.",
     close: ["OARC Digital ran the listings, the branch pages, the social posts and the local ads for MCW. The numbers come from the work on this account. Nothing on this page is a medical or health claim."],
     moreSlugs: ["calle-bistro", "kreta", "palino"],
-    groups: [
-      { label: "Bookings and sales", lines: ["How OARC helped MCW generate €20,000 in sales.", "Sales grew 30% month on month.", "We helped MCW win 200 new local shoppers through social ads."] },
-      { label: "Visits", lines: ["We brought 1,500 shoppers to MCW’s branch pages through social posts.", "We grew product-page visits by 35% with local campaigns.", "We brought 500 more calls and direction requests from local Google listings."] },
-      { label: "Views and reach", lines: ["We got MCW to #1 on Google in Malta in 3 months."] },
-    ],
     faq: [
       { q: "What did OARC Digital do for MCW?", a: "OARC Digital fixed the Google listing for every MCW branch in Malta, linked search to the website, replied to reviews, and ran social posts and local ads. MCW reached #1 on Google in Malta within three months." },
       { q: "What sales came from the MCW work?", a: "Sales grew 30% month on month. The work generated €20,000 in sales. The page does not make a medical or health claim." },
@@ -234,11 +210,6 @@ export const CASE_FULL_OTHERS: Record<string, FullCase> = {
     closeTitle: "Sliema search. Booked table.",
     close: ["OARC Digital ran the Google listing, the booking link, the paid social and the tracking for Calle Bistro. The numbers come from the work on this account."],
     moreSlugs: ["kreta", "palino", "louisiana-mama"],
-    groups: [
-      { label: "Bookings and sales", lines: ["We grew calls from Google by 48%.", "We brought 300 table-booking clicks from paid social."] },
-      { label: "Visits", lines: ["We brought 400 diners to the reservation page from social ads."] },
-      { label: "Social media", lines: ["We got 650 people to save a seafood-night post."] },
-    ],
     faq: [
       { q: "What did OARC Digital do for Calle Bistro in Sliema?", a: "OARC Digital improved Calle Bistro’s Google listing, linked the website to table bookings, and ran paid social ads with tracking. Calls from Google grew 48%." },
       { q: "How many diners reached the reservation page?", a: "Social ads brought 400 diners to the reservation page and 300 table-booking clicks. 650 people saved a seafood-night post." },
@@ -265,11 +236,6 @@ export const CASE_FULL_OTHERS: Record<string, FullCase> = {
     closeTitle: "Paceville. Found, then booked.",
     close: ["OARC Digital fixed the listing and connected search, the menu and the bookings for Kreta, using Kreta’s own photos. The numbers come from the work on this account."],
     moreSlugs: ["calle-bistro", "palino", "ricky-jr-burger"],
-    groups: [
-      { label: "Bookings and sales", lines: ["We grew reservations from Instagram by 28%.", "We got 300 more people to use Kreta’s ordering links."] },
-      { label: "Views and reach", lines: ["We reached 60,000 local diners with Greek grill content."] },
-      { label: "Visits", lines: ["We brought 450 people to Kreta’s menu from late-night posts."] },
-    ],
     faq: [
       { q: "What did OARC Digital do for Kreta in Paceville?", a: "OARC Digital improved Kreta’s Google listing, connected search to the menu and table bookings, and made content from Kreta’s own photos. Reservations from Instagram grew 28%." },
       { q: "How many people saw the Kreta food posts?", a: "Greek grill content reached 60,000 local diners. Late-night posts brought 450 people to the menu, and 300 more people used the ordering links." },
@@ -296,11 +262,6 @@ export const CASE_FULL_OTHERS: Record<string, FullCase> = {
     closeTitle: "See it. Order it. Direct.",
     close: ["OARC Digital built the brand, the posts and the WhatsApp ordering for Louisiana Mama. The numbers come from the work on this account."],
     moreSlugs: ["palino", "ricky-jr-burger", "calle-bistro"],
-    groups: [
-      { label: "Bookings and sales", lines: ["We sold 700 more meals through a weekly special campaign."] },
-      { label: "Visits", lines: ["We brought 1,500 new visitors from social posts to the order menu.", "We grew WhatsApp menu taps by 45% from food videos."] },
-      { label: "Views and reach", lines: ["We reached 80,000 local food lovers with social ads."] },
-    ],
     faq: [
       { q: "What did OARC Digital do for Louisiana Mama?", a: "OARC Digital built the brand and social posts, set up WhatsApp ordering, and linked the menu and website to that order. A weekly special sold 700 more meals." },
       { q: "How do customers order?", a: "They order direct on WhatsApp. Food videos grew WhatsApp menu taps by 45%, and social posts brought 1,500 new visitors to the order menu." },
@@ -327,12 +288,6 @@ export const CASE_FULL_OTHERS: Record<string, FullCase> = {
     closeTitle: "Żabbar and Sliema, one brand.",
     close: ["OARC Digital made the look, the posts, the influencer work and the ads for Palino. The numbers come from the work on this account."],
     moreSlugs: ["ricky-jr-burger", "louisiana-mama", "kreta"],
-    groups: [
-      { label: "Bookings and sales", lines: ["We grew delivery orders by 28% with two-location ads."] },
-      { label: "Social media", lines: ["We grew social engagement by 35% with local pizza stories."] },
-      { label: "Visits", lines: ["We got 400 more menu visits from influencer posts."] },
-      { label: "Views and reach", lines: ["We reached 75,000 pizza lovers in Żabbar and Sliema."] },
-    ],
     faq: [
       { q: "What did OARC Digital do for Palino?", a: "OARC Digital gave the Żabbar and Sliema shops one blue-and-white look, made the social posts, worked with food influencers, and ran ads for both locations. Delivery orders grew 28%." },
       { q: "Did both Palino shops get the same work?", a: "Yes. The look is shared. Ads run for both locations and point to the right ordering route. The posts reached 75,000 pizza lovers across Żabbar and Sliema." },
@@ -359,12 +314,6 @@ export const CASE_FULL_OTHERS: Record<string, FullCase> = {
     closeTitle: "The burger, then the nearer shop.",
     close: ["OARC Digital makes the daily posts, photos, reels and local ads for Ricky Jr. The numbers come from the work on this account."],
     moreSlugs: ["palino", "louisiana-mama", "kreta"],
-    groups: [
-      { label: "Views and reach", lines: ["We got 50,000 views on daily burger reels."] },
-      { label: "Visits", lines: ["We grew menu taps from Instagram by 40%."] },
-      { label: "Bookings and sales", lines: ["We brought 700 more people to the two shops through local ads."] },
-      { label: "Social media", lines: ["We got 500 customers to vote on the next burger."] },
-    ],
     faq: [
       { q: "What did OARC Digital do for Ricky Jr Burger?", a: "OARC Digital posts for Ricky Jr every day, photographs the burgers, edits the reels, and runs local ads for the Qormi and St Julian’s shops. Local ads brought 700 more people into the shops." },
       { q: "How many people watched the burger reels?", a: "Daily burger reels got 50,000 views. Menu taps from Instagram grew 40%, and 500 customers voted on the next burger." },
@@ -391,10 +340,6 @@ export const CASE_FULL_OTHERS: Record<string, FullCase> = {
     closeTitle: "Watch, ask, pay.",
     close: ["PJAZZA is an OARC Digital product. The numbers come from the marketplace and the campaigns that filled it."],
     moreSlugs: ["data-foundation", "live-context", "meridian-retail-response"],
-    groups: [
-      { label: "Bookings and sales", lines: ["We brought 100 new sellers onto the marketplace through category campaigns.", "We got 500 buyers to start a chat with a seller."] },
-      { label: "Visits", lines: ["We brought 2,000 local shoppers to marketplace pages.", "We grew live-session visits by 40% through social clips."] },
-    ],
     faq: [
       { q: "What is PJAZZA?", a: "PJAZZA is Malta’s live-shopping marketplace, built by OARC Digital. A buyer watches a product live, asks the seller a question, and pays on a protected path." },
       { q: "What results did the PJAZZA campaigns produce?", a: "Category campaigns brought 100 new sellers. 500 buyers started a chat. 2,000 local shoppers visited marketplace pages, and live-session visits grew 40%." },
@@ -421,10 +366,6 @@ export const CASE_FULL_OTHERS: Record<string, FullCase> = {
     closeTitle: "The order can trust the record.",
     close: ["OARC Digital built the data clean-up for this distributor. The numbers come from the work on this account."],
     moreSlugs: ["live-context", "meridian-retail-response", "cobalt-decision-thread"],
-    groups: [
-      { label: "Bookings and sales", lines: ["We cut order errors by 25%.", "We cut fulfilment delays by 30%."] },
-      { label: "Visits", lines: ["We helped planners find product records 3 times faster.", "We helped planners make stock decisions 40% faster."] },
-    ],
     faq: [
       { q: "What did OARC Digital build for the distributor?", a: "OARC Digital built a data clean-up that brought more than 10,000 product records into one view. Order errors fell 25% and fulfilment delays fell 30%." },
       { q: "How fast can a planner find a product record?", a: "Planners find product records 3 times faster, and make stock decisions 40% faster. Staff catch bad data 45% sooner." },
@@ -451,10 +392,6 @@ export const CASE_FULL_OTHERS: Record<string, FullCase> = {
     closeTitle: "One glance. The score.",
     close: ["OARC Digital redesigned the live match pages. The numbers come from the work on this account."],
     moreSlugs: ["data-foundation", "fanline-live-ritual", "arena-one-regional-signal"],
-    groups: [
-      { label: "Visits", lines: ["We helped fans find live scores 35% faster.", "We cut the taps needed to find an update by 30%."] },
-      { label: "Social media", lines: ["We helped fans return to live updates 30% more often."] },
-    ],
     faq: [
       { q: "What did OARC Digital change on the live sports app?", a: "OARC Digital redesigned the live match pages so the score comes first on a phone. Fans find live scores 35% faster." },
       { q: "Is the match page easier on a small screen?", a: "Match details are 40% easier to read on a phone. The taps needed to find an update fell 30%, and fans return to live updates 30% more often." },

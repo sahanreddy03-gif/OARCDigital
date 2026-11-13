@@ -33,10 +33,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "The question stays whole.",
     close: ["OARC Digital designed and built the Meridian service app. The numbers come from the work on this account."],
     moreSlugs: ["cobalt-decision-thread", "vela-signal-pipeline", "belgrave-client-time"],
-    groups: [
-      { label: "Visits", lines: ["We got routine questions to the right answer 40% faster.", "We cut the time to get a customer to the right action by 50%."] },
-      { label: "Bookings and sales", lines: ["We helped sales teams spot ready-to-talk customers 30% sooner.", "We cut lost customer handoffs by 45%."] },
-    ],
     faq: [
       { q: "What did OARC Digital build for Meridian?", a: "OARC Digital built a customer-service app that collects every question, sorts it, and routes it to the right person. Customers get the right answer in half the time." },
       { q: "What happened to lost handoffs at Meridian?", a: "Lost handoffs fell 45%. The customer’s question stays with every handoff, and the next step is clear in 90% of cases." },
@@ -63,10 +59,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "The reason stays with the task.",
     close: ["OARC Digital designed and built the Cobalt planning app. The numbers come from the work on this account."],
     moreSlugs: ["meridian-retail-response", "northforge-adoption-ladder", "hearth-test-kitchen"],
-    groups: [
-      { label: "Visits", lines: ["We helped teams turn decisions into action 30% faster.", "We cut time spent chasing decisions by 35%."] },
-      { label: "Bookings and sales", lines: ["We cut time lost to tasks without an owner by 40%."] },
-    ],
     faq: [
       { q: "What did OARC Digital build for Cobalt?", a: "OARC Digital built a planning app that saves each decision with its reason, its tasks and its owner. Teams act on decisions 30% faster." },
       { q: "What happens when new information arrives?", a: "Teams review it and update the decision twice as fast. The next step and the owner stay attached, so the old decision is not reopened from scratch." },
@@ -93,10 +85,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "The brief is ready.",
     close: ["OARC Digital built the Skyline enquiry app. The numbers come from the work on this account."],
     moreSlugs: ["vela-signal-pipeline", "belgrave-client-time", "meridian-retail-response"],
-    groups: [
-      { label: "Bookings and sales", lines: ["We got 80% more enquiries ready for a personal agent call.", "We gave agents a clear buyer brief and saved 30 minutes per first call."] },
-      { label: "Visits", lines: ["We cut property buyers’ repeat questions by 40%.", "We helped buyers get a useful first reply in half the time."] },
-    ],
     faq: [
       { q: "What did OARC Digital build for Skyline?", a: "OARC Digital built a property enquiry app that asks a few questions and gives the agent a buyer brief. 80% more enquiries are ready for a personal call." },
       { q: "How much time does an agent save?", a: "Agents save 30 minutes on the first call. Buyers get a useful first reply in half the time, and repeat questions fell 40%." },
@@ -123,10 +111,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "Ready buyers, named.",
     close: ["OARC Digital built the Vela sales app. The numbers come from the work on this account."],
     moreSlugs: ["skyline-first-response", "meridian-retail-response", "crownline-fresh-signal"],
-    groups: [
-      { label: "Bookings and sales", lines: ["We helped sales teams focus on ready buyers, lifting useful follow-ups by 30%.", "We cut wasted sales outreach by 35%."] },
-      { label: "Visits", lines: ["We cut lead-sorting time by 50%.", "We helped teams spot real sales interest twice as fast."] },
-    ],
     faq: [
       { q: "What did OARC Digital build for Vela?", a: "OARC Digital built a sales app that shows which leads are ready and why. Lead sorting takes half the time." },
       { q: "Did the sales team waste less outreach?", a: "Wasted outreach fell 35%. Useful follow-ups rose 30%, and 80% more customer context stays attached from the first signal to the follow-up." },
@@ -153,10 +137,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "In use, then on the page.",
     close: ["OARC Digital ran the Ashford launch films, stories and ads. The numbers come from the work on this account."],
     moreSlugs: ["maison-verre-discovery", "kinetic-member-energy", "botanic-muse-field-notes"],
-    groups: [
-      { label: "Views and reach", lines: ["We reached 50,000 shoppers with the launch story.", "We increased social-video completion by 30%."] },
-      { label: "Visits", lines: ["We brought 2,500 shoppers to the product page from launch content."] },
-    ],
     faq: [
       { q: "What did OARC Digital do for the Ashford launch?", a: "OARC Digital ran real-life product films, customer stories and ads. The launch reached 50,000 shoppers and brought 2,500 to the product page." },
       { q: "Did people watch the Ashford films through?", a: "Social-video completion rose 30%, and 30% more shoppers watched the full product story. The product is easier to understand in half the time." },
@@ -183,10 +163,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "Their words. Their yes.",
     close: ["OARC Digital runs the Kinetic member stories and the social feed. The numbers come from the work on this account."],
     moreSlugs: ["ashford-in-real-life", "vertex-after-launch", "botanic-muse-field-notes"],
-    groups: [
-      { label: "Bookings and sales", lines: ["We grew return visits by 20% with member-led stories."] },
-      { label: "Social media", lines: ["We got 100 members to share a win or useful tip in a month.", "We grew member-story shares by 35% with consent-led posts."] },
-    ],
     faq: [
       { q: "What did OARC Digital do for Kinetic?", a: "OARC Digital ran Kinetic’s social feed around member stories, posted only with permission. Return visits grew 20%." },
       { q: "Do members agree before a story is posted?", a: "Yes. Stories are shared with permission. 100 members sent a win or a tip in a month, and member-story shares grew 35%." },
@@ -213,10 +189,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "Imagine it. Then see it.",
     close: ["OARC Digital ran the Maison Verre launch posts and ads. The numbers come from the work on this account."],
     moreSlugs: ["ashford-in-real-life", "botanic-muse-field-notes", "hearth-test-kitchen"],
-    groups: [
-      { label: "Visits", lines: ["We brought 2,000 people to the fragrance reveal.", "We brought 35% more people to the fragrance page."] },
-      { label: "Social media", lines: ["We doubled saves on the launch posts.", "We grew saves on fragrance launch posts by 50%."] },
-    ],
     faq: [
       { q: "What did OARC Digital do for the Maison Verre launch?", a: "OARC Digital ran six teaser posts and the launch ads for a new fragrance. 2,000 shoppers came to the reveal." },
       { q: "How does the fragrance launch work online?", a: "Six sensory clues lead to the bottle. 1,500 shoppers explored all six, twice as many people finished the reveal, and saves on the launch posts doubled." },
@@ -243,10 +215,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "Permission, kept with the story.",
     close: ["OARC Digital built the Botanic Muse story app. The numbers come from the work on this account."],
     moreSlugs: ["kinetic-member-energy", "maison-verre-discovery", "ashford-in-real-life"],
-    groups: [
-      { label: "Social media", lines: ["We collected 300 customer notes with clear permission.", "We helped editors publish 40% more customer-led beauty stories."] },
-      { label: "Visits", lines: ["We cut the time to find a story that fits a theme by 45%."] },
-    ],
     faq: [
       { q: "What did OARC Digital build for Botanic Muse?", a: "OARC Digital built an app that stores customer stories, photos and permissions together. It collected 300 notes with clear permission." },
       { q: "Can editors publish more Botanic Muse stories?", a: "Editors publish 40% more customer-led stories and find a story for a theme 45% faster, because the permission is saved with the note." },
@@ -273,10 +241,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "After launch, still playing.",
     close: ["OARC Digital ran the Vertex community after launch. The numbers come from the work on this account."],
     moreSlugs: ["arena-one-regional-signal", "fanline-live-ritual", "kinetic-member-energy"],
-    groups: [
-      { label: "Bookings and sales", lines: ["We brought 25% more players back after the first month."] },
-      { label: "Social media", lines: ["We got 1,000 players to share a game moment.", "We grew player participation by 45% with recognition posts."] },
-    ],
     faq: [
       { q: "What did OARC Digital do for Vertex after launch?", a: "OARC Digital ran community posts, recognition and events. 25% more players came back after the first month." },
       { q: "How many Vertex players shared a moment?", a: "1,000 players shared a game moment. Participation grew 45% where players were recognised." },
@@ -303,10 +267,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "Local first. Then it travels.",
     close: ["OARC Digital ran the Arena One social and match stories. The numbers come from the work on this account."],
     moreSlugs: ["vertex-after-launch", "fanline-live-ritual", "live-context"],
-    groups: [
-      { label: "Views and reach", lines: ["We grew regional esports views by 30% with local-language posts.", "We lifted watch time by 30% with the story behind each match."] },
-      { label: "Social media", lines: ["We grew social interaction for local esports communities by 35%.", "We brought 5,000 fans back to their local scene after an event."] },
-    ],
     faq: [
       { q: "What did OARC Digital do for Arena One?", a: "OARC Digital ran Arena One’s social in local languages and wrote the story behind each match. Regional views grew 30%." },
       { q: "Did local fans come back after the big events?", a: "5,000 fans came back to their local scene after an event. 25% more fans returned to local esports pages." },
@@ -333,10 +293,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "The next step is on the screen.",
     close: ["OARC Digital rebuilt the Wellbridge service path. The numbers come from the work on this account. This work covers admin steps only. Medical, clinical and treatment decisions stay with qualified people."],
     moreSlugs: ["bluebridge-candidate-welcome", "belgrave-client-time", "aurum-document-trail"],
-    groups: [
-      { label: "Visits", lines: ["We helped people see their next service step 35% sooner.", "We cut service-form completion time by 35%."] },
-      { label: "Bookings and sales", lines: ["We cut calls asking what happens next by 30%."] },
-    ],
     faq: [
       { q: "What did OARC Digital change for Wellbridge?", a: "OARC Digital rebuilt the service steps so the next step is clear on a phone. People see that step 35% sooner." },
       { q: "Did fewer people call to ask what happens next?", a: "Calls asking what happens next fell 30%. Form completion time fell 35%, and repeated admin steps fell 30%." },
@@ -363,10 +319,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "The line has a source.",
     close: ["OARC Digital built the Aurum document trail. The numbers come from the work on this account."],
     moreSlugs: ["data-foundation", "wellbridge-clear-path", "belgrave-client-time"],
-    groups: [
-      { label: "Visits", lines: ["We helped staff find answers in documents 30% faster.", "We cut manual document-review time by 40%."] },
-      { label: "Bookings and sales", lines: ["We saved teams 10 hours a week on document follow-up."] },
-    ],
     faq: [
       { q: "What did OARC Digital build for Aurum?", a: "OARC Digital built a document trail that links answers to their source. Staff find answers 30% faster." },
       { q: "How much time did the document work save?", a: "Teams save 10 hours a week on follow-up. Manual review time fell 40%, and 95% of important details link back to the document they came from." },
@@ -393,10 +345,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "The next ad knows why.",
     close: ["OARC Digital built the Hearth test path. The numbers come from the work on this account."],
     moreSlugs: ["cobalt-decision-thread", "northforge-adoption-ladder", "ashford-in-real-life"],
-    groups: [
-      { label: "Visits", lines: ["We cut the time teams spent reviewing campaigns by 45%.", "We helped teams choose the next campaign version 30% faster."] },
-      { label: "Social media", lines: ["We grew useful campaign learning by 45%."] },
-    ],
     faq: [
       { q: "What did OARC Digital build for Hearth?", a: "OARC Digital built a campaign-testing path that records what each ad round taught. Review time fell 45%." },
       { q: "Does the next Hearth ad use the last test?", a: "Yes. Useful learning between ads grew 45%, and the next brief is 50% easier to act on." },
@@ -423,11 +371,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "The moment stays on screen.",
     close: ["OARC Digital redesigned the Fanline live screens. The numbers come from the work on this account."],
     moreSlugs: ["live-context", "arena-one-regional-signal", "vertex-after-launch"],
-    groups: [
-      { label: "Views and reach", lines: ["We kept viewers watching 31% longer during live events.", "We doubled the number of viewers who shared a reaction."] },
-      { label: "Visits", lines: ["We helped viewers find the right live-event detail 42% faster."] },
-      { label: "Bookings and sales", lines: ["We brought 24% more viewers back to the next event."] },
-    ],
     faq: [
       { q: "What did OARC Digital change on Fanline?", a: "OARC Digital redesigned the live-event screens. Viewers find the right detail 42% faster and watch 31% longer." },
       { q: "Do Fanline viewers come back?", a: "24% more viewers come back for the next event. Shared reactions doubled, and 1,000 viewers shared a meaningful reaction." },
@@ -454,10 +397,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "A flag with an owner.",
     close: ["OARC Digital built the Crownline stock signals. The numbers come from the work on this account."],
     moreSlugs: ["vela-signal-pipeline", "data-foundation", "aurum-document-trail"],
-    groups: [
-      { label: "Visits", lines: ["We helped teams spot changing demand 30% sooner.", "We cut time spent deciding what to do about a stock exception by 40%."] },
-      { label: "Bookings and sales", lines: ["We helped teams resolve 30% more stock alerts on time."] },
-    ],
     faq: [
       { q: "What did OARC Digital build for Crownline?", a: "OARC Digital built stock signals that flag perishable changes and assign an owner. Teams spot changing demand 30% sooner." },
       { q: "Are Crownline stock alerts resolved on time?", a: "30% more alerts are resolved on time. 85% of flagged issues get a clear next step, and exception decisions are 40% faster." },
@@ -484,10 +423,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "The candidate knows the step.",
     close: ["OARC Digital rebuilt the Bluebridge candidate path. The numbers come from the work on this account."],
     moreSlugs: ["wellbridge-clear-path", "belgrave-client-time", "skyline-first-response"],
-    groups: [
-      { label: "Visits", lines: ["We cut candidates’ wait for a first reply by 40%.", "We helped candidates understand their next step twice as fast."] },
-      { label: "Bookings and sales", lines: ["We helped recruiters review 50% more complete applications."] },
-    ],
     faq: [
       { q: "What did OARC Digital change for Bluebridge candidates?", a: "OARC Digital rebuilt the application path so the first reply arrives 40% sooner and the next step is clear. Follow-up questions fell 35%." },
       { q: "Are Bluebridge applications more complete when a recruiter opens them?", a: "Recruiters review 50% more complete applications. Briefs arrive with 50% fewer missing details." },
@@ -514,10 +449,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "A person owns the test.",
     close: ["OARC Digital set up the Northforge way of running AI tests. The numbers come from the work on this account."],
     moreSlugs: ["cobalt-decision-thread", "hearth-test-kitchen", "meridian-retail-response"],
-    groups: [
-      { label: "Visits", lines: ["We gave every AI test a clear owner and cut decision time by 30%.", "We cut repeated work on AI tests by 40%."] },
-      { label: "Bookings and sales", lines: ["We cut the number of AI projects sent back for review by 50%."] },
-    ],
     faq: [
       { q: "What did OARC Digital do for Northforge?", a: "OARC Digital turned scattered AI tests into one way of working, with a human owner on every test. Decision time fell 30%." },
       { q: "Are fewer Northforge AI projects sent back?", a: "Projects sent back for review fell 50%. Duplicate work across tests fell 40%, and teams review AI risks before a test expands." },
@@ -544,10 +475,6 @@ export const CASE_FULL_SYSTEMS: Record<string, FullCase> = {
     closeTitle: "The history is already there.",
     close: ["OARC Digital rebuilt Belgrave’s client-request path. The numbers come from the work on this account."],
     moreSlugs: ["bluebridge-candidate-welcome", "wellbridge-clear-path", "meridian-retail-response"],
-    groups: [
-      { label: "Bookings and sales", lines: ["We saved teams 10 hours a week preparing for client requests.", "We got 90% of client requests to the right person first time."] },
-      { label: "Visits", lines: ["We cut time preparing for client requests by 40%.", "We made client-service handoffs 45% clearer."] },
-    ],
     faq: [
       { q: "What did OARC Digital change for Belgrave?", a: "OARC Digital rebuilt how client requests are prepared and handed on. Teams save 10 hours a week, and 90% of requests reach the right person first time." },
       { q: "Are Belgrave handoffs clearer?", a: "Handoffs are 45% clearer. Time spent finding a client’s request history fell 35%, and manual follow-up fell 35%." },

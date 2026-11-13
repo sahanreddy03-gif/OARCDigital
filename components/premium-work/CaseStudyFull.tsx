@@ -44,8 +44,15 @@ function RichText({ lines }: { lines: string[] }) {
     );
   };
   for (const raw of lines) {
-    const line = raw.trim();
+    // Story files are written in Markdown: keep link text, drop the link target.
+    const line = raw.trim().replace(/\[([^\]]+)\]\([^)]*\)/g, "$1");
     if (!line || line === "---") continue;
+    const heading = line.match(/^#{1,6}\s+(.*)$/);
+    if (heading) {
+      flush();
+      nodes.push(<h3 key={line}>{heading[1]}</h3>);
+      continue;
+    }
     const item = line.match(/^(?:\d+\.|[-•])\s+(.*)$/);
     if (item) {
       list.push(item[1]);
@@ -58,16 +65,79 @@ function RichText({ lines }: { lines: string[] }) {
   return <>{nodes}</>;
 }
 
+/** Words that keep their capital letter inside a sentence. */
+const PROPER = /^(Google|Instagram|TikTok|Facebook|Meta|WhatsApp|Wolt|AI|OARC|PJAZZA)\b/;
+
+/** "Google listing" stays, "Menu" becomes "menu", "We grew" becomes "we grew". */
+function inSentence(text: string) {
+  if (PROPER.test(text) || /^[A-Z]{2}/.test(text)) return text;
+  return text.charAt(0).toLowerCase() + text.slice(1);
+}
+
+function joinList(items: string[]) {
+  if (items.length <= 1) return items.join("");
+  return `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
+}
+
 function questions(full: FullCase, proof: CaseProof) {
   const items = [...(full.faq ?? [])];
   if (items.length >= 3 || proof.results.length === 0) return items;
-  const job = full.services.slice(0, 3).join(", ");
+  const job = joinList(full.services.slice(0, 3).map(inSentence));
+  const brand = proof.client.split(" - ").pop() ?? proof.client;
   items.push({
-    q: `What should a business ask for, after seeing the ${proof.client} work?`,
-    a: `Ask for ${job}. On this account, ${proof.results[0]} OARC Digital is in Birkirkara, Malta. The next step is a 20-minute call or a WhatsApp message.`,
+    q: `Can OARC Digital do the same for my business?`,
+    a: `Yes. For ${brand} the work was ${job}, and ${inSentence(proof.results[0])} OARC Digital is in Birkirkara, Malta. Book a 20-minute call or send a WhatsApp message to start.`,
   });
   return items;
 }
+
+/**
+ * Sort the claims into plain groups. Marketing work groups by what the reader
+ * cares about (sales, reach, social, visits); apps and systems by what changed
+ * for the team (time saved, fewer problems).
+ */
+const MARKETING_GROUPS: { label: string; test: RegExp }[] = [
+  { label: "Bookings and sales", test: /booking|reservation|order|sales|sold|meals|calls|enquir|fans to|visitors to|people to the two shops|shoppers through|sellers|buyers to start|players back|return visits|came back|viewers back/i },
+  { label: "Views and reach", test: /reach|views|viewers|watch|#1 on google/i },
+  { label: "Social media", test: /follower|engagement|saves?\b|saved|share|vote|social|participation|interaction|stories/i },
+  { label: "Visits", test: /visit|page|menu|taps|clicks|find|found|details/i },
+];
+
+const SYSTEM_GROUPS: { label: string; test: RegExp }[] = [
+  { label: "Time saved", test: /faster|sooner|earlier|time|hours|minutes|half the time|twice as fast|3 times/i },
+  { label: "Fewer problems", test: /\bcut\b|fewer|lost|error|delay|repeat|wasted|sent back|asking what happens/i },
+];
+
+function resultGroups(results: string[], system: boolean) {
+  const rules = system ? SYSTEM_GROUPS : MARKETING_GROUPS;
+  const groups = rules.map((rule) => ({ label: rule.label, lines: [] as string[] }));
+  const rest: string[] = [];
+  for (const line of results) {
+    const index = rules.findIndex((rule) => rule.test.test(line));
+    if (index >= 0) groups[index].lines.push(line);
+    else rest.push(line);
+  }
+  if (rest.length > 0) groups.push({ label: system ? "Better results" : "More results", lines: rest });
+  return groups.filter((group) => group.lines.length > 0);
+}
+
+/** Cases where OARC built an app or a system for the team. */
+const SYSTEM_CASES = new Set([
+  "data-foundation",
+  "live-context",
+  "meridian-retail-response",
+  "cobalt-decision-thread",
+  "skyline-first-response",
+  "vela-signal-pipeline",
+  "wellbridge-clear-path",
+  "aurum-document-trail",
+  "hearth-test-kitchen",
+  "bluebridge-candidate-welcome",
+  "northforge-adoption-ladder",
+  "belgrave-client-time",
+  "crownline-fresh-signal",
+  "botanic-muse-field-notes",
+]);
 
 function frameClass(frame?: FullPicture["frame"]) {
   if (frame === "poster") return "cs-bleed cs-bleed-poster";
@@ -112,16 +182,18 @@ export default function CaseStudyFull({ slug, story }: { slug: string; story: St
   }
   const gallery = library.filter((picture) => !reserved.has(picture.src));
   const faqs = questions(full, proof);
+  const groups = resultGroups(proof.results, SYSTEM_CASES.has(slug));
 
   return (
     <article className="cs cs-full" data-testid="case-study">
       <header className="cs-hero">
+        {/* The spaces keep the words apart for Google and screen readers; the spans are blocks on screen. */}
         <h1>
-          <span className="cs-client">{story.name}</span>
+          <span className="cs-client">{story.name}</span>{" "}
           <span className="cs-headline">
             {(full.headline ?? story.title).map((line) => (
               <span className="cs-line" key={line}>
-                {line}
+                {line}{" "}
               </span>
             ))}
           </span>
@@ -259,7 +331,7 @@ export default function CaseStudyFull({ slug, story }: { slug: string; story: St
           ))}
         </dl>
         <div className="cs-board" data-testid="case-board">
-          {full.groups.map((group) => (
+          {groups.map((group) => (
             <div key={group.label}>
               <h3>{group.label}</h3>
               <ul>
@@ -272,19 +344,7 @@ export default function CaseStudyFull({ slug, story }: { slug: string; story: St
         </div>
       </section>
 
-      {proof.targets.length > 0 && (
-        <section className="cs-block">
-          <h2>What the work set out to do</h2>
-          <ul className="cs-aims">
-            {proof.targets.map((target) => (
-              <li key={target}>
-                <b>Target</b>
-                <span>{target}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
+      {/* Goals (proof.targets) are kept in the data but not shown: a goal next to a result reads as a miss. */}
 
       {faqs.length > 0 && (
         <section className="cs-block" aria-label="Questions">
