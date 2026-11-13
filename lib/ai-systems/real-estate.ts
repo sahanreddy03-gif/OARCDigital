@@ -18,18 +18,113 @@ export const realEstate: AiSystemContent = {
     gain: "Sales, lets and property management",
   },
 
+  proof: { line: "Running in 8 real estate agencies in Malta", short: "In 8 agencies in Malta" },
+
   hero: {
-    pill: "Live in your agency in 48 hours",
-    kicker: "Finally.",
+    pill: "Live in 48 hours, or you don’t pay",
+    kicker: "The agency that answers first gets the flat.",
     h1Before: "The complete AI system built around",
     h1Highlight: "your real estate agency.",
-    sub: "It answers every enquiry in under a minute, tells you which flats free up before anyone else knows, and does the paperwork. Your agents show homes and close deals. Set up and run by OARC's team in Malta.",
-    primaryCta: "Book a demo call",
-    secondaryCta: "See everything it does",
-    note: "No new software for your agents. It runs on the tools they already use.",
+    sub: "It answers every enquiry in under a minute, tells you which flats free up before anyone else knows, and does the paperwork. Your agents show homes and close deals.",
+    primaryCta: "Ask for the price",
+    secondaryCta: "Book a 20-minute call",
+    note: "Set up and run by OARC’s team in Malta. Nothing new for your agents to learn.",
+  },
+
+  film: {
+    title: "Watch one night and one morning in your agency",
+    scenes: [
+      {
+        clock: "Sunday · 23:14",
+        caption: "A tenant asks about a flat. Your office is closed.",
+        result: "Answered in 38 seconds",
+        visual: {
+          type: "chat",
+          initials: "SK",
+          name: "Sofia K.",
+          origin: "WhatsApp · new enquiry",
+          status: "Answered",
+          messages: [
+            { from: "in", text: "Hi! Is the 2-bed in Sliema still free from 1 December? My budget is €1,400.", time: "23:14" },
+            { from: "out", text: "Hi Sofia, yes it is. How many people are moving in, and do you need the contract for a residence permit?", time: "23:14" },
+            { from: "in", text: "2 of us. Yes, for my permit.", time: "23:16" },
+          ],
+          done: { before: "Lead checked · ", strong: "€1,400 · from 1 Dec", after: " · permit needed" },
+        },
+      },
+      {
+        clock: "Sunday · 23:16",
+        caption: "It offers two times. She picks one. The viewing is booked.",
+        result: "Booked while you slept",
+        visual: {
+          type: "chat",
+          initials: "SK",
+          name: "Sofia K.",
+          origin: "WhatsApp · same chat",
+          status: "Booking",
+          messages: [
+            { from: "out", text: "Two flats fit you. I can show you both this week. Which time suits you?", time: "23:16" },
+            { from: "in", text: "Thursday at 18:00 please.", time: "23:17" },
+            { from: "out", text: "Done. Daniel will meet you there. I’ll remind you both on Thursday morning.", time: "23:17" },
+          ],
+          done: { before: "Viewing booked with Daniel · ", strong: "Thu 18:00", after: " · both reminded" },
+        },
+      },
+      {
+        clock: "Monday · 07:30",
+        caption: "Your agents open one list: who to call first, and why.",
+        result: "4 owners ready to list",
+        visual: {
+          type: "rows",
+          title: "Today’s call list",
+          hint: "Ranked by how ready they are",
+          action: "call",
+          rows: [
+            { badge: "92", top: true, title: "Robert C. · Sliema 3-bed", detail: "Bought in 2016. Asked for a valuation last month." },
+            { badge: "84", title: "Anna V. · Msida 2-bed", detail: "Her tenant’s lease ends in 90 days." },
+            { badge: "77", title: "Mark B. · Swieqi villa", detail: "Lives abroad. Opened your last two reports." },
+            { badge: "71", title: "New project · Gżira", detail: "Planning application for 8 flats filed this week." },
+          ],
+        },
+      },
+      {
+        clock: "Monday · 09:05",
+        caption: "A tenant says she is leaving in March. The flat is listed the same day.",
+        result: "Listed before anyone else knows",
+        visual: {
+          type: "timeline",
+          title: "Apt 7, St Julian’s · 2-bed · €1,450",
+          subtitle: "Lease ends 28 February",
+          steps: [
+            { when: "09:05", title: "Tenant asked: staying or moving?", detail: "Answer: moving out in March." },
+            { when: "09:06", title: "Owner told the same minute", detail: "He says: find me a new tenant." },
+            { when: "11:30", title: "Listed, and sent to 9 people already looking", detail: "Photos booked for tomorrow.", key: true, tag: "Listed · 9 matched" },
+          ],
+        },
+      },
+      {
+        clock: "Month end",
+        caption: "Every landlord gets a report nobody had to write.",
+        result: "Owners stay with you",
+        visual: {
+          type: "rows",
+          title: "Landlord reports · November",
+          hint: "Sent on the 30th",
+          action: "tag",
+          rows: [
+            { badge: "RC", title: "Robert C. · Sliema 3-bed", detail: "Rent in on time. Boiler serviced.", tag: "Sent" },
+            { badge: "AV", top: true, title: "Anna V. · Msida 2-bed", detail: "Lease ends in 90 days. Asked: renew or sell?", tag: "Reply needed" },
+            { badge: "MB", title: "Mark B. · Swieqi villa", detail: "2 repairs done, €180. Rent in on the 1st.", tag: "Sent" },
+            { badge: "+", title: "Every other landlord", detail: "Each report built from that month’s real activity.", tag: "Sent" },
+          ],
+        },
+      },
+    ],
   },
 
   dashboard: {
+    title: "Your whole agency on one screen.",
+    body: "Every morning: what came in overnight, what needs you, and who to call first.",
     org: "Your Agency",
     search: "Ask anything… “Which leases end in March?”",
     initials: "MA",
@@ -247,13 +342,14 @@ export const realEstate: AiSystemContent = {
 
   offer: {
     label: "The offer",
-    title: "The only risk is a 20-minute call.",
-    body: "We look at how your agency runs and show you the three jobs that would pay back fastest. You keep that list, whether you work with us or not.",
-    cta: "Book my 20-minute call",
+    title: "Live in 48 hours. Or you don’t pay.",
+    body: "Your first system answers enquiries on your own WhatsApp and website two days after you say yes. If it isn’t live by then, you owe nothing. The 20-minute call is free either way, and you keep the list of what to fix first.",
+    cta: "Ask for the price",
+    secondaryCta: "Book my 20-minute call",
     listLabel: "What you get",
     items: [
+      { strong: "Live in 48 hours, or you don’t pay.", rest: "Your first system answers enquiries two days after you say yes." },
       { strong: "A free map of your agency.", rest: "Where time and deals leak, and what to fix first." },
-      { strong: "Live in 48 hours.", rest: "Your first system answers enquiries two days after you say yes." },
       { strong: "Nothing new to learn.", rest: "It works through the WhatsApp, email and CRM you already use." },
       { strong: "Built for you, run by us.", rest: "We customise it to your agency and look after it every week." },
       { strong: "Start small.", rest: "One job first. Add the next only when the first has paid for itself." },
@@ -289,7 +385,7 @@ export const realEstate: AiSystemContent = {
     label: "Why now",
     title: "The fastest agency gets the flat.",
     items: [
-      { n: "70,589", l: "Rental contracts in Malta. Every one has a deadline.", src: { label: "BusinessNow, June 2025", href: "https://businessnow.mt/more-than-70000-active-rental-contracts-with-the-housing-authority-in-the-first-half-of-2025/" } },
+      { n: "70,589", l: "Rental contracts in Malta. Every one has a deadline.", src: { label: "Housing Authority figures, first half of 2025 (BusinessNow)", href: "https://businessnow.mt/more-than-70000-active-rental-contracts-with-the-housing-authority-in-the-first-half-of-2025/" } },
       { n: "3 months", l: "The notice an owner must give. Miss it and the lease rolls over a year.", src: { label: "Private Residential Leases Act, Cap. 604", href: "https://legislation.mt/eli/cap/604/eng" } },
       { n: "68%", l: "Of website enquiries to big US agencies got no reply within 24 hours.", src: { label: "Pied Piper study, 2026", href: "https://www.floridarealtors.org/news-media/news-articles/2026/10/real-estate-inquiries-often-fail-reach-agents" } },
     ],
@@ -301,10 +397,12 @@ export const realEstate: AiSystemContent = {
     { q: "Do my agents need to learn new software?", a: "No. It works through the WhatsApp, email, spreadsheets and CRM you already use." },
     { q: "Can it do just one thing?", a: "Yes. Many agencies start with one job, such as answering every enquiry at night, and add the next when the first has paid for itself." },
     { q: "Does it work with our CRM and the property portals?", a: "Yes. We connect it to the CRM, portals, website and inboxes you already have. If something has no connection ready, we build it." },
-    { q: "How fast is it live?", a: "Your first system is live in 48 hours, usually answering every enquiry on your WhatsApp and website. The rest is connected over the following weeks." },
-    { q: "What happens to our data?", a: "It stays yours and is only used for your agency, handled under GDPR." },
-    { q: "How much does it cost?", a: "It depends on your agency’s size and what you switch on first. It’s worked out with you on the call." },
-    { q: "When must a landlord in Malta say a lease won’t be renewed?", a: "At least three months before it ends, by registered letter. Otherwise the lease renews for another year." },
+    { q: "How fast is it live?", a: "Your first system is live in 48 hours, usually answering every enquiry on your WhatsApp and website. If it isn’t live by then, you don’t pay. The rest is connected over the following weeks." },
+    { q: "Which number does it answer from?", a: "Yours. It replies on your agency’s own WhatsApp number, email and website, so clients keep talking to your agency." },
+    { q: "What if it gets something wrong?", a: "Every message and action is logged, so you can see what it did and why. Prices, contracts and offers never go out without your agent’s yes. If something needs changing, OARC’s team in Malta changes it." },
+    { q: "What happens to our data?", a: "It stays yours and is only used for your agency, handled under GDPR. If you leave, you take it with you." },
+    { q: "How much does it cost?", a: "It depends on your agency’s size and what you switch on first. Ask on WhatsApp and we price it for your agency." },
+    { q: "When must a landlord in Malta say a lease won’t be renewed?", a: "For a long let, at least three months before it ends, by registered letter. Otherwise the lease renews for another year." },
     { q: "How long is there to register a lease in Malta?", a: "30 days from the start of the lease. The Housing Authority fee is €10 on time and €120 if it is late. A lease that is not registered is not valid." },
     { q: "How much can rent go up each year in Malta?", a: "For a long private residential lease, the yearly increase cannot be more than the change in the official Property Price Index, and never more than 5%." },
   ],
@@ -312,8 +410,9 @@ export const realEstate: AiSystemContent = {
   cta: {
     titleBefore: "Your next listing is about to free up.",
     titleEm: "Know first.",
-    body: "Book a 20-minute call. Your first system can be live in 48 hours.",
-    button: "Book a demo call",
+    body: "Ask for the price today. Your first system is live in 48 hours, or you don’t pay.",
+    button: "Ask for the price",
+    secondary: "Book a 20-minute call",
   },
 
   sources: [
@@ -328,5 +427,5 @@ export const realEstate: AiSystemContent = {
     { label: "Voice AI for real estate", href: "/voice-ai-worker/real-estate" },
     { label: "AI for law firms", href: "/ai/law-firms" },
   ],
-  disclaimer: "OARC Digital · Malta. The dashboard and conversations on this page show example data. This page is information, not legal advice.",
+  disclaimer: "OARC Digital · Malta. Names and figures on the screens are from a demo account. This page is information, not legal advice.",
 };

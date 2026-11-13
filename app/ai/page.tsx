@@ -5,6 +5,7 @@ import Layout from "@/components/layout/Layout";
 import { AI_SYSTEMS } from "@/lib/ai-systems";
 import { whatsappLink } from "@/components/ai-systems/AiSystemPage";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+import { bookingUrl } from "@/lib/utm";
 import s from "@/components/ai-systems/ai-system.module.css";
 
 const BASE = "https://oarcdigital.com";
@@ -60,10 +61,7 @@ export default function AiHubPage() {
       <div className={s.root}>
         <section className={s.hero} style={{ paddingTop: "clamp(96px, 9vw, 128px)" }}>
           <div className={s.wrap}>
-            <nav className={s.crumbs} aria-label="Breadcrumb">
-              <Link href="/">OARC Digital</Link><span>/</span><span>AI systems</span>
-            </nav>
-            <span className={s.pill}><span className={s.ldot} />Live in 48 hours</span>
+            <span className={s.pill}><span className={s.ldot} />Live in 48 hours, or you don’t pay</span>
             <p className={s.fin}>Pick your industry.</p>
             <h1>One AI system, built around <span className={s.hl}>your kind of business.</span></h1>
             <p className={s.sub}>
@@ -72,9 +70,9 @@ export default function AiHubPage() {
             </p>
 
             <div className={s.hubGrid}>
-              {AI_SYSTEMS.map((c, i) => (
+              {AI_SYSTEMS.map((c) => (
                 <Link key={c.slug} href={`/ai/${c.slug}`} className={s.hubCard} data-testid={`link-ai-${c.slug}`}>
-                  <span className={s.no}>{String(i + 1).padStart(2, "0")}</span>
+                  <span className={s.hubProof}>{c.proof.line}</span>
                   <h2>{c.hub.title}</h2>
                   <p>{c.hub.body}</p>
                   <span className={s.gain}>{c.hub.gain}</span>
@@ -85,9 +83,14 @@ export default function AiHubPage() {
             <div className={s.cta}>
               <h2>Your industry not here yet? <em>We build it.</em></h2>
               <p>Clinics, hotels, restaurants, schools, tourism, iGaming or any office with too much admin. Tell us how your week runs.</p>
-              <a className={`${s.btn} ${s.onDark}`} href={whatsappLink("business in Malta")} target="_blank" rel="noopener" data-testid="button-book-demo">
-                <MessageCircle aria-hidden="true" strokeWidth={1.6} />Book a 20-minute call
-              </a>
+              <div className={s.ctaActs}>
+                <a className={`${s.btn} ${s.onDark}`} href={whatsappLink("business in Malta")} target="_blank" rel="noopener" data-testid="button-hub-whatsapp">
+                  <MessageCircle aria-hidden="true" strokeWidth={1.6} />Ask us on WhatsApp
+                </a>
+                <a className={`${s.btn} ${s.ghostDark}`} href={bookingUrl("/ai")} target="_blank" rel="noopener" data-testid="button-hub-call">
+                  Book a 20-minute call
+                </a>
+              </div>
             </div>
 
             <div className={s.foot}>
