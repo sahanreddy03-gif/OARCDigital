@@ -298,6 +298,9 @@ Each Malta location is paired with these flagship services:
 - https://oarcdigital.com/creative
 - https://oarcdigital.com/ai-agents
 - https://oarcdigital.com/automation
+- https://oarcdigital.com/ai (AI systems by industry)
+- https://oarcdigital.com/ai/real-estate (AI system for real estate agencies in Malta)
+- https://oarcdigital.com/ai/law-firms (AI system for law firms in Malta)
 - https://oarcdigital.com/solutions
 - https://oarcdigital.com/our-work
 - https://oarcdigital.com/contact
