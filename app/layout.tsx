@@ -3,6 +3,7 @@ import Script from "next/script";
 import localFont from "next/font/local";
 import { partytownSnippet } from "@qwik.dev/partytown/integration";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import "./fonts/fallbacks.css";
 import "./globals.css";
 import { Providers } from "./providers";
 import SpeculationRules from "@/components/SpeculationRules";
@@ -13,7 +14,7 @@ import { ORG_SAMEAS } from "@/lib/schema";
 
 // Fonts are self-hosted from app/fonts (same latin files Google Fonts serves), so builds
 // never depend on fonts.googleapis.com. Only the body font is preloaded on every page;
-// the rest load on first use (display: swap + metric-matched fallback, so no layout shift).
+// the rest load on first use (display: swap + the same metric-matched fallbacks Google used: app/fonts/fallbacks.css).
 const nunitoSans = localFont({
   src: [
     { path: "./fonts/nunito-sans.woff2", weight: "200", style: "normal" },
@@ -25,31 +26,41 @@ const nunitoSans = localFont({
     { path: "./fonts/nunito-sans.woff2", weight: "900", style: "normal" },
   ],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["NunitoSansFallback"],
+  declarations: [{ prop: "font-stretch", value: "100%" }],
   variable: "--font-nunito-sans",
 });
 const montserrat = localFont({
   src: [{ path: "./fonts/montserrat.woff2", weight: "100 900", style: "normal" }],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["MontserratFallback"],
   variable: "--font-montserrat",
   preload: false,
 });
 const inter = localFont({
   src: [{ path: "./fonts/inter.woff2", weight: "100 900", style: "normal" }],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["InterFallback"],
   variable: "--font-inter",
   preload: false,
 });
 const spaceGrotesk = localFont({
   src: [{ path: "./fonts/space-grotesk.woff2", weight: "300 700", style: "normal" }],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["SpaceGroteskFallback"],
   variable: "--font-space-grotesk",
   preload: false,
 });
 const ebGaramond = localFont({
   src: [{ path: "./fonts/eb-garamond.woff2", weight: "400 800", style: "normal" }],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["EBGaramondFallback"],
   variable: "--font-eb-garamond",
-  adjustFontFallback: "Times New Roman",
   preload: false,
 });
 const bricolage = localFont({
@@ -59,6 +70,9 @@ const bricolage = localFont({
     { path: "./fonts/bricolage-grotesque.woff2", weight: "800", style: "normal" },
   ],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["BricolageGrotesqueFallback"],
+  declarations: [{ prop: "font-stretch", value: "100%" }],
   variable: "--font-bricolage",
   preload: false,
 });
@@ -68,14 +82,23 @@ const spaceMono = localFont({
     { path: "./fonts/space-mono-700.woff2", weight: "700", style: "normal" },
   ],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["SpaceMonoFallback"],
   variable: "--font-space-mono",
   preload: false,
 });
+// One "Instrument Serif" family holds both the italic and the upright face, exactly as the
+// live Google setup did (both configs shared that family name, so their faces merged).
+// --font-instrument-serif and --font-instrument-serif-roman both point at it.
 const instrumentSerif = localFont({
-  src: [{ path: "./fonts/instrument-serif-italic.woff2", weight: "400", style: "italic" }],
+  src: [
+    { path: "./fonts/instrument-serif-italic.woff2", weight: "400", style: "italic" },
+    { path: "./fonts/instrument-serif.woff2", weight: "400", style: "normal" },
+  ],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["InstrumentSerifFallback"],
   variable: "--font-instrument-serif",
-  adjustFontFallback: "Times New Roman",
   preload: false,
 });
 const fraunces = localFont({
@@ -88,8 +111,9 @@ const fraunces = localFont({
     { path: "./fonts/fraunces-italic.woff2", weight: "900", style: "italic" },
   ],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["FrauncesFallback"],
   variable: "--font-fraunces",
-  adjustFontFallback: "Times New Roman",
   preload: false,
 });
 const jetbrainsMono = localFont({
@@ -99,27 +123,23 @@ const jetbrainsMono = localFont({
     { path: "./fonts/jetbrains-mono.woff2", weight: "800", style: "normal" },
   ],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["JetBrainsMonoFallback"],
   variable: "--font-jetbrains-mono",
   preload: false,
 });
 
 // Design system v3 (Notion "OARC Design System (final)"): upright Instrument Serif for
-// editorial lines, and Inter Tight as the web stand-in for Neue Haas Unica (sentences).
-// Separate variables, so existing --font-instrument-serif (italic) users are unchanged.
-const instrumentSerifRoman = localFont({
-  src: [{ path: "./fonts/instrument-serif.woff2", weight: "400", style: "normal" }],
-  display: "swap",
-  variable: "--font-instrument-serif-roman",
-  adjustFontFallback: "Times New Roman",
-  preload: false,
-});
-
+// editorial lines (--font-instrument-serif-roman, set on <html> below), and Inter Tight as
+// the web stand-in for Neue Haas Unica (sentences).
 const interTight = localFont({
   src: [
     { path: "./fonts/inter-tight.woff2", weight: "400", style: "normal" },
     { path: "./fonts/inter-tight.woff2", weight: "600", style: "normal" },
   ],
   display: "swap",
+  adjustFontFallback: false,
+  fallback: ["InterTightFallback"],
   variable: "--font-inter-tight",
   preload: false,
 });
@@ -135,7 +155,6 @@ const fontVariables = [
   instrumentSerif.variable,
   fraunces.variable,
   jetbrainsMono.variable,
-  instrumentSerifRoman.variable,
   interTight.variable,
 ].join(" ");
 
@@ -287,7 +306,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={fontVariables}>
+    <html
+      lang="en"
+      className={fontVariables}
+      style={{ ["--font-instrument-serif-roman" as string]: instrumentSerif.style.fontFamily }}
+    >
       <head>
         <link
           rel="preload"

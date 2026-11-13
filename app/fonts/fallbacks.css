@@ -1,0 +1,15 @@
+/* Metric-matched fallbacks, copied from the values Google Fonts / next/font/google used on the
+   live site, so text shown before a web font loads takes the same space (no layout shift). */
+@font-face{font-family:NunitoSansFallback;src:local("Arial");ascent-override:99.71%;descent-override:34.82%;line-gap-override:0.0%;size-adjust:101.39%}
+@font-face{font-family:MontserratFallback;src:local("Arial");ascent-override:85.79%;descent-override:22.25%;line-gap-override:0.0%;size-adjust:112.83%}
+@font-face{font-family:InterFallback;src:local("Arial");ascent-override:90.44%;descent-override:22.52%;line-gap-override:0.0%;size-adjust:107.12%}
+@font-face{font-family:SpaceGroteskFallback;src:local("Arial");ascent-override:89.71%;descent-override:26.62%;line-gap-override:0.0%;size-adjust:109.69%}
+@font-face{font-family:EBGaramondFallback;src:local("Times New Roman");ascent-override:106.26%;descent-override:31.44%;line-gap-override:0.0%;size-adjust:94.77%}
+@font-face{font-family:BricolageGrotesqueFallback;src:local("Arial");ascent-override:88.21%;descent-override:25.61%;line-gap-override:0.0%;size-adjust:105.43%}
+@font-face{font-family:SpaceMonoFallback;src:local("Arial");ascent-override:81.58%;descent-override:26.3%;line-gap-override:0.0%;size-adjust:137.28%}
+@font-face{font-family:InstrumentSerifFallback;src:local("Times New Roman");ascent-override:117.94%;descent-override:36.93%;line-gap-override:0.0%;size-adjust:83.94%}
+@font-face{font-family:FrauncesFallback;src:local("Times New Roman");ascent-override:84.71%;descent-override:22.09%;line-gap-override:0.0%;size-adjust:115.45%}
+@font-face{font-family:JetBrainsMonoFallback;src:local("Arial");ascent-override:75.79%;descent-override:22.29%;line-gap-override:0.0%;size-adjust:134.59%}
+@font-face{font-family:InterTightFallback;src:local("Arial");ascent-override:100.51%;descent-override:25.03%;line-gap-override:0.0%;size-adjust:96.39%}
+@font-face{font-family:ManropeFallback;src:local("Arial");ascent-override:103.31%;descent-override:29.07%;line-gap-override:0.0%;size-adjust:103.19%}
+@font-face{font-family:DMSerifDisplayFallback;src:local("Times New Roman");ascent-override:94.37%;descent-override:30.51%;line-gap-override:0.0%;size-adjust:109.78%}
