@@ -61,7 +61,7 @@ export default function AiHubPage() {
       <div className={s.root}>
         <section className={s.hero} style={{ paddingTop: "clamp(96px, 9vw, 128px)" }}>
           <div className={s.wrap}>
-            <span className={s.pill}><span className={s.ldot} />Live in 48 hours, or you don’t pay</span>
+            <span className={s.pill}><span className={s.ldot} />We set it up for you in 72 hours</span>
             <p className={s.fin}>Pick your industry.</p>
             <h1>One AI system, built around <span className={s.hl}>your kind of business.</span></h1>
             <p className={s.sub}>
@@ -71,7 +71,7 @@ export default function AiHubPage() {
 
             <div className={s.hubGrid}>
               {AI_SYSTEMS.map((c) => (
-                <Link key={c.slug} href={`/ai/${c.slug}`} className={s.hubCard} data-testid={`link-ai-${c.slug}`}>
+                <Link key={c.slug} href={`/ai/${c.slug}`} className={`${s.hubCard} ${s.light}`} data-testid={`link-ai-${c.slug}`}>
                   <span className={s.hubProof}>{c.proof.line}</span>
                   <h2>{c.hub.title}</h2>
                   <p>{c.hub.body}</p>
@@ -80,7 +80,7 @@ export default function AiHubPage() {
               ))}
             </div>
 
-            <div className={s.cta}>
+            <div className={`${s.cta} ${s.ctaBlue}`}>
               <h2>Your industry not here yet? <em>We build it.</em></h2>
               <p>Clinics, hotels, restaurants, schools, tourism, iGaming or any office with too much admin. Tell us how your week runs.</p>
               <div className={s.ctaActs}>

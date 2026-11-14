@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { ChevronLeft, ChevronRight, MessageCircle, Pause, Play, Search, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Gift, Pause, Play, Search, X } from "lucide-react";
 import type { AiSystemContent, AskVisual, Spotlight } from "@/lib/ai-systems/types";
 import { SpotVisual } from "./AiVisuals";
 import s from "./ai-system.module.css";
@@ -72,7 +72,7 @@ export function HeroFilm({ film }: { film: AiSystemContent["film"] }) {
 }
 
 /* The jobs: three big ones first, then the rest in a swipe rail. */
-export function JobsRail({ label, title, featured, moreTitle, hint, children }: { label: string; title: string; featured: ReactNode; moreTitle: string; hint: string; children: ReactNode }) {
+export function JobsRail({ sectionClass, label, title, featured, moreTitle, hint, children }: { sectionClass?: string; label: string; title: string; featured: ReactNode; moreTitle: string; hint: string; children: ReactNode }) {
   const rail = useRef<HTMLOListElement>(null);
   const by = (dir: number) => {
     const el = rail.current;
@@ -82,7 +82,7 @@ export function JobsRail({ label, title, featured, moreTitle, hint, children }: 
     el.scrollBy({ left: dir * w * 2, behavior: prefersReducedMotion() ? "auto" : "smooth" });
   };
   return (
-    <section className={s.sec} id="features">
+    <section className={sectionClass ?? s.sec} id="features">
       <div className={s.wrap}>
         <div className={s.sh}><div><p className={s.lab}>{label}</p><h2>{title}</h2></div></div>
         <ol className={s.feat}>{featured}</ol>
@@ -189,7 +189,7 @@ export function Calc({ calc }: { calc: AiSystemContent["calc"] }) {
 }
 
 /* Small bar that floats at the bottom once the reader scrolls: proof + one button. */
-export function FloatBar({ line, short, href, label }: { line: string; short: string; href: string; label: string }) {
+export function FloatBar({ line, short, href, label, shortLabel }: { line: string; short: string; href: string; label: string; shortLabel: string }) {
   const [on, setOn] = useState(false);
   const [closed, setClosed] = useState(false);
   useEffect(() => {
@@ -203,7 +203,7 @@ export function FloatBar({ line, short, href, label }: { line: string; short: st
     <div className={`${s.bar} ${on ? s.barOn : ""}`} aria-hidden={!on} data-testid="float-bar">
       <p><i aria-hidden="true" /><span className={s.barLong}>{line}</span><span className={s.barShort}>{short}</span></p>
       <a className={s.barBtn} href={href} target="_blank" rel="noopener" tabIndex={on ? 0 : -1} data-testid="button-bar-price">
-        <MessageCircle aria-hidden="true" strokeWidth={1.8} />{label}
+        <Gift aria-hidden="true" strokeWidth={1.8} /><span className={s.barLong}>{label}</span><span className={s.barShort}>{shortLabel}</span>
       </a>
       <button className={s.barX} type="button" onClick={() => setClosed(true)} tabIndex={on ? 0 : -1} aria-label="Close this bar"><X aria-hidden="true" /></button>
     </div>
@@ -240,14 +240,14 @@ export function PriceForm({ service, source }: { service: string; source: string
       setState("error");
     }
   };
-  if (state === "sent") return <p className={s.leadOk} role="status">Got it. We’ll message you the price.</p>;
+  if (state === "sent") return <p className={s.leadOk} role="status">Got it. We’ll message you today.</p>;
   return (
     <form className={s.lead} onSubmit={submit} data-testid="form-price">
       <label className={s.sr} htmlFor={`${id}-n`}>Your name</label>
       <input id={`${id}-n`} name="name" type="text" placeholder="Your name" autoComplete="name" required maxLength={80} />
       <label className={s.sr} htmlFor={`${id}-c`}>Phone or email</label>
       <input id={`${id}-c`} name="contact" type="text" placeholder="Phone or email" autoComplete="tel" required maxLength={120} />
-      <button type="submit" disabled={state === "sending"}>{state === "sending" ? "Sending…" : "Send me the price"}</button>
+      <button type="submit" disabled={state === "sending"}>{state === "sending" ? "Sending…" : "Claim my free month"}</button>
       {state === "error" && <p className={s.leadErr} role="alert">{error}</p>}
     </form>
   );

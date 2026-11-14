@@ -8,7 +8,7 @@ export const realEstate: AiSystemContent = {
   metaTitle: "Real Estate AI for Agencies in Malta | OARC Digital",
   metaDescription:
     "The AI system built around your real estate agency in Malta. It answers every enquiry 24/7, finds owners ready to list, tracks every lease and does the admin.",
-  updated: "2026-11-13",
+  updated: "2026-11-14",
   serviceType: "AI system and automation for estate and letting agencies",
   schemaDescription:
     "An AI system built around each estate or letting agency in Malta. It answers every enquiry 24/7, qualifies leads, books viewings, tracks leases and notice deadlines, finds owners ready to list, writes listings, runs renewals, and handles repairs, rent and paperwork. Set up and run by OARC Digital's team in Malta.",
@@ -21,23 +21,23 @@ export const realEstate: AiSystemContent = {
   proof: { line: "Running in 8 real estate agencies in Malta", short: "In 8 agencies in Malta" },
 
   hero: {
-    pill: "Live in 48 hours, or you don’t pay",
-    kicker: "The agency that answers first gets the flat.",
-    h1Before: "The complete AI system built around",
+    pill: "We set it up for you in 72 hours",
+    kicker: "Finally, you have",
+    h1Before: "One complete AI system built around",
     h1Highlight: "your real estate agency.",
-    sub: "It answers every enquiry in under a minute, tells you which flats free up before anyone else knows, and does the paperwork. Your agents show homes and close deals.",
-    primaryCta: "Ask for the price",
+    sub: "AI agents trained on your agency answer, call and follow up every lead. The system tracks every lease, finds owners ready to list and does the paperwork. Your agents show homes and close deals.",
+    primaryCta: "Claim your free month",
     secondaryCta: "Book a 20-minute call",
-    note: "Set up and run by OARC’s team in Malta. Nothing new for your agents to learn.",
+    note: "First month free. Set up and run by OARC’s team in Malta.",
   },
 
   film: {
-    title: "Watch one night and one morning in your agency",
+    title: "Watch it work: one night, one morning",
     scenes: [
       {
         clock: "Sunday · 23:14",
         caption: "A tenant asks about a flat. Your office is closed.",
-        result: "Answered in 38 seconds",
+        result: "Answered in 38 seconds. Viewing booked.",
         visual: {
           type: "chat",
           initials: "SK",
@@ -46,33 +46,33 @@ export const realEstate: AiSystemContent = {
           status: "Answered",
           messages: [
             { from: "in", text: "Hi! Is the 2-bed in Sliema still free from 1 December? My budget is €1,400.", time: "23:14" },
-            { from: "out", text: "Hi Sofia, yes it is. How many people are moving in, and do you need the contract for a residence permit?", time: "23:14" },
-            { from: "in", text: "2 of us. Yes, for my permit.", time: "23:16" },
-          ],
-          done: { before: "Lead checked · ", strong: "€1,400 · from 1 Dec", after: " · permit needed" },
-        },
-      },
-      {
-        clock: "Sunday · 23:16",
-        caption: "It offers two times. She picks one. The viewing is booked.",
-        result: "Booked while you slept",
-        visual: {
-          type: "chat",
-          initials: "SK",
-          name: "Sofia K.",
-          origin: "WhatsApp · same chat",
-          status: "Booking",
-          messages: [
-            { from: "out", text: "Two flats fit you. I can show you both this week. Which time suits you?", time: "23:16" },
-            { from: "in", text: "Thursday at 18:00 please.", time: "23:17" },
-            { from: "out", text: "Done. Daniel will meet you there. I’ll remind you both on Thursday morning.", time: "23:17" },
+            { from: "out", text: "Hi Sofia, yes it is. I can show it Thursday at 18:00 or Saturday at 11:00. Which suits you?", time: "23:14" },
+            { from: "in", text: "Thursday at 18:00 please.", time: "23:16" },
           ],
           done: { before: "Viewing booked with Daniel · ", strong: "Thu 18:00", after: " · both reminded" },
         },
       },
       {
-        clock: "Monday · 07:30",
-        caption: "Your agents open one list: who to call first, and why.",
+        clock: "Monday · 10:02",
+        caption: "A lead from last month went quiet. Your AI agent calls him.",
+        result: "Back in your pipeline",
+        visual: {
+          type: "chat",
+          initials: "JR",
+          name: "James R.",
+          origin: "Voice call · 1 min 40 sec",
+          status: "Called",
+          messages: [
+            { from: "out", text: "Hi James, this is the AI assistant from your agency. You asked about 2-beds in Sliema. Are you still looking?", time: "10:02" },
+            { from: "in", text: "Yes, but my budget went up to €1,800.", time: "10:02" },
+            { from: "out", text: "Then I have three new ones. Can Maria show you two on Wednesday at 17:30?", time: "10:03" },
+          ],
+          done: { before: "Viewing booked with Maria · ", strong: "Wed 17:30", after: " · notes saved" },
+        },
+      },
+      {
+        clock: "Tuesday · 07:30",
+        caption: "Your agents open one list: which owners to call first, and why.",
         result: "4 owners ready to list",
         visual: {
           type: "rows",
@@ -81,41 +81,8 @@ export const realEstate: AiSystemContent = {
           action: "call",
           rows: [
             { badge: "92", top: true, title: "Robert C. · Sliema 3-bed", detail: "Bought in 2016. Asked for a valuation last month." },
+            { badge: "88", title: "Owner on Facebook Marketplace · Gżira 2-bed", detail: "Advertising on his own since Sunday. No agency yet." },
             { badge: "84", title: "Anna V. · Msida 2-bed", detail: "Her tenant’s lease ends in 90 days." },
-            { badge: "77", title: "Mark B. · Swieqi villa", detail: "Lives abroad. Opened your last two reports." },
-            { badge: "71", title: "New project · Gżira", detail: "Planning application for 8 flats filed this week." },
-          ],
-        },
-      },
-      {
-        clock: "Monday · 09:05",
-        caption: "A tenant says she is leaving in March. The flat is listed the same day.",
-        result: "Listed before anyone else knows",
-        visual: {
-          type: "timeline",
-          title: "Apt 7, St Julian’s · 2-bed · €1,450",
-          subtitle: "Lease ends 28 February",
-          steps: [
-            { when: "09:05", title: "Tenant asked: staying or moving?", detail: "Answer: moving out in March." },
-            { when: "09:06", title: "Owner told the same minute", detail: "He says: find me a new tenant." },
-            { when: "11:30", title: "Listed, and sent to 9 people already looking", detail: "Photos booked for tomorrow.", key: true, tag: "Listed · 9 matched" },
-          ],
-        },
-      },
-      {
-        clock: "Month end",
-        caption: "Every landlord gets a report nobody had to write.",
-        result: "Owners stay with you",
-        visual: {
-          type: "rows",
-          title: "Landlord reports · November",
-          hint: "Sent on the 30th",
-          action: "tag",
-          rows: [
-            { badge: "RC", title: "Robert C. · Sliema 3-bed", detail: "Rent in on time. Boiler serviced.", tag: "Sent" },
-            { badge: "AV", top: true, title: "Anna V. · Msida 2-bed", detail: "Lease ends in 90 days. Asked: renew or sell?", tag: "Reply needed" },
-            { badge: "MB", title: "Mark B. · Swieqi villa", detail: "2 repairs done, €180. Rent in on the 1st.", tag: "Sent" },
-            { badge: "+", title: "Every other landlord", detail: "Each report built from that month’s real activity.", tag: "Sent" },
           ],
         },
       },
@@ -180,9 +147,51 @@ export const realEstate: AiSystemContent = {
     ],
   },
 
+  agents: {
+    label: "Your AI sales team",
+    title: "Three AI agents. Trained on your agency. Working every lead.",
+    intro: "They chat on WhatsApp and they call. Each one knows your listings, your prices and how your agency talks.",
+    note: "They hand over to your agent the moment a person is needed, and your agent can take over any chat or call.",
+    items: [
+      {
+        name: "Lead agent",
+        title: "Catches every lead.",
+        points: [
+          "Answers WhatsApp, the portals, your website, Facebook and Instagram in under a minute.",
+          "Watches Facebook, Instagram and the marketplaces for owners and listings you don’t have yet.",
+          "Asks budget, dates and permit needs, then passes on the ones who are ready.",
+        ],
+        channels: ["WhatsApp", "Portals", "Facebook & Instagram", "Website"],
+        result: "No lead is missed",
+      },
+      {
+        name: "Follow-up agent",
+        title: "Never lets one go quiet.",
+        points: [
+          "Messages and calls every lead until they say yes, no or not yet.",
+          "Remembers what each person wanted and comes back when a matching home is listed.",
+          "Reminds clients about viewings, documents and lease deadlines.",
+        ],
+        channels: ["Voice calls", "WhatsApp", "Email"],
+        result: "Old leads turn into viewings",
+      },
+      {
+        name: "Sales agent",
+        title: "Moves it to a deal.",
+        points: [
+          "Calls hot leads back within minutes and books the viewing or the valuation in your agent’s diary.",
+          "Sends the next steps, chases the paperwork and keeps both sides updated.",
+          "Tells your agent exactly who is ready to sign today.",
+        ],
+        channels: ["Voice calls", "WhatsApp", "Your calendar"],
+        result: "Your agents only close",
+      },
+    ],
+  },
+
   jobs: {
     label: "Everything it does",
-    title: "One system. Sixteen jobs done for you.",
+    title: "One system. Nineteen jobs done for you.",
     items: [
       { icon: "chat", title: "Answers every enquiry, 24/7", body: "WhatsApp, portals, your website, Facebook and the phone. In the client’s language.", gain: "No lead goes cold" },
       { icon: "filter", title: "Qualifies every lead", body: "Budget, move-in date, who’s moving, permit needs. Hot leads go straight to your agent.", gain: "Agents only talk to ready people" },
@@ -190,6 +199,9 @@ export const realEstate: AiSystemContent = {
       { icon: "clock", title: "Knows which flats free up", body: "Tracks every lease end and the 3-month notice deadline, and asks tenant and owner early.", gain: "You list first" },
       { icon: "userPlus", title: "Finds owners ready to sell or let", body: "A ranked call list every morning, with the reason each owner is likely to move.", gain: "More stock than your rivals" },
       { icon: "refresh", title: "Wakes up your old contacts", body: "Messages past enquirers, tenants and buyers with something that fits them today.", gain: "Deals from people you already know" },
+      { icon: "phone", title: "Calls your leads", body: "A voice agent phones new and quiet leads, answers from your listings and books the viewing.", gain: "Leads reached in minutes" },
+      { icon: "search", title: "Watches Facebook, Instagram and Marketplace", body: "Spots owners advertising on their own and listings you don’t have yet.", gain: "Stock your rivals miss" },
+      { icon: "trending", title: "Gets you found on Google and in AI answers", body: "SEO for Google, plus the work that helps ChatGPT and Gemini recommend your agency.", gain: "More people find you first" },
       { icon: "link", title: "Matches every new listing", body: "The minute a flat is live, it goes to everyone already looking for one like it.", gain: "Let before it’s advertised" },
       { icon: "pen", title: "Writes your listings", body: "Descriptions in your agency’s style, in English and the languages your clients speak.", gain: "Listings ready in minutes" },
       { icon: "image", title: "Makes photos and ads sell", body: "Enhances photos, stages empty rooms, and builds ads and short videos for every listing.", gain: "More clicks, more viewings" },
@@ -317,13 +329,13 @@ export const realEstate: AiSystemContent = {
   },
 
   live: {
-    label: "How it works",
-    h2Before: "Live in",
-    h2Em: "48 hours.",
-    body: "Nothing new for your agents to learn. OARC’s team sets it up on your tools and runs it with you.",
+    label: "How it starts",
+    h2Before: "We set it up for you in",
+    h2Em: "72 hours.",
+    body: "We come in, connect your tools and set the whole thing up. Nothing new for your agents to learn.",
     steps: [
       { when: "Today", title: "A 20-minute call", body: "About how your agency works and where it loses time and deals." },
-      { when: "48 hours", title: "Your first system is live", body: "Every enquiry on your WhatsApp and website answered, 24/7." },
+      { when: "72 hours", title: "Your first system is live", body: "Every enquiry on your WhatsApp and website answered, 24/7." },
       { when: "Week 2", title: "All your data connected", body: "Leases, listings, owners and clients in one place." },
       { when: "Every week", title: "It grows with you", body: "It learns more, and the next job goes live." },
     ],
@@ -341,15 +353,15 @@ export const realEstate: AiSystemContent = {
   },
 
   offer: {
-    label: "The offer",
-    title: "Live in 48 hours. Or you don’t pay.",
-    body: "Your first system answers enquiries on your own WhatsApp and website two days after you say yes. If it isn’t live by then, you owe nothing. The 20-minute call is free either way, and you keep the list of what to fix first.",
-    cta: "Ask for the price",
-    secondaryCta: "Book my 20-minute call",
+    label: "Limited-time offer",
+    title: "Your first month is free.",
+    body: "We set it up in 72 hours and run it with you for a month. You see the leads, the viewings and the hours it saves on your own agency first.",
+    cta: "Claim your free month",
+    secondaryCta: "Book a 20-minute call",
     listLabel: "What you get",
     items: [
-      { strong: "Live in 48 hours, or you don’t pay.", rest: "Your first system answers enquiries two days after you say yes." },
-      { strong: "A free map of your agency.", rest: "Where time and deals leak, and what to fix first." },
+      { strong: "First month free.", rest: "See it work on your own leads before you decide." },
+      { strong: "Set up for you in 72 hours.", rest: "We connect your WhatsApp, website and inboxes. You change nothing." },
       { strong: "Nothing new to learn.", rest: "It works through the WhatsApp, email and CRM you already use." },
       { strong: "Built for you, run by us.", rest: "We customise it to your agency and look after it every week." },
       { strong: "Start small.", rest: "One job first. Add the next only when the first has paid for itself." },
@@ -358,7 +370,7 @@ export const realEstate: AiSystemContent = {
 
   calc: {
     label: "Your numbers",
-    title: "What being first is worth to you.",
+    title: "Put your own numbers in.",
     mode: "percent",
     inputs: [
       { label: "Leases you manage", value: 150 },
@@ -397,21 +409,23 @@ export const realEstate: AiSystemContent = {
     { q: "Do my agents need to learn new software?", a: "No. It works through the WhatsApp, email, spreadsheets and CRM you already use." },
     { q: "Can it do just one thing?", a: "Yes. Many agencies start with one job, such as answering every enquiry at night, and add the next when the first has paid for itself." },
     { q: "Does it work with our CRM and the property portals?", a: "Yes. We connect it to the CRM, portals, website and inboxes you already have. If something has no connection ready, we build it." },
-    { q: "How fast is it live?", a: "Your first system is live in 48 hours, usually answering every enquiry on your WhatsApp and website. If it isn’t live by then, you don’t pay. The rest is connected over the following weeks." },
+    { q: "How fast is it live?", a: "We set up your first system in 72 hours, usually answering every enquiry on your WhatsApp and website. The rest is connected over the following weeks." },
+    { q: "Do the AI agents really call people?", a: "Yes. A voice agent calls new and quiet leads, answers from your own listings and books the viewing in your agent’s diary. Your agent can take over any call." },
+    { q: "Can it find leads on Facebook and Instagram?", a: "Yes. It answers the enquiries that come in through Facebook and Instagram, and it watches public listings on Facebook Marketplace and the portals for owners advertising on their own." },
     { q: "Which number does it answer from?", a: "Yours. It replies on your agency’s own WhatsApp number, email and website, so clients keep talking to your agency." },
     { q: "What if it gets something wrong?", a: "Every message and action is logged, so you can see what it did and why. Prices, contracts and offers never go out without your agent’s yes. If something needs changing, OARC’s team in Malta changes it." },
     { q: "What happens to our data?", a: "It stays yours and is only used for your agency, handled under GDPR. If you leave, you take it with you." },
-    { q: "How much does it cost?", a: "It depends on your agency’s size and what you switch on first. Ask on WhatsApp and we price it for your agency." },
+    { q: "How much does it cost?", a: "Right now the first month is free. After that it depends on your agency’s size and what you switch on. Ask us and we price it for your agency." },
     { q: "When must a landlord in Malta say a lease won’t be renewed?", a: "For a long let, at least three months before it ends, by registered letter. Otherwise the lease renews for another year." },
     { q: "How long is there to register a lease in Malta?", a: "30 days from the start of the lease. The Housing Authority fee is €10 on time and €120 if it is late. A lease that is not registered is not valid." },
     { q: "How much can rent go up each year in Malta?", a: "For a long private residential lease, the yearly increase cannot be more than the change in the official Property Price Index, and never more than 5%." },
   ],
 
   cta: {
-    titleBefore: "Your next listing is about to free up.",
-    titleEm: "Know first.",
-    body: "Ask for the price today. Your first system is live in 48 hours, or you don’t pay.",
-    button: "Ask for the price",
+    titleBefore: "Your next lead writes tonight.",
+    titleEm: "Have an agent ready.",
+    body: "Claim your free first month. We set it up for you in 72 hours.",
+    button: "Claim your free month",
     secondary: "Book a 20-minute call",
   },
 
