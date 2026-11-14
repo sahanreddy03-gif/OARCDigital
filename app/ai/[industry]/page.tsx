@@ -85,7 +85,7 @@ export default async function Page({ params }: Props) {
   };
 
   return (
-    <Layout navTheme="light">
+    <Layout navTheme="dark">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <AiSystemPage c={c} />
     </Layout>

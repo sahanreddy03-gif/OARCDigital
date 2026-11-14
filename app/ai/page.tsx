@@ -56,7 +56,7 @@ const jsonLd = {
 
 export default function AiHubPage() {
   return (
-    <Layout navTheme="light">
+    <Layout navTheme="dark">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className={s.root}>
         <section className={s.hero} style={{ paddingTop: "clamp(96px, 9vw, 128px)" }}>
