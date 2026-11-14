@@ -9,7 +9,7 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 const TITLE = "Digital Marketing Agency Malta | €500 a month team | OARC";
 const DESCRIPTION =
-  "A digital marketing agency in Malta. Your whole social marketing team for €500 a month. We come to you in Birkirkara. No contract.";
+  "A digital marketing agency in Malta. Your one digital growth partner for €500 a month. We come to you in Birkirkara. No contract.";
 const URL = "https://oarcdigital.com/aeo/digital-marketing-agency-malta";
 
 export const metadata: Metadata = {
@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     question: "How fast can we start?",
-    answer: "Today. Send us anything, and your first piece is back in 48 hours, free.",
+    answer: "Today. Tell us about your business and your strategist calls you the same day to set up a visit.",
   },
   {
     question: "Who will I deal with?",
