@@ -19,7 +19,6 @@ export const lawFirms: AiSystemContent = {
   },
 
   proof: { line: "Running in 10 law and accounting firms in Malta", short: "In 10 firms in Malta" },
-  trustEarly: true,
 
   hero: {
     pill: "Live in 48 hours, or you don’t pay",

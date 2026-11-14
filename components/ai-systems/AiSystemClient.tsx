@@ -72,7 +72,7 @@ export function HeroFilm({ film }: { film: AiSystemContent["film"] }) {
 }
 
 /* The jobs: three big ones first, then the rest in a swipe rail. */
-export function JobsRail({ title, featured, moreTitle, hint, children }: { title: string; featured: ReactNode; moreTitle: string; hint: string; children: ReactNode }) {
+export function JobsRail({ label, title, featured, moreTitle, hint, children }: { label: string; title: string; featured: ReactNode; moreTitle: string; hint: string; children: ReactNode }) {
   const rail = useRef<HTMLOListElement>(null);
   const by = (dir: number) => {
     const el = rail.current;
@@ -84,7 +84,7 @@ export function JobsRail({ title, featured, moreTitle, hint, children }: { title
   return (
     <section className={s.sec} id="features">
       <div className={s.wrap}>
-        <div className={s.sh}><div><h2>{title}</h2></div></div>
+        <div className={s.sh}><div><p className={s.lab}>{label}</p><h2>{title}</h2></div></div>
         <ol className={s.feat}>{featured}</ol>
         <div className={s.more}>
           <div><h3>{moreTitle}</h3><p className={s.swipe}>{hint}</p></div>
@@ -131,6 +131,7 @@ export function AskSpot({ spot, rev }: { spot: Spotlight; rev: boolean }) {
   return (
     <div className={`${s.wrap} ${s.spot} ${rev ? s.rev : ""}`}>
       <div className={s.txt}>
+        <p className={s.lab}>{spot.label}</p>
         <h2>{spot.title}</h2>
         <ul className={s.ticks}>{spot.points.map((p) => <li key={p}>{p}</li>)}</ul>
         <div className={s.chips}>

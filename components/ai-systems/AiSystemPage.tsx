@@ -64,7 +64,7 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
   const trust = (
     <section className={s.sec} id="trust">
       <div className={s.wrap}>
-        <div className={s.sh}><div><h2>{c.trust.title}</h2></div></div>
+        <div className={s.sh}><div><p className={s.lab}>{c.trust.label}</p><h2>{c.trust.title}</h2></div></div>
         <div className={s.trust}>
           {c.trust.items.map((t) => <div className={s.tr} key={t.title}><Ico name={t.icon} /><div><h3>{t.title}</h3><p>{t.body}</p></div></div>)}
         </div>
@@ -96,12 +96,24 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
         </div>
       </section>
 
+      {/* BUILT AROUND YOU */}
+      <section className={s.sec}>
+        <div className={s.wrap}>
+          <div className={s.sh}><div><p className={s.lab}>{c.pillars.label}</p><h2>{c.pillars.title}</h2></div></div>
+          <div className={s.pillars}>
+            {c.pillars.items.map((p) => (
+              <div className={`${s.pl} ${s.reveal}`} key={p.title}><Ico name={p.icon} /><h3>{p.title}</h3><p>{p.body}</p></div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {c.trustEarly && trust}
 
       {/* YOUR NUMBERS */}
       <section className={s.sec} id="worth">
         <div className={s.wrap}>
-          <div className={s.sh}><div><h2>{c.calc.title}</h2></div></div>
+          <div className={s.sh}><div><p className={s.lab}>{c.calc.label}</p><h2>{c.calc.title}</h2></div></div>
           <Calc calc={c.calc} />
         </div>
       </section>
@@ -109,7 +121,7 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
       {/* WHY NOW: the sourced facts */}
       <section className={s.sec}>
         <div className={s.wrap}>
-          <div className={s.sh}><div><h2>{c.facts.title}</h2></div></div>
+          <div className={s.sh}><div><p className={s.lab}>{c.facts.label}</p><h2>{c.facts.title}</h2></div></div>
           <div className={s.facts}>
             {c.facts.items.map((f) => (
               <div className={s.fact} key={f.l}>
@@ -124,6 +136,7 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
 
       {/* JOBS: three big, the rest in the rail */}
       <JobsRail
+        label={c.jobs.label}
         title={c.jobs.title}
         moreTitle={`And ${rest.length} more.`}
         hint="Swipe to see them all →"
@@ -154,6 +167,7 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
           ) : (
             <div className={`${s.wrap} ${s.spot} ${i % 2 === 1 ? s.rev : ""}`}>
               <div className={s.txt}>
+                <p className={s.lab}>{sp.label}</p>
                 <h2>{sp.title}</h2>
                 <ul className={s.ticks}>{sp.points.map((p) => <li key={p}>{p}</li>)}</ul>
               </div>
@@ -222,18 +236,13 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
               </div>
             </div>
           </div>
-          <div className={`${s.pillars} ${s.pillarsUnder}`}>
-            {c.pillars.items.map((p) => (
-              <div className={`${s.pl} ${s.reveal}`} key={p.title}><Ico name={p.icon} /><h3>{p.title}</h3><p>{p.body}</p></div>
-            ))}
-          </div>
         </div>
       </section>
 
       {/* AREAS */}
       <section className={s.sec} id="areas">
         <div className={s.wrap}>
-          <div className={s.sh}><div><h2>{c.areas.title}</h2><p className={s.d}>{c.areas.intro}</p></div></div>
+          <div className={s.sh}><div><p className={s.lab}>{c.areas.label}</p><h2>{c.areas.title}</h2><p className={s.d}>{c.areas.intro}</p></div></div>
           <div className={s.areaHead} aria-hidden="true"><span>{c.areas.colA}</span><span>{c.areas.colB}</span><span>{c.areas.colC}</span></div>
           <div className={s.areas}>
             {c.areas.items.map((a) => (
@@ -250,7 +259,7 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
       {/* CLIENT WINS */}
       <section className={s.sec}>
         <div className={s.wrap}>
-          <div className={s.sh}><div><h2>{c.wins.title}</h2></div></div>
+          <div className={s.sh}><div><p className={s.lab}>{c.wins.label}</p><h2>{c.wins.title}</h2></div></div>
           <div className={s.wins}>
             {c.wins.items.map((w) => <div className={`${s.win} ${s.reveal}`} key={w.title}><b>{w.title}</b><p>{w.body}</p></div>)}
           </div>
@@ -261,6 +270,7 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
       <section id="live">
         <div className={s.wrap}>
           <div className={s.live}>
+            <p className={s.lab}>{c.live.label}</p>
             <h2>{c.live.h2Before} <em>{c.live.h2Em}</em></h2>
             <p className={s.d}>{c.live.body}</p>
             <ol className={s.tl}>
@@ -273,7 +283,7 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
       {/* WAYS TO START + OFFER */}
       <section className={s.sec} id="start">
         <div className={s.wrap}>
-          <div className={s.sh}><div><h2>{c.ways.title}</h2></div></div>
+          <div className={s.sh}><div><p className={s.lab}>{c.ways.label}</p><h2>{c.ways.title}</h2></div></div>
           <div className={s.ways}>
             {c.ways.items.map((w) => (
               <div className={s.way} key={w.title}>
@@ -285,6 +295,7 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
           </div>
           <div className={s.offer}>
             <div className={s.offerL}>
+              <p className={s.lab}>{c.offer.label}</p>
               <h3>{c.offer.title}</h3>
               <p className={s.d}>{c.offer.body}</p>
               <div className={s.acts}>
@@ -308,7 +319,7 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
       {/* FAQ + CTA */}
       <section className={s.sec} id="faq">
         <div className={s.wrap}>
-          <div className={s.sh}><div><h2>Straight answers.</h2></div></div>
+          <div className={s.sh}><div><p className={s.lab}>Questions</p><h2>Straight answers.</h2></div></div>
           <div className={s.faq}>
             {c.faq.map((f) => <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>)}
           </div>
