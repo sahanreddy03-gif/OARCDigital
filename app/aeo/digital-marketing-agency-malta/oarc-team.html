@@ -489,6 +489,41 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 @media (max-width:560px){.proms{grid-template-columns:1fr}.proms .pr{min-height:auto}}
 .sign{font:700 clamp(80px,16vw,240px)/.82 var(--ui)!important;letter-spacing:.06em!important;font-style:normal!important}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.cards{scroll-behavior:auto}}
+
+/* v2 · 2026-11-14 */
+.wafab{position:fixed;top:calc(env(safe-area-inset-top,0px) + 17px);right:98px;z-index:40;display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 16px;border-radius:999px;background:var(--white);color:var(--text);border:1px solid #DADAD6;font:600 14px/1 var(--ui);text-decoration:none;box-shadow:0 6px 20px -10px rgba(0,0,0,.35)}
+.wafab svg{width:17px;height:17px}
+@media (max-width:480px){.wafab{right:96px;padding:0 11px;font-size:13px}}
+.fact{white-space:normal;font-size:clamp(16px,4vw,21px);margin-bottom:8px}
+.fact mark{background:linear-gradient(transparent 58%,var(--lime) 58%);color:inherit;padding:0 .08em}
+.ask{background:var(--white);color:var(--text);border:1.5px solid var(--black);padding:22px 22px 18px;box-shadow:0 30px 60px -34px rgba(0,0,0,.45)}
+.askh{font:400 clamp(25px,2.4vw,32px)/1.1 var(--display);letter-spacing:-.012em}
+.askh b{font-weight:400;background:linear-gradient(transparent 60%,var(--lime) 60%)}
+.ask textarea{margin-top:14px;min-height:64px;background:var(--soft);border-radius:16px;padding:14px 16px;font-size:17px;color:var(--text)}
+.ask textarea::placeholder{color:var(--mute2)}
+.tools{gap:16px;margin-top:12px;flex-wrap:wrap}
+.send{margin-left:0;width:auto;height:52px;padding:0 22px;border-radius:999px;background:var(--black);color:var(--white);display:inline-flex;align-items:center;gap:10px;font:600 16px/1 var(--ui)}
+.send:hover{transform:none;opacity:.88}
+.wab{display:inline-flex;align-items:center;gap:8px;font:600 15px/1 var(--ui);color:var(--text);text-decoration:underline;text-underline-offset:4px}
+.wab svg{width:18px;height:18px}
+.door{display:inline-block;margin-top:14px;font:600 15px/1.35 var(--ui);color:var(--text);text-decoration:none;border-bottom:1.5px solid var(--text);padding-bottom:2px}
+.striplab{font:600 12.5px/1 var(--ui);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:18px;text-align:center}
+.strip span{opacity:.85}
+.tcard{display:none}
+.tgrid{grid-template-columns:minmax(0,1fr)}
+.jr{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:44px}
+.jr li{background:var(--white);border-radius:24px;padding:26px 24px 28px}
+.jr .n{display:block;font:400 40px/1 var(--display);color:var(--mute2)}
+.jr h3{font:400 clamp(22px,1.9vw,27px)/1.12 var(--display);letter-spacing:-.01em;margin-top:14px}
+.jr p{margin-top:10px;color:var(--mute);font-size:16px;line-height:1.45}
+@media (max-width:1000px){.jr{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.jr{grid-template-columns:1fr}}
+.h2.second{margin-top:clamp(72px,8vw,112px)}
+.cmp3{min-width:0}
+.cmp3 tbody th{width:26%}
+.cmp3 td{width:32%}
+.cmp3 .us{width:42%}
+@media (max-width:560px){.cmp3 th,.cmp3 td{padding:14px 10px;font-size:14px}.cmp3 .pr .us b{font-size:30px}.cmp3 .was{font-size:19px}}
 </style>
 <script>document.documentElement.classList.add("js")</script>
 
@@ -498,13 +533,14 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 </div></header>
 
 <main id="top">
+<a class="wafab" href="https://wa.me/35679711799?text=Hi%20OARC.%20I%20saw%20the%20%E2%82%AC500%20team%20page." target="_blank" rel="noopener" data-testid="link-whatsapp-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>WhatsApp us</span></a>
 <!-- 1 · the promise and the ask -->
 <section class="hero" data-reveal>
   <div class="glow" aria-hidden="true"></div>
   <div class="wrap">
     <p class="q ln">How much do you pay your marketing agency? <s>Thousands?</s></p>
     <h1 class="h1 ln"><span class="kick">Digital marketing agency in Malta</span><span class="l2">Your whole <span class="rot"><span class="rw">social</span></span></span><br>marketing team.<br><em>€500 a month.</em></h1>
-    <p class="lede ln"><b class="fact">For the first time ever, growth isn't the same.</b> Strategy, filming, social media, performance ads, your website and systems. We come to you and do the rest.</p>
+    <p class="lede ln"><b class="fact"><mark>For the first time ever</mark>, growth isn't the same.</b> Strategy, filming, social media, performance ads, your website and systems. We come to you and do the rest.</p>
     <div class="askzone ln">
       <div class="pills" aria-label="Ideas">
         <button class="pl a" type="button" data-pill>Make reels from my photos</button>
@@ -515,20 +551,18 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
         <button class="pl f" type="button" data-pill>Answer every message, day or night</button>
       </div>
       <form class="ask" id="ask" novalidate>
-        <textarea id="need" rows="2" aria-label="Tell your team what you need" placeholder="Tell your team what you need…"></textarea>
-        <p class="hint">Photos, videos, voice notes. Messy is fine.</p>
-        <div class="files" id="files"></div>
+        <p class="askh"><b>Your first piece is free.</b> Back in 48 hours.</p>
+        <textarea id="need" rows="2" aria-label="Tell us what you want more of" placeholder="What do you want more of?"></textarea>
         <div class="tools">
-          <button class="tool" type="button" id="attach" aria-label="Add photos, videos or files"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5l-8.6 8.6a5 5 0 01-7.1-7.1l8.6-8.6a3.5 3.5 0 015 5l-8.6 8.6a2 2 0 01-2.9-2.9l7.9-7.9"/></svg><span>Photos, videos</span></button>
-          <button class="tool" type="button" id="voice" aria-label="Record a voice note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg><span>Voice note</span></button>
-          <input type="file" id="picker" multiple accept="image/*,video/*,.pdf,.doc,.docx" hidden>
-          <button class="send" type="submit" aria-label="Send to your team"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></button>
+          <button class="send" type="submit"><span>Get my free piece</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></button>
+          <a class="wab" href="https://wa.me/35679711799?text=Hi%20OARC.%20I%20saw%20the%20%E2%82%AC500%20team%20page." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>or WhatsApp us</a>
         </div>
       </form>
     </div>
-    <p class="under ln"><span class="faces" aria-hidden="true"><span class="face" style="background:var(--pink)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--lav)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--butter)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--sky)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--orchid)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span></span><span><b>Start here. Then we come to you.</b> No card. No contract.</span></p>
+    <p class="under ln"><span class="faces" aria-hidden="true"><span class="face" style="background:var(--pink)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--lav)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--butter)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--sky)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--orchid)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span></span><span><b>We reply today.</b> No card. No contract.</span></p>
+    <p class="ln"><a class="door" href="#more">Already spending €2,000 or more a month? Keep your budget. Get more.</a></p>
   </div>
-  <div class="strip" aria-label="Businesses we work with"><div class="run">
+  <div class="strip" aria-label="Businesses we work with"><p class="striplab">Businesses we work with</p><div class="run">
     <span>Rent Anytime</span><span>Dhalia Real Estate Services</span><span>Eden Leisure Group</span><span>Tiffany Champagne &amp; Wine Bar</span><span>Portomaso Casino</span><span>Hearth Test Kitchen</span>
     <span aria-hidden="true">Rent Anytime</span><span aria-hidden="true">Dhalia Real Estate Services</span><span aria-hidden="true">Eden Leisure Group</span><span aria-hidden="true">Tiffany Champagne &amp; Wine Bar</span><span aria-hidden="true">Portomaso Casino</span><span aria-hidden="true">Hearth Test Kitchen</span>
   </div></div>
@@ -538,7 +572,7 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 <section class="sec pains" data-reveal><div class="wrap">
   <h2 class="h2 ln">Sound familiar?</h2>
   <div class="pgrid">
-    <div class="pain ln"><h3>You manage five suppliers.</h3><p>One for ads, one for posts, one for the website. Nobody owns the result.</p><p class="fix">One team owns all of it.</p></div>
+    <div class="pain ln"><h3>You pay thousands. You get a few posts.</h3><p>Posts go up. Ads run. Nothing is linked, and nothing brings sales.</p><p class="fix">One plan, built to bring customers.</p></div>
     <div class="pain ln"><h3>Money goes out. Nobody can say what came back.</h3><p>Reports full of reach and likes, and no customers to show for it.</p><p class="fix">Every euro and every customer shown.</p></div>
     <div class="pain ln"><h3>Enquiries go quiet.</h3><p>Messages wait for hours. Customers book somewhere else.</p><p class="fix">Answered in minutes, day or night.</p></div>
     <div class="pain ln"><h3>You chase your agency.</h3><p>For updates, for ideas, for answers.</p><p class="fix">We come to you, every month.</p></div>
@@ -549,12 +583,10 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 <section class="dark sec" id="team" data-reveal>
   <div class="wrap">
     <h2 class="shift ln">Shift happens.</h2>
-    <p class="big ln">2027 belongs to those who win trust.</p>
     <p class="big ln"><span class="dim"><span class="strikew">Attention media</span> is over.</span><br>This is trust media.</p>
     <div class="tgrid">
       <div class="ln">
-        <p class="lede">Ads buy attention. The day you stop paying, it’s gone. Trust is what people find when they check you: your reviews, your story, your answers. It keeps working.</p>
-        <p class="lede">We believe trust is more powerful than attention, and it’s the right way to build a business. So we built a team that earns it for you.</p>
+        <p class="lede">Ads buy attention. The day you stop paying, it’s gone. Trust is what people find when they check you: your reviews, your story, your answers. It keeps working. So we built a team that earns it for you.</p>
       </div>
       <div class="tcard ln" id="tcard">
         <div class="ttop"><span class="leg"><i></i>Attention</span><span class="leg"><i class="lt"></i>Trust</span><button class="switch" id="adsw" type="button" role="switch" aria-checked="true" aria-label="Ads"><span>Ads</span><b></b><em id="adst">On</em></button></div>
@@ -571,7 +603,7 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
       </div>
     </div>
     <div class="teamhead ln">
-      <div><h3>Your in-house studio.</h3><p>A team of experts that comes to you, learns your business and works on it every week. Marketing, tech and care, under one roof. Tap anyone to see exactly how they work.</p></div>
+      <div><h3>Every expert an agency has. Working for you.</h3><p>All included. They come to you, learn your business and work on it every week. Tap anyone to see exactly how they work.</p></div>
       <div class="arrows"><button class="arw" type="button" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><button class="arw" type="button" id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button></div>
     </div>
   </div>
@@ -710,27 +742,20 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
   </div>
 </section>
 
-<!-- 3 · the maths -->
-<section class="sec" data-reveal><div class="wrap">
-  <h2 class="h2 ln">Agency quality.<br>Without the agency bill.</h2>
-  <div class="tblw ln"><table class="cmp3">
-    <thead><tr><th scope="col"><span class="sr">Compared</span></th><th scope="col">A freelancer</th><th scope="col">A typical agency</th><th scope="col" class="us">Your OARC team</th></tr></thead>
-    <tbody>
-      <tr><th scope="row">Who does the work</th><td>One person</td><td>A team</td><td class="us">A whole marketing and tech team</td></tr>
-      <tr><th scope="row">Comes to you</th><td>Sometimes</td><td>For meetings</td><td class="us">Yes, to plan and to film</td></tr>
-      <tr><th scope="row">Website and systems</th><td>Not included</td><td>A separate project</td><td class="us">Included</td></tr>
-      <tr><th scope="row">Your enquiries</th><td>Not included</td><td>Rarely included</td><td class="us">Answered in minutes</td></tr>
-      <tr><th scope="row">What you see</th><td>Likes and reach</td><td>Reports full of likes</td><td class="us">Every euro and every customer</td></tr>
-      <tr><th scope="row">Contract</th><td>Usually none</td><td>Locked in for months</td><td class="us">Cancel any month</td></tr>
-      <tr class="pr"><th scope="row">Price</th><td>A few hundred a month</td><td><s class="was">€3,500–€4,500</s> a month</td><td class="us"><b>€500</b> a month</td></tr>
-    </tbody>
-  </table></div>
-  <p class="why ln">Better tools made the work faster. Most agencies kept the savings. We give them to you.</p>
-</div></section>
-
 <!-- 4 · what you do, and what we do -->
 <section class="steps3 sec" id="how" data-reveal><div class="wrap">
-  <h2 class="h2 ln">Three steps.<br>Zero effort.</h2>
+  <h2 class="h2 ln">Your journey.<br>Done for you.</h2>
+  <p class="lede ln">From idea to execution. Six steps, and we do every one.</p>
+  <ol class="jr ln">
+      <li><span class="n">1</span><h3>We find the small changes that make the biggest difference.</h3><p>We sit with you, study your business and your competitors, brainstorm ideas and set the strategy. It could be your offer, your story, your price, your website or how fast you reply.</p></li>
+      <li><span class="n">2</span><h3>We make you so clear and so easy to choose that the market does the selling.</h3><p>We tell your story. We film it, shoot it, design it, and build your website around it.</p></li>
+      <li><span class="n">3</span><h3>We put you where your customers already are.</h3><p>We run ads and campaigns on the channels that work for you, get you found on Google and AI, and keep your social media alive every week. Every ad has a reason, and we tell you what it is.</p></li>
+      <li><span class="n">4</span><h3>We answer for you.</h3><p>Lead forms, booking and messages, all replied to in minutes, day or night.</p></li>
+      <li><span class="n">5</span><h3>We keep everything in one place.</h3><p>Every enquiry, customer and booking organised in one system, with automations that keep running even when we step away.</p></li>
+      <li><span class="n">6</span><h3>We show you every number.</h3><p>What came in, what it cost, and what we change next.</p></li>
+    </ol>
+  <h2 class="h2 ln second">Need something?<br>Send it.</h2>
+  <p class="lede ln">On top of your strategist, your visits and your campaigns, one line is always open. Drop anything in. It comes back done within 48 hours.</p>
   <div class="sgrid">
     <ol class="s3 ln">
       <li><span class="n">1</span><div><h3>Send us anything.</h3><p>A blurry phone photo. A voice note. Half an idea. It doesn’t need to be perfect. That’s our job.</p></div></li>
@@ -751,17 +776,24 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
       <span class="exnote">Example</span>
     </div>
   </div>
-  <div class="journey">
-    <div><h3 class="ln">The detail: your journey.</h3><p class="lede ln">From idea to execution, done for you. Tap any step to see what happens.</p></div>
-    <ol class="acc ln">
-      <li><details open><summary>We find the small changes that make the biggest difference.<i class="pm" aria-hidden="true"></i></summary><p>We sit with you, study your business and your competitors, brainstorm ideas and set the strategy. It could be your offer, your story, your price, your website or how fast you reply.</p></details></li>
-      <li><details><summary>We make you so clear and so easy to choose that the market does the selling.<i class="pm" aria-hidden="true"></i></summary><p>We tell your story. We film it, shoot it, design it, and build your website around it.</p></details></li>
-      <li><details><summary>We put you where your customers already are.<i class="pm" aria-hidden="true"></i></summary><p>We run ads and campaigns on the channels that work for you, get you found on Google and AI, and keep your social media alive every week. Every ad has a reason, and we tell you what it is.</p></details></li>
-      <li><details><summary>We answer for you.<i class="pm" aria-hidden="true"></i></summary><p>Lead forms, booking and messages, all replied to in minutes, day or night.</p></details></li>
-      <li><details><summary>We keep everything in one place.<i class="pm" aria-hidden="true"></i></summary><p>Every enquiry, customer and booking organised in one system, with automations that keep running even when we step away.</p></details></li>
-      <li><details><summary>We show you every number.<i class="pm" aria-hidden="true"></i></summary><p>What came in, what it cost, and what we change next.</p></details></li>
-    </ol>
-  </div>
+</div></section>
+
+<!-- 3 · the maths -->
+<section class="sec" data-reveal><div class="wrap">
+  <h2 class="h2 ln">More than an agency.<br>Line by line.</h2>
+  <div class="tblw ln"><table class="cmp3">
+    <thead><tr><th scope="col"><span class="sr">Compared</span></th><th scope="col">A typical agency</th><th scope="col" class="us">Your OARC team</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Who does the work</th><td>A team</td><td class="us">A whole marketing and tech team</td></tr>
+      <tr><th scope="row">Comes to you</th><td>For meetings</td><td class="us">Yes, to plan and to film</td></tr>
+      <tr><th scope="row">Website and systems</th><td>A separate project</td><td class="us">Included</td></tr>
+      <tr><th scope="row">Your enquiries</th><td>Rarely included</td><td class="us">Answered in minutes</td></tr>
+      <tr><th scope="row">What you see</th><td>Reports full of likes</td><td class="us">Every euro and every customer</td></tr>
+      <tr><th scope="row">Contract</th><td>Locked in for months</td><td class="us">Cancel any month</td></tr>
+      <tr class="pr"><th scope="row">Price</th><td><s class="was">€3,500–€4,500</s> a month</td><td class="us"><b>€500</b> a month</td></tr>
+    </tbody>
+  </table></div>
+  <p class="why ln">Better tools made the work faster. Most agencies kept the savings. We give them to you.</p>
 </div></section>
 
 <!-- 5 · what you see -->
@@ -891,7 +923,7 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 </div></section>
 
 <!-- 6b · spending more -->
-<section class="sec" data-reveal><div class="wrap">
+<section class="sec" id="more" data-reveal><div class="wrap">
   <div class="more-card ln">
     <div>
       <h2 class="h2">Spending more? Get more.</h2>
@@ -1007,7 +1039,7 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
       <label class="fld" for="d-co"><span>Company name</span><input id="d-co" autocomplete="organization" required></label>
       <div class="two">
         <label class="fld" for="d-ph"><span>Phone</span><input id="d-ph" type="tel" inputmode="tel" autocomplete="tel" placeholder="+356" required></label>
-        <label class="fld" for="d-em"><span>Email</span><input id="d-em" type="email" inputmode="email" autocomplete="email" required></label>
+        <label class="fld" for="d-em"><span>Email <em>optional</em></span><input id="d-em" type="email" inputmode="email" autocomplete="email"></label>
       </div>
       <div class="two">
         <label class="fld" for="d-web"><span>Website <em>optional</em></span><input id="d-web" inputmode="url" autocomplete="url"></label>
@@ -1021,7 +1053,7 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
       <span class="faces" style="justify-content:center" aria-hidden="true"><span class="face" style="background:var(--pink)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--lav)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--butter)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--sky)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--orchid)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span></span>
       <h3>Got it. Your team has it.</h3>
       <p class="lede">We’ll reach you today to set up a visit. Your first piece is free, back in 48 hours.</p>
-      <p class="fine">We’ll reach you on WhatsApp.</p>
+      <p class="fine">WhatsApp is opening too. Press send there and add your photos.</p>
       <button class="btnline" type="button" data-close>Back to the page</button>
     </div>
   </div>
@@ -1075,22 +1107,13 @@ if(!reduce) setInterval(function(){
 },2300);
 
 /* the ask */
-var need=$("#need"), ask=$("#ask"), files=$("#files"), picker=$("#picker"), voice=$("#voice"), list=[];
-var ideas=["Tell your team what you need…","Make a reel from these photos…","Fill our quiet Tuesdays…","Build us a website that takes bookings…","Get us found on Google and AI…"], ii=0;
+var need=$("#need"), ask=$("#ask");
+var ideas=["What do you want more of?","More bookings on quiet days…","Reels that look like a big brand…","A website that takes bookings…","To be found on Google and AI…"], ii=0;
 if(!reduce) setInterval(function(){ if(document.activeElement===need||need.value) return; ii=(ii+1)%ideas.length; need.setAttribute("placeholder",ideas[ii]); },2600);
 function grow(){ need.style.height="auto"; need.style.height=Math.min(need.scrollHeight,220)+"px"; }
 need.addEventListener("input",grow);
 $$("[data-pill]").forEach(function(p){ p.addEventListener("click",function(){ need.value=p.textContent; grow(); need.focus(); }); });
-function chip(name){ var c=document.createElement("span"); c.className="file"; c.textContent=name; var x=document.createElement("button"); x.type="button"; x.setAttribute("aria-label","Remove "+name); x.textContent="×"; x.addEventListener("click",function(){ list.splice(list.indexOf(name),1); c.remove(); }); c.appendChild(x); files.appendChild(c); list.push(name); }
-$("#attach").addEventListener("click",function(){ picker.click(); });
-picker.addEventListener("change",function(){ Array.prototype.forEach.call(picker.files,function(f){ chip(f.name); }); picker.value=""; });
-var rec=null, secsRec=0;
-voice.addEventListener("click",function(){
-  if(rec){ clearInterval(rec); rec=null; voice.classList.remove("rec"); voice.innerHTML=voice.dataset.html; chip("Voice note · 0:"+(secsRec<10?"0":"")+secsRec); return; }
-  voice.dataset.html=voice.innerHTML; secsRec=0; voice.classList.add("rec"); voice.innerHTML="<i></i><span style='display:inline'>Recording… tap to stop</span>";
-  rec=setInterval(function(){ secsRec=Math.min(59,secsRec+1); },1000);
-});
-ask.addEventListener("submit",function(e){ e.preventDefault(); if(!need.value.trim()&&!list.length){ ask.classList.remove("shake"); void ask.offsetWidth; ask.classList.add("shake"); need.focus(); return; } openVeil($("#veil")); setTimeout(function(){ $("#d-co").focus(); },60); });
+ask.addEventListener("submit",function(e){ e.preventDefault(); openVeil($("#veil")); setTimeout(function(){ $("#d-co").focus(); },60); });
 
 /* every "Get started" leads to the ask */
 $$("[data-start]").forEach(function(b){ b.addEventListener("click",function(){
@@ -1109,10 +1132,11 @@ document.addEventListener("keydown",function(e){ if(e.key==="Escape") closeVeil(
 $("#details").addEventListener("submit",function(e){
   e.preventDefault();
   var co=$("#d-co").value.trim(), ph=$("#d-ph").value.replace(/\D/g,""), em=$("#d-em").value.trim(), miss=[];
-  if(!co) miss.push("your company name"); if(ph.length<8) miss.push("a phone number"); if(!/^\S+@\S+\.\S+$/.test(em)) miss.push("an email");
+  if(!co) miss.push("your company name"); if(ph.length<8) miss.push("a phone number"); if(em&&!/^\S+@\S+\.\S+$/.test(em)) miss.push("a valid email");
   var err=$("#derr"); if(miss.length){ err.textContent="Add "+miss.join(", ").replace(/, ([^,]*)$/," and $1")+" so your team can reach you."; err.hidden=false; return; }
   err.hidden=true; $("#details").hidden=true; $("#done").hidden=false;
   var msg=["Hi OARC. I want the €500 team.","Company: "+co,"Phone: "+$("#d-ph").value,"Email: "+em,"Website: "+($("#d-web").value||""),"Instagram: "+($("#d-ig").value||""),"Ask: "+((document.getElementById("need")&&document.getElementById("need").value)||"")].join("\n");
+  try{ fetch("/api/leads",{method:"POST",headers:{"Content-Type":"application/json"},keepalive:true,body:JSON.stringify({name:co,contact:$("#d-ph").value+(em?" · "+em:""),service:"€500 team (offer page)",source:"/aeo/digital-marketing-agency-malta",transcript:msg})}).catch(function(){}); }catch(err){}
   window.open("https://wa.me/35679711799?text="+encodeURIComponent(msg),"_blank","noopener");
 });
 
