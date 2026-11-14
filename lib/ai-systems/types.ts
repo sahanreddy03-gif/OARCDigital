@@ -76,8 +76,16 @@ export interface AiSystemContent {
   proof: { line: string; short: string };
   /** Self-playing demo in the hero. */
   film: { title: string; scenes: FilmScene[] };
-  /** Show the trust block right under the hero (law firms). */
-  trustEarly?: boolean;
+  /** Put the practice-area table on a white band (long pages). */
+  lightAreas?: boolean;
+  /** The AI agents that chat and call: the selling point after "everything it does". */
+  agents: {
+    label: string;
+    title: string;
+    intro: string;
+    note: string;
+    items: { name: string; title: string; points: string[]; channels: string[]; result: string }[];
+  };
 
   hero: {
     pill: string;

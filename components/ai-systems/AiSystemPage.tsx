@@ -3,7 +3,7 @@ import {
   MessageCircle, Filter, CalendarDays, Clock, UserPlus, RefreshCw, Link2, PenLine, Image as ImageIcon, Euro, Repeat,
   Wrench, CreditCard, FileText, BarChart3, Sun, Network, Workflow, TrendingUp, ShieldCheck, Search, FolderOpen,
   Scale, Inbox, Languages, Users, Lock, Eye, BadgeCheck, Building2, BookOpen, Car, Plane, Receipt, Gavel, Phone, Check,
-  CalendarClock,
+  CalendarClock, Gift,
   type LucideIcon,
 } from "lucide-react";
 import { NAP } from "@/lib/seo/nap";
@@ -32,16 +32,16 @@ export function whatsappLink(business: string) {
   return `https://wa.me/${NAP.whatsappNumber}?text=${encodeURIComponent(text)}`;
 }
 
-/** WhatsApp link that asks for the price. */
-export function priceLink(business: string) {
-  const text = `Hi OARC, I run a ${business} in Malta. What does the AI system cost?`;
+/** WhatsApp link that claims the free first month. */
+export function offerLink(business: string) {
+  const text = `Hi OARC, I run a ${business} in Malta. I'd like to claim the free first month of the AI system.`;
   return `https://wa.me/${NAP.whatsappNumber}?text=${encodeURIComponent(text)}`;
 }
 
-function PriceButton({ href, label, variant, testid }: { href: string; label: string; variant?: "onDark"; testid: string }) {
+function OfferButton({ href, label, variant, testid }: { href: string; label: string; variant?: "onDark"; testid: string }) {
   return (
     <a className={`${s.btn} ${variant ? s[variant] : ""}`} href={href} target="_blank" rel="noopener" data-testid={testid}>
-      <MessageCircle aria-hidden="true" strokeWidth={1.6} />{label}
+      <Gift aria-hidden="true" strokeWidth={1.6} />{label}
     </a>
   );
 }
@@ -55,26 +55,16 @@ function CallButton({ href, label, dark, testid }: { href: string; label: string
 }
 
 export default function AiSystemPage({ c }: { c: AiSystemContent }) {
-  const price = priceLink(c.business);
+  const offer = offerLink(c.business);
   const call = bookingUrl(`/ai/${c.slug}`);
   const d = c.dashboard;
   const top = c.jobs.items.slice(0, 3);
   const rest = c.jobs.items.slice(3);
-
-  const trust = (
-    <section className={s.sec} id="trust">
-      <div className={s.wrap}>
-        <div className={s.sh}><div><p className={s.lab}>{c.trust.label}</p><h2>{c.trust.title}</h2></div></div>
-        <div className={s.trust}>
-          {c.trust.items.map((t) => <div className={s.tr} key={t.title}><Ico name={t.icon} /><div><h3>{t.title}</h3><p>{t.body}</p></div></div>)}
-        </div>
-      </div>
-    </section>
-  );
+  const light = `${s.band} ${s.light}`;
 
   return (
     <div className={s.root}>
-      {/* HERO: one pain, then watch it work */}
+      {/* HERO */}
       <section className={s.hero} id="top">
         <div className={s.wrap}>
           <span className={s.pill}><span className={s.ldot} />{c.hero.pill}</span>
@@ -82,10 +72,10 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
           <h1>{c.hero.h1Before} <span className={s.hl}>{c.hero.h1Highlight}</span></h1>
           <p className={s.sub}>{c.hero.sub}</p>
           <div className={s.acts}>
-            <PriceButton href={price} label={c.hero.primaryCta} testid="button-hero-price" />
+            <OfferButton href={offer} label={c.hero.primaryCta} testid="button-hero-offer" />
             <CallButton href={call} label={c.hero.secondaryCta} testid="button-hero-call" />
           </div>
-          <p className={s.note}>{c.hero.note}</p>
+          <p className={s.note}><span className={s.offerTag}>{c.offer.label}</span>{c.hero.note}</p>
 
           <HeroFilm film={c.film} />
 
@@ -96,7 +86,7 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
         </div>
       </section>
 
-      {/* BUILT AROUND YOU */}
+      {/* 2. BUILT AROUND YOU */}
       <section className={s.sec}>
         <div className={s.wrap}>
           <div className={s.sh}><div><p className={s.lab}>{c.pillars.label}</p><h2>{c.pillars.title}</h2></div></div>
@@ -108,34 +98,9 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
         </div>
       </section>
 
-      {c.trustEarly && trust}
-
-      {/* YOUR NUMBERS */}
-      <section className={s.sec} id="worth">
-        <div className={s.wrap}>
-          <div className={s.sh}><div><p className={s.lab}>{c.calc.label}</p><h2>{c.calc.title}</h2></div></div>
-          <Calc calc={c.calc} />
-        </div>
-      </section>
-
-      {/* WHY NOW: the sourced facts */}
-      <section className={s.sec}>
-        <div className={s.wrap}>
-          <div className={s.sh}><div><p className={s.lab}>{c.facts.label}</p><h2>{c.facts.title}</h2></div></div>
-          <div className={s.facts}>
-            {c.facts.items.map((f) => (
-              <div className={s.fact} key={f.l}>
-                <span className={`${s.n} ${s.tnum}`}>{f.n}</span>
-                <span className={s.l}>{f.l}</span>
-                <a className={s.src} href={f.src.href} target="_blank" rel="noopener nofollow">{f.src.label}</a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* JOBS: three big, the rest in the rail */}
+      {/* 3. EVERYTHING IT DOES: three big, the rest in the rail. On white. */}
       <JobsRail
+        sectionClass={light}
         label={c.jobs.label}
         title={c.jobs.title}
         moreTitle={`And ${rest.length} more.`}
@@ -158,6 +123,25 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
           </li>
         ))}
       </JobsRail>
+
+      {/* 4. THE AI AGENTS: chat and voice, trained on the client's own data */}
+      <section className={s.sec} id="agents">
+        <div className={s.wrap}>
+          <div className={s.sh}><div><p className={s.lab}>{c.agents.label}</p><h2>{c.agents.title}</h2><p className={s.d}>{c.agents.intro}</p></div></div>
+          <div className={s.agents}>
+            {c.agents.items.map((a) => (
+              <div className={`${s.agent} ${s.reveal}`} key={a.name}>
+                <p className={s.agentName}>{a.name}</p>
+                <h3>{a.title}</h3>
+                <ul>{a.points.map((p) => <li key={p}>{p}</li>)}</ul>
+                <div className={s.agentCh}>{a.channels.map((ch) => <span key={ch}>{ch}</span>)}</div>
+                <p className={s.agentRes}>{a.result}</p>
+              </div>
+            ))}
+          </div>
+          <p className={s.agentNote}>{c.agents.note}</p>
+        </div>
+      </section>
 
       {/* SPOTLIGHTS */}
       {c.spotlights.map((sp, i) => (
@@ -239,8 +223,8 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
         </div>
       </section>
 
-      {/* AREAS */}
-      <section className={s.sec} id="areas">
+      {/* AREAS: on white where the page is long */}
+      <section className={c.lightAreas ? light : s.sec} id="areas">
         <div className={s.wrap}>
           <div className={s.sh}><div><p className={s.lab}>{c.areas.label}</p><h2>{c.areas.title}</h2><p className={s.d}>{c.areas.intro}</p></div></div>
           <div className={s.areaHead} aria-hidden="true"><span>{c.areas.colA}</span><span>{c.areas.colB}</span><span>{c.areas.colC}</span></div>
@@ -256,20 +240,40 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
         </div>
       </section>
 
-      {/* CLIENT WINS */}
-      <section className={s.sec}>
+      {/* YOU STAY IN CHARGE: trust, then what the client's own clients feel. One section. */}
+      <section className={s.sec} id="trust">
         <div className={s.wrap}>
-          <div className={s.sh}><div><p className={s.lab}>{c.wins.label}</p><h2>{c.wins.title}</h2></div></div>
-          <div className={s.wins}>
+          <div className={s.sh}><div><p className={s.lab}>{c.trust.label}</p><h2>{c.trust.title}</h2></div></div>
+          <div className={s.trust}>
+            {c.trust.items.map((t) => <div className={s.tr} key={t.title}><Ico name={t.icon} /><div><h3>{t.title}</h3><p>{t.body}</p></div></div>)}
+          </div>
+          <div className={`${s.wins} ${s.winsUnder}`}>
             {c.wins.items.map((w) => <div className={`${s.win} ${s.reveal}`} key={w.title}><b>{w.title}</b><p>{w.body}</p></div>)}
           </div>
         </div>
       </section>
 
-      {/* LIVE IN 48 HOURS */}
-      <section id="live">
+      {/* YOUR NUMBERS: calculator and the sourced facts. One section. */}
+      <section className={s.sec} id="worth">
         <div className={s.wrap}>
-          <div className={s.live}>
+          <div className={s.sh}><div><p className={s.lab}>{c.calc.label}</p><h2>{c.calc.title}</h2></div></div>
+          <Calc calc={c.calc} />
+          <div className={`${s.facts} ${s.factsUnder}`}>
+            {c.facts.items.map((f) => (
+              <div className={s.fact} key={f.l}>
+                <span className={`${s.n} ${s.tnum}`}>{f.n}</span>
+                <span className={s.l}>{f.l}</span>
+                <a className={s.src} href={f.src.href} target="_blank" rel="noopener nofollow">{f.src.label}</a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HOW IT STARTS: set up in 72 hours + the offer. One section. */}
+      <section id="start">
+        <div className={s.wrap}>
+          <div className={s.live} id="live">
             <p className={s.lab}>{c.live.label}</p>
             <h2>{c.live.h2Before} <em>{c.live.h2Em}</em></h2>
             <p className={s.d}>{c.live.body}</p>
@@ -277,29 +281,13 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
               {c.live.steps.map((st) => <li key={st.title}><span className={s.when}>{st.when}</span><b>{st.title}</b><span>{st.body}</span></li>)}
             </ol>
           </div>
-        </div>
-      </section>
-
-      {/* WAYS TO START + OFFER */}
-      <section className={s.sec} id="start">
-        <div className={s.wrap}>
-          <div className={s.sh}><div><p className={s.lab}>{c.ways.label}</p><h2>{c.ways.title}</h2></div></div>
-          <div className={s.ways}>
-            {c.ways.items.map((w) => (
-              <div className={s.way} key={w.title}>
-                <h3>{w.title}</h3>
-                <p>{w.body}</p>
-                <span className={s.eg}>{w.example}</span>
-              </div>
-            ))}
-          </div>
-          <div className={s.offer}>
+          <div className={`${s.offer} ${s.light}`}>
             <div className={s.offerL}>
-              <p className={s.lab}>{c.offer.label}</p>
+              <span className={s.offerTag}><Gift aria-hidden="true" strokeWidth={1.8} />{c.offer.label}</span>
               <h3>{c.offer.title}</h3>
               <p className={s.d}>{c.offer.body}</p>
               <div className={s.acts}>
-                <PriceButton href={price} label={c.offer.cta} testid="button-offer-price" />
+                <OfferButton href={offer} label={c.offer.cta} testid="button-offer-claim" />
                 <CallButton href={call} label={c.offer.secondaryCta} testid="button-offer-call" />
               </div>
             </div>
@@ -314,8 +302,6 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
         </div>
       </section>
 
-      {!c.trustEarly && trust}
-
       {/* FAQ + CTA */}
       <section className={s.sec} id="faq">
         <div className={s.wrap}>
@@ -324,15 +310,16 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
             {c.faq.map((f) => <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>)}
           </div>
 
-          <div className={s.cta} id="price">
+          <div className={`${s.cta} ${s.ctaBlue}`} id="offer">
+            <span className={s.offerTag}><Gift aria-hidden="true" strokeWidth={1.8} />{c.offer.label}</span>
             <h2>{c.cta.titleBefore} <em>{c.cta.titleEm}</em></h2>
             <p>{c.cta.body}</p>
             <div className={s.ctaActs}>
-              <PriceButton href={price} label={c.cta.button} variant="onDark" testid="button-cta-price" />
+              <OfferButton href={offer} label={c.cta.button} variant="onDark" testid="button-cta-claim" />
               <CallButton href={call} label={c.cta.secondary} dark testid="button-cta-call" />
             </div>
             <p className={s.leadLab}>Or leave your number and we’ll message you.</p>
-            <PriceForm service={`AI system: ${c.name}`} source={`/ai/${c.slug} price request`} />
+            <PriceForm service={`AI system: ${c.name}`} source={`/ai/${c.slug} free month`} />
           </div>
 
           <div className={s.foot}>
@@ -354,7 +341,7 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
         </div>
       </section>
 
-      <FloatBar line={c.proof.line} short={c.proof.short} href={price} label="Ask for the price" />
+      <FloatBar line={c.proof.line} short={c.proof.short} href={offer} label="Claim your free month" shortLabel="Free month" />
     </div>
   );
 }

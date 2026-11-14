@@ -8,7 +8,7 @@ export const lawFirms: AiSystemContent = {
   metaTitle: "AI for Law Firms in Malta | Legal Automation | OARC Digital",
   metaDescription:
     "The AI system built around your law firm in Malta. It files every document, tracks every deadline, drafts from your templates and bills your time. You sign off.",
-  updated: "2026-11-13",
+  updated: "2026-11-14",
   serviceType: "AI system and legal automation for law firms",
   schemaDescription:
     "An AI system built around each law firm in Malta. It answers new clients 24/7, runs client checks, takes in and files every document, tracks court, permit and filing deadlines, drafts from the firm's own templates, prepares permit applications, company filings and VAT and tax returns, records time and bills. A warranted advocate approves everything. Set up and run by OARC Digital's team in Malta.",
@@ -19,20 +19,21 @@ export const lawFirms: AiSystemContent = {
   },
 
   proof: { line: "Running in 10 law and accounting firms in Malta", short: "In 10 firms in Malta" },
+  lightAreas: true,
 
   hero: {
-    pill: "Live in 48 hours, or you don’t pay",
-    kicker: "Your lawyers studied law. Not filing.",
-    h1Before: "The complete AI system built around",
+    pill: "We set it up for you in 72 hours",
+    kicker: "Finally, you have",
+    h1Before: "One complete AI system built around",
     h1Highlight: "your law firm.",
-    sub: "It takes in every client document, tracks every deadline, drafts from your own templates and records your time. Nothing leaves the firm without an advocate’s yes.",
-    primaryCta: "Ask for the price",
+    sub: "AI agents trained on your firm answer new clients, collect every document and watch every deadline. The system drafts from your templates and records your time. Nothing leaves the firm without an advocate’s yes.",
+    primaryCta: "Claim your free month",
     secondaryCta: "Book a 20-minute call",
-    note: "Set up and run by OARC’s team in Malta. Nothing new for your lawyers to learn.",
+    note: "First month free. Set up and run by OARC’s team in Malta.",
   },
 
   film: {
-    title: "Watch one client, from first message to invoice",
+    title: "Watch one client, from first message to your approval",
     scenes: [
       {
         clock: "Tuesday · 21:42",
@@ -48,9 +49,8 @@ export const lawFirms: AiSystemContent = {
             { from: "in", text: "Hi, I need help renewing my work permit. It expires in April.", time: "21:42" },
             { from: "out", text: "Good evening Rafael. We can help. Is it the same job and the same employer as on your permit?", time: "21:42" },
             { from: "in", text: "Yes, same job, at Camilleri Trading.", time: "21:44" },
-            { from: "out", text: "Thank you. Here is your private link. Please send your passport, contract, lease and health insurance.", time: "21:44" },
           ],
-          done: { before: "File opened · ", strong: "no conflict found", after: " · no legal advice given" },
+          done: { before: "File opened · ", strong: "no conflict found", after: " · document link sent" },
         },
       },
       {
@@ -66,23 +66,6 @@ export const lawFirms: AiSystemContent = {
             { badge: "PDF", title: "Passport", detail: "Valid to 2031. Name matches the contract.", tag: "Filed" },
             { badge: "PDF", title: "Employment contract", detail: "Signed by both sides. Salary and hours read.", tag: "Filed" },
             { badge: "JPG", top: true, title: "Lease agreement", detail: "Photo too dark to read. Client asked for a new one.", tag: "Asked again" },
-            { badge: "–", title: "Health insurance", detail: "Not sent yet. Reminder goes at 09:00.", tag: "Missing" },
-          ],
-        },
-      },
-      {
-        clock: "Wednesday · 08:30",
-        caption: "The application is filled in. It waits for one thing: your review.",
-        result: "Ready before you sat down",
-        visual: {
-          type: "rows",
-          title: "Waiting for Dr Anna",
-          hint: "Prepared overnight",
-          action: "tag",
-          rows: [
-            { badge: "01", top: true, title: "Work permit renewal · R. Santos", detail: "Forms filled in from the passport and the contract.", tag: "Review" },
-            { badge: "02", title: "Engagement letter · R. Santos", detail: "Your template. Fixed fee filled in.", tag: "Sign" },
-            { badge: "03", title: "Reply to letter · Vella", detail: "Every fact links to its document.", tag: "Review" },
           ],
         },
       },
@@ -98,22 +81,6 @@ export const lawFirms: AiSystemContent = {
             { when: "08:41", title: "Dr Anna approves the application", detail: "Two small edits. Both are logged.", key: true, tag: "Approved by an advocate" },
             { when: "08:42", title: "Sent", detail: "Client told the same minute, in Portuguese." },
             { when: "08:42", title: "Next expiry saved", detail: "The next renewal is already in the diary." },
-          ],
-        },
-      },
-      {
-        clock: "Friday",
-        caption: "The time you spent is already on the invoice.",
-        result: "Every hour recorded. No timesheet.",
-        visual: {
-          type: "rows",
-          title: "Time recorded this week",
-          hint: "From your emails, calls and documents",
-          action: "tag",
-          rows: [
-            { badge: "1.5h", top: true, title: "R. Santos · permit renewal", detail: "Review, two edits, one client call.", tag: "Invoice drafted" },
-            { badge: "3.2h", title: "Borg Holdings Ltd · annual return", detail: "Drafting and filing.", tag: "Invoice drafted" },
-            { badge: "0.8h", title: "Camilleri Trading · VAT return", detail: "Check and sign-off.", tag: "Added" },
           ],
         },
       },
@@ -177,9 +144,51 @@ export const lawFirms: AiSystemContent = {
     ],
   },
 
+  agents: {
+    label: "Your AI front desk",
+    title: "Three AI agents. Trained on your firm. Never a word of legal advice.",
+    intro: "They chat on WhatsApp and email and they call. Each one knows your services, your fees and how your firm talks. The law stays with your lawyers.",
+    note: "They collect, remind and book. They never advise. A lawyer can take over any chat or call.",
+    items: [
+      {
+        name: "Intake agent",
+        title: "Answers every new client.",
+        points: [
+          "Replies on WhatsApp, email, your website and the phone in under a minute, day or night.",
+          "Asks what the matter is, in the client’s language, the way a good secretary would.",
+          "Runs the conflict check and books the first meeting in the right lawyer’s diary.",
+        ],
+        channels: ["WhatsApp", "Voice calls", "Email", "Website"],
+        result: "No client walks to the next firm",
+      },
+      {
+        name: "Document agent",
+        title: "Collects every document.",
+        points: [
+          "Sends each client a private link and a checklist of what to send.",
+          "Reads, names and files every document to the right matter.",
+          "Messages or calls the client when something is missing or unreadable.",
+        ],
+        channels: ["Private link", "WhatsApp", "Voice calls"],
+        result: "Complete files, no chasing",
+      },
+      {
+        name: "Deadline agent",
+        title: "Watches every date.",
+        points: [
+          "Tracks court dates, permit expiries, filings and renewals.",
+          "Tells the right lawyer weeks ahead, then again, then a partner.",
+          "Calls or messages the client when a permit is expiring or a signature is due, and books the meeting.",
+        ],
+        channels: ["Voice calls", "WhatsApp", "Your calendar"],
+        result: "Nothing expires by surprise",
+      },
+    ],
+  },
+
   jobs: {
     label: "Everything it does",
-    title: "One system. Eighteen jobs done for you.",
+    title: "One system. Twenty jobs done for you.",
     items: [
       { icon: "chat", title: "Answers every new client, 24/7", body: "WhatsApp, email, your website and the phone. It asks what the matter is and books the first meeting.", gain: "No client walks to the next firm" },
       { icon: "badge", title: "Runs client checks", body: "Collects ID and proof of address, checks for conflicts and prepares the due diligence file for you to approve.", gain: "Onboarding in a day, not a week" },
@@ -198,6 +207,8 @@ export const lawFirms: AiSystemContent = {
       { icon: "euro", title: "Records time and bills", body: "Captures time from your emails, calls and documents, drafts the invoice and chases what is unpaid.", gain: "Bill every hour you work" },
       { icon: "card", title: "Does the bookkeeping", body: "Matches payments to invoices, sorts receipts and keeps the records tidy for your accountant.", gain: "Books always up to date" },
       { icon: "refresh", title: "Keeps clients updated", body: "Clients get a clear update at every step and can ask where their file is, any time.", gain: "Fewer “any news?” calls" },
+      { icon: "phone", title: "Calls and reminds clients", body: "A voice agent phones clients about missing documents, expiring permits and meetings.", gain: "No more phone tag" },
+      { icon: "trending", title: "Gets your firm found on Google and in AI answers", body: "SEO for Google, plus the work that helps ChatGPT and Gemini recommend your firm.", gain: "New clients find you first" },
       { icon: "sun", title: "Briefs each lawyer every morning", body: "Today’s deadlines, drafts to review, files waiting on a client and unbilled work.", gain: "Start the day knowing" },
     ],
   },
@@ -340,13 +351,13 @@ export const lawFirms: AiSystemContent = {
   },
 
   live: {
-    label: "How it works",
-    h2Before: "Live in",
-    h2Em: "48 hours.",
-    body: "Nothing new for your lawyers to learn. OARC’s team sets it up on your tools and runs it with you.",
+    label: "How it starts",
+    h2Before: "We set it up for you in",
+    h2Em: "72 hours.",
+    body: "We come in, connect your tools and set the whole thing up. Nothing new for your lawyers to learn.",
     steps: [
       { when: "Today", title: "A 20-minute call", body: "About how your firm works and where the hours go." },
-      { when: "48 hours", title: "Your first system is live", body: "Usually: every new enquiry answered and every incoming document filed." },
+      { when: "72 hours", title: "Your first system is live", body: "Usually: every new enquiry answered and every incoming document filed." },
       { when: "Week 2", title: "Your files connected", body: "Clients, matters, templates and deadlines in one place." },
       { when: "Every week", title: "It grows with you", body: "It learns your firm, and the next job goes live." },
     ],
@@ -364,15 +375,15 @@ export const lawFirms: AiSystemContent = {
   },
 
   offer: {
-    label: "The offer",
-    title: "Live in 48 hours. Or you don’t pay.",
-    body: "Your first system is working two days after you say yes. If it isn’t live by then, you owe nothing. The 20-minute call is free either way, and you keep the list of what to fix first.",
-    cta: "Ask for the price",
-    secondaryCta: "Book my 20-minute call",
+    label: "Limited-time offer",
+    title: "Your first month is free.",
+    body: "We set it up in 72 hours and run it with you for a month. You see the documents filed, the deadlines caught and the hours it gives back on your own firm first.",
+    cta: "Claim your free month",
+    secondaryCta: "Book a 20-minute call",
     listLabel: "What you get",
     items: [
-      { strong: "Live in 48 hours, or you don’t pay.", rest: "Your first system is working two days after you say yes." },
-      { strong: "A free map of your firm.", rest: "Where the hours go, and what to fix first." },
+      { strong: "First month free.", rest: "See it work on your own files before you decide." },
+      { strong: "Set up for you in 72 hours.", rest: "We connect your email, documents and calendar. You change nothing." },
       { strong: "It is your system.", rest: "Built around your firm, with your templates and your way of working." },
       { strong: "Run by us.", rest: "We customise it, look after it and improve it every week." },
       { strong: "Start small.", rest: "One job first. Add the next only when the first has paid for itself." },
@@ -425,16 +436,17 @@ export const lawFirms: AiSystemContent = {
     { q: "Does it know Malta law?", a: "It works from Malta’s published laws and from your firm’s own templates and files, and it shows the source for every answer. Your lawyers check everything before it is used." },
     { q: "Can law firms use AI?", a: "Yes. In October 2025 the CCBE, which represents Europe’s bars and law societies, published a guide on generative AI for lawyers. Its main points are client confidentiality, checking every output and the lawyer staying responsible. This system is built on those rules." },
     { q: "Can it do just one thing?", a: "Yes. Many firms start with one job, such as collecting and filing client documents, and add the next when the first has paid for itself." },
-    { q: "How fast is it live?", a: "Your first system is live in 48 hours. If it isn’t live by then, you don’t pay. The rest is connected over the following weeks." },
+    { q: "How fast is it live?", a: "We set up your first system in 72 hours. The rest is connected over the following weeks." },
+    { q: "Do the AI agents call clients?", a: "Yes. A voice agent calls clients about missing documents, expiring permits and meetings, and books the appointment. It never gives legal advice, and a lawyer can take over any call." },
     { q: "What if it gets something wrong?", a: "Nothing reaches a client, a court or an authority until an advocate has read and approved it. Every draft shows its sources, and every action is logged. If something needs changing, OARC’s team in Malta changes it." },
-    { q: "How much does it cost?", a: "It depends on your firm’s size and what you switch on first. Ask on WhatsApp and we price it for your firm." },
+    { q: "How much does it cost?", a: "Right now the first month is free. After that it depends on your firm’s size and what you switch on. Ask us and we price it for your firm." },
   ],
 
   cta: {
     titleBefore: "Give your lawyers their hours back.",
     titleEm: "Starting this week.",
-    body: "Ask for the price today. Your first system is live in 48 hours, or you don’t pay.",
-    button: "Ask for the price",
+    body: "Claim your free first month. We set it up for you in 72 hours.",
+    button: "Claim your free month",
     secondary: "Book a 20-minute call",
   },
 
