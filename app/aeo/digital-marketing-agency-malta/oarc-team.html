@@ -557,6 +557,56 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 .jr h3{margin-top:0;font-size:clamp(26px,2.5vw,36px);line-height:1.08}
 .jr p{font-size:17px;max-width:52ch}
 @media (max-width:900px){.jwrap{grid-template-columns:1fr}.jhead{position:static}.jr li{grid-template-columns:52px minmax(0,1fr)}.jr .n{font-size:36px}}
+
+/* v4 · Black Friday Month. Ink hero, the brand yellow as a solid colour, no blue, no swipes. */
+:root{--lime:#F9FF84}
+.hero{background:#0E0E0E;color:#F5F3EE}
+.glow{background:radial-gradient(48% 62% at 50% 100%,rgba(249,255,132,.13),rgba(249,255,132,.05) 42%,rgba(14,14,14,0) 72%)}
+.bf{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:0 auto 28px;font:600 12.5px/1 var(--ui);letter-spacing:.1em;text-transform:uppercase;color:#B7B2A8}
+.bf b{background:var(--lime);color:#121212;border-radius:999px;padding:10px 15px;font-weight:700}
+.hero .q{color:#F5F3EE}
+.hero .q s{color:#86817A}
+.hero .h1 .kick{color:#B7B2A8}
+.hero .h1 em{color:var(--lime)}
+.hero .fact{background:#F5F3EE;color:#121212}
+.hero .lede{color:#B7B2A8}
+.hcta{display:flex;align-items:center;justify-content:center;gap:20px 26px;flex-wrap:wrap;margin-top:36px}
+.cta.ylw{color:#121212}
+.cta.ylw span,.cta.ylw i{background:var(--lime)}
+.cta.ylw span{height:58px;padding:0 30px;font-size:17px}
+.cta.ylw i{width:58px;height:58px}
+.hero .wab{color:#F5F3EE}
+.hnote{margin-top:16px;font:500 15px/1.4 var(--ui);color:#86817A}
+.hero .proof3{margin-top:48px}
+.hero .proof3 b{color:#F5F3EE}
+.hero .proof3 span{color:#B7B2A8}
+.hero .door{color:#F5F3EE;border-color:rgba(245,243,238,.45)}
+.hero .striplab{color:#86817A}
+.hero .strip span{color:#F5F3EE;opacity:.72}
+.whead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px 40px;flex-wrap:wrap}
+.wall{font:600 16px/1.3 var(--ui);color:var(--text);text-decoration:none;border-bottom:1.5px solid var(--text);padding-bottom:3px;white-space:nowrap}
+.wgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 18px;margin-top:48px}
+.wk{display:block;text-decoration:none;color:var(--text)}
+.wk .im{display:block;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:var(--soft)}
+.wk img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.wk:hover img{transform:scale(1.04)}
+.wk b{display:block;margin-top:14px;font:400 clamp(21px,1.9vw,27px)/1.1 var(--display);letter-spacing:-.01em}
+.wk small{display:block;margin-top:5px;font:500 14px/1.3 var(--ui);color:var(--mute)}
+@media (max-width:760px){.wgrid{grid-template-columns:1fr 1fr;gap:24px 12px;margin-top:34px}.wk .im{border-radius:16px}}
+.bft{display:inline-block;margin-bottom:18px;background:var(--black);color:var(--lime);border-radius:999px;padding:9px 14px;font:700 12px/1 var(--ui);letter-spacing:.08em;text-transform:uppercase}
+.cmp3 .us,.cmp3 thead .us{background:var(--lime);color:var(--ink)}
+.final{background:var(--lime);color:var(--ink)}
+.final .h2{max-width:none}
+.final .lede{color:rgba(18,18,18,.75)}
+.final .cta{color:var(--white)}
+.final .cta span,.final .cta i{background:var(--black)}
+.days li:first-child::before{background:var(--black)}
+.jr .n{color:var(--text)}
+.k4 .hl b{background:none}
+.fld textarea{display:block;width:100%;min-height:76px;resize:none;border:1px solid var(--line2);background:var(--white);border-radius:14px;padding:15px 16px;font:500 17px/1.3 var(--ui);color:var(--text)}
+.fld textarea:focus{outline:0;border-color:var(--ink)}
+.hero .door{margin-top:30px}
+.sec.work{padding-bottom:clamp(16px,3vw,40px)}
 </style>
 <script>document.documentElement.classList.add("js")</script>
 
@@ -571,28 +621,15 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 <section class="hero" data-reveal>
   <div class="glow" aria-hidden="true"></div>
   <div class="wrap">
+    <p class="bf ln"><b>Black Friday Month offer</b><span>Limited time</span></p>
     <p class="q ln">How much do you pay your marketing agency? <s>Thousands?</s></p>
     <h1 class="h1 ln"><span class="kick">Digital marketing agency in Malta</span><span class="l2x">Your one digital growth partner.</span><em>€500 a month.</em></h1>
     <p class="lede ln"><b class="fact">For the first time ever, growth isn't the same.</b> One creative lead. A specialist in every department. Strategy, filming, social media, performance ads, your website and systems. We come to you and do the rest.</p>
-    <div class="askzone ln">
-      <div class="pills" aria-label="Ideas">
-        <button class="pl a" type="button" data-pill>More bookings</button>
-        <button class="pl b" type="button" data-pill>Fill my quiet days</button>
-        <button class="pl c" type="button" data-pill>Ads that bring customers</button>
-        <button class="pl d" type="button" data-pill>A website that sells</button>
-        <button class="pl e" type="button" data-pill>Found on Google and AI</button>
-        <button class="pl f" type="button" data-pill>Every message answered</button>
-      </div>
-      <form class="ask" id="ask" novalidate>
-        <p class="askh">Meet your growth partner.</p>
-        <p class="askp">Tell us about your business. Your strategist calls you today.</p>
-        <textarea id="need" rows="2" aria-label="Tell us what you want to grow" placeholder="What do you want to grow?"></textarea>
-        <div class="tools">
-          <button class="send" type="submit"><span>Meet my team</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></button>
-          <a class="wab" href="https://wa.me/35679711799?text=Hi%20OARC.%20I%20saw%20the%20%E2%82%AC500%20team%20page." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>or WhatsApp us</a>
-        </div>
-      </form>
+    <div class="hcta ln">
+      <button class="cta ylw" type="button" data-start><span>Meet your team</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></i></button>
+      <a class="wab" href="https://wa.me/35679711799?text=Hi%20OARC.%20I%20saw%20the%20%E2%82%AC500%20team%20page." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>or WhatsApp us</a>
     </div>
+    <p class="hnote ln">Tell us about your business. Your strategist calls you today.</p>
     <ul class="proof3 ln" aria-label="What you get">
       <li><b>8</b><span>specialists on your account</span></li>
       <li><b>1</b><span>strategist who runs it all</span></li>
@@ -605,6 +642,22 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
     <span aria-hidden="true">Rent Anytime</span><span aria-hidden="true">Dhalia Real Estate Services</span><span aria-hidden="true">Eden Leisure Group</span><span aria-hidden="true">Tiffany Champagne &amp; Wine Bar</span><span aria-hidden="true">Portomaso Casino</span><span aria-hidden="true">Hearth Test Kitchen</span>
   </div></div>
 </section>
+
+<!-- 1a · the work -->
+<section class="sec work" id="work" data-reveal><div class="wrap">
+  <div class="whead">
+    <div><h2 class="h2 ln">Real work.<br>Real businesses.</h2><p class="lede ln">We are a digital marketing agency at The Brewhouse, Birkirkara. 32 projects since 2023. Here are six.</p></div>
+    <a class="wall ln" href="/our-work">See all 32 projects</a>
+  </div>
+  <div class="wgrid ln">
+    <a class="wk" href="/our-work/tiffany"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Ftiffany-hero.jpg&w=750&q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Ftiffany-hero.jpg&w=480&q=75 480w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Ftiffany-hero.jpg&w=750&q=75 750w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Ftiffany-hero.jpg&w=1080&q=75 1080w" sizes="(max-width:760px) 46vw, 380px" alt="Tiffany Lounge interior, shot for the venue’s promo content" width="800" height="1000" loading="lazy" decoding="async"></span><b>Tiffany Lounge</b><small>Bar</small></a>
+    <a class="wk" href="/our-work/portomaso-casino"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fportomaso-entrance-hero.jpg&w=750&q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fportomaso-entrance-hero.jpg&w=480&q=75 480w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fportomaso-entrance-hero.jpg&w=750&q=75 750w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fportomaso-entrance-hero.jpg&w=1080&q=75 1080w" sizes="(max-width:760px) 46vw, 380px" alt="Portomaso Casino entrance, shot for the venue’s content" width="800" height="1000" loading="lazy" decoding="async"></span><b>Portomaso Casino</b><small>Venue</small></a>
+    <a class="wk" href="/our-work/massive-fan-zone"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fspinola-fan-zone-crowd.jpg&w=750&q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fspinola-fan-zone-crowd.jpg&w=480&q=75 480w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fspinola-fan-zone-crowd.jpg&w=750&q=75 750w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fspinola-fan-zone-crowd.jpg&w=1080&q=75 1080w" sizes="(max-width:760px) 46vw, 380px" alt="Crowd at the Spinola Bay Fan Zone on a match night" width="800" height="1000" loading="lazy" decoding="async"></span><b>Massive Promotions · Fan Zone</b><small>Events</small></a>
+    <a class="wk" href="/our-work/calle-bistro"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fcalle-bistro-01.jpg&w=750&q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fcalle-bistro-01.jpg&w=480&q=75 480w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fcalle-bistro-01.jpg&w=750&q=75 750w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fcalle-bistro-01.jpg&w=1080&q=75 1080w" sizes="(max-width:760px) 46vw, 380px" alt="A seafood dish at Calle Bistro" width="800" height="1000" loading="lazy" decoding="async"></span><b>Calle Bistro</b><small>Restaurant</small></a>
+    <a class="wk" href="/our-work/mcw-cbd"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fmcw-cbd-01.jpg&w=750&q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fmcw-cbd-01.jpg&w=480&q=75 480w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fmcw-cbd-01.jpg&w=750&q=75 750w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fmcw-cbd-01.jpg&w=1080&q=75 1080w" sizes="(max-width:760px) 46vw, 380px" alt="A product visual made for MCW" width="800" height="1000" loading="lazy" decoding="async"></span><b>MCW CBD Relax Shop</b><small>Shop</small></a>
+    <a class="wk" href="/our-work/pjazza"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fpjazza-food_b3085783.jpg&w=750&q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fpjazza-food_b3085783.jpg&w=480&q=75 480w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fpjazza-food_b3085783.jpg&w=750&q=75 750w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fpjazza-food_b3085783.jpg&w=1080&q=75 1080w" sizes="(max-width:760px) 46vw, 380px" alt="Food on PJAZZA, shown live before a buyer pays" width="800" height="1000" loading="lazy" decoding="async"></span><b>PJAZZA</b><small>App</small></a>
+  </div>
+</div></section>
 
 <!-- 1b · sound familiar -->
 <section class="sec pains" data-reveal><div class="wrap">
@@ -867,7 +920,7 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 <section class="pricing sec" id="pricing" data-reveal><div class="wrap">
   <div class="pr-top">
     <h2 class="h2 ln">One price. One growth partner.</h2>
-    <p class="lede ln">Pick what you need. You can always add more later.</p>
+    <p class="lede ln">Three ways to work with us.</p>
     <div class="seg ln" role="tablist" aria-label="Plans" id="seg">
       <span class="pill" aria-hidden="true"></span>
       <button type="button" role="tab" id="tab-0" aria-controls="pan-0" aria-selected="true">Marketing team</button>
@@ -879,6 +932,7 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
     <div class="panel" role="tabpanel" id="pan-0" aria-labelledby="tab-0" aria-hidden="false">
       <div class="pcard m1">
         <div>
+          <p class="bft">Black Friday Month offer · Limited time</p>
           <h3 class="pname">Your digital growth partner</h3>
           <p class="pwas">The same work at a typical agency: <s>€3,500–€4,500 a month</s></p>
           <div class="price"><b>€500</b><span>a month</span></div>
@@ -1016,8 +1070,8 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 <section class="sec" id="faq" style="padding-top:0" data-reveal><div class="wrap fgrid">
   <div><h2 class="h2 ln">Questions.</h2><p class="lede ln">Anything else, ask us when we meet.</p></div>
   <div class="acc ln">
-    <details><summary>Do you really come to us?<i class="pm" aria-hidden="true"></i></summary><p>Yes. We meet you at your place, plan with you in person and film on location, like any high-end agency. The ask box on this page is just the fastest way to start.</p></details>
-    <details><summary>Is it really cheaper than hiring someone?<i class="pm" aria-hidden="true"></i></summary><p>Yes. Malta’s minimum wage in 2026 is €229.44 a week, about €994 a month, before any employer costs. Your whole team is €500 a month, and nobody needs a desk, a laptop or holidays covered.</p></details>
+    <details><summary>Do you really come to us?<i class="pm" aria-hidden="true"></i></summary><p>Yes. We meet you at your place, plan with you in person and film on location, like any high-end agency. This page is just the fastest way to reach us.</p></details>
+    <details><summary>Is it really cheaper than hiring someone?<i class="pm" aria-hidden="true"></i></summary><p>Yes. Malta’s minimum wage in 2026 is €229.44 a week, about €994 a month, before any employer costs. Your OARC team is €500 a month, and nobody needs a desk, a laptop or holidays covered.</p></details>
     <details><summary>How can a whole team cost €500 a month?<i class="pm" aria-hidden="true"></i></summary><p>Better tools made the work faster. Most agencies kept the savings. We pass them to you. You still get experienced people, in person.</p></details>
     <details><summary>We already pay an agency €2,000 or more. Why switch?<i class="pm" aria-hidden="true"></i></summary><p>Keep your budget and get more for it: the whole team, the tech side, and more of your money going into ads. Send us your last invoice and we’ll show you what it buys with us.</p></details>
     <details><summary>Is there a contract?<i class="pm" aria-hidden="true"></i></summary><p>No. Stay because it works. Cancel any month, and everything we made stays yours.</p></details>
@@ -1035,9 +1089,9 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 
 <!-- 9 · the close -->
 <section class="final sec" data-reveal><div class="wrap">
-  <h2 class="h2 ln">Stop paying for an agency. Get a team.</h2>
-  <p class="lede ln">Tell us about your business. Your strategist calls you today.</p>
-  <button class="cta ln" type="button" data-start><span>Get started</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></i></button>
+  <h2 class="h2 ln">Stop paying thousands.<br>Get a growth partner.</h2>
+  <p class="lede ln">Black Friday Month offer, for a limited time. Tell us about your business. Your strategist calls you today.</p>
+  <button class="cta ln" type="button" data-start><span>Meet your team</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></i></button>
 </div></section>
 </main>
 
@@ -1084,6 +1138,7 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
         <label class="fld" for="d-web"><span>Website <em>optional</em></span><input id="d-web" inputmode="url" autocomplete="url"></label>
         <label class="fld" for="d-ig"><span>Instagram <em>optional</em></span><input id="d-ig" placeholder="@"></label>
       </div>
+      <label class="fld" for="need"><span>What do you want to grow? <em>optional</em></span><textarea id="need" rows="2"></textarea></label>
       <p class="err" id="derr" hidden></p>
       <button class="cta wide" type="submit"><span>Send to my team</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></i></button>
       <p class="fine">We only use this to contact you about your request.</p>
@@ -1132,19 +1187,15 @@ if(!reduce&&"IntersectionObserver" in window){
 }
 
 
-/* the ask */
-var need=$("#need"), ask=$("#ask");
-var ideas=["What do you want to grow?","More bookings on quiet days…","Reels that look like a big brand…","A website that takes bookings…","To be found on Google and AI…"], ii=0;
-if(!reduce) setInterval(function(){ if(document.activeElement===need||need.value) return; ii=(ii+1)%ideas.length; need.setAttribute("placeholder",ideas[ii]); },2600);
+/* the one open question lives in the details sheet */
+var need=$("#need");
 function grow(){ need.style.height="auto"; need.style.height=Math.min(need.scrollHeight,220)+"px"; }
 need.addEventListener("input",grow);
-$$("[data-pill]").forEach(function(p){ p.addEventListener("click",function(){ need.value=p.textContent; grow(); need.focus(); }); });
-ask.addEventListener("submit",function(e){ e.preventDefault(); openVeil($("#veil")); setTimeout(function(){ $("#d-co").focus(); },60); });
 
-/* every "Get started" leads to the ask */
+/* every "Meet your team" button opens the details sheet */
 $$("[data-start]").forEach(function(b){ b.addEventListener("click",function(){
-  closeAll(); var f=b.getAttribute("data-fill"); if(f&&!need.value){ need.value=f; grow(); }
-  window.scrollTo({top:0,behavior:reduce?"auto":"smooth"}); setTimeout(function(){ try{ need.focus({preventScroll:true}); }catch(err){ need.focus(); } },reduce?0:500);
+  closeAll(); var f=b.getAttribute("data-fill"); if(f&&!need.value){ need.value=f; }
+  openVeil($("#veil")); grow(); setTimeout(function(){ try{ $("#d-co").focus({preventScroll:true}); }catch(err){} },60);
 }); });
 
 /* sheets */

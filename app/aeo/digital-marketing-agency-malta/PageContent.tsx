@@ -38,7 +38,7 @@ export default function PageContent({
   }, [script, scopeClass]);
 
   return (
-    <Layout navTheme="light">
+    <Layout navTheme="dark">
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&display=swap"
