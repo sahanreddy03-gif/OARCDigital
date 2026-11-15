@@ -607,6 +607,53 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 .fld textarea:focus{outline:0;border-color:var(--ink)}
 .hero .door{margin-top:30px}
 .sec.work{padding-bottom:clamp(16px,3vw,40px)}
+
+/* v5 · split first screen: the offer on the left, real client results on the right */
+.hero{text-align:left;padding-top:clamp(96px,8vw,116px)}
+.hsplit{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(32px,5vw,80px);align-items:center}
+.htext .bf{justify-content:flex-start;margin:0 0 22px}
+.htext .q{margin:0;max-width:24ch;font-size:clamp(23px,2.2vw,32px)}
+.htext .h1{margin-top:22px}
+.htext .h1 .l2x{margin:0;max-width:12ch}
+.htext .fact{display:table;margin:0 0 14px}
+.hero .htext .lede{margin:22px 0 0;max-width:46ch;text-wrap:pretty}
+.htext .hcta{justify-content:flex-start;margin-top:30px}
+.hwall{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:14px;height:clamp(560px,46vw,680px);overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(transparent,#000 9%,#000 91%,transparent)}
+.hwall .col{display:flex;flex-direction:column;gap:14px;animation:wallup 34s linear infinite}
+.hwall .col.down{animation-name:walldown;animation-duration:38s}
+.hwall:hover .col{animation-play-state:paused}
+@keyframes wallup{to{transform:translateY(calc(-50% - 7px))}}
+@keyframes walldown{from{transform:translateY(calc(-50% - 7px))}to{transform:translateY(0)}}
+.rc{position:relative;display:block;flex:none;border-radius:20px;overflow:hidden;background:#1d1d1b;color:#F5F3EE;text-decoration:none}
+.rc .im{display:block;aspect-ratio:4/5}
+.rc img{display:block;width:100%;height:100%;object-fit:cover}
+.rc .rx{position:absolute;inset:auto 0 0 0;padding:44px 16px 16px;background:linear-gradient(transparent,rgba(0,0,0,.82) 55%)}
+.rc .rx b{display:block;font:400 clamp(34px,3vw,44px)/1 var(--display);color:var(--lime);letter-spacing:-.02em}
+.rc .rx span{display:block;margin-top:4px;font:600 14px/1.3 var(--ui)}
+.rc .rx small{display:block;margin-top:6px;font:500 12.5px/1.2 var(--ui);color:rgba(245,243,238,.7)}
+.hbar{display:flex;align-items:center;justify-content:space-between;gap:22px 40px;flex-wrap:wrap;margin-top:clamp(40px,5vw,64px);padding-top:28px;border-top:1px solid rgba(245,243,238,.14)}
+.hero .hbar .proof3{margin:0;justify-content:flex-start}
+.hlinks{display:flex;gap:14px 28px;flex-wrap:wrap}
+.hero .wall{color:#F5F3EE;border-color:rgba(245,243,238,.6);font-size:15px}
+.hero .hbar .door{margin:0}
+.hero .strip{margin-top:clamp(28px,3vw,40px)}
+.sgrid.second{margin-top:clamp(72px,8vw,112px)}
+.sgrid.second .lede{max-width:40ch}
+@media (max-width:900px){
+.hsplit{grid-template-columns:1fr}
+.hwall{display:flex;gap:12px;height:auto;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-mask-image:none;mask-image:none;margin:0 -20px;padding:0 20px 4px;scrollbar-width:none}
+.hwall::-webkit-scrollbar{display:none}
+.hwall .col{display:contents;animation:none}
+.hwall .rc{flex:0 0 64%;scroll-snap-align:start}
+.hwall .rc[aria-hidden]{display:none}
+.hbar{flex-direction:column;align-items:flex-start}
+.hero .hbar .proof3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;width:100%}
+.hero .hbar .proof3 li{flex-direction:column;align-items:flex-start;gap:6px}
+.hero .hbar .proof3 b{font-size:44px}
+.hero .hbar .proof3 span{font-size:13px}
+.htext .bf{gap:8px 12px}
+}
+@media (prefers-reduced-motion:reduce){.hwall .col{animation:none}}
 </style>
 <script>document.documentElement.classList.add("js")</script>
 
@@ -620,44 +667,49 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 <!-- 1 · the promise and the ask -->
 <section class="hero" data-reveal>
   <div class="glow" aria-hidden="true"></div>
-  <div class="wrap">
-    <p class="bf ln"><b>Black Friday Month offer</b><span>Limited time</span></p>
-    <p class="q ln">How much do you pay your marketing agency? <s>Thousands?</s></p>
-    <h1 class="h1 ln"><span class="kick">Digital marketing agency in Malta</span><span class="l2x">Your one digital growth partner.</span><em>€500 a month.</em></h1>
-    <p class="lede ln"><b class="fact">For the first time ever, growth isn't the same.</b> One creative lead. A specialist in every department. Strategy, filming, social media, performance ads, your website and systems. We come to you and do the rest.</p>
-    <div class="hcta ln">
-      <button class="cta ylw" type="button" data-start><span>Meet your team</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></i></button>
-      <a class="wab" href="https://wa.me/35679711799?text=Hi%20OARC.%20I%20saw%20the%20%E2%82%AC500%20team%20page." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>or WhatsApp us</a>
+  <div class="wrap hsplit">
+    <div class="htext">
+      <p class="bf ln"><b>Black Friday Month offer</b><span>Limited time</span></p>
+      <p class="q ln">How much do you pay your marketing agency? <s>Thousands?</s></p>
+      <h1 class="h1 ln"><span class="kick">Digital marketing agency in Malta</span><span class="l2x">Your one digital growth partner.</span><em>€500 a month.</em></h1>
+      <p class="lede ln"><b class="fact">For the first time ever, growth isn't the same.</b> One creative lead. A specialist in every department. Strategy, filming, social media, performance ads, your website and systems. We come to you and do the rest.</p>
+      <div class="hcta ln">
+        <button class="cta ylw" type="button" data-start><span>Meet your team</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></i></button>
+        <a class="wab" href="https://wa.me/35679711799?text=Hi%20OARC.%20I%20saw%20the%20%E2%82%AC500%20team%20page." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>or WhatsApp us</a>
+      </div>
     </div>
-    <p class="hnote ln">Tell us about your business. Your strategist calls you today.</p>
-    <ul class="proof3 ln" aria-label="What you get">
+    <div class="hwall ln" aria-label="Results for our clients">
+      <div class="col">
+        <a class="rc" href="/our-work/tiffany"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Ftiffany-hero.jpg&amp;w=640&amp;q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Ftiffany-hero.jpg&amp;w=384&amp;q=75 384w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Ftiffany-hero.jpg&amp;w=640&amp;q=75 640w" sizes="(max-width:900px) 64vw, 300px" alt="Tiffany Lounge, shot for the venue’s promo content" width="600" height="760" decoding="async"></span><span class="rx"><b>+24%</b><span>table bookings from Instagram</span><small>Tiffany Lounge</small></span></a>
+        <a class="rc" href="/our-work/mcw-cbd"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fmcw-cbd-01.jpg&amp;w=640&amp;q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fmcw-cbd-01.jpg&amp;w=384&amp;q=75 384w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fmcw-cbd-01.jpg&amp;w=640&amp;q=75 640w" sizes="(max-width:900px) 64vw, 300px" alt="A product visual made for MCW" width="600" height="760" decoding="async"></span><span class="rx"><b>€20,000</b><span>in sales, and #1 on Google in Malta in 3 months</span><small>MCW CBD Relax Shop</small></span></a>
+        <a class="rc" href="/our-work/massive-fan-zone"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fspinola-fan-zone-crowd.jpg&amp;w=640&amp;q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fspinola-fan-zone-crowd.jpg&amp;w=384&amp;q=75 384w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fspinola-fan-zone-crowd.jpg&amp;w=640&amp;q=75 640w" sizes="(max-width:900px) 64vw, 300px" alt="Crowd at the Spinola Bay Fan Zone on a match night" width="600" height="760" decoding="async"></span><span class="rx"><b>12,000</b><span>fans at the Spinola Bay Fan Zone</span><small>Massive Promotions · Fan Zone</small></span></a>
+        <a class="rc" href="/our-work/tiffany" aria-hidden="true" tabindex="-1"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Ftiffany-hero.jpg&amp;w=640&amp;q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Ftiffany-hero.jpg&amp;w=384&amp;q=75 384w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Ftiffany-hero.jpg&amp;w=640&amp;q=75 640w" sizes="(max-width:900px) 64vw, 300px" alt="" width="600" height="760" decoding="async"></span><span class="rx"><b>+24%</b><span>table bookings from Instagram</span><small>Tiffany Lounge</small></span></a>
+        <a class="rc" href="/our-work/mcw-cbd" aria-hidden="true" tabindex="-1"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fmcw-cbd-01.jpg&amp;w=640&amp;q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fmcw-cbd-01.jpg&amp;w=384&amp;q=75 384w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fmcw-cbd-01.jpg&amp;w=640&amp;q=75 640w" sizes="(max-width:900px) 64vw, 300px" alt="" width="600" height="760" decoding="async"></span><span class="rx"><b>€20,000</b><span>in sales, and #1 on Google in Malta in 3 months</span><small>MCW CBD Relax Shop</small></span></a>
+        <a class="rc" href="/our-work/massive-fan-zone" aria-hidden="true" tabindex="-1"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fspinola-fan-zone-crowd.jpg&amp;w=640&amp;q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fspinola-fan-zone-crowd.jpg&amp;w=384&amp;q=75 384w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fspinola-fan-zone-crowd.jpg&amp;w=640&amp;q=75 640w" sizes="(max-width:900px) 64vw, 300px" alt="" width="600" height="760" decoding="async"></span><span class="rx"><b>12,000</b><span>fans at the Spinola Bay Fan Zone</span><small>Massive Promotions · Fan Zone</small></span></a>
+      </div>
+      <div class="col down">
+        <a class="rc" href="/our-work/calle-bistro"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fcalle-bistro-01.jpg&amp;w=640&amp;q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fcalle-bistro-01.jpg&amp;w=384&amp;q=75 384w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fcalle-bistro-01.jpg&amp;w=640&amp;q=75 640w" sizes="(max-width:900px) 64vw, 300px" alt="A seafood dish at Calle Bistro" width="600" height="760" decoding="async"></span><span class="rx"><b>+48%</b><span>calls from Google</span><small>Calle Bistro</small></span></a>
+        <a class="rc" href="/our-work/portomaso-casino"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fportomaso-entrance-hero.jpg&amp;w=640&amp;q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fportomaso-entrance-hero.jpg&amp;w=384&amp;q=75 384w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fportomaso-entrance-hero.jpg&amp;w=640&amp;q=75 640w" sizes="(max-width:900px) 64vw, 300px" alt="Portomaso Casino entrance, shot for the venue’s content" width="600" height="760" decoding="async"></span><span class="rx"><b>+35%</b><span>restaurant booking clicks</span><small>Portomaso Casino</small></span></a>
+        <a class="rc" href="/our-work/kreta"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fkreta-01.jpg&amp;w=640&amp;q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fkreta-01.jpg&amp;w=384&amp;q=75 384w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fkreta-01.jpg&amp;w=640&amp;q=75 640w" sizes="(max-width:900px) 64vw, 300px" alt="A dish at Kreta, Paceville" width="600" height="760" decoding="async"></span><span class="rx"><b>+28%</b><span>reservations from Instagram</span><small>Kreta</small></span></a>
+        <a class="rc" href="/our-work/calle-bistro" aria-hidden="true" tabindex="-1"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fcalle-bistro-01.jpg&amp;w=640&amp;q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fcalle-bistro-01.jpg&amp;w=384&amp;q=75 384w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fcalle-bistro-01.jpg&amp;w=640&amp;q=75 640w" sizes="(max-width:900px) 64vw, 300px" alt="" width="600" height="760" decoding="async"></span><span class="rx"><b>+48%</b><span>calls from Google</span><small>Calle Bistro</small></span></a>
+        <a class="rc" href="/our-work/portomaso-casino" aria-hidden="true" tabindex="-1"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fportomaso-entrance-hero.jpg&amp;w=640&amp;q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fportomaso-entrance-hero.jpg&amp;w=384&amp;q=75 384w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fportomaso-entrance-hero.jpg&amp;w=640&amp;q=75 640w" sizes="(max-width:900px) 64vw, 300px" alt="" width="600" height="760" decoding="async"></span><span class="rx"><b>+35%</b><span>restaurant booking clicks</span><small>Portomaso Casino</small></span></a>
+        <a class="rc" href="/our-work/kreta" aria-hidden="true" tabindex="-1"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fkreta-01.jpg&amp;w=640&amp;q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fkreta-01.jpg&amp;w=384&amp;q=75 384w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fkreta-01.jpg&amp;w=640&amp;q=75 640w" sizes="(max-width:900px) 64vw, 300px" alt="" width="600" height="760" decoding="async"></span><span class="rx"><b>+28%</b><span>reservations from Instagram</span><small>Kreta</small></span></a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap hbar ln">
+    <ul class="proof3" aria-label="What you get">
       <li><b>8</b><span>specialists on your account</span></li>
       <li><b>1</b><span>strategist who runs it all</span></li>
       <li><b>0</b><span>contracts. Cancel any month.</span></li>
     </ul>
-    <p class="ln"><a class="door" href="#more">Already spending €2,000 or more a month? Keep your budget. Get more.</a></p>
+    <div class="hlinks"><a class="wall" href="/our-work">See all 32 projects</a><a class="door" href="#pricing" data-tab="2">Spending €2,000+ a month? Get more for it.</a></div>
   </div>
-  <div class="strip" aria-label="Businesses we work with"><p class="striplab">Businesses we work with</p><div class="run">
+  <div class="strip" aria-label="Businesses we work with"><p class="striplab">Since 2023 · Businesses we work with</p><div class="run">
     <span>Rent Anytime</span><span>Dhalia Real Estate Services</span><span>Eden Leisure Group</span><span>Tiffany Champagne &amp; Wine Bar</span><span>Portomaso Casino</span><span>Hearth Test Kitchen</span>
     <span aria-hidden="true">Rent Anytime</span><span aria-hidden="true">Dhalia Real Estate Services</span><span aria-hidden="true">Eden Leisure Group</span><span aria-hidden="true">Tiffany Champagne &amp; Wine Bar</span><span aria-hidden="true">Portomaso Casino</span><span aria-hidden="true">Hearth Test Kitchen</span>
   </div></div>
 </section>
-
-<!-- 1a · the work -->
-<section class="sec work" id="work" data-reveal><div class="wrap">
-  <div class="whead">
-    <div><h2 class="h2 ln">Real work.<br>Real businesses.</h2><p class="lede ln">We are a digital marketing agency at The Brewhouse, Birkirkara. 32 projects since 2023. Here are six.</p></div>
-    <a class="wall ln" href="/our-work">See all 32 projects</a>
-  </div>
-  <div class="wgrid ln">
-    <a class="wk" href="/our-work/tiffany"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Ftiffany-hero.jpg&w=750&q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Ftiffany-hero.jpg&w=480&q=75 480w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Ftiffany-hero.jpg&w=750&q=75 750w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Ftiffany-hero.jpg&w=1080&q=75 1080w" sizes="(max-width:760px) 46vw, 380px" alt="Tiffany Lounge interior, shot for the venue’s promo content" width="800" height="1000" loading="lazy" decoding="async"></span><b>Tiffany Lounge</b><small>Bar</small></a>
-    <a class="wk" href="/our-work/portomaso-casino"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fportomaso-entrance-hero.jpg&w=750&q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fportomaso-entrance-hero.jpg&w=480&q=75 480w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fportomaso-entrance-hero.jpg&w=750&q=75 750w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fportomaso-entrance-hero.jpg&w=1080&q=75 1080w" sizes="(max-width:760px) 46vw, 380px" alt="Portomaso Casino entrance, shot for the venue’s content" width="800" height="1000" loading="lazy" decoding="async"></span><b>Portomaso Casino</b><small>Venue</small></a>
-    <a class="wk" href="/our-work/massive-fan-zone"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fspinola-fan-zone-crowd.jpg&w=750&q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fspinola-fan-zone-crowd.jpg&w=480&q=75 480w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fspinola-fan-zone-crowd.jpg&w=750&q=75 750w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fspinola-fan-zone-crowd.jpg&w=1080&q=75 1080w" sizes="(max-width:760px) 46vw, 380px" alt="Crowd at the Spinola Bay Fan Zone on a match night" width="800" height="1000" loading="lazy" decoding="async"></span><b>Massive Promotions · Fan Zone</b><small>Events</small></a>
-    <a class="wk" href="/our-work/calle-bistro"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fcalle-bistro-01.jpg&w=750&q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fcalle-bistro-01.jpg&w=480&q=75 480w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fcalle-bistro-01.jpg&w=750&q=75 750w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fcalle-bistro-01.jpg&w=1080&q=75 1080w" sizes="(max-width:760px) 46vw, 380px" alt="A seafood dish at Calle Bistro" width="800" height="1000" loading="lazy" decoding="async"></span><b>Calle Bistro</b><small>Restaurant</small></a>
-    <a class="wk" href="/our-work/mcw-cbd"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fmcw-cbd-01.jpg&w=750&q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fmcw-cbd-01.jpg&w=480&q=75 480w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fmcw-cbd-01.jpg&w=750&q=75 750w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fclient-media%2Fmcw-cbd-01.jpg&w=1080&q=75 1080w" sizes="(max-width:760px) 46vw, 380px" alt="A product visual made for MCW" width="800" height="1000" loading="lazy" decoding="async"></span><b>MCW CBD Relax Shop</b><small>Shop</small></a>
-    <a class="wk" href="/our-work/pjazza"><span class="im"><img src="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fpjazza-food_b3085783.jpg&w=750&q=75" srcset="/_next/image?url=%2Fattached_assets%2Fpremium-work%2Fpjazza-food_b3085783.jpg&w=480&q=75 480w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fpjazza-food_b3085783.jpg&w=750&q=75 750w, /_next/image?url=%2Fattached_assets%2Fpremium-work%2Fpjazza-food_b3085783.jpg&w=1080&q=75 1080w" sizes="(max-width:760px) 46vw, 380px" alt="Food on PJAZZA, shown live before a buyer pays" width="800" height="1000" loading="lazy" decoding="async"></span><b>PJAZZA</b><small>App</small></a>
-  </div>
-</div></section>
 
 <!-- 1b · sound familiar -->
 <section class="sec pains" data-reveal><div class="wrap">
@@ -675,24 +727,7 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
   <div class="wrap">
     <h2 class="shift ln">Shift happens.</h2>
     <p class="big ln"><span class="dim"><span class="strikew">Attention media</span> is over.</span><br>This is trust media.</p>
-    <div class="tgrid">
-      <div class="ln">
-        <p class="lede">Ads buy attention. The day you stop paying, it’s gone. Trust is what people find when they check you: your reviews, your story, your answers. It keeps working. So we built a team that earns it for you.</p>
-      </div>
-      <div class="tcard ln" id="tcard">
-        <div class="ttop"><span class="leg"><i></i>Attention</span><span class="leg"><i class="lt"></i>Trust</span><button class="switch" id="adsw" type="button" role="switch" aria-checked="true" aria-label="Ads"><span>Ads</span><b></b><em id="adst">On</em></button></div>
-        <svg id="chart" viewBox="0 0 600 290" role="img" aria-label="Illustration. With ads on, attention and trust both grow. Turn the ads off and attention drops to zero, while trust keeps growing.">
-          <defs><linearGradient id="gt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-opacity=".3"/><stop offset="1" stop-opacity="0"/></linearGradient></defs>
-          <line class="base" x1="30" y1="250" x2="510" y2="250"/>
-          <g class="offg"><line class="offl" x1="313.6" y1="34" x2="313.6" y2="250"/><text class="offt" x="321" y="40">ADS OFF</text></g>
-          <path id="pTa" class="ca-t"/><path id="pA" class="cl-a"/><path id="pT" class="cl-t"/>
-          <circle id="dA" class="dot-a" r="5" cx="510" cy="40"/><circle id="dT" class="dot-t" r="5" cx="510" cy="72"/>
-          <text id="lA" class="lab" x="522" y="44">Attention</text><text id="lT" class="lab t" x="522" y="76">Trust</text>
-          <text class="ax" x="30" y="276">Month 1</text><text class="ax" x="510" y="276" text-anchor="end">Month 12</text>
-        </svg>
-        <p class="tnote">Tap the switch. Illustration.</p>
-      </div>
-    </div>
+    <p class="lede ln">Ads buy attention. Stop paying and it’s gone. Trust keeps working. So we built a team that earns it for you.</p>
     <div class="teamhead ln">
       <div><h3>Every expert an agency has. Working for you.</h3><p>All included. They come to you, learn your business and work on it every week. Tap anyone to see exactly how they work.</p></div>
       <div class="arrows"><button class="arw" type="button" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><button class="arw" type="button" id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button></div>
@@ -846,14 +881,8 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
       <li><span class="n">6</span><h3>We show you every number.</h3><p>What came in, what it cost, and what we change next.</p></li>
     </ol>
   </div>
-  <h2 class="h2 ln second">Need something?<br>Send it.</h2>
-  <p class="lede ln">On top of your strategist, your visits and your campaigns, one line is always open. Drop anything in. It comes back done within 48 hours.</p>
-  <div class="sgrid">
-    <ol class="s3 ln">
-      <li><span class="n">1</span><div><h3>Send us anything.</h3><p>A blurry phone photo. A voice note. Half an idea. It doesn’t need to be perfect. That’s our job.</p></div></li>
-      <li><span class="n">2</span><div><h3>We come to you.</h3><p>We plan with you at your place and film on location. Then your designers, ads experts and developers build it. You approve with one tap.</p></div></li>
-      <li><span class="n">3</span><div><h3>It goes live. You see everything.</h3><p>Posts, reels, ads and your website go out on time. Every euro. Every enquiry.</p></div></li>
-    </ol>
+  <div class="sgrid second">
+    <div class="ln"><h2 class="h2">Need something?<br>Send it.</h2><p class="lede">On top of your strategist, your visits and your campaigns, one line is always open. Drop anything in. It comes back done within 48 hours.</p></div>
     <div class="ln">
       <div class="thread">
         <div class="thead2"><span class="faces" aria-hidden="true"><span class="face" style="background:var(--butter)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--lav)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--orchid)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--pink)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span></span><div><b>Your team</b><small>Today</small></div></div>
@@ -876,7 +905,7 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
   <div class="tblw ln"><table class="cmp3">
     <thead><tr><th scope="col"><span class="sr">Compared</span></th><th scope="col">A typical agency</th><th scope="col" class="us">Your OARC team</th></tr></thead>
     <tbody>
-      <tr><th scope="row">Who does the work</th><td>A team</td><td class="us">A whole marketing and tech team</td></tr>
+      <tr><th scope="row">Who does the work</th><td>A team</td><td class="us">A full marketing and tech team</td></tr>
       <tr><th scope="row">Comes to you</th><td>For meetings</td><td class="us">Yes, to plan and to film</td></tr>
       <tr><th scope="row">Website and systems</th><td>A separate project</td><td class="us">Included</td></tr>
       <tr><th scope="row">Your enquiries</th><td>Rarely included</td><td class="us">Answered in minutes</td></tr>
@@ -959,7 +988,6 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
             <li>One system for customers and bookings</li>
             <li>A one-page report: what came in, what it cost, what’s next</li>
           </ul>
-          <p class="soon"><b>Plus, coming soon:</b> your own live results screen, included.</p>
         </div>
       </div>
     </div>
@@ -1015,22 +1043,6 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
   </div>
 </div></section>
 
-<!-- 6b · spending more -->
-<section class="sec" id="more" data-reveal><div class="wrap">
-  <div class="more-card ln">
-    <div>
-      <h2 class="h2">Spending more? Get more.</h2>
-      <p class="lede">Already paying an agency €2,000 or more a month? Keep the budget. Move it to a team that does more with it.</p>
-      <button class="cta lt" type="button" data-start data-fill="We spend about €___ a month with our agency. What would we get with you?"><span>Compare my bill</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></i></button>
-    </div>
-    <ul class="more-list">
-      <li><b>The whole team, plus tech.</b><span>Marketing, your website and the systems behind it, from one team.</span></li>
-      <li><b>More of everything.</b><span>More shoots, more channels, more content, and a strategist at your place.</span></li>
-      <li><b>More of your money in ads.</b><span>What you save on fees goes where it brings customers.</span></li>
-    </ul>
-  </div>
-</div></section>
-
 <!-- 6c · the first 30 days -->
 <section class="sec" style="padding-top:0" data-reveal><div class="wrap">
   <h2 class="h2 ln">Your first 30 days.</h2>
@@ -1053,27 +1065,13 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
   </div>
 </div></section>
 
-<!-- 7b · promises -->
-<section class="sec" style="padding-top:0" data-reveal><div class="wrap">
-  <h2 class="h2 ln">Our promises.</h2>
-  <div class="proms ln">
-    <div class="pr c-pink"><h3>We come to you.</h3><p>We plan at your place and film on location.</p></div>
-    <div class="pr c-lav"><h3>You own everything.</h3><p>Your content, your website, your ad accounts, your data.</p></div>
-    <div class="pr c-butter"><h3>No contract.</h3><p>Stay because it works. Cancel any month.</p></div>
-    <div class="pr c-sky"><h3>Every euro shown.</h3><p>Your ad budget goes straight to Meta and Google.</p></div>
-    <div class="pr c-orchid"><h3>One person to call.</h3><p>Your strategist knows your business and runs your team.</p></div>
-    <div class="pr c-lime"><h3>We change what isn’t working.</h3><p>The same week, not at the end of a contract.</p></div>
-  </div>
-</div></section>
-
 <!-- 8 · questions -->
 <section class="sec" id="faq" style="padding-top:0" data-reveal><div class="wrap fgrid">
   <div><h2 class="h2 ln">Questions.</h2><p class="lede ln">Anything else, ask us when we meet.</p></div>
   <div class="acc ln">
     <details><summary>Do you really come to us?<i class="pm" aria-hidden="true"></i></summary><p>Yes. We meet you at your place, plan with you in person and film on location, like any high-end agency. This page is just the fastest way to reach us.</p></details>
-    <details><summary>Is it really cheaper than hiring someone?<i class="pm" aria-hidden="true"></i></summary><p>Yes. Malta’s minimum wage in 2026 is €229.44 a week, about €994 a month, before any employer costs. Your OARC team is €500 a month, and nobody needs a desk, a laptop or holidays covered.</p></details>
-    <details><summary>How can a whole team cost €500 a month?<i class="pm" aria-hidden="true"></i></summary><p>Better tools made the work faster. Most agencies kept the savings. We pass them to you. You still get experienced people, in person.</p></details>
-    <details><summary>We already pay an agency €2,000 or more. Why switch?<i class="pm" aria-hidden="true"></i></summary><p>Keep your budget and get more for it: the whole team, the tech side, and more of your money going into ads. Send us your last invoice and we’ll show you what it buys with us.</p></details>
+    <details><summary>How can a full team cost €500 a month?<i class="pm" aria-hidden="true"></i></summary><p>Better tools made the work faster. Most agencies kept the savings. We pass them to you. You still get experienced people, in person.</p></details>
+    <details><summary>We already pay an agency €2,000 or more. Why switch?<i class="pm" aria-hidden="true"></i></summary><p>Keep your budget and get more for it: a full team, the tech side, and more of your money going into ads. Send us your last invoice and we’ll show you what it buys with us.</p></details>
     <details><summary>Is there a contract?<i class="pm" aria-hidden="true"></i></summary><p>No. Stay because it works. Cancel any month, and everything we made stays yours.</p></details>
     <details><summary>How fast can we start?<i class="pm" aria-hidden="true"></i></summary><p>Today. Tell us about your business and your strategist calls you the same day to set up a visit.</p></details>
     <details><summary>Who will I deal with?<i class="pm" aria-hidden="true"></i></summary><p>Your strategist. One person who knows your business and runs your team for you.</p></details>
@@ -1081,8 +1079,6 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
     <details><summary>Is the AI system a chatbot?<i class="pm" aria-hidden="true"></i></summary><p>No. It’s the system behind your business: your website, WhatsApp, bookings, CRM and admin, connected and working together. Our developers visit you, map how you work and build it with you.</p></details>
     <details><summary>Who owns the content, the website and the ad accounts?<i class="pm" aria-hidden="true"></i></summary><p>You do. Always.</p></details>
     <details><summary>What isn’t included?<i class="pm" aria-hidden="true"></i></summary><p>Your ad budget, which you pay to Meta and Google directly. We’ll always tell you before anything else costs extra.</p></details>
-    <details><summary>Can you train my own staff?<i class="pm" aria-hidden="true"></i></summary><p>Yes. Your team can show your staff the tools and the playbooks we use for you. Ask about it when we meet.</p></details>
-    <details><summary>What is the live results screen?<i class="pm" aria-hidden="true"></i></summary><p>An extra that’s coming soon: your own screen with every number, live. Until then, you get a one-page report every month.</p></details>
     <details><summary>Which businesses do you work with?<i class="pm" aria-hidden="true"></i></summary><p>Restaurants, hotels, clinics, shops, real estate, professional services, groups and brands, across Malta.</p></details>
   </div>
 </div></section>
@@ -1217,28 +1213,6 @@ $("#details").addEventListener("submit",function(e){
   window.open("https://wa.me/35679711799?text="+encodeURIComponent(msg),"_blank","noopener");
 });
 
-/* attention vs trust */
-var AON=[30,70,100,120,140,155,170,182,192,200,208,215], AOFF=[30,70,100,120,140,155,170,70,22,6,0,0];
-var TON=[6,12,20,30,42,56,72,90,110,132,156,182], TOFF=[6,12,20,30,42,56,72,86,100,114,128,142];
-var cur2={a:AON.slice(),t:TON.slice()}, adsOn=true, touched=false, anim=0;
-function X(i){ return 30+i*(480/11); } function Y(v){ return 250-v*(210/215); }
-function curve(vals){ var pts=vals.map(function(v,i){ return [X(i),Y(v)]; }), d="M"+pts[0][0].toFixed(1)+","+pts[0][1].toFixed(1);
-  for(var i=0;i<pts.length-1;i++){ var p0=pts[i-1]||pts[i], p1=pts[i], p2=pts[i+1], p3=pts[i+2]||p2;
-    d+=" C"+(p1[0]+(p2[0]-p0[0])/6).toFixed(1)+","+(p1[1]+(p2[1]-p0[1])/6).toFixed(1)+" "+(p2[0]-(p3[0]-p1[0])/6).toFixed(1)+","+(p2[1]-(p3[1]-p1[1])/6).toFixed(1)+" "+p2[0].toFixed(1)+","+p2[1].toFixed(1); }
-  return d; }
-function render(){ var ya=Y(cur2.a[11]), yt=Y(cur2.t[11]);
-  $("#pA").setAttribute("d",curve(cur2.a)); var dt=curve(cur2.t); $("#pT").setAttribute("d",dt); $("#pTa").setAttribute("d",dt+" L510,250 L30,250 Z");
-  $("#dA").setAttribute("cy",ya.toFixed(1)); $("#dT").setAttribute("cy",yt.toFixed(1));
-  var la=ya+4, lt=yt+4; if(Math.abs(la-lt)<16){ if(la<lt) la=lt-16; else lt=la-16; }
-  $("#lA").setAttribute("y",la.toFixed(1)); $("#lT").setAttribute("y",lt.toFixed(1)); }
-function tween(ta,tt){ var fa=cur2.a.slice(), ft=cur2.t.slice(), t0=performance.now(), D=reduce?0:1100; cancelAnimationFrame(anim);
-  (function f(now){ var k=D?Math.min(1,(now-t0)/D):1; k=1-Math.pow(1-k,3); for(var i=0;i<12;i++){ cur2.a[i]=fa[i]+(ta[i]-fa[i])*k; cur2.t[i]=ft[i]+(tt[i]-ft[i])*k; } render(); if(k<1) anim=requestAnimationFrame(f); })(t0); }
-var sw=$("#adsw"), tcard=$("#tcard");
-function setAds(on){ adsOn=on; sw.setAttribute("aria-checked",on?"true":"false"); $("#adst").textContent=on?"On":"Off"; tcard.classList.toggle("off",!on); tween(on?AON:AOFF,on?TON:TOFF); }
-sw.addEventListener("click",function(){ touched=true; setAds(!adsOn); });
-render();
-if("IntersectionObserver" in window){ var cio=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ cio.disconnect(); setTimeout(function(){ if(!touched&&adsOn) setAds(false); },2400); } }); },{threshold:.6}); cio.observe(tcard); }
-
 /* team carousel */
 var track=$("#cards");
 function step(dir){ var c=$(".tc",track); track.scrollBy({left:dir*(c.offsetWidth+18),behavior:reduce?"auto":"smooth"}); }
@@ -1268,6 +1242,7 @@ function sel(i,focus){ cur=i;
   place(); if(focus) tabs[i].focus(); }
 tabs.forEach(function(t,k){ t.addEventListener("click",function(){ sel(k); }); t.addEventListener("keydown",function(e){ if(e.key==="ArrowRight"){ sel((cur+1)%3,true); e.preventDefault(); } if(e.key==="ArrowLeft"){ sel((cur+2)%3,true); e.preventDefault(); } }); });
 window.addEventListener("resize",place); place();
+$$("[data-tab]").forEach(function(a){ a.addEventListener("click",function(){ sel(+a.getAttribute("data-tab")); }); });
 if(document.fonts&&document.fonts.ready) document.fonts.ready.then(place);
 })();
 </script>
