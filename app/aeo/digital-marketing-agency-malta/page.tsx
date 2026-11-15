@@ -26,12 +26,12 @@ const faqs = [
   {
     question: "Do you really come to us?",
     answer:
-      "Yes. We meet you at your place, plan with you in person and film on location, like any high-end agency. The ask box on this page is just the fastest way to start.",
+      "Yes. We meet you at your place, plan with you in person and film on location, like any high-end agency. This page is just the fastest way to reach us.",
   },
   {
     question: "Is it really cheaper than hiring someone?",
     answer:
-      "Yes. Malta’s minimum wage in 2026 is €229.44 a week, about €994 a month, before any employer costs. Your whole team is €500 a month, and nobody needs a desk, a laptop or holidays covered.",
+      "Yes. Malta’s minimum wage in 2026 is €229.44 a week, about €994 a month, before any employer costs. Your OARC team is €500 a month, and nobody needs a desk, a laptop or holidays covered.",
   },
   {
     question: "How can a whole team cost €500 a month?",
@@ -96,7 +96,7 @@ const faqs = [
 
 const offers = [
   {
-    name: "Your whole marketing team",
+    name: "Your digital growth partner",
     priceFrom: 500,
     unitText: "MONTH",
     description:
