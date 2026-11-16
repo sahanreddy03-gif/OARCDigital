@@ -265,7 +265,6 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 @media (max-width:900px){.sgrid,.journey{grid-template-columns:1fr}}
 
 /* report */
-.rgrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(36px,6vw,90px);align-items:center}
 .metrics{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
 .metrics li{position:relative;font:500 15px/1 var(--ui);padding:12px 16px;border-radius:999px;background:var(--soft)}
 .metrics li.no{color:var(--mute2);background:transparent;box-shadow:inset 0 0 0 1px var(--line)}
@@ -273,24 +272,6 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 .play .metrics li.no::after{animation:strike .6s var(--ease) both;animation-delay:calc(var(--j) * .18s + .5s)}
 .metrics li.yes{background:var(--lime)}
 .promise{margin-top:30px;font:400 italic clamp(26px,2.4vw,34px)/1.18 var(--display);max-width:22ch}
-.paper{position:relative;background:var(--white);border-radius:6px;padding:clamp(22px,3vw,36px);box-shadow:0 2px 0 var(--line),0 50px 90px -50px rgba(0,0,0,.45),0 0 0 1px var(--line);transform:rotate(-1.2deg)}
-.ptop{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:16px;border-bottom:2px solid var(--ink)}
-.ptop b{font:400 28px/1 var(--display)}
-.ptop span{font-size:14px;color:var(--mute)}
-.k4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-bottom:1px solid var(--line)}
-.k4 div{padding:16px 12px 16px 0}
-.k4 span{display:block;font-size:12.5px;color:var(--mute);min-height:2.6em;line-height:1.3}
-.k4 b{display:block;margin-top:4px;font:400 34px/1 var(--display);font-weight:400}
-.k4 .hl b{background:linear-gradient(transparent 55%,var(--lime) 55%)}
-.rt{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
-.rt th{text-align:right;font-weight:600;font-size:12.5px;color:var(--mute);padding:10px 0 8px 8px}
-.rt td{text-align:right;padding:10px 0 10px 8px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
-.rt th:first-child,.rt td:first-child{text-align:left;padding-left:0}
-.nxt{margin-top:16px;padding-top:14px;border-top:2px solid var(--ink)}
-.nxt b{font-size:14px}
-.nxt ol{margin-top:8px;padding-left:20px;display:grid;gap:6px;font-size:14.5px;color:var(--text)}
-@media (max-width:900px){.rgrid{grid-template-columns:1fr}.paper{transform:none}}
-@media (max-width:520px){.k4{grid-template-columns:1fr 1fr}}
 
 /* pricing */
 .pricing{background:var(--soft);overflow:hidden}
@@ -595,33 +576,12 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 .final .cta span,.final .cta i{background:var(--black)}
 .days li:first-child::before{background:var(--black)}
 .jr .n{color:var(--text)}
-.k4 .hl b{background:none}
 .fld textarea{display:block;width:100%;min-height:76px;resize:none;border:1px solid var(--line2);background:var(--white);border-radius:14px;padding:15px 16px;font:500 17px/1.3 var(--ui);color:var(--text)}
 .fld textarea:focus{outline:0;border-color:var(--ink)}
 .hero .door{margin-top:30px}
 .sec.work{padding-bottom:clamp(16px,3vw,40px)}
 
-/* v7 · first screen, calm: one tag, one headline with the changing word, one button.
-   All its colours live in the --h-* variables on .hero (white + green). */
-.hero{--h-bg:#FFFFFF;--h-fg:#111111;--h-mut:#6F6B64;--h-acc:#087A41;--h-btn:#087A41;--h-on:#FFFFFF;--h-tagbg:#E5F4EA;--h-tagfg:#06602F;--h-line:rgba(17,17,17,.09);display:flex;flex-direction:column;min-height:100vh;min-height:100svh;padding-top:clamp(92px,8vw,112px);background:var(--h-bg);color:var(--h-fg)}
-.hs{flex:1 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-bottom:clamp(40px,5vw,72px)}
-.hs-tag{display:inline-block;margin:0;padding:10px 17px;border-radius:999px;background:var(--h-tagbg);color:var(--h-tagfg);font:700 12px/1 var(--ui);letter-spacing:.1em;text-transform:uppercase}
-.hs-h1{width:100%;margin:clamp(28px,3.2vw,42px) auto 0;font:400 clamp(72px,9.2vw,136px)/.98 var(--display);letter-spacing:-.035em;color:var(--h-fg)}
-.hs-h1 .kick{display:block;margin-bottom:clamp(16px,1.7vw,24px);font:600 13px/1.3 var(--ui);letter-spacing:.1em;text-transform:uppercase;color:var(--h-mut)}
-.hs-l{display:block}
-.hs-rot{display:block;position:relative;height:1.14em;margin:0 auto;overflow:hidden;transition:width .55s var(--ease)}
-.hs-w{display:inline-block;white-space:nowrap;line-height:1.14em;padding:0 .06em;font-style:italic;color:var(--h-acc);transition:transform .6s var(--ease),opacity .6s}
-.js .hs-w{position:absolute;left:0;top:0}
-.hs-w.enter{transform:translateY(100%);opacity:0}
-.hs-w.out{transform:translateY(-100%);opacity:0}
-.hs .hcta{margin-top:clamp(32px,3.8vw,52px)}
-.hero .cta.ylw{color:var(--h-on)}
-.hero .cta.ylw span,.hero .cta.ylw i{background:var(--h-btn)}
-.hero .wab{color:var(--h-fg)}
-.hero .strip{margin-top:0;border-top:1px solid var(--h-line)}
-.hero .striplab{color:var(--h-mut)}
-.hero .strip span{color:var(--h-fg);opacity:.55}
-/* real results, right under the first screen */
+/* real results */
 .sec.res{padding-block:clamp(56px,6vw,88px)}
 .res .h2{font-size:clamp(36px,4.2vw,60px)}
 .res .hlinks{display:flex;align-items:center;gap:14px 28px;flex-wrap:wrap}
@@ -642,11 +602,124 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 .rrow::-webkit-scrollbar{display:none}
 .rrow .rc{flex:0 0 40%;scroll-snap-align:start}
 }
-@media (max-width:900px){
-.hs-h1{font-size:clamp(44px,13vw,56px);line-height:1.03}
-.hs .hcta{flex-direction:column;gap:18px}
-}
 @media (max-width:600px){.rrow .rc{flex-basis:64%}}
+
+/* v8 · 2026-11-16 · the owner's artifact style: white page, green glow, one black box with floating pills.
+   The black box is the Black Friday offer. The monthly report is a big dashboard, right under the first screen. */
+.hero{background:var(--bg);color:var(--text)}
+.glow{background:radial-gradient(48% 62% at 50% 100%,rgba(61,220,151,.42),rgba(166,240,200,.28) 42%,rgba(255,255,255,0) 72%)}
+.hero .h1{margin-top:0}
+.hero .h1 .q{display:block;max-width:none;margin:0 0 16px;font:500 clamp(17px,1.4vw,19px)/1.4 var(--ui);letter-spacing:0;color:var(--mute)}
+.l2,.l3{display:block}
+.l2{white-space:nowrap}
+.rot{display:inline-block;position:relative;height:1.18em;vertical-align:-.25em;overflow:hidden;transition:width .55s var(--ease)}
+.rw{display:block;font-style:italic;color:var(--text);white-space:nowrap;line-height:1.18em;transition:transform .6s var(--ease),opacity .6s}
+.rot .rw{background:linear-gradient(transparent 64%,var(--lime) 64%,var(--lime) 92%,transparent 92%)}
+.js .rot .rw{position:absolute;left:0;right:0;top:0;text-align:center}
+.rw.enter{transform:translateY(100%);opacity:0}
+.rw.out{transform:translateY(-100%);opacity:0}
+.hero .striplab{color:var(--mute)}
+.hero .strip span{color:#3F3F3C;opacity:.55}
+/* the offer: the artifact's black ask box, now holding the Black Friday price */
+.offer{position:relative;z-index:2;width:min(640px,100%);background:var(--black);color:var(--white);border-radius:30px;padding:20px 16px 16px 24px;text-align:left;box-shadow:0 34px 70px -30px rgba(0,0,0,.6)}
+.otop{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.otag{display:inline-flex;align-items:center;gap:8px;padding:8px 13px 8px 11px;border-radius:999px;background:var(--lime);color:var(--ink);font:700 12px/1 var(--ui);letter-spacing:.09em;text-transform:uppercase}
+.otag i{width:7px;height:7px;border-radius:50%;background:var(--ink);animation:blink 1.6s steps(2) infinite}
+.olim{font:500 14px/1 var(--ui);color:rgba(255,255,255,.6)}
+.oprice{display:flex;align-items:center;gap:4px 16px;flex-wrap:wrap;margin-top:12px}
+.oprice b{font:400 clamp(72px,7.4vw,104px)/.9 var(--display);letter-spacing:-.035em;font-weight:400}
+.oprice span{font:500 17px/1.3 var(--ui);color:rgba(255,255,255,.8)}
+.obot{display:flex;align-items:center;justify-content:space-between;gap:12px 16px;flex-wrap:wrap;margin-top:14px}
+.owas{font:500 15px/1.3 var(--ui);color:rgba(255,255,255,.62)}
+.owas s{position:relative;margin-left:4px;text-decoration:none;font:400 25px/1 var(--display);color:rgba(255,255,255,.66)}
+.owas s::after{content:"";position:absolute;left:-3%;right:-3%;top:52%;height:2px;background:var(--red);transform-origin:left}
+.play .owas s::after{animation:strike .8s var(--ease) .9s both}
+.oclaim span{height:52px;padding:0 24px;font-size:16px}
+.oclaim i{width:52px;height:52px}
+@media (max-width:700px){.l2 .yo{display:block}}
+@media (max-width:560px){
+.offer{padding:18px 14px 14px 18px;border-radius:26px}
+.oclaim{width:100%}
+.oclaim span{flex:1;justify-content:center}
+}
+/* the dashboard: what you see every month */
+.dsec{padding-top:clamp(64px,7vw,104px)}
+.dhead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px clamp(30px,5vw,80px);align-items:end}
+.dhead .lede{margin-top:0;max-width:40ch}
+.dsec .metrics{margin-top:clamp(24px,3vw,34px)}
+.dstage{position:relative;margin-top:clamp(28px,3.4vw,44px);border-radius:34px;padding:clamp(10px,2.4vw,32px);background:radial-gradient(55% 70% at 88% 0%,rgba(249,255,132,.75),rgba(249,255,132,0) 70%),radial-gradient(50% 70% at 6% 100%,rgba(61,220,151,.26),rgba(61,220,151,0) 70%),var(--soft)}
+.dash{margin:0;background:var(--white);border-radius:24px;overflow:hidden;text-align:left;box-shadow:0 0 0 1px var(--line),0 50px 100px -60px rgba(0,0,0,.5)}
+.dbar{display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid var(--line)}
+.ddots{display:flex;gap:6px}
+.ddots i{width:10px;height:10px;border-radius:50%;background:#E3E3DF}
+.dbar b{font:600 15px/1.2 var(--ui)}
+.dmon{font:500 13px/1 var(--ui);color:var(--mute);padding:7px 12px;border-radius:999px;background:var(--soft)}
+.dteam{margin-left:auto;display:flex;align-items:center;gap:10px;font:500 13.5px/1 var(--ui);color:var(--mute)}
+.dteam .face{width:28px;height:28px;margin-left:-7px}
+.dteam .face:first-child{margin-left:0}
+.dteam .face svg{width:15px;height:15px}
+.dk{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.dk>div{padding:20px 22px 24px;border-left:1px solid var(--line);border-bottom:1px solid var(--line)}
+.dk>div:first-child{border-left:0}
+.dk span{display:block;font:500 13.5px/1.2 var(--ui);color:var(--mute)}
+.dk b{display:block;margin-top:12px;font:400 clamp(44px,4.6vw,64px)/.95 var(--display);letter-spacing:-.025em;font-weight:400;font-variant-numeric:tabular-nums}
+.dk .hl{background:var(--lime)}
+.dk .hl span{color:rgba(18,18,18,.72)}
+.dmid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);border-bottom:1px solid var(--line)}
+.dchart{padding:18px 22px 14px}
+.dct{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.dct b{font:600 14.5px/1.2 var(--ui)}
+.dleg{display:inline-flex;align-items:center;gap:8px;font:500 13px/1 var(--ui);color:var(--mute)}
+.dleg i{width:16px;height:3px;border-radius:2px;background:var(--ink)}
+.dplot{position:relative;margin-top:34px}
+.dplot svg{display:block;width:100%;height:auto;overflow:visible}
+.dg{fill:none;stroke:var(--line);stroke-width:1}
+.dar{fill:url(#dgr)}
+.dln{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 1.8s var(--ease) .2s}
+.dmk{fill:none;stroke:var(--ink);stroke-width:1.2;stroke-dasharray:3 4}
+.ddot{fill:var(--ink)}
+.dpin{position:absolute;top:-28px;transform:translateX(-50%);white-space:nowrap;padding:6px 10px;border-radius:999px;background:var(--ink);color:var(--white);font:600 12px/1 var(--ui)}
+.dax{display:flex;justify-content:space-between;margin-top:8px;font:500 12px/1 var(--ui);color:var(--mute2)}
+.dnext{padding:18px 22px 22px;border-left:1px solid var(--line);background:#FBFBF9}
+.dnext b{font:600 14.5px/1.2 var(--ui)}
+.dnext ol{list-style:none;padding:0;margin-top:16px;display:grid;gap:14px}
+.dnext li{display:flex;gap:12px;font-size:15.5px;line-height:1.4}
+.dnext li::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--ink)}
+.dtab{width:100%;border-collapse:collapse;font-size:15px}
+.dtab th{padding:14px 20px 10px 8px;text-align:right;font:600 12.5px/1.2 var(--ui);color:var(--mute)}
+.dtab td{padding:13px 20px 13px 8px;text-align:right;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+.dtab th:first-child,.dtab td:first-child{text-align:left;padding-left:22px}
+.dbest{display:inline-block;margin-left:8px;padding:4px 8px;border-radius:999px;background:var(--lime);font:700 10.5px/1 var(--ui);letter-spacing:.07em;text-transform:uppercase;vertical-align:2px}
+.dfoot{display:flex;align-items:flex-end;justify-content:space-between;gap:12px 30px;flex-wrap:wrap;margin-top:24px}
+.dfoot .promise,.dfoot .exnote{margin-top:0}
+/* the line draws, the area fades in, the numbers count up (js adds .go once the dashboard is seen) */
+.dash .dar{transition:opacity 1s var(--ease) .9s}
+.dash .dpin,.dash .ddot{transition:opacity .5s 1.4s}
+.js .dash:not(.go) .dln{stroke-dashoffset:1}
+.js .dash:not(.go) .dar,.js .dash:not(.go) .dpin,.js .dash:not(.go) .ddot{opacity:0}
+@media (max-width:900px){
+.dhead{grid-template-columns:1fr}
+.dmid{grid-template-columns:1fr}
+.dnext{border-left:0;border-top:1px solid var(--line)}
+}
+@media (max-width:640px){
+.dk{grid-template-columns:1fr 1fr}
+.dk>div:nth-child(3){border-left:0}
+.dk>div{padding:16px 16px 18px}
+.dbar{padding:13px 16px}
+.ddots,.dteam{display:none}
+.dmon{margin-left:auto}
+.dchart,.dnext{padding-left:16px;padding-right:16px}
+.dtab{font-size:14.5px}
+.dtab .c3,.dtab .c5{display:none}
+.dtab th,.dtab td{padding-right:16px}
+.dtab th:first-child,.dtab td:first-child{padding-left:16px;white-space:nowrap}
+.dbest{display:table;margin:7px 0 0}
+}
+@media (max-width:560px){.under>span:last-child{text-wrap:balance}}
+/* "Sound familiar?" fixes: the artifact's yellow pills */
+.pain .fix{background:var(--lime);color:var(--ink)}
+.pain .fix::before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M3.5 9.5l3.5 3.5 7.5-8' fill='none' stroke='%23121212' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat}
 </style>
 <script>document.documentElement.classList.add("js")</script>
 
@@ -657,15 +730,30 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
 
 <main id="top">
 <a class="wafab" href="https://wa.me/35679711799?text=Hi%20OARC.%20I%20saw%20the%20%E2%82%AC500%20team%20page." target="_blank" rel="noopener" data-testid="link-whatsapp-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>WhatsApp us</span></a>
-<!-- 1 · the promise and the ask -->
+<!-- 1 · the promise and the offer -->
 <section class="hero" data-reveal>
-  <div class="wrap hs">
-    <p class="hs-tag ln">Black Friday Month offer</p>
-    <h1 class="hs-h1 ln"><span class="kick">Digital marketing agency in Malta</span> <span class="sr">Your one digital growth partner: your own strategist, film crew, designer, social media team, ads strategist, web developer, booking team and AI developer, for €500 a month.</span> <span class="hs-l" aria-hidden="true">Your own</span> <span class="hs-l" aria-hidden="true"><span class="hs-rot"><span class="hs-w">strategist.</span></span></span> <span class="hs-l" aria-hidden="true">€500 a month.</span></h1>
-    <div class="hcta ln">
-      <button class="cta ylw" type="button" data-start><span>Meet your team</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></i></button>
-      <a class="wab" href="https://wa.me/35679711799?text=Hi%20OARC.%20I%20saw%20the%20%E2%82%AC500%20team%20page." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>or WhatsApp us</a>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1 class="h1 ln"><span class="q">Digital marketing agency in Malta</span> <span class="sr">Your one digital growth partner: your own strategist, film crew, designer, social media team, ads strategist, web developer, booking team and AI developer, without the agency bill. €500 a month.</span> <span class="l2" aria-hidden="true"><span class="yo">Your own </span><span class="rot"><span class="rw">strategist</span></span></span> <span class="l3" aria-hidden="true">without the agency bill.</span></h1>
+    <div class="askzone ln">
+      <div class="pills" aria-label="What your team does for you">
+        <button class="pl a" type="button" data-start data-fill="Reels filmed at our place">Reels filmed at your place</button>
+        <button class="pl b" type="button" data-start data-fill="Ads that bring us customers">Ads that pay back</button>
+        <button class="pl c" type="button" data-start data-fill="Every message answered, day or night">Every message answered</button>
+        <button class="pl d" type="button" data-start data-fill="A website that takes bookings">A website that takes bookings</button>
+        <button class="pl e" type="button" data-start data-fill="Get found on Google and AI">Found on Google and AI</button>
+        <button class="pl f" type="button" data-start data-fill="A report with every euro">Every euro reported</button>
+      </div>
+      <div class="offer">
+        <p class="otop"><span class="otag"><i aria-hidden="true"></i>Black Friday Month</span><span class="olim">Limited time</span></p>
+        <p class="oprice"><b>€500</b><span>a month.<br>Your whole team.</span></p>
+        <div class="obot">
+          <p class="owas">A typical agency: <s>€3,500–€4,500</s></p>
+          <button class="cta lt oclaim" type="button" data-start><span>Claim the offer</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></i></button>
+        </div>
+      </div>
     </div>
+    <p class="under ln"><span class="faces" aria-hidden="true"><span class="face" style="background:var(--pink)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--lav)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--butter)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--sky)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--orchid)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span></span><span><b>Start here. Then we come to you.</b> No card. No contract.</span></p>
   </div>
   <div class="strip" aria-label="Businesses we work with"><p class="striplab">Since 2023 · Businesses we work with</p><div class="run">
     <span>Rent Anytime</span><span>Dhalia Real Estate Services</span><span>Eden Leisure Group</span><span>Tiffany Champagne &amp; Wine Bar</span><span>Portomaso Casino</span><span>Hearth Test Kitchen</span>
@@ -673,7 +761,50 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
   </div></div>
 </section>
 
-<!-- 1a · real results -->
+<!-- 1a · what you see every month: your dashboard -->
+<section class="sec dsec" id="report" data-reveal><div class="wrap">
+  <div class="dhead">
+    <h2 class="h2 ln">We report money. Not likes.</h2>
+    <p class="lede ln">One report, every month. What came in, what it cost, and what your team changes next.</p>
+  </div>
+  <ul class="metrics ln" aria-label="What we report">
+    <li class="no" style="--j:0">Views</li><li class="no" style="--j:1">Impressions</li><li class="no" style="--j:2">Likes</li><li class="no" style="--j:3">Followers</li>
+    <li class="yes">Ad spend</li><li class="yes">Enquiries</li><li class="yes">Cost per enquiry</li><li class="yes">New customers</li>
+  </ul>
+  <div class="dstage ln">
+    <figure class="dash" aria-label="Example of your monthly report">
+      <div class="dbar"><span class="ddots" aria-hidden="true"><i></i><i></i><i></i></span><b>Your monthly report</b><span class="dmon">October</span><span class="dteam"><span class="faces" aria-hidden="true"><span class="face" style="background:var(--butter)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--lav)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--orchid)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span><span class="face" style="background:var(--pink)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></svg></span></span><span>Your team</span></span></div>
+      <div class="dk">
+        <div><span>Ad spend</span><b data-to="600" data-pre="€">€600</b></div>
+        <div><span>Enquiries</span><b data-to="214">214</b></div>
+        <div><span>Cost per enquiry</span><b data-to="2.80" data-pre="€" data-dec="2">€2.80</b></div>
+        <div class="hl"><span>New customers</span><b data-to="63">63</b></div>
+      </div>
+      <div class="dmid">
+        <div class="dchart">
+          <div class="dct"><b>Enquiries, day by day</b><span class="dleg"><i></i>October</span></div>
+          <div class="dplot">
+            <svg viewBox="0 0 640 190" aria-hidden="true"><defs><linearGradient id="dgr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F9FF84" stop-opacity=".95"/><stop offset="1" stop-color="#F9FF84" stop-opacity="0"/></linearGradient></defs><path class="dg" d="M20 180H620M20 105H620M20 30H620"/><path class="dmk" d="M220 30V180"/><path class="dar"/><path class="dln" pathLength="1"/><circle class="ddot" cx="620" cy="45" r="5"/></svg>
+            <span class="dpin" style="left:34.375%">New reel live</span>
+          </div>
+          <div class="dax" aria-hidden="true"><span>1 Oct</span><span>15 Oct</span><span>31 Oct</span></div>
+        </div>
+        <div class="dnext"><b>Next month, your team will</b><ol><li>Move €100 from the weakest ad to the best one.</li><li>Film a new reel about what people ask most.</li><li>Reply faster to messages after 10pm.</li></ol></div>
+      </div>
+      <table class="dtab">
+        <thead><tr><th scope="col">Campaign</th><th scope="col">Spend</th><th scope="col" class="c3">Enquiries</th><th scope="col">Customers</th><th scope="col" class="c5">Cost per enquiry</th></tr></thead>
+        <tbody>
+          <tr><td>Main offer reel<span class="dbest">Best</span></td><td>€300</td><td class="c3">128</td><td>41</td><td class="c5">€2.34</td></tr>
+          <tr><td>Local ad, 10 km</td><td>€200</td><td class="c3">61</td><td>15</td><td class="c5">€3.28</td></tr>
+          <tr><td>Retargeting</td><td>€100</td><td class="c3">25</td><td>7</td><td class="c5">€4.00</td></tr>
+        </tbody>
+      </table>
+    </figure>
+  </div>
+  <div class="dfoot"><p class="promise ln">If something isn’t bringing customers, we change it that week.</p><span class="exnote">Example, not a real client</span></div>
+</div></section>
+
+<!-- 1b · real results -->
 <section class="sec res" data-reveal><div class="wrap">
   <div class="whead ln"><h2 class="h2">Real businesses. Real results.</h2><div class="hlinks"><a class="wall" href="/our-work">See all 32 projects</a><a class="door" href="#pricing" data-tab="2">Spending €2,000+ a month? Get more for it.</a></div></div>
   <div class="rrow ln">
@@ -890,34 +1021,6 @@ details[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
     </tbody>
   </table></div>
   <p class="why ln">Better tools made the work faster. Most agencies kept the savings. We give them to you.</p>
-</div></section>
-
-<!-- 5 · what you see -->
-<section class="sec" data-reveal><div class="wrap rgrid">
-  <div>
-    <h2 class="h2 ln">We report money. Not likes.</h2>
-    <p class="lede ln">One page, every month. What came in, what it cost, and what your team changes next.</p>
-    <ul class="metrics ln" aria-label="What we report">
-      <li class="no" style="--j:0">Views</li><li class="no" style="--j:1">Impressions</li><li class="no" style="--j:2">Likes</li><li class="no" style="--j:3">Followers</li>
-      <li class="yes">Ad spend</li><li class="yes">Enquiries</li><li class="yes">Cost per enquiry</li><li class="yes">New customers</li>
-    </ul>
-    <p class="promise ln">If something isn’t bringing customers, we change it that week.</p>
-  </div>
-  <div class="ln">
-    <div class="paper" aria-label="Example of a monthly report">
-      <div class="ptop"><b>Your monthly report</b><span>October</span></div>
-      <div class="k4">
-        <div><span>Ad spend</span><b class="tnum">€600</b></div>
-        <div><span>Enquiries</span><b class="tnum">214</b></div>
-        <div><span>Cost per enquiry</span><b class="tnum">€2.80</b></div>
-        <div class="hl"><span>New customers</span><b class="tnum">63</b></div>
-      </div>
-      <table class="rt"><thead><tr><th>Campaign</th><th>Spend</th><th>Enquiries</th><th>Customers</th></tr></thead>
-        <tbody><tr><td>Main offer reel</td><td>€300</td><td>128</td><td>41</td></tr><tr><td>Local ad, 10 km</td><td>€200</td><td>61</td><td>15</td></tr><tr><td>Retargeting</td><td>€100</td><td>25</td><td>7</td></tr></tbody></table>
-      <div class="nxt"><b>Next month, your team will</b><ol><li>Move €100 from the weakest ad to the best one.</li><li>Film a new reel about what people ask most.</li><li>Reply faster to messages after 10pm.</li></ol></div>
-    </div>
-    <span class="exnote">Example, not a real client</span>
-  </div>
 </div></section>
 
 <!-- 6 · what you pay -->
@@ -1158,16 +1261,17 @@ if(!reduce&&"IntersectionObserver" in window){
 }
 
 
-/* the changing word: your own strategist, film crew, designer… */
-var rot=$(".hs-rot");
+/* the changing word: your own strategist, film crew, designer… (yellow band; the box fits each word) */
+var rot=$(".hero .rot");
 if(rot){
-  var words=["strategist.","film crew.","designer.","social media team.","ads strategist.","web developer.","booking team.","AI developer."], wi=0, inView=true;
-  var mk=function(i){ var s=document.createElement("span"); s.className="hs-w"; s.textContent=words[i]; return s; };
-  var fitTo=function(el){ var m=el.cloneNode(true); m.className="hs-w"; m.style.cssText="position:absolute;left:0;top:0;visibility:hidden;transition:none"; rot.appendChild(m); rot.style.width=(Math.ceil(m.getBoundingClientRect().width)+1)+"px"; rot.removeChild(m); };
+  var words=["strategist","film crew","designer","social media team","ads strategist","web developer","booking team","AI developer"], wi=0, inView=true;
+  var mk=function(t){ var s=document.createElement("span"); s.className="rw"; s.textContent=t; return s; };
+  var wOf=function(t){ var m=mk(t); m.style.cssText="position:absolute;visibility:hidden;left:0;right:auto;top:0;width:auto;transition:none"; rot.appendChild(m); var w=m.getBoundingClientRect().width; rot.removeChild(m); return Math.ceil(w)+2; };
+  var fit=function(){ rot.style.fontSize=""; var room=rot.parentNode.parentNode.clientWidth, widest=0; words.forEach(function(t){ widest=Math.max(widest,wOf(t)); }); if(widest>room) rot.style.fontSize=(Math.floor(room/widest*1000)/10)+"%"; rot.style.width=wOf(words[wi])+"px"; };
   var show=function(i,now){
     wi=(i+words.length)%words.length;
-    var olds=[].slice.call(rot.querySelectorAll(".hs-w")), nw=mk(wi);
-    fitTo(nw);
+    var olds=[].slice.call(rot.querySelectorAll(".rw")), nw=mk(words[wi]);
+    rot.style.width=wOf(words[wi])+"px";
     if(now||reduce){ olds.forEach(function(o){ rot.removeChild(o); }); rot.appendChild(nw); return; }
     nw.classList.add("enter"); rot.appendChild(nw);
     void nw.offsetWidth; /* set the start position, then swap in one step so two words never stack */
@@ -1178,9 +1282,29 @@ if(rot){
   clearInterval(window.__oarcWord);
   if(!reduce) window.__oarcWord=setInterval(function(){ if(!document.hidden&&inView&&rot.isConnected) show(wi+1); },2400);
   if("IntersectionObserver" in window){ new IntersectionObserver(function(es){ inView=es[0].isIntersecting; }).observe(rot); }
-  show(0,true);
-  var refit=function(){ var c=rot.querySelector(".hs-w:not(.out)"); if(c) fitTo(c); };
-  window.addEventListener("resize",refit); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(refit);
+  show(0,true); fit();
+  window.addEventListener("resize",fit); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+}
+
+/* the dashboard: the line draws itself and the numbers count up, once it is seen */
+var dash=$(".dash");
+if(dash){
+  var dd=[4,5,3,5,4,6,4,5,5,4,6,7,8,6,7,8,7,6,8,7,8,9,10,9,8,10,9,9,10,8,9]; /* 214 enquiries in October */
+  var pt=dd.map(function(v,i){ return [20+i*20,180-v*15]; }), dpath="M"+pt[0][0]+","+pt[0][1];
+  for(var k=0;k<pt.length-1;k++){ var p0=pt[k-1]||pt[k], p1=pt[k], p2=pt[k+1], p3=pt[k+2]||p2;
+    dpath+=" C"+(p1[0]+(p2[0]-p0[0])/6).toFixed(1)+","+(p1[1]+(p2[1]-p0[1])/6).toFixed(1)+" "+(p2[0]-(p3[0]-p1[0])/6).toFixed(1)+","+(p2[1]-(p3[1]-p1[1])/6).toFixed(1)+" "+p2[0]+","+p2[1]; }
+  $(".dln",dash).setAttribute("d",dpath); $(".dar",dash).setAttribute("d",dpath+" L620,180 L20,180 Z");
+  var nums=$$("[data-to]",dash), fmt=function(el,v){ el.textContent=(el.getAttribute("data-pre")||"")+v.toFixed(+(el.getAttribute("data-dec")||0)); };
+  var countUp=function(){ nums.forEach(function(el){ var to=parseFloat(el.getAttribute("data-to")), t0=performance.now();
+      (function f(now){ var p=Math.min(1,(now-t0)/1300); p=1-Math.pow(1-p,3); fmt(el,to*p); if(p<1) requestAnimationFrame(f); })(t0); }); };
+  /* each part starts when it is on screen: numbers when the number row is, the line when the chart is (phones show them at different times) */
+  var whenSeen=function(el,fn,th){ if(!("IntersectionObserver" in window)){ fn(); return; } var io=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ io.disconnect(); fn(); } },{threshold:th}); io.observe(el); };
+  if(reduce){ dash.classList.add("go"); }
+  else {
+    nums.forEach(function(el){ fmt(el,0); });
+    whenSeen($(".dk",dash),countUp,.5);
+    whenSeen($(".dplot",dash),function(){ dash.classList.add("go"); },.45);
+  }
 }
 
 /* the one open question lives in the details sheet */
