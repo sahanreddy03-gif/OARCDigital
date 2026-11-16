@@ -33,6 +33,7 @@ import {
     Globe
 } from 'lucide-react';
 import Link from 'next/link';
+import { ogImageUrl } from '@/lib/seo/ogImageUrl';
 
 const SocialPlatformComparison = [
     { subject: 'Organic Reach', A: 20, B: 90, C: 40, fullMark: 100 }, // A=FB, B=TikTok, C=Insta
@@ -58,7 +59,7 @@ export default function MarketingTrendsMalta() {
                     "@context": "https://schema.org",
                     "@type": "Article",
                     "headline": "Malta Business Marketing in 2025: What's Working Now",
-                    "image": "https://oarcdigital.com/assets/blog/malta-marketing-2025.jpg",
+                    "image": ogImageUrl({ title: "Malta Business Marketing in 2025: What's Working Now | OARC Digital", subtitle: "Exclusive 2025 report: discover the marketing trends actually driving revenue in Malta. From TikTok for local business to AI automation, see what's working now." }),
                     "author": {
                         "@type": "Organization",
                         "name": "OARC Digital Team"
@@ -68,7 +69,7 @@ export default function MarketingTrendsMalta() {
                         "name": "OARC Digital",
                         "logo": {
                             "@type": "ImageObject",
-                            "url": "https://oarcdigital.com/logo.png"
+                            "url": "https://oarcdigital.com/oarc-logo.png"
                         }
                     },
                     "datePublished": publishDate,

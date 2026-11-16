@@ -23,6 +23,7 @@ import {
   SiFlutter, SiKotlin, SiSwift, SiDocker
 } from 'react-icons/si';
 import RelatedServices from "@/components/RelatedServices";
+import { NAP } from "@/lib/seo/nap";
 
 const mvpMobileScreens = "/attached_assets/generated_images/mvp_mobile_app_prototype_screens.png";
 const mvpDashboard = "/attached_assets/generated_images/saas_mvp_dashboard_interface.png";
@@ -996,15 +997,15 @@ export default function MVPDevelopment() {
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
-              <a href="tel:+35699123456">
-                <Button 
-                  size="lg" 
-                  variant="outline" 
+              <a href={`tel:${NAP.phoneE164}`}>
+                <Button
+                  size="lg"
+                  variant="outline"
                   className="border-white/20 text-white hover:bg-white/10"
                   data-testid="button-cta-phone"
                 >
                   <Phone className="w-4 h-4 mr-2" />
-                  +356 9912 3456
+                  {NAP.phoneDisplay}
                 </Button>
               </a>
             </div>

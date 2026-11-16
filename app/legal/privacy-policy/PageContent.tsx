@@ -72,7 +72,7 @@ export default function PageContent() {
                   </div>
                   <div className="flex items-center gap-2 text-white/70">
                     <Phone className="w-4 h-4" />
-                    <span>+356 9912 3456</span>
+                    <a href={`tel:${NAP.phoneE164}`} className="hover:text-[#4ade80] transition-colors">{NAP.phoneDisplay}</a>
                   </div>
                 </div>
               </div>

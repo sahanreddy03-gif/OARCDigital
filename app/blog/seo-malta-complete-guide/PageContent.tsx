@@ -39,6 +39,7 @@ import {
     AlertTriangle
 } from 'lucide-react';
 import Link from 'next/link';
+import { ogImageUrl } from '@/lib/seo/ogImageUrl';
 
 const RankingProgress = [
     { month: 'Start', rank: 50 },
@@ -56,7 +57,7 @@ export default function SeoMalta() {
                     "@context": "https://schema.org",
                     "@type": "Article",
                     "headline": "How to Get Your Malta Business on Page 1 of Google",
-                    "image": "https://oarcdigital.com/assets/blog/seo-malta-hero.jpg",
+                    "image": ogImageUrl({ title: "How to Get Your Malta Business on Page 1 of Google | Local SEO Guide 2025", subtitle: "The complete guide to ranking #1 on Google in Malta. Learn Local SEO strategies, Google Business Profile optimization, and how to beat competitors in Paceville, Sliema, and Valletta." }),
                     "author": {
                         "@type": "Organization",
                         "name": "OARC Digital Team"
@@ -66,7 +67,7 @@ export default function SeoMalta() {
                         "name": "OARC Digital",
                         "logo": {
                             "@type": "ImageObject",
-                            "url": "https://oarcdigital.com/logo.png"
+                            "url": "https://oarcdigital.com/oarc-logo.png"
                         }
                     },
                     "datePublished": publishDate,

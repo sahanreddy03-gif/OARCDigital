@@ -22,5 +22,5 @@ export function ogImageUrl({ title, subtitle, eyebrow }: OgImageOptions): string
 }
 
 export function ogImageEntry(opts: OgImageOptions) {
-  return [{ url: ogImageUrl(opts), width: 1200, height: 630 }];
+  return [{ url: ogImageUrl(opts), width: 1200, height: 630, alt: opts.title }];
 }

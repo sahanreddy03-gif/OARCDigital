@@ -45,6 +45,7 @@ import {
     Brain
 } from 'lucide-react';
 import Link from 'next/link';
+import { ogImageUrl } from '@/lib/seo/ogImageUrl';
 
 const SocialUserGrowth = [
     { year: '2020', users: 280000 },
@@ -72,7 +73,7 @@ export default function DigitalMarketingMalta() {
                     "@context": "https://schema.org",
                     "@type": "Article",
                     "headline": "The Complete Guide to Digital Marketing in Malta 2025",
-                    "image": "https://oarcdigital.com/assets/blog/malta-digital-marketing-2025.jpg",
+                    "image": ogImageUrl({ title: "The Complete Guide to Digital Marketing in Malta 2025 | OARC Digital", subtitle: "The ultimate guide to digital marketing in Malta for 2025. Discover what actually works for local businesses, from SEO and Social Media to AI-powered growth strategies." }),
                     "author": {
                         "@type": "Organization",
                         "name": "OARC Digital Team"
@@ -82,7 +83,7 @@ export default function DigitalMarketingMalta() {
                         "name": "OARC Digital",
                         "logo": {
                             "@type": "ImageObject",
-                            "url": "https://oarcdigital.com/logo.png"
+                            "url": "https://oarcdigital.com/oarc-logo.png"
                         }
                     },
                     "datePublished": publishDate,

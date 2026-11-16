@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: ["/", "/api/services", "/api/book"],
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: ["/api/", "/admin/"],
       },
       { userAgent: "Googlebot", allow: "/" },
       { userAgent: "Googlebot-Image", allow: "/" },
@@ -95,6 +95,5 @@ export default function robots(): MetadataRoute.Robots {
       "https://oarcdigital.com/sitemap.xml",
       "https://oarcdigital.com/image-sitemap.xml",
     ],
-    host: "https://oarcdigital.com",
   };
 }

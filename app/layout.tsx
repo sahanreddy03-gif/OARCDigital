@@ -271,13 +271,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico" },
-      { url: "/favicon.png", type: "image/png", sizes: "512x512" },
-      { url: "/favicon.png", type: "image/png", sizes: "192x192" },
-      { url: "/favicon.png", type: "image/png", sizes: "32x32" },
-      { url: "/favicon.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
     ],
-    apple: [{ url: "/favicon.png", sizes: "180x180" }],
-    shortcut: [{ url: "/favicon.png" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    shortcut: [{ url: "/favicon.ico" }],
   },
   other: {
     "geo.region": NAP.regionCode,
@@ -409,7 +408,8 @@ export default function RootLayout({
         <Script id="gtag-conversion-tracking" strategy="afterInteractive">
           {`
             document.addEventListener('click', function(e) {
-              var el = e.target.closest('a[href]');
+              if (typeof window.gtag !== 'function') return;
+              var el = e.target && e.target.closest ? e.target.closest('a[href]') : null;
               if (!el) return;
               var href = el.getAttribute('href') || '';
               if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp') !== -1) {
@@ -422,6 +422,7 @@ export default function RootLayout({
               }
             });
             document.addEventListener('submit', function(e) {
+              if (typeof window.gtag !== 'function') return;
               gtag('event', 'conversion', {send_to: 'AW-17812517147', event_category: 'engagement', event_label: 'form_submit'});
               gtag('event', 'form_submit', {event_category: 'engagement', event_label: window.location.pathname});
             });

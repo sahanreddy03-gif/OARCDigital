@@ -15,9 +15,11 @@
 //   - Ta' Xbiex is NOT in this canonical record. It is permitted only in
 //     emissions that originate from `lib/seo/locationData.ts` (where it
 //     is a legitimate location entry, not the agency's primary address).
-//   - The geo coordinates are the building footprint of "Level 1, The
-//     Brewhouse, Mdina Road, Birkirkara CBD 2010" verified against the
-//     Google Maps `?q=` link in app/layout.tsx.
+//   - The geo coordinates are the Google Business Profile pin for "Level 1,
+//     The Brewhouse, Mdina Road, Birkirkara CBD 2010", read from the GBP
+//     API on 2026-11-16. The previous value (35.8978, 14.4617) resolved to
+//     a residential street about 800 m away, so the JSON-LD and the
+//     /contact map disagreed with the Google listing.
 
 function deepFreeze<T>(value: T): T {
   if (value === null || typeof value !== "object") return value;
@@ -54,14 +56,17 @@ export const NAP = deepFreeze({
 
   email: "hello@oarcdigital.com",
 
-  geo: { lat: 35.8978, lng: 14.4617 },
+  geo: { lat: 35.8912, lng: 14.466 },
 
   // Used for `geo.region` HTML meta and JSON-LD areaServed contexts.
   countryCode: "MT",
   regionCode: "MT-09",
 
-  // The canonical Google Maps deep-link rendered into JSON-LD `hasMap`.
-  mapUrl: "https://maps.google.com/?q=Level+1+The+Brewhouse+Birkirkara+Malta",
+  // The canonical Google Maps link, rendered into JSON-LD `hasMap` and the
+  // footer / TrustBlock "Google Maps" links. It is the Google Business
+  // Profile listing itself (CID), so search engines and visitors land on
+  // the verified profile rather than on a text search.
+  mapUrl: "https://maps.google.com/maps?cid=11181985666378828912",
 } as const);
 
 /**

@@ -10,10 +10,21 @@ const ACCENT = "#f97316";
 const FG = "#ecfdf5";
 const SUB = "#a7f3d0";
 
+// Shorten to at most `max` characters (ellipsis included), cutting at the last
+// whole word so cards never end mid-word ("…how to beat comp…"). Falls back to
+// a hard cut only when one word would eat most of the space (e.g. a long URL).
 function clamp(text: string, max: number): string {
   if (text.length <= max) return text;
-  return text.slice(0, max - 1).trimEnd() + "…";
+  const head = text.slice(0, max);
+  const lastSpace = head.lastIndexOf(" ");
+  const kept = lastSpace > max * 0.6 ? head.slice(0, lastSpace) : head.slice(0, max - 1);
+  return kept.replace(/[\s.,;:\-–—]+$/, "") + "…";
 }
+
+// Each /og URL fully describes its card (title/subtitle/eyebrow in the query),
+// so the PNG can be cached: 1 day in browsers, 7 days at the Vercel edge.
+const CACHE_CONTROL =
+  "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400";
 
 export async function GET(req: NextRequest): Promise<ImageResponse> {
   const { searchParams } = new URL(req.url);
@@ -135,6 +146,6 @@ export async function GET(req: NextRequest): Promise<ImageResponse> {
         </div>
       </div>
     ),
-    { ...size },
+    { ...size, headers: { "Cache-Control": CACHE_CONTROL } },
   );
 }
