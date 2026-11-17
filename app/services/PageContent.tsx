@@ -9,7 +9,7 @@ import Layout from '@/components/layout/Layout';
 import { supportingPagesSEO } from '@/data/seoMetadata';
 import { buildServicesShellGraph } from '@/lib/schema/shellSchemas';
 import RelatedServices from '@/components/RelatedServices';
-const heroImg = "/attached_assets/global-influencer-marketing-agency-socially-powerful_1763048685978.jpg";
+const heroImg = "/images/optimized/team-group-photo.webp";
 const creativeImg = "/attached_assets/837b9d2d4233bb346c214826035215a37160c085-3840x1432_1763049729526.avif";
 const automationImg = "/attached_assets/pexels-mikael-blomkvist-6476783_(1)_1765732245944.jpg";
 const aiImg = "/attached_assets/stock_images/artificial_intellige_3ed7faa2.jpg";
@@ -262,7 +262,7 @@ export default function PageContent() {
             transition={{ duration: 0.8, delay: 1 }}
             className="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-white/70"
           >
-            <Link href="/tom" className="hover:text-[#c4ff4d]">Voice AI Worker →</Link>
+            <Link href="/voice-ai-worker" className="hover:text-[#c4ff4d]">Voice AI Worker →</Link>
             <a href="#specialist-ai" className="hover:text-white">3 standalone specialist AI services ↓</a>
           </m.div>
         </m.div>
@@ -345,7 +345,7 @@ export default function PageContent() {
               Choose the type of help you need. Voice AI Worker is configured for ten industries; our specialist AI services solve three specific business, shopping, and employee-support needs.
             </p>
             <div id="specialist-ai" className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
-              <Link href="/tom" className="text-white hover:text-[#c4ff4d]">Voice AI Worker →</Link>
+              <Link href="/voice-ai-worker" className="text-white hover:text-[#c4ff4d]">Voice AI Worker →</Link>
               <Link href="/services/custom-ai-agents" className="text-zinc-400 hover:text-white">Custom AI Agents</Link>
               <Link href="/services/conversational-commerce" className="text-zinc-400 hover:text-white">Conversational Commerce</Link>
               <Link href="/services/ai-employee-service-desk" className="text-zinc-400 hover:text-white">AI Concierge</Link>

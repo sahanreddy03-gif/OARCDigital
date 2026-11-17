@@ -1,8 +1,8 @@
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import RelatedServices from "@/components/RelatedServices";
 
-const IMG_HERO = "/attached_assets/hf_20260420_110134_9e1d7c1d-85b3-4676-b715-62b2b125577e_1779836586701.png";
-const IMG_IGAMING = "/attached_assets/hf_20260420_090501_ab407b9d-6ce2-45cc-bc91-2f74476e628a_1779836586705.png";
+const IMG_HERO = "/images/optimized/marketing-automation-hero.webp";
+const IMG_IGAMING = "/images/optimized/marketing-automation-igaming.webp";
 
 const imageSchemas = [
   {

@@ -25,7 +25,7 @@ const apiIntegrationFAQs: FAQItem[] = [
   { question: "How do you handle data security?", answer: "Encrypted connections, secure authentication, and access controls. Your data stays protected throughout the integration." }
 ];
 
-const heroImg = "/attached_assets/18_1763228440284.jpg";
+const heroImg = "/images/services/circuit-board-integration.webp";
 
 const ELITE_COLORS = {
   primary: '#8b5cf6',
@@ -130,11 +130,11 @@ export default function APIIntegrationServices() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ImageObject",
-            "url": "https://oarcdigital.com/attached_assets/18_1763228440284.jpg",
+            "url": "https://oarcdigital.com/images/services/circuit-board-integration.webp",
             "name": "Circuit board — API integration and system connectivity for Malta businesses | OARC Digital",
             "description": "API integration and system connectivity — OARC Digital connects Malta businesses' tools, platforms, and data sources through custom REST APIs, GraphQL, and third-party integration engineering.",
-            "width": 1024,
-            "height": 683,
+            "width": 1920,
+            "height": 1280,
             "representativeOfPage": true,
           }),
         }}

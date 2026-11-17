@@ -21,6 +21,21 @@ import {
 } from '@/utils/structuredData';
 import { createBreadcrumbSchema } from '@/utils/advancedSchema';
 
+// Final URL of each matrix industry's hub. The singular /industries/{slug}
+// 308s to the plural hub, and spa-wellness / law-firm land on /industries
+// (their hubs are pending). Breadcrumbs use the final URL, so no hop.
+const INDUSTRY_HUB_URL: Readonly<Record<string, string>> = {
+  restaurant: '/industries/restaurants',
+  hotel: '/industries/hotels',
+  cafe: '/industries/cafes',
+  bar: '/industries/bars',
+  'spa-wellness': '/industries',
+  'gym-fitness': '/industries/fitness',
+  healthcare: '/industries/healthcare-clinics',
+  'law-firm': '/industries',
+  'car-dealership': '/industries/automotive',
+};
+
 // ---------------------------------------------------------------------------
 // Service knowledge — one entry per KEPT service slug
 // ---------------------------------------------------------------------------
@@ -742,7 +757,7 @@ export function buildLocationIndustryServiceContent(
       { name: loc.name, url: `/malta/${loc.slug}` },
       // /malta/{loc}/{industry} 308-redirects to /industries/{industry};
       // breadcrumbs must reference canonical, non-redirecting URLs.
-      { name: ind.name, url: `/industries/${ind.slug}` },
+      { name: ind.name, url: INDUSTRY_HUB_URL[ind.slug] ?? `/industries/${ind.slug}` },
       { name: svc.name, url: `/malta/${loc.slug}/${ind.slug}/${svc.slug}` },
     ]),
     createServiceSchema(

@@ -10,7 +10,7 @@ import FAQSection, { type FAQItem } from "@/components/FAQSection";
 import RelatedServices from "@/components/RelatedServices";
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 
-const heroImage = "/attached_assets/12_1763228440282.jpg";
+const heroImage = "/images/services/smiling-business-owner-office.webp";
 
 const customerAcquisitionFAQs: FAQItem[] = [
   {
@@ -94,11 +94,11 @@ export default function CustomerAcquisition() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ImageObject",
-            "url": "https://oarcdigital.com/attached_assets/12_1763228440282.jpg",
+            "url": "https://oarcdigital.com/images/services/smiling-business-owner-office.webp",
             "name": "Confident business professional — customer acquisition and growth strategy for Malta businesses",
             "description": "Customer acquisition strategy — OARC Digital delivers full-funnel CPA-measured customer acquisition for Malta and EU businesses through multi-channel paid media and attribution engineering.",
-            "width": 1024,
-            "height": 683,
+            "width": 1920,
+            "height": 1280,
             "representativeOfPage": true,
           }),
         }}

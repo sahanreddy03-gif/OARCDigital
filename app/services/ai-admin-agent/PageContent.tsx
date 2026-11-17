@@ -9,17 +9,17 @@ import RelatedServices from "@/components/RelatedServices";
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import TrustBlock from "@/components/seo/TrustBlock";
 
-const heroImage = "/attached_assets/3_1763228440278.jpg";
+const heroImage = "/images/services/office-worker-carrying-files.webp";
 
 const imageObjectSchema = {
   "@context": "https://schema.org",
   "@type": "ImageObject",
   name: "Business professional overwhelmed by administrative paperwork — the problem OARC AI Admin Agent solves",
   description: "The administrative burden that AI admin agents eliminate — inbox overload, scheduling chaos, document filing, and follow-up management that consume operator hours in Malta SMEs.",
-  url: "https://oarcdigital.com/attached_assets/3_1763228440278.jpg",
-  width: 1200,
-  height: 800,
-  contentUrl: "https://oarcdigital.com/attached_assets/3_1763228440278.jpg",
+  url: "https://oarcdigital.com/images/services/office-worker-carrying-files.webp",
+  width: 1920,
+  height: 1280,
+  contentUrl: "https://oarcdigital.com/images/services/office-worker-carrying-files.webp",
 };
 
 const adminTasks = [

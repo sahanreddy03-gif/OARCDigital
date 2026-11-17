@@ -393,7 +393,7 @@ export default function DesignSystems() {
               </div>
             </Link>
 
-            <Link href="/services/ai-employee">
+            <Link href="/services/hire-ai-employees">
               <div className="group p-8 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-[#23AACA] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-ai-employee">
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-xl font-bold text-white group-hover:text-[#23AACA] transition-colors">AI Employees</h3>

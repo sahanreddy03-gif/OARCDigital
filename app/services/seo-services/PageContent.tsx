@@ -11,17 +11,17 @@ import { NAP } from "@/lib/seo/nap";
 
 const SCHEMA = SERVICE_SCHEMAS["seo-services"];
 
-const heroImage = "/attached_assets/16_1763228440283.jpg";
+const heroImage = "/images/services/vintage-map-strategy-desk.webp";
 
 const imageObjectSchema = {
   "@context": "https://schema.org",
   "@type": "ImageObject",
   name: "World map with magnifying glass representing global SEO discovery and search visibility for Malta businesses",
   description: "A world map overlaid with a magnifying glass, representing search engine discovery and organic ranking strategy for Malta-based businesses targeting local and international markets.",
-  url: "https://oarcdigital.com/attached_assets/16_1763228440283.jpg",
-  width: 1200,
-  height: 800,
-  contentUrl: "https://oarcdigital.com/attached_assets/16_1763228440283.jpg",
+  url: "https://oarcdigital.com/images/services/vintage-map-strategy-desk.webp",
+  width: 1920,
+  height: 1280,
+  contentUrl: "https://oarcdigital.com/images/services/vintage-map-strategy-desk.webp",
 };
 
 const phases = [

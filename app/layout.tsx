@@ -162,6 +162,9 @@ const ORGANIZATION_JSONLD = [
   {
     "@context": "https://schema.org",
     "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+    // Same @id as the page graphs' #organization, so crawlers merge the two
+    // blocks into one company instead of reading two separate entities.
+    "@id": "https://oarcdigital.com/#organization",
     name: NAP.name,
     alternateName: NAP.alternateName,
     description:

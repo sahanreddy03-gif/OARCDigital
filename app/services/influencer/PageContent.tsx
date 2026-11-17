@@ -20,7 +20,7 @@ const heroImage = "/attached_assets/Biolage-influencer-marketing-agency-socially
 const localCreatorImg =
   "/attached_assets/stock_images/influencer_marketing_3b6f7762.jpg";
 const onPropertyImg =
-  "/attached_assets/stock_images/influencer_content_c_71663437.jpg";
+  "/attached_assets/stock_images/social_media_creativ_8b2d8cae.jpg";
 const reportingImg =
   "/attached_assets/stock_images/social_media_influen_3c07c2fc.jpg";
 

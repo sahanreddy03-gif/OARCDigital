@@ -10,7 +10,7 @@ import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import RelatedServices from "@/components/RelatedServices";
-const heroImage = "/attached_assets/printy design_1763086257815.avif";
+const heroImage = "/images/services/print-packaging-banner.webp";
 
 export default function PrintPackaging() {
   useEffect(() => {
@@ -393,7 +393,7 @@ export default function PrintPackaging() {
               </div>
             </Link>
 
-            <Link href="/services/social-media-creative">
+            <Link href="/services/social-media-creative-management">
               <div className="group p-8 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-[#23AACA] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-social">
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-xl font-bold text-white group-hover:text-[#23AACA] transition-colors">Social Media Creative</h3>

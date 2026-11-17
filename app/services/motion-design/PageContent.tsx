@@ -10,7 +10,7 @@ import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import FAQSection, { type FAQItem } from "@/components/FAQSection";
 import RelatedServices from "@/components/RelatedServices";
-const heroImage = "/attached_assets/motion design_1763084597887.avif";
+const heroImage = "/images/services/motion-design-banner.webp";
 const motionImg1 = "/attached_assets/stock_images/motion_graphics_anim_30522a7b.jpg";
 const motionImg2 = "/attached_assets/stock_images/motion_graphics_anim_efb22394.jpg";
 const motionImg3 = "/attached_assets/stock_images/motion_graphics_anim_aae15d3e.jpg";
@@ -383,7 +383,7 @@ export default function MotionDesign() {
               </div>
             </Link>
 
-            <Link href="/services/social-media-creative">
+            <Link href="/services/social-media-creative-management">
               <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-[#23AACA] cursor-pointer transition-all" data-testid="related-service-social-creative">
                 <h3 className="text-xl font-bold mb-3 text-white">Social Media Creative</h3>
                 <p className="text-white/70 mb-4">

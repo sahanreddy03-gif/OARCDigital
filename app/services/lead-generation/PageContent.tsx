@@ -10,7 +10,7 @@ import FAQSection, { type FAQItem } from "@/components/FAQSection";
 import RelatedServices from "@/components/RelatedServices";
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 
-const heroImage = "/attached_assets/2_1763228440277.jpg";
+const heroImage = "/images/services/woman-working-on-laptop.webp";
 
 const leadGenFAQs: FAQItem[] = [
   {
@@ -83,11 +83,11 @@ export default function LeadGeneration() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ImageObject",
-            "url": "https://oarcdigital.com/attached_assets/2_1763228440277.jpg",
+            "url": "https://oarcdigital.com/images/services/woman-working-on-laptop.webp",
             "name": "Lead generation outreach — person working on targeted outbound campaigns",
             "description": "Lead generation outreach and sales prospecting — OARC Digital delivers qualified meetings for Malta and EU businesses through AI-powered cold outreach and paid inbound channels.",
-            "width": 683,
-            "height": 1024,
+            "width": 1600,
+            "height": 2400,
             "representativeOfPage": true,
           }),
         }}

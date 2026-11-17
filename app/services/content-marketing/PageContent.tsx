@@ -11,17 +11,17 @@ import { NAP } from "@/lib/seo/nap";
 
 const SCHEMA = SERVICE_SCHEMAS["content-marketing"];
 
-const heroImage = "/attached_assets/11_1763228440281.jpg";
+const heroImage = "/images/services/sticky-notes-content-planning.webp";
 
 const imageObjectSchema = {
   "@context": "https://schema.org",
   "@type": "ImageObject",
   name: "Sticky notes and brainstorming materials representing content strategy planning for Malta brands",
   description: "A content strategy planning session with sticky notes and ideas arranged on a surface, representing the editorial planning and content marketing process for Malta businesses.",
-  url: "https://oarcdigital.com/attached_assets/11_1763228440281.jpg",
-  width: 1200,
-  height: 800,
-  contentUrl: "https://oarcdigital.com/attached_assets/11_1763228440281.jpg",
+  url: "https://oarcdigital.com/images/services/sticky-notes-content-planning.webp",
+  width: 1920,
+  height: 1280,
+  contentUrl: "https://oarcdigital.com/images/services/sticky-notes-content-planning.webp",
 };
 
 const phases = [

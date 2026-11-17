@@ -39,6 +39,21 @@ export type LinkNode = {
   anchors?: string[];
 };
 
+// Some nodes are old alias URLs that 308 to a canonical page, or a page whose
+// canonical lives elsewhere. Links built from the graph point straight at the
+// final URL; the node and its anchor text stay as they are.
+const FINAL_HREF: Readonly<Record<string, string>> = {
+  "/services/lead-generation-engine": "/services/lead-generation",
+  "/services/customer-acquisition-accelerator": "/services/customer-acquisition",
+  "/services/api-integration-services": "/services/api-integration",
+  "/services/mobile-applications-development": "/services/mobile-apps-development",
+  "/aeo/best-marketing-agency-malta": "/insights/best-marketing-agencies-malta",
+};
+
+export function finalHref(path: string): string {
+  return FINAL_HREF[path] ?? path;
+}
+
 const NODES: LinkNode[] = [
   // ── Pillars ────────────────────────────────────────────────────────────
   {

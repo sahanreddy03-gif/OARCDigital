@@ -9,17 +9,17 @@ import RelatedServices from "@/components/RelatedServices";
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import TrustBlock from "@/components/seo/TrustBlock";
 
-const heroImage = "/attached_assets/2_1763228440277.jpg";
+const heroImage = "/images/services/woman-working-on-laptop.webp";
 
 const imageObjectSchema = {
   "@context": "https://schema.org",
   "@type": "ImageObject",
   name: "Professional sales representative working on AI-powered outbound sequences for qualified meeting booking",
   description: "An AI SDR agent running 24/7 outbound prospecting across email and LinkedIn, qualifying leads and booking meetings into your closers' calendars automatically.",
-  url: "https://oarcdigital.com/attached_assets/2_1763228440277.jpg",
-  width: 1200,
-  height: 800,
-  contentUrl: "https://oarcdigital.com/attached_assets/2_1763228440277.jpg",
+  url: "https://oarcdigital.com/images/services/woman-working-on-laptop.webp",
+  width: 1600,
+  height: 2400,
+  contentUrl: "https://oarcdigital.com/images/services/woman-working-on-laptop.webp",
 };
 
 const sequenceSteps = [

@@ -111,8 +111,7 @@ const GRAPH = {
       "@id": `${URL}#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://oarcdigital.com/" },
-        { "@type": "ListItem", position: 2, name: "Insights", item: "https://oarcdigital.com/insights" },
-        { "@type": "ListItem", position: 3, name: "OARC Digital", item: URL },
+        { "@type": "ListItem", position: 2, name: "OARC Digital", item: URL },
       ],
     },
     {

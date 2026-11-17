@@ -62,7 +62,7 @@ const DEFAULT_RELATED = [
   },
   {
     title: "Marketing strategy",
-    href: "/services/marketing-strategy",
+    href: "/services/growth-strategy",
     description:
       "Channel mix, positioning, and the operating model behind every benchmark in our reports.",
   },

@@ -530,7 +530,7 @@ export default function DigitalMarketingMalta() {
                     <div className="mt-20 pt-10 border-t">
                         <h3 className="text-xl font-bold mb-6 text-muted-foreground">Read Next</h3>
                         <div className="grid md:grid-cols-2 gap-6">
-                            <Link href="/blog/seo-malta-guide">
+                            <Link href="/blog/seo-malta-complete-guide">
                                 <div className="group cursor-pointer border rounded-xl p-6 hover:bg-muted/50 transition-colors">
                                     <h4 className="font-bold text-lg mb-2 group-hover:text-blue-500 transition-colors">How to Rank #1 on Google in Malta</h4>
                                     <p className="text-sm text-muted-foreground">The definitive local SEO guide for 2025.</p>

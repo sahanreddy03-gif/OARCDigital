@@ -24,9 +24,9 @@ import {
 import RelatedServices from '@/components/RelatedServices';
 import { NAP } from '@/lib/seo/nap';
 
-const mvpMobileScreens = "/attached_assets/generated_images/mvp_mobile_app_prototype_screens.png";
-const mvpDashboard = "/attached_assets/generated_images/saas_mvp_dashboard_interface.png";
-const mvpProcess = "/attached_assets/generated_images/mvp_development_process_diagram.png";
+const mvpMobileScreens = "/images/optimized/mvp-mobile-app-screens.webp";
+const mvpDashboard = "/images/optimized/saas-mvp-dashboard.webp";
+const mvpProcess = "/images/optimized/mvp-development-process.webp";
 
 export default function MVPSoftwareDevelopment() {
   useEffect(() => {

@@ -393,7 +393,7 @@ export default function Immersive3DAR() {
               </div>
             </Link>
 
-            <Link href="/services/social-media-creative">
+            <Link href="/services/social-media-creative-management">
               <div className="group p-8 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-[#23AACA] hover:shadow-xl transition-all duration-300 cursor-pointer" data-testid="related-service-creative-pillar">
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-xl font-bold text-white group-hover:text-[#23AACA] transition-colors">Creative Production</h3>

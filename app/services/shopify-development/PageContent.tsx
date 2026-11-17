@@ -12,17 +12,17 @@ import TrustBlock from "@/components/seo/TrustBlock";
 import { NAP } from "@/lib/seo/nap";
 const SCHEMA = SERVICE_SCHEMAS["shopify-development"];
 
-const shopifyHeroImage = "/attached_assets/9_1763228440281.jpg";
+const shopifyHeroImage = "/images/services/business-team-celebrating.webp";
 
 const shopifyImageObjectSchema = {
   "@context": "https://schema.org",
   "@type": "ImageObject",
   name: "Shopify eCommerce store product page and checkout — built to convert browsers into buyers for Malta DTC brands",
   description: "A high-converting Shopify storefront with optimised product pages, abandoned-cart recovery, and EU VAT compliance — built for Malta and EU retailers that intend to scale.",
-  url: "https://oarcdigital.com/attached_assets/9_1763228440281.jpg",
-  width: 1200,
-  height: 800,
-  contentUrl: "https://oarcdigital.com/attached_assets/9_1763228440281.jpg",
+  url: "https://oarcdigital.com/images/services/business-team-celebrating.webp",
+  width: 1920,
+  height: 1280,
+  contentUrl: "https://oarcdigital.com/images/services/business-team-celebrating.webp",
 };
 
 const shopifyFaqPageSchema = {

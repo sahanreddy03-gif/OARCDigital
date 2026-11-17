@@ -31,7 +31,7 @@ const CUSTOM = [
   { label: "E-commerce", href: "/services/ecommerce-development" },
   { label: "Shopify", href: "/services/shopify-development" },
   { label: "WordPress", href: "/services/wordpress-development" },
-  { label: "API & integrations", href: "/services/api-integration-services" },
+  { label: "API & integrations", href: "/services/api-integration" },
   { label: "Marketing automation", href: "/services/marketing-automation-suite" },
   { label: "Databases", href: "/services/database-design" },
   { label: "DevOps & hosting", href: "/services/devops-services" },

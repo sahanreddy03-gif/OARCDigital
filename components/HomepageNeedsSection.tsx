@@ -31,7 +31,7 @@ const NEEDS = [
     title: "Answer every enquiry in seconds",
     tone: "cobalt",
     text: "AI receptionist for WhatsApp, calls, DMs and email.",
-    href: "/tom",
+    href: "/voice-ai-worker",
     image: "/attached_assets/generated_images/oarc-dept-enquiries.jpg",
   },
   {

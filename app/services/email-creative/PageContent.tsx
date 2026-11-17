@@ -10,7 +10,7 @@ import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import RelatedServices from "@/components/RelatedServices";
-const heroImage = "/attached_assets/email craetion_1763085804635.avif";
+const heroImage = "/attached_assets/13_1763083221536.avif";
 
 const emailCreativeFAQs: FAQItem[] = [
   { question: "What email design services do you offer?", answer: "Custom templates, campaign designs, automation sequences, newsletters, and transactional emails. Beautiful emails that convert." },

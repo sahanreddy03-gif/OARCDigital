@@ -281,7 +281,7 @@ export default function VideoProduction() {
             <div className="space-y-4">
               {[
                 { title: "Web Design", desc: "Embed your video content in high-converting landing pages and product showcases that turn viewers into customers.", link: "/services/web-design" },
-                { title: "Social Media Creative", desc: "Repurpose your video content into scroll-stopping social assets optimized for Instagram, TikTok, LinkedIn, and Facebook.", link: "/services/social-media-management/content-creation" },
+                { title: "Social Media Creative", desc: "Repurpose your video content into scroll-stopping social assets optimized for Instagram, TikTok, LinkedIn, and Facebook.", link: "/services/social-media-creative-management" },
                 { title: "Paid Advertising", desc: "Run your video ads with strategic targeting across Meta, YouTube, and TikTok to maximize reach and conversions.", link: "/services/paid-advertising" },
               ].map((service, i) => (
                 <Link key={i} href={service.link}>
