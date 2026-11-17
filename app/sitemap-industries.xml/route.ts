@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
 import { industryHubSlugs } from "@/shared/seoConfig";
 import { INDUSTRY_HUBS_PENDING_CONTENT, NOINDEX_INDUSTRY_HUB_SLUGS } from "@/lib/seo/seoSets";
 import {
@@ -21,6 +23,12 @@ export const revalidate = false;
 // advertising noindexed pages is a sitemap honesty violation).
 // Currently: INDUSTRY_HUBS_PENDING_CONTENT has 4 slugs; NOINDEX_INDUSTRY_HUB_SLUGS
 // is empty (all active hubs score KEEP). Audit: .local/seo/programmatic-audit.md §2
+// Hubs with their own folder (e.g. app/industries/fintech) don't use the
+// [industry] template or HUB_INTRO_DATE, so date them by their own files.
+function hasOwnPage(slug: string): boolean {
+  return existsSync(path.join(process.cwd(), "app", "industries", slug, "page.tsx"));
+}
+
 export function buildEntries(): UrlEntry[] {
   return [
     {
@@ -39,7 +47,9 @@ export function buildEntries(): UrlEntry[] {
       loc: `${SITE_BASE}/industries/${slug}`,
       // Honest per-slug intro date keeps the rollout cadence visible to
       // crawlers and survives shared-template edits without flagging.
-      lastmod: HUB_INTRO_DATE[slug] ?? lastmodForPath("app/industries/[industry]/page.tsx"),
+      lastmod: hasOwnPage(slug)
+        ? lastmodForPath(`app/industries/${slug}`)
+        : HUB_INTRO_DATE[slug] ?? lastmodForPath("app/industries/[industry]/page.tsx"),
       changefreq: "monthly" as const,
       priority: 0.7,
     })),

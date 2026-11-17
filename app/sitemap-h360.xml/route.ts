@@ -1,7 +1,6 @@
 import { H360_PATHS, h360SourcePath } from "@/lib/seo/h360Paths";
 import {
   SITE_BASE,
-  DEPLOY_BASELINE,
   lastmodForPath,
   urlsetXml,
   xmlResponse,
@@ -11,8 +10,9 @@ import {
 export const dynamic = "force-static";
 export const revalidate = false;
 
-function dateFor(entry: (typeof H360_PATHS)[number]): string {
-  return lastmodForPath(h360SourcePath(entry)) || DEPLOY_BASELINE;
+// Real change date or none: no made-up fallback date.
+function dateFor(entry: (typeof H360_PATHS)[number]): string | undefined {
+  return lastmodForPath(h360SourcePath(entry));
 }
 
 export function buildEntries(): UrlEntry[] {

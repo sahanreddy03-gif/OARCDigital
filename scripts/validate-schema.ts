@@ -110,13 +110,13 @@ const CANONICAL_60: CanonicalPage[] = [
   { url: "/intelligence", tier: "P2", expects: "shell" },
   { url: "/diagnostics", tier: "P2", expects: "shell" },
   { url: "/automation", tier: "P2", expects: "pillar" },
-  { url: "/enterprise", tier: "P2", expects: "shell" },
   { url: "/roadmap-2026", tier: "P2", expects: "shell" },
   { url: "/pdf-hub", tier: "P2", expects: "shell" },
 ];
 
 // Sanity gate: refuse to run if the core list is accidentally gutted or
-// duplicated. It is 59 since /case-studies was retired (3ac8b5bd); retiring a
+// duplicated. It is 58 since /case-studies (3ac8b5bd) and /enterprise (308 to
+// /services in vercel.json) were retired; retiring a
 // core URL is legitimate, so the gate checks a range, not an exact 60.
 const coreUrls = CANONICAL_60.map((c) => c.url);
 if (CANONICAL_60.length < 55 || CANONICAL_60.length > 60 || new Set(coreUrls).size !== coreUrls.length) {

@@ -11,6 +11,12 @@ import { NOINDEX_AEO_SLUGS } from "@/lib/seo/seoSets";
 export const dynamic = "force-static";
 export const revalidate = false;
 
+// AEO pages whose canonical points at another URL. A sitemap must list only
+// canonical URLs, so these stay out.
+//  - best-marketing-agency-malta -> /insights/best-marketing-agencies-malta
+//    (consolidated 2026-09-13; see that page's metadata)
+const CANONICALIZED_AEO_SLUGS = new Set<string>(["best-marketing-agency-malta"]);
+
 // Exported so lib/seo/sitemapSources.ts derives the index lastmod from
 // the same entries the GET handler serves.
 //
@@ -20,7 +26,7 @@ export const revalidate = false;
 export async function buildEntries(): Promise<UrlEntry[]> {
   const slugs = await listRouteSlugs("app/aeo");
   return slugs
-    .filter((slug) => !NOINDEX_AEO_SLUGS.has(slug))
+    .filter((slug) => !NOINDEX_AEO_SLUGS.has(slug) && !CANONICALIZED_AEO_SLUGS.has(slug))
     .map((slug) => ({
       loc: `${SITE_BASE}/aeo/${slug}`,
       lastmod: lastmodForPath(`app/aeo/${slug}`),
