@@ -40,6 +40,12 @@ const nextConfig = {
       './*.jpg',
       './.claude/**',
       './.local/**',
+      // The root package.json says "type": "module". Once the sitemap functions
+      // got small, Vercel bundled them into the same function as the
+      // /malta/[location]/... pages. Their trace brought this file along, so
+      // Node read page.js as an ES module and every matrix page returned 500
+      // (ERR_REQUIRE_ESM, Nov 2026). Nothing reads it at runtime.
+      './package.json',
     ],
   },
   allowedDevOrigins: [
