@@ -60,6 +60,9 @@ export default function InstagramMarketingMalta({ faqs, offers }: Props) {
               Instagram is the single highest-leverage discovery channel for Malta&apos;s consumer-facing brands and it has been since the platform began prioritising Reels in 2022. A 4.5 million-overnight-tourist economy compounds inside that algorithm — every visitor saves restaurants, beach clubs, gelaterias, boutique hotels, and creator recommendations to a Sliema or St Julians or Valletta location tag, and the next wave of arrivals scrolls those same tags two weeks before they fly. Malta-resident discovery layers on top: Tigne Point retail circles, Strand cafe gossip, Paceville new openings, Mellieha summer pop-ups. The brands that dominate location tags compound bookings month after month.
             </p>
             <p className="text-foreground leading-relaxed mb-4">
+              Instagram is one channel. <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">OARC Digital</Link> runs it together with your ads, website and customer care, as one marketing agency in Malta.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
               OARC Digital runs Instagram for Malta clients across hospitality, retail, beauty, wellness, and the local creator economy. We have shot Reels in Maison La Valletta back rooms before service, ran Meta Ads for Sliema retail brands during the Christmas window, and produced product carousels for Birkirkara CBD beauty studios that sold out launches in 48 hours. The pattern that delivers is simple — Reels-first cadence, save-engineered carousels, daily story presence, and a paid amplification budget that re-deploys weekly to whichever organic post broke out first.
             </p>
             <p className="text-foreground leading-relaxed">

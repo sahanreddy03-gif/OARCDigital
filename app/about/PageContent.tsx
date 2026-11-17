@@ -50,6 +50,9 @@ export default function PageContent() {
             ads freelancer, and a CRM consultant from three different cities.
             That stitching is where the work breaks.
           </p>
+          <p className="text-base text-white/60 leading-relaxed mb-4">
+            Founded in 2023, we are a full <Link href="/" className="text-white underline underline-offset-4" data-testid="link-home-context">marketing agency in Malta</Link>, working from {NAP.addressLocality}.
+          </p>
           <p className="text-base text-white/60 leading-relaxed">
             We work out of Level 1 of The Brewhouse in {NAP.addressLocality}
             &nbsp;CBD — a five-minute walk from Mriehel, ten from Mosta — so

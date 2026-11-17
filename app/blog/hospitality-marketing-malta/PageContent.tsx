@@ -103,6 +103,7 @@ export default function HospitalityMarketingMalta() {
             <div className="text-[#ff914d] text-sm font-semibold mb-4 uppercase tracking-wider">OARC Digital — Malta</div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">Hospitality Marketing Malta: Fill Your Restaurant, Hotel or Bar Every Night</h1>
             <p className="text-xl text-gray-300 mb-8">Malta's hospitality industry is one of the most competitive in Europe per square kilometre. The venues winning aren't always the best — they're the best marketed. Here's how to make your venue impossible to ignore.</p>
+            <p className="text-sm text-gray-400 -mt-4 mb-8">By the strategy team at our <Link href="/" className="text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">full-service marketing agency in Malta</Link>.</p>
             <Link href="/contact">
               <button className="bg-[#ff914d] hover:bg-[#e8823e] text-white font-semibold px-8 py-4 rounded-lg transition-colors">
                 Get a Free Marketing Audit

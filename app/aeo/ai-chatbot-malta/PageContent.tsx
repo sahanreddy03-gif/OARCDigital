@@ -65,6 +65,9 @@ export default function AIChatbotMalta({ faqs, offers }: Props) {
               The first wave of chatbot tools that Malta SMEs adopted — flowchart builders, intent-keyword bots, the dropdown-menu widgets bundled into Wix and Squarespace — failed for the same three reasons every time. They could not handle code-switched Maltese and English. They had no idea what was on the operator&apos;s actual menu, policy document, or knowledge base, so they answered every off-script question with a generic apology and a request to email someone. And they never crossed the surfaces customers actually use, leaving the website widget orphaned while the WhatsApp number went unanswered.
             </p>
             <p className="text-foreground leading-relaxed mb-4">
+              The chatbot is built by the AI and tech team at <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
               OARC Digital builds the opposite of that. Every bot we ship is a retrieval-augmented generation (RAG) system trained on the operator&apos;s actual content — menus from Sliema bistros, Cloudbeds knowledge base for hotels in St Julians, MFSA policy documents for Birkirkara fintechs, MGA-aligned terms for iGaming operators in Ta&apos; Xbiex. The bot answers from real content, cites the source where the user wants to verify, and falls back to human escalation when intent, sentiment, or risk crosses a threshold defined in the system prompt.
             </p>
             <p className="text-foreground leading-relaxed">

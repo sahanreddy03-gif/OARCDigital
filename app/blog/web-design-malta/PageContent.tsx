@@ -43,9 +43,9 @@ export default function WebDesignMalta() {
             <p className="text-xl text-zinc-300 leading-relaxed">
               Most Malta businesses overpay for websites they don't need, or underpay for websites that quietly kill their credibility. Here's how to navigate the market in 2026.
             </p>
-            <div className="flex items-center gap-4 mt-8 text-sm text-zinc-400">
-              <span>By OARC Digital</span>
-              <span>·</span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-8 text-sm text-zinc-400">
+              <span className="w-full sm:w-auto">By the web team at <Link href="/" className="text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a digital agency in Malta</span>
+              <span className="hidden sm:inline">·</span>
               <span>March 2026</span>
               <span>·</span>
               <span>10 min read</span>

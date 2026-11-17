@@ -60,6 +60,9 @@ export default function ContentCreationMalta({ faqs, offers }: Props) {
               The single biggest mistake imported content templates make in Malta is treating the country as English-only. Roughly 60 percent of residents respond more strongly to Maltese-language creative for B2C categories — particularly hospitality, retail, automotive, home services, and family-led F&amp;B. A Reel about a Mosta bakery scripted in Maltese will outperform the same Reel in English by a wide margin in the local feed, while a luxury hotel in St Julians will need its content in English to reach the inbound tourist audience and a third Italian-language cut for the Sicilian-day-trip market.
             </p>
             <p className="text-foreground leading-relaxed mb-4">
+              Content is one of 8 departments at <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">OARC Digital</Link>, a marketing agency in Malta. One team plans it, films it and posts it.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
               OARC Digital plans every brief around that reality. Our writers work in both Maltese and English natively, and every deliverable goes through a native-speaker review before it lands in your scheduler. We use the right idiom for the right audience — formal Maltese for civic and B2B, casual code-switched bilingual for Gen-Z social, polished English for tourist-facing and B2B SaaS, Italian where the audience justifies the lift.
             </p>
             <p className="text-foreground leading-relaxed">

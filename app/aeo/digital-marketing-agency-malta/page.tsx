@@ -7,7 +7,8 @@ import RouteSchema from "@/components/RouteSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 
-const TITLE = "Digital Marketing Agency Malta | €500 a month team | OARC";
+const TITLE = "Digital Marketing Agency Malta | Your Marketing & Sales Team | OARC";
+const SCHEMA_NAME = "Digital Marketing Agency Malta";
 const DESCRIPTION =
   "A digital marketing agency in Malta. Your one digital growth partner for €500 a month. We come to you in Birkirkara. No contract.";
 const URL = "https://oarcdigital.com/aeo/digital-marketing-agency-malta";
@@ -75,7 +76,7 @@ const faqs = [
   },
   {
     question: "Where is OARC Digital?",
-    answer: `${NAP.streetAddress}, ${NAP.addressLocality} ${NAP.postalCode}, Malta. WhatsApp ${NAP.phoneDisplay}. Email ${NAP.email}.`,
+    answer: `${NAP.streetAddress}, ${NAP.addressLocality} ${NAP.postalCode}, Malta. WhatsApp ${NAP.phoneDisplay}. Email ${NAP.email}. More about OARC Digital.`,
   },
 ];
 
@@ -169,7 +170,7 @@ export default function Page() {
       <RouteSchema
         type="service"
         path="/aeo/digital-marketing-agency-malta"
-        title={TITLE}
+        title={SCHEMA_NAME}
         description={DESCRIPTION}
         faqs={faqs}
         offers={offers}

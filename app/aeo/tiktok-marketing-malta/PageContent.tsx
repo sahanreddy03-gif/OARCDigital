@@ -60,6 +60,9 @@ export default function TikTokMarketingMalta({ faqs, offers }: Props) {
               TikTok is the platform where a brand-new account in Marsaskala can hit a million views with a single well-cut Reel and a brand opening its sixth Sliema location can post for a year and never break thirty thousand. The For You algorithm is brutally meritocratic about watch-time, and Malta is one of the few EU markets where the supply side has not yet saturated. There are still entire verticals — Maltese-language home cooking, Gozo agritourism, MFSA-licensed fintech explainers, MGA-licensed B2B iGaming — where ten well-shipped TikToks would put you above every competitor on the island.
             </p>
             <p className="text-foreground leading-relaxed mb-4">
+              TikTok works best as part of one plan. We are a <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">marketing agency in Malta</Link> with 8 departments, so your TikTok, ads and website pull the same way.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
               The other unique lever for Malta is tourist-creator volume. Roughly 4.5 million overnight visitors arrive every year, including a meaningful slice of UK, German, Italian, and Scandinavian creators with audiences in the tens to hundreds of thousands. The brands that have systematically captured those creators — beach clubs in St Julians, rooftop restaurants in Valletta, dive centres in Marsaskala, gelaterias in Sliema — get organic mid-funnel content from foreign accounts that compounds into bookings the following month. OARC Digital runs that pipeline as a deliberate retainer line item, not a hopeful side bet.
             </p>
             <p className="text-foreground leading-relaxed">
