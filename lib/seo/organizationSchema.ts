@@ -52,7 +52,6 @@ export const ORG_SAMEAS: readonly string[] = Object.freeze([
   "https://www.instagram.com/oarcdigital/",
   "https://www.facebook.com/923192157540623",
   "https://x.com/oarcdigital",
-  "https://www.linkedin.com/in/sahanoarcdigital",
   "https://www.linkedin.com/company/oarc-digital",
   "https://www.youtube.com/@oarcdigital",
   "https://www.tiktok.com/@oarc.digital",
@@ -72,7 +71,6 @@ export const ORG_SAMEAS: readonly string[] = Object.freeze([
   "https://theresanaiforthat.com/ai/oarc-digital-ai-workforce-agents/",
   "https://toolhunt.io/oarc-digital-ai-workforce-agents/",
   "https://huntscreens.com/products/oarc-digital-ai-workforce-agents",
-  "https://cal.com/oarc-digital-srwvnv",
 ]);
 
 /**
