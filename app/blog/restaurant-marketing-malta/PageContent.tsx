@@ -49,9 +49,9 @@ export default function RestaurantMarketingMalta() {
             <p className="text-xl text-zinc-300 leading-relaxed">
               Malta has 3,300+ restaurants and food venues competing for 500,000 locals and 2.3 million tourists. The ones that are consistently full are not just cooking better food. They are marketing smarter.
             </p>
-            <div className="flex items-center gap-4 mt-8 text-sm text-zinc-400">
-              <span>By OARC Digital</span>
-              <span>·</span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-8 text-sm text-zinc-400">
+              <span className="w-full sm:w-auto">By the strategy team at our <Link href="/" className="text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">Malta marketing agency</Link></span>
+              <span className="hidden sm:inline">·</span>
               <span>March 2026</span>
               <span>·</span>
               <span>13 min read</span>

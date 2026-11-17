@@ -60,6 +60,9 @@ export default function CRMAutomationMalta({ faqs, offers }: Props) {
               Walk into a typical Malta professional-services firm, fintech sales floor, hospitality group, or trades business and you will find the sales pipeline living inside an Excel sheet on someone&apos;s laptop, a WhatsApp group, an inbox folder, and three Post-it notes on a monitor. Lead source attribution is anecdotal. Win rates are guessed at the end of the quarter. The owner only finds out a deal has stalled when the prospect goes quiet for three weeks. Every Maltese SMB owner who runs sales this way knows the cost — they just have no time to fix it.
             </p>
             <p className="text-foreground leading-relaxed mb-4">
+              CRM is one piece. <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">OARC Digital</Link> is a digital and AI agency in Malta, so the same team builds your system and brings in the customers who fill it.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
               OARC Digital installs and operates the right CRM for the size and shape of your sales motion. Pipedrive for B2B sales-led teams of 3 to 30 reps who need a clean Kanban pipeline and minimal feature noise. HubSpot for SMBs who need CRM plus marketing plus customer service in one place with proper reporting. Zoho Bigin for the smallest Malta operators (under 10 users) who want a real CRM under €15 per user per month. We are platform-agnostic — the recommendation depends on your sales process, not our partner margins.
             </p>
             <p className="text-foreground leading-relaxed">

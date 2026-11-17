@@ -60,6 +60,9 @@ export default function AIAgentsBusinessMalta({ faqs, offers }: Props) {
               Malta&apos;s labour market is the tightest in the EU. A senior support specialist who can handle Maltese, English and Italian costs €30–45k a year and takes three to four months to recruit, onboard and become net-productive. A capable SDR for a B2B fintech selling into Frankfurt or Milan costs more again and tends to leave inside eighteen months for a London-paying competitor. The maths simply does not work for most Malta SMEs trying to scale below €5m in revenue.
             </p>
             <p className="text-foreground leading-relaxed mb-4">
+              AI agents are built by the tech team at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">digital and AI agency in Malta</Link>.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
               That gap is exactly where role-based AI agents earn their place. We see the same brief over and over again from Sliema retailers, St Julians hospitality groups, Ta&apos; Xbiex iGaming operators and Birkirkara professional-services firms: take the work that absorbs forty hours a week of someone&apos;s time but does not require human judgement &mdash; tier-1 support, inbound booking enquiries, outbound first-touch, supplier chasing, invoice triage &mdash; and put it on an AI agent that runs 24/7 on a single fixed monthly cost.
             </p>
             <p className="text-foreground leading-relaxed">

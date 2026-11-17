@@ -72,6 +72,9 @@ export default function SocialMediaAgencyMalta({ faqs, offers }: Props) {
               The agencies that fail in Malta usually fail for the same reason — they treat the islands as a single 540,000-person market and run one creative formula across every brand. The reality is that Malta has at least four distinct social audiences sharing the same postcode prefix. Sliema and St Julians shoppers behave like Lisbon or Barcelona on Instagram and answer Reels in English. Birkirkara, Mosta, Qormi, and Paola families still scroll Facebook on Sunday afternoons and respond to Maltese-language creative. Gen-Z residents and short-stay tourists live on TikTok and have zero patience for a still-image carousel. MFSA-licensed fintech buyers and iGaming B2B partners only show up on LinkedIn.
             </p>
             <p className="text-foreground leading-relaxed mb-4">
+              Social media is one department. Behind it is a <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">full-service marketing agency in Malta</Link>: strategy, film, design, ads, web and AI in one team.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
               OARC Digital has run paid and organic social for Malta brands across every one of those audience pools since 2023. The retainers we ship pull live performance data from Meta Business Suite, TikTok Ads Manager, and LinkedIn Campaign Manager weekly, then re-cut creative the same week if the algorithm signals a shift. That is the mechanical advantage of running production and media buying inside the same Birkirkara office — there is no agency-of-record handoff, no waiting on a creative agency to fix the asset before the media buyer can re-launch.
             </p>
             <p className="text-foreground leading-relaxed">

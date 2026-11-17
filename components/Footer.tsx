@@ -55,11 +55,11 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
                 <em className="text-[#F9FF84]">more customers.</em>
               </h2>
               <p className="mt-6 max-w-lg text-lg text-zinc-400 leading-relaxed">
-                Book a 20-minute call or send us a WhatsApp. You talk to the people who will do the work, in {NAP.addressLocality}, Malta.
+                Book a consultation call or send us a WhatsApp. You talk to the people who will do the work, in {NAP.addressLocality}, Malta.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href={bookingUrl("footer")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full bg-[#F5F3EE] px-7 py-4 text-base font-semibold text-[#0E0E0E] transition-opacity hover:opacity-90" data-testid="button-footer-cta">
-                  Book a 20-minute call
+                  Book a consultation call
                 </a>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-4 text-base font-semibold text-[#F5F3EE] transition-colors hover:bg-white/10" data-testid="button-footer-whatsapp">
                   <SiWhatsapp className="h-5 w-5" /> WhatsApp us

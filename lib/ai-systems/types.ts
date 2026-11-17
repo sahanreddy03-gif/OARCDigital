@@ -72,8 +72,9 @@ export interface AiSystemContent {
   serviceType: string;
   schemaDescription: string;
   hub: { title: string; body: string; gain: string };
-  /** Deployment proof, supplied by the owner. line = full sentence, short = phone width. */
-  proof: { line: string; short: string };
+  /** Deployment proof, supplied by the owner. line = full sentence, short = phone width.
+   *  Leave it out until the owner confirms a real count for this industry. */
+  proof?: { line: string; short: string };
   /** Self-playing demo in the hero. */
   film: { title: string; scenes: FilmScene[] };
   /** Put the practice-area table on a white band (long pages). */

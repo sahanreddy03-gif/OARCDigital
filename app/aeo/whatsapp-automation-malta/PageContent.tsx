@@ -67,6 +67,9 @@ export default function WhatsAppAutomationMalta({ faqs, offers }: Props) {
               In Malta WhatsApp is not a marketing channel — it is the channel. Roughly 90% of internet-using adults message on WhatsApp daily, restaurants take Friday-night reservations on it, plumbers run their entire dispatch on it, MFSA-licensed real-estate firms send viewing confirmations on it, and hotel concierges field guest requests on it long after the front desk has gone quiet. Anyone trying to convert customers in Malta with email-only flows or web-form-only enquiries is leaking pipeline to operators that simply replied on WhatsApp at the moment of intent.
             </p>
             <p className="text-foreground leading-relaxed mb-4">
+              WhatsApp automation is built by our AI and tech department. See everything our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">digital agency in Malta</Link> does.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
               The problem is that the volume becomes unmanageable. A mid-sized Sliema restaurant fielding 80 daily WhatsApp messages between bookings, takeaway, allergen questions, and lost-property requests will burn one full headcount on triage alone. A Mellieha hotel with 30 rooms answers the same five pre-arrival questions three thousand times a year. The honest answer is not to abandon WhatsApp — it is to build proper automation on Meta&apos;s WhatsApp Business API so your team only sees the conversations that need a human.
             </p>
             <p className="text-foreground leading-relaxed">

@@ -59,6 +59,9 @@ export default function VideoProductionMalta({ faqs, offers }: Props) {
               The standard Malta video brief still arrives the same way it did in 2018: pick a videographer, shoot a single hero film, post it on YouTube, hope for a viral moment that never comes. The result is a beautifully colour-graded 90-second piece that earns 800 views, no purchases, and no reason to commission another. We see this pattern almost weekly when new clients walk into the Brewhouse showing us last year&apos;s production reel and asking why it stopped working.
             </p>
             <p className="text-foreground leading-relaxed mb-4">
+              Our film crew is part of <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">OARC Digital</Link>, a marketing agency in Malta. So every video is made to bring customers, not just views.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
               The platforms have moved. Instagram Reels, TikTok and YouTube Shorts now drive the lion&apos;s share of consumer attention in Malta &mdash; particularly in Sliema and St Julians retail, in F&amp;B, in tourism, in iGaming brand work. Meta Ads Manager and TikTok Ads Manager reward sub-3-second hooks, hard cuts, native captions, multiple variants per concept. The 90-second hero film that wins on the festival circuit is the worst possible opening for a paid auction. The two skills are no longer the same skill.
             </p>
             <p className="text-foreground leading-relaxed">

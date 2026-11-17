@@ -59,6 +59,9 @@ export default function MarketingAgencyMosta({ faqs, offers }: Props) {
               Mosta is one of Malta&apos;s largest towns by population and one of the densest by household count. The catchment is overwhelmingly resident-driven — families, working couples, retirees, and a growing third-country-national community along the Targa Gap and Triq Tumas Chetcuti corridors. Tourist footfall exists around the Rotunda but does not drive most local business revenue. That fundamentally changes how marketing for Mosta businesses needs to work.
             </p>
             <p className="text-foreground leading-relaxed mb-4">
+              This page is for Mosta businesses. For everything we do, see <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">OARC Digital, our marketing agency in Malta</Link>.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
               In Sliema, Instagram outperforms Facebook for almost every consumer category. In Mosta the inverse is true: Facebook still dominates for the family-resident demographic, especially for hospitality, home services, automotive, and trade categories. Maltese-language creative outperforms English for most of the catchment. WhatsApp lead capture works because almost every Mosta consumer uses it daily.
             </p>
             <p className="text-foreground leading-relaxed">

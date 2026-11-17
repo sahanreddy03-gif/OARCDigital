@@ -64,6 +64,7 @@ export default function ReputationManagementMalta() {
             <p className="text-xl text-gray-300 mb-8">
               In Malta's small, interconnected community, your online reputation travels fast. Here is how to build it deliberately, protect it proactively, and recover from it quickly.
             </p>
+            <p className="text-sm text-gray-400 -mt-4 mb-8">By the customer care team at <Link href="/" className="text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a full-service marketing agency in Malta.</p>
             <Link href="/contact">
               <button className="bg-[#ff914d] hover:bg-[#e8823e] text-white font-semibold px-8 py-4 rounded-lg transition-colors">
                 Get a Free Strategy Session

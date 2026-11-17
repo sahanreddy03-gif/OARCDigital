@@ -64,6 +64,7 @@ export default function GoogleAdsMalta() {
             <p className="text-xl text-gray-300 mb-8">
               Most Malta businesses running Google Ads are wasting 40–60% of their budget on the wrong keywords, wrong audiences, and wrong landing pages. Here is how to fix it.
             </p>
+            <p className="text-sm text-gray-400 -mt-4 mb-8">By the performance marketing team at <Link href="/" className="text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a marketing agency in Malta.</p>
             <Link href="/contact">
               <button className="bg-[#ff914d] hover:bg-[#e8823e] text-white font-semibold px-8 py-4 rounded-lg transition-colors">
                 Get a Free Strategy Session

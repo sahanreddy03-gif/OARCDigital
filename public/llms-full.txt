@@ -42,6 +42,15 @@ The canonical entry order for AI answer engines and people discovering OARC Digi
 - [AI systems by industry](https://oarcdigital.com/ai): One AI system built around your industry. It answers every enquiry, does the admin and tracks every deadline. Built and run by OARC's team in Malta.
 - [AI for law firms in Malta](https://oarcdigital.com/ai/law-firms): The AI system built around a law firm. It files every document, tracks every deadline, drafts from your templates and bills your time. You sign off.
 - [AI for real estate agencies in Malta](https://oarcdigital.com/ai/real-estate): The AI system built around a real estate agency. It answers every enquiry, finds owners ready to list, tracks every lease and does the admin.
+- [AI for clinics in Malta](https://oarcdigital.com/ai/clinics): The AI system built around your clinic in Malta. It answers patients day and night, fills cancelled slots, books check-ups and files letters. Doctors decide.
+- [AI for hotels in Malta](https://oarcdigital.com/ai/hotels): The AI system built around your hotel in Malta. It answers every guest day and night, books them direct, quotes groups fast and does the back office. You decide.
+- [AI for restaurants in Malta](https://oarcdigital.com/ai/restaurants): The AI system built around your restaurant in Malta. It answers every call and message, books every table, brings guests back and does the admin. You decide.
+- [AI for tour operators in Malta](https://oarcdigital.com/ai/tourism): The AI system built around your tourism business in Malta. It answers every guest day and night, fills empty seats, re-plans weather days and builds group quotes.
+- [AI for schools in Malta](https://oarcdigital.com/ai/education): The AI system built around your school in Malta. It answers every enquiry, collects student documents, chases fees and tracks visa dates. Your staff decide.
+- [AI for iGaming operators in Malta](https://oarcdigital.com/ai/igaming-operators): The AI system built around your casino or sportsbook in Malta. It answers players day and night, prepares KYC and AML checks and sends risk signs to a person at once.
+- [AI for iGaming suppliers in Malta](https://oarcdigital.com/ai/igaming-suppliers): The AI system built around your B2B gaming company in Malta. It answers operator RFPs, sorts integration tickets and watches every certificate. You sign off.
+- [AI for iGaming affiliates in Malta](https://oarcdigital.com/ai/igaming-affiliates): The AI system built around your iGaming affiliate business in Malta. It checks every page against the advert rules, keeps offers current and chases commission.
+- [AI for business admin in Malta](https://oarcdigital.com/ai/business-admin): The AI system built around your business in Malta. It chases unpaid invoices, reads every bill, sorts your email and watches every deadline. You approve.
 
 ## Services: departments
 

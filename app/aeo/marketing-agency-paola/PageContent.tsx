@@ -59,6 +59,9 @@ export default function MarketingAgencyPaola({ faqs, offers }: Props) {
               Paola — Rahal Gdid in Maltese — is the commercial hub of southern central Malta. The town anchors a dense residential catchment that flows out to Tarxien, Fgura, Marsa, and into the Three Cities of Cospicua, Senglea, and Vittoriosa across the Cottonera waterfront. Total addressable population in that catchment runs to over 60,000 people — comparable to Sliema and St Julian&apos;s combined — but most of the marketing attention in Malta still concentrates on the central tourist corridor, leaving Paola visibly underserved.
             </p>
             <p className="text-foreground leading-relaxed mb-4">
+              Paola is one of many towns we work in. The whole team is at <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">OARC Digital</Link>, a marketing agency in Malta.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
               That under-served status is an opportunity. Local SEO competition for category-plus-Paola or category-plus-Three-Cities keywords is materially lower than equivalent searches for Sliema or St Julian&apos;s. Google Maps optimisation, on-page structured data, and a steady cadence of Google Business Profile posts can move a Paola business into the top three local-pack results in 3 to 5 months — half the time it would take in the central tourist corridor and at a quarter of the cost.
             </p>
             <p className="text-foreground leading-relaxed">

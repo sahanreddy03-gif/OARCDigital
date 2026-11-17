@@ -65,6 +65,7 @@ export default function EmailMarketingMalta() {
             <p className="text-xl text-gray-300 mb-8">
               While Malta businesses chase social media followers, the smartest operators are quietly building email lists that generate revenue on demand — without paying for reach.
             </p>
+            <p className="text-sm text-gray-400 -mt-4 mb-8">By the strategy team at our <Link href="/" className="text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">marketing agency in Malta</Link>.</p>
             <Link href="/contact">
               <button className="bg-[#ff914d] hover:bg-[#e8823e] text-white font-semibold px-8 py-4 rounded-lg transition-colors">
                 Get a Free Strategy Session
