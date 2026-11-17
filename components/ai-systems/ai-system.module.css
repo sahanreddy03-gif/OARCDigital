@@ -449,6 +449,7 @@
 .hubCard h2{font:400 clamp(32px,3.6vw,48px)/1.02 var(--serif);letter-spacing:-.015em;margin-top:22px}
 .hubCard p{margin-top:12px;color:var(--ink2);font-size:16.5px;max-width:40ch}
 .hubCard .gain{font-size:15px}
+.hubWide{grid-column:1/-1;min-height:220px}
 @media (max-width:760px){.hubGrid{grid-template-columns:1fr}}
 
 /* reveal on scroll: visible by default, animated only where the browser supports it */

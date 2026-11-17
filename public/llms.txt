@@ -301,6 +301,15 @@ Each Malta location is paired with these flagship services:
 - https://oarcdigital.com/ai (AI systems by industry)
 - https://oarcdigital.com/ai/real-estate (AI system for real estate agencies in Malta)
 - https://oarcdigital.com/ai/law-firms (AI system for law firms in Malta)
+- https://oarcdigital.com/ai/clinics (AI system for clinics and private hospitals in Malta)
+- https://oarcdigital.com/ai/hotels (AI system for hotels in Malta)
+- https://oarcdigital.com/ai/restaurants (AI system for restaurants in Malta)
+- https://oarcdigital.com/ai/tourism (AI system for tour operators, boat charters, diving centres and car hire in Malta)
+- https://oarcdigital.com/ai/education (AI system for schools, language schools and colleges in Malta)
+- https://oarcdigital.com/ai/igaming-operators (AI system for online casino and sportsbook operators in Malta)
+- https://oarcdigital.com/ai/igaming-suppliers (AI system for B2B iGaming suppliers, payment and KYC vendors in Malta)
+- https://oarcdigital.com/ai/igaming-affiliates (AI system for iGaming affiliates in Malta)
+- https://oarcdigital.com/ai/business-admin (AI system for the admin work of any business in Malta)
 - https://oarcdigital.com/solutions
 - https://oarcdigital.com/our-work
 - https://oarcdigital.com/contact
