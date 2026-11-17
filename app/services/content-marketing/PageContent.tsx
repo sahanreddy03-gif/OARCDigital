@@ -134,6 +134,9 @@ export default function ContentMarketingContent() {
           <p className="text-foreground leading-relaxed mb-4">
             Paid media stops the moment you turn off the budget. Social posts disappear from a feed in 48 hours. A well-written, well-structured article on the right topic ranks for years and earns leads while you sleep. That is why every serious Malta brand — hospitality groups, iGaming operators, fintechs, and professional-services firms — eventually invests in editorial as a long-term moat.
           </p>
+          <p className="text-foreground leading-relaxed mb-4">
+            Every piece is written by the editorial team at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">marketing agency in Malta</Link>.
+          </p>
           <p className="text-foreground leading-relaxed">
             The difference between content that compounds and content that gathers dust is research, voice, and distribution. OARC Digital&apos;s editorial team interviews your founders and operators, talks to real Malta buyers, and writes pieces that hold up under scrutiny — the kind a journalist or a procurement team would actually cite.
           </p>

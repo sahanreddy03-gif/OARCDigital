@@ -92,6 +92,9 @@ export default function WordPressDevelopmentContent() {
             <p className="text-foreground leading-relaxed mb-4">
               WordPress still powers more than 40% of websites globally and remains the right answer for Malta businesses that need a content-led site their own team can update — law firms, hospitality groups, real-estate agencies, news publishers, and B2B service businesses. The catch is that most Malta WordPress sites are running on a Frankenstein stack of nine page-builders, twenty-three plugins, and a theme last updated in 2019. They are slow, insecure, and impossible to redesign without starting over.
             </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              WordPress sites are built by the web team at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">digital and AI agency in Malta</Link>.
+            </p>
             <p className="text-foreground leading-relaxed">
               OARC Digital builds modern WordPress sites the right way — block-based themes, minimum plugin footprint, EU-region managed hosting, and a clear maintenance contract that prevents the rot from setting in again. The result is a site that loads in under one second, ranks well, and stays editable by your team for years.
             </p>

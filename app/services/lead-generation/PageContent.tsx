@@ -171,6 +171,9 @@ export default function LeadGeneration() {
                   Most agencies sell lead generation and deliver email-list purchases, contest entries, and gated PDF downloads. None of those translate to revenue. We sell lead generation as a qualified meeting booked into your closer's calendar — with a pre-call brief summarising who the prospect is, why they replied, and whether they pass your ICP rubric.
                 </p>
                 <p className="text-lg text-[#1a2e29]/70 mb-5 leading-relaxed">
+                  Lead generation is run by the growth team at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">digital agency in Malta</Link>.
+                </p>
+                <p className="text-lg text-[#1a2e29]/70 mb-5 leading-relaxed">
                   The economic unit is the qualified meeting. The unit cost is reported as cost-per-qualified-meeting. The leading indicator is reply rate; the lagging indicator is closed-won attribution. Anything else is a vanity metric we choose not to report.
                 </p>
                 <p className="text-lg text-[#1a2e29]/70 leading-relaxed">
