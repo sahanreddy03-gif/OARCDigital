@@ -79,10 +79,6 @@ export default function Footer({ hideGetInTouch = false }: FooterProps) {
                 <dt className="text-zinc-500">Visit</dt>
                 <dd className="text-lg text-[#F5F3EE]">{NAP.streetAddressShort}, {NAP.addressLocality}</dd>
               </div>
-              <div>
-                <dt className="text-zinc-500">Since</dt>
-                <dd className="text-lg text-[#F5F3EE]">Founded 2023 in Birkirkara, Malta</dd>
-              </div>
             </dl>
           </div>
         </div>
