@@ -1,66 +1,118 @@
-import { promises as fs } from "node:fs";
+import { promises as fs, existsSync, readFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import path from "node:path";
 
 export const SITE_BASE = "https://oarcdigital.com";
 
 /**
- * Frozen baseline date used for sitemap `lastmod` when git has no record
- * for a path (untracked file, missing path, or git unavailable in the
- * build environment). Set to the date of the merge commit shipping the
- * Tier-2/3 SEO lockdown work. Update only at major release boundaries.
+ * Legacy baseline date. No longer emitted as a sitemap `lastmod`: a made-up
+ * date is worse than none. Kept exported for older imports.
  */
 export const DEPLOY_BASELINE = "2026-04-26";
 
-const _gitDateCache = new Map<string, string>();
+const MANIFEST_PATH = "seo-manifest/lastmod.json";
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+let _manifest: Record<string, string> | null = null;
+let _shallowBoundary: Set<string> | null = null;
+const _dateCache = new Map<string, string | undefined>();
+
+/** Committed path -> date map, generated from full history by `npm run seo:lastmod`. */
+function manifestDates(): Record<string, string> {
+  if (_manifest) return _manifest;
+  try {
+    const raw = readFileSync(path.join(process.cwd(), MANIFEST_PATH), "utf8");
+    _manifest = (JSON.parse(raw) as { dates?: Record<string, string> }).dates ?? {};
+  } catch {
+    _manifest = {};
+  }
+  return _manifest;
+}
 
 /**
- * Resolve a repo-relative file or directory path to its most recent
- * git-committed change date in YYYY-MM-DD format. Falls back to
- * DEPLOY_BASELINE if git returns no date (path untracked, doesn't exist,
- * or git is unavailable).
- *
- * Build-time only — sitemap routes use `force-static` so this runs once
- * per build, never per request. Results are memoised in-process so a
- * sitemap with N URLs over K unique paths costs K git calls, not N.
- *
- * Uses `execFileSync` with array args so the path is passed directly to
- * git without going through a shell — no shell metacharacter parsing,
- * no injection surface, and Next.js dynamic-segment paths like
- * `app/industries/[industry]/page.tsx` work without sanitisation.
+ * Commits whose parents were cut off by a shallow clone (Vercel clones only
+ * the last few commits). git reports such a commit as the "last change" of
+ * every older file, so a date from it is not real.
  */
-export function lastmodForPath(repoRelativePath: string): string {
-  const cached = _gitDateCache.get(repoRelativePath);
-  if (cached) return cached;
-  let date: string = DEPLOY_BASELINE;
+function shallowBoundary(): Set<string> {
+  if (_shallowBoundary) return _shallowBoundary;
+  _shallowBoundary = new Set();
+  // Ask git rather than reading .git/shallow: a computed fs path makes the
+  // bundler trace the whole project (~244 MB) into every sitemap function.
+  // In a shallow clone the cut-off commits are the ones git reports as
+  // parentless.
+  const git = (args: string[]) =>
+    execFileSync("git", args, {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+      timeout: 5000,
+    }).trim();
+  try {
+    if (git(["rev-parse", "--is-shallow-repository"]) === "true") {
+      for (const hash of git(["rev-list", "--max-parents=0", "HEAD"]).split(/\s+/)) {
+        if (hash) _shallowBoundary.add(hash);
+      }
+    }
+  } catch {
+    // git unavailable: nothing to distrust, gitDate() fails anyway.
+  }
+  return _shallowBoundary;
+}
+
+/** Date of the last commit touching the path, or undefined if git can't tell for sure. */
+function gitDate(repoRelativePath: string): string | undefined {
   try {
     const out = execFileSync(
       "git",
-      ["log", "-1", "--format=%cd", "--date=short", "--", repoRelativePath],
+      ["log", "-1", "--format=%H %cd", "--date=short", "--", repoRelativePath],
       { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"], timeout: 5000 },
     ).trim();
-    if (/^\d{4}-\d{2}-\d{2}$/.test(out)) {
-      date = out;
-    }
+    const [hash, date] = out.split(" ");
+    if (!hash || !date || !DATE_RE.test(date)) return undefined;
+    if (shallowBoundary().has(hash)) return undefined;
+    return date;
   } catch {
-    // git unavailable, path missing, or timeout — fall back to baseline.
+    return undefined;
   }
-  _gitDateCache.set(repoRelativePath, date);
+}
+
+/**
+ * Real last-change date (YYYY-MM-DD) for a repo-relative file or directory,
+ * or `undefined` when no trustworthy date exists. Callers then omit
+ * `<lastmod>`; we never emit the build date or a made-up baseline.
+ *
+ * Sources, newest wins:
+ *  1. `seo-manifest/lastmod.json`, generated from full git history
+ *     (`npm run seo:lastmod`).
+ *  2. `git log -1 -- <path>`, ignored when the commit is a shallow-clone
+ *     boundary. This picks up pages changed after the manifest was made,
+ *     as long as the change is inside the build's clone.
+ *
+ * Build-time only: sitemap routes are `force-static`. Memoised per path.
+ * `execFileSync` with array args, so no shell and no injection surface.
+ */
+export function lastmodForPath(repoRelativePath: string): string | undefined {
+  const key = repoRelativePath.split(path.sep).join("/").replace(/\/+$/, "");
+  if (_dateCache.has(key)) return _dateCache.get(key);
+  const fromManifest = manifestDates()[key];
+  const fromGit = gitDate(key);
+  const candidates = [fromManifest, fromGit].filter((d): d is string => !!d && DATE_RE.test(d));
+  const date = candidates.length ? candidates.sort()[candidates.length - 1] : undefined;
+  _dateCache.set(key, date);
   return date;
 }
 
 /**
- * Resolve the most recent date across a set of paths. For aggregated
- * sitemap entries whose source spans many directories.
+ * Newest real date across a set of paths, for entries built from several
+ * sources. `undefined` when none of them has a trustworthy date.
  */
-export function lastmodForPaths(repoRelativePaths: string[]): string {
-  if (repoRelativePaths.length === 0) return DEPLOY_BASELINE;
-  let max = "";
+export function lastmodForPaths(repoRelativePaths: string[]): string | undefined {
+  let max: string | undefined;
   for (const p of repoRelativePaths) {
     const d = lastmodForPath(p);
-    if (d > max) max = d;
+    if (d && (!max || d > max)) max = d;
   }
-  return max || DEPLOY_BASELINE;
+  return max;
 }
 
 export interface UrlEntry {

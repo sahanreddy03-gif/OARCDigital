@@ -12,6 +12,9 @@
 //   <!-- AUTOGEN:LLMS-FULL:END -->
 // Anything else (manual notes, footer signatures) is preserved across runs.
 // Hand-editing the generated body or Start here block fails the audit.
+// The header under the H1 and the sections between Start here and the body
+// are copied from public/llms.txt (see syncSharedFromLlmsTxt) — edit them
+// there, not here.
 //
 // On first run, if the file is missing, the script writes a complete file
 // (header + markers + body + trailing newline). On subsequent runs, only
@@ -33,7 +36,58 @@ import {
 } from "../lib/seo/llmsFullBuilder";
 import { SERVICE_SCHEMAS } from "../lib/seo/serviceSchemaConfig";
 import { PILLAR_SCHEMAS } from "../lib/seo/pillarSchemaConfig";
-import { assertValidDiscoveryProse } from "../lib/seo/llmsTxtGenerator";
+import {
+  assertValidDiscoveryProse,
+  CORE_INDEX_START,
+  START_HERE_START,
+  START_HERE_END,
+} from "../lib/seo/llmsTxtGenerator";
+
+const LLMS_TXT_PATH = "public/llms.txt";
+
+// Shared sections, copied from public/llms.txt on every run so the two AI
+// files always say the same thing:
+//   1. the header under the H1 (summary blockquote + company facts, which
+//      scripts/generate-llms-txt-facts.ts builds from lib/seo/nap.ts), and
+//   2. the hand-kept sections between llms.txt's START-HERE block and its
+//      ranked key-pages block (Offers, Services, Case studies, Company and
+//      trust, Industries, Topics, Locations, Guides).
+// llms-full.txt keeps its own H1, the generator-owned START-HERE block and
+// the AUTOGEN:LLMS-FULL body. Run generate-llms-txt-facts.ts first (the
+// prebuild script does), then this script.
+//
+// Both copied parts sit outside the AUTOGEN markers, so the
+// applyLlmsFullTransform parity checks in audit-framework.ts and
+// audit-discovery.ts are unaffected.
+function syncSharedFromLlmsTxt(full: string): string {
+  const llms = fs.readFileSync(path.join(process.cwd(), LLMS_TXT_PATH), "utf-8");
+  const lH1End = llms.indexOf("\n");
+  const lHereStart = llms.indexOf(START_HERE_START);
+  const lHereEnd = llms.indexOf(START_HERE_END);
+  const lCore = llms.indexOf(CORE_INDEX_START);
+  if (lH1End < 0 || lHereStart < lH1End || lHereEnd < lHereStart || lCore < lHereEnd) {
+    throw new Error(
+      `[generate-llms-full-txt] ${LLMS_TXT_PATH} is missing its START-HERE or CORE-60-INDEX markers — run scripts/generate-llms-txt-facts.ts first`,
+    );
+  }
+  const header = llms.slice(lH1End, lHereStart);
+  const middle = llms.slice(lHereEnd + START_HERE_END.length, lCore);
+
+  const fH1End = full.indexOf("\n");
+  const fHereStart = full.indexOf(START_HERE_START);
+  const fHereEnd = full.indexOf(START_HERE_END);
+  const fBody = full.indexOf(LLMS_FULL_START);
+  if (fH1End < 0 || fHereStart < fH1End || fHereEnd < fHereStart || fBody < fHereEnd) {
+    throw new Error(`[generate-llms-full-txt] ${LLMS_FULL_PATH} markers are out of order`);
+  }
+  return (
+    full.slice(0, fH1End) +
+    header +
+    full.slice(fHereStart, fHereEnd + START_HERE_END.length) +
+    middle +
+    full.slice(fBody)
+  );
+}
 
 function main() {
   const checkOnly = process.argv.includes("--check");
@@ -48,7 +102,7 @@ function main() {
       process.exit(1);
     }
     const current = fs.readFileSync(fullPath, "utf-8");
-    const expected = applyLlmsFullTransform(current);
+    const expected = syncSharedFromLlmsTxt(applyLlmsFullTransform(current));
     assertValidDiscoveryProse(expected, LLMS_FULL_PATH);
     if (current !== expected) {
       console.error(
@@ -73,6 +127,7 @@ function main() {
     const current = fs.readFileSync(fullPath, "utf-8");
     next = applyLlmsFullTransform(current);
   }
+  next = syncSharedFromLlmsTxt(next);
   assertValidDiscoveryProse(next, LLMS_FULL_PATH);
 
   fs.writeFileSync(fullPath, next);

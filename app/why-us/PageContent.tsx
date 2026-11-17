@@ -13,15 +13,15 @@ import { ORG_FOUNDING_DATE } from "@/lib/seo/organizationSchema";
 const GREEN = "#22c55e";
 
 /* ─── assets ─────────────────────────────────────────────────────────────── */
-const heroImage      = "/attached_assets/hf_20260420_065011_d9310ea4-689e-4251-a67b-14bfb035b894_1779878403927.png";
-const teamImage      = "/attached_assets/global-influencer-marketing-agency-socially-powerful_1763244062764.jpg";
-const maltaImage     = "/attached_assets/pexels-pham-ngoc-anh-170983008-14237665_1763244193737.jpg";
+const heroImage      = "/images/optimized/why-us-hero.webp";
+const teamImage      = "/images/optimized/team-group-photo.webp";
+const maltaImage     = "/images/optimized/malta-harbour.webp";
 const workspaceImage = "/attached_assets/campaign-img1_1763245285586.png";
 
 const CAROUSEL_IMAGES = [
-  "/attached_assets/image_1763243239681.png",
+  "/images/optimized/why-us-carousel-1.webp",
   "/attached_assets/Biolage-influencer-marketing-agency-socially-powerful_1763243258630.jpg",
-  "/attached_assets/it-cosmetics-socially-powerful-marketing-agency-1_1763243258630.png",
+  "/images/optimized/why-us-carousel-3.webp",
   "/attached_assets/stock_images/modern_marketing_age_2cb6d515.jpg",
   "/attached_assets/joshua-rondeau-7mHMwHbJ_0o-unsplash-scaled-e1690895515404_1763243258631.jpg",
   "/attached_assets/Screenshot-2023-08-01-at-16.06.24_1763243258631.png",

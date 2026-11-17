@@ -11,17 +11,17 @@ import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import TrustBlock from "@/components/seo/TrustBlock";
 import { NAP } from "@/lib/seo/nap";
 
-const heroImage = "/attached_assets/stock_images/business_revenue_gro_8da91583.jpg";
+const heroImage = "/images/services/euro-coin-revenue.webp";
 
 const imageObjectSchema = {
   "@context": "https://schema.org",
   "@type": "ImageObject",
   name: "Revenue automation dashboard showing pipeline metrics and AI agent outputs",
   description: "A revenue operations dashboard combining CRM pipeline data, AI agent activity, and lifecycle automation metrics for a Malta-based B2B business.",
-  url: "https://oarcdigital.com/attached_assets/stock_images/business_revenue_gro_8da91583.jpg",
-  width: 1200,
-  height: 800,
-  contentUrl: "https://oarcdigital.com/attached_assets/stock_images/business_revenue_gro_8da91583.jpg",
+  url: "https://oarcdigital.com/images/services/euro-coin-revenue.webp",
+  width: 1280,
+  height: 1134,
+  contentUrl: "https://oarcdigital.com/images/services/euro-coin-revenue.webp",
 };
 
 const layers = [
@@ -270,7 +270,7 @@ export default function PageContent() {
           <h2 className="text-3xl md:text-4xl font-bold mb-6">From chaos to control: a Malta operations case study</h2>
           <div className="flex justify-center mb-6">
             <img
-              src="/attached_assets/OPERATIONS_360._We_SAVE_YOU_TIME_&_MONEY_From_Chaos_to_Control_1779836586704.png"
+              src="/images/optimized/operations-360-chaos-to-control.webp"
               alt="Operations 360 case study Malta — business owner replaced 6 WhatsApp groups and 3 emails with one OARC Digital dashboard, now runs operations in 20 minutes daily | OARC Digital"
               width={1080}
               height={1080}
@@ -289,10 +289,10 @@ export default function PageContent() {
             "@type": "ImageObject",
             name: "OARC Operations 360 — from chaos to control for Malta businesses",
             description: "OARC Digital Operations 360 — we save you time and money, transforming business operations from chaos to control through revenue automation for Malta businesses.",
-            url: "https://oarcdigital.com/attached_assets/OPERATIONS_360._We_SAVE_YOU_TIME_%26_MONEY_From_Chaos_to_Control_1779836586704.png",
-            width: 1080,
-            height: 1080,
-            contentUrl: "https://oarcdigital.com/attached_assets/OPERATIONS_360._We_SAVE_YOU_TIME_%26_MONEY_From_Chaos_to_Control_1779836586704.png",
+            url: "https://oarcdigital.com/images/optimized/operations-360-chaos-to-control.webp",
+            width: 1920,
+            height: 2385,
+            contentUrl: "https://oarcdigital.com/images/optimized/operations-360-chaos-to-control.webp",
           }) }}
         />
 

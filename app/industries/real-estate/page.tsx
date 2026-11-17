@@ -83,7 +83,7 @@ const services: ServiceBlock[] = [
     detail: "The single biggest revenue leak we find in Malta agencies is enquiries arriving in three different inboxes (Property Malta, the agency website, an agent's personal WhatsApp) with nobody owning the consolidated view. We map your existing process, plug the gaps with a CRM you actually want to use, and automate the routine work — viewing reminders, follow-up emails after a viewing, drip nurture for buyers who said 'maybe in six months', re-engagement for buyers who went cold. Reporting is built so the principal can see pipeline by agent, by neighbourhood and by source in one screen.",
   },
   {
-    slug: "lead-generation-engine",
+    slug: "lead-generation",
     title: "Buyer & Vendor Lead Generation",
     blurb: "End-to-end lead programmes — landing pages, multi-step enquiry forms, lead magnets ('Sliema valuation guide', 'Citizenship-by-investment property checklist'), and the campaigns that drive qualified traffic into them.",
     icon: Target,

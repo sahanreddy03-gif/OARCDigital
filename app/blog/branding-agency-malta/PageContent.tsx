@@ -175,7 +175,7 @@ export default function BrandingMalta() {
           <div className="bg-muted/30 rounded-xl p-6 mb-12">
             <h3 className="font-bold mb-4">Related Services</h3>
             <div className="flex flex-wrap gap-3">
-              <Link href="/services/branding-services"><span className="px-3 py-1 rounded-full border text-sm hover:border-orange-400 hover:text-orange-400 transition-all cursor-pointer">Branding Services</span></Link>
+              <Link href="/services/branding"><span className="px-3 py-1 rounded-full border text-sm hover:border-orange-400 hover:text-orange-400 transition-all cursor-pointer">Branding Services</span></Link>
               <Link href="/services/social-media-creative-management"><span className="px-3 py-1 rounded-full border text-sm hover:border-orange-400 hover:text-orange-400 transition-all cursor-pointer">Social Media Management</span></Link>
               <Link href="/blog"><span className="px-3 py-1 rounded-full border text-sm hover:border-orange-400 hover:text-orange-400 transition-all cursor-pointer">More Articles</span></Link>
             </div>

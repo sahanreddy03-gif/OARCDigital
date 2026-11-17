@@ -225,6 +225,16 @@ export function buildBreadcrumb(items: { name: string; url: string }[]) {
   };
 }
 
+// Parent folders with no page of their own (they 404 or redirect away). The
+// trail skips them so a BreadcrumbList never points at a missing page.
+const NO_PAGE_PARENTS: ReadonlySet<string> = new Set([
+  "/aeo",
+  "/insights",
+  "/legal",
+  "/videos",
+  "/pdf",
+]);
+
 // Derive a breadcrumb trail from a URL pathname.
 // "/blog/seo-malta-complete-guide" -> [Home, Blog, SEO Malta Complete Guide]
 export function breadcrumbFromPath(path: string) {
@@ -234,6 +244,7 @@ export function breadcrumbFromPath(path: string) {
   let acc = "";
   for (const s of segs) {
     acc += `/${s}`;
+    if (acc !== clean && NO_PAGE_PARENTS.has(acc)) continue;
     items.push({
       name: s
         .split("-")

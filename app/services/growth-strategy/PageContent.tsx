@@ -31,7 +31,7 @@ export default function GrowthStrategy() {
       {/* BRANDED HERO IMAGE */}
       <div className="bg-zinc-950 flex justify-center py-6 px-4" data-testid="section-growth-proof-image">
         <img
-          src="/attached_assets/hf_20260420_104349_586e06ee-488a-4e5f-a60c-68de266bc921_1779836586702.png"
+          src="/images/optimized/growth-strategy-hero.webp"
           alt="OARC Digital growth strategy Malta — results-driven approach where clients close deals while competitors focus only on content | OARC Digital"
           width={1080}
           height={1080}
@@ -47,10 +47,10 @@ export default function GrowthStrategy() {
           "@type": "ImageObject",
           name: "OARC Digital growth strategy Malta — results-driven approach where clients close deals while competitors focus only on content",
           description: "OARC Digital growth strategy results — while competitors post content, Malta clients build revenue systems that compound month after month.",
-          url: "https://oarcdigital.com/attached_assets/hf_20260420_104349_586e06ee-488a-4e5f-a60c-68de266bc921_1779836586702.png",
-          width: 1080,
-          height: 1080,
-          contentUrl: "https://oarcdigital.com/attached_assets/hf_20260420_104349_586e06ee-488a-4e5f-a60c-68de266bc921_1779836586702.png",
+          url: "https://oarcdigital.com/images/optimized/growth-strategy-hero.webp",
+          width: 1920,
+          height: 1920,
+          contentUrl: "https://oarcdigital.com/images/optimized/growth-strategy-hero.webp",
         }) }}
       />
 
@@ -317,7 +317,7 @@ export default function GrowthStrategy() {
                 <p className="text-sm text-zinc-400">Custom dashboards, ROI tracking, and data-driven insights.</p>
               </div>
             </Link>
-            <Link href="/services/customer-acquisition-accelerator">
+            <Link href="/services/customer-acquisition">
               <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-orange-500/30 cursor-pointer transition-all" data-testid="related-service-acquisition">
                 <h3 className="text-xl font-bold mb-3 text-white">Customer Acquisition</h3>
                 <p className="text-sm text-zinc-400">Scale your customer base with proven acquisition systems.</p>

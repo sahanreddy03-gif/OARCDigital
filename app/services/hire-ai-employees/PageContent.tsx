@@ -78,7 +78,7 @@ const agents = [
   },
   {
     id: 'content-strategist',
-    slug: 'ai-content-strategist',
+    slug: 'content-marketing',
     icon: Megaphone,
     title: 'Content Strategist',
     tagline: 'Ideas to impact',

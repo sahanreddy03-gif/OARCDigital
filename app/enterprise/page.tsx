@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { supportingPagesSEO } from "@/data/seoMetadata";
 import RouteSchema from "@/components/RouteSchema";
-import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags";
+import { getHreflangAlternates } from "@/lib/seo/discoveryTags";
 import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 
 export const metadata: Metadata = {
@@ -30,7 +30,6 @@ import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 export default function Page() {
   return (
     <Layout>
-      <SpeakableJsonLd path="/enterprise" />
       <RouteSchema
         type="pillar"
         path="/enterprise"

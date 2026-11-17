@@ -109,9 +109,9 @@ export default function FintechMaltaIndustryHub() {
 
         <section className={styles.readsSection}>
           <div className={styles.sectionLabel}><span>03</span><span>READS</span></div>
-          <div className={styles.readsHeading}><h2>Notes for the<br /><em>regulated world.</em></h2><Link href="/journal">View all reads +</Link></div>
+          <div className={styles.readsHeading}><h2>Notes for the<br /><em>regulated world.</em></h2><Link href="/blog">View all reads +</Link></div>
           <div className={styles.readsGrid}>
-            {reads.map(([title, copy], i) => <Link href="/journal" className={styles.readCard} key={title}><img src={`${media}/${["qnF48NDkND2wwflYUqb0gqBsOQ.png","S2SuZiZulrtvLrs30SjQSv40.png","EmEeE3nEnsYtcfk6OkPsVDAiEc.png"][i]}`} alt="" aria-hidden="true" /><span>0{i + 1} / NOTE</span><h3>{title}</h3><p>{copy}</p></Link>)}
+            {reads.map(([title, copy], i) => <Link href="/blog" className={styles.readCard} key={title}><img src={`${media}/${["qnF48NDkND2wwflYUqb0gqBsOQ.png","S2SuZiZulrtvLrs30SjQSv40.png","EmEeE3nEnsYtcfk6OkPsVDAiEc.png"][i]}`} alt="" aria-hidden="true" /><span>0{i + 1} / NOTE</span><h3>{title}</h3><p>{copy}</p></Link>)}
           </div>
         </section>
 

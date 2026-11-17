@@ -7,6 +7,8 @@
 export const CHILD_SITEMAPS = [
   // Own-site priority first (CSV ranks 1–88 live in these registries)
   "sitemap-core.xml",
+  // Case studies, research reports, AI agent profiles (built from page data)
+  "sitemap-work.xml",
   "sitemap-services.xml",
   "sitemap-h360.xml",
   "sitemap-aeo.xml",

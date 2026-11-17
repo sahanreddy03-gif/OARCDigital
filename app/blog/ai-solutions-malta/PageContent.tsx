@@ -37,6 +37,7 @@ import {
     ShoppingBag
 } from 'lucide-react';
 import Link from 'next/link';
+import { ogImageUrl } from '@/lib/seo/ogImageUrl';
 
 const CostComparison = [
     { name: 'Custom AI Agent', cost: 15000, time: 4 },
@@ -61,7 +62,7 @@ export default function AiSolutionsMalta() {
                     "@context": "https://schema.org",
                     "@type": "Article",
                     "headline": "AI Solutions for Malta Businesses: Complete Guide 2025",
-                    "image": "https://oarcdigital.com/assets/blog/ai-solutions-malta.jpg",
+                    "image": ogImageUrl({ title: "AI Solutions for Malta Businesses | Complete Implementation Guide 2025", subtitle: "The definitive guide to building AI systems in Malta. Learn about custom AI development costs, use cases for iGaming and Tourism, and how to automate your business." }),
                     "author": {
                         "@type": "Organization",
                         "name": "OARC Digital Team"
@@ -71,7 +72,7 @@ export default function AiSolutionsMalta() {
                         "name": "OARC Digital",
                         "logo": {
                             "@type": "ImageObject",
-                            "url": "https://oarcdigital.com/logo.png"
+                            "url": "https://oarcdigital.com/oarc-logo.png"
                         }
                     },
                     "datePublished": publishDate,
@@ -280,7 +281,7 @@ export default function AiSolutionsMalta() {
                                 <Link href="/contact">Get a Free AI Consultation <Brain className="ml-2 w-4 h-4" /></Link>
                             </Button>
                             <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
-                                <Link href="/services/ai-solutions">View Our Solutions</Link>
+                                <Link href="/services/ai-consulting">View Our Solutions</Link>
                             </Button>
                         </div>
                     </section>

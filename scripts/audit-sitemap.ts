@@ -55,6 +55,7 @@ const MODE: "static" | "http" = process.argv.includes("--http") ? "http" : "stat
 const SITEMAPS = [
   "sitemap.xml",            // index: must show varied dates across children
   "sitemap-core.xml",
+  "sitemap-work.xml",
   "sitemap-h360.xml",
   "sitemap-services.xml",
   "sitemap-malta-locations.xml",
@@ -91,6 +92,7 @@ type RouteGetter = () => Promise<Response>;
 const STATIC_GETTERS: Record<string, () => Promise<RouteGetter>> = {
   "sitemap.xml": async () => (await import("../app/sitemap.xml/route")).GET,
   "sitemap-core.xml": async () => (await import("../app/sitemap-core.xml/route")).GET,
+  "sitemap-work.xml": async () => (await import("../app/sitemap-work.xml/route")).GET,
   "sitemap-h360.xml": async () => (await import("../app/sitemap-h360.xml/route")).GET,
   "sitemap-services.xml": async () => (await import("../app/sitemap-services.xml/route")).GET,
   "sitemap-malta-locations.xml": async () => (await import("../app/sitemap-malta-locations.xml/route")).GET,
@@ -220,7 +222,9 @@ async function auditIndexParity(
         continue;
       }
       const childMax = childLms.reduce((m, d) => (d > m ? d : m), "");
-      const ok = indexLm === childMax;
+      // The index may be newer than every entry: it also moves when the
+      // child's URL list changes (e.g. URLs removed). Older = drift.
+      const ok = indexLm >= childMax;
       results.push({
         child: name,
         indexLastmod: indexLm,
@@ -228,7 +232,7 @@ async function auditIndexParity(
         status: ok ? "PASS" : "FAIL",
         reason: ok
           ? undefined
-          : `index says ${indexLm}, child max is ${childMax} — drift detected`,
+          : `index says ${indexLm}, older than child max ${childMax} — drift detected`,
       });
     } catch (e) {
       const err = e instanceof Error ? e.message : String(e);
@@ -286,7 +290,7 @@ async function main() {
       p.status === "SKIP"
         ? p.reason ?? ""
         : p.status === "PASS"
-        ? `index=${p.indexLastmod} == max(child)=${p.childMaxLastmod}`
+        ? `index=${p.indexLastmod} >= max(child)=${p.childMaxLastmod}`
         : p.reason ?? "";
     console.log(`${label}  ${p.child.padEnd(28)} ${detail}`);
     if (p.status === "FAIL") parityFailed++;

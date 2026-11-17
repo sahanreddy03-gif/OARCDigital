@@ -10,7 +10,7 @@ import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { creativeServicesSEO } from "@/data/seoMetadata";
 import { createServiceSchema } from "@/utils/structuredData";
 import RelatedServices from "@/components/RelatedServices";
-const heroImage = "/attached_assets/presentation design_1763086077235.avif";
+const heroImage = "/images/services/presentation-design-banner.webp";
 
 export default function PresentationPitch() {
   useEffect(() => {

@@ -69,8 +69,7 @@ const GRAPH = {
       "@id": `${URL}#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://oarcdigital.com/" },
-        { "@type": "ListItem", position: 2, name: "Insights", item: "https://oarcdigital.com/insights" },
-        { "@type": "ListItem", position: 3, name: "Top 10 marketing agencies in Malta", item: URL },
+        { "@type": "ListItem", position: 2, name: "Top 10 marketing agencies in Malta", item: URL },
       ],
     },
     {

@@ -1,7 +1,6 @@
 import {
   SITE_BASE,
-  DEPLOY_BASELINE,
-  lastmodForPath,
+  lastmodForPaths,
   urlsetXml,
   xmlResponse,
   type UrlEntry,
@@ -17,23 +16,33 @@ export interface CoreEntry {
   path: string;
   priority: number;
   changefreq: UrlEntry["changefreq"];
-  /** Repo path used to date this URL. Defaults to `app${path}/page.tsx`. */
-  source?: string;
+  /** Repo path(s) used to date this URL. Defaults to the `app${path}` folder. */
+  source?: string | string[];
 }
 
-export function coreSourcePath(c: CoreEntry): string {
-  return c.source ?? `app${c.path === "/" ? "" : c.path}`;
+export function coreSourcePath(c: CoreEntry): string[] {
+  if (c.source) return Array.isArray(c.source) ? c.source : [c.source];
+  return [`app${c.path === "/" ? "" : c.path}`];
 }
+
+// /voice-ai-worker/{slug} pages (except /hospitality, which has its own
+// folder) are one template plus one data file; there is no per-slug folder.
+const VOICE_SLUG_SOURCES = [
+  "app/voice-ai-worker/[slug]",
+  "app/voice-ai-worker/industry-page.tsx",
+  "app/voice-ai-worker/voice-ai-worker-data.ts",
+];
+
+// Not listed here on purpose (2026-11-16 sitemap fix):
+//  - /blog, /h360, /industries: their own section sitemaps list them.
+//  - /our-work/{slug}, /research/{slug}, /ai-agents/{id}: sitemap-work.xml.
 
 export const CORE: CoreEntry[] = [
   { path: "/", priority: 1.0, changefreq: "weekly", source: "app/page.tsx" },
-  { path: "/h360", priority: 0.9, changefreq: "weekly" },
   { path: "/services", priority: 0.9, changefreq: "weekly" },
   { path: "/our-work", priority: 0.9, changefreq: "weekly" },
-  { path: "/our-work/pjazza", priority: 0.8, changefreq: "monthly", source: "app/our-work/[slug]/page.tsx" },
   { path: "/contact", priority: 0.9, changefreq: "monthly" },
   { path: "/about", priority: 0.7, changefreq: "monthly" },
-  { path: "/blog", priority: 0.8, changefreq: "weekly" },
   { path: "/insights/oarc-digital-malta", priority: 0.9, changefreq: "weekly" },
   { path: "/insights/best-marketing-agencies-malta", priority: 0.8, changefreq: "weekly" },
   { path: "/research", priority: 0.7, changefreq: "weekly" },
@@ -44,15 +53,15 @@ export const CORE: CoreEntry[] = [
   { path: "/ai-native-marketing-agency", priority: 0.8, changefreq: "monthly" },
   { path: "/voice-ai-worker", priority: 0.9, changefreq: "weekly" },
   { path: "/voice-ai-worker/hospitality", priority: 0.8, changefreq: "monthly" },
-  { path: "/voice-ai-worker/sales", priority: 0.8, changefreq: "monthly" },
-  { path: "/voice-ai-worker/healthcare", priority: 0.8, changefreq: "monthly" },
-  { path: "/voice-ai-worker/finance-insurance", priority: 0.8, changefreq: "monthly" },
-  { path: "/voice-ai-worker/real-estate", priority: 0.8, changefreq: "monthly" },
-  { path: "/voice-ai-worker/legal", priority: 0.8, changefreq: "monthly" },
-  { path: "/voice-ai-worker/logistics", priority: 0.8, changefreq: "monthly" },
-  { path: "/voice-ai-worker/home-services", priority: 0.8, changefreq: "monthly" },
-  { path: "/voice-ai-worker/education", priority: 0.8, changefreq: "monthly" },
-  { path: "/voice-ai-worker/government", priority: 0.8, changefreq: "monthly" },
+  { path: "/voice-ai-worker/sales", priority: 0.8, changefreq: "monthly", source: VOICE_SLUG_SOURCES },
+  { path: "/voice-ai-worker/healthcare", priority: 0.8, changefreq: "monthly", source: VOICE_SLUG_SOURCES },
+  { path: "/voice-ai-worker/finance-insurance", priority: 0.8, changefreq: "monthly", source: VOICE_SLUG_SOURCES },
+  { path: "/voice-ai-worker/real-estate", priority: 0.8, changefreq: "monthly", source: VOICE_SLUG_SOURCES },
+  { path: "/voice-ai-worker/legal", priority: 0.8, changefreq: "monthly", source: VOICE_SLUG_SOURCES },
+  { path: "/voice-ai-worker/logistics", priority: 0.8, changefreq: "monthly", source: VOICE_SLUG_SOURCES },
+  { path: "/voice-ai-worker/home-services", priority: 0.8, changefreq: "monthly", source: VOICE_SLUG_SOURCES },
+  { path: "/voice-ai-worker/education", priority: 0.8, changefreq: "monthly", source: VOICE_SLUG_SOURCES },
+  { path: "/voice-ai-worker/government", priority: 0.8, changefreq: "monthly", source: VOICE_SLUG_SOURCES },
   { path: "/agent-economy", priority: 0.9, changefreq: "weekly" },
   { path: "/automation", priority: 0.9, changefreq: "weekly" },
   { path: "/ai", priority: 0.9, changefreq: "weekly", source: "lib/ai-systems" },
@@ -76,7 +85,6 @@ export const CORE: CoreEntry[] = [
   { path: "/intelligence", priority: 0.8, changefreq: "monthly" },
   // Task #116: /diagnostic 308 → /diagnostics; /roadmap 308 → /roadmap-2026.
   // Removed from sitemap so we never advertise the redirecting URL.
-  { path: "/industries", priority: 0.8, changefreq: "monthly" },
   { path: "/roadmap-2026", priority: 0.6, changefreq: "monthly" },
   { path: "/resources", priority: 0.6, changefreq: "monthly" },
   { path: "/press", priority: 0.6, changefreq: "monthly" },
@@ -93,13 +101,13 @@ export const CORE: CoreEntry[] = [
   { path: "/legal/privacy-policy", priority: 0.3, changefreq: "yearly" },
   { path: "/legal/cookie-policy", priority: 0.3, changefreq: "yearly" },
   { path: "/legal/terms-conditions", priority: 0.3, changefreq: "yearly" },
+  { path: "/legal/data-deletion", priority: 0.3, changefreq: "yearly" },
+  { path: "/services/mvp-development/for-software", priority: 0.7, changefreq: "monthly" },
 ];
 
-function dateFor(c: CoreEntry): string {
-  const date = lastmodForPath(coreSourcePath(c));
-  // If the directory exists but has no git history (rare), fall back to the
-  // baseline rather than emitting nothing.
-  return date || DEPLOY_BASELINE;
+// Real change date or none: no made-up fallback date.
+function dateFor(c: CoreEntry): string | undefined {
+  return lastmodForPaths(coreSourcePath(c));
 }
 
 // Exported so lib/seo/sitemapSources.ts derives the index lastmod from

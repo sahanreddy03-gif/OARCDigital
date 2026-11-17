@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import Layout from "@/components/layout/Layout";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
-const toolsHeroBg = "/attached_assets/pexels-ahmetyuksek-31444049_1766033593561.jpg";
+const toolsHeroBg = "/images/optimized/tools-hero-bg.webp";
 
 type ToolCategory = 
   | "all"
@@ -1099,7 +1099,7 @@ const ToolLogo = ({ name, color, domain }: { name: string; color: string; domain
   const [useFallback, setUseFallback] = useState(false);
   const initial = name.charAt(0).toUpperCase();
   
-  const logoUrl = `https://logo.clearbit.com/${domain}`;
+  const logoUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
   const fallbackUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
   
   if (imgError) {
@@ -1117,6 +1117,7 @@ const ToolLogo = ({ name, color, domain }: { name: string; color: string; domain
     <img 
       src={useFallback ? fallbackUrl : logoUrl}
       alt={`${name} logo`}
+      loading="lazy"
       className="w-full h-full rounded-lg object-contain bg-white p-1.5"
       onError={() => {
         if (!useFallback) {

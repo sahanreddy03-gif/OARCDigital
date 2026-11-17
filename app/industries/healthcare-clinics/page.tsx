@@ -134,7 +134,7 @@ const collectionSchema = {
     { "@type": "CollectionPage", "@id": `${CANONICAL}#collection`, url: CANONICAL, name: "Healthcare Clinic Marketing in Malta", description: DESCRIPTION, inLanguage: "en-MT", isPartOf: { "@type": "WebSite", "@id": "https://oarcdigital.com/#website" }, dateModified: LAST_UPDATED, about: { "@type": "Thing", name: "Healthcare clinic marketing in Malta" }, mainEntity: { "@id": `${CANONICAL}#services-list` } },
     { "@type": "ItemList", "@id": `${CANONICAL}#services-list`, name: "Healthcare Marketing Services for Malta Clinics", numberOfItems: services.length, itemListOrder: "https://schema.org/ItemListOrderAscending", itemListElement: services.map((s, i) => ({ "@type": "ListItem", position: i + 1, url: `https://oarcdigital.com/services/${s.slug}`, name: s.title })) },
     { "@type": "FAQPage", "@id": `${CANONICAL}#faq`, mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
-    { "@type": "ImageObject", "@id": `${CANONICAL}#case-study-image`, url: "https://oarcdigital.com/attached_assets/Untitled_design_(96)_1779836586705.png", name: "Malta healthcare clinic digital marketing results — OARC Digital patient acquisition and AI automation", description: "OARC Digital patient acquisition, AI appointment booker, and recall automation results for Malta private clinics and dental practices.", width: 1080, height: 1080, contentUrl: "https://oarcdigital.com/attached_assets/Untitled_design_(96)_1779836586705.png" },
+    { "@type": "ImageObject", "@id": `${CANONICAL}#case-study-image`, url: "https://oarcdigital.com/images/optimized/healthcare-clinics-case-study.webp", name: "Malta healthcare clinic digital marketing results — OARC Digital patient acquisition and AI automation", description: "OARC Digital patient acquisition, AI appointment booker, and recall automation results for Malta private clinics and dental practices.", width: 1920, height: 2385, contentUrl: "https://oarcdigital.com/images/optimized/healthcare-clinics-case-study.webp" },
   ],
 };
 
@@ -181,7 +181,7 @@ export default function HealthcareClinicsMaltaIndustryHub() {
 
         <div className="bg-zinc-950 flex justify-center py-6 px-4" data-testid="section-clinic-case-study">
           <img
-            src="/attached_assets/Untitled_design_(96)_1779836586705.png"
+            src="/images/optimized/healthcare-clinics-case-study.webp"
             alt="Malta healthcare clinic reduced no-show rate from 28% to 4% in 6 weeks using OARC Digital automated patient flow — waitlist filled released slots within minutes | OARC Digital"
             width={1080}
             height={1080}

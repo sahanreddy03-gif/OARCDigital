@@ -6,17 +6,17 @@ import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import TrustBlock from "@/components/seo/TrustBlock";
 import FAQSection, { type FAQItem } from "@/components/FAQSection";
 
-const heroImage = "/attached_assets/stock_images/marketing_funnel_aut_5c1f1337.jpg";
+const heroImage = "/attached_assets/stock_images/business_automation__26134094.jpg";
 
 const imageObjectSchema = {
   "@context": "https://schema.org",
   "@type": "ImageObject",
   name: "Marketing funnel automation diagram showing stages from awareness to close with AI qualification layer",
   description: "A funnel automation diagram for a Malta-based B2B business, illustrating the six stages from lead capture through AI qualification, calendar booking, lifecycle email, CRM hygiene, and revenue dashboards.",
-  url: "https://oarcdigital.com/attached_assets/stock_images/marketing_funnel_aut_5c1f1337.jpg",
-  width: 1200,
-  height: 800,
-  contentUrl: "https://oarcdigital.com/attached_assets/stock_images/marketing_funnel_aut_5c1f1337.jpg",
+  url: "https://oarcdigital.com/attached_assets/stock_images/business_automation__26134094.jpg",
+  width: 1280,
+  height: 853,
+  contentUrl: "https://oarcdigital.com/attached_assets/stock_images/business_automation__26134094.jpg",
 };
 
 const layers = [

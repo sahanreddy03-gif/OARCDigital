@@ -45,6 +45,7 @@ import {
     Brain
 } from 'lucide-react';
 import Link from 'next/link';
+import { ogImageUrl } from '@/lib/seo/ogImageUrl';
 
 const SocialUserGrowth = [
     { year: '2020', users: 280000 },
@@ -72,7 +73,7 @@ export default function DigitalMarketingMalta() {
                     "@context": "https://schema.org",
                     "@type": "Article",
                     "headline": "The Complete Guide to Digital Marketing in Malta 2025",
-                    "image": "https://oarcdigital.com/assets/blog/malta-digital-marketing-2025.jpg",
+                    "image": ogImageUrl({ title: "The Complete Guide to Digital Marketing in Malta 2025 | OARC Digital", subtitle: "The ultimate guide to digital marketing in Malta for 2025. Discover what actually works for local businesses, from SEO and Social Media to AI-powered growth strategies." }),
                     "author": {
                         "@type": "Organization",
                         "name": "OARC Digital Team"
@@ -82,7 +83,7 @@ export default function DigitalMarketingMalta() {
                         "name": "OARC Digital",
                         "logo": {
                             "@type": "ImageObject",
-                            "url": "https://oarcdigital.com/logo.png"
+                            "url": "https://oarcdigital.com/oarc-logo.png"
                         }
                     },
                     "datePublished": publishDate,
@@ -529,7 +530,7 @@ export default function DigitalMarketingMalta() {
                     <div className="mt-20 pt-10 border-t">
                         <h3 className="text-xl font-bold mb-6 text-muted-foreground">Read Next</h3>
                         <div className="grid md:grid-cols-2 gap-6">
-                            <Link href="/blog/seo-malta-guide">
+                            <Link href="/blog/seo-malta-complete-guide">
                                 <div className="group cursor-pointer border rounded-xl p-6 hover:bg-muted/50 transition-colors">
                                     <h4 className="font-bold text-lg mb-2 group-hover:text-blue-500 transition-colors">How to Rank #1 on Google in Malta</h4>
                                     <p className="text-sm text-muted-foreground">The definitive local SEO guide for 2025.</p>

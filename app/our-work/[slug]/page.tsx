@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import WorkCase from "@/components/premium-work/WorkCase";
 import { CLIENT_CASE_STUDIES } from "@/lib/data/premium-work/clientCaseStudies";
 import { getCaseFull } from "@/lib/data/premium-work/caseFull";
 import { ORIGINAL_STUDIES, ORIGINAL_STUDY_PUBLIC_NAMES } from "@/lib/data/premium-work/originalStudies";
+import { ALL_WORK_SLUGS } from "@/lib/data/premium-work/workSlugs";
 import { getHreflangAlternates } from "@/lib/seo/discoveryTags";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -21,11 +23,9 @@ const ANCHOR_METADATA: Record<string, { name: string; intro: string }> = {
   "live-context": { name: "LIVE INFORMATION EXPERIENCE", intro: "We redesigned a live sports app. The score now comes first, on any phone. Fans find live scores 35% faster." },
 };
 
-const ALL_WORK_SLUGS = Array.from(new Set([
-  ...Object.keys(ANCHOR_METADATA),
-  ...Object.keys(ORIGINAL_STUDIES),
-  ...Object.keys(CLIENT_CASE_STUDIES),
-]));
+// Only the slugs below exist; any other /our-work/{slug} is a real 404
+// (it used to render a 200 "RECORD UNAVAILABLE" soft 404).
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return ALL_WORK_SLUGS.map((slug) => ({ slug }));
@@ -61,5 +61,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function OurWorkCasePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  if (!ALL_WORK_SLUGS.includes(slug)) notFound();
   return <WorkCase slug={slug} />;
 }

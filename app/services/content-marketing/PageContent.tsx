@@ -11,17 +11,17 @@ import { NAP } from "@/lib/seo/nap";
 
 const SCHEMA = SERVICE_SCHEMAS["content-marketing"];
 
-const heroImage = "/attached_assets/11_1763228440281.jpg";
+const heroImage = "/images/services/sticky-notes-content-planning.webp";
 
 const imageObjectSchema = {
   "@context": "https://schema.org",
   "@type": "ImageObject",
   name: "Sticky notes and brainstorming materials representing content strategy planning for Malta brands",
   description: "A content strategy planning session with sticky notes and ideas arranged on a surface, representing the editorial planning and content marketing process for Malta businesses.",
-  url: "https://oarcdigital.com/attached_assets/11_1763228440281.jpg",
-  width: 1200,
-  height: 800,
-  contentUrl: "https://oarcdigital.com/attached_assets/11_1763228440281.jpg",
+  url: "https://oarcdigital.com/images/services/sticky-notes-content-planning.webp",
+  width: 1920,
+  height: 1280,
+  contentUrl: "https://oarcdigital.com/images/services/sticky-notes-content-planning.webp",
 };
 
 const phases = [
@@ -133,6 +133,9 @@ export default function ContentMarketingContent() {
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Content Is the Only Marketing That Compounds</h2>
           <p className="text-foreground leading-relaxed mb-4">
             Paid media stops the moment you turn off the budget. Social posts disappear from a feed in 48 hours. A well-written, well-structured article on the right topic ranks for years and earns leads while you sleep. That is why every serious Malta brand — hospitality groups, iGaming operators, fintechs, and professional-services firms — eventually invests in editorial as a long-term moat.
+          </p>
+          <p className="text-foreground leading-relaxed mb-4">
+            Every piece is written by the editorial team at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">marketing agency in Malta</Link>.
           </p>
           <p className="text-foreground leading-relaxed">
             The difference between content that compounds and content that gathers dust is research, voice, and distribution. OARC Digital&apos;s editorial team interviews your founders and operators, talks to real Malta buyers, and writes pieces that hold up under scrutiny — the kind a journalist or a procurement team would actually cite.

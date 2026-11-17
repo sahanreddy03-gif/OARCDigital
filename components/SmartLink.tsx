@@ -28,7 +28,7 @@
 
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
-import { LINK_GRAPH, getAnchors, pickAnchor } from "@/lib/seo/internalLinkGraph";
+import { LINK_GRAPH, finalHref, getAnchors, pickAnchor } from "@/lib/seo/internalLinkGraph";
 
 type LinkProps = ComponentProps<typeof Link>;
 
@@ -64,7 +64,7 @@ export function SmartLink({
 
   return (
     <Link
-      href={to}
+      href={finalHref(to)}
       className={className}
       data-anchor={picked ?? undefined}
       data-smartlink-target={to}

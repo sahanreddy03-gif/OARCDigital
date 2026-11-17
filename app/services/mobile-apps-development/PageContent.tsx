@@ -14,7 +14,7 @@ import { GlassCard } from '@/components/ui/glass-card';
 import FAQSection, { FAQItem } from '@/components/FAQSection';
 import RelatedServices from "@/components/RelatedServices";
 
-const heroImg = "/attached_assets/2_1763228440277.jpg";
+const heroImg = "/images/services/woman-working-on-laptop.webp";
 const appImg1 = "/attached_assets/stock_images/mobile_app_design_us_5eb8ced7.jpg";
 const appImg2 = "/attached_assets/stock_images/mobile_app_design_us_1ba5497a.jpg";
 const mobileDevImg1 = "/attached_assets/stock_images/mobile_app_developme_12e99cc2.jpg";
@@ -119,11 +119,11 @@ export default function MobileAppsDevelopment() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ImageObject",
-            "url": "https://oarcdigital.com/attached_assets/2_1763228440277.jpg",
+            "url": "https://oarcdigital.com/images/services/woman-working-on-laptop.webp",
             "name": "Mobile app developer at work — iOS and Android development for Malta businesses | OARC Digital",
             "description": "Mobile app development — OARC Digital builds native iOS, Android, and cross-platform apps for Malta and EU businesses using React Native and Flutter.",
-            "width": 683,
-            "height": 1024,
+            "width": 1600,
+            "height": 2400,
             "representativeOfPage": true,
           }),
         }}

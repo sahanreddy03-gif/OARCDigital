@@ -76,7 +76,8 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
       },
       { 
         title: 'Brand Identity', 
-        slug: 'branding-services', 
+        slug: 'branding-services',
+        route: 'branding',
         icon: Sparkles,
         description: 'Logos, brand guidelines, design systems, presentations'
       },
@@ -186,7 +187,7 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
       slug: 'custom-ai-agents',
       badge: 'New',
       icon: Bot,
-      route: '/services/custom-ai-agents',
+      route: 'custom-ai-agents',
       description: 'Outcome-focused agents for sales, operations, research, finance and back-office work'
     },
     items: [
@@ -195,7 +196,7 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         slug: 'custom-ai-agents',
         badge: 'New',
         icon: Bot,
-        route: '/services/custom-ai-agents',
+        route: 'custom-ai-agents',
         description: 'Custom agents that complete defined business workflows with clear permissions and evidence'
       },
       {
@@ -203,7 +204,7 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         slug: 'conversational-commerce',
         badge: 'New',
         icon: ShoppingCart,
-        route: '/services/conversational-commerce',
+        route: 'conversational-commerce',
         description: 'AI-assisted product discovery, recommendations, questions, baskets and checkout support'
       },
       {
@@ -211,7 +212,7 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
         slug: 'ai-employee-service-desk',
         badge: 'New',
         icon: HeadphonesIcon,
-        route: '/services/ai-employee-service-desk',
+        route: 'ai-employee-service-desk',
         description: 'Employee answers and permitted IT, HR and finance actions with human escalation'
       },
     ]
@@ -244,7 +245,8 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
       },
       { 
         title: 'Customer Acquisition System', 
-        slug: 'customer-acquisition-accelerator', 
+        slug: 'customer-acquisition-accelerator',
+        route: 'customer-acquisition',
         icon: ShoppingCart,
         description: 'Multi-channel campaigns, paid + organic integration, funnel building'
       },
@@ -304,7 +306,8 @@ export const servicesCatalog: Record<string, ServiceCategory> = {
       },
       { 
         title: 'API & Integration Services', 
-        slug: 'api-integration-services', 
+        slug: 'api-integration-services',
+        route: 'api-integration',
         icon: Link2,
         description: 'System connections, custom API development, third-party integrations, workflow automation'
       },

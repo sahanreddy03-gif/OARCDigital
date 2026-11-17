@@ -19,7 +19,7 @@ import RelatedServices from "@/components/RelatedServices";
 // Image set for /services/paid. Hero is the bespoke "Better systems"
 // composition; each vertical block uses a distinct stock image so no two
 // industry rows share the same visual.
-const heroImage = "/attached_assets/Untitled_design_93_paid_hero.png";
+const heroImage = "/images/optimized/paid-hero.webp";
 const hospitalityImg =
   "/attached_assets/stock_images/food_supply_chain_au_88dc232a.jpg";
 const igamingImg =

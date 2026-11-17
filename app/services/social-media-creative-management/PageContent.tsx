@@ -28,14 +28,14 @@ import {
 } from "lucide-react";
 import { SiTiktok, SiYoutube, SiX, SiThreads, SiLinkedin, SiMeta } from "react-icons/si";
 
-const colorfulGymImg = "/attached_assets/generated_images/colorful_modern_gym_interior.png";
-const colorfulPerfumeImg = "/attached_assets/generated_images/colorful_luxury_perfume_product.png";
-const colorfulBeautyImg = "/attached_assets/generated_images/colorful_natural_beauty_products.png";
-const homecraftHeroImg = "/attached_assets/pexels-shvetsa-12673974_1764638693005.jpg";
+const colorfulGymImg = "/images/optimized/colorful-gym-interior.webp";
+const colorfulPerfumeImg = "/images/optimized/colorful-perfume-product.webp";
+const colorfulBeautyImg = "/images/optimized/colorful-beauty-products.webp";
+const homecraftHeroImg = "/images/optimized/homecraft-hero.webp";
 const heroVideo = "/attached_assets/SnapInsta.to_AQMfI7sCSVLU8tLxyZLjxlyaGvnAjtYAkNpyBEIAox0m6TApwOZNnf5Y2rfuYUhoqYXMDubqUVXcJjUk8q57WHMBNJrUR_W4lUx94QM_1764630517873.mp4";
 const tiktokVideo = "/attached_assets/55555_1764634237326.mp4";
 const aiFingerImg = "/attached_assets/680fadb5aa40ab58ab98c0e5_AI-Experiencie-Agent-1_1764633229625.webp";
-const linkedinPortraitImg = "/attached_assets/pexels-weijia-ma-322731568-19989608_1764635510034.jpg";
+const linkedinPortraitImg = "/images/optimized/linkedin-portrait.webp";
 
 const brandLogo1 = "/attached_assets/stock_images/corporate_brand_logo_7fa71d75.jpg";
 const brandLogo2 = "/attached_assets/stock_images/corporate_brand_logo_3ecd3c3a.jpg";
@@ -44,9 +44,9 @@ const brandLogo4 = "/attached_assets/stock_images/corporate_brand_logo_36956200.
 const brandLogo5 = "/attached_assets/stock_images/corporate_brand_logo_fa7a9043.jpg";
 const brandLogo6 = "/attached_assets/stock_images/corporate_brand_logo_45511c03.jpg";
 
-const organicSocialImg = "/attached_assets/generated_images/social_media_creators_marketing_image.png";
+const organicSocialImg = "/images/optimized/social-media-creators.webp";
 const paidAdsImg = "/attached_assets/stock_images/professional_ad_crea_01a208c3.jpg";
-const contentCreationImg = "/attached_assets/generated_images/Video_Production_Service_f2c7300b.png";
+const contentCreationImg = "/images/optimized/video-production-service.webp";
 const influencerImg = "/attached_assets/stock_images/social_media_creativ_8b2d8cae.jpg";
 
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";

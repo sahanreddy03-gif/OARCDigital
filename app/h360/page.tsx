@@ -4,6 +4,7 @@ import H360Hero from './_components/Hero';
 import OarcBridge from './_components/OarcBridge';
 import H360FeatureCards from './_components/FeatureCards';
 import H360BelowHero from './_components/BelowHero';
+import { ogImageEntry, ogImageUrl } from '@/lib/seo/ogImageUrl';
 
 const TITLE = 'Restaurant Marketing Malta | H360 Hospitality | OARC';
 const DESCRIPTION =
@@ -30,9 +31,10 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     siteName: 'OARC Digital',
-    images: [{ url: 'https://oarcdigital.com/og-h360.jpg', width: 1200, height: 630, alt: 'H360 — Restaurant Marketing Malta' }],
+    images: ogImageEntry({ title: TITLE, subtitle: DESCRIPTION }),
   },
   twitter: {
+    images: [ogImageUrl({ title: TITLE, subtitle: DESCRIPTION })],
     card: 'summary_large_image',
     title: TITLE,
     description: DESCRIPTION,
@@ -47,7 +49,7 @@ const jsonLd = {
       '@id': `${OARC}/#organization`,
       name: 'OARC Digital',
       url: OARC,
-      logo: `${OARC}/logo.png`,
+      logo: `${OARC}/oarc-logo.png`,
       sameAs: [
         'https://www.linkedin.com/company/oarcdigital',
         'https://instagram.com/oarcdigital',

@@ -11,7 +11,7 @@ import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import TrustBlock from "@/components/seo/TrustBlock";
 import { NAP } from "@/lib/seo/nap";
 
-const dataEngineeringHero = "/attached_assets/18_1763228440284.jpg";
+const dataEngineeringHero = "/images/services/circuit-board-integration.webp";
 const SCHEMA = SERVICE_SCHEMAS["database-design"];
 
 const dbImageObjectSchema = {
@@ -19,10 +19,10 @@ const dbImageObjectSchema = {
   "@type": "ImageObject",
   name: "Data engineering circuit board visualisation — database schema, pipeline, and query optimisation for Malta software teams",
   description: "PostgreSQL, MongoDB, and Snowflake data architecture for Malta SaaS, fintech, and iGaming teams — schema design, zero-downtime migrations, and production ETL pipelines that actually get reviewed.",
-  url: "https://oarcdigital.com/attached_assets/18_1763228440284.jpg",
-  width: 1200,
-  height: 800,
-  contentUrl: "https://oarcdigital.com/attached_assets/18_1763228440284.jpg",
+  url: "https://oarcdigital.com/images/services/circuit-board-integration.webp",
+  width: 1920,
+  height: 1280,
+  contentUrl: "https://oarcdigital.com/images/services/circuit-board-integration.webp",
 };
 
 const dbFaqPageSchema = {

@@ -10,6 +10,12 @@
 // On first run, if the markers are absent, this script inserts them around the
 // existing "## Cite-Able Service Facts" heading so subsequent runs are idempotent.
 //
+// It also owns the file header (H1, summary, company facts from lib/seo/nap.ts)
+// and cleans the ranked key-pages block (see cleanCoreIndexSection). The
+// hand-kept sections between the START-HERE block and the key-pages block
+// (Offers, Services, Case studies, ...) are left as written, and
+// scripts/generate-llms-full-txt.ts copies them into llms-full.txt.
+//
 // Usage:  npx tsx scripts/generate-llms-txt-facts.ts
 
 import fs from "node:fs";
@@ -27,10 +33,93 @@ import {
   curateDiscoveryText,
 } from "../lib/seo/llmsTxtGenerator";
 import { spliceH360LlmsSection } from "../lib/seo/h360LlmsGenerator";
+import { NAP } from "../lib/seo/nap";
+import { ORG_FOUNDING_DATE } from "../lib/seo/organizationSchema";
 
 const LLMS = path.join(process.cwd(), "public", "llms.txt");
 const START = "<!-- AUTOGEN:CITABLE-FACTS:START -->";
 const END = "<!-- AUTOGEN:CITABLE-FACTS:END -->";
+
+// ---------------------------------------------------------------------------
+// File header (H1 + summary blockquote + company facts).
+//
+// Owned by this script so the name, address, phone, email and founding year
+// always come from lib/seo/nap.ts and lib/seo/organizationSchema.ts. The
+// header is everything before the START-HERE marker. scripts/
+// generate-llms-full-txt.ts copies it into llms-full.txt, so both files
+// open with the same facts. Founding year: 2023 (owner-confirmed).
+// ---------------------------------------------------------------------------
+function buildHeader(): string {
+  const address = `${NAP.streetAddress}, ${NAP.addressLocality} ${NAP.postalCode}, Malta`;
+  return [
+    `# ${NAP.name}`,
+    "",
+    `> ${NAP.name} is a marketing agency in ${NAP.addressLocality}, Malta, founded in ${ORG_FOUNDING_DATE}. One in-house team runs the creative studio, SEO and ads, AI agents and automation for Malta businesses.`,
+    "",
+    `- Founded: ${ORG_FOUNDING_DATE}, in ${NAP.addressLocality}, Malta`,
+    `- Address: ${address}`,
+    `- Phone and WhatsApp: ${NAP.phoneDisplay}`,
+    `- Email: ${NAP.email}`,
+    "- Website: https://oarcdigital.com",
+    "- Instagram: https://www.instagram.com/oarcdigital",
+    "- YouTube: https://www.youtube.com/@oarcdigital",
+    "- Pricing: custom pricing, scoped to each business. One campaign offer has its own page (see Offers) and is listed in https://oarcdigital.com/pricing.txt.",
+    "",
+    "",
+  ].join("\n");
+}
+
+function applyHeader(txt: string): string {
+  const idx = txt.indexOf(START_HERE_START);
+  if (idx < 0) return buildHeader() + txt;
+  return buildHeader() + txt.slice(idx);
+}
+
+// ---------------------------------------------------------------------------
+// Clean-up of the ranked key-pages block (AUTOGEN:CORE-60-INDEX).
+//
+// lib/seo/topPages.ts still lists a few things the AI index must not show:
+//   - URLs that now redirect (an AI crawler would hit a 308),
+//   - slug-style fallback names where the page title was filtered out,
+//   - internal labels ("tier core") and an internal file path.
+// The fixes are applied here, on every run, so a regeneration never brings
+// them back. Remove an entry from RETIRED_CORE_URLS once topPages.ts drops it.
+// ---------------------------------------------------------------------------
+const RETIRED_CORE_URLS = new Set<string>([
+  // vercel.json redirects /enterprise to /services (308).
+  "https://oarcdigital.com/enterprise",
+]);
+
+// Used when the page title was filtered out and the generator fell back to
+// the slug. Names are the live page titles without the marketing suffix.
+const CORE_NAME_OVERRIDES: Record<string, string> = {
+  "https://oarcdigital.com/solutions": "Business Systems",
+  "https://oarcdigital.com/services/ai-support-specialist": "AI Customer Support Malta",
+  "https://oarcdigital.com/services/mvp-development": "MVP Development Services Malta",
+};
+
+function cleanCoreIndexSection(section: string): string {
+  const out: string[] = [];
+  for (const line of section.split("\n")) {
+    if (/^## Canonical Core 60/.test(line)) {
+      out.push("## Key pages (ranked)");
+      continue;
+    }
+    if (/^Auto-generated from lib\/seo\/topPages\.ts/.test(line)) {
+      out.push("OARC Digital's key pages, most important first.");
+      continue;
+    }
+    const m = line.match(/^\d+\.\s+\[(.*)\]\((https:\/\/oarcdigital\.com[^)]*)\)(?:\s+—\s+tier\s+\w+)?\s*$/);
+    if (!m) {
+      out.push(line);
+      continue;
+    }
+    const [, title, url] = m;
+    if (RETIRED_CORE_URLS.has(url)) continue;
+    out.push(`- [${CORE_NAME_OVERRIDES[url] ?? title}](${url})`);
+  }
+  return out.join("\n");
+}
 
 function buildSection(): string {
   const lines: string[] = [];
@@ -110,7 +199,7 @@ function applyTransform(txt: string): string {
 
   // Task #135 — also splice in / refresh the AUTOGEN CORE-60-INDEX block.
   // Marker-scoped so it lives next to (not inside) CITABLE-FACTS.
-  const coreSection = buildCoreIndexSection();
+  const coreSection = cleanCoreIndexSection(buildCoreIndexSection());
   const coreStart = next.indexOf(CORE_INDEX_START);
   const coreEnd = next.indexOf(CORE_INDEX_END);
   if (coreStart >= 0 && coreEnd > coreStart) {
@@ -139,7 +228,7 @@ function applyTransform(txt: string): string {
       ? next.slice(0, insertAt) + "\n\n" + startHere + next.slice(insertAt)
       : startHere + "\n\n" + next;
   }
-  return next;
+  return applyHeader(next);
 }
 
 function main() {

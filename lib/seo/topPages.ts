@@ -120,7 +120,6 @@ export const TOP_PAGES: readonly TopPage[] = [
   { path: "/industries",                                         kind: "pillar",  tier: "strategic" },
   { path: "/intelligence",                                       kind: "pillar",  tier: "strategic" },
   { path: "/diagnostics",                                        kind: "pillar",  tier: "strategic" },
-  { path: "/enterprise",                                         kind: "pillar",  tier: "strategic" },
   { path: "/roadmap-2026",                                       kind: "pillar",  tier: "strategic" },
   { path: "/pdf-hub",                                            kind: "pillar",  tier: "strategic" },
 ] as const;

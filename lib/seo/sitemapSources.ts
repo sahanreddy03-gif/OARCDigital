@@ -1,9 +1,10 @@
-// Computes the index sitemap.xml's per-child <lastmod> as the actual
-// max(entry.lastmod) of the UrlEntry[] each child route serves. Routes are
-// force-static so this runs once per build.
+// Computes the index sitemap.xml's per-child <lastmod>: the newest of the
+// entries' own lastmods and the date the child's URL list last changed (its
+// route file, plus extra list sources such as the matrix exclusions ledger).
+// Routes are force-static so this runs once per build. No date -> omitted.
 
 import type { UrlEntry } from "./sitemapHelpers";
-import { DEPLOY_BASELINE } from "./sitemapHelpers";
+import { lastmodForPaths } from "./sitemapHelpers";
 import { MATRIX_SITEMAP_PARTITIONS } from "./sitemapIndexConfig";
 
 type EntriesBuilder = () => Promise<UrlEntry[]> | UrlEntry[];
@@ -36,31 +37,52 @@ const ENTRIES_BUILDERS: Record<string, () => Promise<EntriesBuilder>> = {
     (await import("@/app/sitemap-aeo.xml/route")).buildEntries,
   "sitemap-blog.xml": async () =>
     (await import("@/app/sitemap-blog.xml/route")).buildEntries,
+  "sitemap-work.xml": async () =>
+    (await import("@/app/sitemap-work.xml/route")).buildEntries,
 };
 
-function maxLastmod(entries: UrlEntry[]): string {
-  let max = "";
-  for (const e of entries) {
-    if (e.lastmod && e.lastmod > max) max = e.lastmod;
-  }
-  return max || DEPLOY_BASELINE;
+// Files (besides app/<name>/route.ts) that decide which URLs a child lists.
+// The 2026-11-09 retirement of 3,525 matrix URLs only touched the ledger.
+const LIST_SOURCES: Record<string, string[]> = {
+  "sitemap-malta-priority-matrix.xml": [
+    "seo-manifest/sitemap-matrix-exclusions.json",
+    "lib/seo/maltaMatrixCohorts.ts",
+  ],
+  "sitemap-malta-expanded-matrix.xml": [
+    "seo-manifest/sitemap-matrix-exclusions.json",
+    "lib/seo/maltaMatrixCohorts.ts",
+  ],
+};
+
+function listChangedAt(name: string): string | undefined {
+  return lastmodForPaths([`app/${name}/route.ts`, ...(LIST_SOURCES[name] ?? [])]);
 }
 
-export async function getSitemapLastmod(name: string): Promise<string> {
+function newest(...dates: (string | undefined)[]): string | undefined {
+  let max: string | undefined;
+  for (const d of dates) if (d && (!max || d > max)) max = d;
+  return max;
+}
+
+function maxLastmod(entries: UrlEntry[]): string | undefined {
+  return newest(...entries.map((e) => e.lastmod));
+}
+
+export async function getSitemapLastmod(name: string): Promise<string | undefined> {
   if (name === "image-sitemap.xml") {
     const { buildLastmod } = await import("@/app/image-sitemap.xml/route");
-    return buildLastmod() || DEPLOY_BASELINE;
+    return newest(buildLastmod(), listChangedAt(name));
   }
   // Avoid recursion when legacy matrix index asks for partition lastmods.
   if (name === "sitemap-malta-matrix.xml") {
     const dates = await Promise.all(
       MATRIX_SITEMAP_PARTITIONS.map((part) => getSitemapLastmod(part)),
     );
-    return dates.reduce((a, b) => (a > b ? a : b), DEPLOY_BASELINE);
+    return newest(...dates);
   }
   const loader = ENTRIES_BUILDERS[name];
-  if (!loader) return DEPLOY_BASELINE;
+  if (!loader) return listChangedAt(name);
   const buildEntries = await loader();
   const entries = await buildEntries();
-  return maxLastmod(entries);
+  return newest(maxLastmod(entries), listChangedAt(name));
 }

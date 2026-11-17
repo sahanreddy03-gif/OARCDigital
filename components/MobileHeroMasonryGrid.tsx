@@ -28,7 +28,7 @@ const COL_0: Item[] = [
   { src: serviceImages.video,        label: "Video Production" },
   { src: serviceImages.motion,       label: "Motion Design" },
   { src: serviceImages.webDesign,    label: "Web Design" },
-  { src: "/attached_assets/influencer_1763087034115.jpg", label: "Influencer Marketing" },
+  { src: "/images/optimized/influencer-marketing.webp", label: "Influencer Marketing" },
   { src: serviceImages.immersive,    label: "Content & Storytelling" },
   { src: serviceImages.aiEnhanced,   label: "AI-Powered Creative" },
   { src: serviceImages.adCreative,   label: "Performance Marketing" },

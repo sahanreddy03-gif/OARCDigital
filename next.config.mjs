@@ -32,6 +32,14 @@ const nextConfig = {
       './public/**/*.ttf',
       './public/**/*.otf',
       './attached_assets/**',
+      // Never read at runtime, but a computed fs path in the sitemap helpers
+      // made every sitemap function trace them (~244 MB each, Nov 2026).
+      './tests/**',
+      './screenshots/**',
+      './*.png',
+      './*.jpg',
+      './.claude/**',
+      './.local/**',
     ],
   },
   allowedDevOrigins: [
@@ -66,14 +74,6 @@ const nextConfig = {
   compress: true,
   productionBrowserSourceMaps: false,
   poweredByHeader: false,
-  async rewrites() {
-    return [
-      {
-        source: '/__mockup/:path*',
-        destination: 'http://localhost:23636/__mockup/:path*',
-      },
-    ];
-  },
   async redirects() {
     return [
       { source: '/h360/restaurant-marketing-malta', destination: '/h360', permanent: true },
@@ -123,22 +123,47 @@ const nextConfig = {
       { source: '/ai/admin', destination: '/ai/business-admin', permanent: true },
       { source: '/ai/office', destination: '/ai/business-admin', permanent: true },
       { source: '/ai/back-office', destination: '/ai/business-admin', permanent: true },
+      // Old or mistyped addresses that visitors and crawlers still request
+      // (Vercel request logs, Nov 2026). Each lands on the live page in one hop.
+      { source: '/contact-us', destination: '/contact', permanent: true },
+      { source: '/about-us', destination: '/about', permanent: true },
+      { source: '/journal', destination: '/blog', permanent: true },
+      { source: '/work', destination: '/our-work', permanent: true },
+      { source: '/aeo', destination: '/services', permanent: true },
+      { source: '/sitemap_index.xml', destination: '/sitemap.xml', permanent: true },
+      { source: '/sitemap-index.xml', destination: '/sitemap.xml', permanent: true },
+      { source: '/sitemaps.xml', destination: '/sitemap.xml', permanent: true },
+      { source: '/blog/seo-malta-guide', destination: '/blog/seo-malta-complete-guide', permanent: true },
+      { source: '/creative-growth-malta', destination: '/creative', permanent: true },
+      { source: '/website-design-malta', destination: '/services/web-design', permanent: true },
+      { source: '/ai-consulting-malta', destination: '/services/ai-consulting', permanent: true },
+      { source: '/web-app-development-malta', destination: '/services/web-apps-development', permanent: true },
+      { source: '/ai-automation-malta', destination: '/automation', permanent: true },
     ];
   },
   async headers() {
     const immutableCache = [
       { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
     ];
+    // Most files in public/ keep their name when the picture changes, and this
+    // header is also sent with 404s. A one-year "immutable" here kept broken
+    // images broken in browsers for a year, so plain public files get a week.
+    // It comes first: when two rules set the same header, the later rule wins,
+    // so the folder rules below still give their own files the long cache.
+    const publicFileCache = [
+      { key: 'Cache-Control', value: 'public, max-age=604800, stale-while-revalidate=86400' },
+    ];
     return [
+      {
+        source: '/:path*\\.(png|jpg|jpeg|webp|avif|svg|ico|gif|woff|woff2|ttf|otf|mp4|webm|mov)',
+        headers: publicFileCache,
+      },
+      { source: '/_next/static/:path*', headers: immutableCache },
       { source: '/static/media/:path*', headers: immutableCache },
       { source: '/fonts/:path*', headers: immutableCache },
       { source: '/assets/:path*', headers: immutableCache },
       { source: '/media/:path*', headers: immutableCache },
       { source: '/agents/:path*', headers: immutableCache },
-      {
-        source: '/:path*\\.(png|jpg|jpeg|webp|avif|svg|ico|gif|woff|woff2|ttf|otf|mp4|webm|mov)',
-        headers: immutableCache,
-      },
     ];
   },
 };

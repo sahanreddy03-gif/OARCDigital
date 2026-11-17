@@ -111,7 +111,7 @@ export const DISCOVERY_CONTENT: Record<string, DiscoveryContent> = {
     evidence: "Lead-sorting time down 50%. Wasted outreach down 35%. 45% more real buying signals acted on. Real interest spotted twice as fast. The numbers come from OARC reporting for this work.",
     fitTitle: "Is your sales team chasing the wrong people?",
     fit: "If your team can’t tell who is serious, we can show them. Tell us how leads reach you today.",
-    services: [{ label: "Customer acquisition system", href: `${oarc}/services/customer-acquisition-accelerator` }, { label: "Conversion rate optimisation", href: `${oarc}/services/funnel-automation` }, { label: "AI sales agent", href: `${oarc}/services/ai-sdr-agent` }],
+    services: [{ label: "Customer acquisition system", href: `${oarc}/services/customer-acquisition` }, { label: "Conversion rate optimisation", href: `${oarc}/services/funnel-automation` }, { label: "AI sales agent", href: `${oarc}/services/ai-sdr-agent` }],
     enquiry: { label: "Clarify the demand path", href: contact },
   },
   "ashford-in-real-life": {
@@ -135,7 +135,7 @@ export const DISCOVERY_CONTENT: Record<string, DiscoveryContent> = {
     evidence: "Return visits up 20%. 100 members shared a win or tip in a month. Member-story shares up 35%. 50% more members joined in. The numbers come from OARC reporting for this work.",
     fitTitle: "Does your feed look like everyone else’s?",
     fit: "If your posts could belong to any business, we can make them yours. Tell us who your regulars are.",
-    services: [{ label: "Social media management", href: `${oarc}/services/social-media-creative-management` }, { label: "Video production", href: `${oarc}/services/video-production` }, { label: "Brand identity", href: `${oarc}/services/branding-services` }],
+    services: [{ label: "Social media management", href: `${oarc}/services/social-media-creative-management` }, { label: "Video production", href: `${oarc}/services/video-production` }, { label: "Brand identity", href: `${oarc}/services/branding` }],
     enquiry: { label: "Design a community content ritual", href: contact },
   },
   "maison-verre-discovery": {
@@ -147,7 +147,7 @@ export const DISCOVERY_CONTENT: Record<string, DiscoveryContent> = {
     evidence: "2,000 people at the reveal. 1,500 shoppers explored all six clues. 2,000 shoppers to the fragrance page. Saves on launch posts doubled. The numbers come from OARC reporting for this work.",
     fitTitle: "Launching something people can’t try online?",
     fit: "If your product has to be felt, tasted or smelled, we can make people imagine it. Tell us what it is.",
-    services: [{ label: "Brand identity", href: `${oarc}/services/branding-services` }, { label: "Video production", href: `${oarc}/services/video-production` }, { label: "Motion graphics", href: `${oarc}/services/motion-design` }],
+    services: [{ label: "Brand identity", href: `${oarc}/services/branding` }, { label: "Video production", href: `${oarc}/services/video-production` }, { label: "Motion graphics", href: `${oarc}/services/motion-design` }],
     enquiry: { label: "Build the launch world", href: contact },
   },
   "botanic-muse-field-notes": {
@@ -159,7 +159,7 @@ export const DISCOVERY_CONTENT: Record<string, DiscoveryContent> = {
     evidence: "300 customer notes collected with permission. 40% more customer-led stories published. 45% less time finding a story. 20 story ideas a month. The numbers come from OARC reporting for this work.",
     fitTitle: "Are your best customer stories lost?",
     fit: "If great feedback is buried in your inbox, we can collect it properly. Tell us where your customers talk to you.",
-    services: [{ label: "Social media management", href: `${oarc}/services/social-media-creative-management` }, { label: "Brand identity", href: `${oarc}/services/branding-services` }, { label: "Email marketing design", href: `${oarc}/services/email-creative` }],
+    services: [{ label: "Social media management", href: `${oarc}/services/social-media-creative-management` }, { label: "Brand identity", href: `${oarc}/services/branding` }, { label: "Email marketing design", href: `${oarc}/services/email-creative` }],
     enquiry: { label: "Create a responsible story system", href: contact },
   },
   "vertex-after-launch": {

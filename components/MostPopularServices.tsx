@@ -18,7 +18,7 @@ const PAGES: Tile[] = [
   },
   {
     label: "Buyer's guide",
-    href: "/aeo/best-marketing-agency-malta",
+    href: "/insights/best-marketing-agencies-malta",
     title: "Best Marketing Agency Malta 2026",
     blurb: "How to choose an agency, and five tests that separate the best from the rest.",
   },

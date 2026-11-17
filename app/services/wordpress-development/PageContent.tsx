@@ -12,17 +12,17 @@ import TrustBlock from "@/components/seo/TrustBlock";
 import { NAP } from "@/lib/seo/nap";
 const SCHEMA = SERVICE_SCHEMAS["wordpress-development"];
 
-const wpHeroImage = "/attached_assets/11_1763228440281.jpg";
+const wpHeroImage = "/images/services/sticky-notes-content-planning.webp";
 
 const wpImageObjectSchema = {
   "@context": "https://schema.org",
   "@type": "ImageObject",
   name: "Custom WordPress build by OARC Digital for a Malta business — editable CMS for non-technical teams",
   description: "WordPress built so Malta business owners can update pages, add blog posts, and manage content without needing a developer for every change.",
-  url: "https://oarcdigital.com/attached_assets/11_1763228440281.jpg",
-  width: 1200,
-  height: 800,
-  contentUrl: "https://oarcdigital.com/attached_assets/11_1763228440281.jpg",
+  url: "https://oarcdigital.com/images/services/sticky-notes-content-planning.webp",
+  width: 1920,
+  height: 1280,
+  contentUrl: "https://oarcdigital.com/images/services/sticky-notes-content-planning.webp",
 };
 
 const wpFaqPageSchema = {
@@ -91,6 +91,9 @@ export default function WordPressDevelopmentContent() {
             <h2 className="text-2xl md:text-3xl font-bold mb-4">WordPress Done Right, Not Done Cheap</h2>
             <p className="text-foreground leading-relaxed mb-4">
               WordPress still powers more than 40% of websites globally and remains the right answer for Malta businesses that need a content-led site their own team can update — law firms, hospitality groups, real-estate agencies, news publishers, and B2B service businesses. The catch is that most Malta WordPress sites are running on a Frankenstein stack of nine page-builders, twenty-three plugins, and a theme last updated in 2019. They are slow, insecure, and impossible to redesign without starting over.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              WordPress sites are built by the web team at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">digital and AI agency in Malta</Link>.
             </p>
             <p className="text-foreground leading-relaxed">
               OARC Digital builds modern WordPress sites the right way — block-based themes, minimum plugin footprint, EU-region managed hosting, and a clear maintenance contract that prevents the rot from setting in again. The result is a site that loads in under one second, ranks well, and stays editable by your team for years.

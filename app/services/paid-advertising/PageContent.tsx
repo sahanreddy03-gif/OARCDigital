@@ -9,7 +9,7 @@ import Layout from "@/components/layout/Layout";
 import { revenueServicesSEO } from "@/data/seoMetadata";
 import FAQSection, { type FAQItem } from "@/components/FAQSection";
 import RelatedServices from "@/components/RelatedServices";
-const heroImage = "/attached_assets/paid advertising_1763088406833.avif";
+const heroImage = "/images/services/paid-advertising-banner.webp";
 
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import ApprovedQuotes from "@/components/ApprovedQuotes";
@@ -356,7 +356,7 @@ export default function PaidAdvertising() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <Link href="/services/social-media-creative">
+            <Link href="/services/social-media-creative-management">
               <div className="group p-6 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-[#23AACA] transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-testid="related-service-creative-pillar">
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-lg font-bold text-white group-hover:text-[#c4ff4d] transition-colors">Social Media Creative</h3>
