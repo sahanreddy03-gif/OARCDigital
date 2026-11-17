@@ -29,19 +29,14 @@ const faqs = [
       "Yes. We meet you at your place, plan with you in person and film on location, like any high-end agency. This page is just the fastest way to reach us.",
   },
   {
-    question: "Is it really cheaper than hiring someone?",
-    answer:
-      "Yes. Malta’s minimum wage in 2026 is €229.44 a week, about €994 a month, before any employer costs. Your OARC team is €500 a month, and nobody needs a desk, a laptop or holidays covered.",
-  },
-  {
-    question: "How can a whole team cost €500 a month?",
+    question: "How can a full team cost €500 a month?",
     answer:
       "Better tools made the work faster. Most agencies kept the savings. We pass them to you. You still get experienced people, in person.",
   },
   {
     question: "We already pay an agency €2,000 or more. Why switch?",
     answer:
-      "Keep your budget and get more for it: the whole team, the tech side, and more of your money going into ads. Send us your last invoice and we’ll show you what it buys with us.",
+      "Keep your budget and get more for it: a full team, the tech side, and more of your money going into ads. Send us your last invoice and we’ll show you what it buys with us.",
   },
   {
     question: "Is there a contract?",
@@ -72,16 +67,6 @@ const faqs = [
     question: "What isn’t included?",
     answer:
       "Your ad budget, which you pay to Meta and Google directly. We’ll always tell you before anything else costs extra.",
-  },
-  {
-    question: "Can you train my own staff?",
-    answer:
-      "Yes. Your team can show your staff the tools and the playbooks we use for you. Ask about it when we meet.",
-  },
-  {
-    question: "What is the live results screen?",
-    answer:
-      "An extra that’s coming soon: your own screen with every number, live. Until then, you get a one-page report every month.",
   },
   {
     question: "Which businesses do you work with?",
