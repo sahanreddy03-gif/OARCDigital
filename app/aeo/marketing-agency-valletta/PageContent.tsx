@@ -58,6 +58,9 @@ export default function MarketingAgencyValletta({ faqs, offers }: Props) {
               Valletta is unlike anywhere else in Malta. The walls are UNESCO-listed, the consumer mix is dominated by walk-in tourism, the F&B scene has been rebuilt over the last decade around chef-led restaurants, palazzo townhouses and boutique hotels are filling once-derelict streets in the upper grid, and Republic Street still anchors the highest-status retail and the longest-established finance, legal, and fiduciary firms in the country. None of that compresses well into a generic Malta marketing template — heritage venues need heritage-grade content, walk-in tourism needs Google Maps and TripAdvisor density, and Republic Street commercial firms need LinkedIn and Google Search programs that look serious enough to compete with international counsel.
             </p>
             <p className="text-foreground leading-relaxed mb-4">
+              Valletta businesses get the same 8 departments as every client of our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">marketing agency in Malta</Link>.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
               The audience layering matters too. A Strait Street wine bar is competing for the same Italian visitor that just walked off the Grand Harbour cruise terminal, the German visitor staying at a palazzo on Triq Santa Lucija, the local couple from Sliema booking date night, and the Republic Street office worker on a Friday evening. A boutique hotel on Triq id-Dejqa is competing with the Booking.com algorithm, the Airbnb supply across Valletta, and the larger 5-star inventory in St Julian&apos;s and Mellieha. Each of those conversations needs a different language, a different platform, and a different content angle.
             </p>
             <p className="text-foreground leading-relaxed">

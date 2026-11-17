@@ -51,9 +51,9 @@ export default function PaidAdvertisingMalta() {
             <p className="text-xl text-zinc-300 leading-relaxed">
               Malta has one of the most competitive paid advertising markets in Europe per capita. Small island, concentrated business community, and most sectors have at least 3–5 businesses running ads. Here's how to not waste your budget.
             </p>
-            <div className="flex items-center gap-4 mt-8 text-sm text-zinc-400">
-              <span>By OARC Digital</span>
-              <span>·</span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-8 text-sm text-zinc-400">
+              <span className="w-full sm:w-auto">By the performance marketing team at our <Link href="/" className="text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">marketing agency in Malta</Link></span>
+              <span className="hidden sm:inline">·</span>
               <span>March 2026</span>
               <span>·</span>
               <span>10 min read</span>

@@ -60,6 +60,9 @@ export default function InfluencerMarketingMalta({ faqs, offers }: Props) {
               Malta is a 540,000-resident island with 4.5 million annual overnight visitors and a creator pool small enough that almost every working influencer in the food, lifestyle, fitness, and travel verticals knows almost every other one. That density is a structural advantage for brands that approach creator marketing properly. A single well-briefed micro-creator activation in St Julians can land your venue in front of every relevant Malta resident inside two weeks, and the vetted seasonal tourist-creator pipeline can put your name in front of a hundred-thousand-strong UK or German audience the next.
             </p>
             <p className="text-foreground leading-relaxed mb-4">
+              Influencer work is run by the same team that runs your ads and social media. That team is <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">OARC Digital, a marketing agency in Malta</Link>.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
               The trap most Malta brands fall into is paying for follower counts that do not convert. The same big-name lifestyle creator that posts about Marsamxett harbour for one operator, a Sliema beauty brand the next week, and a Mosta gym the week after that has trained their audience to ignore sponsored content. The work that actually drives bookings, walk-ins, and DM enquiries is shipped by the 10,000-to-50,000-follower micro-creators with concentrated topical authority — the chef who only talks about pastizzi, the diver who only posts Gozo wrecks, the running coach who only films Pembroke routes.
             </p>
             <p className="text-foreground leading-relaxed">

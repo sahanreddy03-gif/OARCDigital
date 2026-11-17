@@ -48,9 +48,9 @@ export default function VideoProductionMalta() {
             <p className="text-xl text-zinc-300 leading-relaxed">
               A beautifully shot brand video sitting on a Vimeo page nobody visits is not marketing. A shaky phone video of your chef making pasta that gets 80,000 TikTok views is. Here is how to invest in video that works.
             </p>
-            <div className="flex items-center gap-4 mt-8 text-sm text-zinc-400">
-              <span>By OARC Digital</span>
-              <span>·</span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-8 text-sm text-zinc-400">
+              <span className="w-full sm:w-auto">By the film team at <Link href="/" className="text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a marketing agency in Malta</span>
+              <span className="hidden sm:inline">·</span>
               <span>March 2026</span>
               <span>·</span>
               <span>12 min read</span>

@@ -64,6 +64,7 @@ export default function EcommerceMarketingMalta() {
             <p className="text-xl text-gray-300 mb-8">
               Malta-based eCommerce businesses have access to the entire EU market. The ones growing fastest combine local knowledge with the same strategies global brands use — here is the playbook.
             </p>
+            <p className="text-sm text-gray-400 -mt-4 mb-8">By the performance marketing team at <Link href="/" className="text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital, a marketing agency in Malta</Link>.</p>
             <Link href="/contact">
               <button className="bg-[#ff914d] hover:bg-[#e8823e] text-white font-semibold px-8 py-4 rounded-lg transition-colors">
                 Get a Free Strategy Session

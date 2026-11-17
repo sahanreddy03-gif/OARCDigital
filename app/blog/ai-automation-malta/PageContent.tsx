@@ -103,6 +103,7 @@ export default function AIAutomationMalta() {
             <div className="text-[#ff914d] text-sm font-semibold mb-4 uppercase tracking-wider">OARC Digital — Malta</div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">AI Automation Malta: How Maltese Businesses Are Saving 20+ Hours Per Week</h1>
             <p className="text-xl text-gray-300 mb-8">Malta businesses are discovering that AI automation isn't just for big corporations. Whether you run a restaurant in Qormi, a law firm in Valletta, or an iGaming company in Sliema — the right automation saves hours every day and compounds over time.</p>
+            <p className="text-sm text-gray-400 -mt-4 mb-8">By the AI and tech team at <Link href="/" className="text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.</p>
             <Link href="/contact">
               <button className="bg-[#ff914d] hover:bg-[#e8823e] text-white font-semibold px-8 py-4 rounded-lg transition-colors">
                 Get a Free Automation Audit

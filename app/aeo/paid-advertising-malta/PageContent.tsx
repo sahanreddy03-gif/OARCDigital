@@ -60,6 +60,9 @@ export default function PaidAdvertisingMalta({ faqs, offers }: Props) {
               Most Malta paid-media briefs forget that the country has two completely different audiences moving through the same Meta and Google auctions. The resident audience — roughly 540,000 people clustered around Birkirkara, Sliema, St Julians, Mosta, and Paola — buys from Maltese-language Facebook ads, click-to-WhatsApp lead forms, and Google Search for high-intent local services. The inbound audience — five million annual tourists from the UK, Germany, Italy, France, and Scandinavia — books restaurants and hotels through Instagram Reels, English-language hotel-brand search, and TikTok content discovered weeks before they board a Ryanair flight.
             </p>
             <p className="text-foreground leading-relaxed mb-4">
+              Ads work harder with good creative and a fast website. As a <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">marketing agency in Malta</Link> with 8 departments, we do all three in one team.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
               The same campaign architecture cannot serve both. OARC Digital splits every account into a resident playbook (Maltese-first creative, WhatsApp routing, Sliema/St Julians/Mellieha radius targeting) and a tourist playbook (English creative timed to booking-window data, country-by-country prospecting, branded-search defence in the destination phase). The split is invisible to the customer but it is the difference between a 6x return and a 1.2x return on the same monthly budget.
             </p>
             <p className="text-foreground leading-relaxed">

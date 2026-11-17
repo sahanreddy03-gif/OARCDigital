@@ -49,9 +49,9 @@ export default function TikTokMaltaBusiness() {
             <p className="text-xl text-zinc-300 leading-relaxed">
               A Gzira restaurant with 200 Instagram followers got 94,000 views on their first TikTok. That is not a fluke — that is the algorithm. Here is how to use it deliberately.
             </p>
-            <div className="flex items-center gap-4 mt-8 text-sm text-zinc-400">
-              <span>By OARC Digital</span>
-              <span>·</span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-8 text-sm text-zinc-400">
+              <span className="w-full sm:w-auto">By the social media team at our <Link href="/" className="text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">marketing agency in Malta</Link></span>
+              <span className="hidden sm:inline">·</span>
               <span>March 2026</span>
               <span>·</span>
               <span>10 min read</span>
