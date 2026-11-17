@@ -32,6 +32,14 @@ const nextConfig = {
       './public/**/*.ttf',
       './public/**/*.otf',
       './attached_assets/**',
+      // Never read at runtime, but a computed fs path in the sitemap helpers
+      // made every sitemap function trace them (~244 MB each, Nov 2026).
+      './tests/**',
+      './screenshots/**',
+      './*.png',
+      './*.jpg',
+      './.claude/**',
+      './.local/**',
     ],
   },
   allowedDevOrigins: [

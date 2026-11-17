@@ -37,16 +37,20 @@ function manifestDates(): Record<string, string> {
 function shallowBoundary(): Set<string> {
   if (_shallowBoundary) return _shallowBoundary;
   _shallowBoundary = new Set();
-  try {
-    const file = execFileSync("git", ["rev-parse", "--git-path", "shallow"], {
+  // Ask git rather than reading .git/shallow: a computed fs path makes the
+  // bundler trace the whole project (~244 MB) into every sitemap function.
+  // In a shallow clone the cut-off commits are the ones git reports as
+  // parentless.
+  const git = (args: string[]) =>
+    execFileSync("git", args, {
       encoding: "utf8",
       stdio: ["ignore", "pipe", "ignore"],
       timeout: 5000,
     }).trim();
-    const abs = path.resolve(process.cwd(), file);
-    if (existsSync(abs)) {
-      for (const line of readFileSync(abs, "utf8").split(/\s+/)) {
-        if (line.trim()) _shallowBoundary.add(line.trim());
+  try {
+    if (git(["rev-parse", "--is-shallow-repository"]) === "true") {
+      for (const hash of git(["rev-list", "--max-parents=0", "HEAD"]).split(/\s+/)) {
+        if (hash) _shallowBoundary.add(hash);
       }
     }
   } catch {
