@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { MessageCircle } from "lucide-react";
 import Layout from "@/components/layout/Layout";
-import { AI_SYSTEMS } from "@/lib/ai-systems";
+import { AI_SYSTEMS, nameInSentence } from "@/lib/ai-systems";
 import { whatsappLink } from "@/components/ai-systems/AiSystemPage";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 import { bookingUrl } from "@/lib/utm";
@@ -38,7 +38,7 @@ const jsonLd = {
         itemListElement: AI_SYSTEMS.map((c, i) => ({
           "@type": "ListItem",
           position: i + 1,
-          name: `AI system for ${c.name.toLowerCase()}`,
+          name: `AI system for ${nameInSentence(c.name)}`,
           url: `${BASE}/ai/${c.slug}`,
         })),
       },
@@ -70,9 +70,15 @@ export default function AiHubPage() {
             </p>
 
             <div className={s.hubGrid}>
-              {AI_SYSTEMS.map((c) => (
-                <Link key={c.slug} href={`/ai/${c.slug}`} className={`${s.hubCard} ${s.light}`} data-testid={`link-ai-${c.slug}`}>
-                  <span className={s.hubProof}>{c.proof.line}</span>
+              {AI_SYSTEMS.map((c, i) => (
+                <Link
+                  key={c.slug}
+                  href={`/ai/${c.slug}`}
+                  // An odd card out at the end spans the row instead of sitting alone.
+                  className={`${s.hubCard} ${s.light} ${AI_SYSTEMS.length % 2 === 1 && i === AI_SYSTEMS.length - 1 ? s.hubWide : ""}`}
+                  data-testid={`link-ai-${c.slug}`}
+                >
+                  {c.proof && <span className={s.hubProof}>{c.proof.line}</span>}
                   <h2>{c.hub.title}</h2>
                   <p>{c.hub.body}</p>
                   <span className={s.gain}>{c.hub.gain}</span>
@@ -82,7 +88,7 @@ export default function AiHubPage() {
 
             <div className={`${s.cta} ${s.ctaBlue}`}>
               <h2>Your industry not here yet? <em>We build it.</em></h2>
-              <p>Clinics, hotels, restaurants, schools, tourism, iGaming or any office with too much admin. Tell us how your week runs.</p>
+              <p>Retail, logistics, construction, finance and more. Tell us how your week runs and we build the system around it.</p>
               <div className={s.ctaActs}>
                 <a className={`${s.btn} ${s.onDark}`} href={whatsappLink("business in Malta")} target="_blank" rel="noopener" data-testid="button-hub-whatsapp">
                   <MessageCircle aria-hidden="true" strokeWidth={1.6} />Ask us on WhatsApp

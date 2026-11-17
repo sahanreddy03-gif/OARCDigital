@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Layout from "@/components/layout/Layout";
 import AiSystemPage from "@/components/ai-systems/AiSystemPage";
-import { AI_SYSTEM_SLUGS, getAiSystem } from "@/lib/ai-systems";
+import { AI_SYSTEM_SLUGS, getAiSystem, nameInSentence } from "@/lib/ai-systems";
 import { NAP } from "@/lib/seo/nap";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
@@ -54,7 +54,7 @@ export default async function Page({ params }: Props) {
       {
         "@type": "Service",
         "@id": `${url}#service`,
-        name: `AI system for ${c.name.toLowerCase()} in Malta`,
+        name: `AI system for ${nameInSentence(c.name)} in Malta`,
         serviceType: c.serviceType,
         description: c.schemaDescription,
         url,

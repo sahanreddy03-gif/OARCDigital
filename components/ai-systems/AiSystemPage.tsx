@@ -9,6 +9,7 @@ import {
 import { NAP } from "@/lib/seo/nap";
 import { bookingUrl } from "@/lib/utm";
 import type { AiIcon, AiSystemContent } from "@/lib/ai-systems/types";
+import { nameInSentence } from "@/lib/ai-systems";
 import { AskSpot, Calc, FloatBar, HeroFilm, JobsRail, PriceForm } from "./AiSystemClient";
 import { SpotVisual } from "./AiVisuals";
 import s from "./ai-system.module.css";
@@ -80,7 +81,7 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
           <HeroFilm film={c.film} />
 
           <div className={s.proof}>
-            <p className={s.proofN}>{c.proof.line}.</p>
+            {c.proof && <p className={s.proofN}>{c.proof.line}.</p>}
             <div className={s.with}><span className={s.withLab}>Works with</span>{c.worksWith.map((w) => <span key={w}>{w}</span>)}</div>
           </div>
         </div>
@@ -165,7 +166,7 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
       <section className={s.sec} id="dashboard">
         <div className={s.wrap}>
           <div className={s.sh}><div><h2>{d.title}</h2><p className={s.d}>{d.body}</p></div></div>
-          <div className={s.shot} role="img" aria-label={`The OARC ${c.name.toLowerCase()} dashboard: today's numbers, what needs you, and the week so far`}>
+          <div className={s.shot} role="img" aria-label={`The OARC ${nameInSentence(c.name)} dashboard: today's numbers, what needs you, and the week so far`}>
             <div className={s.app} aria-hidden="true">
               <div className={s.abar}>
                 <span className={s.logo}>OARC<small>{d.org}</small></span>
@@ -341,7 +342,14 @@ export default function AiSystemPage({ c }: { c: AiSystemContent }) {
         </div>
       </section>
 
-      <FloatBar line={c.proof.line} short={c.proof.short} href={offer} label="Claim your free month" shortLabel="Free month" />
+      {/* No owner-confirmed count for this industry yet: the bar says what we promise instead. */}
+      <FloatBar
+        line={c.proof?.line ?? `Set up for your ${c.business} in 72 hours`}
+        short={c.proof?.short ?? "Set up in 72 hours"}
+        href={offer}
+        label="Claim your free month"
+        shortLabel="Free month"
+      />
     </div>
   );
 }
