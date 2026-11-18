@@ -6,8 +6,8 @@ const H360_AUDIT = `${H360_PATH}#h360-audit`;
 function auditPrompt(restaurantName?: string): string {
   const trimmed = restaurantName?.trim();
   return trimmed
-    ? `Ir-ristorant tiegħi jismu "${trimmed}" u qiegħed f'Malta. Agħtini awditu qasir u onest — x'aktarx mhux qed jaħdem fuq Google Maps, fir-reviews u fil-marġni (Wolt/Bolt kontra ordnijiet diretti)? L-ewwel id-dijanjosi, bla diskors ta' bejgħ.`
-    : `Immexxi ristorant f'Malta. Agħtini awditu qasir u onest — x'aktarx mhux qed jaħdem fuq Google Maps, fir-reviews u fil-marġni? L-ewwel id-dijanjosi, mhux diskors ta' bejgħ.`;
+    ? `Ir-ristorant tiegħi jismu "${trimmed}" u qiegħed f'Malta. Agħtini awditu qasir u onest — x'hemm li x'aktarx mhux qed jaħdem fuq Google Maps, fir-reviews u fil-marġni (Wolt/Bolt kontra ordnijiet diretti)? L-ewwel id-dijanjożi, bla diskors ta' bejgħ.`
+    : `Immexxi ristorant f'Malta. Agħtini awditu qasir u onest — x'hemm li x'aktarx mhux qed jaħdem fuq Google Maps, fir-reviews u fil-marġni? L-ewwel id-dijanjożi, mhux diskors ta' bejgħ.`;
 }
 
 function scrollToAuditForm(): void {

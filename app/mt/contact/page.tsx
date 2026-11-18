@@ -10,7 +10,7 @@ const URL = localeUrl("mt", PATH);
 
 const TITLE = "Ikkuntattja lil OARC Digital f'Malta | Ibbukkja Telefonata";
 const DESCRIPTION =
-  "Ikkuntattja lil OARC Digital f'Birkirkara: ċempel fuq +356 7971 1799 jew ibbukkja telefonata dwar kreattività, aġenti tal-AI, H360 jew SEO. Anke b'WhatsApp.";
+  "Ikkuntattja lil OARC Digital f'Birkirkara: ċempel fuq +356 7971 1799 jew ibbukkja telefonata dwar kreattività, aġenti tal-AI, H360 jew SEO. Anke fuq WhatsApp.";
 
 export const metadata: Metadata = {
   title: TITLE,

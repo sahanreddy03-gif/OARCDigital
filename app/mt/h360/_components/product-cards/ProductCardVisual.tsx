@@ -317,7 +317,7 @@ const VISUAL_MAP: Record<ProductVisualId, (p: VisualProps) => React.ReactNode> =
   'staff-roster': (p) => <StepFlowVisual playing={p.playing} steps={[['Ippjana għada', '4 staff · WhatsApp'], ['Jikkonfermaw', "Iva / Le b'għafsa waħda"], ['Xi ħadd marid', 'Sostitut fi ftit minuti']]} />,
   'floor-map': (p) => <StepFlowVisual playing={p.playing} steps={[['Mappa tal-imwejjed', '15-il mejda live'], ['T7 issir ħamra', 'Okkupata 48 min'], ['Poġġi l-klijenti', 'Il-mejda vojta li jmiss: T3']]} />,
   'social-feed': (p) => <StepFlowVisual playing={p.playing} steps={[['Vidjow + ritratti', 'Niġbdu u neditjaw aħna'], ['Posts fuq is-social media', 'Instagram u Facebook'], ['Reklami mħallsa', 'Aktar klijenti jibbukkjaw mejda']]} />,
-  'decision-hub': (p) => <StepFlowVisual playing={p.playing} steps={[['Is-sinjali kollha', 'Ordnijiet · reviews · stokk'], ['ARC jaqrahom', 'Dashboard waħda'], ['Int tiddeċiedi', "X'tirranġa l-ewwel"]]} />,
+  'decision-hub': (p) => <StepFlowVisual playing={p.playing} steps={[['Is-sinjali kollha', 'Ordnijiet · reviews · stokk'], ['ARC jaqrahom', 'Dashboard wieħed'], ['Int tiddeċiedi', "X'tirranġa l-ewwel"]]} />,
   'local-search': (p) => <MapsRankVisual {...p} />,
 };
 

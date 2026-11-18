@@ -19,10 +19,10 @@ const G = {
 
 /** One headline line + one phone screen — same index, timer-only (no scroll hijack) */
 const SLIDES = [
-  { word: 'Ħu ordnijiet diretti fuq il-mejda.', label: 'Ordnijiet diretti' },
+  { word: 'Ħu ordnijiet diretti mill-mejda.', label: 'Ordnijiet diretti' },
   { word: "Itla' fuq Google Maps f'Malta.", label: 'Google Maps' },
   { word: 'Imla l-imwejjed fl-iljieli kwieti.', label: 'Radar tal-iljieli kwieti' },
-  { word: 'Agħmilhom klijenti regolari.', label: 'Lealtà' },
+  { word: 'Agħmel il-klijenti tiegħek regolari.', label: 'Lealtà' },
 ] as const;
 
 const CYCLE_MS = 4500;
@@ -83,7 +83,7 @@ function Screen1() {
         </div>
       </div>
       <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 10, padding: '10px 12px' }}>
-        <div style={{ fontSize: 12, fontWeight: 700, color: G.red }}>H360 itellgħek fuq Maps</div>
+        <div style={{ fontSize: 12, fontWeight: 700, color: G.red }}>H360 ittellgħek fuq Maps</div>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ const NAME = "Isem in-negozju tiegħek";
 const types = [
   { h: "Websajt sempliċi", p: "Ftit paġni ċari li jgħidu min int u kif isibuk.", who: "Nies tas-sengħa, kliniċi, ditti legali" },
   { h: "Landing page", p: "Paġna waħda b'xogħol wieħed: iġġiblek it-talba.", who: "Reklami, offerti, tnedijiet" },
-  { h: "Ħanut online", p: "Bigħ il-prodotti tiegħek u titħallas online.", who: "Ħwienet, moda, ikel" },
+  { h: "Ħanut online", p: "Tbigħ il-prodotti tiegħek u titħallas online.", who: "Ħwienet, moda, ikel" },
   { h: "Websajt għall-prenotazzjonijiet", p: "In-nies jagħżlu ħin u jibbukkjaw, mingħajr telefonata.", who: "Salons, kliniċi, ristoranti, tours" },
   { h: "Portfolio", p: "L-aqwa xogħol tiegħek, muri bl-isbaħ mod.", who: "Periti, fotografi, disinjaturi" },
   { h: "Żona għall-membri", p: "Kontenut li jarawh biss dawk li jidħlu bil-login.", who: "Gyms, skejjel, coaches" },
@@ -33,7 +33,7 @@ const jobs = [
 ];
 
 const free = [
-  "Formola tal-AI li tistaqsi l-mistoqsijiet it-tajba",
+  "Formola tal-AI li tistaqsi l-mistoqsijiet it-tajbin",
   "Link għall-prenotazzjoni, imqabbad mal-kalendarju tiegħek",
   "Appoġġ għall-klijenti bl-AI, imħarreġ fuq in-negozju tiegħek",
   "Buttuni tal-WhatsApp u tat-telefonati f'kull paġna",
@@ -51,12 +51,12 @@ const platforms = [
 ];
 
 const terms: [string, string][] = [
-  ["Core Web Vitals", "It-tliet punteġġi ta' Google għall-veloċità u l-kumdità. Nibnu biex ngħadduhom."],
-  ["Responsive", "Taddatta waħedha għal mowbajl, tablet u laptop."],
+  ["Core Web Vitals", "It-tliet punteġġi ta' Google għall-veloċità u l-kumdità. Nibnu biex ngħaddu minnhom."],
+  ["Responsive", "Tadatta ruħha waħedha għal mowbajl, tablet u laptop."],
   ["Aċċessibbiltà (WCAG)", "Jistgħu jużawha wkoll persuni b'diżabilità."],
   ["SSL", "Il-katnazz. Id-data tal-viżitaturi tibqa' privata."],
   ["CMS", "L-iskrin sempliċi fejn tibdel kliemek u r-ritratti tiegħek int stess."],
-  ["Schema", "Tikketti moħbija li jgħidu lil Google u lill-AI x'inhi kull ħaġa."],
+  ["Schema", "Tikketti moħbijin li jgħidu lil Google u lill-AI x'inhi kull ħaġa."],
   ["llms.txt", "Fajl qasir li jgħid lill-għodod tal-AI x'jagħmel in-negozju tiegħek."],
   ["CDN", "Il-websajt tiegħek tasal minn server qrib kull viżitatur, biex tiftaħ malajr."],
   ["Analytics", "Jgħodd il-viżitaturi tiegħek u x'jagħmlu."],
@@ -103,7 +103,7 @@ const included = [
   "Buttuni tal-WhatsApp u tat-telefonati",
   "Tracking u dashboard sempliċi",
   "Setup tal-hosting, SSL u backups",
-  "Links antiki mċaqilqa, biex postok fuq Google jibqa'",
+  "Links antiki mċaqilqin, biex iżżomm postok fuq Google",
   "Taħriġ għat-tim tiegħek",
   "Pjan ta' manutenzjoni wara t-tnedija",
 ];
@@ -133,7 +133,7 @@ export default function WebDevelopmentAgencyMaltaMt({ faqs }: Props) {
               <span className="kick">{"Żvilupp ta' websajts f'Malta"}</span>
               <span className="big">{"Kull websajt li tista' timmaġina. "}<i className="mk">Mibnija biex tbigħ.</i></span>
             </h1>
-            <p className="hsub">2D, 3D, interattiva jew sempliċi. Veloċi, tinstab fuq Google u mill-intelliġenza artifiċjali (AI), u lesta tieħu t-talbiet mill-ewwel jum.</p>
+            <p className="hsub">2D, 3D, interattiva jew sempliċi. Veloċi, tinstab fuq Google u mill-intelliġenza artifiċjali (AI), u lesta biex tieħu t-talbiet mill-ewwel jum.</p>
 
             <div className="hgrid">
               <div className="ocard">
@@ -230,7 +230,7 @@ export default function WebDevelopmentAgencyMaltaMt({ faqs }: Props) {
           <div className="wrap">
             <p className="lab" data-rv><b>03</b>{"Inkluż ma' kull websajt"}</p>
             <div className="shead" data-rv>
-              <h2 className="h2">L-extras li ħaddieħor iħallsek għalihom. <i>Inklużi.</i></h2>
+              <h2 className="h2">L-extras li band&apos;oħra tħallas għalihom. <i>Inklużi.</i></h2>
               <p className="lead">{"Il-websajt tiegħek għandha taħdem għalik mill-ewwel jum. Għalhekk dawn jiġu ma' kull waħda li nibnu."}</p>
             </div>
             <ul className="chips big" data-rv>
@@ -349,7 +349,7 @@ export default function WebDevelopmentAgencyMaltaMt({ faqs }: Props) {
             <p className="lab" data-rv><b>09</b>Kif tibda</p>
             <div className="shead" data-rv>
               <h2 className="h2">Ibda <i>{"b'messaġġ wieħed."}</i></h2>
-              <p className="lead">{"L-ebda laqgħa x'tibbukkja. L-ebda formola x'timla. Biss isem in-negozju tiegħek."}</p>
+              <p className="lead">{"L-ebda laqgħa x'tibbukkja. L-ebda formola x'timla. Isem in-negozju tiegħek biss."}</p>
             </div>
             <ol className="tl">
               <li data-rv><p className="when">Illum</p><h3>Ibgħatilna isem in-negozju tiegħek fuq WhatsApp.</h3><p>Dak biss għandna bżonn biex nibdew.</p></li>
@@ -382,7 +382,7 @@ export default function WebDevelopmentAgencyMaltaMt({ faqs }: Props) {
         {/* 12 · close */}
         <section className="fin dark">
           <div className="wrap">
-            <h2 className="h2" data-rv>Agħmel il-websajt tiegħek <i>l-aqwa bejjiegħ tiegħek.</i></h2>
+            <h2 className="h2" data-rv>Agħmel il-websajt tiegħek <i>l-aqwa bejjiegħa tiegħek.</i></h2>
             <WaForm id="blueprint2" message={BLUEPRINT} button="Irrid il-pjan tiegħi" placeholder={NAME} label={NAME} />
             <p className="onote"><span>{"B'xejn. Fi 48 siegħa. Jiftaħ WhatsApp."}</span><a href={PRICE} target="_blank" rel="noopener" data-testid="link-price-close">Jew ikseb il-prezz tiegħek</a></p>
             <p className="home">{"Il-web huwa wieħed mit-8 dipartimenti ta' OARC Digital. Issibna hawn: "}{NAP.streetAddressShort}, {NAP.addressLocality} {NAP.postalCode}.</p>

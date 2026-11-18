@@ -11,7 +11,7 @@ const PATH = "/ai/casinos";
 const URL = localeUrl("mt", PATH);
 const TITLE = "Marketing u Sistemi tal-AI għall-Każinojiet f'Malta | OARC";
 const DESCRIPTION =
-  "Sistemi magħmula apposta, app għall-istaff, bookings u marketing li jġib plejers u mistednin fil-każinojiet u l-lukandi f'Malta. Pjan b'xejn fi 48 siegħa.";
+  "Sistemi magħmula apposta, app għall-istaff, bookings u marketing li jġib plejers u mistednin fil-każinojiet u fil-lukandi b'każinò f'Malta. Pjan b'xejn fi 48 siegħa.";
 const OG = { title: "Sistemi u marketing għall-każinojiet f'Malta", subtitle: "Sistemi magħmula apposta, app għall-istaff, bookings u marketing, minn tim wieħed.", eyebrow: "Sistemi tal-AI" };
 
 export const metadata: Metadata = {
@@ -26,8 +26,8 @@ const BLUEPRINT = "Hello OARC. L-isem tal-każinò jew tal-lukanda tagħna hu {x
 const PRICE = waLink("Hello OARC. Jekk jogħġobkom ibagħtuli l-prezz tagħkom għal każinò jew lukanda b'każinò. L-istabbiliment tagħna hu: ");
 
 const three = [
-  { h: "Nibnulek is-sistemi.", p: "Software magħmul apposta għall-każinò u l-lukanda tiegħek: bookings, il-loyalty club tiegħek, app għall-istaff u dashboard wieħed ċar.", we: "Mibni madwar kif jaħdem tassew l-istabbiliment tiegħek." },
-  { h: "Nimlewlek is-sala u l-kmamar.", p: "Kmamar tal-lukanda, postijiet tal-poker, imwejjed privati, mwejjed tar-ristorant u pakketti ta' soġġorn u logħob, ibbukkjati lejl u nhar.", we: "L-ebda talba ma tistenna sa filgħodu." },
+  { h: "Nibnulek is-sistemi.", p: "Software magħmul apposta għall-każinò u l-lukanda tiegħek: bookings, il-loyalty club tiegħek, app għall-istaff u dashboard wieħed ċar.", we: "Mibni skont kif jaħdem tassew l-istabbiliment tiegħek." },
+  { h: "Nimlewlek is-sala u l-kmamar.", p: "Kmamar tal-lukanda, postijiet tal-poker, imwejjed privati, imwejjed tar-ristorant u pakketti ta' soġġorn u logħob, ibbukkjati lejl u nhar.", we: "L-ebda talba ma tistenna sa filgħodu." },
   { h: "Inġibulek il-mistednin it-tajbin.", p: "Films, kontenut, social media u reklami li jilħqu lin-nies lokali, lit-turisti, lill-vjaġġaturi ta' livell għoli u lill-kumpaniji.", we: "F'Malta, madwar l-Ewropa u fl-Asja." },
 ];
 
@@ -44,7 +44,7 @@ const games = [
   { h: "Roulette", p: "L-ewwel mejda klassika għal viżitatur ġdid.", we: "Kampanji għat-turisti u għall-mistednin tal-lukanda." },
   { h: "Blackjack", p: "Plejers li jħobbu l-ħila u logħba mgħaġġla.", we: "Offerti fuq l-imwejjed u ljieli biex titgħallem tilgħab." },
   { h: "Punto banco u baccarat", p: "L-ewwel għażla ta' ħafna plejers ta' livell għoli, l-aktar mill-Asja.", we: "Pakketti b'mejda privata, bil-lingwa tagħhom." },
-  { h: "Poker tal-mejda", p: "Ultimate Texas Hold'em u logħob bi tliet karti, li jintlagħbu kontra l-każinò.", we: "Għal dawk li jħobbu l-poker u jridu logħba aktar mgħaġġla." },
+  { h: "Poker tal-mejda", p: "Ultimate Texas Hold'em u logħbiet bi tliet karti, li jintlagħbu kontra l-każinò.", we: "Għal dawk li jħobbu l-poker u jridu logħba aktar mgħaġġla." },
   { h: "Cash games tal-poker", p: "Plejers regolari li jiġu lura kull ġimgħa.", we: "Komunità tal-poker: skeda, postijiet u aġġornamenti." },
   { h: "Turnamenti tal-poker", p: "Plejers li jivvjaġġaw madwar l-Ewropa għall-avveniment it-tajjeb.", we: "Paġni tat-turnamenti, satellites u booking tal-postijiet." },
   { h: "VIP u kmamar privati", p: "Mistednin ta' livell għoli li jistennew li tkun tafhom.", we: "Għodod għall-hosts tiegħek: min ġej u x'jogħġobhom." },
@@ -107,7 +107,7 @@ const content = [
 
 const rules = [
   { h: "Adulti biss.", p: "Ir-reklami huma mmirati lejn l-adulti, u qatt lejn it-tfal." },
-  { h: "L-ebda wegħda falza.", p: "Qatt ma nagħtu x'jifhem li l-logħob hu mod kif tagħmel il-flus jew kif issolvi problema." },
+  { h: "L-ebda wegħda falza.", p: "Qatt ma nagħtu l-impressjoni li l-logħob hu mod kif tagħmel il-flus jew kif issolvi problema." },
   { h: "Logħob responsabbli f'kollox.", p: "Kull reklam iġorr il-messaġġ tal-logħob responsabbli u fejn tista' ssib l-għajnuna." },
   { h: "L-awtoesklużjoni tiġi rispettata.", p: "In-nies li eskludew lilhom infushom qatt ma jiġu kkuntattjati. Il-listi tiegħek jiġu ċċekkjati f'kull kampanja." },
   { h: "L-ebda pressjoni fuq plejers f'riskju.", p: "Id-data tal-plejers qatt ma tintuża biex issir pressjoni fuq nies li juru sinjali ta' problema bil-logħob." },
@@ -137,7 +137,7 @@ const included = [
   "Reklami f'Malta, fl-Ewropa u fl-Asja",
   "Paġni għall-bejgħ lill-kumpaniji u lill-gruppi",
   "Dashboard wieħed u rapport kull xahar",
-  "Taħriġ u kura kull xahar",
+  "Taħriġ u manutenzjoni kull xahar",
 ];
 
 const faqs = [
@@ -156,7 +156,7 @@ const faqs = [
   { question: "Kemm jieħu żmien?", answer: "Assistent tal-bookings jew app għall-istaff jistgħu jibdew jaħdmu fi żmien ġimgħat. Sistemi akbar li jgħaqqdu ħafna dipartimenti jieħdu aktar żmien. Tirċievi d-dati ta' kull pass qabel ma nibdew." },
   { question: "Kemm tiswa?", answer: "Jiddependi mid-daqs tal-istabbiliment tiegħek u minn x'għandek bżonn li nibnu. Niġu nżuruk, naraw kif taħdem u mbagħad nagħtuk prezz. Biex tibda, ibgħatilna isem l-istabbiliment tiegħek fuq WhatsApp." },
   { question: "Taħdmu wkoll ma' każinojiet online?", answer: "Iva. Għandna sistemi tal-AI separati għall-operaturi tal-iGaming, għall-fornituri u għall-affiljati. Din il-paġna hi għall-każinojiet fiżiċi (land-based) u għal-lukandi ta' madwarhom." },
-  { question: "X'hemm fil-pjan b'xejn?", answer: "Pjan għall-istabbiliment tiegħek: fejn qed jintilfu l-mistednin, fejn qed jintilef il-ħin tal-istaff, liema sistema għandha tinbena l-ewwel u lil liema mistednin għandek timmira. Tirċevih fuq WhatsApp fi żmien 48 siegħa." },
+  { question: "X'hemm fil-pjan b'xejn?", answer: "Pjan għall-istabbiliment tiegħek: fejn qed jintilfu l-mistednin, fejn qed jintilef il-ħin tal-istaff, liema sistema għandha tinbena l-ewwel u lejn liema mistednin għandek timmira. Tirċevih fuq WhatsApp fi żmien 48 siegħa." },
   { question: "Fejn tinsab OARC Digital?", answer: `${NAP.streetAddressShort}, ${NAP.addressLocality} ${NAP.postalCode}, Malta. Tista' tiltaqa' mat-tim wiċċ imb wiċċ. WhatsApp ${NAP.phoneDisplay}. Email ${NAP.email}.` },
 ];
 
@@ -242,7 +242,7 @@ export default function AiCasinosPageMt() {
             <p className="lab" data-rv><b>01</b>{"X'nagħmlu"}</p>
             <div className="shead" data-rv>
               <h2 className="h2">Tliet xogħlijiet. <i>Tim wieħed.</i></h2>
-              <p className="lead">Ħafna aġenziji jmexxu biss ir-reklami tiegħek. Ħafna kumpaniji tas-software jibnu biss is-sistemi tiegħek. Aħna nagħmlu t-tnejn, u ngħaqqduhom.</p>
+              <p className="lead">Il-biċċa l-kbira tal-aġenziji jmexxu biss ir-reklami tiegħek. Il-biċċa l-kbira tal-kumpaniji tas-software jibnu biss is-sistemi tiegħek. Aħna nagħmlu t-tnejn, u ngħaqqduhom.</p>
             </div>
             <div className="grid g3">
               {three.map((x, i) => (
@@ -380,7 +380,7 @@ export default function AiCasinosPageMt() {
                 <div className="scrn">
                   <div className="bar"><b>{"Xift ta' bil-lejl"}</b><span>Sala</span></div>
                   <div className="pin">Illejla: turnament tal-poker, 21:00. Il-postijiet kollha meħuda.</div>
-                  <div className="msg"><small>Pit 2</small>Mejda 6: jeħtieġ dealer, 22:00.</div>
+                  <div className="msg"><small>Pit 2</small>Mejda 6: teħtieġ dealer, 22:00.</div>
                   <div className="msg me"><small>Maniġer tas-sala</small>Irranġat. Maria ġejja.</div>
                   <div className="msg"><small>Reception</small>Mistieden tas-suite jasal 23:30. Il-host lest?</div>
                   <div className="msg me"><small>Host tal-VIP</small>Lest. Il-karozza qiegħda fl-ajruport.</div>
@@ -412,7 +412,7 @@ export default function AiCasinosPageMt() {
           <div className="wrap">
             <p className="lab" data-rv><b>09</b>Kontenut u reklami</p>
             <div className="shead" data-rv>
-              <h2 className="h2">Niffilmjawh. Nippostjawh. <i>Inmexxu r-reklami.</i></h2>
+              <h2 className="h2">Niffilmjawh. Nippowstjawh. <i>Inmexxu r-reklami.</i></h2>
               <p className="lead">{"It-tim tagħna jiġi fl-istabbiliment tiegħek. Ġurnata waħda ta' filming tagħtik ġimgħat ta' kontenut għal kull kanal."}</p>
             </div>
             <ul className="chips big" data-rv>
@@ -447,7 +447,7 @@ export default function AiCasinosPageMt() {
             <p className="lab" data-rv><b>11</b>Għaliex aħna</p>
             <div className="shead" data-rv>
               <h2 className="h2">Għaliex OARC Digital <i>għall-każinò tiegħek.</i></h2>
-              <p className="lead">Ma nbigħulekx software u nitilqu, u lanqas nippostjaw għalik u nittamaw. Nibnuh, nimlewh u nmexxuh miegħek.</p>
+              <p className="lead">Ma nbigħulekx software u nitilqu, u lanqas nippowstjaw għalik u nittamaw. Nibnuh, nimlewh u nmexxuh miegħek.</p>
             </div>
             <div className="grid g3">
               {reasons.map((r) => (
@@ -499,7 +499,7 @@ export default function AiCasinosPageMt() {
               <li data-rv><p className="when">Illum</p><h3>Ibgħatilna isem l-istabbiliment tiegħek fuq WhatsApp.</h3><p>Dak biss neħtieġu biex nibdew.</p></li>
               <li data-rv><p className="when">Fi 48 siegħa</p><h3>{"Tirċievi l-pjan b'xejn tiegħek."}</h3><p>{"Fejn qed jintilfu l-mistednin, fejn qed jintilef il-ħin tal-istaff, u x'għandu jinbena l-ewwel."}</p></li>
               <li data-rv><p className="when">Imbagħad</p><h3>Niġu nżuruk u nippjanaw.</h3><p>Induru mal-istabbiliment flimkien mat-tim tiegħek, naqblu dwar il-pjan u l-offerti, u nagħtuk il-prezz u d-dati.</p></li>
-              <li data-rv><p className="when">Kull xahar</p><h3>Inmexxuh miegħek.</h3><p>Kontenut ġdid, kampanji ġodda, kura tas-sistemi u rapport wieħed ċar.</p></li>
+              <li data-rv><p className="when">Kull xahar</p><h3>Inmexxuh miegħek.</h3><p>Kontenut ġdid, kampanji ġodda, manutenzjoni tas-sistemi u rapport wieħed ċar.</p></li>
             </ol>
           </div>
         </section>

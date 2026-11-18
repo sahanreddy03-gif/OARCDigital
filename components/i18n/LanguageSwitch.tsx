@@ -5,7 +5,7 @@ const ORDER: readonly AnyLocale[] = ["en", "it", "mt"];
 const LEAD: Record<AnyLocale, string> = {
   en: "This page in",
   it: "Questa pagina in",
-  mt: "Din il-paġna bi",
+  mt: "Agħżel il-lingwa",
 };
 
 /**

@@ -15,7 +15,7 @@ import { buildLocalBusiness } from "@/lib/schema";
 import { SITE, localeUrl } from "@/lib/i18n/twins";
 
 const WHATSAPP_NUMBER = NAP.whatsappNumber;
-const WHATSAPP_MESSAGE = "Bonġu, nixtieq inkun naf aktar dwar is-servizzi tagħkom";
+const WHATSAPP_MESSAGE = "Hello OARC. Nixtieq inkun naf aktar dwar is-servizzi tagħkom.";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 // Maltese version of buildContactShellGraph() (lib/schema/shellSchemas.ts).

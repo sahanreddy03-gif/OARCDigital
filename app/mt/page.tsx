@@ -13,7 +13,7 @@ const PATH = "/"; // the ENGLISH path
 const URL = localeUrl("mt", PATH);
 const TITLE = "Aġenzija tal-Marketing f'Malta | Diġitali u AI | OARC Digital";
 const DESCRIPTION =
-  "OARC Digital hija aġenzija tal-marketing f'Malta, ibbażata f'Birkirkara: studio kreattiv, SEO u reklami, aġenti tal-AI u awtomazzjoni. Tim wieħed in-house.";
+  "OARC Digital hija aġenzija tal-marketing f'Malta, ibbażata f'Birkirkara: studjo kreattiv, SEO u reklami, aġenti tal-AI u awtomazzjoni. Tim wieħed in-house.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -30,7 +30,7 @@ const PRICE = waLink("Hello OARC. Nixtieq inkun naf il-prezz tagħkom. In-negozj
 const FIELD = "Isem in-negozju tiegħek";
 
 const FREE = "B'xejn";
-const HERO_SUB = "Aġenzija mibnija fuq l-intelliġenza artifiċjali (AI). Studio, bejgħ u teknoloġija in-house, għad-dispożizzjoni tiegħek.";
+const HERO_SUB = "Aġenzija mibnija fuq l-intelliġenza artifiċjali (AI). Studjo, bejgħ u teknoloġija in-house, għad-dispożizzjoni tiegħek.";
 const CARD_TITLE = "Il-pjan b'xejn tiegħek.";
 const CARD_TEXT = "Ibgħatilna isem in-negozju tiegħek. Fi 48 siegħa tirċievi pjan b'xejn, magħmul għan-negozju tiegħek.";
 
@@ -49,7 +49,7 @@ const needs = [
 const H360 = { h: "Ir-ristorant tiegħek fuq sistema waħda", p: "H360: menus bil-QR, skrin għall-kċina, ħlasijiet u lealtà." };
 const TALK = { h: "Kellimna", p: "Ma tafx minn fejn tibda? Iktbilna fuq WhatsApp jew bl-email.", button: "Ikkuntattjana" };
 
-const WHY_LEAD = `OARC Digital hija aġenzija tal-marketing f'${NAP.addressLocality}, Malta, imwaqqfa fl-2023. Tim wieħed jieħu ħsieb il-brand, il-kontenut, is-social media, ir-reklami, il-websajt u l-istaff tal-AI tiegħek. Hekk ma jkollokx għalfejn tmexxi ħames fornituri.`;
+const WHY_LEAD = `OARC Digital hija aġenzija tal-marketing f'${NAP.addressLocality}, Malta, imwaqqfa fl-2023. Tim wieħed jieħu ħsieb il-brand, il-kontenut, is-social media, ir-reklami, il-websajt u l-istaff tal-AI tiegħek. Hekk ma jkollokx għalfejn timmaniġġja ħames fornituri.`;
 const promises = [
   { h: "Tim wieħed, kollox", p: "Brand, kontenut, social media, reklami, websajt u staff tal-AI taħt saqaf wieħed. Pjan wieħed, persuna waħda li ċċemplilha." },
   { h: "Kollox jibqa' tiegħek", p: "Il-kontijiet tar-reklami, il-filmati, il-paġni u d-data jibqgħu f'ismek. Dejjem." },
@@ -88,7 +88,7 @@ const faqs = [
   },
   {
     question: "Tagħmlu biss social media, jew anke aġenti tal-AI, vuċi u awtomazzjoni?",
-    answer: `It-tnejn. L-aġenti tal-AI u l-Voice AI Worker jaħdmu spalla ma' spalla mal-kreattività editorjali, il-ġestjoni tas-social media, l-SEO u r-reklami mħallsa. Ibda minn fejn qed titlef il-flus: telefonati mitlufa, brand dgħajjef, tfittxijiet fejn ma jsibukx, jew follow-up li jsir bl-idejn. Imbagħad kabbar mal-istess tim f'${NAP.addressLocality}.`,
+    answer: `It-tnejn. L-aġenti tal-AI u l-Voice AI Worker jaħdmu spalla ma' spalla mal-kreattività editorjali, il-ġestjoni tas-social media, l-SEO u r-reklami mħallsa. Ibda minn fejn qed titlef il-flus: telefonati mitlufa, brand dgħajjef, tfittxijiet fejn ma jsibukx, jew follow-up li jsir bl-idejn. Imbagħad ikber mal-istess tim f'${NAP.addressLocality}.`,
   },
   {
     question: "X'jagħmel lil OARC differenti minn aġenziji oħra f'Malta?",
@@ -96,7 +96,7 @@ const faqs = [
   },
   {
     question: "Ma' liema industriji taħdem OARC Digital f'Malta?",
-    answer: "F'Malta, l-oqsma l-aktar b'saħħithom tagħna huma l-ospitalità (ristoranti, lukandi, bars), l-iGaming u l-fintech (regolati mill-MGA / MFSA), is-servizzi professjonali (legali, kontabilità, konsulenza), il-kliniċi u s-SaaS li qed jikber malajr. F'kull xogħol regolat inżommu f'moħħna l-MFSA, l-MGA u l-IDPC.",
+    answer: "F'Malta, l-oqsma tagħna l-aktar b'saħħithom huma l-ospitalità (ristoranti, lukandi, bars), l-iGaming u l-fintech (regolati mill-MGA / MFSA), is-servizzi professjonali (legali, kontabilità, konsulenza), il-kliniċi u s-SaaS li qed jikber malajr. F'kull xogħol regolat inżommu f'moħħna l-MFSA, l-MGA u l-IDPC.",
   },
   {
     question: "Ta' min hu x-xogħol li tagħmel OARC Digital?",

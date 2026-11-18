@@ -18,7 +18,7 @@ const TEXT: Record<string, CardText> = {
   'google-visibility': {
     entry: 'Il-paġna tiegħek fuq Google hija antika. In-nies ifittxu — u ma jsibukx.',
     headline: "Idher l-ewwel fuq Google Maps f'Malta.",
-    wedge: "Mhux ritratti biss — SEO + AEO + tfittxija bl-AI + kliem ewlieni miktub minn copywriter + data ta' ARC. Il-posts fuq il-profil ta' Google huma biss il-ponta.",
+    wedge: "Mhux ritratti biss — SEO + AEO + tfittxija bl-AI + kliem ewlieni miktub minn copywriter + data ta' ARC. Il-posts fuq il-profil ta' Google huma biss il-ponta tal-iceberg.",
     guestGain: 'Bil-ġuħ u fil-qrib — isibuk fuq Maps u jidħlu.',
     result: '847 tfittxija → 37 telefonata din il-ġimgħa',
   },
@@ -76,7 +76,7 @@ const TEXT: Record<string, CardText> = {
     headline: "Il-klijenti jħallsu mill-mejda f'sekondi.",
     wedge: "Mhux terminals ta' Sunday ta' €250 — kartuna b'QR fuq il-mejda. Daqshekk.",
     guestGain: 'Iħallsu meta jkunu lesti — jitilqu bla ma jistennew 15-il minuta għall-kont.',
-    result: 'Imwejjed aktar malajr · iżżomm il-marġni kollu',
+    result: 'L-imwejjed iduru aktar malajr · iżżomm il-marġni kollu',
   },
   stamp: {
     entry: 'Il-kards tat-timbri tal-karta jintilfu. L-istaff jinsa jittimbra.',
@@ -131,7 +131,7 @@ const TEXT: Record<string, CardText> = {
     entry: "Tispiċċalek il-mozzarella f'nofs is-servizz.",
     headline: 'Qatt ma tispiċċa bla l-aktar platt li jinbiegħ.',
     wedge: "Mhux software tal-istokk ta' $169 fix-xahar — 3 mistoqsijiet fl-għeluq, 30 sekonda.",
-    guestGain: "Il-platt favorit tagħhom ikun fuq il-menu — mhux mispiċċi f'nofs is-servizz.",
+    guestGain: "Il-platt favorit tagħhom ikun fuq il-menu — ma jkunx spiċċa f'nofs is-servizz.",
     result: "Ngħidulek x'għandek tordna għada",
   },
   staff: {

@@ -27,7 +27,7 @@ const hotels: AiSystemContent = {
     kicker: "Fl-aħħar, għandek",
     h1Before: "Sistema waħda sħiħa tal-AI mibnija madwar",
     h1Highlight: "il-lukanda tiegħek.",
-    sub: "Aġenti tal-intelliġenza artifiċjali (AI), imħarrġa fuq il-lukanda tiegħek f'Malta, iwieġbu lil kull mistieden, lejl u nhar, u jibbukkjawh direttament miegħek. Is-sistema tabbozza l-kwotazzjonijiet tal-gruppi, tlesti kollox għall-wasliet u tieħu ħsieb ir-reċensjonijiet tiegħek. Ir-rati, ir-rifużjonijiet u l-eċċezzjonijiet jibqgħu f'idejn il-maniġer tiegħek.",
+    sub: "Aġenti tal-intelliġenza artifiċjali (AI), imħarrġin fuq il-lukanda tiegħek f'Malta, iwieġbu lil kull mistieden, lejl u nhar, u jibbukkjawh direttament miegħek. Is-sistema tabbozza l-kwotazzjonijiet tal-gruppi, tlesti kollox għall-wasliet u tieħu ħsieb ir-reċensjonijiet tiegħek. Ir-rati, ir-rifużjonijiet u l-eċċezzjonijiet jibqgħu f'idejn il-maniġer tiegħek.",
     primaryCta: "Ħu x-xahar b'xejn tiegħek",
     secondaryCta: "Ibbukkja telefonata ta' 20 minuta",
     note: "L-ewwel xahar b'xejn. Imwaqqfa u mmexxija mit-tim ta' OARC f'Malta.",
@@ -38,7 +38,7 @@ const hotels: AiSystemContent = {
     scenes: [
       {
         clock: "Il-Ħamis · 22:50",
-        caption: "Wedding planner tikteb ħafna wara li l-uffiċċju tal-bejgħ tiegħek ikun għalaq.",
+        caption: "Wedding planner tikteb ferm wara li l-uffiċċju tal-bejgħ tiegħek ikun għalaq.",
         result: "Imwieġba f'45 sekonda",
         visual: {
           type: "chat",
@@ -140,7 +140,7 @@ const hotels: AiSystemContent = {
     label: "Mibnija madwar il-lukanda tiegħek",
     title: "Il-lukanda tiegħek. Il-mistednin tiegħek. Il-mod kif taħdem int.",
     items: [
-      { icon: "network", title: "Kull mistieden f'konverżazzjoni waħda", body: "WhatsApp, email, telefonati, messaġġi mis-siti tal-prenotazzjonijiet u reċensjonijiet. Storja waħda għal kull mistieden, mill-ewwel mistoqsija sal-check-out." },
+      { icon: "network", title: "Kull mistieden f'konverżazzjoni waħda", body: "WhatsApp, email, telefonati, messaġġi mis-siti tal-prenotazzjonijiet u reċensjonijiet. Storja waħda għal kull mistieden, mill-ewwel mistoqsija saċ-check-out." },
       { icon: "workflow", title: "Taħdem mal-PMS tiegħek, mhux madwaru", body: "Il-front office iżomm is-sistemi li jaf. Is-sistema taħdem wara l-bank u tgħaddi dak li jkun lest." },
       { icon: "check", title: "Ir-regoli tiegħek, id-deċiżjoni tiegħek", body: "Tikkwota mir-rati u mir-regoli tal-lukanda tiegħek. Kull ħaġa barra minnhom tmur għand il-maniġer tiegħek." },
     ],
@@ -148,7 +148,7 @@ const hotels: AiSystemContent = {
 
   agents: {
     label: "Il-front office tal-AI tiegħek",
-    title: "Tliet aġenti tal-AI. Imħarrġa fuq il-lukanda tiegħek. Imqajmin fit-3 ta' filgħodu.",
+    title: "Tliet aġenti tal-AI. Imħarrġin fuq il-lukanda tiegħek. Imqajmin fit-3 ta' filgħodu.",
     intro: "Jiċċettjaw fuq WhatsApp, bl-email u fuq il-websajt tiegħek, u jwieġbu u jagħmlu telefonati. Kull wieħed jaf il-kmamar, ir-rati u r-regoli tal-lukanda tiegħek. Il-prezzijiet u l-eċċezzjonijiet jibqgħu f'idejn it-tim tiegħek.",
     note: "Iwieġbu, jibbukkjaw u jfakkru. Qatt ma joffru prezz, skont jew rifużjoni barra mir-regoli tiegħek. Persuna tista' tieħu f'idejha kwalunkwe chat jew telefonata.",
     items: [
@@ -165,7 +165,7 @@ const hotels: AiSystemContent = {
       },
       {
         name: "Aġent tal-mistednin",
-        title: "Jieħu ħsieb kull mistieden, mill-prenotazzjoni sal-check-out.",
+        title: "Jieħu ħsieb kull mistieden, mill-prenotazzjoni saċ-check-out.",
         points: [
           "Jistaqsi l-ħin tal-wasla, joffri trasport u jiġbor id-dettalji taċ-check-in qabel ma jasal il-mistieden.",
           "Joffri l-extras li tagħżel int, fil-mument it-tajjeb, bil-lingwa tal-mistieden.",
@@ -190,12 +190,12 @@ const hotels: AiSystemContent = {
 
   jobs: {
     label: "Dak kollu li tagħmel",
-    title: "Sistema waħda. Dsatax-il xogħol, mill-ewwel messaġġ sal-check-out.",
+    title: "Sistema waħda. Dsatax-il xogħol, mill-ewwel messaġġ saċ-check-out.",
     items: [
       { icon: "chat", title: "Twieġeb lil kull mistieden, 24/7", body: "WhatsApp, email, il-websajt tiegħek, Instagram u t-telefon. Bil-lingwa tal-mistieden, f'inqas minn minuta.", gain: "L-ebda prenotazzjoni mitlufa minħabba tweġiba tard" },
       { icon: "euro", title: "Tbiddel it-talbiet fi prenotazzjonijiet diretti", body: "Tiċċekkja x'hemm liberu, tagħti r-rata diretta tiegħek u tibgħat il-link tal-prenotazzjoni tiegħek. Il-mistieden jibbukkja miegħek.", gain: "Bla kummissjoni lis-siti tal-prenotazzjonijiet" },
       { icon: "users", title: "Tikkwota għal gruppi, tiġijiet u avvenimenti", body: "Tiċċekkja l-kmamar, tibni l-kwotazzjoni mir-rati u mill-menu tal-avvenimenti tiegħek, u tibgħatha malli l-maniġer tiegħek jgħid iva.", gain: "Kwotazzjonijiet mibgħuta fl-istess jum" },
-      { icon: "phone", title: "Twieġeb it-telefon", body: "Aġent bil-vuċi jwieġeb bil-lejl u fl-eqqel taċ-check-in. Iwieġeb, jibbukkja u jgħaddi lil min iċempel lit-tim tiegħek.", gain: "L-ebda telefonata ma tispiċċa voicemail" },
+      { icon: "phone", title: "Twieġeb it-telefon", body: "Aġent bil-vuċi jwieġeb bil-lejl u fl-eqqel taċ-check-in. Iwieġeb, jibbukkja u jgħaddi lil min iċempel lit-tim tiegħek.", gain: "L-ebda telefonata ma tispiċċa fil-voicemail" },
       { icon: "chart", title: "Tbigħ l-extras qabel il-wasla", body: "Upgrades, kolazzjon, trasport, spa u check-out tard, offruti ftit jiem qabel ma jasal il-mistieden.", gain: "Aktar infiq f'kull soġġorn" },
       { icon: "plane", title: "Tibgħat kull messaġġ ta' qabel il-wasla", body: "Ħin tal-wasla, direzzjonijiet, parkeġġ, trasport u spjegazzjoni tal-kontribuzzjoni ambjentali, bil-lingwa tal-mistieden.", gain: "L-ebda sorpriża fir-reception" },
       { icon: "badge", title: "Tlesti ċ-check-in qabel il-wasla", body: "Tiġbor online l-ismijiet, id-dettalji tal-passaport u l-ħinijiet tal-wasla, u timla l-karta tar-reġistrazzjoni tiegħek.", gain: "L-ebda kju fir-reception" },
@@ -210,7 +210,7 @@ const hotels: AiSystemContent = {
       { icon: "repeat", title: "Iġġib lura l-mistednin tal-passat", body: "Offerti għall-kamra u d-dati favoriti tagħhom, mibgħuta lil mistednin tal-passat li qablu li jisimgħu mingħandek.", gain: "Jerġgħu jibbukkjaw, dirett" },
       { icon: "calendar", title: "Iżżomm għajnejha fuq kull data importanti", body: "Tiġdid tal-liċenzji, dati tal-kuntratti, dati tar-rilaxx tal-allotments u r-rati tal-istaġun li jmiss.", gain: "Xejn ma jiskadi b'sorpriża" },
       { icon: "trending", title: "Tgħinek tinstab fuq Google u fit-tweġibiet tal-AI", body: "SEO għal Google, flimkien max-xogħol li jgħin lil ChatGPT u Gemini jirrakkomandaw il-lukanda tiegħek.", gain: "Il-mistednin isibu lilek l-ewwel" },
-      { icon: "sun", title: "Tinforma lill-maniġer tiegħek kull filgħodu", body: "Wasliet, tluq, VIPs, ilmenti miftuħa, kwotazzjonijiet jistennew u messaġġi li ħadd ma wieġeb.", gain: "Tibda l-ġurnata taf kollox" },
+      { icon: "sun", title: "Tinforma lill-maniġer tiegħek kull filgħodu", body: "Wasliet, tluq, VIPs, ilmenti miftuħa, kwotazzjonijiet li qed jistennew u messaġġi li ħadd ma wieġeb.", gain: "Tibda l-ġurnata taf kollox" },
     ],
   },
 
@@ -308,7 +308,7 @@ const hotels: AiSystemContent = {
       title: "Staqsiha bħalma tistaqsi lill-maniġer ta' billejl tiegħek.",
       points: [
         "Ikteb mistoqsija bi kliem sempliċi. It-tweġiba tiġi mill-prenotazzjonijiet, ir-rati u l-messaġġi tiegħek stess.",
-        "L-ebda rapport x'tiġbed. L-ebda skrin tal-PMS x'tfittex fih.",
+        "L-ebda rapport x'toħroġ. L-ebda skrin tal-PMS x'tfittex fih.",
       ],
       visual: {
         type: "ask",
@@ -347,7 +347,7 @@ const hotels: AiSystemContent = {
     items: [
       { title: "Tweġiba f'nofsillejl.", body: "Koppja tistaqsi dwar kamra ftit qabel nofsillejl. F'minuta jirċievu prezz u link biex jibbukkjaw. Jibbukkjaw miegħek, mhux mal-lukanda ta' ħdejk." },
       { title: "Dritt għall-kamra.", body: "Id-dettalji taċ-check-in ikunu lesti qabel ma jaslu. Jiġbru ċavetta, mhux formola." },
-      { title: "Mismugħ fl-istess jum.", body: "Mistieden mhux kuntent bl-istorbju. Il-maniġer tiegħek ikun jaf sal-kolazzjon u jmexxih għal kamra kwieta qabel l-ikel ta' nofsinhar. Imur lura d-dar bi storja aħjar." },
+      { title: "Mismugħ fl-istess jum.", body: "Mistieden mhux kuntent bl-istorbju. Il-maniġer tiegħek ikun jaf sal-kolazzjon u jgħaddih għal kamra kwieta qabel l-ikel ta' nofsinhar. Imur lura d-dar bi storja aħjar." },
     ],
   },
 
@@ -360,7 +360,7 @@ const hotels: AiSystemContent = {
       { when: "Illum", title: "Telefonata ta' 20 minuta", body: "Dwar kif taħdem il-lukanda tiegħek u fejn qed jintilfu l-prenotazzjonijiet u s-sigħat." },
       { when: "72 siegħa", title: "L-ewwel sistema tiegħek tkun live", body: "Ġeneralment: kull talba fuq WhatsApp, email u l-websajt tiegħek imwieġba, lejl u nhar." },
       { when: "Ġimgħa 2", title: "Is-sistemi tiegħek imqabbda", body: "Kmamar, rati, prenotazzjonijiet u messaġġi tal-mistednin f'post wieħed." },
-      { when: "Kull ġimgħa", title: "Tikber miegħek", body: "Titgħallem il-lukanda tiegħek, u x-xogħol li jmiss jibda jaħdem." },
+      { when: "Kull ġimgħa", title: "Tikber miegħek", body: "Titgħallem dwar il-lukanda tiegħek, u x-xogħol li jmiss jibda jaħdem." },
     ],
   },
 
@@ -368,9 +368,9 @@ const hotels: AiSystemContent = {
     label: "Ibda minn fejn trid",
     title: "Xogħol wieħed jew il-lukanda kollha. Tagħżel int.",
     items: [
-      { title: "Solvi xogħol wieħed", body: "Agħżel l-unika ħaġa li qed tiswik l-aktar u nawtomatizzaw dik biss.", example: "Eżempju: twieġeb kull talba fuq WhatsApp u l-websajt bil-lejl." },
+      { title: "Solvi xogħol wieħed", body: "Agħżel il-ħaġa li qed tiswik l-aktar u nawtomatizzaw dik biss.", example: "Eżempju: twieġeb kull talba fuq WhatsApp u l-websajt bil-lejl." },
       { title: "Aqbad ma' dak li tuża", body: "Żomm il-PMS, iċ-channel manager u l-booking engine tiegħek. Aħna naqbdu magħhom.", example: "Eżempju: il-prenotazzjonijiet diretti jidħlu fil-PMS tiegħek bid-depożitu mniżżel." },
-      { title: "Is-sistema sħiħa", body: "Dak kollu li hawn f'din il-paġna, mibni madwar il-lukanda tiegħek, imfassal għalik u mieħud ħsiebu minna.", example: "Eżempju: talbiet, gruppi, wasliet, reċensjonijiet u x-xogħol tal-uffiċċju f'post wieħed." },
+      { title: "Is-sistema sħiħa", body: "Dak kollu li hawn f'din il-paġna, mibni madwar il-lukanda tiegħek, imfassal għalik, u nieħdu ħsiebu aħna.", example: "Eżempju: talbiet, gruppi, wasliet, reċensjonijiet u x-xogħol tal-uffiċċju f'post wieħed." },
       { title: "Għadek m'intix ċert?", body: "Ħafna lukandi mhumiex. Inħarsu lejn il-ġimgħa tiegħek u nuruk fejn qed jintilfu l-prenotazzjonijiet u s-sigħat.", example: "B'xejn. Tieħu 20 minuta." },
     ],
   },
@@ -387,7 +387,7 @@ const hotels: AiSystemContent = {
       { strong: "Imwaqqfa għalik fi 72 siegħa.", rest: "Inqabbdu l-WhatsApp, l-inboxes u s-sistema tal-prenotazzjonijiet tiegħek. Int ma tibdel xejn." },
       { strong: "Is-sistema hija tiegħek.", rest: "Mibnija madwar il-lukanda tiegħek, bil-kmamar, ir-rati u r-regoli tiegħek." },
       { strong: "Immexxija minna.", rest: "Nieħdu ħsiebha u ntejbuha kull ġimgħa, fl-istaġun għoli u f'dak baxx." },
-      { strong: "Ibda fiż-żgħir.", rest: "L-ewwel xogħol wieħed, bħat-talbiet ta' billejl. Żid li jmiss meta l-ewwel ikun ħallas għalih innifsu." },
+      { strong: "Ibda fiż-żgħir.", rest: "L-ewwel xogħol wieħed, bħat-talbiet ta' billejl. Żid li jmiss meta l-ewwel wieħed ikun ħallas għalih innifsu." },
     ],
   },
 
@@ -429,19 +429,19 @@ const hotels: AiSystemContent = {
   faq: [
     { q: "X'inhi, eżattament?", a: "Sistema waħda tal-AI mibnija madwar il-lukanda tiegħek. Twieġeb lil kull mistieden, tbiddel it-talbiet fi prenotazzjonijiet diretti, tabbozza kwotazzjonijiet għal gruppi u avvenimenti, tlesti kollox għall-wasliet, tbigħ l-extras li tagħżel int, tieħu ħsieb ir-reċensjonijiet tiegħek u tagħmel ix-xogħol tal-uffiċċju. It-tim ta' OARC f'Malta jwaqqafha u jmexxiha miegħek." },
     { q: "Tiffissa l-prezzijiet jew tagħti rifużjonijiet?", a: "Le. Tagħti biss ir-rati u l-offerti tiegħek stess. L-iskontijiet, ir-rifużjonijiet, l-eċċezzjonijiet u l-ilmenti dejjem imorru għand il-maniġer jew il-front office tiegħek." },
-    { q: "Tagħti parir legali jew dwar it-taxxa?", a: "Le. Taħdem ċifri bħall-kontribuzzjoni ambjentali mill-prenotazzjonijiet tiegħek stess u żżommhom fl-ordni. Il-maniġer jew l-accountant tiegħek jiċċekkjahom u jiddeċiedi." },
+    { q: "Tagħti parir legali jew dwar it-taxxa?", a: "Le. Taħdem ċifri bħall-kontribuzzjoni ambjentali mill-prenotazzjonijiet tiegħek stess u żżommhom f'ordni. Il-maniġer jew l-accountant tiegħek jiċċekkjahom u jiddeċiedi." },
     { q: "Se tieħu post ir-receptionists jew it-tim tal-prenotazzjonijiet tagħna?", a: "Le. Tieħu l-mistoqsijiet ripetuti, il-messaġġi ta' billejl u l-mili tal-formoli, biex il-front office tiegħek ikun jista' jieħu ħsieb il-mistednin li għandu quddiemu." },
     { q: "Id-data tal-mistednin tinżamm privata?", a: "Iva. Kull lukanda għandha s-sistema privata tagħha. Id-dettalji tal-mistednin jintużaw biss għal-lukanda tiegħek u jiġu ttrattati skont il-GDPR." },
     { q: "Taħdem mal-PMS u ċ-channel manager tagħna?", a: "Iva. Inqabbduha mal-PMS, iċ-channel manager, il-booking engine u l-inboxes li diġà tuża. Jekk ma teżistix konnessjoni, nibnu waħda." },
     { q: "Tassew se ġġib aktar prenotazzjonijiet diretti?", a: "Twieġeb lil kull mistieden malajr, tagħti r-rata diretta tiegħek u tibgħat il-link tal-prenotazzjoni tiegħek stess, biex inqas nies jispiċċaw fuq sit tal-prenotazzjonijiet waqt li jkunu qed jistennew. Ma tistax twaqqaf lill-mistednin milli jużaw is-siti tal-prenotazzjonijiet, u r-rati u l-websajt tiegħek xorta jgħoddu." },
-    { q: "Tista' tagħmel ħaġa waħda biss?", a: "Iva. Tista' tibda b'xogħol wieħed, bħal li twieġeb kull talba bil-lejl, u żżid li jmiss meta l-ewwel ikun ħallas għalih innifsu." },
+    { q: "Tista' tagħmel ħaġa waħda biss?", a: "Iva. Tista' tibda b'xogħol wieħed, bħal li twieġeb kull talba bil-lejl, u żżid li jmiss meta l-ewwel wieħed ikun ħallas għalih innifsu." },
     { q: "Kemm iddum biex tibda taħdem?", a: "Inwaqqfu l-ewwel sistema tiegħek fi 72 siegħa, ġeneralment biex twieġeb kull talba fuq il-WhatsApp, l-email u l-websajt tiegħek. Il-bqija jitqabbad fil-ġimgħat ta' wara." },
     { q: "L-aġenti tal-AI jċemplu lill-mistednin?", a: "Iva. Aġent bil-vuċi jwieġeb it-telefon tiegħek u jċempel lill-mistednin dwar ħinijiet tal-wasla, depożiti mhux imħallsa u kmamar li nħelsu. Qatt ma joffri prezz barra mir-regoli tiegħek, u t-tim tiegħek jista' jieħu f'idejh kwalunkwe telefonata." },
     { q: "U jekk tiżbalja f'xi ħaġa?", a: "Twieġeb biss mill-kmamar, ir-rati u r-regoli tal-lukanda tiegħek stess, u tgħaddi lit-tim tiegħek kull ħaġa li ma tkunx ċerta minnha. Kull messaġġ u telefonata jiġu rreġistrati, biex tkun tista' tara x'intqal. Jekk ikun hemm xi ħaġa x'tinbidel, jibdilha t-tim ta' OARC f'Malta." },
     { q: "Kemm tiswa?", a: "Bħalissa l-ewwel xahar huwa b'xejn. Wara jiddependi mid-daqs tal-lukanda tiegħek u minn dak li tixgħel. Staqsina u nagħtuk prezz għal-lukanda tiegħek." },
     { q: "Kemm hi l-kontribuzzjoni ambjentali f'Malta?", a: "Mill-1 ta' Lulju 2026, €1.50 kull lejl għal kull mistieden li jkollu 18-il sena jew aktar fil-bidu taż-żjara, sa €22.50 għal kull persuna għal kull żjara. Il-limitu jkopri wkoll żjara maqsuma bejn Malta u Għawdex. Trid tiġi ċċarġjata separatament mir-rata tal-kamra, bħala linja għaliha fuq il-fattura jew l-irċevuta, u mhijiex soġġetta għall-VAT jew għal kummissjoni." },
     { q: "Min jieħu ħsieb il-kontribuzzjoni ambjentali f'Malta?", a: "L-awtorità responsabbli hija l-Malta Tourism Authority. Xi xogħol operattiv u ta' koordinazzjoni ġie ddelegat lill-Malta Hotels and Restaurants Association (MHRA). Il-lukandi, u s-siti u l-aġenti li jieħdu l-prenotazzjonijiet, jistgħu jiġu ordnati jaħdmu mal-MHRA biex jiġbruha, jirrapportawha u jgħadduha." },
-    { q: "X'inhuma r-Regolamenti l-ġodda ta' Malta dwar l-Akkomodazzjoni Turistika?", a: "L-Avviż Legali 92 tal-2026, fis-seħħ mill-15 ta' Ġunju 2026. Jiġbru erba' settijiet eqdem ta' regoli f'wieħed, u jkopru lukandi, guesthouses, hostels u kirjiet għal żmien qasir. L-istandards tal-lukandi issa jsegwu l-kriterji tal-Hotel Stars Union għall-2025 sal-2030, u l-lukandi eżistenti huma mistennija jibdew jadattaw." },
+    { q: "X'inhuma r-Regolamenti l-ġodda ta' Malta dwar l-Akkomodazzjoni Turistika?", a: "L-Avviż Legali 92 tal-2026, fis-seħħ mill-15 ta' Ġunju 2026. Jiġbru erba' settijiet eqdem ta' regoli f'wieħed, u jkopru lukandi, guesthouses, hostels u kirjiet għal żmien qasir. L-istandards tal-lukandi issa jsegwu l-kriterji tal-Hotel Stars Union għall-2025 sal-2030, u l-lukandi eżistenti huma mistennija jibdew jadattaw ruħhom." },
   ],
 
   cta: {

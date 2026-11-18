@@ -24,12 +24,12 @@ const places = [
 const terms = [
   { abbr: "SEO", full: "Ottimizzazzjoni għall-magni tat-tiftix", text: "Inwasslu l-websajt tiegħek fuq nett f'Google u Bing." },
   { abbr: "Lokali", full: "SEO lokali", text: "Indaħħluk fl-ewwel 3 fuq il-mappa meta jfittex xi ħadd fil-qrib." },
-  { abbr: "AEO", full: "Ottimizzazzjoni għall-magni tat-tweġibiet", text: "Naraw li kliemek jintgħażel bħala t-tweġiba waħdanija, mill-AI ta' Google u mill-assistenti tal-vuċi." },
+  { abbr: "AEO", full: "Ottimizzazzjoni għall-magni tat-tweġibiet", text: "Naraw li kliemek jintgħażel bħala l-unika tweġiba, mill-AI ta' Google u mill-assistenti tal-vuċi." },
   { abbr: "GEO", full: "Ottimizzazzjoni għall-magni ġenerattivi", text: "Naraw li chats tal-AI bħal ChatGPT u Gemini jirrakkomandaw in-negozju tiegħek b'ismu." },
 ];
 
 const pains = [
-  { h: "Qiegħed fit-tieni paġna. Ħadd ma jħares hemm.", p: "Kważi kull klikk imur fuq l-ewwel paġna. It-tieni paġna hija fejn jibqgħu moħbija n-negozji tajbin.", fix: "L-ewwel paġna għat-tfittxijiet li jħallsu." },
+  { h: "Qiegħed fit-tieni paġna. Ħadd ma jħares hemm.", p: "Kważi kull klikk imur fuq l-ewwel paġna. It-tieni paġna hija fejn jibqgħu moħbija n-negozji tajbin.", fix: "L-ewwel paġna għat-tfittxijiet li jrendu." },
   { h: "Il-kompetitur tiegħek jidher l-ewwel. Kull darba.", p: "Mhuwiex aħjar minnek. Sempliċement Google jifhmu aktar faċilment.", fix: "Nistudjawh. Imbagħad ngħadduh." },
   { h: "Tistaqsi lil ChatGPT. Isemmi lil ħaddieħor.", p: "L-AI tista' tirrakkomanda biss negozju li taf bih u li tafdah. Bħalissa, dak mhuwiex int.", fix: "Inġiegħlu lill-AI ssemmi ismek." },
   { h: "Ħallast għall-SEO. Ħadt rapport.", p: "Paġni sħaħ ta' ċarts, u l-ebda klijent ġdid x'turi.", fix: "Nirrappurtaw talbiet, mhux ċarts." },
@@ -64,7 +64,7 @@ const reasons = [
   { h: "Mibni għall-AI mill-ewwel jum.", p: "Kull paġna li nagħmlu tinkiteb biex Google u l-AI jkunu jistgħu jikkwotawha. Ħafna aġenziji jżidu dan aktar tard, jekk qatt." },
   { h: "Ingliż u Malti.", p: "Ħafna aġenziji jistudjaw biss it-tfittxijiet bl-Ingliż. Aħna nistudjaw it-tnejn, għax il-klijenti tiegħek jużaw it-tnejn." },
   { h: "Tim wieħed. 8 dipartimenti.", p: "Kittieba, tim tal-films, żviluppaturi tal-web u inġiniera tal-AI taħt saqaf wieħed f'Birkirkara. Xejn ma jintbagħat barra minn Malta." },
-  { h: "Data vera minn Malta.", p: "Mhux pjan ta' Londra mwaħħal fuq il-Belt Valletta. Naħdmu minn dak li n-nies f'Malta verament ifittxu." },
+  { h: "Data vera minn Malta.", p: "Mhux pjan ta' Londra mwaħħal fuq il-Belt Valletta. Naħdmu fuq dak li n-nies f'Malta verament ifittxu." },
   { h: "Links veri biss.", p: "Stampa, imsieħba u direttorji ta' fiduċja. L-ebda link farm. Xejn li jpoġġi l-websajt tiegħek f'riskju." },
   { h: "Persuna tikteb ir-rapport tiegħek.", p: "Strateġista jispjegalek x'ġara u x'ġej. Dejjem tista' tiltaqa' magħna personalment." },
 ];
@@ -111,7 +111,7 @@ export default function SEOAgencyMalta({ faqs }: Props) {
               <span className="kick">{"Aġenzija tal-SEO f'Malta"}</span>
               <span className="big">{"Intellgħu n-negozju tiegħek fuq nett f'"}<i className="mk">Google</i> u fl-<i className="mk">AI.</i></span>
             </h1>
-            <p className="hsub">{"Tfittxija, mapep, chats tal-intelliġenza artifiċjali (AI) u vuċi. Tim wieħed f'Malta jara li jsibuk f'kollha."}</p>
+            <p className="hsub">{"Tfittxija, mapep, chats tal-intelliġenza artifiċjali (AI) u vuċi. Tim wieħed f'Malta jara li jsibuk fihom kollha."}</p>
 
             <div className="hgrid">
               <div className="ocard">
@@ -233,7 +233,7 @@ export default function SEOAgencyMalta({ faqs }: Props) {
             <p className="lab" data-rv><b>04</b>{"X'nagħmlu"}</p>
             <div className="shead" data-rv>
               <h2 className="h2">Il-metodu tal-SEO tagħna. <i>6 passi.</i></h2>
-              <p className="lead">{"L-istess sitt passi għal kull negozju. Il-pjan ta' ġewwa fihom isir apposta għan-negozju tiegħek."}</p>
+              <p className="lead">{"L-istess sitt passi għal kull negozju. Il-pjan li hemm fihom isir apposta għan-negozju tiegħek."}</p>
             </div>
             <ol className="steps">
               {steps.map((s) => (
@@ -275,7 +275,7 @@ export default function SEOAgencyMalta({ faqs }: Props) {
               <li className="on">Tiegħek ukoll</li>
             </ul>
             <p className="under" data-rv>
-              Trid li l-AI twieġeb lill-klijenti tiegħek ukoll? Ara <Link className="txt" href="/mt/ai">is-sistemi tal-AI tagħna għal kull industrija</Link>.
+              Trid li l-AI twieġeb lill-klijenti tiegħek ukoll? Ara <Link className="txt" href="/mt/ai">s-sistemi tal-AI tagħna għal kull industrija</Link>.
             </p>
           </div>
         </section>
@@ -296,7 +296,7 @@ export default function SEOAgencyMalta({ faqs }: Props) {
             <div className="stat" data-rv>
               <b>9,600+</b>
               <p>
-                {"darbiet li t-tweġibiet tal-AI ta' Google wrew il-paġni tagħna stess minn Mejju 2026. Nittestjaw kollox fuqna stess l-ewwel."}
+                {"darba li t-tweġibiet tal-AI ta' Google urew il-paġni tagħna stess minn Mejju 2026. Nittestjaw kollox fuqna stess l-ewwel."}
                 <small>Sors: il-Google Search Console tagħna stess, minn Mejju sa Novembru 2026.</small>
               </p>
             </div>
@@ -325,7 +325,7 @@ export default function SEOAgencyMalta({ faqs }: Props) {
             </div>
             <p className="under" data-rv>
               {"Trid it-tim kollu tal-marketing, mhux it-tfittxija biss? Ara l-offerta tagħna ta' "}<Link className="txt" href="/mt/aeo/digital-marketing-agency-malta">{"aġenzija tal-marketing diġitali f'Malta"}</Link>.{" "}
-              Teħtieġ biss in-naħa teknika? Ara <Link className="txt" href="/services/seo-services">is-servizzi tal-SEO</Link>.
+              Teħtieġ biss in-naħa teknika? Ara <Link className="txt" href="/services/seo-services">s-servizzi tal-SEO</Link>.
             </p>
           </div>
         </section>

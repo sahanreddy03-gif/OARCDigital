@@ -59,12 +59,12 @@ const FAQS = [
   {
     question: "Kif jista' ristorant f'Malta jieqaf jitlef il-flus ma' Wolt u Bolt?",
     answer:
-      "H360 ta' OARC Digital tieħu post id-dipendenza fuq l-apps tad-delivery b'ordnijiet diretti bil-QR — il-klijenti jordnaw u jħallsu mill-mejda b'żero kummissjoni. Il-pjattaforma tibni database dirett tal-klijenti, biex min jerġa' jiġi jordna permezz ta' WhatsApp jew SMS minflok minn apps ta' terzi.",
+      "H360 ta' OARC Digital tissostitwixxi d-dipendenza fuq l-apps tad-delivery b'ordnijiet diretti bil-QR — il-klijenti jordnaw u jħallsu mill-mejda b'żero kummissjoni. Il-pjattaforma tibni database dirett tal-klijenti, biex min jerġa' jiġi jordna permezz ta' WhatsApp jew SMS minflok minn apps ta' terzi.",
   },
   {
-    question: "Għaliex ir-ristorant tiegħi mhux jidher fuq Google Maps f'Malta?",
+    question: "Għaliex ir-ristorant tiegħi mhux qed jidher fuq Google Maps f'Malta?",
     answer:
-      "Il-post tiegħek fuq Google Maps jiddependi minn kemm għandek reviews, kemm huma riċenti, il-kliem ewlieni fil-Business Profile tiegħek u l-konsistenza taċ-ċitazzjonijiet lokali. H360 u ARC AI ta' OARC Digital jiċċekkjaw dawn il-fatturi, iżidu l-kliem ewlieni u r-ritratti neqsin, u jawtomatizzaw il-ġbir tar-reviews biex ir-ristorant tiegħek jitla' lejn l-ewwel 3 lokali.",
+      "Il-post tiegħek fuq Google Maps jiddependi minn kemm għandek reviews, kemm huma riċenti, il-kliem ewlieni fil-Business Profile tiegħek u l-konsistenza taċ-ċitazzjonijiet lokali. H360 u ARC AI ta' OARC Digital jiċċekkjaw dawn il-fatturi, iżidu l-kliem ewlieni u r-ritratti neqsin, u jawtomatizzaw il-ġbir tar-reviews biex ir-ristorant tiegħek jitla' lejn l-ewwel 3 fir-riżultati lokali.",
   },
   {
     question: "X'inhi H360 u x'għandha x'taqsam ma' OARC Digital?",

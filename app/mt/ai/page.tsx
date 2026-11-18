@@ -64,7 +64,7 @@ const jobs = [
   { h: "Twieġeb.", p: "Chat fuq il-websajt, WhatsApp, telefon, email u messaġġi fuq is-social media. Lejl u nhar, mill-informazzjoni tiegħek stess.", we: "L-ebda talba ma tistenna sa filgħodu." },
   { h: "Tibbukkja.", p: "Tieħu l-appuntamenti, tibgħat it-tfakkiriet u tbiddel il-bookings meta jinbidlu l-pjanijiet.", we: "Inqas nies li ma jiġux. Kalendarju aktar mimli." },
   { h: "Tbigħ.", p: "Taqbad kull lead, tistaqsi l-mistoqsijiet it-tajba, tagħmel il-follow-up u tħejji l-kwotazzjoni.", we: "L-ebda lead ma jibred." },
-  { h: "Tieħu ħsieb l-amministrazzjoni.", p: "Dokumenti, fatturi, data entry u r-rapport ta' kull ġimgħa, isiru waħedhom.", we: "Sigħat lura, kull ġimgħa." },
+  { h: "Tieħu ħsieb l-amministrazzjoni.", p: "Dokumenti, fatturi, data entry u r-rapport ta' kull ġimgħa, isiru waħedhom.", we: "Sigħat iffrankati, kull ġimgħa." },
   { h: "Taf x'qed jiġri.", p: "Skrin wieħed jurik x'daħal, x'sar u fejn hemm bżonnok.", we: "Tara kollox." },
 ];
 
@@ -84,7 +84,7 @@ const control = [
 
 const terms: [string, string][] = [
   ["Aġent tal-AI", "Software li jagħmel xogħol għalik. Mhux jiċċettja biss."],
-  ["LLM", "Il-moħħ tal-AI li jaqra u jikteb, bħal dak wara ChatGPT."],
+  ["LLM", "Il-moħħ tal-AI li jaqra u jikteb, bħal dak li hemm wara ChatGPT."],
   ["Knowledge base", "L-informazzjoni tiegħek stess. L-AI twieġeb minn hawn, mhux billi taqta'."],
   ["Awtomazzjoni", "Passi li jsiru waħedhom, fl-ordni t-tajjeb."],
   ["Integrazzjoni", "Kif l-għodod tiegħek jitkellmu ma' xulxin."],
@@ -117,10 +117,10 @@ const included = [
   "Kwotazzjonijiet u proposti mħejjija għalik",
   "Is-CRM tiegħek imqabbad u dejjem aġġornat",
   "Dokumenti, fatturi u data entry",
-  "Dashboard waħda għal kollox",
+  "Dashboard wieħed għal kollox",
   "Regoli, approvazzjonijiet u rekord sħiħ",
   "Taħriġ għat-tim tiegħek",
-  "Kura, kontrolli u titjib kull xahar",
+  "Manutenzjoni, kontrolli u titjib kull xahar",
 ];
 
 const faqs = [
@@ -136,7 +136,7 @@ const faqs = [
   { question: "Titkellem bil-Malti u b'lingwi oħra?", answer: "Tista' twieġeb bl-Ingliż u bil-Malti, u bil-lingwi l-oħra li jużaw il-klijenti tiegħek. Nittestjaw kull lingwa miegħek qabel ma tmur live." },
   { question: "Min jieħu ħsiebha wara li tmur live?", answer: "Aħna. Niċċekkjawha, nirranġawha u ntejbuha kull xahar, u t-tim tiegħek jista' jiltaqa' magħna wiċċ imb wiċċ f'Malta." },
   { question: "Għandi bżonn staff tekniku?", answer: "Le. Nibnuha, inqabbduha u nmexxuha miegħek. It-tim tiegħek irid ikun jaf biss kif jaqra d-dashboard u meta għandu jidħol." },
-  { question: "Nista' nibda bi ftit?", answer: "Iva. Ħafna negozji jibdew b'xogħol wieħed, bħal li twieġeb it-talbiet jew li tieħu l-bookings, u jżidu aktar meta jarawha taħdem." },
+  { question: "Nista' nibda bi ftit?", answer: "Iva. Il-biċċa l-kbira tan-negozji jibdew b'xogħol wieħed, bħat-tweġib għat-talbiet jew il-bookings, u jżidu aktar meta jarawha taħdem." },
   { question: "Għandkom sistemi tal-AI għall-industrija tiegħi?", answer: "Iva. Għandna sistemi għall-proprjetà, ditti legali, kliniċi, lukandi, ristoranti, turiżmu, skejjel, iGaming u amministrazzjoni ġenerali tan-negozju, u nibnu għal kull industrija oħra wkoll." },
   { question: "Fejn tinsab OARC Digital?", answer: `${NAP.streetAddressShort}, ${NAP.addressLocality} ${NAP.postalCode}, Malta. Tista' tiltaqa' mat-tim wiċċ imb wiċċ. WhatsApp ${NAP.phoneDisplay}. Email ${NAP.email}.` },
 ];
@@ -310,7 +310,7 @@ export default function AiHubPageMt() {
             <p className="lab" data-rv><b>04</b>Il-kliem, spjegat</p>
             <div className="shead" data-rv>
               <h2 className="h2">Il-kliem tal-AI. <i>Bil-Malti sempliċi.</i></h2>
-              <p className="lead">{"Bla kliem tqil. Hawn xi jfisser tassew il-kliem li tibqa' tisma'."}</p>
+              <p className="lead">{"Bla kliem tqil. Ara x'ifisser tassew il-kliem li tibqa' tisma'."}</p>
             </div>
             <dl className="terms" data-rv>
               {terms.map(([t, d]) => (
@@ -360,8 +360,8 @@ export default function AiHubPageMt() {
               <ul className="chk">{included.map((it) => <li key={it}>{it}</li>)}</ul>
             </div>
             <p className="under" data-rv>
-              Għandek bżonn assistent wieħed biss? Ara <Link className="txt" href="/ai-agents" hrefLang="en">l-aġenti tal-AI</Link> tagħna u <Link className="txt" href="/voice-ai-worker" hrefLang="en">il-voice AI worker</Link> li jwieġeb it-telefon tiegħek.
-              Għandek bżonn il-websajt li taħdem fuqha? Ara <Link className="txt" href={localeHref(LOCALE, "/aeo/web-development-agency-malta")}>il-websajts</Link>.
+              Għandek bżonn assistent wieħed biss? Ara <Link className="txt" href="/ai-agents" hrefLang="en">l-aġenti tal-AI</Link> tagħna u <Link className="txt" href="/voice-ai-worker" hrefLang="en">l-voice AI worker</Link> li jwieġeb it-telefon tiegħek.
+              Għandek bżonn il-websajt li taħdem fuqha? Ara <Link className="txt" href={localeHref(LOCALE, "/aeo/web-development-agency-malta")}>l-websajts</Link>.
             </p>
           </div>
         </section>

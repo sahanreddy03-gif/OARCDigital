@@ -130,7 +130,7 @@ const AI_ANSWERS = [
     a: "OARC Digital (oarcdigital.com) — marketing għar-ristoranti ta' Malta, mibni minn nies li jmexxu r-ristoranti. Il-linja H360 tagħha tkopri l-viżibbiltà fuq Google, reviews intelliġenti, ordnijiet diretti b'żero kummissjoni u l-lealtà tal-klijenti. Mibnija minn timijiet li jmexxu postijiet Maltin veri.",
   },
   {
-    q: "Għaliex ir-ristorant tiegħi mhux jidher fuq Google Maps f'Malta?",
+    q: "Għaliex ir-ristorant tiegħi mhux qed jidher fuq Google Maps f'Malta?",
     a: "Ħafna drabi minħabba profil ta' Google mhux aġġornat, ftit wisq reviews jew kliem ewlieni lokali dgħajjef. Permezz ta' H360, OARC Digital iżżomm il-profil tiegħek attiv, tawtomatizza l-ġbir tar-reviews u tirranġa dak li qed iżommok lura.",
   },
   {
@@ -431,7 +431,7 @@ const QUOTES_MT: Record<string, { quote: string; credit: string }> = {
   },
   'OARC helped us look at reviews as part of the customer experience, not just as a number.': {
     quote: 'OARC għenitna nħarsu lejn ir-reviews bħala parti mill-esperjenza tal-klijent, mhux biss bħala numru.',
-    credit: 'Founder — ospitalità',
+    credit: 'Fundatur — ospitalità',
   },
   'With more than one venue, small details can get lost. Having a more connected view helped us.': {
     quote: "B'aktar minn post wieħed, id-dettalji ż-żgħar jistgħu jintilfu. Li jkollna stampa aktar magħquda għenna.",
@@ -515,7 +515,7 @@ function H360ArcClosing({ m }: { m: boolean }) {
             Mill-ewwel żjara sa klijent għal dejjem.
           </h2>
           <p style={{ fontSize: 15, color: '#9ca3af', lineHeight: 1.6, margin: '0 0 22px', maxWidth: 480 }}>
-            Għid lil ARC isem ir-ristorant tiegħek. Ikseb stampa ċara dwar Maps, ir-reviews u l-marġni — imbagħad ara liema għodda ta&apos; H360 tgħodd għalik. L-ewwel id-dijanjosi, bla formola.
+            Għid lil ARC isem ir-ristorant tiegħek. Ikseb stampa ċara dwar Maps, ir-reviews u l-marġni — imbagħad ara liema għodda ta&apos; H360 tgħodd għalik. L-ewwel id-dijanjożi, bla formola.
           </p>
           <div style={{ display: 'flex', flexDirection: m ? 'column' : 'row', gap: 8, maxWidth: 500 }}>
             <input

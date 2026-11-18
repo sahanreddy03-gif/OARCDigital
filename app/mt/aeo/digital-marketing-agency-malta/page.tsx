@@ -38,7 +38,7 @@ const faqs = [
       "Għodod aħjar għamlu x-xogħol aktar malajr. Il-biċċa l-kbira tal-aġenziji żammew dak li ffrankaw. Aħna ngħadduh lilek. Xorta tieħu nies ta' esperjenza, wiċċ imb wiċċ.",
   },
   {
-    question: "Diġà nħallsu aġenzija €2,000 jew aktar. Għaliex għandna nibdlu?",
+    question: "Diġà nħallsu lil aġenzija €2,000 jew aktar. Għaliex għandna nibdluha?",
     answer:
       "Żomm l-istess baġit u ħu aktar bih: tim sħiħ, in-naħa teknika, u aktar mill-flus tiegħek imorru fir-reklami. Ibgħatilna l-aħħar fattura tiegħek u nuruk x'tixtri biha magħna.",
   },
