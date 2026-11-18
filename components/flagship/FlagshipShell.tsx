@@ -19,10 +19,13 @@ export default function FlagshipShell({
   children,
   accent,
   accentSoft,
+  navTheme = "light",
 }: {
   children: ReactNode;
   accent?: string;
   accentSoft?: string;
+  /** "dark" when the page opens on a black hero, so the menu is light. */
+  navTheme?: "dark" | "light";
 }) {
   const root = useRef<HTMLDivElement>(null);
 
@@ -85,7 +88,7 @@ export default function FlagshipShell({
   } as CSSProperties;
 
   return (
-    <Layout navTheme="light">
+    <Layout navTheme={navTheme}>
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&display=swap"
