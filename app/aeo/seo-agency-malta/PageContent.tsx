@@ -178,6 +178,10 @@ export default function SEOAgencyMalta({ faqs }: Props) {
                 <a className="btn btn-w" href="#top" data-testid="link-blueprint-places">Get my blueprint <Arrow /></a>
               </article>
             </div>
+            <p className="under" data-rv>
+              OARC Digital is a full <Link className="txt" href="/" data-testid="link-home-context">marketing agency in Malta</Link>.
+              So your search is planned together with your content, your website and your ads.
+            </p>
           </div>
         </section>
 
@@ -368,7 +372,7 @@ export default function SEOAgencyMalta({ faqs }: Props) {
             <WaForm id="blueprint2" message={BLUEPRINT} button="Get my blueprint" />
             <p className="onote"><span>Free. In 48 hours. Opens WhatsApp.</span><a href={PRICE} target="_blank" rel="noopener" data-testid="link-price-close">Or get my price</a></p>
             <p className="home">
-              OARC Digital is a full <Link href="/" data-testid="link-home-context">marketing agency in Malta</Link>. Search is one of our 8 departments.
+              Search is one of 8 departments at OARC Digital.
               Find us at {NAP.streetAddressShort}, {NAP.addressLocality} {NAP.postalCode}.
             </p>
           </div>
