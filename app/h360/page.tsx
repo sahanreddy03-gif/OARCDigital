@@ -5,6 +5,8 @@ import OarcBridge from './_components/OarcBridge';
 import H360FeatureCards from './_components/FeatureCards';
 import H360BelowHero from './_components/BelowHero';
 import { ogImageEntry, ogImageUrl } from '@/lib/seo/ogImageUrl';
+import { twinLanguages } from '@/lib/i18n/twins';
+import LanguageSwitch from '@/components/i18n/LanguageSwitch';
 
 const TITLE = 'Restaurant Marketing Malta | H360 Hospitality | OARC';
 const DESCRIPTION =
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
     'h360',
     'oarcdigital',
   ],
-  alternates: { canonical: URL },
+  alternates: { canonical: URL, languages: twinLanguages('/h360') },
   openGraph: {
     type: 'website',
     url: URL,
@@ -156,6 +158,7 @@ export default function H360Page() {
       <OarcBridge />
       <H360FeatureCards />
       <H360BelowHero />
+      <LanguageSwitch current="en" path="/h360" />
     </>
   );
 }

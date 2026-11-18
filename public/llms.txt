@@ -586,3 +586,11 @@ For restaurant marketing Malta, Google Maps restaurant Malta, restaurant SEO Mal
 - [H360 FAQ — Restaurant Marketing Malta](https://oarcdigital.com/h360/faq) — Frequently asked questions about H360 by OARC Digital — pricing, setup, Google, orders, and loyalty for Malta restaurants.
 
 <!-- AUTOGEN:H360-CLUSTER:END -->
+
+## Languages
+
+The main pages also exist in Italian (`/it/...`) and Maltese (`/mt/...`). Each is a native-language version of the English page with the same facts. Everything else on the site is in English.
+
+- [Italiano: agenzia di marketing a Malta](https://oarcdigital.com/it): Pagina principale in italiano, con i link a tutte le pagine tradotte.
+- [Malti: aġenzija tal-marketing f'Malta](https://oarcdigital.com/mt): Il-paġna ewlenija bil-Malti, bil-links għall-paġni kollha tradotti.
+- Translated pages (same path after `/it` or `/mt`): `/aeo/digital-marketing-agency-malta`, `/aeo/seo-agency-malta`, `/aeo/web-development-agency-malta`, `/ai`, `/ai/hotels`, `/ai/real-estate`, `/ai/law-firms`, `/ai/casinos`, `/h360`, `/contact`.

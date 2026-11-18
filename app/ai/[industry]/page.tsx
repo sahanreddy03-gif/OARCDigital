@@ -5,6 +5,8 @@ import AiSystemPage from "@/components/ai-systems/AiSystemPage";
 import { AI_SYSTEM_SLUGS, getAiSystem, nameInSentence } from "@/lib/ai-systems";
 import { NAP } from "@/lib/seo/nap";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+import { twinLanguages } from "@/lib/i18n/twins";
+import LanguageSwitch from "@/components/i18n/LanguageSwitch";
 
 const BASE = "https://oarcdigital.com";
 
@@ -25,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: c.metaTitle,
     description: c.metaDescription,
-    alternates: { canonical: url },
+    alternates: { canonical: url, languages: twinLanguages(`/ai/${c.slug}`) },
     openGraph: {
       images: ogImageEntry(og),
       title: c.metaTitle,
@@ -88,6 +90,7 @@ export default async function Page({ params }: Props) {
     <Layout navTheme="dark">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <AiSystemPage c={c} />
+      <LanguageSwitch current="en" path={`/ai/${c.slug}`} />
     </Layout>
   );
 }

@@ -4,6 +4,7 @@ import FlagshipShell from "@/components/flagship/FlagshipShell";
 import { Arrow, WaForm, WaIcon, waLink } from "@/components/flagship/parts";
 import { NAP } from "@/lib/seo/nap";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+import { twinLanguages } from "@/lib/i18n/twins";
 
 const BASE = "https://oarcdigital.com";
 const URL = `${BASE}/ai/casinos`;
@@ -15,7 +16,7 @@ const OG = { title: "Systems and marketing for casinos in Malta", subtitle: "Cus
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: URL },
+  alternates: { canonical: URL, languages: twinLanguages("/ai/casinos") },
   openGraph: { images: ogImageEntry(OG), title: TITLE, description: DESCRIPTION, url: URL, type: "website" },
   twitter: { images: [ogImageUrl(OG)], card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
@@ -208,7 +209,7 @@ function Bar() {
 
 export default function AiCasinosPage() {
   return (
-    <FlagshipShell accent="#8C6A16" accentSoft="#F1E4BE" navTheme="dark">
+    <FlagshipShell accent="#8C6A16" accentSoft="#F1E4BE" navTheme="dark" langPath="/ai/casinos">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div id="top">
         {/* 1 · the promise and the free blueprint */}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import LanguageSwitch from "@/components/i18n/LanguageSwitch";
 // Contact page - OARC Digital - Updated Dec 2025
 import Layout from "@/components/layout/Layout";
 import { supportingPagesSEO } from "@/data/seoMetadata";
@@ -495,6 +496,7 @@ export default function PageContent() {
           <div className="absolute inset-0 rounded-full border-2 border-[#25D366] animate-ping opacity-30" />
         </div>
       </m.a>
+      <LanguageSwitch current="en" path="/contact" />
     </Layout>
   );
 }

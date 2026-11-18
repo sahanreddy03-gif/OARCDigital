@@ -4,6 +4,10 @@ import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import Layout from "@/components/layout/Layout";
 import { FLAGSHIP_CSS } from "./flagshipCss";
 import { waLink } from "./parts";
+import HtmlLang from "@/components/i18n/HtmlLang";
+import LangFooter from "@/components/i18n/LangFooter";
+import LanguageSwitch from "@/components/i18n/LanguageSwitch";
+import type { Locale } from "@/lib/i18n/twins";
 
 /**
  * Wrapper for the flagship service pages. The page content is plain server-rendered
@@ -20,12 +24,18 @@ export default function FlagshipShell({
   accent,
   accentSoft,
   navTheme = "light",
+  locale,
+  langPath,
 }: {
   children: ReactNode;
   accent?: string;
   accentSoft?: string;
   /** "dark" when the page opens on a black hero, so the menu is light. */
   navTheme?: "dark" | "light";
+  /** Set on a translated page: marks the content language and swaps in the translated footer. */
+  locale?: Locale;
+  /** The ENGLISH path of this page when it has language twins, for example "/ai". */
+  langPath?: string;
 }) {
   const root = useRef<HTMLDivElement>(null);
 
@@ -88,15 +98,19 @@ export default function FlagshipShell({
   } as CSSProperties;
 
   return (
-    <Layout navTheme={navTheme}>
+    <Layout navTheme={navTheme} showFooter={!locale}>
+      {locale && <meta httpEquiv="content-language" content={locale} />}
+      {locale && <HtmlLang locale={locale} />}
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&display=swap"
       />
       <style dangerouslySetInnerHTML={{ __html: FLAGSHIP_CSS }} />
-      <div className="fs" ref={root} style={style}>
+      <div className="fs" ref={root} style={style} lang={locale}>
         {children}
       </div>
+      {locale && langPath && <LangFooter locale={locale} path={langPath} />}
+      {!locale && langPath && <LanguageSwitch current="en" path={langPath} />}
     </Layout>
   );
 }

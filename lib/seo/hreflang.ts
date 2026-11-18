@@ -51,6 +51,7 @@
 //      `en-MT`, `en-GB`, `x-default`, and every value matches `canonical`.
 
 import { isTopPage, topPageCanonical } from "./topPages";
+import { twinLanguageExtras } from "@/lib/i18n/twins";
 
 export type HreflangAlternates = {
   canonical: string;
@@ -85,14 +86,18 @@ export function getHreflangAlternates(
   opts?: HreflangOptions,
 ): HreflangAlternates {
   const url = opts?.canonical ?? topPageCanonical(path);
+  // Italian and Maltese twins, for the few pages that have them (lib/i18n/twins.ts).
+  // `undefined` for every other page, so nothing changes there.
+  const twins = twinLanguageExtras(path);
   if (!isTopPage(path)) {
-    return { canonical: url, languages: {} };
+    return { canonical: url, languages: twins ? { en: url, ...twins, "x-default": url } : {} };
   }
   return {
     canonical: url,
     languages: {
       "en-MT": url,
       "en-GB": url,
+      ...twins,
       "x-default": url,
     },
   };

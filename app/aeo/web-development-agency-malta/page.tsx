@@ -3,6 +3,7 @@ import { NAP } from "@/lib/seo/nap";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+import { twinLanguages } from "@/lib/i18n/twins";
 
 
 // The title and URL are unchanged on purpose: Google already knows the page by them.
@@ -14,7 +15,7 @@ const URL = "https://oarcdigital.com/aeo/web-development-agency-malta";
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: URL },
+  alternates: { canonical: URL, languages: twinLanguages("/aeo/web-development-agency-malta") },
   openGraph: { images: ogImageEntry({ title: TITLE, subtitle: DESCRIPTION }),
  title: TITLE, description: DESCRIPTION, url: URL, type: "website" },
   twitter: { images: [ogImageUrl({ title: TITLE, subtitle: DESCRIPTION })],

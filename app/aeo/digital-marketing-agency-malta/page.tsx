@@ -5,6 +5,7 @@ import { NAP } from "@/lib/seo/nap";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+import { twinLanguages } from "@/lib/i18n/twins";
 
 
 const TITLE = "Digital Marketing Agency Malta | OARC Digital";
@@ -16,7 +17,7 @@ const URL = "https://oarcdigital.com/aeo/digital-marketing-agency-malta";
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: URL },
+  alternates: { canonical: URL, languages: twinLanguages("/aeo/digital-marketing-agency-malta") },
   openGraph: { images: ogImageEntry({ title: TITLE, subtitle: DESCRIPTION }),
  title: TITLE, description: DESCRIPTION, url: URL, type: "website" },
   twitter: { images: [ogImageUrl({ title: TITLE, subtitle: DESCRIPTION })],
