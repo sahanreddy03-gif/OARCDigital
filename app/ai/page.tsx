@@ -25,6 +25,30 @@ export const metadata: Metadata = {
 const BLUEPRINT = "Hi OARC. My business is {x}. Please send my free AI blueprint.";
 const PRICE = waLink("Hi OARC. Please send me your price for an AI system. My business is: ");
 
+// Short names for the directory at the top of the page: one or two words, then one short line.
+// A new industry that is not listed here still shows, with its own title and line.
+const SHORT: Record<string, [string, string]> = {
+  "real-estate": ["Real estate", "Agencies and property managers"],
+  "law-firms": ["Law firms", "Advocates, notaries, corporate"],
+  clinics: ["Clinics", "GPs, dentists and specialists"],
+  hotels: ["Hotels", "Hotels and guesthouses"],
+  restaurants: ["Restaurants", "Restaurants, cafés and bars"],
+  tourism: ["Tourism", "Tours, boats and activities"],
+  education: ["Schools", "Schools, colleges and tuition"],
+  "igaming-operators": ["iGaming operators", "Online casinos and sportsbooks"],
+  "igaming-suppliers": ["iGaming suppliers", "Platforms and studios"],
+  "igaming-affiliates": ["iGaming affiliates", "Review sites and media"],
+  "business-admin": ["Business admin", "Invoices, bills and files"],
+};
+
+// Every industry page, in menu order. Casinos is its own page, so it is added by hand.
+const INDUSTRIES = (() => {
+  const list = AI_SYSTEMS.map((c) => ({ slug: c.slug, name: SHORT[c.slug]?.[0] ?? c.hub.title, line: SHORT[c.slug]?.[1] ?? c.hub.gain }));
+  const at = list.findIndex((c) => c.slug === "restaurants");
+  list.splice(at + 1, 0, { slug: "casinos", name: "Casinos", line: "Casino, hotel and poker room" });
+  return list;
+})();
+
 const jobs = [
   { h: "It answers.", p: "Website chat, WhatsApp, phone, email and social messages. Day and night, from your own information.", we: "No enquiry waits until morning." },
   { h: "It books.", p: "It takes appointments, sends reminders and moves bookings when plans change.", we: "Fewer no-shows. A fuller calendar." },
@@ -178,41 +202,29 @@ export default function AiHubPage() {
           <div className="wrap">
             <h1>
               <span className="kick">AI systems for businesses in Malta</span>
-              <span className="big">AI that does the busy work. <i className="mk">Day and night.</i></span>
+              <span className="big">AI built for <i className="mk">your industry.</i></span>
             </h1>
-            <p className="hsub">It answers every enquiry, books every appointment and does the admin. You stay in control.</p>
+            <p className="hsub">It answers, books, follows up and does the admin, day and night. Pick your industry.</p>
 
             <div className="hgrid">
               <div className="ocard">
                 <p className="otop"><span className="otag">Free</span><span className="olim">In 48 hours</span></p>
                 <h2>Your free AI blueprint.</h2>
-                <p>Send us your business name. In 48 hours you get a map of the jobs AI can take off your team, and what to build first.</p>
+                <p>Not listed? We build it around you. Send your business name and in 48 hours you get a map of the jobs AI can take off your team.</p>
                 <WaForm id="blueprint" message={BLUEPRINT} button="Get my blueprint" />
                 <p className="onote"><span>Opens WhatsApp. No call. No long form.</span><a href={PRICE} target="_blank" rel="noopener" data-testid="link-price-hero">Or get my price</a></p>
               </div>
 
-              <div className="screens" aria-hidden="true">
-                <div className="scr">
-                  <b>WhatsApp · 23:41</b>
-                  <div className="bub">Do you have a table for 4 tomorrow?</div>
-                  <div className="bub ai">Yes. 20:00 is free. <u>Booked for you.</u></div>
-                </div>
-                <div className="scr">
-                  <b>Today</b>
-                  <div className="kv"><span>Enquiries answered</span><b>All</b></div>
-                  <div className="kv"><span>Waiting for you</span><b>2</b></div>
-                </div>
-                <div className="scr s-hide">
-                  <b>Follow-up</b>
-                  <div className="row"><i>1</i>Quote sent</div>
-                  <div className="row you"><i>2</i>Reminder sent · Replied</div>
-                </div>
-                <div className="scr s-hide">
-                  <b>Admin</b>
-                  <div className="row you"><i>✓</i>Invoice made and sent</div>
-                  <div className="row"><i>✓</i>Customer list updated</div>
-                </div>
-              </div>
+              <nav className="dir" aria-label="AI systems by industry">
+                <p className="dir-h"><span>Pick your industry</span><span>{INDUSTRIES.length} systems</span></p>
+                {INDUSTRIES.map((c) => (
+                  <Link key={c.slug} href={`/ai/${c.slug}`} data-testid={`link-ai-${c.slug}`}>
+                    <b>{c.name}</b>
+                    <small>{c.line}</small>
+                    <Arrow />
+                  </Link>
+                ))}
+              </nav>
             </div>
           </div>
         </section>
@@ -268,44 +280,10 @@ export default function AiHubPage() {
           </div>
         </section>
 
-        {/* 4 · by industry */}
-        <section className="sec" id="industries">
-          <div className="wrap">
-            <p className="lab" data-rv><b>03</b>Your industry</p>
-            <div className="shead" data-rv>
-              <h2 className="h2">Pick your industry. <i>See your system.</i></h2>
-              <p className="lead">Each one is built around how that kind of business really works.</p>
-            </div>
-            <div className="grid g3">
-              {AI_SYSTEMS.map((c) => (
-                <Link className="card ind" key={c.slug} href={`/ai/${c.slug}`} data-rv data-testid={`link-ai-${c.slug}`}>
-                  <h2>{c.hub.title}</h2>
-                  <p>{c.hub.body}</p>
-                  <span className="we">{c.hub.gain}</span>
-                  <span className="go">See the system <Arrow /></span>
-                </Link>
-              ))}
-              <Link className="card ind" href="/ai/casinos" data-rv data-testid="link-ai-casinos">
-                <h2>Casinos and casino hotels</h2>
-                <p>Every room, seat and table booked in one message. One app for the whole team. The right guests brought in.</p>
-                <span className="we">Casino floor, poker room, hotel, restaurants and bars</span>
-                <span className="go">See the system <Arrow /></span>
-              </Link>
-              <article className="card cta" style={{ gridColumn: "1 / -1" }} data-rv>
-                <div>
-                  <h3>Your industry is not here yet?</h3>
-                  <p>Retail, logistics, construction, finance and more. We build it around your week.</p>
-                </div>
-                <a className="btn btn-w" href="#top" data-testid="link-blueprint-industries">Get my blueprint <Arrow /></a>
-              </article>
-            </div>
-          </div>
-        </section>
-
         {/* 5 · you stay in control */}
         <section className="sec dark" id="control">
           <div className="wrap">
-            <p className="lab" data-rv><b>04</b>Safety</p>
+            <p className="lab" data-rv><b>03</b>Safety</p>
             <div className="shead" data-rv>
               <h2 className="h2">You stay <i>in control.</i></h2>
               <p className="lead">AI does the work. People make the calls that matter. That is how every system we build is set up.</p>
@@ -321,7 +299,7 @@ export default function AiHubPage() {
         {/* 6 · the words */}
         <section className="sec" id="words">
           <div className="wrap">
-            <p className="lab" data-rv><b>05</b>The words, explained</p>
+            <p className="lab" data-rv><b>04</b>The words, explained</p>
             <div className="shead" data-rv>
               <h2 className="h2">AI words. <i>In plain English.</i></h2>
               <p className="lead">No jargon. Here is what the words you keep hearing really mean.</p>
@@ -337,7 +315,7 @@ export default function AiHubPage() {
         {/* 7 · why OARC */}
         <section className="sec paper" id="why">
           <div className="wrap">
-            <p className="lab" data-rv><b>06</b>Why us</p>
+            <p className="lab" data-rv><b>05</b>Why us</p>
             <div className="shead" data-rv>
               <h2 className="h2">Why OARC Digital for <i>AI in Malta.</i></h2>
               <p className="lead">We do not sell you software and leave. We build it around your business and run it with you.</p>
@@ -356,7 +334,7 @@ export default function AiHubPage() {
         {/* 8 · the package */}
         <section className="sec" id="package">
           <div className="wrap">
-            <p className="lab" data-rv><b>07</b>The package</p>
+            <p className="lab" data-rv><b>06</b>The package</p>
             <div className="shead" data-rv>
               <h2 className="h2">Your whole business. <i>Connected.</i></h2>
               <p className="lead">One package. One team. Every channel answered and every job tracked.</p>
@@ -383,7 +361,7 @@ export default function AiHubPage() {
         {/* 9 · how it starts */}
         <section className="sec paper" id="start">
           <div className="wrap">
-            <p className="lab" data-rv><b>08</b>How it starts</p>
+            <p className="lab" data-rv><b>07</b>How it starts</p>
             <div className="shead" data-rv>
               <h2 className="h2">Start with <i>one message.</i></h2>
               <p className="lead">No meeting to book. No form to fill in. Just your business name.</p>
@@ -400,7 +378,7 @@ export default function AiHubPage() {
         {/* 10 · questions */}
         <section className="sec" id="faq">
           <div className="wrap">
-            <p className="lab" data-rv><b>09</b>Before you ask</p>
+            <p className="lab" data-rv><b>08</b>Before you ask</p>
             <div className="shead" data-rv>
               <h2 className="h2">Questions about <i>AI for your business.</i></h2>
               <p className="lead">Short, straight answers. Ask us anything else on WhatsApp.</p>

@@ -373,4 +373,25 @@ export const FLAGSHIP_CSS = `
 .fs .phone .tabs b{color:var(--ink)}
 .fs .note{margin-top:clamp(28px,3vw,40px);font-size:15px;line-height:1.5;color:var(--kmute);max-width:80ch}
 @media (max-width:1100px){.fs .split{grid-template-columns:minmax(0,1fr)}}
+
+/* industry directory in a dark hero: big names, one short line, one click */
+.fs .dir{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(18px,2.4vw,36px);align-content:start}
+.fs .dir-h{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:14px;font:700 13px/1 var(--ui);letter-spacing:.15em;text-transform:uppercase;color:var(--y)}
+.fs .dir-h span:last-child{color:var(--kmute)}
+.fs .dir a{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:2px 12px;padding:12px 0;border-top:1px solid var(--kline);color:var(--kt);text-decoration:none;transition:color .2s}
+.fs .dir a b{font:400 clamp(26px,2.4vw,35px)/1.04 var(--se);letter-spacing:-.012em;white-space:nowrap}
+.fs .dir a small{grid-column:1;font-size:14px;line-height:1.3;color:var(--kmute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fs .dir a svg{grid-column:2;grid-row:1/span 2;width:20px;height:20px;color:var(--kmute);transition:transform .25s var(--ease),color .2s}
+.fs .dir a:hover,.fs .dir a:focus-visible{color:var(--y)}
+.fs .dir a:hover b,.fs .dir a:focus-visible b{font-style:italic}
+.fs .dir a:hover svg,.fs .dir a:focus-visible svg{color:var(--y);transform:translateX(5px)}
+.fs .dir-n{grid-column:1/-1;margin-top:0;padding-top:16px;border-top:1px solid var(--kline);font-size:15px;color:var(--kmute)}
+@media (max-width:1100px){.fs .hgrid .dir{order:-1}}
+@media (max-width:520px){
+  .fs .dir{gap:0 16px}
+  .fs .dir a{padding:13px 0}
+  .fs .dir a b{font-size:21px}
+  .fs .dir a small{display:none}
+  .fs .dir a svg{width:16px;height:16px}
+}
 `;
