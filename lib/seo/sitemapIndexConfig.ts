@@ -14,6 +14,8 @@ export const CHILD_SITEMAPS = [
   "sitemap-aeo.xml",
   "sitemap-industries.xml",
   "sitemap-blog.xml",
+  // Italian and Maltese twins of the main pages (lib/i18n/twins.ts)
+  "sitemap-languages.xml",
   // Malta priority cohort (≤2000; contains malta-priority-1000)
   "sitemap-malta-priority-matrix.xml",
   // Remaining historical matrix (~5350)

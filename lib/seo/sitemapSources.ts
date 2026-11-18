@@ -15,6 +15,8 @@ const ENTRIES_BUILDERS: Record<string, () => Promise<EntriesBuilder>> = {
     (await import("@/app/sitemap-core.xml/route")).buildEntries,
   "sitemap-h360.xml": async () =>
     (await import("@/app/sitemap-h360.xml/route")).buildEntries,
+  "sitemap-languages.xml": async () =>
+    (await import("@/app/sitemap-languages.xml/route")).buildEntries,
   "sitemap-services.xml": async () =>
     (await import("@/app/sitemap-services.xml/route")).buildEntries,
   "sitemap-malta-locations.xml": async () =>
@@ -44,6 +46,7 @@ const ENTRIES_BUILDERS: Record<string, () => Promise<EntriesBuilder>> = {
 // Files (besides app/<name>/route.ts) that decide which URLs a child lists.
 // The 2026-11-09 retirement of 3,525 matrix URLs only touched the ledger.
 const LIST_SOURCES: Record<string, string[]> = {
+  "sitemap-languages.xml": ["lib/i18n/twins.ts"],
   "sitemap-malta-priority-matrix.xml": [
     "seo-manifest/sitemap-matrix-exclusions.json",
     "lib/seo/maltaMatrixCohorts.ts",

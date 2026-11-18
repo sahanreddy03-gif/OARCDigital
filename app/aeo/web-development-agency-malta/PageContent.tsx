@@ -123,7 +123,7 @@ function Bar() {
 
 export default function WebDevelopmentAgencyMalta({ faqs }: Props) {
   return (
-    <FlagshipShell accent="#0B0B0B" accentSoft="#D5D5FF">
+    <FlagshipShell accent="#0B0B0B" accentSoft="#D5D5FF" langPath="/aeo/web-development-agency-malta">
       <div id="top">
         {/* 1 · the promise and the free blueprint */}
         <section className="hero">

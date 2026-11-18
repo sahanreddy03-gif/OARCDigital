@@ -10,8 +10,15 @@ import { useHomepageFloatingControlsVisibility } from "@/components/useHomepageF
 
 const PHONE_NUMBER = NAP.phoneE164;
 
+// Italian and Maltese pages (/it/..., /mt/...) follow the rules of their English twin, and
+// do not show the floating launcher: its chat opens in English, and those pages use WhatsApp.
+const LOCALE_PREFIX = /^\/(it|mt)(?=\/|$)/;
+const stripLocale = (path: string) => path.replace(LOCALE_PREFIX, "") || "/";
+
 export function ARCWidget() {
-  const location = usePathname();
+  const rawLocation = usePathname();
+  const isTranslatedPage = LOCALE_PREFIX.test(rawLocation);
+  const location = stripLocale(rawLocation);
   const [isOpen, setIsOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [popupDismissed, setPopupDismissed] = useState(false);
@@ -26,7 +33,7 @@ export function ARCWidget() {
   useEffect(() => {
     const handler = (e: Event) => {
       const custom = e as CustomEvent<{ prompt?: string; contextMode?: 'default' | 'h360'; openChat?: boolean }>;
-      const path = window.location.pathname;
+      const path = stripLocale(window.location.pathname);
       const wantsChat = Boolean(custom.detail?.openChat || custom.detail?.prompt);
 
       /** Passive H360 links scroll to audit; explicit audit CTA opens ARC chat. */
@@ -118,7 +125,7 @@ export function ARCWidget() {
   // H360 is its own site — no OARC floating launcher on /h360/*
   const isH360 = location.startsWith('/h360');
   const isNewWork = location.startsWith('/our-work') || location.startsWith('/new-work');
-  const hideFloatingButton = location === '/contact' || isH360 || isNewWork;
+  const hideFloatingButton = location === '/contact' || isH360 || isNewWork || isTranslatedPage;
 
   return (
     <>

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Layout from "@/components/layout/Layout";
+import LanguageSwitch from "@/components/i18n/LanguageSwitch";
 
 export default function PageContent({
   css,
@@ -45,6 +46,7 @@ export default function PageContent({
       />
       <style dangerouslySetInnerHTML={{ __html: css }} />
       <div className={scopeClass} dangerouslySetInnerHTML={{ __html: markup }} />
+      <LanguageSwitch current="en" path="/aeo/digital-marketing-agency-malta" />
     </Layout>
   );
 }

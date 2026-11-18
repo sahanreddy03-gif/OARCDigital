@@ -101,7 +101,7 @@ function Bar() {
 
 export default function SEOAgencyMalta({ faqs }: Props) {
   return (
-    <FlagshipShell>
+    <FlagshipShell langPath="/aeo/seo-agency-malta">
       <div id="top">
         {/* 1 · the promise and the free blueprint */}
         <section className="hero">

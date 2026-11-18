@@ -67,6 +67,7 @@ import BlogPreviewSection from "@/components/BlogPreviewSection";
 import NeedHelpCTA from "@/components/NeedHelpCTA";
 import FAQ from "@/components/FAQ";
 import RouteSchema from "@/components/RouteSchema";
+import LanguageSwitch from "@/components/i18n/LanguageSwitch";
 
 export default function Page() {
   const pillar = pillarMeta;
@@ -146,6 +147,7 @@ export default function Page() {
         <MostPopularServices />
         <FAQ />
       </div>
+      <LanguageSwitch current="en" path="/" />
     </Layout>
   );
 }

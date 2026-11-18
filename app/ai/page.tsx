@@ -5,6 +5,7 @@ import { Arrow, WaForm, WaIcon, waLink } from "@/components/flagship/parts";
 import { AI_SYSTEMS, nameInSentence } from "@/lib/ai-systems";
 import { NAP } from "@/lib/seo/nap";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+import { twinLanguages } from "@/lib/i18n/twins";
 
 const BASE = "https://oarcdigital.com";
 const URL = `${BASE}/ai`;
@@ -17,7 +18,7 @@ const OG = { title: "AI systems, built around your business", subtitle: "Set up 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: URL },
+  alternates: { canonical: URL, languages: twinLanguages("/ai") },
   openGraph: { images: ogImageEntry(OG), title: TITLE, description: DESCRIPTION, url: URL, type: "website" },
   twitter: { images: [ogImageUrl(OG)], card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
@@ -194,7 +195,7 @@ function Bar() {
 
 export default function AiHubPage() {
   return (
-    <FlagshipShell accent="#2440F0" accentSoft="#D6E0FF" navTheme="dark">
+    <FlagshipShell accent="#2440F0" accentSoft="#D6E0FF" navTheme="dark" langPath="/ai">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div id="top">
         {/* 1 · the promise and the free blueprint */}
