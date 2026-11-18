@@ -106,11 +106,6 @@ export default function SEOAgencyMalta({ faqs }: Props) {
         {/* 1 · the promise and the free blueprint */}
         <section className="hero">
           <div className="wrap">
-            <nav className="crumb" aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
-              <span aria-hidden="true">/</span>
-              <span aria-current="page">SEO Agency Malta</span>
-            </nav>
             <h1>
               <span className="kick">SEO agency in Malta</span>
               <span className="big">We make your business rank on <i className="mk">Google</i> and <i className="mk">AI.</i></span>

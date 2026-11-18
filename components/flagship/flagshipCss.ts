@@ -56,7 +56,7 @@ export const FLAGSHIP_CSS = `
 .fs .crumb a{text-decoration:none}
 .fs .crumb a:hover{text-decoration:underline}
 .fs .crumb [aria-current]{color:var(--ink)}
-.fs .kick{display:block;margin-top:26px;font:500 16px/1 var(--ui);color:var(--mute)}
+.fs .kick{display:block;font:500 16px/1 var(--ui);color:var(--mute)}
 .fs .big{display:block;margin-top:22px;font:400 clamp(46px,7.3vw,112px)/.97 var(--se);letter-spacing:-.026em;text-wrap:balance}
 .fs .hsub{margin:24px auto 0;max-width:40ch;font-size:clamp(17.5px,1.45vw,21px);line-height:1.45;color:var(--ink2)}
 .fs .hgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(18px,2.2vw,28px);align-items:stretch;margin-top:clamp(36px,4.4vw,60px);text-align:left}
