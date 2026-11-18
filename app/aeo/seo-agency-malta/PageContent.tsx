@@ -1,157 +1,383 @@
-import Layout from '@/components/layout/Layout';
-import RelatedLinks from '@/components/RelatedLinks';
-import { Button } from '@/components/ui/button';
-import { CheckCircle2, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react';
-import TrustBlock from "@/components/seo/TrustBlock";
-import Link from 'next/link';
+import Link from "next/link";
+import FlagshipShell from "@/components/flagship/FlagshipShell";
+import { Arrow, SearchIcon, WaForm, WaIcon, waLink } from "@/components/flagship/parts";
 import { NAP } from "@/lib/seo/nap";
 
 interface Faq { question: string; answer: string; }
-interface Offer { name: string; priceFrom: number; unitText?: string; description?: string; }
-interface Props { faqs: Faq[]; offers: Offer[]; }
+interface Props { faqs: Faq[]; }
+
+const BLUEPRINT = "Hi OARC. My business is {x}. Please send my free ranking blueprint.";
+const PRICE = waLink("Hi OARC. Please send me your price for SEO. My business is: ");
+
+// The seven places people search. `what` says it in one line, `we` says what OARC does there.
+const places = [
+  { name: "Google Search", what: "Someone types what they need and picks from the first few results.", we: "We get your pages to the top for the words that bring customers." },
+  { name: "Google Maps", what: "The “near me” search. The top 3 places on the map get most of the calls.", we: "We build your Google Business Profile, your reviews and your local pages." },
+  { name: "AI answers on Google", what: "Google now writes its own answer above the results. It is called AI Overviews and AI Mode.", we: "We make your website a source that Google’s AI quotes." },
+  { name: "AI chats", what: "ChatGPT, Gemini, Perplexity, Claude, Copilot, Grok and Meta AI. People ask them who to hire.", we: "We make sure they know you, trust you and say your name." },
+  { name: "Voice search", what: "Siri, Google Assistant and Alexa read out one answer, not ten.", we: "We write short, clear answers that a voice can read out loud." },
+  { name: "Video and social search", what: "YouTube, TikTok and Instagram are search engines now, most of all for younger buyers.", we: "We title, caption and tag your videos so people find them." },
+  { name: "Other search engines and maps", what: "Bing, Apple Maps, DuckDuckGo and Brave. Many AI tools read these, not Google.", we: "We list and verify you on each one, with the same details everywhere." },
+];
+
+const terms = [
+  { abbr: "SEO", full: "Search engine optimisation", text: "Getting your website to the top of Google and Bing." },
+  { abbr: "Local", full: "Local SEO", text: "Getting you into the top 3 on the map when someone nearby searches." },
+  { abbr: "AEO", full: "Answer engine optimisation", text: "Getting your words picked as the one answer, by Google’s AI and by voice assistants." },
+  { abbr: "GEO", full: "Generative engine optimisation", text: "Getting AI chats like ChatGPT and Gemini to recommend your business by name." },
+];
+
+const pains = [
+  { h: "You’re on page 2. Nobody looks there.", p: "Almost every click goes to the first page. Page 2 is where good businesses stay hidden.", fix: "Page 1 for the searches that pay." },
+  { h: "Your rival shows up first. Every time.", p: "They are not better than you. They are just easier for Google to understand.", fix: "We study them. Then we pass them." },
+  { h: "You ask ChatGPT. It names someone else.", p: "AI can only recommend a business it knows and trusts. Right now, that is not you.", fix: "We make AI say your name." },
+  { h: "You paid for SEO. You got a report.", p: "Pages of charts, and no new customers to show for it.", fix: "We report enquiries, not graphs." },
+];
+
+const steps = [
+  { h: "We fix your website.", p: "Speed, phone layout, broken links, and the hidden labels (called schema) that tell Google and AI what you do." },
+  { h: "We find the words your customers type.", p: "Real search data, in English and in Maltese. No guessing." },
+  { h: "We write what people ask.", p: "Pages and articles that answer real questions. Written by people, checked against the data." },
+  { h: "We get AI to know you.", p: "Clear facts, clear answers and the same details everywhere, so ChatGPT, Gemini and Perplexity can quote you." },
+  { h: "We get trusted sites to talk about you.", p: "Maltese press, directories and partners. Real links only. No tricks that get you punished later." },
+  { h: "We show you the numbers.", p: "A written report every month: your rankings, your visitors and your enquiries. In plain words." },
+];
+
+const channels = [
+  { group: "Your website", items: ["Service pages", "Location pages", "Articles and guides", "Questions and answers"] },
+  { group: "Google", items: ["Business Profile posts", "Photos", "Reviews and replies", "Questions and answers"] },
+  { group: "Video", items: ["YouTube", "YouTube Shorts", "TikTok", "Instagram Reels"] },
+  { group: "Social media", items: ["LinkedIn", "Facebook", "Instagram", "X", "Pinterest", "Threads"] },
+  { group: "Communities", items: ["Reddit", "Quora", "Medium", "Substack"] },
+  { group: "Maps and listings", items: ["Bing Places", "Apple Maps", "Clutch", "Yellow Pages Malta", "Industry directories"] },
+  { group: "News and press", items: ["Maltese news sites", "Trade press", "Podcasts", "Partner blogs"] },
+];
+
+const industries = [
+  "Restaurants and cafés", "Hotels and guest houses", "Clinics and dentists", "Real estate", "Law firms", "Accountants",
+  "Shops and online stores", "iGaming", "Fintech", "Construction and trades", "Schools and courses", "Tourism and activities",
+  "Beauty and wellness", "Gyms and fitness", "Car dealers and rentals", "Tech and software", "Events and weddings",
+];
 
 const reasons = [
-  'Direct ranking data from Malta hospitality, iGaming, and SaaS clients — not a London playbook copy-pasted to Valletta',
-  'Maltese-and-English keyword research (most agencies only do English) covering category-plus-locality intent',
-  'AEO baked in — every page is structured so ChatGPT and Perplexity can quote it, not just Google',
-  'Technical SEO and content production handled by the same team in Birkirkara — no offshore handoff',
-  'Real link earning through Maltese press, partner placements, and credible directories — never PBNs',
-  'Monthly written reports authored by a senior strategist, not a templated Looker Studio dump',
+  { h: "Built for AI from day one.", p: "Every page we make is written so Google and AI can quote it. Most agencies add this later, if at all." },
+  { h: "English and Maltese.", p: "Most agencies only study English searches. We study both, because your customers use both." },
+  { h: "One team. 8 departments.", p: "Writers, a film crew, web developers and AI engineers under one roof in Birkirkara. Nothing is sent abroad." },
+  { h: "Real data from Malta.", p: "Not a London plan pasted onto Valletta. We work from what people in Malta really search." },
+  { h: "Real links only.", p: "Press, partners and trusted directories. No link farms. Nothing that puts your website at risk." },
+  { h: "A person writes your report.", p: "A strategist explains what happened and what comes next. You can always meet us in person." },
 ];
 
-const playbook = [
-  { name: 'Phase 1 — Technical baseline', detail: 'Crawl, log-file review, Core Web Vitals fix list, schema rewrite (LocalBusiness, FAQ, Service, Article), hreflang for Maltese-English where relevant.' },
-  { name: 'Phase 2 — Topical map', detail: 'Keyword clustering across Maltese SERPs and the EU diaspora intent — restaurant categories, iGaming verticals, hospitality booking intent, SaaS comparison terms.' },
-  { name: 'Phase 3 — Content sprint', detail: 'Four to eight cornerstone articles per quarter, each one written by a human who has been to the location or used the product, never AI-spammed.' },
-  { name: 'Phase 4 — AEO + entity work', detail: 'FAQ schema, Wikipedia and Wikidata entity reinforcement, citations across Times of Malta, Lovin Malta, MaltaToday, and Trip.com style platforms.' },
-  { name: 'Phase 5 — Link earning', detail: 'Digital PR pitches to Maltese press, niche-relevant guest contributions, MGA-aware placements for iGaming clients, partnerships with Malta business associations.' },
-  { name: 'Phase 6 — Iterate + report', detail: 'Monthly written report against agreed KPIs (rankings, organic sessions, lead-form completes, branded search lift), shared in person at the Birkirkara office every quarter.' },
+const included = [
+  "Full website health check, and the fixes",
+  "Keyword map in English and Maltese",
+  "Google Business Profile, built and managed",
+  "A review system: ask, collect, reply",
+  "Service pages and location pages",
+  "New articles every month, written by people",
+  "AI visibility: ChatGPT, Gemini, Perplexity, Claude, Copilot",
+  "Voice search answers for Siri, Google and Alexa",
+  "Schema and an llms.txt file, so AI can read you",
+  "Bing Places and Apple Maps listings",
+  "Links from press and trusted directories",
+  "YouTube and social search set-up",
+  "Your rivals tracked, every month",
+  "A one-page report: rankings, visitors, enquiries",
 ];
 
-export default function SEOAgencyMalta({ faqs, offers }: Props) {
+const bar = [
+  "Google Search", "Google Maps", "AI Overviews", "ChatGPT", "Gemini", "Perplexity", "Claude", "Copilot", "Grok",
+  "Siri", "Alexa", "Google Assistant", "YouTube", "TikTok", "Bing", "Apple Maps",
+];
+
+function Bar() {
   return (
-    <Layout>
-      <main className="min-h-screen bg-background">
-        <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
-          <div className="max-w-4xl mx-auto px-6 md:px-8">
-            <div className="flex items-center gap-2 mb-6 text-sm text-zinc-400">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <span>/</span>
-              <span className="text-white">SEO Agency Malta</span>
+    <div className="bset">
+      <em>Found on</em>
+      {bar.map((b) => <span key={b}>{b}</span>)}
+    </div>
+  );
+}
+
+export default function SEOAgencyMalta({ faqs }: Props) {
+  return (
+    <FlagshipShell>
+      <div id="top">
+        {/* 1 · the promise and the free blueprint */}
+        <section className="hero">
+          <div className="wrap">
+            <h1>
+              <span className="kick">SEO agency in Malta</span>
+              <span className="big">We make your business rank on <i className="mk">Google</i> and <i className="mk">AI.</i></span>
+            </h1>
+            <p className="hsub">Search, maps, AI chats and voice. One Malta team gets you found in all of them.</p>
+
+            <div className="hgrid">
+              <div className="ocard">
+                <p className="otop"><span className="otag">Free</span><span className="olim">In 48 hours</span></p>
+                <h2>Your free ranking blueprint.</h2>
+                <p>Send us your business name. In 48 hours you get a plan that shows where you rank today, and how to get to the top.</p>
+                <WaForm id="blueprint" message={BLUEPRINT} button="Get my blueprint" />
+                <p className="onote"><span>Opens WhatsApp. No call. No long form.</span><a href={PRICE} target="_blank" rel="noopener" data-testid="link-price-hero">Or get my price</a></p>
+              </div>
+
+              <div className="screens" aria-hidden="true">
+                <div className="scr">
+                  <b>Search</b>
+                  <div className="q"><SearchIcon />best in Malta</div>
+                  <div className="row you"><i>1</i>Your business</div>
+                  <div className="row"><i>2</i>Someone else</div>
+                </div>
+                <div className="scr">
+                  <b>AI chat</b>
+                  <div className="bub">Who should I call in Malta?</div>
+                  <div className="bub ai">I’d start with <u>your business</u>. Here is why.</div>
+                </div>
+                <div className="scr s-hide">
+                  <b>Maps</b>
+                  <div className="q"><SearchIcon />near me</div>
+                  <div className="row you"><i>A</i>Your business · Open now</div>
+                  <div className="row"><i>B</i>Someone else</div>
+                </div>
+                <div className="scr s-hide">
+                  <b>Voice</b>
+                  <div className="wave">{Array.from({ length: 18 }, (_, i) => <span key={i} />)}</div>
+                  <div className="row you"><i>1</i>“The top answer is your business.”</div>
+                </div>
+              </div>
             </div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
-              <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Answer Engine Optimised</span>
+          </div>
+        </section>
+
+        <div className="band" aria-hidden="true">
+          <div className="brun"><Bar /><Bar /></div>
+        </div>
+
+        {/* 2 · where people search now */}
+        <section className="sec" id="places">
+          <div className="wrap">
+            <p className="lab" data-rv><b>01</b>Where people search</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">People don’t just <i>Google any more.</i></h2>
+              <p className="lead">Your next customer asks a phone, a map or an AI chat. We get you found in all 7 places.</p>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">SEO agency Malta — own the searches that bring customers</h1>
-            <p className="text-xl text-zinc-300 leading-relaxed mb-8">
-              OARC Digital ranks Malta hospitality, iGaming, fintech, and SaaS brands across Google, Bing, and AI answer engines. Technical SEO, content, and AEO from one team in Birkirkara.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/contact"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">Book a discovery call <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
-              <a href={`tel:${NAP.phoneE164}`}><Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10"><Phone className="mr-2 w-4 h-4" />{NAP.phoneDisplay}</Button></a>
+            <div className="grid g4">
+              {places.map((pl, i) => (
+                <article className="card" key={pl.name} data-rv>
+                  <span className="n" aria-hidden="true">{i + 1}</span>
+                  <h3>{pl.name}</h3>
+                  <p>{pl.what}</p>
+                  <p className="we">{pl.we}</p>
+                </article>
+              ))}
+              <article className="card cta" data-rv>
+                <div>
+                  <h3>Not sure where you stand?</h3>
+                  <p>We check all 7 for you. Free, in 48 hours.</p>
+                </div>
+                <a className="btn btn-w" href="#top" data-testid="link-blueprint-places">Get my blueprint <Arrow /></a>
+              </article>
             </div>
-            <p className="mt-8 text-sm text-zinc-400" data-testid="aeo-money-links">
-              Explore: 
-                <Link href="/" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Home</Link>
-                {" · "}
-                <Link href="/services/seo-services" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">SEO services</Link>
-                {" · "}
-                <Link href="/creative" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Creative</Link>
-                {" · "}
-                <Link href="/ai-agents" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">AI agents</Link>
-                {" · "}
-                <Link href="/services/branding" className="text-orange-400 hover:text-orange-300 underline-offset-2 hover:underline">Branding</Link>
+            <p className="under" data-rv>
+              OARC Digital is a full <Link className="txt" href="/" data-testid="link-home-context">marketing agency in Malta</Link>.
+              So your search is planned together with your content, your website and your ads.
             </p>
           </div>
         </section>
 
-        <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
-          <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">SEO in Malta Has Its Own Physics</h2>
-            <p className="text-foreground leading-relaxed mb-4">
-              Malta&apos;s SERPs do not behave like London or Berlin. The country has roughly half a million residents but punches above its weight in iGaming (over 300 MGA-licensed operators clustered around St Julians and Sliema), hospitality (a tourism-heavy economy serving five million annual visitors), and a quietly growing fintech and SaaS scene anchored around the MFSA. That means category-plus-locality keywords — &quot;restaurant Sliema&quot;, &quot;casino affiliate Malta&quot;, &quot;accountant Birkirkara&quot;, &quot;web design St Julians&quot; — have meaningful commercial intent but surprisingly low domain density compared to bigger EU markets.
-            </p>
-            <p className="text-foreground leading-relaxed mb-4">
-              The flip side is that the few well-resourced competitors who do invest in SEO occupy the top three positions for years. Displacing them needs a properly engineered programme: technical fixes, real content authored by people who understand the vertical, schema that survives Google&apos;s John Mueller-era scrutiny, and links that come from Maltese press and partners rather than recycled PBNs. OARC Digital has been ranking Malta brands since 2023 and most of our SEO work compounds because we treat each client as a publisher, not a citation directory.
-            </p>
-            <p className="text-foreground leading-relaxed">
-              We also build for AEO from day one. A growing share of Malta searches start inside ChatGPT, Perplexity, Google AI Overviews, or Claude — particularly for B2B research, hospitality discovery, and iGaming compliance questions. The pages we ship are structured so an LLM can extract the facts cleanly: tight FAQ schema, entity-rich prose, named locations, named regulators (MFSA, MGA, IDPC), and proper attribution. That earns citations that traditional SEO never measures and your competitors are still ignoring.
-            </p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Why OARC Digital for Malta SEO</h2>
-            <div className="space-y-4">
-              {reasons.map((reason, i) => (
-                <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-card border">
-                  <CheckCircle2 className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
-                  <p className="text-foreground">{reason}</p>
-                </div>
+        {/* 3 · the four words, in plain English */}
+        <section className="sec paper" id="words">
+          <div className="wrap">
+            <p className="lab" data-rv><b>02</b>The words, explained</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">SEO, AEO, GEO. <i>In plain English.</i></h2>
+              <p className="lead">Four short words. Each one is a different way to be found.</p>
+            </div>
+            <div className="grid g4">
+              {terms.map((t) => (
+                <article className="card term" key={t.abbr} data-rv>
+                  <abbr title={t.full}>{t.abbr}</abbr>
+                  <p className="full">{t.full}</p>
+                  <p>{t.text}</p>
+                </article>
               ))}
             </div>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Our Malta SEO Playbook</h2>
-            <p className="text-muted-foreground mb-6">A six-phase engagement that delivers a working programme inside the first quarter — not a 90-page audit nobody reads.</p>
-            <div className="grid md:grid-cols-2 gap-4">
-              {playbook.map((p) => (
-                <div key={p.name} className="p-4 rounded-xl bg-card border">
-                  <div className="font-bold mb-1">{p.name}</div>
-                  <div className="text-sm text-muted-foreground">{p.detail}</div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Transparent Pricing</h2>
-            <p className="text-muted-foreground mb-6">Three retainer tiers that scale from a single-location SMB to a multi-jurisdiction iGaming or SaaS operator. No setup fees, no annual lock-in.</p>
-            <div className="grid md:grid-cols-3 gap-4">
-              {offers.map((o) => (
-                <div key={o.name} className="rounded-xl border p-6 bg-card flex flex-col">
-                  <h3 className="font-bold text-lg mb-1">{o.name}</h3>
-                  <p className="text-3xl font-bold text-orange-600 mb-1">€{o.priceFrom.toLocaleString()}</p>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-4">{o.unitText === 'MONTH' ? 'per month' : 'fixed project'}</p>
-                  <p className="text-sm text-muted-foreground flex-1">{o.description}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Visit OARC Digital in {NAP.addressLocality}</h2>
-            <TrustBlock variant="visit" />
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Why This Matters for SEO in Malta</h2>
-            <p className="text-foreground leading-relaxed">
-              The agencies that still treat Malta SEO as a checklist of citations to a hundred low-quality directories are losing ground every quarter. Google&apos;s helpful-content updates, the MGA&apos;s tightening advertising rules, and the rise of AI answer engines have collectively rewritten the rulebook. Winning Malta SERPs in 2025 means publishing genuinely useful content, marking it up cleanly, and earning real citations from sources that Google and ChatGPT both trust. OARC Digital structures every retainer around that reality, which is why our clients keep their rankings even when the algorithm shifts.
-            </p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>
-            <div className="space-y-4">
-              {faqs.map((faq, i) => (
-                <div key={i} className="p-5 rounded-xl bg-card border">
-                  <h3 className="font-bold mb-2">{faq.question}</h3>
-                  <p className="text-muted-foreground faq-answer">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <RelatedLinks slug="/aeo/seo-agency-malta" />
-
-          <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
-            <h2 className="text-2xl font-bold mb-3">Want to actually rank in Malta?</h2>
-            <p className="text-white/90 mb-6 max-w-xl mx-auto">A 30-minute discovery call gets you a written audit summary and a realistic ranking timeline. No vanity metrics.</p>
-            <Link href="/contact"><Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50 font-bold">Start a conversation <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
+            <p className="after" data-rv>Most agencies sell you one. You need all four, working as one plan.</p>
           </div>
-        </article>
-      </main>
-    </Layout>
+        </section>
+
+        {/* 4 · sound familiar */}
+        <section className="sec" id="familiar">
+          <div className="wrap">
+            <p className="lab" data-rv><b>03</b>The problem</p>
+            <div className="shead" data-rv>
+              <h2 className="h2 il">Sound <i>familiar?</i></h2>
+              <p className="lead">If people can’t find you, they find someone else. It is that simple.</p>
+            </div>
+            <div className="grid g4">
+              {pains.map((x) => (
+                <article className="card pain" key={x.h} data-rv>
+                  <h3>{x.h}</h3>
+                  <p>{x.p}</p>
+                  <span className="fix">{x.fix}</span>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 5 · the playbook */}
+        <section className="sec paper" id="playbook">
+          <div className="wrap">
+            <p className="lab" data-rv><b>04</b>What we do</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">Our SEO playbook. <i>6 steps.</i></h2>
+              <p className="lead">The same six steps for every business. The plan inside them is made for yours.</p>
+            </div>
+            <ol className="steps">
+              {steps.map((s) => (
+                <li key={s.h} data-rv><div><h3>{s.h}</h3><p>{s.p}</p></div></li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* 6 · every channel */}
+        <section className="sec" id="channels">
+          <div className="wrap">
+            <p className="lab" data-rv><b>05</b>Where we publish</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">We put you where <i>your customers are.</i></h2>
+              <p className="lead">Free, organic content built on real search data, on every channel that matters. No ad budget needed.</p>
+            </div>
+            <div className="chgroups">
+              {channels.map((c) => (
+                <div className="chg" key={c.group} data-rv>
+                  <h3>{c.group}</h3>
+                  <ul className="chips">{c.items.map((it) => <li key={it}>{it}</li>)}</ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 7 · every industry */}
+        <section className="sec paper" id="industries">
+          <div className="wrap">
+            <p className="lab" data-rv><b>06</b>Your industry</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">A plan built for <i>your industry.</i></h2>
+              <p className="lead">People search for a restaurant very differently from a law firm. So every plan is different.</p>
+            </div>
+            <ul className="chips big" data-rv>
+              {industries.map((it) => <li key={it}>{it}</li>)}
+              <li className="on">Yours too</li>
+            </ul>
+            <p className="under" data-rv>
+              Want AI to answer your customers as well? See our <Link className="txt" href="/ai">AI systems for each industry</Link>.
+            </p>
+          </div>
+        </section>
+
+        {/* 8 · why OARC */}
+        <section className="sec dark" id="why">
+          <div className="wrap">
+            <p className="lab" data-rv><b>07</b>Why us</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">Why OARC Digital for <i>SEO in Malta.</i></h2>
+              <p className="lead">Search is not a side job here. It is built into everything we make.</p>
+            </div>
+            <ul className="why">
+              {reasons.map((r) => (
+                <li key={r.h} data-rv><h3>{r.h}</h3><p>{r.p}</p></li>
+              ))}
+            </ul>
+            <div className="stat" data-rv>
+              <b>9,600+</b>
+              <p>
+                times Google’s AI answers have shown our own pages since May 2026. We test everything on ourselves first.
+                <small>Source: our own Google Search Console, May to November 2026.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* 9 · the package */}
+        <section className="sec" id="package">
+          <div className="wrap">
+            <p className="lab" data-rv><b>08</b>The package</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">Own your search. <i>All of it.</i></h2>
+              <p className="lead">One package. One team. Every place people search, covered.</p>
+            </div>
+            <div className="pack" data-rv>
+              <div>
+                <p className="otop"><span className="otag">Everything included</span></p>
+                <h3>The Search Domination package.</h3>
+                <p className="pp">Google, Maps, AI chats and voice, done for you every month. The price depends on your industry and your rivals.</p>
+                <div className="pbtns">
+                  <a className="btn btn-w" href={PRICE} target="_blank" rel="noopener" data-testid="link-price-package"><WaIcon />Get my price</a>
+                  <a className="btn btn-o" href="#top" data-testid="link-blueprint-package">Get my free blueprint</a>
+                </div>
+              </div>
+              <ul className="chk">{included.map((it) => <li key={it}>{it}</li>)}</ul>
+            </div>
+            <p className="under" data-rv>
+              Want the whole marketing team, not only search? See our <Link className="txt" href="/aeo/digital-marketing-agency-malta">digital marketing agency in Malta</Link> offer.
+              Only need the technical side? See <Link className="txt" href="/services/seo-services">SEO services</Link>.
+            </p>
+          </div>
+        </section>
+
+        {/* 10 · how it starts */}
+        <section className="sec paper" id="start">
+          <div className="wrap">
+            <p className="lab" data-rv><b>09</b>How it starts</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">Start with <i>one message.</i></h2>
+              <p className="lead">No meeting to book. No form to fill in. Just your business name.</p>
+            </div>
+            <ol className="tl">
+              <li data-rv><p className="when">Today</p><h3>WhatsApp us your business name.</h3><p>That is all we need to begin.</p></li>
+              <li data-rv><p className="when">In 48 hours</p><h3>You get your free blueprint.</h3><p>Where you rank on Google and Maps, what AI says about you, and your first 5 fixes.</p></li>
+              <li data-rv><p className="when">Week 1</p><h3>We agree the plan.</h3><p>We come to you, or you come to us in {NAP.addressLocality}. You see the price before anything starts.</p></li>
+              <li data-rv><p className="when">Every month</p><h3>You climb.</h3><p>New content, better rankings and one clear report.</p></li>
+            </ol>
+          </div>
+        </section>
+
+        {/* 11 · questions */}
+        <section className="sec" id="faq">
+          <div className="wrap">
+            <p className="lab" data-rv><b>10</b>Before you ask</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">Questions about <i>SEO in Malta.</i></h2>
+              <p className="lead">Short, straight answers. Ask us anything else on WhatsApp.</p>
+            </div>
+            <div className="faq">
+              {faqs.map((f) => (
+                <details key={f.question}>
+                  <summary>{f.question}</summary>
+                  <p className="faq-answer">{f.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 12 · close */}
+        <section className="fin dark">
+          <div className="wrap">
+            <h2 className="h2" data-rv>Don’t let your rival <i>be the answer.</i></h2>
+            <WaForm id="blueprint2" message={BLUEPRINT} button="Get my blueprint" />
+            <p className="onote"><span>Free. In 48 hours. Opens WhatsApp.</span><a href={PRICE} target="_blank" rel="noopener" data-testid="link-price-close">Or get my price</a></p>
+            <p className="home">
+              Search is one of 8 departments at OARC Digital.
+              Find us at {NAP.streetAddressShort}, {NAP.addressLocality} {NAP.postalCode}.
+            </p>
+          </div>
+        </section>
+      </div>
+    </FlagshipShell>
   );
 }
