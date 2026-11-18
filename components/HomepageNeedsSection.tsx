@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 /**
- * "What do you need?" — 15 plain cards (Ship sits inside Custom software), replacing the
+ * "What do you need?" — 16 plain cards (Ship sits inside Custom software), replacing the
  * Shift Happens headline and the 16-card department rail on the homepage.
  * Every department page keeps its internal link from the homepage.
  */
@@ -14,11 +14,11 @@ const NEEDS = [
     image: "/attached_assets/generated_images/oarc-growth-card-v2.jpg",
   },
   {
-    title: "Hire an AI employee",
+    title: "AI built for your industry",
     tone: "cobalt",
-    text: "AI staff for sales, support and bookings. Works 24/7.",
-    href: "/services/ai-staff",
-    image: "/attached_assets/generated_images/oarc-dept-ai-staff.jpg",
+    text: "One AI system for your kind of business: hotels, clinics, law firms, casinos and more.",
+    href: "/ai",
+    image: "/attached_assets/generated_images/oarc-dept-ship.jpg",
   },
   {
     title: "Build a brand people pay more for",
@@ -28,11 +28,11 @@ const NEEDS = [
     image: "/attached_assets/generated_images/oarc-dept-brand.jpg",
   },
   {
-    title: "Answer every enquiry in seconds",
+    title: "Hire an AI employee",
     tone: "cobalt",
-    text: "AI receptionist for WhatsApp, calls, DMs and email.",
-    href: "/voice-ai-worker",
-    image: "/attached_assets/generated_images/oarc-dept-enquiries.jpg",
+    text: "AI staff for sales, support and bookings. Works 24/7.",
+    href: "/services/ai-staff",
+    image: "/attached_assets/generated_images/oarc-dept-ai-staff.jpg",
   },
   {
     title: "Close more sales",
@@ -42,11 +42,11 @@ const NEEDS = [
     image: "/attached_assets/generated_images/oarc-dept-sales.jpg",
   },
   {
-    title: "Let your business run itself",
+    title: "Answer every enquiry in seconds",
     tone: "cobalt",
-    text: "Business automation that connects all your tools.",
-    href: "/services/automation",
-    image: "/attached_assets/generated_images/oarc-dept-automation.jpg",
+    text: "AI receptionist for WhatsApp, calls, DMs and email.",
+    href: "/voice-ai-worker",
+    image: "/attached_assets/generated_images/oarc-dept-enquiries.jpg",
   },
   {
     title: "Look like the biggest brand in your market",
@@ -56,11 +56,11 @@ const NEEDS = [
     image: "/attached_assets/generated_images/oarc-dept-creative.jpg",
   },
   {
-    title: "Know what's actually working",
+    title: "Let your business run itself",
     tone: "cobalt",
-    text: "Marketing reports that tell you what to do next.",
-    href: "/services/clarity",
-    image: "/attached_assets/generated_images/oarc-dept-clarity.jpg",
+    text: "Business automation that connects all your tools.",
+    href: "/services/automation",
+    image: "/attached_assets/generated_images/oarc-dept-automation.jpg",
   },
   {
     title: "Win on social media",
@@ -70,11 +70,11 @@ const NEEDS = [
     image: "/attached_assets/generated_images/oarc-dept-social.jpg",
   },
   {
-    title: "Custom software, built for you",
+    title: "Know what's actually working",
     tone: "cobalt",
-    text: "Apps and systems built in weeks. You own the code.",
-    href: "/services/transformation",
-    image: "/attached_assets/generated_images/oarc-dept-transformation.jpg",
+    text: "Marketing reports that tell you what to do next.",
+    href: "/services/clarity",
+    image: "/attached_assets/generated_images/oarc-dept-clarity.jpg",
   },
   {
     title: "Run your restaurant on one system",
@@ -84,11 +84,11 @@ const NEEDS = [
     image: "/attached_assets/generated_images/oarc-dept-products.jpg",
   },
   {
-    title: "Get 10+ hours back every week",
+    title: "Custom software, built for you",
     tone: "cobalt",
-    text: "We take the repetitive admin off your plate.",
-    href: "/services/operations",
-    image: "/attached_assets/generated_images/oarc-dept-operations.jpg",
+    text: "Apps and systems built in weeks. You own the code.",
+    href: "/services/transformation",
+    image: "/attached_assets/generated_images/oarc-dept-transformation.jpg",
   },
   {
     title: "Ads that pay for themselves",
@@ -98,11 +98,11 @@ const NEEDS = [
     image: "/attached_assets/generated_images/oarc-dept-media.jpg",
   },
   {
-    title: "Get famous in Malta",
+    title: "Get 10+ hours back every week",
     tone: "cobalt",
-    text: "PR, press, creators and 5-star Google reviews.",
-    href: "/services/reputation",
-    image: "/attached_assets/generated_images/oarc-dept-reputation.jpg",
+    text: "We take the repetitive admin off your plate.",
+    href: "/services/operations",
+    image: "/attached_assets/generated_images/oarc-dept-operations.jpg",
   },
   {
     title: "Why OARC, not another agency",
@@ -110,6 +110,13 @@ const NEEDS = [
     text: "We build working systems, not reports.",
     href: "/why-oarc",
     image: "/attached_assets/generated_images/oarc-dept-compare.jpg",
+  },
+  {
+    title: "Get famous in Malta",
+    tone: "cobalt",
+    text: "PR, press, creators and 5-star Google reviews.",
+    href: "/services/reputation",
+    image: "/attached_assets/generated_images/oarc-dept-reputation.jpg",
   },
 ] as const;
 
@@ -145,13 +152,16 @@ export default function HomepageNeedsSection() {
         </h2>
 
         <div className="mt-10 grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3 md:mt-12">
-          {NEEDS.map((need) => (
+          {NEEDS.map((need, i) => {
+            // 16 cards leave one alone on the last desktop row, so that one spans the row as a banner.
+            const wide = NEEDS.length % 3 === 1 && i === NEEDS.length - 1;
+            return (
             <Link
               key={need.title}
               href={need.href}
-              className={`group flex overflow-hidden rounded-[18px] ${TONES[need.tone].card} transition-transform duration-200 hover:-translate-y-1 sm:flex-col`}
+              className={`group flex overflow-hidden rounded-[18px] ${TONES[need.tone].card} transition-transform duration-200 hover:-translate-y-1 sm:flex-col ${wide ? "lg:col-span-3 lg:h-[200px] lg:flex-row" : ""}`}
             >
-              <span className="block w-[38%] shrink-0 overflow-hidden sm:aspect-[16/10] sm:w-full">
+              <span className={`block w-[38%] shrink-0 overflow-hidden sm:aspect-[16/10] sm:w-full ${wide ? "lg:aspect-auto lg:w-[calc((100%-28px)/3)]" : ""}`}>
                 <img
                   src={need.image}
                   alt=""
@@ -182,7 +192,8 @@ export default function HomepageNeedsSection() {
                 </span>
               </span>
             </Link>
-          ))}
+            );
+          })}
         </div>
 
       </div>
