@@ -69,6 +69,7 @@ const SERVICE_GROUPS: { title: string; href: string; accent: string; items: { na
       { name: "Clinics & hospitals",  href: "/ai/clinics" },
       { name: "Hotels",               href: "/ai/hotels" },
       { name: "Restaurants",          href: "/ai/restaurants" },
+      { name: "Casinos & casino hotels", href: "/ai/casinos" },
       { name: "Tourism & activities", href: "/ai/tourism" },
       { name: "Schools & colleges",   href: "/ai/education" },
       { name: "iGaming operators",    href: "/ai/igaming-operators" },

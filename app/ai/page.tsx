@@ -118,12 +118,20 @@ const jsonLd = {
       about: { "@id": `${BASE}/#organization` },
       mainEntity: {
         "@type": "ItemList",
-        itemListElement: AI_SYSTEMS.map((c, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: `AI system for ${nameInSentence(c.name)}`,
-          url: `${BASE}/ai/${c.slug}`,
-        })),
+        itemListElement: [
+          ...AI_SYSTEMS.map((c, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: `AI system for ${nameInSentence(c.name)}`,
+            url: `${BASE}/ai/${c.slug}`,
+          })),
+          {
+            "@type": "ListItem",
+            position: AI_SYSTEMS.length + 1,
+            name: "AI systems and marketing for casinos",
+            url: `${BASE}/ai/casinos`,
+          },
+        ],
       },
     },
     {
@@ -277,7 +285,13 @@ export default function AiHubPage() {
                   <span className="go">See the system <Arrow /></span>
                 </Link>
               ))}
-              <article className="card cta" data-rv>
+              <Link className="card ind" href="/ai/casinos" data-rv data-testid="link-ai-casinos">
+                <h2>Casinos and casino hotels</h2>
+                <p>Every room, seat and table booked in one message. One app for the whole team. The right guests brought in.</p>
+                <span className="we">Casino floor, poker room, hotel, restaurants and bars</span>
+                <span className="go">See the system <Arrow /></span>
+              </Link>
+              <article className="card cta" style={{ gridColumn: "1 / -1" }} data-rv>
                 <div>
                   <h3>Your industry is not here yet?</h3>
                   <p>Retail, logistics, construction, finance and more. We build it around your week.</p>
