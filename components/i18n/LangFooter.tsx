@@ -8,7 +8,7 @@ const T = {
     pages: "Pagine in italiano",
     contact: "Contatti",
     whatsapp: "Scrivici su WhatsApp",
-    english: "Tutto il sito è in inglese",
+    english: "Il resto del sito è in inglese",
     englishLink: "Vai al sito in inglese",
     legal: "Le pagine legali sono in inglese",
     privacy: "Privacy",

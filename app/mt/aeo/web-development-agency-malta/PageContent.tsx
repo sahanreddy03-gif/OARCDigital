@@ -6,8 +6,8 @@ import { NAP } from "@/lib/seo/nap";
 interface Faq { question: string; answer: string; }
 interface Props { faqs: Faq[]; }
 
-const BLUEPRINT = "Bonġu OARC. In-negozju tiegħi huwa {x}. Jekk jogħġobkom ibagħtuli l-pjan b'xejn għall-websajt tiegħi.";
-const PRICE = waLink("Bonġu OARC. Jekk jogħġobkom ibagħtuli l-prezz tagħkom għal websajt. In-negozju tiegħi huwa: ");
+const BLUEPRINT = "Hello OARC. In-negozju tiegħi huwa {x}. Jekk jogħġobkom ibagħtuli l-pjan b'xejn għall-websajt tiegħi.";
+const PRICE = waLink("Hello OARC. Jekk jogħġobkom ibagħtuli l-prezz tagħkom għal websajt. In-negozju tiegħi huwa: ");
 const NAME = "Isem in-negozju tiegħek";
 
 // Every kind of website, in one plain line, with who usually wants it.

@@ -1170,7 +1170,7 @@ $("#details").addEventListener("submit",function(e){
   if(!co) miss.push("isem in-negozju tiegħek"); if(ph.length<8) miss.push("numru tat-telefon"); if(em&&!/^\S+@\S+\.\S+$/.test(em)) miss.push("email valida");
   var err=$("#derr"); if(miss.length){ err.textContent="Żid "+miss.join(", ").replace(/, ([^,]*)$/," u $1")+" biex it-tim tiegħek ikun jista' jikkuntattjak."; err.hidden=false; return; }
   err.hidden=true; $("#details").hidden=true; $("#done").hidden=false;
-  var msg=[planMode?"Hi OARC. Ibgħatuli l-pjan imfassal għalija (tim ta' €500).":"Hi OARC. Irrid it-tim ta' €500.","Negozju: "+co,"Telefon: "+$("#d-ph").value,"Email: "+em,"Websajt: "+($("#d-web").value||""),"Instagram: "+($("#d-ig").value||""),"Talba: "+((document.getElementById("need")&&document.getElementById("need").value)||"")].join("\n");
+  var msg=[planMode?"Hello OARC. Ibgħatuli l-pjan imfassal għalija (tim ta' €500).":"Hello OARC. Irrid it-tim ta' €500.","Negozju: "+co,"Telefon: "+$("#d-ph").value,"Email: "+em,"Websajt: "+($("#d-web").value||""),"Instagram: "+($("#d-ig").value||""),"Talba: "+((document.getElementById("need")&&document.getElementById("need").value)||"")].join("\n");
   try{ fetch("/api/leads",{method:"POST",headers:{"Content-Type":"application/json"},keepalive:true,body:JSON.stringify({name:co,contact:$("#d-ph").value+(em?" · "+em:""),service:"€500 team (offer page)",source:"/aeo/digital-marketing-agency-malta (MT)",transcript:msg})}).catch(function(){}); }catch(err){}
   window.open("https://wa.me/35679711799?text="+encodeURIComponent(msg),"_blank","noopener");
 });

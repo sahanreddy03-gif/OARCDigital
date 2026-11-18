@@ -32,7 +32,7 @@ export default function EnquiryNextSteps({
   const pathname = usePathname() ?? "/";
   const firstName = name?.trim().split(/\s+/)[0];
   const message =
-    `Bonġu OARC Digital, għadni kif bgħatt talba mill-websajt tagħkom` +
+    `Hello OARC Digital, għadni kif bgħatt talba mill-websajt tagħkom` +
     (topic ? ` dwar ${topic}` : "") +
     "." +
     (firstName ? ` Jisimni ${firstName}.` : "");

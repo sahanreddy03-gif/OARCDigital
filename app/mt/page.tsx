@@ -25,8 +25,8 @@ export const metadata: Metadata = {
 
 const href = (path: string) => localeHref("mt", path);
 
-const BLUEPRINT = "Bonġu OARC. In-negozju tiegħi huwa {x}. Nixtieq nirċievi l-pjan b'xejn tiegħi.";
-const PRICE = waLink("Bonġu OARC. Nixtieq inkun naf il-prezz tagħkom. In-negozju tiegħi huwa: ");
+const BLUEPRINT = "Hello OARC. In-negozju tiegħi huwa {x}. Nixtieq nirċievi l-pjan b'xejn tiegħi.";
+const PRICE = waLink("Hello OARC. Nixtieq inkun naf il-prezz tagħkom. In-negozju tiegħi huwa: ");
 const FIELD = "Isem in-negozju tiegħek";
 
 const FREE = "B'xejn";

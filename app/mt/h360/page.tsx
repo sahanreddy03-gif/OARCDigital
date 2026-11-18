@@ -6,6 +6,7 @@ import H360FeatureCards from './_components/FeatureCards';
 import H360BelowHero from './_components/BelowHero';
 import HtmlLang from '@/components/i18n/HtmlLang';
 import LangFooter from '@/components/i18n/LangFooter';
+import MalteseFonts from '@/components/i18n/MalteseFonts';
 import LocaleSchema from '@/components/i18n/LocaleSchema';
 import { LOCALE_INFO, localeAlternates, localeHref, localeUrl } from '@/lib/i18n/twins';
 import { ogImageEntry, ogImageUrl } from '@/lib/seo/ogImageUrl';
@@ -128,6 +129,7 @@ export default function H360Page() {
     <>
       <meta httpEquiv="content-language" content={LOCALE} />
       <HtmlLang locale={LOCALE} />
+      <MalteseFonts base="var(--font-inter), system-ui, -apple-system, Arial, sans-serif" />
       <LocaleSchema locale={LOCALE} path={PATH} title={TITLE} description={DESCRIPTION} faqs={FAQS} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div lang={LOCALE}>

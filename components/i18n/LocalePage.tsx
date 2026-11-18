@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout";
 import type { Locale } from "@/lib/i18n/twins";
 import HtmlLang from "./HtmlLang";
 import LangFooter from "./LangFooter";
+import MalteseFonts from "./MalteseFonts";
 
 /**
  * Page frame for a translated page that does NOT use the flagship shell (the flagship
@@ -25,6 +26,7 @@ export default function LocalePage({
     <Layout navTheme={navTheme} showFooter={false}>
       <meta httpEquiv="content-language" content={locale} />
       <HtmlLang locale={locale} />
+      {locale === "mt" && <MalteseFonts />}
       <div lang={locale}>{children}</div>
       <LangFooter locale={locale} path={path} />
     </Layout>
