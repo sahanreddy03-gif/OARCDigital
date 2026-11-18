@@ -143,6 +143,9 @@ export default function AutomationPageClient() {
           Everything connected, the busywork triggering itself, the smart calls handled — running 24/7 while you watch it work.{" "}
           <strong style={{ color:C.fg, fontWeight:700 }}>Not more staff. A business that needs fewer hands to run.</strong>
         </p>
+        <p style={{ fontFamily:C.jb, fontSize:"11.5px", lineHeight:1.85, color:C.dim, marginTop:".8rem", maxWidth:"40ch" }}>
+          Automation is built by the AI and tech team at our <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">digital and AI agency in Malta</Link>.
+        </p>
         {/* orbit diagram */}
         <div style={{ marginTop:"2rem", border:`1px solid ${C.line}`, borderRadius:14, background:"rgba(245,245,243,.02)", padding:"1.3rem 1rem 1rem" }}>
           <div style={{ fontFamily:C.jb, fontSize:"9.5px", letterSpacing:".06em", textTransform:"uppercase" as const, color:C.low, marginBottom:".4rem", textAlign:"center" }}>

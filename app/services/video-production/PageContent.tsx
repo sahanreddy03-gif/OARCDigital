@@ -203,6 +203,9 @@ export default function VideoProduction() {
                 <p className="text-white/80 text-lg mb-8" data-speakable>
                   We're a small team that moves fast. No bloated agency overhead. Just talented people who love making great video.
                 </p>
+                <p className="text-white/80 text-lg mb-8">
+                  Every video is planned, shot and edited by the Film team at our <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">marketing agency in Malta</Link>.
+                </p>
                 
                 <div className="space-y-6">
                   {[

@@ -212,6 +212,9 @@ export default function PageContent() {
             <p data-speakable className="text-zinc-300 text-lg leading-relaxed mb-4 max-w-2xl">
               Wire the funnel from ad-click to closed deal — instrumented and self-tuning. Every stage automated, every bottleneck visible.
             </p>
+            <p className="text-zinc-400 leading-relaxed max-w-2xl mb-4">
+              Each layer is built by the AI and tech team at our <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">digital agency in Malta</Link>.
+            </p>
             <p className="text-zinc-400 leading-relaxed max-w-2xl mb-8">
               The typical Malta SME funnel looks great in a slide deck and leaks like a sieve in production. Forms post to a Slack message someone might not see. The lifecycle email cadence is two emails written in 2021. The dashboard says &quot;pipeline created&quot; but nobody can explain why conversion rate dropped from 12% in May to 4% in June.
             </p>

@@ -143,6 +143,9 @@ export default function PageContent() {
               <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
                 The OARC AI Admin Agent handles the recurring, rule-based work that fills two hours of your ops manager&apos;s morning — before your team even logs on.
               </p>
+              <p className="mt-4 text-lg text-foreground/70 max-w-2xl mx-auto">
+                The admin agent is configured and monitored by <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.
+              </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

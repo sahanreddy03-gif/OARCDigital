@@ -144,6 +144,9 @@ export default function BrandPageClient() {
             business — and choose you. Strategy, identity, content, campaigns, the lot.{" "}
             <strong style={{ color:C.ink }}>One team for the entire creative world of your company.</strong>
           </p>
+          <p style={{ fontSize:".98rem", color:C.dim, lineHeight:1.6, maxWidth:"44ch", marginBottom:"1.7rem" }}>
+            Brand strategy is led by the Strategy and Creative teams at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">marketing agency in Malta</Link>.
+          </p>
           {/* team chips */}
           <div style={{ marginBottom:"1rem" }}>
             <span style={{ fontFamily:C.sm, fontSize:10, letterSpacing:".16em",

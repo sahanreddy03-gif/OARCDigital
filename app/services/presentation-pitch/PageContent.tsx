@@ -36,6 +36,9 @@ export default function PresentationPitch() {
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
             From seed rounds to IPO roadshows, from cold outreach to boardroom keynotes—we craft presentations that command attention and drive action. Every slide tells your story with clarity, impact, and persuasive power.
           </p>
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+            Decks are written and designed by the Strategy and Creative teams at our <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">marketing agency in Malta</Link>.
+          </p>
           <div className="flex flex-wrap gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
             <Button size="lg" className="bg-white text-[#23AACA] hover:bg-white/90" data-testid="button-get-started">
               Get Your Deck

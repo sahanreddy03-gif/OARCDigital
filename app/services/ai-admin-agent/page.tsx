@@ -55,7 +55,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SPEAKABLE_LD) }}
       />
-      <h1 className="sr-only" data-speakable>{TITLE}</h1>
+      <h1 className="sr-only" data-speakable>AI admin agent Malta: your inbox and calendar handled</h1>
       <p className="sr-only" data-speakable>{DESCRIPTION}</p>
       <SpeakableJsonLd path="/services/ai-admin-agent" />
       <RouteSchema

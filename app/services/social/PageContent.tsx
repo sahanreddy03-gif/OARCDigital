@@ -191,6 +191,9 @@ export default function SocialStrategyAudit() {
               <p className="text-base text-black mb-5">
                 Most Malta brands hire a social agency, fire it nine months later, then hire another and repeat the cycle. The pattern is almost always the same: nobody ran a real audit before the retainer started, so nobody could tell whether the new content was actually working.
               </p>
+              <p className="text-base text-black mb-5">
+                This audit is done by the Strategy and Social media teams at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">marketing agency in Malta</Link>.
+              </p>
 
               <p className="text-base text-black mb-6">
                 This is the work that comes before the retainer. We forensically read your last 12 months of performance, benchmark you against named competitors, build the content pillars and 90-day calendar, and hand it over. You can run it in-house, hand it to any agency, or come back to us for the managed build.

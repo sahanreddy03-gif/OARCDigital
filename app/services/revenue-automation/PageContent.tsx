@@ -212,6 +212,9 @@ export default function PageContent() {
             Most Malta SMEs have a revenue leak, not a revenue shortage. The leak is the 40% of qualified leads that fall out of the pipeline because a rep missed a follow-up. It is the billing dunning emails that nobody built, costing 15–30% of failed-payment recovery. It is the CRM that has seventeen different definitions of &quot;qualified&quot; across twelve reps, making the forecast useless. Revenue Automation closes those leaks with AI agents, CRM hygiene, and lifecycle automation that compound without adding headcount.
           </p>
           <p className="text-foreground leading-relaxed mb-4">
+            The revenue systems are wired and maintained by <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.
+          </p>
+          <p className="text-foreground leading-relaxed mb-4">
             OARC Digital builds Revenue Automation systems for Malta-based B2B, SaaS, and professional-services businesses. The scope is broader than funnel automation — it extends past the conversion event into billing, customer success, and the finance integration that makes your revenue data believable to a CFO or an investor. The result is a single revenue engine where every touchpoint is instrumented, every drop-off is visible, and every improvement compounds.
           </p>
           <p className="text-foreground leading-relaxed">

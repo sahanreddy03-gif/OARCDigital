@@ -182,6 +182,9 @@ export default function Page() {
               <p className="mt-6 text-base text-zinc-300 max-w-3xl" data-speakable data-testid="why-oarc-entity-sentence">
                 OARC Digital is a Birkirkara creative + AI systems agency—one team for brand and video, AI agents, Voice AI Worker, and automation—so Malta owners stop juggling vendors.
               </p>
+              <p className="mt-4 text-base text-zinc-300 max-w-3xl">
+                <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link> is a marketing agency in Malta with 8 departments under one roof.
+              </p>
               <p className="mt-4 text-sm text-zinc-400" data-testid="why-oarc-money-links">
                 Explore: <Link href="/" className="underline-offset-2 hover:underline">Home</Link>
                 {" · "}<Link href="/creative" className="underline-offset-2 hover:underline">Creative</Link>

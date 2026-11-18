@@ -72,6 +72,9 @@ export default function WebDesign() {
               <p className="text-xl text-white/80 mb-8" data-speakable>
                 Not just pretty. Profitable. Every pixel optimized for performance, every interaction designed to convert.
               </p>
+              <p className="text-xl text-white/80 mb-8">
+                Websites are designed and built by the Web team at our <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">digital agency in Malta</Link>.
+              </p>
               
               <Link href="/contact">
                 <button

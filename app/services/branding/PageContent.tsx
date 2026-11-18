@@ -67,6 +67,9 @@ export default function Branding() {
               <p className="text-xl text-white/80 mb-8" data-speakable>
                 More than a logo. We build complete brand systems—strategy, identity, voice, and everything in between.
               </p>
+              <p className="text-xl text-white/80 mb-8">
+                Brand work is done by the Creative team at <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a marketing agency in Malta.
+              </p>
               
               <Link href="/contact">
                 <button

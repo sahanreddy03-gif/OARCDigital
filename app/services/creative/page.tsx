@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 const TITLE = "Creative Agency Malta — Make Us Look Like a Billion | OARC";
 const DESCRIPTION =
-  "OARC is a creative and AI software agency in Malta that makes a business look like a billion-dollar brand — the big idea and campaigns, an always-on social and content studio, brand identity, film and motion, ad creative that converts, and an on-brand AI creative engine you own outright.";
+  "Creative agency in Malta. Big ideas and campaigns, a social and content studio, brand identity, film and motion, and ads that convert, from one team.";
 const CANONICAL = "https://oarcdigital.com/services/creative";
 
 const LD = {

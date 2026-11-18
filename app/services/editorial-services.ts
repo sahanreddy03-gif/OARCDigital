@@ -3,6 +3,7 @@ import type { EditorialService } from "@/components/services/OarcEditorialServic
 export const editorialServices: Record<string, EditorialService> = {
   "custom-ai-agents": {
     slug: "custom-ai-agents", eyebrow: "CUSTOM AI AGENTS",
+    homeLine: { before: "Custom agents are designed and built by ", anchor: "OARC Digital", after: ", a digital and AI agency in Malta." },
     title: "Custom AI agents Malta — built for your workflow, not a demo",
     intro: "OARC builds custom AI agents for businesses in Malta and beyond. They handle defined sales, operations, research, finance, recruiting and back-office work using your tools, your permissions and a reviewable record of every action.",
     image: "/images/services/custom-ai-agents-hero.jpg", imageAlt: "A team working with connected AI workflows", accent: "#e8ff55", accentSoft: "#f3f6c9",
@@ -37,6 +38,7 @@ export const editorialServices: Record<string, EditorialService> = {
   },
   "conversational-commerce": {
     slug: "conversational-commerce", eyebrow: "CONVERSATIONAL COMMERCE",
+    homeLine: { before: "Shopping chats are built by the AI and tech team at our ", anchor: "digital and AI agency in Malta", after: "." },
     title: "Conversational commerce — start with a question, end with a next step",
     intro: "OARC creates conversational commerce and AI shopping experiences for retailers in Malta and beyond. Shoppers can search in natural language, compare suitable products, ask questions and get help from discovery through the basket and checkout.",
     image: "/images/services/conversational-commerce-hero.jpg", imageAlt: "Colourful products arranged around a conversational shopping interface", accent: "#ff6d55", accentSoft: "#ffe3d7",
@@ -71,6 +73,7 @@ export const editorialServices: Record<string, EditorialService> = {
   },
   "ai-employee-service-desk": {
     slug: "ai-employee-service-desk", eyebrow: "AI CONCIERGE",
+    homeLine: { before: "The concierge is built and supported by ", anchor: "OARC Digital", after: ", a digital and AI agency in Malta." },
     title: "AI concierge — every person gets a useful next step",
     intro: "OARC creates AI concierge systems for organisations in Malta and beyond. Employees ask in plain language; the concierge answers from approved company knowledge, performs permitted IT, HR and finance actions, logs evidence and hands complex cases to people with context.",
     image: "/images/services/ai-employee-service-desk-hero.jpg", imageAlt: "An employee using a friendly digital service desk", accent: "#b9ead9", accentSoft: "#e2f5ef",

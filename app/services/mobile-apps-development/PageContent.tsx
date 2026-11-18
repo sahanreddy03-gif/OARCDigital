@@ -283,6 +283,9 @@ export default function MobileAppsDevelopment() {
               <p className="text-lg text-white/60 max-w-2xl mx-auto">
                 Every successful app follows a journey. Here's how we take you from concept to scale.
               </p>
+              <p className="mt-4 text-lg text-white/60 max-w-2xl mx-auto">
+                Apps are designed and built in house at <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.
+              </p>
             </div>
 
             {/* Roadmap timeline */}
