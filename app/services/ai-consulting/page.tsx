@@ -5,7 +5,7 @@ import { getHreflangAlternates, SpeakableJsonLd } from "@/lib/seo/discoveryTags"
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 const title = "Free AI & Growth Blueprint Malta | OARC Digital";
-const description = "Get a free expert growth blueprint for your Malta business, covering AI consulting, Voice AI, automation, digital marketing, creative priorities and connected operating systems.";
+const description = "Get a free growth blueprint for your Malta business: AI consulting, voice AI, automation, marketing and creative priorities, in one clear plan.";
 
 const features = [
   { name: "Channel and creative priority map" },

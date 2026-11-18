@@ -136,6 +136,9 @@ export default function AIStaffPageClient() {
         <p style={{ fontFamily:C.jb, fontSize:"11.5px", lineHeight:1.85, color:C.dim, marginTop:"1.3rem", maxWidth:"36ch" }}>
           AI staff that answer, book, sell and follow up for your business — while you run it. Trained on your rules. Live in days.
         </p>
+        <p style={{ fontFamily:C.jb, fontSize:"11.5px", lineHeight:1.85, color:C.dim, marginTop:".8rem", maxWidth:"36ch" }}>
+          AI staff are built and trained by <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.
+        </p>
 
         {/* Chat bubbles */}
         <div style={{ marginTop:"1.9rem", display:"flex", flexDirection:"column", gap:".6rem", maxWidth:330 }}>

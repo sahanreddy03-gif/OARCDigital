@@ -86,6 +86,9 @@ export default function PaidAdvertising() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Our data-driven approach consistently delivers results across industries and budgets
             </p>
+            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+              Paid ads are run by the Performance marketing team at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">marketing agency in Malta</Link>.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-4 gap-6 mt-10">

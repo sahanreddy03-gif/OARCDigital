@@ -142,6 +142,9 @@ export default function H360Page() {
         <p className="max-w-3xl mx-auto text-center text-base text-white/80" data-speakable data-testid="h360-entity-sentence">
           OARC Digital is a Birkirkara marketing and AI studio; H360 is its hospitality line for Malta restaurants—Maps visibility, reviews, creative, and Voice AI Worker under one team.
         </p>
+        <p className="mt-4 max-w-3xl mx-auto text-center text-base text-white/80">
+          H360 is built and run by <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a marketing agency in Malta.
+        </p>
         <p className="mt-4 text-center text-sm text-white/50" data-testid="h360-money-links">
           Explore: <Link href="/" className="underline-offset-2 hover:underline">Home</Link>
           {" · "}<Link href="/creative" className="underline-offset-2 hover:underline">Creative</Link>

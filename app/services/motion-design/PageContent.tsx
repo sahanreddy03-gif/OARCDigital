@@ -85,6 +85,9 @@ export default function MotionDesign() {
             <p className="text-lg text-[#1a2e29]/80 max-w-2xl mx-auto">
               Motion graphics capture attention, explain complex ideas simply, and boost engagement across every channel.
             </p>
+            <p className="mt-4 text-lg text-[#1a2e29]/80 max-w-2xl mx-auto">
+              Motion work is made by the Creative and Film teams at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">marketing agency in Malta</Link>.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-4 gap-6 mt-10">

@@ -317,6 +317,9 @@ export default function CustomSoftwareDevelopment() {
               <p className="text-lg text-white/60 max-w-2xl mx-auto">
                 Our layered architecture approach ensures your software can grow with your business
               </p>
+              <p className="mt-4 text-lg text-white/60 max-w-2xl mx-auto">
+                Custom software is written by the AI and tech team at <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.
+              </p>
             </div>
           </ScrollReveal>
 

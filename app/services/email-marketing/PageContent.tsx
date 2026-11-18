@@ -202,6 +202,9 @@ export default function EmailMarketingContent() {
           <p className="text-foreground leading-relaxed mb-4">
             Most Malta accounts we audit are still treating email as a weekly broadcast channel — one campaign, one segment, one send. Automation flips that model. The same list, with five well-built triggered flows in place, will out-earn a year of broadcast effort because the messages reach a subscriber at the moment of intent rather than on a calendar the marketer guessed at. Welcome flows convert 4–6x better than a one-off welcome blast. Abandoned-cart sequences recover revenue that would otherwise leak silently. Post-purchase replenishment compounds repeat-rate without any additional acquisition spend.
           </p>
+          <p className="text-foreground leading-relaxed mb-4">
+            Email is run alongside ads and social by one team at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">Malta marketing agency</Link>.
+          </p>
           <p className="text-foreground leading-relaxed">
             OARC Digital is platform-agnostic by design — we run Klaviyo, Mailchimp, ActiveCampaign, HubSpot, and Customer.io daily and pick the platform that matches your list size, list source, and revenue model. The work is the same on every platform: clean authentication, segmentation that maps to behaviour, triggered flows wired into the systems that already record buyer intent, and reporting that answers what each flow paid back this month.
           </p>

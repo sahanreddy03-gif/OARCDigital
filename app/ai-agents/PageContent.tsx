@@ -334,6 +334,9 @@ export default function PageContent() {
               <p className="mt-8 text-white/50 text-base sm:text-lg font-light tracking-wide">
                 Trained on your business. Plugged into your systems. Smarter every week.
               </p>
+              <p className="mt-4 text-white/50 text-base sm:text-lg font-light tracking-wide">
+                Every AI agent is built and looked after by <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.
+              </p>
             </m.div>
           </div>
         </section>

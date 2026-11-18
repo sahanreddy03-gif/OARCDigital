@@ -1,3 +1,4 @@
+import Link from "next/link";
 import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
 import RelatedServices from "@/components/RelatedServices";
 
@@ -57,6 +58,9 @@ export default function PageContent() {
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Why most marketing automation projects underdeliver</h2>
             <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
               Marketing automation has been sold for fifteen years and most Malta SMEs have at least one piece of it deployed — a Mailchimp account, a HubSpot trial, a Klaviyo install on a Shopify store. The reason it underdelivers in production is rarely the tool: it is that the team-of-one who set up the welcome flow in 2022 is now doing other work, and nobody has touched the cadence since. The OARC Marketing Automation Suite is the operated version of marketing automation — built, run, tuned, and reported on weekly so the cadence stays alive.
+            </p>
+            <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
+              The suite is built and managed by the Performance marketing and AI and tech teams at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">marketing agency in Malta</Link>.
             </p>
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
               We do not sell software licences and we do not take vendor commissions. The retainer covers the strategy, the engineering, the copy, the design, the deployment, the deliverability, the reporting, and the quarterly executive review. Tools are licensed direct by the client to avoid switching-cost lock-in. The product is the operating discipline; the tools are interchangeable.

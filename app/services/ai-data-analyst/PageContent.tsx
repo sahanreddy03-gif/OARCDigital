@@ -1,3 +1,4 @@
+import Link from "next/link";
 import RelatedServices from "@/components/RelatedServices";
 
 export default function PageContent() {
@@ -12,6 +13,9 @@ export default function PageContent() {
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">The two-week BI ticket queue is a structural problem</h2>
             <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
               Most Malta SMEs and EU SaaS scaleups have the same data symptom: the warehouse exists, the dashboards exist, but every meaningful question ("why did NPS drop in week 32 specifically in our French cohort?") becomes a ticket that the analyst gets to in two weeks. By the time the answer arrives, the question has changed. The OARC AI Data Analyst exists to compress that loop from two weeks to thirty seconds.
+            </p>
+            <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
+              The data analyst agent is built by the AI and tech team at <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.
             </p>
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
               It is a chat-style interface for non-technical operators — over Slack, Teams, or a web app — backed by your warehouse, a curated semantic layer, and an LLM grounded against the schema. The user asks the question in plain English; the agent writes the SQL, runs it, charts the result, and explains the contributing dimensions. The analyst stays in the loop for the hard questions, but the easy ones do not block any more.

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { m, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
@@ -102,6 +103,9 @@ export default function AIConsulting() {
               </h1>
               <p className="mt-8 max-w-xl text-lg leading-relaxed text-[#f2efe9]/65 md:text-xl" data-speakable>
                 Open the working blueprint with a senior OARC team. We map the opportunity across AI, marketing, creative and the operating system underneath it.
+              </p>
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-[#f2efe9]/65 md:text-lg">
+                The blueprint is put together by the Strategy and AI and tech teams at <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-5">
                 <a href="#enquiry" className="inline-flex items-center gap-3 rounded-full bg-[#F9FF84] px-6 py-4 text-sm font-bold text-[#0e0d0c] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#f2efe9]">

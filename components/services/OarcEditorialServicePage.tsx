@@ -26,6 +26,8 @@ export type EditorialService = {
   steps: { title: string; copy: string }[];
   faqs: { q: string; a: string }[];
   related: { title: string; href: string; copy: string }[];
+  /** Optional sentence with one text link to the homepage. Absent = nothing rendered. */
+  homeLine?: { before: string; anchor: string; after: string };
 };
 
 export default function OarcEditorialServicePage({ service }: { service: EditorialService }) {
@@ -66,6 +68,13 @@ export default function OarcEditorialServicePage({ service }: { service: Editori
             <h2>{service.ownerTitle}</h2>
             <div>
               <p className="oe-large-copy">{service.ownerCopy}</p>
+              {service.homeLine && (
+                <p className="oe-muted" style={{ marginBottom: 14 }}>
+                  {service.homeLine.before}
+                  <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" style={{ color: "#0E0E0E" }} data-testid="link-home-context">{service.homeLine.anchor}</Link>
+                  {service.homeLine.after}
+                </p>
+              )}
               <p className="oe-muted">The useful measure is not how clever the system sounds. It is the completed work, the decision it supports and the evidence left behind.</p>
             </div>
           </div>

@@ -12,6 +12,8 @@ export type DeptSeo = {
   description: string;
   /** Plain search phrase for the breadcrumb and summary, e.g. "Growth marketing". */
   keyword: string;
+  /** Optional one-sentence text link to the homepage, shown under the breadcrumb. Absent = nothing rendered. */
+  homeLine?: { before: string; anchor: string; after: string };
   /** Answer-first entity sentence (what AI assistants quote). */
   answer: string;
   bestFor: string;

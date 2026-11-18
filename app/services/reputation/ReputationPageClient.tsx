@@ -166,6 +166,9 @@ export default function ReputationPageClient() {
             <p style={{ fontSize:"1.02rem", color:C.dim, lineHeight:1.62, maxWidth:"52ch" }}>
               The best business doesn't win. The best-known one does. We make you that name — and keep you there.
             </p>
+            <p style={{ fontSize:"1.02rem", color:C.dim, lineHeight:1.62, maxWidth:"52ch", marginTop:"1rem" }}>
+              Getting you known is the job of the Film and Social media teams at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">marketing agency in Malta</Link>.
+            </p>
           </section>
         </Reveal>
 

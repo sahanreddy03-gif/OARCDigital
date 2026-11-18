@@ -148,6 +148,9 @@ export default function SeoServicesContent() {
           <p className="text-foreground leading-relaxed mb-4">
             The Malta search market has three quirks that wreck imported playbooks. First, search volumes are small — a query like &quot;accountant Sliema&quot; might attract only forty searches a month, which is enough to build a real business but invisible to tools calibrated for the UK or US. Second, Malta searchers fluently switch between English, Maltese, and Italian within the same query session, so your page architecture has to handle three languages without diluting authority. Third, the country is geographically small, so users rarely add city qualifiers — ranking for &quot;dentist Malta&quot; matters far more than you would assume from international SEO logic.
           </p>
+          <p className="text-foreground leading-relaxed mb-4">
+            SEO is planned alongside ads, content and web work at <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">OARC Digital, a marketing agency in Malta</Link>.
+          </p>
           <p className="text-foreground leading-relaxed">
             OARC Digital&apos;s SEO team works on Malta accounts every day. We know which directories carry weight in Malta, which Maltese publications still pass authority, and which iGaming and hospitality keyword clusters are over-saturated versus genuinely winnable. The result is a search programme that compounds rather than chasing rankings that never convert into local revenue.
           </p>

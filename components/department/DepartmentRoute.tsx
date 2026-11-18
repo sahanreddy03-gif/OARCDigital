@@ -43,7 +43,7 @@ export default function DepartmentRoute({
       <article>
         {/* The owner built a different design and structure for each department. That design
             IS the page, on its own colours. Proof, the free check and the questions sit under it. */}
-        <DepartmentOnPage dept={d.dept} crumb={`${d.keyword} in Malta`} />
+        <DepartmentOnPage dept={d.dept} crumb={`${d.keyword} in Malta`} homeLine={d.homeLine} />
         <DeptBottom data={d} />
       </article>
     </Layout>

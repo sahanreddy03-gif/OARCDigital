@@ -546,6 +546,9 @@ export default function PageContent() {
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Every package custom-tailored to your business. More value, faster delivery, measurable results.
           </p>
+          <p className="mt-4 text-xl text-slate-600 max-w-2xl mx-auto">
+            Every quote comes from one team at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">full-service marketing agency in Malta</Link>.
+          </p>
         </div>
 
         <div className="container mx-auto px-6 max-w-5xl mb-16 relative z-10" data-testid="section-price-summary">

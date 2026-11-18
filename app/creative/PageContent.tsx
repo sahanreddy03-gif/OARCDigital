@@ -1301,6 +1301,9 @@ export default function PageContent() {
                 From paid ads and educational content to immersive experiences
                 and YouTube pre-roll ads, all with one creative team.
               </p>
+              <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8" style={{ color: '#1A2E29' }}>
+                Creative work is made by the Creative and Film teams at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">marketing agency in Malta</Link>.
+              </p>
               <Link href="/contact">
                 <m.button
                   whileHover={{ scale: 1.02 }}

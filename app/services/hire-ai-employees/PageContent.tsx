@@ -257,6 +257,9 @@ export default function HireAIEmployees() {
               <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
                 Our AI agents follow an intelligent workflow to deliver results
               </p>
+              <p className="mt-4 text-xl text-zinc-400 max-w-2xl mx-auto">
+                Each AI employee is trained and managed by <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.
+              </p>
             </div>
           </ScrollReveal>
 

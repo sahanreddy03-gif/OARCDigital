@@ -145,6 +145,9 @@ export default function TransformationPageClient() {
           <strong style={{ color:C.fg, fontWeight:700 }}>not decks.</strong>{" "}
           We rebuild how your business operates on systems we&apos;ve already built, already running in Malta venues tonight.
         </p>
+        <p style={{ fontFamily:C.jb, fontSize:"11.5px", lineHeight:1.85, color:C.dim, marginTop:".8rem", maxWidth:"38ch" }}>
+          The software is built by the AI and tech team at <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.
+        </p>
       </section>
 
       {/* ── LIFECYCLE RAIL ────────────────────────────────────────────────────── */}
