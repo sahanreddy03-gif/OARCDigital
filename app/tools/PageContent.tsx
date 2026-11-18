@@ -1232,6 +1232,9 @@ export default function PageContent() {
               Multi-tier enterprise automation that can't be replicated with basic tools. 
               These systems combine 20+ tools with custom AI and proprietary integrations.
             </p>
+            <p className="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
+              Each system is built and run by <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.
+            </p>
           </div>
 
           {/* Workflow Cards */}

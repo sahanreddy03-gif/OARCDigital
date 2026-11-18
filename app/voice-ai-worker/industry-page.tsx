@@ -12,6 +12,19 @@ const pageBySlug = Object.fromEntries(voiceAIWorkerPages.map((page) => [page.slu
 
 type TomBlock = VoiceAIWorkerPage["blocks"][number];
 
+/** One sentence per industry with a single text link to the homepage. No entry = nothing rendered. */
+const HOME_LINES: Record<string, { before: string; anchor: string; after: string }> = {
+  sales: { before: "The sales setup is built by ", anchor: "OARC Digital", after: ", a digital and AI agency in Malta." },
+  healthcare: { before: "For clinics and care teams, the worker is set up by ", anchor: "OARC Digital", after: ", a digital and AI agency in Malta." },
+  "finance-insurance": { before: "For finance and insurance teams, the worker is configured by ", anchor: "OARC Digital", after: ", a digital and AI agency in Malta." },
+  "real-estate": { before: "For property teams, the worker is built by our ", anchor: "digital and AI agency in Malta", after: "." },
+  legal: { before: "For law firms, the worker is tailored by ", anchor: "OARC Digital", after: ", a digital and AI agency in Malta." },
+  logistics: { before: "For logistics teams, the worker is built and monitored by ", anchor: "OARC Digital", after: ", a digital and AI agency in Malta." },
+  "home-services": { before: "For home service businesses, the worker is run by our ", anchor: "digital agency in Malta", after: "." },
+  education: { before: "For schools and training providers, the worker is built by ", anchor: "OARC Digital", after: ", a digital and AI agency in Malta." },
+  government: { before: "For public services, the worker is configured by the AI and tech team at our ", anchor: "digital and AI agency in Malta", after: "." },
+};
+
 function getBlock(page: VoiceAIWorkerPage, number: number) {
   return page.blocks.find((block) => block.number === number);
 }
@@ -97,6 +110,7 @@ export default async function IndustryPage({
   const simulation = parseSimulation(getField(moment, "caption above"));
   const valueItems = handles?.list.map((item) => splitValueLine(item.body)) ?? [];
   const agentStations = force?.list.map((agent) => agent.name) ?? [];
+  const homeLine = HOME_LINES[page.slug];
 
   return (
     <Layout navTheme="dark" showMobileNav>
@@ -126,6 +140,13 @@ export default async function IndustryPage({
             <p className="tom-copy" data-speakable data-testid="voice-industry-entity">
               OARC Digital in Birkirkara builds Voice AI Worker for {page.name} — the same Malta team behind AI agents, creative, and automation.
             </p>
+            {homeLine && (
+              <p className="tom-copy">
+                {homeLine.before}
+                <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">{homeLine.anchor}</Link>
+                {homeLine.after}
+              </p>
+            )}
             <p className="tom-copy" data-testid="voice-industry-money-links">
               Explore: <Link href="/voice-ai-worker">Voice AI Worker</Link>
               {" · "}<Link href="/ai-agents">AI agents</Link>

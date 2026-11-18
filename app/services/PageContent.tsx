@@ -344,6 +344,9 @@ export default function PageContent() {
             <p className="text-lg text-zinc-400 max-w-3xl mx-auto">
               Choose the type of help you need. Voice AI Worker is configured for ten industries; our specialist AI services solve three specific business, shopping, and employee-support needs.
             </p>
+            <p className="mt-4 text-lg text-zinc-400 max-w-3xl mx-auto">
+              Every service on this page is delivered by one of 8 departments at <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a marketing agency in Malta.
+            </p>
             <div id="specialist-ai" className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
               <Link href="/voice-ai-worker" className="text-white hover:text-[#c4ff4d]">Voice AI Worker →</Link>
               <Link href="/services/custom-ai-agents" className="text-zinc-400 hover:text-white">Custom AI Agents</Link>

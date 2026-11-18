@@ -431,6 +431,9 @@ export default function PageContent() {
               <p className="text-white/50 text-lg max-w-2xl mx-auto">
                 Your tools working together. Manual tasks eliminated. More time for what matters.
               </p>
+              <p className="mt-4 text-white/50 text-lg max-w-2xl mx-auto">
+                Automation and custom software are built by the AI and tech team at our <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">digital and AI agency in Malta</Link>.
+              </p>
             </m.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

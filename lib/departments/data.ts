@@ -35,8 +35,9 @@ const RAW: Record<string, DeptSeo> = {
     path: "/services/growth",
     title: "Growth Marketing Malta | Digital Marketing Services | OARC",
     description:
-      "Digital marketing services in Malta that bring more customers. One award-winning team runs SEO, Google Maps, ads, video, fast replies and repeat business. Free Growth Check.",
+      "Digital marketing services in Malta that bring more customers. One team runs SEO, Google Maps, ads, video, fast replies and repeat business. Free Growth Check.",
     keyword: "Growth marketing",
+    homeLine: { before: "Growth is the job of all 8 departments at ", anchor: "OARC Digital", after: ", a marketing agency in Malta." },
     answer:
       "OARC Digital is an award-winning growth marketing agency in Birkirkara, Malta. Our digital marketing services cover the whole journey: SEO and Google Maps, social and paid ads, video, your website, fast replies and repeat sales, with one team and one number to judge us on: more customers.",
     bestFor:
@@ -89,6 +90,7 @@ const RAW: Record<string, DeptSeo> = {
     description:
       "Close more sales in Malta. One team owns your whole sale: strategy, content that closes, your brand and one system you keep that answers and books every lead.",
     keyword: "Sales systems",
+    homeLine: { before: "Closing more sales is one of the jobs we take on at our ", anchor: "marketing agency in Malta", after: "." },
     answer:
       "OARC Digital builds and runs sales systems for Malta businesses. One team owns the whole sale, from the first reply to the signed deal: strategy, content that closes, how you show up, and one system you keep that answers, qualifies and books every lead.",
     bestFor:
@@ -129,6 +131,7 @@ const RAW: Record<string, DeptSeo> = {
     description:
       "Paid ads in Malta that pay for themselves. Meta, Google and TikTok ads with creative that converts, tested in small flights and scaled only when they win.",
     keyword: "Paid media",
+    homeLine: { before: "Paid media is planned and bought by the Performance marketing team at our ", anchor: "marketing agency in Malta", after: "." },
     answer:
       "OARC Digital runs paid media for Malta businesses on Meta, Google, TikTok and more. We test the right channels and creative in small flights, scale only what wins, and every euro of ad spend goes to the platforms, never to us.",
     bestFor:

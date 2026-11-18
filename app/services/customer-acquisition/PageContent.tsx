@@ -182,6 +182,9 @@ export default function CustomerAcquisition() {
                   Most Malta SMEs we audit have the pieces — a Meta account, a Google account, a Mailchimp list, a HubSpot CRM — but the pieces do not talk to each other. CPA is unknowable because attribution is broken. Channel decisions are made on platform-reported numbers (which over-credit themselves) instead of first-party data (which does not).
                 </p>
                 <p className="text-lg text-[#1a2e29]/70 mb-5 leading-relaxed">
+                  Customer acquisition is run by the Performance marketing and Strategy teams at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">full-service marketing agency in Malta</Link>.
+                </p>
+                <p className="text-lg text-[#1a2e29]/70 mb-5 leading-relaxed">
                   The first month of any Acquisition Retainer is dedicated to fixing the attribution layer. Spending more before you can measure is how you waste two quarters and a significant budget.
                 </p>
                 <p className="text-lg text-[#1a2e29]/70 leading-relaxed">

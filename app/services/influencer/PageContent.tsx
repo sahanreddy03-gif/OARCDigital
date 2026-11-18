@@ -217,6 +217,9 @@ export default function Influencer() {
                 product.
               </p>
               <p>
+                Influencer campaigns are run by the Social media team at our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">marketing agency in Malta</Link>.
+              </p>
+              <p>
                 Malta is small enough that a creator with 12,000 engaged local
                 followers will out-perform a 400,000-follower visiting macro
                 every single time on metrics that pay the bills — covers,

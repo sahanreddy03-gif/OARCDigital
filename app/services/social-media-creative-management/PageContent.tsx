@@ -1163,6 +1163,9 @@ export default function SocialMediaCreativeManagement() {
             <p className="mt-6 text-white/50 text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}>
               Strategic services built to grow your brand and drive measurable results
             </p>
+            <p className="mt-3 text-white/50 text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}>
+              Social media is run by the Social media team at our <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">marketing agency in Malta</Link>.
+            </p>
           </m.div>
 
           {/* ELITE Premium Card Grid - Image-Based */}

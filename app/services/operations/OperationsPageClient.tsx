@@ -121,6 +121,9 @@ export default function OperationsPageClient() {
           We map where your time actually goes, remove the jobs that don't need you, and run the rest automatically.{" "}
           <strong style={{ color:C.fg, fontWeight:700 }}>Malta owners get ≈13 hours back every week.</strong>
         </p>
+        <p style={{ fontFamily:C.jb, fontSize:"11.5px", lineHeight:1.85, color:C.dim, marginTop:".8rem", maxWidth:"38ch" }}>
+          Operations work is done by the AI and tech team at <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.
+        </p>
 
         {/* Week grid visualiser */}
         <div style={{ marginTop:"2rem", border:`1px solid ${C.line}`, borderRadius:14, background:"rgba(245,245,243,.02)", padding:"1.3rem 1rem" }}>

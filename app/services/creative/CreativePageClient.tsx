@@ -192,6 +192,9 @@ export default function CreativePageClient() {
               It's a sharper idea, a look that's unmistakably yours, and enough on-brand work to be everywhere
               at once. Firepower, not decoration. That's what a real creative team is for.
             </p>
+            <p style={{ fontSize:"1rem", color:C.dim, lineHeight:1.62, maxWidth:"54ch", marginTop:"1rem" }}>
+              The Creative team is one of 8 departments at <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">OARC Digital</Link>, a marketing agency in Malta.
+            </p>
           </section>
         </Reveal>
 

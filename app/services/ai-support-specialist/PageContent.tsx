@@ -289,6 +289,9 @@ export default function AICustomerSupport() {
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 But faster, cheaper, and available around the clock
               </p>
+              <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+                The support agent is set up and tuned by the AI and tech team at <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.
+              </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

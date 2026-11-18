@@ -44,7 +44,7 @@ export default function Page() {
       {/* SSR-safe speakable shim: the client-rendered hero is gated by a
           loading state that suppresses [data-speakable] from initial HTML;
           this hidden h1/p is always present for the Speakable selector. */}
-      <h1 className="sr-only" data-speakable>{TITLE}</h1>
+      <h1 className="sr-only" data-speakable>AI SDR agent Malta: qualify leads and book meetings</h1>
       <p className="sr-only" data-speakable>{DESCRIPTION}</p>
       <RouteSchema
         type="service"

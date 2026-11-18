@@ -141,6 +141,9 @@ export default function PageContent() {
               An SDR role has three structural traits that make it the cleanest fit for AI: the work is high-volume, the criteria for success are observable and measurable (qualified meetings booked), and the variance in human output is enormous. A great SDR books fifteen meetings a month; an average one books five; a struggling one books one. The OARC AI SDR Agent consistently performs at the great-SDR floor, and does it across every working hour of every weekday across every relevant time zone.
             </p>
             <p className="text-lg text-foreground/70 leading-relaxed mb-6">
+              The SDR agent is built, tested and tuned by <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">OARC Digital</Link>, a digital and AI agency in Malta.
+            </p>
+            <p className="text-lg text-foreground/70 leading-relaxed mb-6">
               It prospects against your defined ideal customer profile using Apollo, Cognism, Lusha, ZoomInfo, and LinkedIn Sales Navigator data — GDPR-compliance checked at source — and runs cold-outreach sequences across email and LinkedIn from your domain. Replies go through the agent&apos;s qualification logic, qualified prospects book directly into your closers&apos; calendars, and the closer arrives at the meeting with a one-page brief instead of a cold introduction.
             </p>
             <div className="grid md:grid-cols-3 gap-6 mt-10">

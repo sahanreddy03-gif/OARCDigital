@@ -1,3 +1,4 @@
+import Link from "next/link";
 import TrustBlock from "@/components/seo/TrustBlock";
 import RelatedServices from "@/components/RelatedServices";
 
@@ -13,6 +14,9 @@ export default function PageContent() {
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">The booking problem is bigger than it looks</h2>
             <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
               Across our Maltese hospitality and clinic clients, the number that surprises every owner is the same: 28-42% of all booking enquiries arrive outside front-desk hours. Late evenings, Sunday mornings, the lunchtime-rush hour when reception is on a phone call. Without an answer in the first ten minutes the prospect is on the next listing, on the next Google result, in someone else's diary. The OARC AI Appointment Booker exists for exactly that gap.
+            </p>
+            <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
+              The booking agent is built and run by our <Link href="/" className="font-medium underline underline-offset-4 hover:text-orange-600" data-testid="link-home-context">digital and AI agency in Malta</Link>.
             </p>
           <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
               It books, confirms, reschedules and follows up across web chat, WhatsApp, SMS, and email — and where you want it to, voice. It plugs straight into your Google Calendar, Outlook, OpenTable, ResDiary, Mindbody, Acuity, Cal.com, or whatever you already use, so reception keeps a single source of truth. The first measurable outcome — usually inside two weeks — is the recapture of those after-hours enquiries.

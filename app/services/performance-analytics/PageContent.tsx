@@ -47,6 +47,9 @@ export default function PerformanceAnalytics() {
           <p className="text-lg md:text-xl text-white/70 mb-8 max-w-3xl mx-auto">
             Stop guessing, start knowing. Custom analytics dashboards, attribution modeling, and performance reporting that transform raw data into actionable growth strategies.
           </p>
+          <p className="text-lg md:text-xl text-white/70 mb-8 max-w-3xl mx-auto">
+            Dashboards and reports are built by the Performance marketing team at our <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">marketing agency in Malta</Link>.
+          </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact">
               <Button size="lg" className="bg-cyan-500 text-white hover:bg-cyan-600" data-testid="button-get-started">

@@ -8,7 +8,7 @@ import { SUPPORTING_PAGE_SCHEMAS } from "@/lib/seo/supportingPagesSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
 
 const title = "Our Work — OARC Digital Client Portfolio | Malta";
-const description = "Explore OARC Digital client work across digital marketing, social media management, social video, TikTok campaigns, content production, websites, paid advertising, automation, AI chatbots, digital products, and launch campaigns.";
+const description = "See OARC Digital client work in Malta: social media, video, TikTok campaigns, websites, paid ads, automation, AI chatbots and launch campaigns.";
 
 export const metadata: Metadata = {
   alternates: getHreflangAlternates("/our-work"),

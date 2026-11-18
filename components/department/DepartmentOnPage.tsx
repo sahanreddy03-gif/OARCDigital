@@ -35,7 +35,16 @@ function readable(css: string): string {
     });
 }
 
-export default function DepartmentOnPage({ dept, crumb }: { dept: string; crumb: string }) {
+export default function DepartmentOnPage({
+  dept,
+  crumb,
+  homeLine,
+}: {
+  dept: string;
+  crumb: string;
+  /** Optional sentence with one text link to the homepage. Absent = nothing rendered. */
+  homeLine?: { before: string; anchor: string; after: string };
+}) {
   const styles = DEPARTMENT_STYLES[dept] ?? [];
   const light = DEPARTMENT_IS_LIGHT(dept);
   return (
@@ -56,6 +65,22 @@ export default function DepartmentOnPage({ dept, crumb }: { dept: string; crumb:
         <span aria-hidden="true"> / </span>
         <span>{crumb}</span>
       </nav>
+      {homeLine && (
+        <p
+          className="mx-auto px-5 pb-2 text-base"
+          style={{ maxWidth: 860, color: light ? "rgba(14,14,14,.8)" : "rgba(245,243,238,.85)", fontFamily: "var(--font-inter-tight), sans-serif" }}
+        >
+          {homeLine.before}
+          <Link
+            href="/"
+            className={light ? "font-medium underline underline-offset-4 hover:text-orange-600" : "font-medium text-white underline underline-offset-4 hover:text-orange-400"}
+            data-testid="link-home-context"
+          >
+            {homeLine.anchor}
+          </Link>
+          {homeLine.after}
+        </p>
+      )}
       <div className="dept-page-body" style={{ maxWidth: 860, margin: "0 auto" }}>
         <DepartmentContent dept={dept} onClose={() => {}} />
       </div>

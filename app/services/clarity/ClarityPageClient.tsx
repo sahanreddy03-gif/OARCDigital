@@ -123,6 +123,9 @@ export default function ClarityPageClient() {
           No dashboards full of metrics that mean nothing. No agency spin.{" "}
           <strong style={{ color:C.fg, fontWeight:700 }}>A straight answer on what&apos;s driving revenue and what&apos;s burning budget.</strong>
         </p>
+        <p style={{ fontFamily:C.jb, fontSize:"11.5px", lineHeight:1.85, color:C.dim, marginTop:".8rem", maxWidth:"38ch" }}>
+          Reporting is handled by the Performance marketing team at our <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">digital agency in Malta</Link>.
+        </p>
 
         {/* Verdict board */}
         <div style={{ marginTop:"2rem", border:`1px solid ${C.line}`, borderRadius:14, background:"rgba(245,245,243,.02)", overflow:"hidden" }}>
