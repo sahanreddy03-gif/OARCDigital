@@ -352,4 +352,25 @@ export const FLAGSHIP_CSS = `
 .fs .card .go{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font:600 15px/1 var(--ui);color:var(--acc)}
 .fs .card .go svg{width:16px;height:16px}
 
+
+/* text beside a phone mock (the staff app) */
+.fs .split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,80px);align-items:center;margin-top:clamp(40px,4.6vw,64px)}
+.fs .split .chk{columns:1}
+.fs .split .chk li{border-top-color:var(--line)}
+.fs .split .chk li::before{background-color:var(--ink);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E")}
+.fs .dark .split .chk li{border-top-color:var(--kline)}
+.fs .dark .split .chk li::before{background-color:var(--y);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B0B0B' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E")}
+.fs .phone{width:min(100%,340px);margin:0 auto;padding:14px;border-radius:44px;background:#0B0B0B;box-shadow:0 60px 120px -50px rgba(11,11,11,.7),inset 0 0 0 1.5px rgba(245,244,239,.2)}
+.fs .phone .scrn{display:flex;flex-direction:column;gap:10px;min-height:520px;padding:20px 16px;border-radius:32px;background:var(--paper);color:var(--ink)}
+.fs .phone .bar{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--line);font:700 12.5px/1 var(--ui);letter-spacing:.12em;text-transform:uppercase}
+.fs .phone .bar span{color:var(--mute)}
+.fs .phone .pin{padding:12px 14px;border-radius:14px;background:var(--y);font:600 14px/1.35 var(--ui)}
+.fs .phone .msg{max-width:88%;padding:10px 13px;border-radius:16px 16px 16px 4px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font-size:14px;line-height:1.35}
+.fs .phone .msg small{display:block;margin-bottom:3px;font:700 11.5px/1 var(--ui);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.fs .phone .msg.me{align-self:flex-end;border-radius:16px 16px 4px 16px;background:var(--ink);color:#fff;box-shadow:none}
+.fs .phone .msg.me small{color:rgba(245,244,239,.7)}
+.fs .phone .tabs{display:flex;justify-content:space-between;margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font:600 12px/1 var(--ui);color:var(--mute)}
+.fs .phone .tabs b{color:var(--ink)}
+.fs .note{margin-top:clamp(28px,3vw,40px);font-size:15px;line-height:1.5;color:var(--kmute);max-width:80ch}
+@media (max-width:1100px){.fs .split{grid-template-columns:minmax(0,1fr)}}
 `;

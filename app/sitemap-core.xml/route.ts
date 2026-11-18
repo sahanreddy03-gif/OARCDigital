@@ -70,6 +70,7 @@ export const CORE: CoreEntry[] = [
   { path: "/ai/clinics", priority: 0.9, changefreq: "weekly", source: "lib/ai-systems/clinics.ts" },
   { path: "/ai/hotels", priority: 0.9, changefreq: "weekly", source: "lib/ai-systems/hotels.ts" },
   { path: "/ai/restaurants", priority: 0.9, changefreq: "weekly", source: "lib/ai-systems/restaurants.ts" },
+  { path: "/ai/casinos", priority: 0.9, changefreq: "weekly", source: "app/ai/casinos/page.tsx" },
   { path: "/ai/tourism", priority: 0.9, changefreq: "weekly", source: "lib/ai-systems/tourism.ts" },
   { path: "/ai/education", priority: 0.9, changefreq: "weekly", source: "lib/ai-systems/education.ts" },
   { path: "/ai/igaming-operators", priority: 0.9, changefreq: "weekly", source: "lib/ai-systems/igaming-operators.ts" },
