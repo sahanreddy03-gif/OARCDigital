@@ -28,7 +28,7 @@ const socialLinks = [
 const listings = [
   { name: 'Google Maps', href: NAP.mapUrl },
   { name: 'Crunchbase', href: 'https://www.crunchbase.com/organization/oarc-digital' },
-  { name: 'Yellow.com.mt', href: 'https://www.yellow.com.mt/oarc-digital_marketing-consultants+bkara/' },
+  { name: 'Yellow.com.mt', href: 'https://www.yellow.com.mt/oarc-digital/marketing-consultants/' },
 ];
 
 const serif = { fontFamily: "var(--font-instrument-serif), Georgia, serif" };
