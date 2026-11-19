@@ -1,0 +1,314 @@
+"use client";
+
+import { useRef, useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Shield, CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
+import { bookingUrl } from "@/lib/utm";
+import { registerGSAP, gsap, ScrollTrigger, EASE, DUR, STAG } from "@/lib/motion/gsap-system";
+
+export default function MoneyBackGuaranteeSection() {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const shieldTileRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const svgPathRef = useRef<SVGPathElement>(null);
+  const paraRef = useRef<HTMLParagraphElement>(null);
+  const cardsGridRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const termsRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    registerGSAP();
+
+    const ctx = gsap.context(() => {
+      const trigger = sectionRef.current!;
+
+      // Shield icon tile bounces in (scale 0 → 1)
+      gsap.fromTo(
+        shieldTileRef.current,
+        { opacity: 0, scale: 0 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: DUR.normal,
+          ease: EASE.back,
+          delay: 0.1,
+          scrollTrigger: { trigger, start: "top 85%" },
+        }
+      );
+
+      // h2 slides up
+      gsap.fromTo(
+        headingRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: DUR.normal,
+          ease: EASE.hard,
+          delay: 0.25,
+          scrollTrigger: { trigger, start: "top 85%" },
+        }
+      );
+
+      // SVG underline draws (strokeDashoffset 250 → 0)
+      if (svgPathRef.current) {
+        gsap.fromTo(
+          svgPathRef.current,
+          { strokeDashoffset: 250 },
+          {
+            strokeDashoffset: 0,
+            duration: DUR.slow,
+            ease: EASE.out,
+            delay: 0.6,
+            scrollTrigger: { trigger, start: "top 85%" },
+          }
+        );
+      }
+
+      // Paragraph fadeUp
+      gsap.fromTo(
+        paraRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: DUR.normal,
+          ease: EASE.soft,
+          delay: 0.35,
+          scrollTrigger: { trigger, start: "top 85%" },
+        }
+      );
+
+      // Guarantee point cards stagger
+      if (cardsGridRef.current) {
+        const cards = Array.from(cardsGridRef.current.children);
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DUR.normal,
+            ease: EASE.out,
+            stagger: STAG.loose,
+            delay: 0.45,
+            scrollTrigger: { trigger, start: "top 85%" },
+          }
+        );
+      }
+
+      // CTA fades last
+      gsap.fromTo(
+        [ctaRef.current, termsRef.current],
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: DUR.normal,
+          ease: EASE.soft,
+          stagger: STAG.normal,
+          delay: 0.8,
+          scrollTrigger: { trigger, start: "top 85%" },
+        }
+      );
+    }, sectionRef.current!);
+
+    return () => ctx.revert();
+  }, []);
+
+  const guaranteePoints = [
+    "Miglioramento minimo del ROI del 30% entro 90 giorni",
+    "Account manager dedicato",
+    "Rimborso completo se gli obiettivi non vengono raggiunti",
+    "Nessun costo nascosto"
+  ];
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
+      style={{ backgroundColor: "#f0fff4" }}
+      data-testid="section-money-back-guarantee"
+    >
+      {/* Subtle gradient accents */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `
+            radial-gradient(ellipse at 30% 0%, rgba(196, 255, 77, 0.12) 0%, transparent 50%),
+            radial-gradient(ellipse at 70% 100%, rgba(249, 115, 22, 0.06) 0%, transparent 50%)
+          `
+        }}
+      />
+
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
+
+        <div className="flex flex-col items-center text-center">
+          {/* Shield Icon with glow */}
+          <div
+            ref={shieldTileRef}
+            className="relative mb-8"
+            style={{ opacity: 0 }}
+          >
+            <div
+              className="absolute inset-0 blur-3xl transition-all duration-500"
+              style={{
+                backgroundColor: "#c4ff4d",
+                opacity: isHovered ? 0.5 : 0.3,
+                transform: isHovered ? "scale(2)" : "scale(1.5)"
+              }}
+            />
+            <div
+              className="relative w-20 h-20 md:w-24 md:h-24 rounded-3xl flex items-center justify-center transition-all duration-500 cursor-pointer"
+              style={{
+                background: "linear-gradient(135deg, #c4ff4d 0%, #a8e834 100%)",
+                boxShadow: isHovered
+                  ? "0 30px 60px -15px rgba(196, 255, 77, 0.5)"
+                  : "0 20px 40px -15px rgba(196, 255, 77, 0.35)",
+                transform: isHovered ? "rotate(-6deg) scale(1.1)" : "rotate(0) scale(1)"
+              }}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <Shield className="w-10 h-10 md:w-12 md:h-12" style={{ color: "#0a0a0a" }} strokeWidth={1.5} />
+            </div>
+          </div>
+
+          {/* Heading with animated underline */}
+          <h2
+            ref={headingRef}
+            className="font-bold mb-6"
+            style={{
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+              letterSpacing: '-0.03em',
+              lineHeight: 1.1,
+              color: "#0a0a0a",
+              opacity: 0,
+            }}
+            data-testid="heading-guarantee"
+          >
+            <span>Ottieni un </span>
+            <span
+              className="relative inline-block"
+              style={{
+                background: "linear-gradient(135deg, #7cb518 0%, #5a9a00 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text"
+              }}
+            >
+              ROI del 30%
+              <svg
+                className="absolute -bottom-2 left-0 w-full"
+                height="12"
+                viewBox="0 0 200 12"
+                preserveAspectRatio="none"
+              >
+                <path
+                  ref={svgPathRef}
+                  d="M0 8 Q50 0, 100 6 T200 4"
+                  fill="none"
+                  stroke="#c4ff4d"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  style={{
+                    strokeDasharray: 250,
+                    strokeDashoffset: 250,
+                  }}
+                />
+              </svg>
+            </span>
+            <span> in 90 giorni</span>
+            <br />
+            <span className="text-[0.65em] font-medium" style={{ color: "rgba(0, 0, 0, 0.5)" }}>o ti rimborsiamo</span>
+          </h2>
+
+          <p
+            ref={paraRef}
+            className="max-w-xl mb-10 text-base md:text-lg leading-relaxed"
+            style={{
+              color: "rgba(0, 0, 0, 0.55)",
+              opacity: 0,
+            }}
+            data-testid="text-guarantee-description"
+          >
+            Garantiamo risultati misurabili. Se entro 90 giorni non vedi un miglioramento di almeno il 30% nel ROI del tuo marketing, ti rimborsiamo l'investimento.
+          </p>
+
+          {/* Guarantee Points Grid */}
+          <div
+            ref={cardsGridRef}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 w-full max-w-2xl"
+          >
+            {guaranteePoints.map((point, index) => (
+              <div
+                key={index}
+                className="group flex items-center gap-3 px-5 py-4 rounded-2xl transition-all duration-500 cursor-default"
+                style={{
+                  opacity: 0,
+                  backgroundColor: "#fafafa",
+                  border: "1px solid rgba(0, 0, 0, 0.06)",
+                  boxShadow: "0 2px 10px -5px rgba(0, 0, 0, 0.05)"
+                }}
+                data-testid={`guarantee-point-${index}`}
+              >
+                <div
+                  className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-[-6deg]"
+                  style={{ backgroundColor: "rgba(196, 255, 77, 0.2)" }}
+                >
+                  <CheckCircle2 className="w-4 h-4" style={{ color: "#6b9b12" }} />
+                </div>
+                <span
+                  className="text-sm font-medium transition-colors duration-300"
+                  style={{ color: "rgba(0, 0, 0, 0.7)" }}
+                >
+                  {point}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <div
+            ref={ctaRef}
+            style={{ opacity: 0 }}
+          >
+            <a href={bookingUrl("home-guarantee")} target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                className="bg-[#0a0a0a] hover:bg-[#1a1a1a] text-white font-bold rounded-full px-10 py-7 text-base shadow-xl shadow-black/15 transition-all duration-300 hover:scale-105 hover:shadow-2xl group"
+                data-testid="button-schedule-guarantee"
+              >
+                <Sparkles className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:rotate-12" style={{ color: "#c4ff4d" }} />
+                Prenota una chiamata
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+              </Button>
+            </a>
+          </div>
+
+          <p
+            ref={termsRef}
+            className="mt-6 text-xs"
+            style={{
+              color: "rgba(0, 0, 0, 0.35)",
+              opacity: 0,
+            }}
+          >
+            Si applicano termini e condizioni. Garanzia valida per i nuovi clienti con una collaborazione minima di 3 mesi.
+          </p>
+        </div>
+      </div>
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        @media (prefers-reduced-motion: reduce) {
+          [data-testid="section-money-back-guarantee"] * {
+            transition-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+          }
+        }
+      ` }} />
+    </section>
+  );
+}
