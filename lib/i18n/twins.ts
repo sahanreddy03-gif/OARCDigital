@@ -79,6 +79,30 @@ export function twinLanguages(path: string): Record<string, string> | undefined 
   return { ...english, ...extras, "x-default": en };
 }
 
+/**
+ * English pages that also exist in Maltese ONLY (no Italian version): blog articles the
+ * owner asked for in English and Maltese. Same address rule: the Maltese one is `/mt` + path.
+ * Add a path only when app/mt/<path>/page.tsx exists.
+ */
+export const MT_ONLY: readonly string[] = [
+  "/blog/ai-for-business-malta",
+  "/blog/what-does-a-creative-agency-do",
+  "/blog/number-one-marketing-ai-agency-malta",
+];
+
+const MT_ONLY_SET = new Set(MT_ONLY);
+
+export function isMtOnly(path: string): boolean {
+  return MT_ONLY_SET.has(path);
+}
+
+/** The hreflang set for an English + Maltese pair. Both pages must emit exactly this. */
+export function mtOnlyLanguages(path: string): Record<string, string> | undefined {
+  if (!isMtOnly(path)) return undefined;
+  const en = localeUrl("en", path);
+  return { en, mt: localeUrl("mt", path), "x-default": en };
+}
+
 /** `metadata.alternates` for a translated page: it is its own canonical. */
 export function localeAlternates(locale: Locale, path: string) {
   return { canonical: localeUrl(locale, path), languages: twinLanguages(path) };
