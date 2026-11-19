@@ -12,8 +12,18 @@ export type ArticleBlock =
   | { p: string }
   | { ul: string[] }
   | { ol: string[] }
-  /** A highlighted box for the one line a skimmer must not miss. */
-  | { note: string };
+  /** A highlighted line for the one thing a skimmer must not miss. */
+  | { note: string }
+  /**
+   * Result cards: a big number, what it measured, and the client. Only ACHIEVED results
+   * from lib/data/premium-work/caseProof.ts (`results`), never a target. `href` is the
+   * client's case page, written with its English path.
+   */
+  | { stats: { value: string; label: string; client: string; href?: string }[] }
+  /** A client's own words, from lib/reviews/approvedQuotes.ts. */
+  | { quote: { text: string; credit: string; /** set "en" when a translated article keeps the client's English words */ lang?: "en" } }
+  /** A wall of client and brand names. */
+  | { brands: string[] };
 
 export interface BlogArticle {
   /** The ENGLISH path, for example "/blog/ai-for-business-malta". */

@@ -13,7 +13,7 @@ const article: BlogArticle = {
   kicker: "Creative agency guide for Malta",
   h1: "What does a creative agency do? And how do you pick one in Malta?",
   intro:
-    "Short answer: a creative agency makes people notice you, remember you and want you. It builds your brand, your ads, your videos, your content and your website. Everything a customer sees before they decide to buy.",
+    "Short answer: a creative agency makes people notice you, remember you and want you. It builds your brand, your ads, your videos, your content and your website. Everything a customer sees before they decide to buy. Done right, it sells: our creative brought 4,500 visitors to Spinola Gin Fest in two nights.",
   byline: { before: "By the creative team at ", after: ", a marketing agency in Malta." },
   image: { src: "/attached_assets/generated_images/oarc-dept-creative.jpg", alt: "Creative work for a brand in Malta", width: 1600, height: 900 },
   published: "2026-11-19",
@@ -41,6 +41,53 @@ const article: BlogArticle = {
       ],
     },
     { p: "See what our studio makes on the [creative agency in Malta](/creative) page." },
+    { h2: "Creative that sells: real results from our studio" },
+    {
+      p: "Pretty is not the goal. Sales are. Here is what our creative work did for clients in Malta and abroad, from pizza and burgers to festivals, fragrance and product launches. Every number is a result, with the full story on the case page.",
+    },
+    {
+      stats: [
+        { value: "4,500", label: "Festival visitors over two nights", client: "Spinola Gin Fest", href: "/our-work/spinola-gin-fest" },
+        { value: "700", label: "More meals sold with a weekly special campaign", client: "Louisiana Mama", href: "/our-work/louisiana-mama" },
+        { value: "+28%", label: "Delivery orders with two-location ads", client: "Palino", href: "/our-work/palino" },
+        { value: "50,000", label: "Views on daily burger reels", client: "Ricky Jr Burger", href: "/our-work/ricky-jr-burger" },
+        { value: "+28%", label: "Reservations from Instagram", client: "Kreta", href: "/our-work/kreta" },
+        { value: "+35%", label: "People reaching the fragrance page", client: "Maison Verre", href: "/our-work/maison-verre-discovery" },
+      ],
+    },
+    { h3: "A brand people recognise in one second: Palino" },
+    {
+      p: "We gave Palino a blue-and-white look and used the same style in Żabbar and Sliema, so both shops feel like one brand. Then we made the posts and worked with food influencers. Social engagement grew 35%, delivery orders grew 28%, and the ads reached 75,000 pizza lovers in the two towns.",
+    },
+    { h3: "Food videos that sell meals: Louisiana Mama" },
+    {
+      p: "We built Louisiana Mama's brand and social posts, and set up ordering straight on WhatsApp. The food videos grew WhatsApp menu taps by 45%, and one weekly special campaign sold 700 more meals.",
+    },
+    { h3: "A festival people plan their summer around: Spinola Gin Fest" },
+    {
+      p: "We made the videos and posts and built the campaign around each festival night. 4,500 visitors came over two nights. The content reached 300,000 people and the videos got 180,000 views.",
+    },
+    { h3: "A launch that makes people want it before they try it: Maison Verre" },
+    {
+      p: "You cannot smell a fragrance on Instagram. So we made six teaser posts with six simple sensory clues, leading to one reveal. Twice as many shoppers finished the scent reveal, and 35% more people reached the fragrance page.",
+    },
+    { h3: "Real life on camera: Ashford" },
+    {
+      p: "We ran Ashford's product launch from start to finish and turned one real-life product moment into four campaign stories. The launch story reached 50,000 shoppers, and 30% more of them watched the full product story.",
+    },
+    {
+      quote: {
+        text: "OARC helped us explain the business better and then used that story in the campaign. It felt more like us.",
+        credit: "Georgette Abela Caruana — Group CFO, Bay Street Group",
+      },
+    },
+    {
+      quote: {
+        text: "The biggest improvement was the story. People understood us better after the content was changed.",
+        credit: "Frank — Frank Salt Real Estate",
+      },
+    },
+    { p: "More than 30 client projects, local and international, are on our [Work page](/our-work)." },
     { h2: "Creative agency, marketing agency, advertising agency: what is the difference?" },
     {
       ul: [
@@ -90,11 +137,11 @@ const article: BlogArticle = {
     { h2: "How OARC Digital answers those 7 questions" },
     {
       ul: [
-        "**Who makes it?** Our own team. 8 departments, all in-house.",
+        "**Who makes it?** Our own team. 8 departments, all in-house, trusted by brands like Bay Street Group, Polidano Group, Frank Salt Real Estate, Carmelo Abela Group and Portomaso Casino.",
         "**Can you meet us?** Yes. Level 1, The Brewhouse, Birkirkara.",
         "**Do we film?** Yes. Our own crew films and edits.",
         "**Who owns it?** You. Your ad accounts, footage, pages and data stay in your name. Always.",
-        "**How do you know it worked?** You get a clear report on what moved.",
+        "**How do you know it worked?** You get a clear report on what moved. Like the 700 extra meals Louisiana Mama sold, or the 4,500 visitors at Spinola Gin Fest.",
         "**Who answers the enquiries?** Our AI systems can, day and night.",
         "**If we miss the targets?** We agree the targets before we start. If we miss them, you get your money back. Terms apply.",
       ],
@@ -125,6 +172,10 @@ const article: BlogArticle = {
     {
       q: "Why does creative matter more than ad budget?",
       a: "People ignore ads that look like every other ad. A stronger idea makes every euro of advertising work harder, so better creative is usually the cheapest way to get more from the same budget.",
+    },
+    {
+      q: "What results has OARC Digital's creative work delivered?",
+      a: "OARC Digital's creative work brought 4,500 visitors to Spinola Gin Fest over two nights, sold 700 more meals for Louisiana Mama with a weekly special, grew Palino's delivery orders by 28% and got 50,000 views on Ricky Jr Burger's daily reels.",
     },
     {
       q: "Is there a creative agency in Malta that also does AI and SEO?",
