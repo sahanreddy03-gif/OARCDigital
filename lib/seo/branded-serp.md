@@ -51,7 +51,7 @@ the defence from if the SEO infra is ever lost.
 | 7 | https://oarcdigital.com/services                 | ✅     | Master services page.                                     |
 | 8 | https://www.linkedin.com/in/sahanoarcdigital     | ✅     | Founder profile. In ORG_SAMEAS + Person.sameAs.           |
 | 9 | https://oarcdigital.com/contact                  | ✅     | LocalBusiness schema with NAP.                            |
-|10 | https://www.yellow.com.mt/oarc-digital_…         | ✅     | Malta directory. In ORG_SAMEAS.                           |
+|10 | https://www.yellow.com.mt/oarc-digital/marketing-… | ✅     | Malta directory. In ORG_SAMEAS.                           |
 
 **Knowledge Panel:** present, sourced from Organization schema on `/`
 (see `lib/seo/organizationSchema.ts`). Logo, founder, sameAs links all
@@ -92,7 +92,7 @@ SEO".
 | https://www.linkedin.com/company/oarc-digital           | ✅   | ✅          | ✅              | ✅                       | ✅            |
 | https://www.youtube.com/@oarcdigital                    | ✅   | ✅          | ⚠️ low         | ✅                       | ✅            |
 | https://www.crunchbase.com/organization/oarc-digital    | ✅   | ✅          | n/a (directory) | ✅                       | ✅            |
-| https://www.yellow.com.mt/oarc-digital_…                | ✅   | ✅          | n/a (directory) | ✅                       | ✅            |
+| https://www.yellow.com.mt/oarc-digital/marketing-…        | ✅   | ✅          | n/a (directory) | ✅                       | ✅            |
 | https://clutch.co/profile/oarc-digital                  | ✅   | ✅          | ⚠️ no reviews  | ✅                       | ✅            |
 | https://www.goodfirms.co/company/oarc-digital           | ✅   | ✅          | ⚠️ no reviews  | ✅                       | ✅            |
 | https://www.agencyspotter.com/oarc-digital              | ✅   | ✅          | n/a (directory) | ✅                       | ✅            |
