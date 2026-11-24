@@ -133,6 +133,10 @@ const nextConfig = {
       // Branding: one main page (Nov 2026). These two pages competed with it on Google.
       { source: '/blog/branding-agency-malta', destination: '/services/branding', permanent: true },
       { source: '/aeo/branding-agency-malta', destination: '/services/branding', permanent: true },
+      // Websites: one main page per search (Nov 2026). Web design -> the article Google
+      // ranks best; web development -> the websites flagship page.
+      { source: '/aeo/web-design-malta', destination: '/blog/web-design-malta', permanent: true },
+      { source: '/aeo/website-development-malta', destination: '/aeo/web-development-agency-malta', permanent: true },
     ];
   },
   async headers() {

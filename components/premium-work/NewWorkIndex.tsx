@@ -55,7 +55,7 @@ const SERVICES = [
   { label: "Social media management", href: "/aeo/social-media-agency-malta" },
   { label: "Social video & content", href: "/aeo/video-production-malta" },
   { label: "TikTok marketing", href: "/aeo/tiktok-marketing-malta" },
-  { label: "Website design & development", href: "/aeo/web-design-malta" },
+  { label: "Website design & development", href: "/aeo/web-development-agency-malta" },
   { label: "AI chatbot implementation", href: "/aeo/ai-chatbot-malta" },
   { label: "Marketing automation", href: "/aeo/marketing-automation-malta" },
   { label: "Paid advertising", href: "/aeo/paid-advertising-malta" },
