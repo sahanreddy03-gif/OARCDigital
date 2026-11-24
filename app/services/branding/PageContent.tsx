@@ -1,391 +1,429 @@
-"use client";
+import Link from "next/link";
+import FlagshipShell from "@/components/flagship/FlagshipShell";
+import { Arrow, WaForm, WaIcon, waLink } from "@/components/flagship/parts";
+import { NAP } from "@/lib/seo/nap";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { ArrowRight, Palette, Type, Layers, Sparkles, BookOpen, Mic2, Globe, Package } from 'lucide-react';
-import Layout from '@/components/layout/Layout';
-import ScrollReveal from "@/components/ScrollReveal";
-import FAQSection, { FAQItem } from "@/components/FAQSection";
-import RelatedServices from "@/components/RelatedServices";
+interface Faq { question: string; answer: string; }
+interface Props { faqs: Faq[]; }
 
-const brandImg1 = "/attached_assets/stock_images/branding_design_logo_562a38a3.jpg";
-const brandImg2 = "/attached_assets/stock_images/branding_design_logo_ccf3aba4.jpg";
-const brandImg3 = "/attached_assets/stock_images/branding_design_logo_def8ba83.jpg";
-const brandIdentityImg = "/attached_assets/stock_images/brand_identity_desig_a250cc24.jpg";
-const corporateLogoImg1 = "/attached_assets/stock_images/corporate_brand_logo_36956200.jpg";
-const corporateLogoImg2 = "/attached_assets/stock_images/corporate_brand_logo_3ecd3c3a.jpg";
-const designSystemImg = "/attached_assets/stock_images/design_system_compon_362ff5cd.jpg";
-const graphicDesignImg = "/attached_assets/stock_images/graphic_design_creat_297cb911.jpg";
+const BLUEPRINT = "Hi OARC. My business or idea is: {x}. Please send my free brand blueprint.";
+const PRICE = waLink("Hi OARC. Please send me your price for branding. My business is: ");
 
-import MaltaContextBlock from "@/components/seo/MaltaContextBlock";
-const brandingFAQs: FAQItem[] = [
-  { question: "What does branding from OARC Digital include?", answer: "Logo, colour, typography, guidelines, social templates, and brand voice—built so Malta customers recognise you and choose you. Identity is scored on whether it sells, not just aesthetics." },
-  { question: "How long does a branding project take?", answer: "Brand sprints typically ship in 4–6 weeks. Fuller brand builds run 8–12 weeks covering strategy, naming where needed, tone of voice, system, and launch assets." },
-  { question: "How is OARC branding different from a logo shop?", answer: "We start with positioning and the owner money outcome—more booked work, clearer premium—then design. The same Birkirkara team can connect identity into creative production, AI agents, and Voice AI Worker." },
-  { question: "Do you offer rebranding for existing Malta businesses?", answer: "Yes. We evolve or replace identity while respecting equity customers already trust—especially important for hospitality, clinics, and professional services." },
-  { question: "Can branding connect to social, video, and AI?", answer: "Yes. Branding is the system; Creative, video, social management, and AI agents apply it so the feed, site, and phone answers feel like the same business." },
-  { question: "Who owns the brand files?", answer: "You do. Source and delivery files transfer on engagement close. OARC does not lock your identity behind a retainer." },
-  { question: "Who is OARC Digital?", answer: "OARC Digital is a Birkirkara marketing and AI studio at The Brewhouse—creative, AI agents, Voice AI Worker, and automation under one team. Phone +356 7971 1799." },
-  { question: "Where should I go next after branding?", answer: "Usually Creative for ongoing assets, or AI agents / Voice AI Worker if missed enquiries are the leak. See also /creative, /ai-agents, and /solutions." },
-  { question: "How much does branding cost in Malta with OARC?", answer: "Brand projects are quoted as a fixed scope after a 20-minute call, so you know the price before work starts. Ongoing brand, social and filming work runs inside OARC Digital's whole marketing team for €500 a month, with no setup fee." },
+const three = [
+  { h: "A logo", p: "Your badge. The mark on your sign, your bag and your phone screen.", tag: "One piece" },
+  { h: "A brand identity", p: "Your whole look and sound: colours, letters, photos, words and the way things move.", tag: "The full kit" },
+  { h: "A brand", p: "The feeling people get when they hear your name. It is why they pick you, and why they pay more.", tag: "The real prize" },
 ];
 
-export default function Branding() {
-  const [activeExploration, setActiveExploration] = useState(0);
+// Every kind of branding, grouped into families a business owner can follow.
+const families = [
+  { fam: "The thinking", items: [
+    ["Brand strategy", "The plan. What you stand for, who you serve and why you win."],
+    ["Research", "What your customers want and what your rivals really do."],
+    ["Positioning", "The one spot you own in people’s minds."],
+    ["Brand architecture", "How your brands, products and locations fit together."],
+  ] },
+  { fam: "The words", items: [
+    ["Naming", "A name people remember and can spell."],
+    ["Brand story", "Why you exist, told simply."],
+    ["Tone of voice", "How you sound, from your website to your WhatsApp replies."],
+    ["Tagline and key messages", "The few lines you always say."],
+  ] },
+  { fam: "The look", items: [
+    ["Logo design", "Your badge, made to work at every size."],
+    ["Colour psychology", "Colours hint at feelings. The right fit matters more than taste."],
+    ["Typography", "Your letter style. It sets the mood before anyone reads a word."],
+    ["Art, photo and film style", "The pictures and drawings that are clearly yours."],
+    ["Motion", "How your brand moves in video and on screen."],
+  ] },
+  { fam: "The senses and the mind", items: [
+    ["Sonic branding", "Your sound: a short tune, a voice, a ring."],
+    ["Sensory branding", "What people touch, smell and taste when they meet you."],
+    ["Neuro-branding", "Design based on tested psychology of attention, memory and emotion. No tricks."],
+  ] },
+  { fam: "What gets a brand", items: [
+    ["Company brand", "The whole business."],
+    ["Product and service brands", "One item or one service with its own name."],
+    ["Personal brand", "A person: a founder, a doctor, a chef."],
+    ["Employer brand", "Why good people want to work for you."],
+  ] },
+  { fam: "Where it lives", items: [
+    ["Website and app", "Your brand on every screen."],
+    ["Social media", "A feed people know is yours without seeing the name."],
+    ["Packaging", "The box, the bag, the label."],
+    ["Shop, signs and print", "Your space, your vehicles, menus, uniforms and business cards."],
+  ] },
+  { fam: "Selling and growing", items: [
+    ["Sales branding", "Offers, proposals and pitch decks that look and sound like you."],
+    ["Launch campaign", "Telling the world, with a plan."],
+    ["Rebrand or refresh", "A big change, or a careful tidy-up."],
+    ["Brand guidelines", "The rulebook, so everyone uses your brand the same way."],
+  ] },
+];
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+const brain = [
+  { n: "0.1s", h: "People judge in a tenth of a second.", p: "We decide if a face can be trusted almost at once. Your brand gets the same split second.", src: "Willis and Todorov, Psychological Science, 2006" },
+  { n: "Again", h: "Seen often means liked more.", p: "The more we meet something, the more we like it. So one clear idea, repeated, beats ten clever ones.", src: "Zajonc, 1968: the mere-exposure effect" },
+  { n: "Colour", h: "Colour changes how you are read.", p: "The same brand feels different in red than in blue. We choose colour for meaning, not for taste.", src: "Labrecque and Milne, Journal of the Academy of Marketing Science, 2012" },
+];
 
-  const brandColors = [
-    { name: "Primary", colors: ["#c4ff4d", "#23AACA", "#F97316"] },
-    { name: "Secondary", colors: ["#1A1A2E", "#FFFFFF", "#18181B"] },
-    { name: "Neutral", colors: ["#F5F5F5", "#E0E0E0", "#333333"] },
-  ];
+const stages = [
+  { h: "Just an idea.", p: "Or no idea yet. We test it, name it and shape the offer before you spend on anything.", fix: "We start here too." },
+  { h: "A new business.", p: "You need a name, a look and a launch plan that brings your first customers.", fix: "Brand and launch." },
+  { h: "Growing, but it looks old.", p: "The business moved on and the brand did not. We refresh it without losing what works.", fix: "Refresh or rebrand." },
+  { h: "More than one brand.", p: "Several products, locations or companies that need to feel like one family.", fix: "One clear system." },
+];
 
-  const typeExplorations = [
-    { family: "Montserrat", weight: "Bold", style: "Modern Sans" },
-    { family: "Playfair Display", weight: "Regular", style: "Classic Serif" },
-    { family: "Inter", weight: "Medium", style: "Clean Sans" },
-  ];
+const path = [
+  { h: "Idea", p: "We sharpen yours, or help you find one." },
+  { h: "Brand", p: "Name, story, look and voice." },
+  { h: "Launch", p: "A 30-day plan to go public." },
+  { h: "Marketing", p: "Content, ads and search." },
+  { h: "Sales", p: "The offer, the pitch, the follow-up." },
+  { h: "Money", p: "Your price and the numbers that matter." },
+  { h: "People", p: "Who to hire first, and when." },
+  { h: "Mind and body", p: "A coach in your corner." },
+];
 
+const myths = [
+  { q: "Build it and they will come.", s: "Nobody comes. Sell 10 before you build one.", v: "f", t: "False" },
+  { q: "A great product sells itself.", s: "It does not. People buy what they understand and remember.", v: "f", t: "False" },
+  { q: "A customer who pays is the only proof.", s: "A maybe is a no. Money is the vote that counts.", v: "t", t: "True" },
+  { q: "Boring work wins.", s: "Show up every day. The same message, again and again.", v: "t", t: "True" },
+  { q: "You need a great salesperson.", s: "First find the people who already need what you sell.", v: "h", t: "Half true" },
+  { q: "You need to go bigger.", s: "First you need to go better: systems before size.", v: "f", t: "False" },
+];
+
+const reasons = [
+  { h: "We start before the business exists.", p: "Most agencies begin at the logo. We can begin at the idea." },
+  { h: "We do not stop at the logo.", p: "We launch the brand, market it and help you sell it. One team does all of it." },
+  { h: "Built on research, not taste.", p: "Every choice has a reason you can read in plain words." },
+  { h: "One team. 8 departments.", p: "Strategy, creative, film, web, social media, ads, customer care and AI, under one roof." },
+  { h: "Everything we make stays yours.", p: "Your name, your files, your guidelines. No lock-in." },
+  { h: "You can meet us.", p: "We are in Birkirkara. We come to you, or you come to us." },
+];
+
+const flags = [
+  "They start with the logo, not with your customers.",
+  "They never ask what makes you different.",
+  "You cannot meet the people who do the work.",
+  "You do not get your files at the end.",
+];
+
+const included = [
+  "Customer and rival research",
+  "Brand strategy and positioning",
+  "Name and tagline, if you need them",
+  "Brand story and tone of voice",
+  "Logo and full visual identity",
+  "Colour and typography system",
+  "Photo, film and motion style",
+  "Brand guidelines, the rulebook",
+  "Website look and key pages",
+  "Social media templates",
+  "Sales deck and offer design",
+  "Packaging, signs and print files",
+  "A 30-day launch plan",
+  "Launch content: film, photos, posts",
+];
+
+const bar = [
+  "Brand strategy", "Naming", "Brand story", "Logo design", "Colour", "Typography", "Tone of voice", "Packaging",
+  "Website", "Social media", "Pitch decks", "Launch", "Rebrand",
+];
+
+function Bar() {
   return (
-    <Layout>
-      {/* HERO: Brand Lab Introduction */}
-      <section className="relative min-h-[90vh] flex items-center bg-zinc-950 overflow-hidden">
-        {/* Floating brand elements */}
-        <div className="absolute top-20 right-20 w-40 h-40 bg-gradient-to-br from-orange-500/20 to-orange-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-40 left-20 w-32 h-32 bg-gradient-to-br from-[#23AACA]/15 to-[#c4ff4d]/10 rounded-full blur-3xl"></div>
-        
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-orange-400 text-sm uppercase tracking-widest mb-4">Brand Design Studio</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" data-testid="heading-branding" data-speakable>
-                Branding Malta — identity customers recognise and trust
-              </h1>
-              <p className="text-xl text-white/80 mb-8" data-speakable>
-                More than a logo. We build complete brand systems—strategy, identity, voice, and everything in between.
-              </p>
-              <p className="text-xl text-white/80 mb-8">
-                Brand work is done by the Creative team at <Link href="/" className="font-medium text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">OARC Digital</Link>, a marketing agency in Malta.
-              </p>
-              
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-3 bg-orange-500 text-white rounded-full pl-8 pr-4 py-4 text-lg font-bold hover:bg-orange-600 transition-colors"
-                  data-testid="button-start-brand"
-                >
-                  Start a Brand Project
-                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                    <ArrowRight className="h-5 w-5" />
-                  </div>
-                </button>
-              </Link>
-            </div>
+    <div className="bset">
+      <em>We build</em>
+      {bar.map((b) => <span key={b}>{b}</span>)}
+    </div>
+  );
+}
 
-            {/* Brand explorations preview */}
-            <div className="grid grid-cols-2 gap-4">
-              {/* Color palette card */}
-              <div className="bg-zinc-900 rounded-2xl p-5 border border-zinc-800">
-                <span className="text-white/70 text-xs uppercase tracking-wider">Color Palette</span>
-                <div className="mt-4 space-y-3">
-                  {brandColors.map((set, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <span className="text-white/70 text-xs w-16">{set.name}</span>
-                      <div className="flex gap-1">
-                        {set.colors.map((color, j) => (
-                          <div 
-                            key={j}
-                            className="w-6 h-6 rounded-full border border-zinc-700"
-                            style={{ backgroundColor: color }}
-                          ></div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+export default function BrandingAgencyMalta({ faqs }: Props) {
+  return (
+    <FlagshipShell accent="#0B0B0B" accentSoft="#F9FF84">
+      <div id="top">
+        {/* 1 · the promise and the free blueprint */}
+        <section className="hero">
+          <div className="wrap">
+            <h1>
+              <span className="kick">Branding agency in Malta</span>
+              <span className="big">We build your brand. <i className="mk">From any stage.</i></span>
+            </h1>
+            <p className="hsub">An idea, a new business or a brand that feels old. We take it from where it is to the top.</p>
+
+            <div className="hgrid">
+              <div className="ocard">
+                <p className="otop"><span className="otag">Free</span><span className="olim">In 48 hours</span></p>
+                <h2>Your free brand blueprint.</h2>
+                <p>Send us your business name, or just your idea. In 48 hours you get the honest truth and a plan.</p>
+                <WaForm id="blueprint" message={BLUEPRINT} button="Get my blueprint" placeholder="Your business name or idea" label="Your business name or idea" />
+                <p className="onote"><span>Opens WhatsApp. No call. No long form.</span><a href={PRICE} target="_blank" rel="noopener" data-testid="link-price-hero">Or get my price</a></p>
               </div>
 
-              {/* Typography card */}
-              <div className="bg-zinc-900 rounded-2xl p-5 border border-zinc-800">
-                <span className="text-white/70 text-xs uppercase tracking-wider">Typography</span>
-                <div className="mt-4">
-                  <div className="text-4xl font-black text-white mb-2">Aa</div>
-                  <div className="text-sm font-bold text-white">Montserrat Bold</div>
-                  <div className="text-sm text-white/70">Headings & Display</div>
-                </div>
+              <div className="screens" aria-hidden="true">
+                <div className="scr"><b>Name</b><span className="wm">Your name.</span></div>
+                <div className="scr"><b>Colour</b><span className="sw"><i style={{ background: "#0B0B0B" }} /><i style={{ background: "#F9FF84" }} /><i style={{ background: "#2440F0" }} /><i style={{ background: "#fff", boxShadow: "inset 0 0 0 1px rgba(11,11,11,.13)" }} /></span></div>
+                <div className="scr s-hide"><b>Type</b><span className="aa">Aa</span></div>
+                <div className="scr s-hide"><b>Voice</b><span className="say">“We say it plain.”</span></div>
               </div>
-
-              {/* Logo mark preview */}
-              <div className="col-span-2 bg-gradient-to-r from-orange-500/15 to-[#23AACA]/15 rounded-2xl p-5 border border-orange-500/30">
-                <img src={corporateLogoImg2} alt="Brand logo" className="w-full h-32 object-cover rounded-xl" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 2: Brand Portfolio - Storytelling Format */}
-      <ScrollReveal>
-        <section className="py-20 px-4 bg-zinc-950">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex items-end justify-between mb-12">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-black text-white">Recent brand work</h2>
-                <p className="text-white/80 mt-2">From strategy to rollout</p>
-              </div>
-            </div>
-
-            {/* Featured case study */}
-            <div className="grid lg:grid-cols-5 gap-6 mb-8">
-              <div className="lg:col-span-3 relative rounded-2xl overflow-hidden h-[400px]">
-                <img src={brandImg1} alt="Fintech rebrand" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 right-6">
-                  <span className="px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full">Complete Rebrand</span>
-                  <h3 className="text-2xl font-black text-white mt-3">Fintech Startup</h3>
-                  <p className="text-white/80 mt-2">Brand strategy, visual identity, guidelines, and rollout across 12 touchpoints.</p>
-                </div>
-              </div>
-              <div className="lg:col-span-2 grid grid-rows-2 gap-6">
-                <div className="relative rounded-2xl overflow-hidden">
-                  <img src={brandImg2} alt="E-commerce brand" className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4">
-                    <span className="text-orange-400 text-xs font-bold">DTC Brand</span>
-                    <h4 className="text-white font-bold">Lifestyle E-commerce</h4>
-                  </div>
-                </div>
-                <div className="relative rounded-2xl overflow-hidden">
-                  <img src={brandImg3} alt="Tech startup" className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4">
-                    <span className="text-orange-400 text-xs font-bold">B2B SaaS</span>
-                    <h4 className="text-white font-bold">Enterprise Platform</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* More work grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[
-                { img: corporateLogoImg1, title: "Corporate Identity" },
-                { img: designSystemImg, title: "Design System" },
-                { img: graphicDesignImg, title: "Visual Language" },
-                { img: brandIdentityImg, title: "Brand Guidelines" },
-              ].map((item, i) => (
-                <div 
-                  key={i}
-                  className="group relative rounded-xl overflow-hidden cursor-pointer"
-                  data-testid={`work-${i}`}
-                >
-                  <img 
-                    src={item.img}
-                    alt={item.title}
-                    className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
-                  <div className="absolute bottom-3 left-3">
-                    <h4 className="text-white font-bold text-sm">{item.title}</h4>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </section>
-      </ScrollReveal>
 
-      {/* SECTION 3: What Goes Into a Brand */}
-      <ScrollReveal>
-        <section className="py-20 px-4 bg-black">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-                What goes into a brand
-              </h2>
-              <p className="text-white/80 max-w-xl mx-auto">
-                Every brand we build includes these essential elements, tailored to your business and audience.
-              </p>
+        <div className="band" aria-hidden="true">
+          <div className="brun"><Bar /><Bar /></div>
+        </div>
+
+        {/* 2 · logo or brand */}
+        <section className="sec" id="logo-or-brand">
+          <div className="wrap">
+            <p className="lab" data-rv><b>01</b>Logo or brand</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">A logo is not <i>a brand.</i></h2>
+              <p className="lead">This is what most businesses in Malta get wrong. Here is the difference, in three lines.</p>
             </div>
+            <div className="grid g3">
+              {three.map((x) => (
+                <article className="card pain" key={x.h} data-rv>
+                  <h3>{x.h}</h3>
+                  <p>{x.p}</p>
+                  <span className="fix">{x.tag}</span>
+                </article>
+              ))}
+            </div>
+            <p className="under" data-rv>
+              Branding is one of 8 departments at <Link className="txt" href="/" data-testid="link-home-context">OARC Digital</Link>, a marketing agency in Malta.
+              So the people who build your brand also launch it and sell it.
+            </p>
+          </div>
+        </section>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { icon: Sparkles, title: "Strategy", items: ["Brand positioning", "Audience research", "Competitive analysis", "Brand architecture"] },
-                { icon: Palette, title: "Visual Identity", items: ["Logo design", "Color palette", "Typography", "Imagery style"] },
-                { icon: Mic2, title: "Brand Voice", items: ["Tone of voice", "Messaging framework", "Taglines", "Copy guidelines"] },
-                { icon: BookOpen, title: "Guidelines", items: ["Usage rules", "Do's and don'ts", "Templates", "Asset library"] },
-              ].map((pillar, i) => (
-                <div 
-                  key={i}
-                  className="p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-orange-500/50 transition-colors"
-                  data-testid={`pillar-${i}`}
-                >
-                  <pillar.icon className="w-8 h-8 text-orange-400 mb-4" />
-                  <h3 className="text-white font-bold text-lg mb-4">{pillar.title}</h3>
-                  <ul className="space-y-2">
-                    {pillar.items.map((item, j) => (
-                      <li key={j} className="text-white/80 text-sm flex items-center gap-2">
-                        <span className="w-1 h-1 bg-orange-400 rounded-full"></span>
-                        {item}
-                      </li>
+        {/* 3 · every kind of branding */}
+        <section className="sec paper" id="kinds">
+          <div className="wrap">
+            <p className="lab" data-rv><b>02</b>What a branding agency does</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">Every kind of branding. <i>In plain English.</i></h2>
+              <p className="lead">Branding is far more than design. These are all the parts, and what each one is for.</p>
+            </div>
+            <div className="grid g3">
+              {families.map((f) => (
+                <article className="card" key={f.fam} data-rv>
+                  <p className="fam">{f.fam}</p>
+                  <dl className="defs">
+                    {f.items.map(([t, d]) => (
+                      <div key={t}><dt>{t}</dt><dd>{d}</dd></div>
                     ))}
-                  </ul>
+                  </dl>
+                </article>
+              ))}
+              <article className="card cta wide" data-rv>
+                <div>
+                  <h3>Not sure which ones you need?</h3>
+                  <p>We tell you, free, in 48 hours.</p>
                 </div>
+                <a className="btn btn-w" href="#top" data-testid="link-blueprint-kinds">Get my blueprint <Arrow /></a>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* 4 · the brain */}
+        <section className="sec" id="brain">
+          <div className="wrap">
+            <p className="lab" data-rv><b>03</b>Why it works</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">How people really <i>pick a brand.</i></h2>
+              <p className="lead">Not magic. Three things science has tested, and how we use each one.</p>
+            </div>
+            <div className="grid g3">
+              {brain.map((b) => (
+                <article className="card" key={b.h} data-rv>
+                  <span className="n" aria-hidden="true">{b.n}</span>
+                  <h3>{b.h}</h3>
+                  <p>{b.p}</p>
+                  <p className="src">Source: {b.src}</p>
+                </article>
               ))}
             </div>
           </div>
         </section>
-      </ScrollReveal>
 
-      {/* SECTION 4: Brand Rollout - Where It Lives */}
-      <ScrollReveal>
-        <section className="py-20 px-4 bg-zinc-950">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-                Where your brand lives
-              </h2>
-              <p className="text-white/80">
-                We design for every touchpoint your customers encounter.
-              </p>
+        {/* 5 · from any stage */}
+        <section className="sec paper" id="stages">
+          <div className="wrap">
+            <p className="lab" data-rv><b>04</b>Where are you now</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">Start anywhere. <i>We take it from there.</i></h2>
+              <p className="lead">Most agencies start at the logo. We start wherever you are, even before the business exists.</p>
             </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[
-                { icon: Globe, title: "Website", desc: "Digital home" },
-                { icon: Layers, title: "Social Media", desc: "Profile & content" },
-                { icon: Type, title: "Marketing", desc: "Ads & collateral" },
-                { icon: Package, title: "Packaging", desc: "Physical products" },
-              ].map((touchpoint, i) => (
-                <div 
-                  key={i}
-                  className="p-6 rounded-2xl bg-zinc-900 border border-zinc-800 text-center group hover:border-orange-500/50 transition-colors"
-                  data-testid={`touchpoint-${i}`}
-                >
-                  <touchpoint.icon className="w-10 h-10 text-white/70 group-hover:text-orange-400 transition-colors mx-auto mb-4" />
-                  <h3 className="text-white font-bold mb-1">{touchpoint.title}</h3>
-                  <p className="text-white/80 text-sm">{touchpoint.desc}</p>
-                </div>
+            <div className="grid g4">
+              {stages.map((s) => (
+                <article className="card pain" key={s.h} data-rv>
+                  <h3>{s.h}</h3>
+                  <p>{s.p}</p>
+                  <span className="fix">{s.fix}</span>
+                </article>
               ))}
             </div>
           </div>
         </section>
-      </ScrollReveal>
 
-      {/* SECTION 5: Typography Exploration */}
-      <ScrollReveal>
-        <section className="py-20 px-4 bg-[#f5f0e6]">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* 6 · root to one */}
+        <section className="sec" id="root-to-one">
+          <div className="wrap">
+            <p className="lab" data-rv><b>05</b>Root to One</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">Every role you can’t <i>play alone.</i></h2>
+              <p className="lead">A brand is not finished at the logo. We walk the whole road with you, from the root to number one.</p>
+            </div>
+            <ol className="path">
+              {path.map((s, i) => (
+                <li key={s.h} data-rv><span className="n" aria-hidden="true">{i + 1}</span><h3>{s.h}</h3><p>{s.p}</p></li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* 7 · myths */}
+        <section className="sec paper" id="myths">
+          <div className="wrap">
+            <p className="lab" data-rv><b>06</b>Fact check</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">What founders hear. <i>Fact-checked.</i></h2>
+              <p className="lead">Six things everyone tells you when you start. Some are true. Some cost you a year.</p>
+            </div>
+            <ul className="myths">
+              {myths.map((m) => (
+                <li key={m.q} data-rv>
+                  <span><q>{m.q}</q><small>{m.s}</small></span>
+                  <span className={`st ${m.v}`}>{m.t}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* 8 · why OARC + red flags */}
+        <section className="sec dark" id="why">
+          <div className="wrap">
+            <p className="lab" data-rv><b>07</b>Why us</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">Why OARC Digital for <i>branding in Malta.</i></h2>
+              <p className="lead">We are more than a branding agency. We build the brand, then we build the business around it.</p>
+            </div>
+            <ul className="why">
+              {reasons.map((r) => (
+                <li key={r.h} data-rv><h3>{r.h}</h3><p>{r.p}</p></li>
+              ))}
+            </ul>
+            <div className="stat flags" data-rv>
+              <b>4</b>
               <div>
-                <h2 className="text-3xl md:text-4xl font-black mb-6 text-[#1a2e29]">
-                  Typography tells a story
-                </h2>
-                <p className="text-[#1a2e29]/60 mb-8">
-                  We explore dozens of type combinations before landing on the perfect pairing for your brand. Every font choice communicates something about who you are.
-                </p>
-
-                <div className="space-y-4">
-                  {typeExplorations.map((type, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setActiveExploration(i)}
-                      data-testid={`type-exploration-${i}`}
-                      className={`w-full text-left p-4 rounded-xl transition-colors ${
-                        activeExploration === i 
-                          ? 'bg-orange-500 text-white' 
-                          : 'bg-white hover:bg-white/80 border border-[#1a2e29]/10'
-                      }`}
-                    >
-                      <div className="flex justify-between items-center">
-                        <span className="font-bold">{type.family}</span>
-                        <span className={`text-sm ${activeExploration === i ? 'text-white/70' : 'text-[#1a2e29]/60'}`}>
-                          {type.style}
-                        </span>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-white rounded-2xl p-10 text-center border border-[#1a2e29]/10">
-                <div 
-                  className="text-6xl md:text-8xl font-black mb-4 text-[#1a2e29]"
-                  style={{ fontFamily: typeExplorations[activeExploration].family }}
-                >
-                  Aa
-                </div>
-                <div className="text-2xl font-bold mb-2 text-[#1a2e29]">
-                  {typeExplorations[activeExploration].family}
-                </div>
-                <div className="text-[#1a2e29]/60">
-                  {typeExplorations[activeExploration].weight} · {typeExplorations[activeExploration].style}
-                </div>
+                <p>red flags when you hire a branding agency in Malta:</p>
+                <ul>{flags.map((f) => <li key={f}>{f}</li>)}</ul>
               </div>
             </div>
           </div>
         </section>
-      </ScrollReveal>
 
-      {/* Stats */}
-      <section className="py-16 px-4 bg-orange-500">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { value: "150+", label: "Brands created" },
-              { value: "100%", label: "File ownership" },
-              { value: "12", label: "Avg. touchpoints" },
-              { value: "5.0", label: "Client rating" },
-            ].map((stat, i) => (
-              <div key={i} data-testid={`stat-${i}`}>
-                <div className="text-3xl md:text-4xl font-black text-white">{stat.value}</div>
-                <div className="text-sm text-white/80">{stat.label}</div>
+        {/* 9 · the package, set as end credits */}
+        <section className="sec" id="package">
+          <div className="wrap">
+            <p className="lab" data-rv><b>08</b>The package</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">The whole brand. <i>Built for you.</i></h2>
+              <p className="lead">One package. One team. From the first idea to the day you launch.</p>
+            </div>
+            <div className="pack y" data-rv>
+              <div>
+                <p className="otop"><span className="otag">Everything included</span></p>
+                <h3>The Root to One package.</h3>
+                <p className="pp">Strategy, name, story, look and launch, done for you. The price depends on your stage and how much you need.</p>
+                <div className="pbtns">
+                  <a className="btn btn-k" href={PRICE} target="_blank" rel="noopener" data-testid="link-price-package"><WaIcon />Get my price</a>
+                  <a className="btn btn-o" href="#top" data-testid="link-blueprint-package">Get my free blueprint</a>
+                </div>
               </div>
-            ))}
+              <ul className="chk">{included.map((it) => <li key={it}>{it}</li>)}</ul>
+            </div>
+            <p className="under" data-rv>
+              Only need one part? See <Link className="txt" href="/services/brand">brand strategy</Link>, <Link className="txt" href="/creative">the creative studio</Link> or{" "}
+              <Link className="txt" href="/aeo/web-development-agency-malta">websites</Link>.
+              Want the whole marketing team every month? See our <Link className="txt" href="/aeo/digital-marketing-agency-malta">digital marketing agency in Malta</Link> offer.
+            </p>
           </div>
-        </div>
-      </section>
+        </section>
 
-          <MaltaContextBlock slug="branding" />
+        {/* 10 · end credits */}
+        <section className="sec dark" id="credits">
+          <div className="wrap">
+            <div className="credits" data-rv>
+              <p className="star">Starring</p>
+              <span className="star-name">You</span>
+              <dl className="crew">
+                <div><dt>Idea development</dt><dd>OARC</dd></div>
+                <div><dt>Brand and launch</dt><dd>OARC</dd></div>
+                <div><dt>Marketing</dt><dd>OARC</dd></div>
+                <div><dt>Sales</dt><dd>OARC</dd></div>
+                <div><dt>Money and numbers</dt><dd>OARC</dd></div>
+                <div><dt>Team and hiring</dt><dd>OARC</dd></div>
+                <div><dt>Mindset coach</dt><dd>OARC</dd></div>
+                <div><dt>Your AI helper, day and night</dt><dd>OARC</dd></div>
+              </dl>
+            </div>
+          </div>
+        </section>
 
-      <section className="max-w-3xl mx-auto px-6 py-10" data-testid="branding-entity-block">
-        <p className="text-base leading-relaxed text-muted-foreground" data-speakable>
-          OARC Digital is a Birkirkara branding agency for Malta owners who need identity customers recognise and trust—connected to creative, AI agents, and Voice AI Worker when demand needs answering.
-        </p>
-        <p className="mt-4 text-sm text-muted-foreground" data-testid="branding-money-links">
-          Explore: <Link href="/">Home</Link> · <Link href="/creative">Creative</Link> · <Link href="/ai-agents">AI agents</Link> · <Link href="/solutions">Solutions</Link> · <Link href="/voice-ai-worker">Voice AI Worker</Link> · <Link href="/services/automation">Automation</Link> · <Link href="/services/video-production">Video</Link>
-        </p>
-      </section>
-      <FAQSection faqs={brandingFAQs} title="Frequently Asked Questions" subtitle="Everything you need to know about our branding services" schemaId="faq-branding"
-        emitJsonLd={false} />
+        {/* 11 · how it starts */}
+        <section className="sec paper" id="start">
+          <div className="wrap">
+            <p className="lab" data-rv><b>09</b>How it starts</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">Start with <i>one message.</i></h2>
+              <p className="lead">No meeting to book. No form to fill in. Your business name, or your idea in one line.</p>
+            </div>
+            <ol className="tl">
+              <li data-rv><p className="when">Today</p><h3>WhatsApp us your name or idea.</h3><p>One line is enough to begin.</p></li>
+              <li data-rv><p className="when">In 48 hours</p><h3>You get your free blueprint.</h3><p>The honest truth: keep it, fix it or drop it. What makes you different. Where your first 10 customers are. A 30-day plan.</p></li>
+              <li data-rv><p className="when">Week 1</p><h3>We agree the plan.</h3><p>We come to you, or you come to us in {NAP.addressLocality}. You see the price before anything starts.</p></li>
+              <li data-rv><p className="when">Then</p><h3>We build it and launch it.</h3><p>You approve each step. Nothing goes public without your yes.</p></li>
+            </ol>
+          </div>
+        </section>
 
-      <RelatedServices slug="/services/branding" />
+        {/* 12 · questions */}
+        <section className="sec" id="faq">
+          <div className="wrap">
+            <p className="lab" data-rv><b>10</b>Before you ask</p>
+            <div className="shead" data-rv>
+              <h2 className="h2">Questions about <i>branding in Malta.</i></h2>
+              <p className="lead">Short, straight answers. Ask us anything else on WhatsApp.</p>
+            </div>
+            <div className="faq">
+              {faqs.map((f) => (
+                <details key={f.question}>
+                  <summary>{f.question}</summary>
+                  <p className="faq-answer">{f.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
 
-
-      {/* FINAL CTA */}
-      <section className="py-20 px-4 bg-zinc-950 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
-            Ready to build your brand?
-          </h2>
-          <p className="text-white/80 text-lg mb-10">
-            Let's talk about your vision and how we can bring it to life.
-          </p>
-          <Link href="/contact">
-            <button
-              className="inline-flex items-center gap-3 bg-orange-500 text-white rounded-full pl-10 pr-4 py-5 text-lg font-bold hover:bg-orange-600 transition-colors"
-              data-testid="button-cta-brand"
-            >
-              Start a Brand Project
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                <ArrowRight className="h-6 w-6" />
-              </div>
-            </button>
-          </Link>
-        </div>
-      </section>
-    </Layout>
+        {/* 13 · close */}
+        <section className="fin dark">
+          <div className="wrap">
+            <h2 className="h2" data-rv>Make them <i>remember you.</i></h2>
+            <WaForm id="blueprint2" message={BLUEPRINT} button="Get my blueprint" placeholder="Your business name or idea" label="Your business name or idea" />
+            <p className="onote"><span>Free. In 48 hours. Opens WhatsApp.</span><a href={PRICE} target="_blank" rel="noopener" data-testid="link-price-close">Or get my price</a></p>
+            <p className="home">Branding is one of 8 departments at OARC Digital. Find us at {NAP.streetAddressShort}, {NAP.addressLocality} {NAP.postalCode}.</p>
+          </div>
+        </section>
+      </div>
+    </FlagshipShell>
   );
 }

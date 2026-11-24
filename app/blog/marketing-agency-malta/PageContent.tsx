@@ -157,7 +157,7 @@ export default function MarketingAgencyMalta() {
             <h3 className="font-bold mb-4">Related Reading</h3>
             <div className="flex flex-wrap gap-3">
               <Link href="/blog/social-media-management-cost-malta"><span className="px-3 py-1 rounded-full border text-sm hover:border-orange-400 hover:text-orange-400 transition-all cursor-pointer">Social Media Costs Malta</span></Link>
-              <Link href="/blog/branding-agency-malta"><span className="px-3 py-1 rounded-full border text-sm hover:border-orange-400 hover:text-orange-400 transition-all cursor-pointer">What a Branding Agency Does</span></Link>
+              <Link href="/services/branding"><span className="px-3 py-1 rounded-full border text-sm hover:border-orange-400 hover:text-orange-400 transition-all cursor-pointer">What a Branding Agency Does</span></Link>
               <Link href="/blog/content-marketing-malta"><span className="px-3 py-1 rounded-full border text-sm hover:border-orange-400 hover:text-orange-400 transition-all cursor-pointer">Content Marketing Malta</span></Link>
             </div>
           </div>
