@@ -142,6 +142,7 @@ export default function WebDesignMalta() {
             <h3 className="font-bold mb-4">Related Services</h3>
             <div className="flex flex-wrap gap-3">
               <Link href="/services/web-design"><span className="px-3 py-1 rounded-full border text-sm hover:border-orange-400 hover:text-orange-400 transition-all cursor-pointer">Web Design</span></Link>
+              <Link href="/aeo/web-development-agency-malta"><span className="px-3 py-1 rounded-full border text-sm hover:border-orange-400 hover:text-orange-400 transition-all cursor-pointer">Web Development Agency Malta</span></Link>
               <Link href="/blog/content-marketing-malta"><span className="px-3 py-1 rounded-full border text-sm hover:border-orange-400 hover:text-orange-400 transition-all cursor-pointer">Content Marketing Malta</span></Link>
               <Link href="/blog/social-media-management-cost-malta"><span className="px-3 py-1 rounded-full border text-sm hover:border-orange-400 hover:text-orange-400 transition-all cursor-pointer">Social Media Costs Malta</span></Link>
             </div>

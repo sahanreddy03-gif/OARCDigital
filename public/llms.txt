@@ -247,8 +247,6 @@ H360 by OARC Digital is the restaurant-only growth system for Malta: Google visi
 - [Branding agency Malta](https://oarcdigital.com/services/branding): Naming, identity systems and guidelines.
 - [Content creation Malta](https://oarcdigital.com/aeo/content-creation-malta): Maltese and English photo, video, social and editorial content.
 - [Video production Malta](https://oarcdigital.com/aeo/video-production-malta): Brand films, product video, social cuts and ad creative.
-- [Web design Malta](https://oarcdigital.com/aeo/web-design-malta): UI, UX and brand systems from wireframe to handoff.
-- [Website development Malta](https://oarcdigital.com/aeo/website-development-malta): Next.js, WordPress or Shopify builds, EU-hosted.
 - [Web development agency Malta](https://oarcdigital.com/aeo/web-development-agency-malta): Custom Next.js, WordPress, Shopify and Webflow sites.
 - [Instagram marketing Malta](https://oarcdigital.com/aeo/instagram-marketing-malta): Content production, Reels, paid amplification and growth.
 - [TikTok marketing Malta](https://oarcdigital.com/aeo/tiktok-marketing-malta): Short-video production, editing and TikTok Ads.
