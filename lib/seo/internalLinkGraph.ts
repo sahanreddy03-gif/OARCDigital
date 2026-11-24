@@ -648,7 +648,6 @@ const NODES: LinkNode[] = [
       "/ai-agents",
       "/aeo/seo-agency-malta",
       "/aeo/social-media-agency-malta",
-      "/aeo/branding-agency-malta",
       "/services/paid-advertising",
       "/aeo/best-marketing-agency-malta",
     ],
@@ -734,22 +733,6 @@ const NODES: LinkNode[] = [
     ],
   },
   {
-    path: "/aeo/branding-agency-malta",
-    title: "Branding Agency Malta",
-    shortLabel: "Branding Malta",
-    hub: "aeo-service",
-    spokes: [
-      "/",
-      "/services/branding",
-      "/creative",
-      "/ai-agents",
-      "/services/seo-services",
-      "/aeo/web-design-malta",
-      "/aeo/digital-marketing-agency-malta",
-      "/our-work",
-    ],
-  },
-  {
     path: "/aeo/web-design-malta",
     title: "Web Design Malta",
     shortLabel: "Web Design Malta",
@@ -762,7 +745,6 @@ const NODES: LinkNode[] = [
       "/ai-agents",
       "/services/web-design",
       "/aeo/website-development-malta",
-      "/aeo/branding-agency-malta",
     ],
   },
   {
@@ -1025,7 +1007,7 @@ const NODES: LinkNode[] = [
       "/aeo/marketing-agency-sliema",
       "/aeo/marketing-agency-st-julians",
       "/aeo/marketing-agency-birkirkara",
-      "/aeo/branding-agency-malta",
+      "/services/branding",
     ],
   },
   {
@@ -1061,7 +1043,7 @@ const NODES: LinkNode[] = [
       "/aeo/whatsapp-automation-malta",
       "/aeo/ecommerce-malta",
       "/aeo/igaming-marketing-malta",
-      "/aeo/branding-agency-malta",
+      "/services/branding",
     ],
   },
   {
@@ -1733,7 +1715,7 @@ const NODES: LinkNode[] = [
     shortLabel: "Branding",
     hub: "service",
     spokes: [
-      "/aeo/branding-agency-malta",
+      "/services/seo-services",
       "/aeo/digital-marketing-agency-malta",
       "/services/web-design",
       "/services/social-media-creative-management",

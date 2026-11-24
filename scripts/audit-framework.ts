@@ -519,6 +519,17 @@ async function audit() {
       continue;
     }
     const src = fs.readFileSync(file, "utf-8");
+    // Flagship-design pages (components/flagship) carry their own Malta copy in
+    // the page itself (address, towns, "in Malta" headings), approved by the
+    // owner word for word, so the generic block is not added to them. They must
+    // still name Malta and use the shared address data.
+    if (
+      src.includes("<FlagshipShell") &&
+      src.includes("Malta") &&
+      src.includes("NAP.")
+    ) {
+      continue;
+    }
     if (!src.includes(`<MaltaContextBlock`)) {
       issues.push({
         slug,

@@ -1,4 +1,4 @@
-import { LOCALES, TWINS, localeHref, localeUrl, type Locale } from "@/lib/i18n/twins";
+import { LOCALES, MT_ONLY, TWINS, localeHref, localeUrl, type Locale } from "@/lib/i18n/twins";
 import { lastmodForPath, urlsetXml, xmlResponse, type UrlEntry } from "@/lib/seo/sitemapHelpers";
 
 export const dynamic = "force-static";
@@ -13,7 +13,7 @@ function sourcePath(locale: Locale, path: string): string {
 }
 
 export function buildEntries(): UrlEntry[] {
-  return LOCALES.flatMap((locale) =>
+  const twins = LOCALES.flatMap((locale) =>
     TWINS.map((twin) => ({
       loc: localeUrl(locale, twin.path),
       // Real change date or none: no made-up fallback date.
@@ -22,6 +22,14 @@ export function buildEntries(): UrlEntry[] {
       priority: twin.path === "/" ? 0.8 : 0.6,
     })),
   );
+  // Pages that exist in English and Maltese only (blog articles).
+  const maltese = MT_ONLY.map((path) => ({
+    loc: localeUrl("mt", path),
+    lastmod: lastmodForPath(sourcePath("mt", path)),
+    changefreq: "monthly" as const,
+    priority: 0.6,
+  }));
+  return [...twins, ...maltese];
 }
 
 export async function GET() {
