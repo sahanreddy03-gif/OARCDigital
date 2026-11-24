@@ -150,7 +150,7 @@ const article: BlogArticle = {
     },
     { h2: "Kemm tiswa aġenzija kreattiva f'Malta?" },
     {
-      p: "Jiddependi minn x'għandek bżonn. Brand ġdid huwa xogħol differenti minn xahar ta' kontenut għas-social media. Għalhekk kull negozju nagħtuh il-prezz tiegħu. Ibgħatilna isem in-negozju tiegħek fuq WhatsApp u nibagħtulek prezz. Jekk qed tibni brand mill-bidu nett, ibda mill-gwida tagħna dwar kif tagħżel [aġenzija tal-branding f'Malta](/blog/branding-agency-malta).",
+      p: "Jiddependi minn x'għandek bżonn. Brand ġdid huwa xogħol differenti minn xahar ta' kontenut għas-social media. Għalhekk kull negozju nagħtuh il-prezz tiegħu. Ibgħatilna isem in-negozju tiegħek fuq WhatsApp u nibagħtulek prezz. Jekk qed tibni brand mill-bidu nett, ibda mill-gwida tagħna dwar kif tagħżel [aġenzija tal-branding f'Malta](/services/branding).",
     },
   ],
   faqTitle: "Tweġibiet fil-qosor",

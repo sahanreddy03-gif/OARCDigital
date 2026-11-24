@@ -148,7 +148,7 @@ const article: BlogArticle = {
     },
     { h2: "How much does a creative agency cost in Malta?" },
     {
-      p: "It depends on what you need. A new brand is a different job from a month of social media content. That is why we price each business on its own. Send us your business name on WhatsApp and we send you a price. If you are building a brand from zero, start with our guide to choosing a [branding agency in Malta](/blog/branding-agency-malta).",
+      p: "It depends on what you need. A new brand is a different job from a month of social media content. That is why we price each business on its own. Send us your business name on WhatsApp and we send you a price. If you are building a brand from zero, start with our guide to choosing a [branding agency in Malta](/services/branding).",
     },
   ],
   faqTitle: "Quick answers",

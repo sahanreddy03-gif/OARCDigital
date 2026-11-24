@@ -130,6 +130,9 @@ const nextConfig = {
       { source: '/ai-consulting-malta', destination: '/services/ai-consulting', permanent: true },
       { source: '/web-app-development-malta', destination: '/services/web-apps-development', permanent: true },
       { source: '/ai-automation-malta', destination: '/automation', permanent: true },
+      // Branding: one main page (Nov 2026). These two pages competed with it on Google.
+      { source: '/blog/branding-agency-malta', destination: '/services/branding', permanent: true },
+      { source: '/aeo/branding-agency-malta', destination: '/services/branding', permanent: true },
     ];
   },
   async headers() {
