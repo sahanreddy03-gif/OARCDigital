@@ -23,10 +23,10 @@ const PAGES: Tile[] = [
     twin: true,
   },
   {
-    label: "Gwida għax-xerrej",
-    href: "/insights/best-marketing-agencies-malta",
-    title: "L-aqwa aġenzija tal-marketing f'Malta 2026",
-    blurb: "Kif tagħżel aġenzija, u ħames testijiet li jifirdu l-aqwa mill-bqija.",
+    label: "Għaliex OARC",
+    href: "/blog/marketing-agency-malta",
+    title: "Għaliex OARC Digital",
+    blurb: "L-ewwel aġenzija Creative + AI Systems f'Malta. 32 brand reali, riżultati f'kull dipartiment.",
   },
   {
     label: "Staff tal-AI",

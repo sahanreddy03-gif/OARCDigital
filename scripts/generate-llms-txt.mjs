@@ -26,7 +26,6 @@ const locationServices = arr("locationServices");
 
 const BASE = "https://oarcdigital.com";
 const aeoSlugs = [
-  "best-marketing-agency-malta",
   "ai-agency-malta",
   "restaurant-marketing-malta",
   "hospitality-360-malta",

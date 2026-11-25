@@ -203,7 +203,6 @@ Real client work. Each page names the client, what OARC did and the measured res
 - [Contact](https://oarcdigital.com/contact): Call or WhatsApp +356 7971 1799, or book a call.
 - [Press resources](https://oarcdigital.com/press): Company description, contact details and canonical links for editors.
 - [OARC Digital in Malta](https://oarcdigital.com/insights/oarc-digital-malta): Search, answer engines, paid media, film, motion and AI staff from Birkirkara, with OARC's published numbers.
-- [Marketing agencies in Malta: shortlist and method](https://oarcdigital.com/insights/best-marketing-agencies-malta): The agencies OARC would shortlist in Malta, with the method used. OARC, the publisher, is listed separately and not ranked.
 - [OARC Digital film](https://oarcdigital.com/videos/oarc-digital-malta-film): Short film about the Birkirkara agency: one team for creative, filming, social media, ads and AI automation.
 - [AI-native marketing agency definition](https://oarcdigital.com/ai-native-marketing-agency): What the term means and how the operating model works.
 - [Malta marketing and AI research](https://oarcdigital.com/research): Original benchmarks and reports on marketing, AI and SEO in Malta.
@@ -290,7 +289,7 @@ OARC Digital is based at The Brewhouse, Birkirkara, and works with businesses ac
 ## Guides
 
 - [Blog](https://oarcdigital.com/blog): Articles on AI marketing, creative and growth for Malta businesses.
-- [How to choose a marketing agency in Malta](https://oarcdigital.com/blog/marketing-agency-malta)
+- [Why OARC Digital: creativity and software in one house](https://oarcdigital.com/blog/marketing-agency-malta)
 - [How much social media management costs in Malta](https://oarcdigital.com/blog/social-media-management-cost-malta)
 - [AI marketing in Malta: what is useful now](https://oarcdigital.com/blog/ai-marketing-malta)
 - [Paid advertising costs in Malta](https://oarcdigital.com/blog/paid-advertising-malta)

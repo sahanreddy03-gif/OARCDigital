@@ -68,7 +68,7 @@ function buildSourcePages(): string[] {
     "/pdf-hub",
     // Top SEO-locked URLs (Task #104 contract).
     "/aeo/digital-marketing-agency-malta",
-    "/aeo/best-marketing-agency-malta",
+    "/blog/marketing-agency-malta",
     "/aeo/digital-transformation-malta",
     "/ai-agents",
     "/automation",

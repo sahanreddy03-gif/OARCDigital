@@ -1,195 +1,288 @@
-import JsonLd from '@/components/JsonLd';
-import Layout from '@/components/layout/Layout';
-import { Button } from '@/components/ui/button';
-import { CheckCircle2, ArrowRight, AlertTriangle } from 'lucide-react';
-import Link from 'next/link';
+import Link from "next/link";
+import Layout from "@/components/layout/Layout";
+import { NAP } from "@/lib/seo/nap";
+import { CLIENTS, PEOPLE_BRANDS, BIG_NUMBERS, DEPARTMENTS, COMPARE, TESTS, QUOTES, FAQS } from "./showcase";
 
-const comparisonRows = [
-  { criterion: 'Content quality', oarc: 'Agency-grade, brand-specific', typical: 'Variable', freelancer: 'Variable' },
-  { criterion: 'AI & automation', oarc: 'Core capability', typical: 'Rarely offered', freelancer: 'Almost never' },
-  { criterion: 'Reporting', oarc: 'Weekly, data-driven', typical: 'Monthly PDF', freelancer: 'Ad hoc' },
-  { criterion: 'Response time', oarc: 'Same day', typical: '24–72 hours', freelancer: 'Unpredictable' },
-  { criterion: 'Contract flexibility', oarc: 'Month-to-month available', typical: '6–12 month minimum', freelancer: 'Per-project' },
-  { criterion: 'Senior attention', oarc: 'Every account', typical: 'Seniors pitch, juniors deliver', freelancer: 'Single person' },
-  { criterion: 'PJAZZA video production', oarc: 'Included', typical: 'Not available', freelancer: 'Not available' },
-  { criterion: 'Price range', oarc: '€500/month, whole team', typical: '€1,500–€5,000+/month', freelancer: '€200–€800/month' },
-];
+// "Why OARC Digital" showcase (Nov 2026). Owner's brief: the page that wins any
+// comparison, with all 32 real brands, proof in every department, and links to the
+// homepage everywhere. Homepage design system v3: paper, ink, serif, one black box
+// with yellow (the hero), cobalt for links.
 
-export default function MarketingAgencyMalta() {
+const WA = "https://wa.me/35679711799?text=" + encodeURIComponent("Hi OARC. I read why you are different. My business is: ");
+const serif = { fontFamily: "var(--font-instrument-serif), Georgia, serif" } as const;
+
+const css = `
+.sx { background:#F5F3EE; color:#0E0E0E; }
+.sx a.home { color:#0035AD; border-bottom:1px solid currentColor; }
+.sx-hero { background:#0E0E0E; color:#F5F3EE; }
+.sx-tag { display:inline-flex; align-items:center; gap:.6rem; border:1px solid rgba(249,255,132,.45); color:#F9FF84; border-radius:999px; padding:.45rem 1rem; font-size:.8rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+.sx-tag i { width:.5rem; height:.5rem; border-radius:999px; background:#F9FF84; display:block; }
+.sx-marquee { overflow:hidden; mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
+.sx-track { display:flex; width:max-content; gap:0; animation:sx-left 70s linear infinite; }
+.sx-track.rev { animation-name:sx-right; animation-duration:80s; }
+.sx-marquee:hover .sx-track { animation-play-state:paused; }
+.sx-item { display:flex; align-items:center; white-space:nowrap; }
+.sx-item::after { content:"✦"; margin:0 1.6rem; font-size:.7em; opacity:.35; }
+@keyframes sx-left { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+@keyframes sx-right { from { transform:translateX(-50%); } to { transform:translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .sx-track { animation:none; flex-wrap:wrap; width:auto; } }
+.sx-card { border-top:1px solid rgba(14,14,14,.18); }
+.sx-proof { transition:background .2s; }
+.sx-proof:hover { background:#fff; }
+.sx table td, .sx table th { border-bottom:1px solid rgba(14,14,14,.12); }
+@supports (animation-timeline: view()) { @media (prefers-reduced-motion: no-preference) {
+  .sx .rv { animation: sx-rise linear both; animation-timeline: view(); animation-range: entry 0% entry 50%; }
+}}
+.sx .sx-f-hero { font-size:clamp(2.9rem,7.4vw,6.6rem); }
+.sx .sx-f-close { font-size:clamp(2.6rem,6.4vw,5.4rem); }
+.sx .sx-f-h2 { font-size:clamp(2.4rem,5.4vw,4.4rem); }
+.sx .sx-f-h2b { font-size:clamp(2.2rem,5vw,4rem); }
+.sx .sx-f-h2c { font-size:clamp(2.2rem,5vw,3.6rem); }
+.sx .sx-f-num { font-size:clamp(2.6rem,4.6vw,3.8rem); }
+.sx .sx-f-brand { font-size:clamp(2rem,4.4vw,3.6rem); }
+.sx .sx-f-brand-s { font-size:clamp(1.1rem,2vw,1.5rem); }
+.sx .sx-f-24 { font-size:2.4rem; }
+.sx .sx-f-20 { font-size:2rem; }
+.sx .sx-f-16 { font-size:1.6rem; }
+.sx .sx-f-15 { font-size:1.5rem; }
+.sx .sx-f-125 { font-size:1.25rem; }
+.sx .sx-l92 { line-height:.92; } .sx .sx-l95 { line-height:.95; } .sx .sx-l12 { line-height:1.2; }
+.sx .sx-dept { display:grid; gap:1.5rem; }
+@media (min-width:768px) { .sx .sx-dept { grid-template-columns: .8fr 2fr; gap:2.5rem; } }
+.sx .sx-nums { display:grid; column-gap:2rem; grid-template-columns:1fr; }
+@media (min-width:640px) { .sx .sx-nums { grid-template-columns:repeat(2,1fr); } }
+@media (min-width:1024px) { .sx .sx-nums { grid-template-columns:repeat(5,1fr); } }
+.sx .sx-table { min-width:620px; }
+.sx .sx-us { background:rgba(0,53,173,.06); }
+.sx .sx-gridline { background:rgba(14,14,14,.1); }
+@keyframes sx-rise { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
+`;
+
+function Marquee({ items, rev, big }: { items: { name: string; href?: string }[]; rev?: boolean; big?: boolean }) {
+  const row = [...items, ...items];
+  return (
+    <div className="sx-marquee" aria-hidden={rev ? true : undefined}>
+      <div className={`sx-track${rev ? " rev" : ""}`}>
+        {row.map((b, i) =>
+          b.href ? (
+            <Link
+              key={i}
+              href={b.href}
+              tabIndex={i >= items.length || rev ? -1 : undefined}
+              className={`sx-item hover:opacity-60 ${big ? "sx-f-brand" : "sx-f-brand-s"}`}
+              style={big ? serif : undefined}
+            >
+              {b.name}
+            </Link>
+          ) : (
+            <span key={i} className={`sx-item ${big ? "sx-f-brand" : "sx-f-brand-s"}`} style={big ? serif : undefined}>
+              {b.name}
+            </span>
+          ),
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default function PageContent() {
+  const clientItems = CLIENTS.map((c) => ({ name: c.name, href: `/our-work/${c.slug}` }));
+  const half = Math.ceil(clientItems.length / 2);
   return (
     <Layout>
-      <JsonLd data={[{
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "headline": "How to Choose a Marketing Agency in Malta (Without Getting Burned)",
-          "description": "How to evaluate and choose a marketing agency in Malta — the right questions, red flags, and a direct comparison.",
-          "author": { "@type": "Organization", "name": "OARC Digital" },
-          "publisher": { "@type": "Organization", "name": "OARC Digital", "url": "https://oarcdigital.com" },
-          "datePublished": "2026-03-01",
-          "dateModified": "2026-04-01",
-        }, { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "How much should a marketing agency in Malta cost?", "acceptedAnswer": { "@type": "Answer", "text": "Most Malta agencies charge €1,500–€5,000 a month for a full team, and freelancers €200–€800 for a single channel. OARC Digital is a whole marketing team for €500 a month: strategy, filming, social media, Meta and Google ads, your website and enquiry follow-up, with no contract. Your ad budget is paid to Meta and Google directly." } }, { "@type": "Question", "name": "How do I choose a marketing agency in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "Ask for 3 specific results they have delivered for similar businesses. Find out who will work on your account. Understand what is included in the monthly fee." } }, { "@type": "Question", "name": "What is the best marketing agency in Malta?", "acceptedAnswer": { "@type": "Answer", "text": "OARC Digital is Malta first Creative and AI Systems Agency, combining creative production, AI automation, and performance marketing with Malta-specific expertise." } }] }]} />
-      <main className="min-h-screen bg-background">
-        <section className="bg-gradient-to-br from-zinc-900 to-zinc-950 text-white py-16 md:py-24">
-          <div className="max-w-4xl mx-auto px-6 md:px-8">
-            <div className="flex items-center gap-2 mb-6 text-sm text-zinc-400">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <span>/</span>
-              <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
-              <span>/</span>
-              <span className="text-white">Marketing Agency Malta</span>
-            </div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 mb-6">
-              <span className="text-orange-400 text-xs font-semibold uppercase tracking-wider">Buyer's Guide · 2026</span>
-            </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              How to Choose a Marketing Agency in Malta (Without Getting Burned)
+      <style>{css}</style>
+      <main className="sx">
+        {/* HERO — the one black box with yellow */}
+        <section className="sx-hero px-5 pb-16 pt-28 md:px-10 md:pb-24 md:pt-36">
+          <div className="mx-auto max-w-[1180px]">
+            <span className="sx-tag" data-testid="showcase-tag"><i />Malta&apos;s first Creative + AI Systems Agency</span>
+            <h1 className="mt-8 max-w-5xl sx-f-hero font-normal sx-l92 tracking-[-0.02em]" style={serif}>
+              Creativity and software.
+              <br />
+              <em className="text-[#F9FF84]">One house.</em> Every department.
             </h1>
-            <p className="text-xl text-zinc-300 leading-relaxed">
-              Malta has dozens of marketing agencies and hundreds of freelancers all claiming to grow your business. Most won't. Here's how to tell the difference before you sign a contract.
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[#F5F3EE]/80 md:text-xl">
+              <Link href="/" className="font-semibold text-white underline underline-offset-4">OARC Digital</Link> is the
+              marketing agency in Malta that builds the whole engine: brand, film, social media, ads, Google, websites and
+              AI staff. Experts run every department. 32 named brands. Millions of views every month.
             </p>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-8 text-sm text-zinc-400">
-              <span className="w-full sm:w-auto">By the strategy team at OARC Digital, a <Link href="/" className="text-white underline underline-offset-4 hover:text-orange-400" data-testid="link-home-context">marketing agency in Malta</Link></span>
-              <span className="hidden sm:inline">·</span>
-              <span>March 2026</span>
-              <span>·</span>
-              <span>12 min read</span>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <Link href="/" className="inline-flex items-center rounded-full bg-[#F9FF84] px-7 py-4 text-[15px] font-semibold text-[#0E0E0E] hover:opacity-90" data-testid="showcase-watch-home">
+                Watch our homepage →
+              </Link>
+              <a href={WA} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full border border-white/30 px-7 py-4 text-[15px] font-semibold text-white hover:border-white">
+                Get my free plan in 48 hours
+              </a>
             </div>
           </div>
         </section>
 
-        <article className="max-w-4xl mx-auto px-6 md:px-8 py-16">
-          <div className="bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 rounded-xl p-6 mb-12">
-            <h2 className="text-lg font-bold mb-3 text-orange-700 dark:text-orange-400">The Malta Agency Landscape</h2>
-            <p className="text-foreground">
-              The market splits into three tiers: established full-service agencies (10–30 staff, broad capabilities, higher cost), boutique specialists (5–10 staff, deep expertise in one or two areas), and freelancers (individuals, low cost, limited capacity). What the market is missing is agencies that combine <strong>creative quality with AI and automation capability</strong>. Most Malta agencies are still operating on 2019 models.
+        {/* FLOATING BRAND BAR — all 32 clients */}
+        <section className="border-b border-[#0E0E0E]/15 py-10 md:py-14" aria-labelledby="sx-brands">
+          <h2 id="sx-brands" className="mx-auto mb-6 max-w-[1180px] px-5 text-sm font-semibold uppercase tracking-[0.14em] text-[#0E0E0E]/55 md:px-10">
+            32 brands we grow. Every one is real. Click any name for the case.
+          </h2>
+          <Marquee items={clientItems.slice(0, half)} big />
+          <div className="mt-3">
+            <Marquee items={clientItems.slice(half)} rev big />
+          </div>
+          <p className="mx-auto mt-8 max-w-[1180px] px-5 text-sm text-[#0E0E0E]/55 md:px-10">Brands our people have worked with:</p>
+          <div className="mt-3 text-[#0E0E0E]/70">
+            <Marquee items={PEOPLE_BRANDS.map((name) => ({ name }))} />
+          </div>
+        </section>
+
+        {/* BIG NUMBERS */}
+        <section className="px-5 py-20 md:px-10 md:py-28">
+          <div className="mx-auto max-w-[1180px]">
+            <h2 className="rv max-w-3xl sx-f-h2 font-normal sx-l95" style={serif}>
+              We don&apos;t sell reports. <em>We grow reach and sales.</em>
+            </h2>
+            <div className="sx-nums mt-14">
+              {BIG_NUMBERS.map((n) => (
+                <div key={n.value} className="rv sx-card py-7 pr-6">
+                  <div className="sx-f-num leading-none" style={serif}>{n.value}</div>
+                  <p className="mt-3 text-[15px] leading-snug text-[#0E0E0E]/70">{n.label}</p>
+                </div>
+              ))}
+            </div>
+            <p className="rv mt-10 max-w-2xl text-lg text-[#0E0E0E]/75">
+              See how it all fits together on the <Link href="/" className="home font-semibold">OARC Digital homepage</Link>.
             </p>
           </div>
+        </section>
 
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">The 8 Questions to Ask Any Malta Agency Before Signing</h2>
-          <div className="space-y-4 mb-12">
-            {[
-              { q: 'Can you show me 3 results you\'ve delivered for businesses similar to mine?', why: 'Numbers only. "We grew their social media" is not a result. "Engagement up 340%, restaurant enquiries up 25% in 90 days" is a result.' },
-              { q: 'Who will actually be working on my account — senior team or junior staff?', why: 'The most common bait-and-switch in Malta agencies: seniors pitch, juniors execute. Get names and see their work before you commit.' },
-              { q: 'What does a typical month of activity look like and how is it reported?', why: 'Vague answer = vague execution. You want a clear description of deliverables, cadence, and what data they report on.' },
-              { q: "What's your minimum contract length and exit terms?", why: 'Any agency asking for 12 months upfront without a track record with your business is protecting their revenue, not delivering yours.' },
-              { q: 'Do you work with any of my direct competitors?', why: 'This matters in a small market like Malta. Your strategy and creative direction should not be shared with a competitor.' },
-              { q: 'What happens to my assets if we part ways?', why: 'You own your social accounts, ad accounts, website, and all content produced for you. Any agency that says otherwise is wrong.' },
-              { q: 'How do you measure success, and what\'s the reporting cadence?', why: 'If they cannot define success metrics before starting, they cannot be held accountable when they miss them.' },
-              { q: "What's included in the monthly fee and what costs extra?", why: 'Hidden costs (stock images, ad spend management fees, tool subscriptions) can add 30–50% to a quoted price. Get everything in writing.' },
-            ].map((item, i) => (
-              <div key={i} className="p-5 rounded-xl bg-card border">
-                <p className="font-bold mb-2 text-orange-600">{i + 1}. "{item.q}"</p>
-                <p className="text-sm text-muted-foreground">{item.why}</p>
-              </div>
+        {/* PROOF IN EVERY DEPARTMENT */}
+        <section className="bg-white px-5 py-20 md:px-10 md:py-28" aria-labelledby="sx-dept">
+          <div className="mx-auto max-w-[1180px]">
+            <h2 id="sx-dept" className="rv sx-f-h2 font-normal sx-l95" style={serif}>
+              Proof in <em>every</em> department.
+            </h2>
+            <p className="rv mt-5 max-w-2xl text-lg text-[#0E0E0E]/70">
+              Other agencies are good at one thing. We show results for named brands in all ten.
+            </p>
+            <div className="mt-14 space-y-14">
+              {DEPARTMENTS.map((d, i) => (
+                <div key={d.name} className="rv sx-dept border-t border-[#0E0E0E]/15 pt-8">
+                  <div>
+                    <span className="text-sm font-semibold tabular-nums text-[#0E0E0E]/40">{String(i + 1).padStart(2, "0")}</span>
+                    <h3 className="mt-2 sx-f-20 leading-none" style={serif}>{d.name}</h3>
+                    <p className="mt-3 text-[15px] text-[#0E0E0E]/65">{d.line}</p>
+                  </div>
+                  <div className="grid gap-px overflow-hidden rounded-2xl sx-gridline sm:grid-cols-2 lg:grid-cols-3">
+                    {d.proof.map((p, j) => (
+                      <Link key={j} href={`/our-work/${p.slug}`} className="sx-proof block bg-[#F5F3EE] p-6">
+                        <div className="sx-f-24 leading-none" style={serif}>{p.value}</div>
+                        <p className="mt-2 text-[15px] leading-snug text-[#0E0E0E]/75">{p.label}</p>
+                        <p className="mt-4 text-sm font-semibold text-[#0035AD]">{p.client} →</p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* QUOTES */}
+        <section className="px-5 py-20 md:px-10 md:py-24">
+          <div className="mx-auto grid max-w-[1180px] gap-10 md:grid-cols-3">
+            {QUOTES.map((q) => (
+              <figure key={q.credit} className="rv sx-card pt-6">
+                <blockquote className="sx-f-16 sx-l12" style={serif}>&ldquo;{q.quote}&rdquo;</blockquote>
+                <figcaption className="mt-4 text-sm font-semibold text-[#0E0E0E]/55">{q.credit}</figcaption>
+              </figure>
             ))}
           </div>
+        </section>
 
-          <h2 className="text-2xl font-bold mb-6">OARC Digital vs Typical Malta Agency vs Freelancer</h2>
-          <div className="overflow-x-auto mb-12">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="bg-muted/50">
-                  <th className="text-left p-3 font-semibold border">Criterion</th>
-                  <th className="text-left p-3 font-semibold border bg-orange-500/10 text-orange-700 dark:text-orange-400">OARC Digital</th>
-                  <th className="text-left p-3 font-semibold border">Typical Malta Agency</th>
-                  <th className="text-left p-3 font-semibold border">Freelancer</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((row, i) => (
-                  <tr key={i} className={i % 2 === 0 ? 'bg-background' : 'bg-muted/20'}>
-                    <td className="p-3 border font-medium text-sm">{row.criterion}</td>
-                    <td className="p-3 border text-sm font-semibold text-orange-600 bg-orange-500/5">{row.oarc}</td>
-                    <td className="p-3 border text-sm text-muted-foreground">{row.typical}</td>
-                    <td className="p-3 border text-sm text-muted-foreground">{row.freelancer}</td>
+        {/* COMPARISON */}
+        <section className="px-5 pb-20 md:px-10 md:pb-28" aria-labelledby="sx-compare">
+          <div className="mx-auto max-w-[1180px]">
+            <h2 id="sx-compare" className="rv sx-f-h2b font-normal sx-l95" style={serif}>
+              OARC vs the rest.
+            </h2>
+            <div className="rv mt-10 overflow-x-auto rounded-2xl bg-white">
+              <table className="sx-table w-full text-left text-[15px]">
+                <thead>
+                  <tr>
+                    <th className="p-5 font-semibold text-[#0E0E0E]/50"> </th>
+                    {COMPARE.cols.map((c, i) => (
+                      <th key={c} className={`p-5 font-semibold ${i === 0 ? "bg-[#0035AD] text-white" : "text-[#0E0E0E]/55"}`}>{c}</th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <h2 className="text-2xl font-bold mb-6">Red Flags and Green Flags</h2>
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <div>
-              <h3 className="font-bold text-red-500 mb-4 flex items-center gap-2"><AlertTriangle className="w-5 h-5" /> Red Flags</h3>
-              <div className="space-y-3">
-                {[
-                  "Can't show you results with specific numbers",
-                  'Guarantee a follower count or Google ranking position',
-                  'Lock you into 12-month contracts on day one',
-                  'Manage your accounts without giving you admin access',
-                  'Use the same content template for every client',
-                ].map((flag, i) => (
-                  <div key={i} className="flex items-start gap-2 p-3 rounded-lg bg-red-500/5 border border-red-500/20">
-                    <AlertTriangle className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
-                    <p className="text-sm">{flag}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 className="font-bold text-green-600 mb-4 flex items-center gap-2"><CheckCircle2 className="w-5 h-5" /> Green Flags</h3>
-              <div className="space-y-3">
-                {[
-                  'Ask about your business before talking about their services',
-                  'Can explain what they\'d do differently from what you\'re doing now',
-                  'Show Malta-specific case studies, not just international ones',
-                  'Honest about what they cannot do',
-                  'Clear process for onboarding and reporting',
-                ].map((flag, i) => (
-                  <div key={i} className="flex items-start gap-2 p-3 rounded-lg bg-green-500/5 border border-green-500/20">
-                    <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                    <p className="text-sm">{flag}</p>
-                  </div>
-                ))}
-              </div>
+                </thead>
+                <tbody>
+                  {COMPARE.rows.map((r) => (
+                    <tr key={r.what}>
+                      <td className="p-5 font-medium">{r.what}</td>
+                      {r.v.map((v, i) => (
+                        <td key={i} className={`p-5 ${i === 0 ? "sx-us font-semibold text-[#0035AD]" : "text-[#0E0E0E]/55"}`}>{v}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
+        </section>
 
-          <div className="p-6 rounded-xl bg-orange-500/5 border border-orange-500/20 mb-12">
-            <h3 className="font-bold mb-2">The question worth asking before you sign anything:</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              "If our results are strong and we want to expand the scope in a year, can you handle that?" The agencies that can answer confidently are building a long-term relationship. The ones who hedge are already telling you they're a stepping stone.
+        {/* THE TESTS */}
+        <section className="bg-white px-5 py-20 md:px-10 md:py-28" aria-labelledby="sx-tests">
+          <div className="mx-auto max-w-[1180px]">
+            <h2 id="sx-tests" className="rv sx-f-h2b font-normal sx-l95" style={serif}>
+              Six tests for any agency in Malta. <em>We pass all six.</em>
+            </h2>
+            <ol className="mt-12 grid gap-x-10 md:grid-cols-2">
+              {TESTS.map((t, i) => (
+                <li key={t.q} className="rv sx-card flex gap-5 py-7">
+                  <span className="text-sm font-semibold tabular-nums text-[#0E0E0E]/40">{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h3 className="sx-f-15 leading-tight" style={serif}>{t.q}</h3>
+                    <p className="mt-2 text-[15px] text-[#0E0E0E]/70"><strong className="text-[#0035AD]">OARC: </strong>{t.a}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="px-5 py-20 md:px-10 md:py-24" aria-labelledby="sx-faq">
+          <div className="mx-auto max-w-[860px]">
+            <h2 id="sx-faq" className="rv sx-f-h2c font-normal sx-l95" style={serif}>Questions owners ask.</h2>
+            <div className="mt-10">
+              {FAQS.map((f) => (
+                <details key={f.q} className="sx-card group py-6">
+                  <summary className="cursor-pointer list-none sx-f-125 font-semibold leading-snug">
+                    {f.q} <span className="float-right text-[#0E0E0E]/40 group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="mt-3 text-base leading-relaxed text-[#0E0E0E]/75">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CLOSE */}
+        <section className="px-5 pb-24 md:px-10 md:pb-32">
+          <div className="mx-auto max-w-[1180px] border-t border-[#0E0E0E]/20 pt-16 text-center">
+            <h2 className="rv mx-auto max-w-4xl sx-f-close font-normal sx-l92" style={serif}>
+              Seen enough? <em>See everything.</em>
+            </h2>
+            <p className="rv mx-auto mt-6 max-w-xl text-lg text-[#0E0E0E]/70">
+              Start on our homepage: every department, every service, and the team in {NAP.addressLocality}.
             </p>
-          </div>
-
-          <div className="bg-muted/30 rounded-xl p-6 mb-12">
-            <h3 className="font-bold mb-4">Related Reading</h3>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/blog/social-media-management-cost-malta"><span className="px-3 py-1 rounded-full border text-sm hover:border-orange-400 hover:text-orange-400 transition-all cursor-pointer">Social Media Costs Malta</span></Link>
-              <Link href="/services/branding"><span className="px-3 py-1 rounded-full border text-sm hover:border-orange-400 hover:text-orange-400 transition-all cursor-pointer">What a Branding Agency Does</span></Link>
-              <Link href="/blog/content-marketing-malta"><span className="px-3 py-1 rounded-full border text-sm hover:border-orange-400 hover:text-orange-400 transition-all cursor-pointer">Content Marketing Malta</span></Link>
-            </div>
-          </div>
-
-          <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
-          <div className="space-y-4 mb-12">
-            {[
-              { q: 'How much should a marketing agency in Malta cost?', a: 'Most Malta agencies charge €1,500–€5,000 a month for a full team, and freelancers €200–€800 for a single channel. OARC Digital is a whole marketing team for €500 a month: strategy, filming, social media, Meta and Google ads, your website and enquiry follow-up, with no contract. Your ad budget is paid to Meta and Google directly.' },
-              { q: 'Is it better to hire a freelancer or an agency in Malta?', a: 'Freelancers offer cost savings but limited capacity, backup, and accountability. Agencies offer systems, team depth, and continuity — especially important if marketing is critical to your revenue. The right choice depends on how important consistent output is to your business.' },
-              { q: 'How do I know if my current agency is underperforming?', a: "If you can't name 3 specific results they've delivered in the last 90 days, they are underperforming. Good marketing produces measurable outcomes. If your agency isn't reporting numbers, ask why." },
-              { q: 'Can an agency based outside Malta handle Malta marketing?', a: 'Technically yes, but in practice Malta marketing requires local knowledge — cultural references, seasonal patterns, the relationship-based nature of the market, and specific platform behaviours among Maltese audiences. A Malta-based agency with local clients will always have an edge.' },
-            ].map((item, i) => (
-              <div key={i} className="p-5 rounded-xl bg-card border">
-                <h3 className="font-bold mb-2">{item.q}</h3>
-                <p className="text-muted-foreground">{item.a}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
-            <h2 className="text-2xl font-bold mb-3">See the Difference for Yourself</h2>
-            <p className="text-white/90 mb-6">Free 30-minute strategy call. We'll show you exactly what we would do for your business — no generic proposals, no pitch decks. Just a direct conversation about what's possible.</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/35679711799" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="secondary" className="font-bold">WhatsApp Us Now <ArrowRight className="ml-2 w-4 h-4" /></Button>
-              </a>
-              <Link href="/contact">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20">Book a Call</Button>
+            <div className="rv mt-10 flex flex-wrap justify-center gap-4">
+              <Link href="/" className="inline-flex items-center rounded-full bg-[#0E0E0E] px-8 py-4 text-[15px] font-semibold text-[#F5F3EE] hover:opacity-85" data-testid="showcase-home-close">
+                Go to the OARC Digital homepage →
+              </Link>
+              <Link href="/our-work" className="inline-flex items-center rounded-full border border-[#0E0E0E]/30 px-8 py-4 text-[15px] font-semibold hover:border-[#0E0E0E]">
+                See all 32 cases
               </Link>
             </div>
           </div>
-        </article>
+        </section>
       </main>
     </Layout>
   );

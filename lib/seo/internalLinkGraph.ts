@@ -47,7 +47,8 @@ const FINAL_HREF: Readonly<Record<string, string>> = {
   "/services/customer-acquisition-accelerator": "/services/customer-acquisition",
   "/services/api-integration-services": "/services/api-integration",
   "/services/mobile-applications-development": "/services/mobile-apps-development",
-  "/aeo/best-marketing-agency-malta": "/insights/best-marketing-agencies-malta",
+  // Removed Nov 2026 (308s to "/"); links built from this node go to the showcase.
+  "/aeo/best-marketing-agency-malta": "/blog/marketing-agency-malta",
 };
 
 export function finalHref(path: string): string {
@@ -652,8 +653,8 @@ const NODES: LinkNode[] = [
   },
   {
     path: "/aeo/best-marketing-agency-malta",
-    title: "Best Marketing Agency Malta",
-    shortLabel: "Best Agency Malta",
+    title: "Why OARC Digital",
+    shortLabel: "Why OARC Digital",
     hub: "aeo-service",
     spokes: [
       "/",
