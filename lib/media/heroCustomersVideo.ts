@@ -9,7 +9,7 @@ export const HERO_CUSTOMERS_VIDEO = {
   width: 1280,
   height: 720,
   durationIso: "PT17S",
-  uploadDate: "2026-08-04",
+  uploadDate: "2026-08-04T00:00:00+02:00",
   absoluteMp4: "https://oarcdigital.com/media/hero/hero-customers-loop.mp4",
   absolutePosterJpg: "https://oarcdigital.com/media/hero/hero-customers-poster-v2.jpg",
   name: "Customers? — OARC Digital homepage hero",

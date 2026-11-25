@@ -9,11 +9,15 @@ import { HERO_CUSTOMERS_VIDEO } from "@/lib/media/heroCustomersVideo";
  * Watch page for the homepage film. Google only indexes a video when it is the
  * main content of its page ("Video isn't on a watch page" in Search Console for
  * the homepage hero loop). This page exists so the film can be indexed.
+ *
+ * Owner rule (Nov 2026): no page may compete with the homepage. So this page
+ * carries no agency search words ("marketing agency Malta" etc.) and no price;
+ * it is only about the film, and it sends readers to the homepage.
  */
 const CANONICAL = "https://oarcdigital.com/videos/oarc-digital-malta-film";
-const TITLE = "OARC Digital Film: Marketing Agency Malta (Video)";
+const TITLE = "Customers? The OARC Digital Film (Video)";
 const DESCRIPTION =
-  "Watch OARC Digital's 17-second film. A Birkirkara marketing agency: one team for creative, filming, social media, ads and AI automation, for €500 a month.";
+  "Watch \"Customers?\", OARC Digital's 17-second film. One question every business owner asks, in one short video.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -36,7 +40,7 @@ const videoSchema = {
     {
       "@type": "VideoObject",
       "@id": `${CANONICAL}#video`,
-      name: "OARC Digital — Customers? (Marketing Agency Malta film)",
+      name: "Customers? — the OARC Digital film",
       description: DESCRIPTION,
       thumbnailUrl: [HERO_CUSTOMERS_VIDEO.absolutePosterJpg],
       uploadDate: HERO_CUSTOMERS_VIDEO.uploadDate,
@@ -81,13 +85,15 @@ export default function Page() {
 
         <section className="mt-10 max-w-3xl space-y-5 text-lg leading-relaxed text-muted-foreground">
           <p>
-            One question every owner in Malta asks: where are the customers? This film is how OARC Digital opens that
-            conversation. We are a marketing agency in Birkirkara, at {NAP.streetAddressShort}, and we run one team for
-            creative, filming, social media, Meta and Google ads, websites and AI follow-up.
+            One question every business owner asks: where are the customers? This 17-second film is how OARC Digital
+            opens that conversation. We are in Birkirkara, at {NAP.streetAddressShort}.
           </p>
           <p>
-            It is the whole marketing team for €500 a month, with no setup fee. You keep your accounts, your footage
-            and your dashboard.
+            To see everything we do, go to the{" "}
+            <Link href="/" className="font-semibold text-foreground underline underline-offset-4">
+              OARC Digital
+            </Link>{" "}
+            homepage.
           </p>
         </section>
 
