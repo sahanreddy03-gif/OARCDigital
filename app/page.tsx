@@ -80,7 +80,6 @@ export default function Page() {
     uploadDate: HERO_CUSTOMERS_VIDEO.uploadDate,
     duration: HERO_CUSTOMERS_VIDEO.durationIso,
     contentUrl: HERO_CUSTOMERS_VIDEO.absoluteMp4,
-    embedUrl: "https://oarcdigital.com/",
   };
 
   return (
