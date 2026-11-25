@@ -18,7 +18,7 @@ export default function GuideLeadForm({ leadName, ctaLabel }: Props) {
     if (!form.name.trim() || !form.email.trim()) return;
     setStatus('loading');
     try {
-      const res = await fetch('https://formspree.io/f/xblnedyl', {
+      const res = await fetch('https://formspree.io/f/xlgavdlp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({

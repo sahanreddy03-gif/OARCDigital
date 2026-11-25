@@ -31,12 +31,20 @@ export type LeadSubmission = {
   subject?: string;
 };
 
+// Formspree rejects the whole submission (422) when `_replyto` is not a valid
+// email. `contact` is often a phone number, or "phone · email" from the offer
+// page, so only pass an email that is actually in it.
+function replyToEmail(contact: string): string | undefined {
+  return contact.match(/[^\s@·,;<>()]+@[^\s@·,;<>()]+\.[a-z]{2,}/i)?.[0];
+}
+
 async function notifyFormspree(payload: LeadSubmission): Promise<boolean> {
-  const response = await fetch("https://formspree.io/f/xblnedyl", {
+  const replyTo = replyToEmail(payload.contact);
+  const response = await fetch("https://formspree.io/f/xlgavdlp", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify({
-      _replyto: payload.contact,
+      ...(replyTo ? { _replyto: replyTo } : {}),
       _subject: payload.subject ?? `New OARC enquiry — ${payload.name} (${payload.service})`,
       name: payload.name,
       contact: payload.contact,

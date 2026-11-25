@@ -53,7 +53,7 @@ export default function QuickLeadModal({
     setError(null);
     
     try {
-      const response = await fetch('https://formspree.io/f/xblnedyl', {
+      const response = await fetch('https://formspree.io/f/xlgavdlp', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -61,7 +61,8 @@ export default function QuickLeadModal({
         },
         body: JSON.stringify({
           name: formData.name,
-          email: formData.email,
+          // Email is optional here; an empty `email` can make Formspree reject the lead.
+          ...(formData.email.trim() ? { email: formData.email.trim() } : {}),
           phone: formData.phone,
           plan: formData.plan || planName || 'Not specified',
           source: source,
