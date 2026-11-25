@@ -137,6 +137,12 @@ const nextConfig = {
       // ranks best; web development -> the websites flagship page.
       { source: '/aeo/web-design-malta', destination: '/blog/web-design-malta', permanent: true },
       { source: '/aeo/website-development-malta', destination: '/aeo/web-development-agency-malta', permanent: true },
+      // Homepage first (Nov 2026): weak pages that competed with the homepage forward
+      // to it; the 'number one' article was merged into the Why OARC showcase blog.
+      { source: '/aeo/best-marketing-agency-malta', destination: '/', permanent: true },
+      { source: '/insights/best-marketing-agencies-malta', destination: '/', permanent: true },
+      { source: '/blog/number-one-marketing-ai-agency-malta', destination: '/blog/marketing-agency-malta', permanent: true },
+      { source: '/mt/blog/number-one-marketing-ai-agency-malta', destination: '/mt', permanent: true },
     ];
   },
   async headers() {

@@ -46,15 +46,6 @@ interface BlogPost {
 // SEO-optimized blog posts targeting voice search
 const blogPosts: BlogPost[] = [
   {
-    slug: 'number-one-marketing-ai-agency-malta',
-    title: 'The Number One Marketing and AI Agency in Malta: Our Case',
-    excerpt: 'Why we say OARC is number one in Malta: client results in every department, from #1 on Google in 3 months to 12,000 fans at a Fan Zone.',
-    category: 'Digital Marketing',
-    readTime: '8 min',
-    publishDate: '2026-11-19',
-    image: '/attached_assets/generated_images/oarc-dept-compare.jpg'
-  },
-  {
     slug: 'ai-for-business-malta',
     title: 'AI for Business in Malta: 12 Questions Owners Ask, Answered Straight',
     excerpt: 'What AI can really do for a business in Malta, with real client results: AI agents, voice AI, cost, safety and where to start.',

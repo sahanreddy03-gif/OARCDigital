@@ -2,24 +2,31 @@ import type { Metadata } from "next";
 import PageContent from "./PageContent";
 import RouteSchema from "@/components/RouteSchema";
 import { ogImageEntry, ogImageUrl } from "@/lib/seo/ogImageUrl";
+import { FAQS } from "./showcase";
 
+// "Why OARC Digital" showcase (Nov 2026). The title is about OARC, not the homepage's
+// search words, so this page sends its strength to the homepage instead of competing.
+const PATH = "/blog/marketing-agency-malta";
+const TITLE = "Why OARC Digital | Malta's First Creative + AI Systems Agency";
+const DESCRIPTION =
+  "Creativity and software in one house. 32 real brands, millions of views a month and proof in every department, from Google #1 to 12,000 fans.";
 
 export const metadata: Metadata = {
-  title: "How to Choose a Marketing Agency in Malta (Without Getting Burned)",
-  description: "Malta has dozens of marketing agencies and hundreds of freelancers all claiming to grow your business. Most won't. Here's how to tell the difference before you sign a contract.",
-  alternates: { canonical: "https://oarcdigital.com/blog/marketing-agency-malta" },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: `https://oarcdigital.com${PATH}` },
   openGraph: {
-    images: ogImageEntry({ title: "How to Choose a Marketing Agency in Malta (Without Getting Burned)", subtitle: "Malta has dozens of marketing agencies and hundreds of freelancers all claiming to grow your business. Most won't. Here's how to tell the difference before you sign a contract." }),
-    title: "How to Choose a Marketing Agency in Malta (Without Getting Burned)",
-    description: "Malta has dozens of marketing agencies and hundreds of freelancers all claiming to grow your business. Most won't. Here's how to tell the difference before you sign a contract.",
-    url: "https://oarcdigital.com/blog/marketing-agency-malta",
+    images: ogImageEntry({ title: "Why OARC Digital", subtitle: DESCRIPTION }),
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `https://oarcdigital.com${PATH}`,
     type: "article",
   },
   twitter: {
-    images: [ogImageUrl({ title: "How to Choose a Marketing Agency in Malta (Without Getting Burned)", subtitle: "Malta has dozens of marketing agencies and hundreds of freelancers all claiming to grow your business. Most won't. Here's how to tell the difference before you sign a contract." })],
+    images: [ogImageUrl({ title: "Why OARC Digital", subtitle: DESCRIPTION })],
     card: "summary_large_image",
-    title: "How to Choose a Marketing Agency in Malta (Without Getting Burned)",
-    description: "Malta has dozens of marketing agencies and hundreds of freelancers all claiming to grow your business. Most won't. Here's how to tell the difference before you sign a contract.",
+    title: TITLE,
+    description: DESCRIPTION,
   },
 };
 
@@ -28,10 +35,12 @@ export default function Page() {
     <>
       <RouteSchema
         type="article"
-        path="/blog/marketing-agency-malta"
-        title="How to Choose a Marketing Agency in Malta (Without Getting Burned)"
-        description="Malta has dozens of marketing agencies and hundreds of freelancers all claiming to grow your business. Most won't. Here's how to tell the difference before you sign a contract."
+        path={PATH}
+        title={TITLE}
+        description={DESCRIPTION}
         datePublished="2025-12-01"
+        dateModified="2026-11-25"
+        faqs={FAQS.map((f) => ({ question: f.q, answer: f.a }))}
       />
       <PageContent />
     </>

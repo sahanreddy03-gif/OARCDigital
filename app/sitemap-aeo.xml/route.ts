@@ -13,9 +13,8 @@ export const revalidate = false;
 
 // AEO pages whose canonical points at another URL. A sitemap must list only
 // canonical URLs, so these stay out.
-//  - best-marketing-agency-malta -> /insights/best-marketing-agencies-malta
-//    (consolidated 2026-09-13; see that page's metadata)
-const CANONICALIZED_AEO_SLUGS = new Set<string>(["best-marketing-agency-malta"]);
+//  (none since Nov 2026: best-marketing-agency-malta was removed and 308s to the homepage)
+const CANONICALIZED_AEO_SLUGS = new Set<string>([]);
 
 // Exported so lib/seo/sitemapSources.ts derives the index lastmod from
 // the same entries the GET handler serves.

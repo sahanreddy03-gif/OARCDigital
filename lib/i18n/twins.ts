@@ -87,7 +87,6 @@ export function twinLanguages(path: string): Record<string, string> | undefined 
 export const MT_ONLY: readonly string[] = [
   "/blog/ai-for-business-malta",
   "/blog/what-does-a-creative-agency-do",
-  "/blog/number-one-marketing-ai-agency-malta",
 ];
 
 const MT_ONLY_SET = new Set(MT_ONLY);

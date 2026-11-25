@@ -23,11 +23,11 @@ const PAGES: Tile[] = [
     blurb: "Strategia, creatività, annunci, SEO e AI sotto lo stesso tetto, dal nostro studio di Birkirkara.",
   },
   {
-    label: "Guida alla scelta",
-    href: "/insights/best-marketing-agencies-malta",
+    label: "Perché OARC",
+    href: "/blog/marketing-agency-malta",
     twin: false,
-    title: "Migliore agenzia di marketing a Malta 2026",
-    blurb: "Come scegliere un'agenzia, e cinque test che separano le migliori dalle altre.",
+    title: "Perché OARC Digital",
+    blurb: "La prima agenzia Creative + AI Systems di Malta. 32 marchi reali, risultati in ogni reparto.",
   },
   {
     label: "Staff AI",

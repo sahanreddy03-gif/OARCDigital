@@ -342,9 +342,8 @@ export default function PageContent() {
             ))}
           </div>
           <p className="oi-fine" data-reveal>
-            Positions move, and we would rather show you the method than a badge: read{" "}
-            <Link href="/insights/best-marketing-agencies-malta">the ten agencies we placed ahead of, and our own
-            ranking inside that list</Link>, measured and published the same way.
+            Positions move, and we would rather show you proof than a badge: see{" "}
+            <Link href="/blog/marketing-agency-malta">our results in every department, for 32 named brands</Link>.
           </p>
         </div>
       </section>

@@ -17,10 +17,10 @@ const PAGES: Tile[] = [
     blurb: "Strategy, creative, ads, SEO and AI under one roof, from our Birkirkara studio.",
   },
   {
-    label: "Buyer's guide",
-    href: "/insights/best-marketing-agencies-malta",
-    title: "Best Marketing Agency Malta 2026",
-    blurb: "How to choose an agency, and five tests that separate the best from the rest.",
+    label: "Why OARC",
+    href: "/blog/marketing-agency-malta",
+    title: "Why OARC Digital",
+    blurb: "Malta's first Creative + AI Systems Agency. 32 real brands, proof in every department.",
   },
   {
     label: "AI staff",
