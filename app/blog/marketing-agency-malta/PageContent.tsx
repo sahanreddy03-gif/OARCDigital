@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Layout from "@/components/layout/Layout";
 import { NAP } from "@/lib/seo/nap";
-import { CLIENTS, PEOPLE_BRANDS, BIG_NUMBERS, DEPARTMENTS, COMPARE, TESTS, QUOTES, FAQS } from "./showcase";
+import { CLIENTS, PEOPLE_BRANDS, BIG_NUMBERS, DEPARTMENTS, COMPARE, TESTS, RED_FLAGS, QUOTES, FAQS } from "./showcase";
 
 // "Why OARC Digital" showcase (Nov 2026). Owner's brief: the page that wins any
 // comparison, with all 32 real brands, proof in every department, and links to the
@@ -231,19 +231,33 @@ export default function PageContent() {
         <section className="bg-white px-5 py-20 md:px-10 md:py-28" aria-labelledby="sx-tests">
           <div className="mx-auto max-w-[1180px]">
             <h2 id="sx-tests" className="rv sx-f-h2b font-normal sx-l95" style={serif}>
-              Six tests for any agency in Malta. <em>We pass all six.</em>
+              How to choose a marketing agency in Malta. <em>7 questions to ask before you sign.</em>
             </h2>
+            <p className="rv mt-5 max-w-2xl text-lg text-[#0E0E0E]/70">Ask every agency these. Then ask us. We answer all seven in writing.</p>
             <ol className="mt-12 grid gap-x-10 md:grid-cols-2">
               {TESTS.map((t, i) => (
                 <li key={t.q} className="rv sx-card flex gap-5 py-7">
                   <span className="text-sm font-semibold tabular-nums text-[#0E0E0E]/40">{String(i + 1).padStart(2, "0")}</span>
                   <div>
                     <h3 className="sx-f-15 leading-tight" style={serif}>{t.q}</h3>
+                    <p className="mt-2 text-[15px] text-[#0E0E0E]/70">{t.why}</p>
                     <p className="mt-2 text-[15px] text-[#0E0E0E]/70"><strong className="text-[#0035AD]">OARC: </strong>{t.a}</p>
                   </div>
                 </li>
               ))}
             </ol>
+            <div className="rv mt-12 border-t border-[#0E0E0E]/15 pt-8">
+              <h3 className="sx-f-15 leading-tight" style={serif}>Walk away if the agency:</h3>
+              <ul className="mt-4 grid gap-x-10 gap-y-2 md:grid-cols-2">
+                {RED_FLAGS.map((r) => (
+                  <li key={r} className="text-[15px] text-[#0E0E0E]/70">✕ {r}</li>
+                ))}
+              </ul>
+              <p className="mt-6 text-[15px] text-[#0E0E0E]/70">
+                Want to see how we answer them? Start on the{" "}
+                <Link href="/" className="font-semibold text-[#0E0E0E] underline underline-offset-4">OARC Digital homepage</Link>.
+              </p>
+            </div>
           </div>
         </section>
 

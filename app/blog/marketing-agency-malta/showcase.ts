@@ -179,13 +179,54 @@ export const COMPARE = {
   ],
 };
 
+// "How to choose a marketing agency" guide (owner, 2026-11-25): the old buyer's guide
+// points, rewritten in the words people type into Google. This page ranks #1 for
+// "how to choose a marketing agency" (Search Console, 28 days to 2026-11-23).
+// No prices here: €500 lives on the offer page only.
 export const TESTS = [
-  { q: "Can they show real results for named brands?", a: "32 named brands, with results, on our Work page." },
-  { q: "Who actually does the work?", a: "Senior experts in every department. You meet them." },
-  { q: "Can one team do creative AND software?", a: "Yes. That is why we exist: creativity and software in one house." },
-  { q: "Do you own your accounts and content?", a: "Always. Ad accounts, footage, pages and data stay in your name." },
-  { q: "Are targets agreed before you pay?", a: "Yes, and if we miss them you get your money back." },
-  { q: "Is there a long lock-in?", a: "No 12-month trap. We keep clients by growing them." },
+  {
+    q: "Can you show me real results?",
+    why: "Ask for named clients and real numbers: sales, bookings, calls, views. \"We grew their social media\" is not a result.",
+    a: "32 named brands, each with its own case page. We took MCW CBD to #1 on Google in Malta in 3 months.",
+  },
+  {
+    q: "Who will actually work on my business?",
+    why: "Many agencies bring their best people to the sales meeting, then hand the work to juniors. Ask for names, and meet them.",
+    a: "Senior experts in every department. You meet the people who do your work.",
+  },
+  {
+    q: "What do I get every month, and what costs extra?",
+    why: "Get the full list in writing: what they make, how often, and what is extra, like tools, photos or ad fees.",
+    a: "Your free plan comes in 48 hours, with the work and the price in writing. Your ad budget goes straight to Meta and Google.",
+  },
+  {
+    q: "How will you measure results?",
+    why: "If they cannot say what success looks like before they start, you cannot hold them to it.",
+    a: "Targets are agreed before you pay. If we miss them, you get your money back.",
+  },
+  {
+    q: "How long is the contract?",
+    why: "A 12-month contract on day one protects the agency, not you.",
+    a: "No 12-month trap. We keep clients by growing them.",
+  },
+  {
+    q: "Who owns my accounts and content?",
+    why: "You should own your pages, ad accounts, website, photos and videos. If you leave, everything leaves with you.",
+    a: "Always you. Ad accounts, footage, pages and data stay in your name.",
+  },
+  {
+    q: "Can you do everything in one place?",
+    why: "Most businesses hire a designer, a video team, an ads person and a web developer separately. Four suppliers, and no one in charge.",
+    a: "Yes. Creativity and software in one house: film, design, social, ads, SEO, websites and AI, in one plan.",
+  },
+];
+
+export const RED_FLAGS = [
+  "can't show results in numbers",
+  "guarantees you #1 on Google before they know your business",
+  "wants 12 months signed on day one",
+  "won't give you admin access to your own accounts",
+  "posts the same kind of content for every client",
 ];
 
 export const QUOTES = [
@@ -195,6 +236,14 @@ export const QUOTES = [
 ];
 
 export const FAQS = [
+  {
+    q: "How do I choose a marketing agency in Malta?",
+    a: "Ask seven questions before you sign: can you show me real results, who will work on my business, what do I get every month and what costs extra, how will you measure results, how long is the contract, who owns my accounts, and can you do everything in one place. If they can't answer in plain words and numbers, walk away.",
+  },
+  {
+    q: "How much does a marketing agency in Malta cost?",
+    a: "It depends on what you need: one channel, or the whole job of brand, content, ads, website and AI. Ask for one monthly price in writing with everything included, and keep your ad budget separate. OARC sends you a free plan with the price in 48 hours.",
+  },
   {
     q: "What makes OARC Digital different from other marketing agencies in Malta?",
     a: "OARC Digital is Malta's first Creative + AI Systems Agency: a creative studio and a software team in one house, based in Birkirkara. One team runs your brand, content, social media, ads, SEO, website and AI staff, with experts in every department.",
