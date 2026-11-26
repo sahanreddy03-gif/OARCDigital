@@ -73,6 +73,16 @@ export type Block =
       cards: { image: string; alt: string; title: string; text: string; url: string }[];
       linkLabel: string;
     }
+  | {
+      /** Dark showcase panel: picture, heading, text, a row of small pill links, one main link. */
+      type: "feature";
+      image?: { src: string; alt: string };
+      heading: string;
+      text: string;
+      chips?: Button[];
+      note?: string;
+      link?: Button;
+    }
   | { type: "band"; heading: string; text: string; link?: Button }
   | { type: "cta"; heading: string; text?: string; button: Button; secondary?: Button }
   | { type: "signoff"; lines: string[] };
@@ -232,6 +242,41 @@ export function renderEmail(theme: Theme, email: Email, options: RenderOptions =
   </table>`,
           `44px ${PAD}px 0`,
         );
+      }
+
+      case "feature": {
+        const em = "font-style:italic;";
+        const chips = (block.chips ?? [])
+          .map(
+            (chip) =>
+              `<a href="${esc(chip.url)}" target="_blank" style="${body}display:inline-block;margin:0 8px 10px 0;padding:9px 16px;border:1px solid ${c.darkMuted};border-radius:999px;font-size:15px;line-height:18px;color:${c.darkText};text-decoration:none;white-space:nowrap;">${esc(chip.label)}</a>`,
+          )
+          .join(" ");
+        return `
+<tr>
+  <td class="edge" style="padding:26px 12px 0;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="panel-dark" bgcolor="${c.dark}" style="background-color:${c.dark};border-radius:${RADIUS}px;border-collapse:separate;">${
+      block.image
+        ? `
+      <tr>
+        <td style="padding:12px 12px 0;">
+          <img src="${esc(block.image.src)}" width="${WIDTH - 48}" alt="${esc(block.image.alt)}" style="display:block;width:100%;max-width:${WIDTH - 48}px;height:auto;border:0;border-radius:${RADIUS - 10}px;">
+        </td>
+      </tr>`
+        : ""
+    }
+      <tr>
+        <td class="hero-pad" style="padding:36px 40px 40px;">
+          <h2 class="h2" style="${head}margin:0 0 14px;font-size:44px;line-height:1.05;letter-spacing:-0.5px;color:${c.darkText};">${inline(t(block.heading), link, em)}</h2>
+          <p style="${body}margin:0 0 24px;font-size:17px;line-height:1.6;color:${c.darkMuted};">${inline(t(block.text), `color:${c.darkText};text-decoration:underline;`, undefined, "")}</p>
+          ${chips ? `<div style="margin:0 0 14px;">${chips}</div>` : ""}
+          ${block.note ? `<p style="${body}margin:0 0 4px;font-size:16px;line-height:1.6;color:${c.darkMuted};">${inline(t(block.note), `color:${c.darkText};text-decoration:underline;`, undefined, "")}</p>` : ""}
+          ${block.link ? `<p style="${body}margin:18px 0 0;font-size:16px;line-height:1.5;font-weight:bold;"><a href="${esc(block.link.url)}" target="_blank" style="color:${c.darkText};text-decoration:none;">${esc(block.link.label)} &rarr;</a></p>` : ""}
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>`;
       }
 
       case "band": {

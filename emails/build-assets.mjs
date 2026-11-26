@@ -5,25 +5,31 @@ import sharp from "sharp";
 import { mkdir } from "node:fs/promises";
 
 const OUT = "public/email";
-const CARD = { width: 720, height: 480 };
-const HERO = { width: 1232, height: 720 };
+const ART = "attached_assets/generated_images";
+const CARD = { width: 720, height: 540 };
+const WIDE = { width: 1232, height: 820 };
 
-/** [source in public/, output name, size, crop focus] */
+/** [source in public/, output name, size]. All from the homepage art set, so the email looks like the site. */
 const pictures = [
-  ["images/optimized/malta-harbour.webp", "hero-malta.jpg", HERO, "centre"],
-  ["hero-cards/invention/white-label.jpg", "card-branding.jpg", CARD, "centre"],
-  ["images/services/wordpress-development-hero.png", "card-websites.jpg", CARD, "centre"],
-  ["images/services/vintage-map-strategy-desk.webp", "card-seo.jpg", CARD, "centre"],
-  ["hero-cards/ai/ai-concierge.jpg", "card-ai.jpg", CARD, "centre"],
-  ["images/optimized/homecraft-hero.webp", "card-social.jpg", CARD, "centre"],
-  ["images/optimized/video-production-service.webp", "card-film.jpg", CARD, "centre"],
+  [`${ART}/oarc-dept-sales.jpg`, "hero-key.jpg", WIDE],
+  [`${ART}/oarc-dept-ship.jpg`, "feature-industry.jpg", WIDE],
+  [`${ART}/oarc-dept-brand.jpg`, "card-branding.jpg", CARD],
+  [`${ART}/oarc-dept-social.jpg`, "card-social.jpg", CARD],
+  [`${ART}/oarc-dept-creative.jpg`, "card-film.jpg", CARD],
+  [`${ART}/oarc-dept-clarity.jpg`, "card-websites.jpg", CARD],
+  [`${ART}/oarc-growth-card-v2.jpg`, "card-seo.jpg", CARD],
+  [`${ART}/oarc-dept-media.jpg`, "card-ads.jpg", CARD],
+  [`${ART}/oarc-dept-ai-staff.jpg`, "card-ai-staff.jpg", CARD],
+  [`${ART}/oarc-dept-enquiries.jpg`, "card-ai-receptionist.jpg", CARD],
+  [`${ART}/oarc-dept-automation.jpg`, "card-automation.jpg", CARD],
+  [`${ART}/oarc-dept-transformation.jpg`, "card-software.jpg", CARD],
 ];
 
 await mkdir(OUT, { recursive: true });
 
-for (const [source, name, size, position] of pictures) {
+for (const [source, name, size] of pictures) {
   const info = await sharp(`public/${source}`)
-    .resize(size.width, size.height, { fit: "cover", position })
+    .resize(size.width, size.height, { fit: "cover", position: "centre" })
     .jpeg({ quality: 80, mozjpeg: true })
     .toFile(`${OUT}/${name}`);
   console.log(`${name}  ${info.width}x${info.height}  ${Math.round(info.size / 1024)} KB`);
