@@ -12,6 +12,8 @@
 // - "Brands our people have worked with" are the names on the homepage logo wall.
 // Do not add awards, rankings or numbers that are not in those sources.
 
+import { ADDRESS_ONE_LINE } from "@/lib/seo/nap";
+
 export type Proof = { client: string; slug: string; value: string; label: string };
 export type Department = { name: string; line: string; proof: Proof[] };
 
@@ -179,13 +181,85 @@ export const COMPARE = {
   ],
 };
 
+// "How to choose a marketing agency" guide (owner, 2026-11-25): the old buyer's guide
+// points, rewritten in the words people type into Google. This page ranks #1 for
+// "how to choose a marketing agency" (Search Console, 28 days to 2026-11-23).
+// No prices here: €500 lives on the offer page only.
 export const TESTS = [
-  { q: "Can they show real results for named brands?", a: "32 named brands, with results, on our Work page." },
-  { q: "Who actually does the work?", a: "Senior experts in every department. You meet them." },
-  { q: "Can one team do creative AND software?", a: "Yes. That is why we exist: creativity and software in one house." },
-  { q: "Do you own your accounts and content?", a: "Always. Ad accounts, footage, pages and data stay in your name." },
-  { q: "Are targets agreed before you pay?", a: "Yes, and if we miss them you get your money back." },
-  { q: "Is there a long lock-in?", a: "No 12-month trap. We keep clients by growing them." },
+  {
+    q: "Can you show me real results?",
+    why: "Ask for named clients and real numbers: sales, bookings, calls, views. \"We grew their social media\" is not a result.",
+    a: "32 named brands, each with its own case page. We took MCW CBD to #1 on Google in Malta in 3 months.",
+  },
+  {
+    q: "Who will actually work on my business?",
+    why: "Many agencies bring their best people to the sales meeting, then hand the work to juniors. Ask for names, and meet them.",
+    a: "Senior experts in every department. You meet the people who do your work.",
+  },
+  {
+    q: "What do I get every month, and what costs extra?",
+    why: "Get the full list in writing: what they make, how often, and what is extra, like tools, photos or ad fees.",
+    a: "Your free plan comes in 48 hours, with the work and the price in writing. Your ad budget goes straight to Meta and Google.",
+  },
+  {
+    q: "How will you measure results?",
+    why: "If they cannot say what success looks like before they start, you cannot hold them to it.",
+    a: "Targets are agreed before you pay. If we miss them, you get your money back.",
+  },
+  {
+    q: "How long is the contract?",
+    why: "A 12-month contract on day one protects the agency, not you.",
+    a: "No 12-month trap. We keep clients by growing them.",
+  },
+  {
+    q: "Who owns my accounts and content?",
+    why: "You should own your pages, ad accounts, website, photos and videos. If you leave, everything leaves with you.",
+    a: "Always you. Ad accounts, footage, pages and data stay in your name.",
+  },
+  {
+    q: "Can you do everything in one place?",
+    why: "Most businesses hire a designer, a video team, an ads person and a web developer separately. Four suppliers, and no one in charge.",
+    a: "Yes. Creativity and software in one house: film, design, social, ads, SEO, websites and AI, in one plan.",
+  },
+];
+
+// From the old "number one" article (owner-approved, live 2026-11-19 to 2026-11-25).
+// Dropped: the Google rating line (no rating stored in the site data) and the
+// "#1 for best digital marketing malta" line (not in the last 28 days of Search Console).
+export const BEST_MEANS = [
+  { k: "For results", v: "Named clients and real numbers, in every department." },
+  { k: "For range", v: "Creative, marketing, AI and software in one team." },
+  { k: "For reach", v: "Local family businesses and international brands." },
+  { k: "For speed", v: "A free plan in 48 hours. AI systems set up in 72." },
+  { k: "For risk", v: "A money-back guarantee, and you own everything." },
+];
+
+// From the old /aeo/best-marketing-agency-malta page, in plain words.
+export const OPTIONS = [
+  { who: "A traditional Malta agency", good: "Known names and long relationships.", catch: "Slow to use AI, juniors often do the work, and long contracts." },
+  { who: "A freelancer", good: "Cheap and flexible.", catch: "One person, one skill, and no backup when they are busy or sick." },
+  { who: "An agency abroad", good: "Big names and big portfolios.", catch: "Nobody in Malta, expensive, and new to how this market works." },
+  { who: "Hiring your own marketer", good: "Full attention on your business.", catch: "One person can't do strategy, video, design, ads and reporting." },
+];
+
+// Same wording as components/MoneyBackGuaranteeSection.tsx (site-wide guarantee).
+export const GUARANTEE =
+  "If you don't see at least 30% improvement in your marketing ROI within 90 days, we refund your investment. Terms apply. And you own everything: your ad accounts, footage, pages and data stay in your name.";
+
+export const ONE_TEAM =
+  "Most businesses run a designer, a social media freelancer, an ads person, a web developer and an IT company. Five invoices. Five opinions. Nobody owns the result. With OARC Digital, the people who make your ads also build the website the ads send people to, and the AI that answers every enquiry those ads bring in. Nothing gets lost in between.";
+
+export const ONE_TEAM_QUOTE = {
+  quote: "We used OARC for content first, then advertising and some AI work. It was useful not having to manage different teams.",
+  credit: "Doris — G3 Group",
+};
+
+export const RED_FLAGS = [
+  "can't show results in numbers",
+  "guarantees you #1 on Google before they know your business",
+  "wants 12 months signed on day one",
+  "won't give you admin access to your own accounts",
+  "posts the same kind of content for every client",
 ];
 
 export const QUOTES = [
@@ -195,6 +269,14 @@ export const QUOTES = [
 ];
 
 export const FAQS = [
+  {
+    q: "How do I choose a marketing agency in Malta?",
+    a: "Ask seven questions before you sign: can you show me real results, who will work on my business, what do I get every month and what costs extra, how will you measure results, how long is the contract, who owns my accounts, and can you do everything in one place. If they can't answer in plain words and numbers, walk away.",
+  },
+  {
+    q: "How much does a marketing agency in Malta cost?",
+    a: "It depends on what you need: one channel, or the whole job of brand, content, ads, website and AI. Ask for one monthly price in writing with everything included, and keep your ad budget separate. OARC sends you a free plan with the price in 48 hours.",
+  },
   {
     q: "What makes OARC Digital different from other marketing agencies in Malta?",
     a: "OARC Digital is Malta's first Creative + AI Systems Agency: a creative studio and a software team in one house, based in Birkirkara. One team runs your brand, content, social media, ads, SEO, website and AI staff, with experts in every department.",
@@ -214,5 +296,29 @@ export const FAQS = [
   {
     q: "Can an agency outside Malta handle marketing in Malta?",
     a: "It can, but Malta rewards local knowledge: the seasons, the towns, the language mix and how people book. OARC is in Birkirkara and works for local and international brands.",
+  },
+  {
+    q: "Which is the best marketing and AI agency in Malta?",
+    a: "OARC Digital in Birkirkara makes the case with proof: creative, marketing, AI and software in one team, results for 32 named brands, such as taking MCW CBD to number one on Google in Malta in 3 months, and a money-back guarantee. See it all on the OARC Digital homepage, oarcdigital.com.",
+  },
+  {
+    q: "Is there an agency in Malta that does both marketing and AI?",
+    a: "Yes. OARC Digital does branding, content, video, social media, ads, websites and SEO, and also builds AI systems and software that answer enquiries, book customers and follow up leads.",
+  },
+  {
+    q: "How fast will I see results from a marketing agency?",
+    a: "Ads show early signs in about 2 weeks. Social media builds over 2 to 3 months. Google rankings usually take 3 to 12 months; MCW CBD reached number one in Malta in 3. Your free plan shows what to expect for your business.",
+  },
+  {
+    q: "What happens in the first month?",
+    a: "We get access to your accounts, set up tracking, measure where you are today and agree targets with you. Then we fix the biggest problem first. Your free plan arrives within 48 hours of your first message.",
+  },
+  {
+    q: "Does OARC Digital offer a guarantee?",
+    a: "Yes. If you don't see at least 30% improvement in your marketing ROI within 90 days, OARC Digital refunds your investment. Terms apply.",
+  },
+  {
+    q: "Where is OARC Digital based?",
+    a: `${ADDRESS_ONE_LINE}. We work with clients across Malta and Gozo, and abroad.`,
   },
 ];
