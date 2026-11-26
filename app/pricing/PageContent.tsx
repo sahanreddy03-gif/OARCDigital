@@ -376,7 +376,7 @@ function QuoteRequestForm() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('https://formspree.io/f/xblnedyl', {
+      const response = await fetch('https://formspree.io/f/xlgavdlp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
