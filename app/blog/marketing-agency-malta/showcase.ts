@@ -14,7 +14,7 @@
 
 import { ADDRESS_ONE_LINE } from "@/lib/seo/nap";
 
-export type Proof = { client: string; slug: string; value: string; label: string };
+export type Proof = { client: string; slug: string; label: string };
 export type Department = { name: string; line: string; proof: Proof[] };
 
 export const CLIENTS: { name: string; slug: string }[] = [
@@ -59,12 +59,14 @@ export const PEOPLE_BRANDS = [
   "Cafe del Mar", "Kilimanjaro Live", "LEON", "Wahaca", "Zizzi", "talabat", "tabby", "Turtle Bay",
 ];
 
+// Owner (2026-11-27): keep this page generic. A few numbers at the top only, with no
+// brand names next to them. Department bullets in words (no numbers), fewer of them.
+// No "32 brands" line anywhere.
 export const BIG_NUMBERS = [
-  { value: "Millions", label: "of views every month across our brands" },
-  { value: "Up to 5x", label: "sales pushed for the brands we grow" },
-  { value: "#1", label: "on Google in Malta in 3 months, for MCW CBD" },
-  { value: "12,000", label: "fans brought to the World Cup Fan Zone" },
-  { value: "32", label: "named brands. Every case on our Work page is real" },
+  { value: "Millions", label: "of views every month across the brands we grow" },
+  { value: "Up to 5x", label: "more sales for the brands we work with" },
+  { value: "#1", label: "on Google in Malta for local brands" },
+  { value: "Thousands", label: "of fans brought to live events and launches" },
 ];
 
 export const DEPARTMENTS: Department[] = [
@@ -72,98 +74,80 @@ export const DEPARTMENTS: Department[] = [
     name: "SEO and Google",
     line: "We get you found first.",
     proof: [
-      { client: "MCW CBD", slug: "mcw-cbd", value: "#1", label: "On Google in Malta in 3 months" },
-      { client: "MCW CBD", slug: "mcw-cbd", value: "€20,000", label: "Sales generated" },
-      { client: "Calle Bistro", slug: "calle-bistro", value: "+48%", label: "Calls from Google" },
+      { client: "MCW CBD", slug: "mcw-cbd", label: "Taken to the top of Google in Malta" },
+      { client: "Calle Bistro", slug: "calle-bistro", label: "More calls straight from Google" },
     ],
   },
   {
     name: "Social media and content",
     line: "Posts that fill tables and shops.",
     proof: [
-      { client: "Kreta", slug: "kreta", value: "+28%", label: "Reservations from Instagram" },
-      { client: "Tiffany Lounge", slug: "tiffany", value: "+24%", label: "Table bookings from Instagram" },
-      { client: "Ricky Jr Burger", slug: "ricky-jr-burger", value: "50,000", label: "Views on daily burger reels" },
+      { client: "Kreta", slug: "kreta", label: "Instagram turned into a source of reservations" },
+      { client: "Ricky Jr Burger", slug: "ricky-jr-burger", label: "Daily burger reels people actually watch" },
     ],
   },
   {
     name: "Paid ads",
     line: "Every euro sent where it sells.",
     proof: [
-      { client: "Palino", slug: "palino", value: "+28%", label: "Delivery orders from two-town ads" },
-      { client: "Tiffany Lounge", slug: "tiffany", value: "55%", label: "Engagement from paid campaigns" },
-      { client: "Calle Bistro", slug: "calle-bistro", value: "400", label: "Diners on the reservation page" },
+      { client: "Palino", slug: "palino", label: "More delivery orders from local ads" },
+      { client: "Tiffany Lounge", slug: "tiffany", label: "Paid campaigns people stop and engage with" },
     ],
   },
   {
     name: "Events and launches",
     line: "We fill the room on day one.",
     proof: [
-      { client: "Massive Promotions", slug: "massive-fan-zone", value: "12,000", label: "Fans at the Spinola Bay Fan Zone" },
-      { client: "Spinola Gin Fest", slug: "spinola-gin-fest", value: "300,000", label: "People reached by campaign content" },
-      { client: "Drink N More", slug: "drink-n-more", value: "2,000", label: "New followers in launch week" },
+      { client: "Massive Promotions", slug: "massive-fan-zone", label: "Thousands of fans at the Spinola Bay Fan Zone" },
+      { client: "Spinola Gin Fest", slug: "spinola-gin-fest", label: "Campaign content seen right across Malta" },
     ],
   },
   {
     name: "Food and hospitality",
     line: "More diners, more orders, more nights out.",
     proof: [
-      { client: "Louisiana Mama", slug: "louisiana-mama", value: "700", label: "More meals sold" },
-      { client: "Portomaso Casino", slug: "portomaso-casino", value: "+35%", label: "Restaurant booking clicks" },
-      { client: "Kreta", slug: "kreta", value: "60,000", label: "Local diners reached" },
+      { client: "Louisiana Mama", slug: "louisiana-mama", label: "More meals sold, week after week" },
+      { client: "Portomaso Casino", slug: "portomaso-casino", label: "More people booking the restaurant" },
     ],
   },
   {
     name: "Websites, tracking and marketplaces",
     line: "Sites that sell, and prove it.",
     proof: [
-      { client: "Tiffany Lounge", slug: "tiffany", value: "+50%", label: "Sales from website tracking" },
-      { client: "PJAZZA", slug: "pjazza", value: "100", label: "New sellers onboarded" },
-      { client: "PJAZZA", slug: "pjazza", value: "500", label: "Buyers starting a seller chat" },
+      { client: "Tiffany Lounge", slug: "tiffany", label: "Website tracking that shows which posts sell" },
+      { client: "PJAZZA", slug: "pjazza", label: "A marketplace where sellers and buyers meet" },
     ],
   },
   {
     name: "Brand and creative",
     line: "Stories people remember and share.",
     proof: [
-      { client: "Ashford", slug: "ashford-in-real-life", value: "50,000", label: "Shoppers reached by the launch story" },
-      { client: "Maison Verre", slug: "maison-verre-discovery", value: "+50%", label: "Saves on launch posts" },
-      { client: "Kinetic", slug: "kinetic-member-energy", value: "+35%", label: "Member-story shares" },
-      { client: "Botanic Muse", slug: "botanic-muse-field-notes", value: "+40%", label: "Customer-led stories published" },
+      { client: "Ashford", slug: "ashford-in-real-life", label: "A launch story shoppers followed" },
+      { client: "Kinetic", slug: "kinetic-member-energy", label: "Member stories people shared" },
     ],
   },
   {
     name: "Gaming, sport and live",
     line: "Fans who come back.",
     proof: [
-      { client: "Vertex", slug: "vertex-after-launch", value: "+25%", label: "Players returning after launch" },
-      { client: "Arena One", slug: "arena-one-regional-signal", value: "+30%", label: "Regional esports views" },
-      { client: "Fanline", slug: "fanline-live-ritual", value: "+31%", label: "Longer viewing during live events" },
-      { client: "Live Information Experience", slug: "live-context", value: "+30%", label: "Fans returning to live updates" },
+      { client: "Vertex", slug: "vertex-after-launch", label: "Players coming back after launch" },
+      { client: "Fanline", slug: "fanline-live-ritual", label: "Fans watching longer during live events" },
     ],
   },
   {
     name: "AI staff and sales systems",
     line: "Software that sells while you sleep.",
     proof: [
-      { client: "Skyline", slug: "skyline-first-response", value: "+80%", label: "Enquiries ready for a personal call" },
-      { client: "Vela", slug: "vela-signal-pipeline", value: "+45%", label: "Real buying signals acted on" },
-      { client: "Meridian", slug: "meridian-retail-response", value: "-45%", label: "Lost customer handoffs" },
-      { client: "Bluebridge", slug: "bluebridge-candidate-welcome", value: "-40%", label: "Candidate wait for a first reply" },
+      { client: "Skyline", slug: "skyline-first-response", label: "Enquiries that arrive ready for a personal call" },
+      { client: "Meridian", slug: "meridian-retail-response", label: "Fewer customers lost between teams" },
     ],
   },
   {
     name: "Automation and operations",
     line: "Hours back, every week.",
     proof: [
-      { client: "Aurum", slug: "aurum-document-trail", value: "10 hrs", label: "Saved every week" },
-      { client: "Belgrave", slug: "belgrave-client-time", value: "90%", label: "Requests to the right person first time" },
-      { client: "Operations Data Foundation", slug: "data-foundation", value: "-25%", label: "Order errors" },
-      { client: "Crownline", slug: "crownline-fresh-signal", value: "-40%", label: "Time spent checking stock" },
-      { client: "Cobalt", slug: "cobalt-decision-thread", value: "-35%", label: "Time spent chasing decisions" },
-      { client: "Northforge", slug: "northforge-adoption-ladder", value: "-30%", label: "Decision time on AI tests" },
-      { client: "Wellbridge", slug: "wellbridge-clear-path", value: "-30%", label: "Calls asking what happens next" },
-      { client: "Hearth", slug: "hearth-test-kitchen", value: "-45%", label: "Time spent reviewing campaigns" },
+      { client: "Aurum", slug: "aurum-document-trail", label: "Hours saved every week on paperwork" },
+      { client: "Belgrave", slug: "belgrave-client-time", label: "Requests that reach the right person first time" },
     ],
   },
 ];
@@ -188,8 +172,8 @@ export const COMPARE = {
 export const TESTS = [
   {
     q: "Can you show me real results?",
-    why: "Ask for named clients and real numbers: sales, bookings, calls, views. \"We grew their social media\" is not a result.",
-    a: "32 named brands, each with its own case page. We took MCW CBD to #1 on Google in Malta in 3 months.",
+    why: "Ask for named clients and real results: sales, bookings, calls. \"We grew their social media\" is not a result.",
+    a: "Real, named brands, each with its own case page, from local restaurants to international names.",
   },
   {
     q: "Who will actually work on my business?",
@@ -199,17 +183,17 @@ export const TESTS = [
   {
     q: "What do I get every month, and what costs extra?",
     why: "Get the full list in writing: what they make, how often, and what is extra, like tools, photos or ad fees.",
-    a: "Your free plan comes in 48 hours, with the work and the price in writing. Your ad budget goes straight to Meta and Google.",
+    a: "Your free plan shows the work and the price in writing, before you sign. Your ad budget goes straight to Meta and Google.",
   },
   {
     q: "How will you measure results?",
     why: "If they cannot say what success looks like before they start, you cannot hold them to it.",
-    a: "Targets are agreed before you pay. If we miss them, you get your money back.",
+    a: "Targets are agreed with you, in writing, before we start.",
   },
   {
     q: "How long is the contract?",
-    why: "A 12-month contract on day one protects the agency, not you.",
-    a: "No 12-month trap. We keep clients by growing them.",
+    why: "A long contract on day one protects the agency, not you.",
+    a: "No long lock-in. We keep clients by growing them.",
   },
   {
     q: "Who owns my accounts and content?",
@@ -227,11 +211,11 @@ export const TESTS = [
 // Dropped: the Google rating line (no rating stored in the site data) and the
 // "#1 for best digital marketing malta" line (not in the last 28 days of Search Console).
 export const BEST_MEANS = [
-  { k: "For results", v: "Named clients and real numbers, in every department." },
+  { k: "For results", v: "Real, named clients, in every department." },
   { k: "For range", v: "Creative, marketing, AI and software in one team." },
   { k: "For reach", v: "Local family businesses and international brands." },
-  { k: "For speed", v: "A free plan in 48 hours. AI systems set up in 72." },
-  { k: "For risk", v: "A money-back guarantee, and you own everything." },
+  { k: "For speed", v: "A free plan fast, and AI systems set up in days." },
+  { k: "For risk", v: "Targets agreed up front, and you own everything." },
 ];
 
 // From the old /aeo/best-marketing-agency-malta page, in plain words.
@@ -242,9 +226,10 @@ export const OPTIONS = [
   { who: "Hiring your own marketer", good: "Full attention on your business.", catch: "One person can't do strategy, video, design, ads and reporting." },
 ];
 
-// Same wording as components/MoneyBackGuaranteeSection.tsx (site-wide guarantee).
+// Kept generic on this page (owner, 2026-11-27); the full terms are in
+// components/MoneyBackGuaranteeSection.tsx.
 export const GUARANTEE =
-  "If you don't see at least 30% improvement in your marketing ROI within 90 days, we refund your investment. Terms apply. And you own everything: your ad accounts, footage, pages and data stay in your name.";
+  "We agree your targets before we start. If we don't hit them, you get your money back. Terms apply. And you own everything: your ad accounts, footage, pages and data stay in your name.";
 
 export const ONE_TEAM =
   "Most businesses run a designer, a social media freelancer, an ads person, a web developer and an IT company. Five invoices. Five opinions. Nobody owns the result. With OARC Digital, the people who make your ads also build the website the ads send people to, and the AI that answers every enquiry those ads bring in. Nothing gets lost in between.";
@@ -255,9 +240,9 @@ export const ONE_TEAM_QUOTE = {
 };
 
 export const RED_FLAGS = [
-  "can't show results in numbers",
-  "guarantees you #1 on Google before they know your business",
-  "wants 12 months signed on day one",
+  "can't show you real results",
+  "promises you the top of Google before they know your business",
+  "wants a long contract signed on day one",
   "won't give you admin access to your own accounts",
   "posts the same kind of content for every client",
 ];
@@ -271,11 +256,11 @@ export const QUOTES = [
 export const FAQS = [
   {
     q: "How do I choose a marketing agency in Malta?",
-    a: "Ask seven questions before you sign: can you show me real results, who will work on my business, what do I get every month and what costs extra, how will you measure results, how long is the contract, who owns my accounts, and can you do everything in one place. If they can't answer in plain words and numbers, walk away.",
+    a: "Ask seven questions before you sign: can you show me real results, who will work on my business, what do I get every month and what costs extra, how will you measure results, how long is the contract, who owns my accounts, and can you do everything in one place. If they can't answer in plain words, walk away.",
   },
   {
     q: "How much does a marketing agency in Malta cost?",
-    a: "It depends on what you need: one channel, or the whole job of brand, content, ads, website and AI. Ask for one monthly price in writing with everything included, and keep your ad budget separate. OARC sends you a free plan with the price in 48 hours.",
+    a: "It depends on what you need: one channel, or the whole job of brand, content, ads, website and AI. Ask for one monthly price in writing with everything included, and keep your ad budget separate. OARC sends you a free plan with the price first.",
   },
   {
     q: "What makes OARC Digital different from other marketing agencies in Malta?",
@@ -283,7 +268,7 @@ export const FAQS = [
   },
   {
     q: "Which brands has OARC Digital worked with?",
-    a: "32 named brands are on our Work page, including MCW CBD, Tiffany Lounge, Portomaso Casino, Massive Promotions, Kreta, Palino, Louisiana Mama, Calle Bistro and PJAZZA. Our people have also worked with brands such as BrewDog, Betsson, Dishoom, Premier Inn and JA Resorts.",
+    a: "The brands on our Work page include MCW CBD, Tiffany Lounge, Portomaso Casino, Massive Promotions, Kreta, Palino, Louisiana Mama, Calle Bistro and PJAZZA. Our people have also worked with brands such as BrewDog, Betsson, Dishoom, Premier Inn and JA Resorts.",
   },
   {
     q: "Is it better to hire a freelancer or an agency in Malta?",
@@ -291,7 +276,7 @@ export const FAQS = [
   },
   {
     q: "How do I know if my current agency is underperforming?",
-    a: "Ask for three results from the last 90 days, in numbers: bookings, sales, calls or leads. If they cannot name them, they are underperforming.",
+    a: "Ask for their latest results in plain terms: bookings, sales, calls or leads. If they cannot name them, they are underperforming.",
   },
   {
     q: "Can an agency outside Malta handle marketing in Malta?",
@@ -299,7 +284,7 @@ export const FAQS = [
   },
   {
     q: "Which is the best marketing and AI agency in Malta?",
-    a: "OARC Digital in Birkirkara makes the case with proof: creative, marketing, AI and software in one team, results for 32 named brands, such as taking MCW CBD to number one on Google in Malta in 3 months, and a money-back guarantee. See it all on the OARC Digital homepage, oarcdigital.com.",
+    a: "OARC Digital in Birkirkara makes the case with proof: creative, marketing, AI and software in one team, results for real, named brands in every department, and targets agreed before it starts. See it all on the OARC Digital homepage, oarcdigital.com.",
   },
   {
     q: "Is there an agency in Malta that does both marketing and AI?",
@@ -307,15 +292,15 @@ export const FAQS = [
   },
   {
     q: "How fast will I see results from a marketing agency?",
-    a: "Ads show early signs in about 2 weeks. Social media builds over 2 to 3 months. Google rankings usually take 3 to 12 months; MCW CBD reached number one in Malta in 3. Your free plan shows what to expect for your business.",
+    a: "Ads can show early signs within weeks. Social media builds over a few months. Google rankings take longer, but they keep paying back. Your free plan shows what to expect for your business.",
   },
   {
     q: "What happens in the first month?",
-    a: "We get access to your accounts, set up tracking, measure where you are today and agree targets with you. Then we fix the biggest problem first. Your free plan arrives within 48 hours of your first message.",
+    a: "We get access to your accounts, set up tracking, measure where you are today and agree targets with you. Then we fix the biggest problem first.",
   },
   {
     q: "Does OARC Digital offer a guarantee?",
-    a: "Yes. If you don't see at least 30% improvement in your marketing ROI within 90 days, OARC Digital refunds your investment. Terms apply.",
+    a: "Yes. OARC Digital agrees your targets before it starts, and if they are not hit, you get your money back. Terms apply.",
   },
   {
     q: "Where is OARC Digital based?",

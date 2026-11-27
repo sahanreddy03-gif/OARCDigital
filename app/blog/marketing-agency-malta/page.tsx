@@ -9,7 +9,7 @@ import { FAQS } from "./showcase";
 const PATH = "/blog/marketing-agency-malta";
 const TITLE = "Why OARC Digital | Malta's First Creative + AI Systems Agency";
 const DESCRIPTION =
-  "Creativity and software in one house. 32 real brands, millions of views a month and proof in every department, from Google #1 to 12,000 fans.";
+  "Creativity and software in one house. Real, named brands, proof in every department, and how to choose a marketing agency in Malta.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -39,7 +39,7 @@ export default function Page() {
         title={TITLE}
         description={DESCRIPTION}
         datePublished="2025-12-01"
-        dateModified="2026-11-25"
+        dateModified="2026-11-27"
         faqs={FAQS.map((f) => ({ question: f.q, answer: f.a }))}
       />
       <PageContent />
