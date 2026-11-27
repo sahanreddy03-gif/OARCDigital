@@ -4,7 +4,7 @@ import { NAP } from "@/lib/seo/nap";
 import { CLIENTS, PEOPLE_BRANDS, BIG_NUMBERS, DEPARTMENTS, COMPARE, TESTS, RED_FLAGS, QUOTES, FAQS, BEST_MEANS, OPTIONS, GUARANTEE, ONE_TEAM, ONE_TEAM_QUOTE } from "./showcase";
 
 // "Why OARC Digital" showcase (Nov 2026). Owner's brief: the page that wins any
-// comparison, with all 32 real brands, proof in every department, and links to the
+// comparison, with every real client, proof in every department, and links to the
 // homepage everywhere. Homepage design system v3: paper, ink, serif, one black box
 // with yellow (the hero), cobalt for links.
 
@@ -51,7 +51,7 @@ const css = `
 @media (min-width:768px) { .sx .sx-dept { grid-template-columns: .8fr 2fr; gap:2.5rem; } }
 .sx .sx-nums { display:grid; column-gap:2rem; grid-template-columns:1fr; }
 @media (min-width:640px) { .sx .sx-nums { grid-template-columns:repeat(2,1fr); } }
-@media (min-width:1024px) { .sx .sx-nums { grid-template-columns:repeat(5,1fr); } }
+@media (min-width:1024px) { .sx .sx-nums { grid-template-columns:repeat(5,1fr); } .sx .sx-nums.sx-n4 { grid-template-columns:repeat(4,1fr); } }
 .sx .sx-table { min-width:620px; }
 .sx .sx-us { background:rgba(0,53,173,.06); }
 .sx .sx-gridline { background:rgba(14,14,14,.1); }
@@ -104,7 +104,7 @@ export default function PageContent() {
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[#F5F3EE]/80 md:text-xl">
               <Link href="/" className="font-semibold text-white underline underline-offset-4">OARC Digital</Link> is the
               marketing agency in Malta that builds the whole engine: brand, film, social media, ads, Google, websites and
-              AI staff. Experts run every department. 32 named brands. Millions of views every month.
+              AI staff. Experts run every department, for local and international brands.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link href="/" className="inline-flex items-center rounded-full bg-[#F9FF84] px-7 py-4 text-[15px] font-semibold text-[#0E0E0E] hover:opacity-90" data-testid="showcase-watch-home">
@@ -117,10 +117,10 @@ export default function PageContent() {
           </div>
         </section>
 
-        {/* FLOATING BRAND BAR — all 32 clients */}
+        {/* FLOATING BRAND BAR — every client on the Work page */}
         <section className="border-b border-[#0E0E0E]/15 py-10 md:py-14" aria-labelledby="sx-brands">
           <h2 id="sx-brands" className="mx-auto mb-6 max-w-[1180px] px-5 text-sm font-semibold uppercase tracking-[0.14em] text-[#0E0E0E]/55 md:px-10">
-            32 brands we grow. Every one is real. Click any name for the case.
+            Brands we grow. Every one is real. Click any name for the case.
           </h2>
           <Marquee items={clientItems.slice(0, half)} big />
           <div className="mt-3">
@@ -138,7 +138,7 @@ export default function PageContent() {
             <h2 className="rv max-w-3xl sx-f-h2 font-normal sx-l95" style={serif}>
               We don&apos;t sell reports. <em>We grow reach and sales.</em>
             </h2>
-            <div className="sx-nums mt-14">
+            <div className="sx-nums sx-n4 mt-14">
               {BIG_NUMBERS.map((n) => (
                 <div key={n.value} className="rv sx-card py-7 pr-6">
                   <div className="sx-f-num leading-none" style={serif}>{n.value}</div>
@@ -172,8 +172,7 @@ export default function PageContent() {
                   <div className="grid gap-px overflow-hidden rounded-2xl sx-gridline sm:grid-cols-2 lg:grid-cols-3">
                     {d.proof.map((p, j) => (
                       <Link key={j} href={`/our-work/${p.slug}`} className="sx-proof block bg-[#F5F3EE] p-6">
-                        <div className="sx-f-24 leading-none" style={serif}>{p.value}</div>
-                        <p className="mt-2 text-[15px] leading-snug text-[#0E0E0E]/75">{p.label}</p>
+                        <p className="sx-f-125 sx-l12" style={serif}>{p.label}</p>
                         <p className="mt-4 text-sm font-semibold text-[#0035AD]">{p.client} →</p>
                       </Link>
                     ))}
@@ -339,7 +338,7 @@ export default function PageContent() {
                 Go to the OARC Digital homepage →
               </Link>
               <Link href="/our-work" className="inline-flex items-center rounded-full border border-[#0E0E0E]/30 px-8 py-4 text-[15px] font-semibold hover:border-[#0E0E0E]">
-                See all 32 cases
+                See all our case studies
               </Link>
             </div>
           </div>
