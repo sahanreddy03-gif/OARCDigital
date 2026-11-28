@@ -8,9 +8,12 @@ import { ogImageEntry, ogImageUrl } from '@/lib/seo/ogImageUrl';
 import { twinLanguages } from '@/lib/i18n/twins';
 import LanguageSwitch from '@/components/i18n/LanguageSwitch';
 
-const TITLE = 'Restaurant Marketing Malta | H360 Hospitality | OARC';
+// Owner (2026-11-28): no "H360" in the headline (nobody searches it), and not
+// restaurants only. No "marketing" either, so this page never competes with the
+// homepage for "marketing agency malta".
+const TITLE = 'Restaurants, Hotels, Bars & Nightclubs Malta | More Bookings | OARC';
 const DESCRIPTION =
-  'H360 helps Malta restaurants and bars get found on Maps, look sharp on social, and answer every booking call—creative + local + AI under one team.';
+  'For restaurants, hotels, bars and nightclubs in Malta: get found on Google Maps, look sharp on social, and answer every booking call. One OARC team for creative, local search and AI.';
 const URL = 'https://oarcdigital.com/h360';
 const OARC = 'https://oarcdigital.com';
 
@@ -23,7 +26,8 @@ export const metadata: Metadata = {
     'google maps restaurant malta',
     'restaurant reviews malta',
     'direct orders restaurant malta',
-    'h360',
+    'hotel direct bookings malta',
+    'bar and nightclub promotion malta',
     'oarcdigital',
   ],
   alternates: { canonical: URL, languages: twinLanguages('/h360') },
@@ -72,8 +76,7 @@ const jsonLd = {
     {
       '@type': ['LocalBusiness', 'ProfessionalService'],
       '@id': `${URL}#h360`,
-      name: 'OARC Digital — H360 Restaurant Marketing Malta',
-      alternateName: 'H360',
+      name: 'OARC Digital — Restaurants, Hotels, Bars & Nightclubs Malta',
       description: DESCRIPTION,
       url: URL,
       isPartOf: { '@id': `${OARC}/#website` },
@@ -92,7 +95,7 @@ const jsonLd = {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'OARC Digital', item: OARC },
-        { '@type': 'ListItem', position: 2, name: 'H360 Restaurant Marketing Malta', item: URL },
+        { '@type': 'ListItem', position: 2, name: 'Restaurants, Hotels, Bars & Nightclubs Malta', item: URL },
       ],
     },
     {

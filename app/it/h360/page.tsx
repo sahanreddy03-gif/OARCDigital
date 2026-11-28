@@ -12,9 +12,9 @@ import { ogImageEntry, ogImageUrl } from '@/lib/seo/ogImageUrl';
 
 const LOCALE = 'it';
 const PATH = '/h360'; // the ENGLISH path
-const TITLE = 'Sistema per ristoranti a Malta | H360 | OARC Digital';
+const TITLE = 'Ristoranti, hotel, bar e locali notturni a Malta | Più prenotazioni | OARC';
 const DESCRIPTION =
-  'H360, sistema per ristoranti a Malta: fa trovare ristoranti e bar su Maps, cura i social e risponde a ogni chiamata. Creatività e AI in un solo team.';
+  'Per ristoranti, hotel, bar e locali notturni a Malta: farsi trovare su Google Maps, curare i social e rispondere a ogni chiamata. Creatività e AI in un solo team.';
 const URL = localeUrl(LOCALE, PATH);
 const HOME = localeHref(LOCALE, '/');
 const OARC = 'https://oarcdigital.com';
@@ -103,8 +103,7 @@ const jsonLd = {
     {
       '@type': ['LocalBusiness', 'ProfessionalService'],
       '@id': `${URL}#h360`,
-      name: 'OARC Digital — H360, sistema per ristoranti a Malta',
-      alternateName: 'H360',
+      name: 'OARC Digital — Ristoranti, hotel, bar e locali notturni a Malta',
       description: DESCRIPTION,
       url: URL,
       inLanguage: LOCALE,

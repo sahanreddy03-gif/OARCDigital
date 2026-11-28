@@ -219,7 +219,7 @@ export default function H360Hero() {
               marginRight: isMobile ? 0 : 'auto',
             }}
           >
-            Sistema għar-ristoranti f&apos;Malta: imla aktar imwejjed.{' '}
+            Aktar bookings għar-ristoranti, il-lukandi, il-bars u n-nightclubs f&apos;Malta.{' '}
             <span
               style={{
                 display: 'inline-block',

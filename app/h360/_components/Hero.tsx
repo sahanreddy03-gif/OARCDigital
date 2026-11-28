@@ -218,7 +218,7 @@ export default function H360Hero() {
               marginRight: isMobile ? 0 : 'auto',
             }}
           >
-            Restaurant marketing Malta — fill more tables.{' '}
+            More bookings for restaurants, hotels, bars and nightclubs in Malta.{' '}
             <span
               style={{
                 display: 'inline-block',
