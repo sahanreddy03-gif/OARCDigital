@@ -13,9 +13,9 @@ import { ogImageEntry, ogImageUrl } from '@/lib/seo/ogImageUrl';
 
 const LOCALE = 'mt';
 const PATH = '/h360'; // the ENGLISH path
-const TITLE = "Sistema għar-ristoranti f'Malta | H360 | OARC Digital";
+const TITLE = "Ristoranti, lukandi, bars u nightclubs f'Malta | Aktar bookings | OARC";
 const DESCRIPTION =
-  "H360, sistema għar-ristoranti f'Malta: isibuk fuq Maps, tidher tajjeb fuq is-social media u kull telefonata tiġi mwieġba. Kreattività u AI f'tim wieħed.";
+  "Għar-ristoranti, il-lukandi, il-bars u n-nightclubs f'Malta: isibuk fuq Google Maps, tidher tajjeb fuq is-social media u kull telefonata tiġi mwieġba. Kreattività u AI f'tim wieħed.";
 const URL = localeUrl(LOCALE, PATH);
 const HOME = localeHref(LOCALE, '/');
 const OARC = 'https://oarcdigital.com';
@@ -104,8 +104,7 @@ const jsonLd = {
     {
       '@type': ['LocalBusiness', 'ProfessionalService'],
       '@id': `${URL}#h360`,
-      name: "OARC Digital — H360, sistema għar-ristoranti f'Malta",
-      alternateName: 'H360',
+      name: "OARC Digital — Ristoranti, lukandi, bars u nightclubs f'Malta",
       description: DESCRIPTION,
       url: URL,
       inLanguage: LOCALE,

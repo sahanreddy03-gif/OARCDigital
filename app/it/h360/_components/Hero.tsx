@@ -219,7 +219,7 @@ export default function H360Hero() {
               marginRight: isMobile ? 0 : 'auto',
             }}
           >
-            Sistema per ristoranti a Malta: riempi più tavoli.{' '}
+            Più prenotazioni per ristoranti, hotel, bar e locali notturni a Malta.{' '}
             <span
               style={{
                 display: 'inline-block',
